@@ -1,0 +1,6 @@
+# Dora.InlineResponse204
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**data** | [**OrderId**](OrderId.md) |  | [optional] 

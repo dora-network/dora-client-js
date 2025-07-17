@@ -3,4 +3,4 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**IsolatePositionResponse**](IsolatePositionResponse.md) |  | [optional] 
+**data** | **Object** |  | [optional] 

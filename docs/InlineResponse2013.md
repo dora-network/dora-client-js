@@ -3,4 +3,4 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **Object** |  | [optional] 
+**data** | [**SupplyResponse**](SupplyResponse.md) |  | [optional] 

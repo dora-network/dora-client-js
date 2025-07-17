@@ -3,4 +3,4 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**SupplyResponse**](SupplyResponse.md) |  | [optional] 
+**data** | [**CollateralizeResponse**](CollateralizeResponse.md) |  | [optional] 

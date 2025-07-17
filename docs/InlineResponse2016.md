@@ -3,4 +3,4 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**LiquidityResponse**](LiquidityResponse.md) |  | [optional] 
+**data** | [**IsolateCollateralResponse**](IsolateCollateralResponse.md) |  | [optional] 

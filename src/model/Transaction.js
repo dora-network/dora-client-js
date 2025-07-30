@@ -13,6 +13,7 @@
  *
  */
 import ApiClient from '../ApiClient';
+import TransactionKind from './TransactionKind';
 
 /**
  * The Transaction model module.
@@ -43,7 +44,7 @@ export default class Transaction {
       if (data.hasOwnProperty('created_at'))
         obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
       if (data.hasOwnProperty('kind'))
-        obj.kind = ApiClient.convertToType(data['kind'], 'String');
+        obj.kind = TransactionKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('asset0'))
         obj.asset0 = ApiClient.convertToType(data['asset0'], 'String');
       if (data.hasOwnProperty('quantity0'))
@@ -70,7 +71,7 @@ Transaction.prototype.id = undefined;
 Transaction.prototype.createdAt = undefined;
 
 /**
- * @member {String} kind
+ * @member {module:model/TransactionKind} kind
  */
 Transaction.prototype.kind = undefined;
 

@@ -13,6 +13,9 @@
  *
  */
 import ApiClient from '../ApiClient';
+import OrderKind from './OrderKind';
+import OrderModifierKind from './OrderModifierKind';
+import Side from './Side';
 
 /**
  * The CreateOrderRequest model module.
@@ -45,15 +48,15 @@ export default class CreateOrderRequest {
       if (data.hasOwnProperty('price'))
         obj.price = ApiClient.convertToType(data['price'], 'String');
       if (data.hasOwnProperty('kind'))
-        obj.kind = ApiClient.convertToType(data['kind'], 'String');
+        obj.kind = OrderKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('side'))
-        obj.side = ApiClient.convertToType(data['side'], 'String');
+        obj.side = Side.constructFromObject(data['side']);
       if (data.hasOwnProperty('order_book_id'))
         obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
       if (data.hasOwnProperty('user_text'))
         obj.userText = ApiClient.convertToType(data['user_text'], 'String');
       if (data.hasOwnProperty('order_modifiers'))
-        obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], ['String']);
+        obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], [OrderModifierKind]);
     }
     return obj;
   }
@@ -76,31 +79,12 @@ CreateOrderRequest.prototype.inverseLeverage = undefined;
 CreateOrderRequest.prototype.price = undefined;
 
 /**
- * Allowed values for the <code>kind</code> property.
- * @enum {String}
- * @readonly
- */
-CreateOrderRequest.KindEnum = {
-  /**
-   * value: "MARKET"
-   * @const
-   */
-  MARKET: "MARKET",
-
-  /**
-   * value: "LIMIT"
-   * @const
-   */
-  LIMIT: "LIMIT"
-};
-/**
- * @member {module:model/CreateOrderRequest.KindEnum} kind
+ * @member {module:model/OrderKind} kind
  */
 CreateOrderRequest.prototype.kind = undefined;
 
 /**
- * Required: Must be either 'BUY' or 'SELL'
- * @member {String} side
+ * @member {module:model/Side} side
  */
 CreateOrderRequest.prototype.side = undefined;
 
@@ -117,19 +101,7 @@ CreateOrderRequest.prototype.orderBookId = undefined;
 CreateOrderRequest.prototype.userText = undefined;
 
 /**
- * Allowed values for the <code>orderModifiers</code> property.
- * @enum {String}
- * @readonly
- */
-CreateOrderRequest.OrderModifiersEnum = {
-  /**
-   * value: "MAX_BUY"
-   * @const
-   */
-  MAX_BUY: "MAX_BUY"
-};
-/**
- * @member {Array.<module:model/CreateOrderRequest.OrderModifiersEnum>} orderModifiers
+ * @member {Array.<module:model/OrderModifierKind>} orderModifiers
  */
 CreateOrderRequest.prototype.orderModifiers = undefined;
 

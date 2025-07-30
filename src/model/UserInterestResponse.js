@@ -13,19 +13,24 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Metadata from './Metadata';
+import ResponseEnvelope from './ResponseEnvelope';
+import UserInterest from './UserInterest';
 
 /**
  * The UserInterestResponse model module.
  * @module model/UserInterestResponse
  * @version 1.0.0
  */
-export default class UserInterestResponse {
+export default class UserInterestResponse extends ResponseEnvelope {
   /**
    * Constructs a new <code>UserInterestResponse</code>.
    * @alias module:model/UserInterestResponse
    * @class
+   * @extends module:model/ResponseEnvelope
    */
   constructor() {
+    super();
   }
 
   /**
@@ -38,22 +43,16 @@ export default class UserInterestResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new UserInterestResponse();
-      if (data.hasOwnProperty('available'))
-        obj.available = ApiClient.convertToType(data['available'], {'String': 'Number'});
-      if (data.hasOwnProperty('value'))
-        obj.value = ApiClient.convertToType(data['value'], {'String': 'String'});
+      ResponseEnvelope.constructFromObject(data, obj);
+      if (data.hasOwnProperty('data'))
+        obj.data = UserInterest.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {Object.<String, Number>} available
+ * @member {module:model/UserInterest} data
  */
-UserInterestResponse.prototype.available = undefined;
-
-/**
- * @member {Object.<String, String>} value
- */
-UserInterestResponse.prototype.value = undefined;
+UserInterestResponse.prototype.data = undefined;
 

@@ -13,19 +13,24 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Liquidity from './Liquidity';
+import Metadata from './Metadata';
+import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The LiquidityResponse model module.
  * @module model/LiquidityResponse
  * @version 1.0.0
  */
-export default class LiquidityResponse {
+export default class LiquidityResponse extends ResponseEnvelope {
   /**
    * Constructs a new <code>LiquidityResponse</code>.
    * @alias module:model/LiquidityResponse
    * @class
+   * @extends module:model/ResponseEnvelope
    */
   constructor() {
+    super();
   }
 
   /**
@@ -38,50 +43,16 @@ export default class LiquidityResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new LiquidityResponse();
-      if (data.hasOwnProperty('order_book_id'))
-        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
-      if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
-      if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
-      if (data.hasOwnProperty('base_quantity'))
-        obj.baseQuantity = ApiClient.convertToType(data['base_quantity'], 'String');
-      if (data.hasOwnProperty('quote_quantity'))
-        obj.quoteQuantity = ApiClient.convertToType(data['quote_quantity'], 'String');
-      if (data.hasOwnProperty('shares_quantity'))
-        obj.sharesQuantity = ApiClient.convertToType(data['shares_quantity'], 'String');
+      ResponseEnvelope.constructFromObject(data, obj);
+      if (data.hasOwnProperty('data'))
+        obj.data = Liquidity.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} orderBookId
+ * @member {module:model/Liquidity} data
  */
-LiquidityResponse.prototype.orderBookId = undefined;
-
-/**
- * @member {String} positionId
- */
-LiquidityResponse.prototype.positionId = undefined;
-
-/**
- * @member {String} transactionId
- */
-LiquidityResponse.prototype.transactionId = undefined;
-
-/**
- * @member {String} baseQuantity
- */
-LiquidityResponse.prototype.baseQuantity = undefined;
-
-/**
- * @member {String} quoteQuantity
- */
-LiquidityResponse.prototype.quoteQuantity = undefined;
-
-/**
- * @member {String} sharesQuantity
- */
-LiquidityResponse.prototype.sharesQuantity = undefined;
+LiquidityResponse.prototype.data = undefined;
 

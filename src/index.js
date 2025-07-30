@@ -14,112 +14,115 @@
  */
 import ApiClient from './ApiClient';
 import Asset from './model/Asset';
+import AssetKind from './model/AssetKind';
 import AssetPrice from './model/AssetPrice';
 import BalancesResponse from './model/BalancesResponse';
 import Bond from './model/Bond';
+import BondKind from './model/BondKind';
+import CancelOrdersResponse from './model/CancelOrdersResponse';
+import CancelOrdersResponseData from './model/CancelOrdersResponseData';
 import Candle from './model/Candle';
+import CandleResolution from './model/CandleResolution';
+import Collateral from './model/Collateral';
 import CollateralizeRequest from './model/CollateralizeRequest';
 import CollateralizeResponse from './model/CollateralizeResponse';
-import CouponResponse from './model/CouponResponse';
-import CreateAssetReq from './model/CreateAssetReq';
-import CreateAssetReqCapabilities from './model/CreateAssetReqCapabilities';
-import CreateBondReq from './model/CreateBondReq';
-import CreateCouponReq from './model/CreateCouponReq';
-import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
-import CreateOrderBookRequest from './model/CreateOrderBookRequest';
-import CreateOrderBookResponse from './model/CreateOrderBookResponse';
+import CouponPayment from './model/CouponPayment';
 import CreateOrderRequest from './model/CreateOrderRequest';
-import CreateUserRequest from './model/CreateUserRequest';
 import DeCollateralizeRequest from './model/DeCollateralizeRequest';
 import DeCollateralizeResponse from './model/DeCollateralizeResponse';
+import FundUser from './model/FundUser';
 import FundUserRequest from './model/FundUserRequest';
 import FundUserResponse from './model/FundUserResponse';
+import GetAssetByIDResponse from './model/GetAssetByIDResponse';
+import GetAssetPriceResponse from './model/GetAssetPriceResponse';
+import GetOrderBookResponse from './model/GetOrderBookResponse';
+import GetOrderBookSummaryResponse from './model/GetOrderBookSummaryResponse';
+import GetOrderResponse from './model/GetOrderResponse';
+import GetPoolPriceResponse from './model/GetPoolPriceResponse';
+import GetTopOfBookResponse from './model/GetTopOfBookResponse';
+import GetTransactionResponse from './model/GetTransactionResponse';
+import GetUserConfigResponse from './model/GetUserConfigResponse';
+import GetUserResponse from './model/GetUserResponse';
 import InlineResponse200 from './model/InlineResponse200';
-import InlineResponse2001 from './model/InlineResponse2001';
-import InlineResponse20010 from './model/InlineResponse20010';
-import InlineResponse20011 from './model/InlineResponse20011';
-import InlineResponse20012 from './model/InlineResponse20012';
-import InlineResponse20013 from './model/InlineResponse20013';
-import InlineResponse20014 from './model/InlineResponse20014';
-import InlineResponse20015 from './model/InlineResponse20015';
-import InlineResponse20015Data from './model/InlineResponse20015Data';
-import InlineResponse20016 from './model/InlineResponse20016';
-import InlineResponse20017 from './model/InlineResponse20017';
-import InlineResponse20018 from './model/InlineResponse20018';
-import InlineResponse20019 from './model/InlineResponse20019';
-import InlineResponse2002 from './model/InlineResponse2002';
-import InlineResponse20020 from './model/InlineResponse20020';
-import InlineResponse20021 from './model/InlineResponse20021';
-import InlineResponse20022 from './model/InlineResponse20022';
-import InlineResponse20023 from './model/InlineResponse20023';
-import InlineResponse20024 from './model/InlineResponse20024';
-import InlineResponse20025 from './model/InlineResponse20025';
-import InlineResponse20026 from './model/InlineResponse20026';
-import InlineResponse20027 from './model/InlineResponse20027';
-import InlineResponse20028 from './model/InlineResponse20028';
-import InlineResponse20029 from './model/InlineResponse20029';
-import InlineResponse2003 from './model/InlineResponse2003';
-import InlineResponse20030 from './model/InlineResponse20030';
-import InlineResponse2004 from './model/InlineResponse2004';
-import InlineResponse2005 from './model/InlineResponse2005';
-import InlineResponse2006 from './model/InlineResponse2006';
-import InlineResponse2007 from './model/InlineResponse2007';
-import InlineResponse2008 from './model/InlineResponse2008';
-import InlineResponse2009 from './model/InlineResponse2009';
 import InlineResponse201 from './model/InlineResponse201';
-import InlineResponse2011 from './model/InlineResponse2011';
-import InlineResponse2012 from './model/InlineResponse2012';
-import InlineResponse2013 from './model/InlineResponse2013';
-import InlineResponse2014 from './model/InlineResponse2014';
-import InlineResponse2015 from './model/InlineResponse2015';
-import InlineResponse2016 from './model/InlineResponse2016';
-import InlineResponse2017 from './model/InlineResponse2017';
-import InlineResponse2018 from './model/InlineResponse2018';
-import InlineResponse204 from './model/InlineResponse204';
 import InlineResponse400 from './model/InlineResponse400';
 import IsolateCollateralRequest from './model/IsolateCollateralRequest';
 import IsolateCollateralResponse from './model/IsolateCollateralResponse';
 import IsolatePositionRequest from './model/IsolatePositionRequest';
 import IsolatePositionResponse from './model/IsolatePositionResponse';
+import IsolatedCollateral from './model/IsolatedCollateral';
+import IsolatedPosition from './model/IsolatedPosition';
+import LedgerModuleByAssetResponse from './model/LedgerModuleByAssetResponse';
+import LedgerModuleResponse from './model/LedgerModuleResponse';
 import LeverageBalanceResponse from './model/LeverageBalanceResponse';
 import LeverageModuleResponse from './model/LeverageModuleResponse';
+import LeverageType from './model/LeverageType';
+import LiquidationTargetsResponse from './model/LiquidationTargetsResponse';
+import Liquidity from './model/Liquidity';
 import LiquidityRequest from './model/LiquidityRequest';
 import LiquidityResponse from './model/LiquidityResponse';
+import ListAssetPriceResponse from './model/ListAssetPriceResponse';
+import ListAssetsResponse from './model/ListAssetsResponse';
+import ListCandlesResponse from './model/ListCandlesResponse';
+import ListCouponPaymentsResponse from './model/ListCouponPaymentsResponse';
+import ListOrderBookDepthResponse from './model/ListOrderBookDepthResponse';
+import ListOrderBooksResponse from './model/ListOrderBooksResponse';
+import ListOrdersResponse from './model/ListOrdersResponse';
+import ListPositionsResponse from './model/ListPositionsResponse';
+import ListTradeResponse from './model/ListTradeResponse';
+import ListTransactionsResponse from './model/ListTransactionsResponse';
 import Metadata from './model/Metadata';
 import ModuleBalance from './model/ModuleBalance';
 import Order from './model/Order';
 import OrderBook from './model/OrderBook';
+import OrderBookBalance from './model/OrderBookBalance';
+import OrderBookBalanceResponse from './model/OrderBookBalanceResponse';
 import OrderBookDepth from './model/OrderBookDepth';
+import OrderBookHaltResponse from './model/OrderBookHaltResponse';
+import OrderBookResumeResponse from './model/OrderBookResumeResponse';
+import OrderBookStatus from './model/OrderBookStatus';
 import OrderBookSummary from './model/OrderBookSummary';
+import OrderBookTerminateResponse from './model/OrderBookTerminateResponse';
 import OrderBookTop from './model/OrderBookTop';
+import OrderCancelledResponse from './model/OrderCancelledResponse';
 import OrderId from './model/OrderId';
-import OrderbookBalance from './model/OrderbookBalance';
+import OrderKind from './model/OrderKind';
+import OrderModifierKind from './model/OrderModifierKind';
+import OrderStatus from './model/OrderStatus';
 import PoolPrice from './model/PoolPrice';
 import Portfolio from './model/Portfolio';
 import Position from './model/Position';
 import PositionResponse from './model/PositionResponse';
+import PositionType from './model/PositionType';
 import PriceLevel from './model/PriceLevel';
 import ResponseEnvelope from './model/ResponseEnvelope';
+import Side from './model/Side';
+import Supply from './model/Supply';
 import SupplyRequest from './model/SupplyRequest';
 import SupplyResponse from './model/SupplyResponse';
 import Trade from './model/Trade';
 import TradeResponse from './model/TradeResponse';
 import Transaction from './model/Transaction';
+import TransactionKind from './model/TransactionKind';
 import TransformedAssets from './model/TransformedAssets';
 import UnitePositionRequest from './model/UnitePositionRequest';
 import UnitePositionResponse from './model/UnitePositionResponse';
-import UpdateAssetReq from './model/UpdateAssetReq';
-import UpdateBondReq from './model/UpdateBondReq';
-import UpdateFieldDateTime from './model/UpdateFieldDateTime';
+import UnitedPosition from './model/UnitedPosition';
 import UpdateFieldString from './model/UpdateFieldString';
-import UpdateFieldUUID from './model/UpdateFieldUUID';
-import UpdateOrderBookRequest from './model/UpdateOrderBookRequest';
-import UpdateOrderBookResponse from './model/UpdateOrderBookResponse';
+import UpdateRolesString from './model/UpdateRolesString';
 import UpdateUserConfigRequest from './model/UpdateUserConfigRequest';
-import UpdateUserRequest from './model/UpdateUserRequest';
 import User from './model/User';
+import UserBalanceResponse from './model/UserBalanceResponse';
+import UserConfig from './model/UserConfig';
+import UserDeletedResponse from './model/UserDeletedResponse';
+import UserInterest from './model/UserInterest';
 import UserInterestResponse from './model/UserInterestResponse';
+import UserPositionResponse from './model/UserPositionResponse';
+import UserRole from './model/UserRole';
+import UserUpdatedResponse from './model/UserUpdatedResponse';
+import UserValue from './model/UserValue';
 import UserValueResponse from './model/UserValueResponse';
+import Withdraw from './model/Withdraw';
 import WithdrawRequest from './model/WithdrawRequest';
 import WithdrawResponse from './model/WithdrawResponse';
 import DefaultApi from './api/DefaultApi';
@@ -169,6 +172,12 @@ export {
     Asset,
 
     /**
+     * The AssetKind model constructor.
+     * @property {module:model/AssetKind}
+     */
+    AssetKind,
+
+    /**
      * The AssetPrice model constructor.
      * @property {module:model/AssetPrice}
      */
@@ -187,10 +196,40 @@ export {
     Bond,
 
     /**
+     * The BondKind model constructor.
+     * @property {module:model/BondKind}
+     */
+    BondKind,
+
+    /**
+     * The CancelOrdersResponse model constructor.
+     * @property {module:model/CancelOrdersResponse}
+     */
+    CancelOrdersResponse,
+
+    /**
+     * The CancelOrdersResponseData model constructor.
+     * @property {module:model/CancelOrdersResponseData}
+     */
+    CancelOrdersResponseData,
+
+    /**
      * The Candle model constructor.
      * @property {module:model/Candle}
      */
     Candle,
+
+    /**
+     * The CandleResolution model constructor.
+     * @property {module:model/CandleResolution}
+     */
+    CandleResolution,
+
+    /**
+     * The Collateral model constructor.
+     * @property {module:model/Collateral}
+     */
+    Collateral,
 
     /**
      * The CollateralizeRequest model constructor.
@@ -205,64 +244,16 @@ export {
     CollateralizeResponse,
 
     /**
-     * The CouponResponse model constructor.
-     * @property {module:model/CouponResponse}
+     * The CouponPayment model constructor.
+     * @property {module:model/CouponPayment}
      */
-    CouponResponse,
-
-    /**
-     * The CreateAssetReq model constructor.
-     * @property {module:model/CreateAssetReq}
-     */
-    CreateAssetReq,
-
-    /**
-     * The CreateAssetReqCapabilities model constructor.
-     * @property {module:model/CreateAssetReqCapabilities}
-     */
-    CreateAssetReqCapabilities,
-
-    /**
-     * The CreateBondReq model constructor.
-     * @property {module:model/CreateBondReq}
-     */
-    CreateBondReq,
-
-    /**
-     * The CreateCouponReq model constructor.
-     * @property {module:model/CreateCouponReq}
-     */
-    CreateCouponReq,
-
-    /**
-     * The CreateOrUpdateUserResponse model constructor.
-     * @property {module:model/CreateOrUpdateUserResponse}
-     */
-    CreateOrUpdateUserResponse,
-
-    /**
-     * The CreateOrderBookRequest model constructor.
-     * @property {module:model/CreateOrderBookRequest}
-     */
-    CreateOrderBookRequest,
-
-    /**
-     * The CreateOrderBookResponse model constructor.
-     * @property {module:model/CreateOrderBookResponse}
-     */
-    CreateOrderBookResponse,
+    CouponPayment,
 
     /**
      * The CreateOrderRequest model constructor.
      * @property {module:model/CreateOrderRequest}
      */
     CreateOrderRequest,
-
-    /**
-     * The CreateUserRequest model constructor.
-     * @property {module:model/CreateUserRequest}
-     */
-    CreateUserRequest,
 
     /**
      * The DeCollateralizeRequest model constructor.
@@ -277,6 +268,12 @@ export {
     DeCollateralizeResponse,
 
     /**
+     * The FundUser model constructor.
+     * @property {module:model/FundUser}
+     */
+    FundUser,
+
+    /**
      * The FundUserRequest model constructor.
      * @property {module:model/FundUserRequest}
      */
@@ -289,256 +286,76 @@ export {
     FundUserResponse,
 
     /**
+     * The GetAssetByIDResponse model constructor.
+     * @property {module:model/GetAssetByIDResponse}
+     */
+    GetAssetByIDResponse,
+
+    /**
+     * The GetAssetPriceResponse model constructor.
+     * @property {module:model/GetAssetPriceResponse}
+     */
+    GetAssetPriceResponse,
+
+    /**
+     * The GetOrderBookResponse model constructor.
+     * @property {module:model/GetOrderBookResponse}
+     */
+    GetOrderBookResponse,
+
+    /**
+     * The GetOrderBookSummaryResponse model constructor.
+     * @property {module:model/GetOrderBookSummaryResponse}
+     */
+    GetOrderBookSummaryResponse,
+
+    /**
+     * The GetOrderResponse model constructor.
+     * @property {module:model/GetOrderResponse}
+     */
+    GetOrderResponse,
+
+    /**
+     * The GetPoolPriceResponse model constructor.
+     * @property {module:model/GetPoolPriceResponse}
+     */
+    GetPoolPriceResponse,
+
+    /**
+     * The GetTopOfBookResponse model constructor.
+     * @property {module:model/GetTopOfBookResponse}
+     */
+    GetTopOfBookResponse,
+
+    /**
+     * The GetTransactionResponse model constructor.
+     * @property {module:model/GetTransactionResponse}
+     */
+    GetTransactionResponse,
+
+    /**
+     * The GetUserConfigResponse model constructor.
+     * @property {module:model/GetUserConfigResponse}
+     */
+    GetUserConfigResponse,
+
+    /**
+     * The GetUserResponse model constructor.
+     * @property {module:model/GetUserResponse}
+     */
+    GetUserResponse,
+
+    /**
      * The InlineResponse200 model constructor.
      * @property {module:model/InlineResponse200}
      */
     InlineResponse200,
 
     /**
-     * The InlineResponse2001 model constructor.
-     * @property {module:model/InlineResponse2001}
-     */
-    InlineResponse2001,
-
-    /**
-     * The InlineResponse20010 model constructor.
-     * @property {module:model/InlineResponse20010}
-     */
-    InlineResponse20010,
-
-    /**
-     * The InlineResponse20011 model constructor.
-     * @property {module:model/InlineResponse20011}
-     */
-    InlineResponse20011,
-
-    /**
-     * The InlineResponse20012 model constructor.
-     * @property {module:model/InlineResponse20012}
-     */
-    InlineResponse20012,
-
-    /**
-     * The InlineResponse20013 model constructor.
-     * @property {module:model/InlineResponse20013}
-     */
-    InlineResponse20013,
-
-    /**
-     * The InlineResponse20014 model constructor.
-     * @property {module:model/InlineResponse20014}
-     */
-    InlineResponse20014,
-
-    /**
-     * The InlineResponse20015 model constructor.
-     * @property {module:model/InlineResponse20015}
-     */
-    InlineResponse20015,
-
-    /**
-     * The InlineResponse20015Data model constructor.
-     * @property {module:model/InlineResponse20015Data}
-     */
-    InlineResponse20015Data,
-
-    /**
-     * The InlineResponse20016 model constructor.
-     * @property {module:model/InlineResponse20016}
-     */
-    InlineResponse20016,
-
-    /**
-     * The InlineResponse20017 model constructor.
-     * @property {module:model/InlineResponse20017}
-     */
-    InlineResponse20017,
-
-    /**
-     * The InlineResponse20018 model constructor.
-     * @property {module:model/InlineResponse20018}
-     */
-    InlineResponse20018,
-
-    /**
-     * The InlineResponse20019 model constructor.
-     * @property {module:model/InlineResponse20019}
-     */
-    InlineResponse20019,
-
-    /**
-     * The InlineResponse2002 model constructor.
-     * @property {module:model/InlineResponse2002}
-     */
-    InlineResponse2002,
-
-    /**
-     * The InlineResponse20020 model constructor.
-     * @property {module:model/InlineResponse20020}
-     */
-    InlineResponse20020,
-
-    /**
-     * The InlineResponse20021 model constructor.
-     * @property {module:model/InlineResponse20021}
-     */
-    InlineResponse20021,
-
-    /**
-     * The InlineResponse20022 model constructor.
-     * @property {module:model/InlineResponse20022}
-     */
-    InlineResponse20022,
-
-    /**
-     * The InlineResponse20023 model constructor.
-     * @property {module:model/InlineResponse20023}
-     */
-    InlineResponse20023,
-
-    /**
-     * The InlineResponse20024 model constructor.
-     * @property {module:model/InlineResponse20024}
-     */
-    InlineResponse20024,
-
-    /**
-     * The InlineResponse20025 model constructor.
-     * @property {module:model/InlineResponse20025}
-     */
-    InlineResponse20025,
-
-    /**
-     * The InlineResponse20026 model constructor.
-     * @property {module:model/InlineResponse20026}
-     */
-    InlineResponse20026,
-
-    /**
-     * The InlineResponse20027 model constructor.
-     * @property {module:model/InlineResponse20027}
-     */
-    InlineResponse20027,
-
-    /**
-     * The InlineResponse20028 model constructor.
-     * @property {module:model/InlineResponse20028}
-     */
-    InlineResponse20028,
-
-    /**
-     * The InlineResponse20029 model constructor.
-     * @property {module:model/InlineResponse20029}
-     */
-    InlineResponse20029,
-
-    /**
-     * The InlineResponse2003 model constructor.
-     * @property {module:model/InlineResponse2003}
-     */
-    InlineResponse2003,
-
-    /**
-     * The InlineResponse20030 model constructor.
-     * @property {module:model/InlineResponse20030}
-     */
-    InlineResponse20030,
-
-    /**
-     * The InlineResponse2004 model constructor.
-     * @property {module:model/InlineResponse2004}
-     */
-    InlineResponse2004,
-
-    /**
-     * The InlineResponse2005 model constructor.
-     * @property {module:model/InlineResponse2005}
-     */
-    InlineResponse2005,
-
-    /**
-     * The InlineResponse2006 model constructor.
-     * @property {module:model/InlineResponse2006}
-     */
-    InlineResponse2006,
-
-    /**
-     * The InlineResponse2007 model constructor.
-     * @property {module:model/InlineResponse2007}
-     */
-    InlineResponse2007,
-
-    /**
-     * The InlineResponse2008 model constructor.
-     * @property {module:model/InlineResponse2008}
-     */
-    InlineResponse2008,
-
-    /**
-     * The InlineResponse2009 model constructor.
-     * @property {module:model/InlineResponse2009}
-     */
-    InlineResponse2009,
-
-    /**
      * The InlineResponse201 model constructor.
      * @property {module:model/InlineResponse201}
      */
     InlineResponse201,
-
-    /**
-     * The InlineResponse2011 model constructor.
-     * @property {module:model/InlineResponse2011}
-     */
-    InlineResponse2011,
-
-    /**
-     * The InlineResponse2012 model constructor.
-     * @property {module:model/InlineResponse2012}
-     */
-    InlineResponse2012,
-
-    /**
-     * The InlineResponse2013 model constructor.
-     * @property {module:model/InlineResponse2013}
-     */
-    InlineResponse2013,
-
-    /**
-     * The InlineResponse2014 model constructor.
-     * @property {module:model/InlineResponse2014}
-     */
-    InlineResponse2014,
-
-    /**
-     * The InlineResponse2015 model constructor.
-     * @property {module:model/InlineResponse2015}
-     */
-    InlineResponse2015,
-
-    /**
-     * The InlineResponse2016 model constructor.
-     * @property {module:model/InlineResponse2016}
-     */
-    InlineResponse2016,
-
-    /**
-     * The InlineResponse2017 model constructor.
-     * @property {module:model/InlineResponse2017}
-     */
-    InlineResponse2017,
-
-    /**
-     * The InlineResponse2018 model constructor.
-     * @property {module:model/InlineResponse2018}
-     */
-    InlineResponse2018,
-
-    /**
-     * The InlineResponse204 model constructor.
-     * @property {module:model/InlineResponse204}
-     */
-    InlineResponse204,
 
     /**
      * The InlineResponse400 model constructor.
@@ -571,6 +388,30 @@ export {
     IsolatePositionResponse,
 
     /**
+     * The IsolatedCollateral model constructor.
+     * @property {module:model/IsolatedCollateral}
+     */
+    IsolatedCollateral,
+
+    /**
+     * The IsolatedPosition model constructor.
+     * @property {module:model/IsolatedPosition}
+     */
+    IsolatedPosition,
+
+    /**
+     * The LedgerModuleByAssetResponse model constructor.
+     * @property {module:model/LedgerModuleByAssetResponse}
+     */
+    LedgerModuleByAssetResponse,
+
+    /**
+     * The LedgerModuleResponse model constructor.
+     * @property {module:model/LedgerModuleResponse}
+     */
+    LedgerModuleResponse,
+
+    /**
      * The LeverageBalanceResponse model constructor.
      * @property {module:model/LeverageBalanceResponse}
      */
@@ -583,6 +424,24 @@ export {
     LeverageModuleResponse,
 
     /**
+     * The LeverageType model constructor.
+     * @property {module:model/LeverageType}
+     */
+    LeverageType,
+
+    /**
+     * The LiquidationTargetsResponse model constructor.
+     * @property {module:model/LiquidationTargetsResponse}
+     */
+    LiquidationTargetsResponse,
+
+    /**
+     * The Liquidity model constructor.
+     * @property {module:model/Liquidity}
+     */
+    Liquidity,
+
+    /**
      * The LiquidityRequest model constructor.
      * @property {module:model/LiquidityRequest}
      */
@@ -593,6 +452,66 @@ export {
      * @property {module:model/LiquidityResponse}
      */
     LiquidityResponse,
+
+    /**
+     * The ListAssetPriceResponse model constructor.
+     * @property {module:model/ListAssetPriceResponse}
+     */
+    ListAssetPriceResponse,
+
+    /**
+     * The ListAssetsResponse model constructor.
+     * @property {module:model/ListAssetsResponse}
+     */
+    ListAssetsResponse,
+
+    /**
+     * The ListCandlesResponse model constructor.
+     * @property {module:model/ListCandlesResponse}
+     */
+    ListCandlesResponse,
+
+    /**
+     * The ListCouponPaymentsResponse model constructor.
+     * @property {module:model/ListCouponPaymentsResponse}
+     */
+    ListCouponPaymentsResponse,
+
+    /**
+     * The ListOrderBookDepthResponse model constructor.
+     * @property {module:model/ListOrderBookDepthResponse}
+     */
+    ListOrderBookDepthResponse,
+
+    /**
+     * The ListOrderBooksResponse model constructor.
+     * @property {module:model/ListOrderBooksResponse}
+     */
+    ListOrderBooksResponse,
+
+    /**
+     * The ListOrdersResponse model constructor.
+     * @property {module:model/ListOrdersResponse}
+     */
+    ListOrdersResponse,
+
+    /**
+     * The ListPositionsResponse model constructor.
+     * @property {module:model/ListPositionsResponse}
+     */
+    ListPositionsResponse,
+
+    /**
+     * The ListTradeResponse model constructor.
+     * @property {module:model/ListTradeResponse}
+     */
+    ListTradeResponse,
+
+    /**
+     * The ListTransactionsResponse model constructor.
+     * @property {module:model/ListTransactionsResponse}
+     */
+    ListTransactionsResponse,
 
     /**
      * The Metadata model constructor.
@@ -619,10 +538,40 @@ export {
     OrderBook,
 
     /**
+     * The OrderBookBalance model constructor.
+     * @property {module:model/OrderBookBalance}
+     */
+    OrderBookBalance,
+
+    /**
+     * The OrderBookBalanceResponse model constructor.
+     * @property {module:model/OrderBookBalanceResponse}
+     */
+    OrderBookBalanceResponse,
+
+    /**
      * The OrderBookDepth model constructor.
      * @property {module:model/OrderBookDepth}
      */
     OrderBookDepth,
+
+    /**
+     * The OrderBookHaltResponse model constructor.
+     * @property {module:model/OrderBookHaltResponse}
+     */
+    OrderBookHaltResponse,
+
+    /**
+     * The OrderBookResumeResponse model constructor.
+     * @property {module:model/OrderBookResumeResponse}
+     */
+    OrderBookResumeResponse,
+
+    /**
+     * The OrderBookStatus model constructor.
+     * @property {module:model/OrderBookStatus}
+     */
+    OrderBookStatus,
 
     /**
      * The OrderBookSummary model constructor.
@@ -631,10 +580,22 @@ export {
     OrderBookSummary,
 
     /**
+     * The OrderBookTerminateResponse model constructor.
+     * @property {module:model/OrderBookTerminateResponse}
+     */
+    OrderBookTerminateResponse,
+
+    /**
      * The OrderBookTop model constructor.
      * @property {module:model/OrderBookTop}
      */
     OrderBookTop,
+
+    /**
+     * The OrderCancelledResponse model constructor.
+     * @property {module:model/OrderCancelledResponse}
+     */
+    OrderCancelledResponse,
 
     /**
      * The OrderId model constructor.
@@ -643,10 +604,22 @@ export {
     OrderId,
 
     /**
-     * The OrderbookBalance model constructor.
-     * @property {module:model/OrderbookBalance}
+     * The OrderKind model constructor.
+     * @property {module:model/OrderKind}
      */
-    OrderbookBalance,
+    OrderKind,
+
+    /**
+     * The OrderModifierKind model constructor.
+     * @property {module:model/OrderModifierKind}
+     */
+    OrderModifierKind,
+
+    /**
+     * The OrderStatus model constructor.
+     * @property {module:model/OrderStatus}
+     */
+    OrderStatus,
 
     /**
      * The PoolPrice model constructor.
@@ -673,6 +646,12 @@ export {
     PositionResponse,
 
     /**
+     * The PositionType model constructor.
+     * @property {module:model/PositionType}
+     */
+    PositionType,
+
+    /**
      * The PriceLevel model constructor.
      * @property {module:model/PriceLevel}
      */
@@ -683,6 +662,18 @@ export {
      * @property {module:model/ResponseEnvelope}
      */
     ResponseEnvelope,
+
+    /**
+     * The Side model constructor.
+     * @property {module:model/Side}
+     */
+    Side,
+
+    /**
+     * The Supply model constructor.
+     * @property {module:model/Supply}
+     */
+    Supply,
 
     /**
      * The SupplyRequest model constructor.
@@ -715,6 +706,12 @@ export {
     Transaction,
 
     /**
+     * The TransactionKind model constructor.
+     * @property {module:model/TransactionKind}
+     */
+    TransactionKind,
+
+    /**
      * The TransformedAssets model constructor.
      * @property {module:model/TransformedAssets}
      */
@@ -733,22 +730,10 @@ export {
     UnitePositionResponse,
 
     /**
-     * The UpdateAssetReq model constructor.
-     * @property {module:model/UpdateAssetReq}
+     * The UnitedPosition model constructor.
+     * @property {module:model/UnitedPosition}
      */
-    UpdateAssetReq,
-
-    /**
-     * The UpdateBondReq model constructor.
-     * @property {module:model/UpdateBondReq}
-     */
-    UpdateBondReq,
-
-    /**
-     * The UpdateFieldDateTime model constructor.
-     * @property {module:model/UpdateFieldDateTime}
-     */
-    UpdateFieldDateTime,
+    UnitedPosition,
 
     /**
      * The UpdateFieldString model constructor.
@@ -757,22 +742,10 @@ export {
     UpdateFieldString,
 
     /**
-     * The UpdateFieldUUID model constructor.
-     * @property {module:model/UpdateFieldUUID}
+     * The UpdateRolesString model constructor.
+     * @property {module:model/UpdateRolesString}
      */
-    UpdateFieldUUID,
-
-    /**
-     * The UpdateOrderBookRequest model constructor.
-     * @property {module:model/UpdateOrderBookRequest}
-     */
-    UpdateOrderBookRequest,
-
-    /**
-     * The UpdateOrderBookResponse model constructor.
-     * @property {module:model/UpdateOrderBookResponse}
-     */
-    UpdateOrderBookResponse,
+    UpdateRolesString,
 
     /**
      * The UpdateUserConfigRequest model constructor.
@@ -781,16 +754,34 @@ export {
     UpdateUserConfigRequest,
 
     /**
-     * The UpdateUserRequest model constructor.
-     * @property {module:model/UpdateUserRequest}
-     */
-    UpdateUserRequest,
-
-    /**
      * The User model constructor.
      * @property {module:model/User}
      */
     User,
+
+    /**
+     * The UserBalanceResponse model constructor.
+     * @property {module:model/UserBalanceResponse}
+     */
+    UserBalanceResponse,
+
+    /**
+     * The UserConfig model constructor.
+     * @property {module:model/UserConfig}
+     */
+    UserConfig,
+
+    /**
+     * The UserDeletedResponse model constructor.
+     * @property {module:model/UserDeletedResponse}
+     */
+    UserDeletedResponse,
+
+    /**
+     * The UserInterest model constructor.
+     * @property {module:model/UserInterest}
+     */
+    UserInterest,
 
     /**
      * The UserInterestResponse model constructor.
@@ -799,10 +790,40 @@ export {
     UserInterestResponse,
 
     /**
+     * The UserPositionResponse model constructor.
+     * @property {module:model/UserPositionResponse}
+     */
+    UserPositionResponse,
+
+    /**
+     * The UserRole model constructor.
+     * @property {module:model/UserRole}
+     */
+    UserRole,
+
+    /**
+     * The UserUpdatedResponse model constructor.
+     * @property {module:model/UserUpdatedResponse}
+     */
+    UserUpdatedResponse,
+
+    /**
+     * The UserValue model constructor.
+     * @property {module:model/UserValue}
+     */
+    UserValue,
+
+    /**
      * The UserValueResponse model constructor.
      * @property {module:model/UserValueResponse}
      */
     UserValueResponse,
+
+    /**
+     * The Withdraw model constructor.
+     * @property {module:model/Withdraw}
+     */
+    Withdraw,
 
     /**
      * The WithdrawRequest model constructor.

@@ -13,19 +13,24 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Metadata from './Metadata';
+import ResponseEnvelope from './ResponseEnvelope';
+import Withdraw from './Withdraw';
 
 /**
  * The WithdrawResponse model module.
  * @module model/WithdrawResponse
  * @version 1.0.0
  */
-export default class WithdrawResponse {
+export default class WithdrawResponse extends ResponseEnvelope {
   /**
    * Constructs a new <code>WithdrawResponse</code>.
    * @alias module:model/WithdrawResponse
    * @class
+   * @extends module:model/ResponseEnvelope
    */
   constructor() {
+    super();
   }
 
   /**
@@ -38,36 +43,16 @@ export default class WithdrawResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new WithdrawResponse();
-      if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
-      if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
-      if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
-      if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+      ResponseEnvelope.constructFromObject(data, obj);
+      if (data.hasOwnProperty('data'))
+        obj.data = Withdraw.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} positionId
+ * @member {module:model/Withdraw} data
  */
-WithdrawResponse.prototype.positionId = undefined;
-
-/**
- * @member {String} transactionId
- */
-WithdrawResponse.prototype.transactionId = undefined;
-
-/**
- * @member {String} assetId
- */
-WithdrawResponse.prototype.assetId = undefined;
-
-/**
- * @member {String} quantity
- */
-WithdrawResponse.prototype.quantity = undefined;
+WithdrawResponse.prototype.data = undefined;
 

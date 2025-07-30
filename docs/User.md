@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **photoUrl** | **String** |  | [optional] 
 **provider** | **String** |  | [optional] 
 **providerId** | **String** |  | [optional] 
-**roles** | **[String]** |  | [optional] 
+**roles** | [**[UserRole]**](UserRole.md) |  | [optional] 
 **timezone** | **String** | User&#x27;s timezone, e.g., &#x27;America/New_York&#x27;, or an offset. | [optional] 
 **timezoneOffset** | **Number** | timezone offset in seconds | [optional] 
+**verifiedAt** | **Date** |  | [optional] 

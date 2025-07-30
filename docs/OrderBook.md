@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **quoteQuantity** | **Number** |  | [optional] 
 **quoteAssetId** | **String** |  | [optional] 
 **sharesQuantity** | **Number** |  | [optional] 
-**status** | **String** |  | [optional] 
+**status** | [**OrderBookStatus**](OrderBookStatus.md) |  | [optional] 
 **tickSize** | **Number** |  | [optional] 
 **updatedAt** | **Date** |  | [optional] 
 **haltedAt** | **Date** |  | [optional] 

@@ -13,19 +13,24 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Metadata from './Metadata';
+import ResponseEnvelope from './ResponseEnvelope';
+import Supply from './Supply';
 
 /**
  * The SupplyResponse model module.
  * @module model/SupplyResponse
  * @version 1.0.0
  */
-export default class SupplyResponse {
+export default class SupplyResponse extends ResponseEnvelope {
   /**
    * Constructs a new <code>SupplyResponse</code>.
    * @alias module:model/SupplyResponse
    * @class
+   * @extends module:model/ResponseEnvelope
    */
   constructor() {
+    super();
   }
 
   /**
@@ -38,36 +43,16 @@ export default class SupplyResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new SupplyResponse();
-      if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
-      if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
-      if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
-      if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+      ResponseEnvelope.constructFromObject(data, obj);
+      if (data.hasOwnProperty('data'))
+        obj.data = Supply.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} positionId
+ * @member {module:model/Supply} data
  */
-SupplyResponse.prototype.positionId = undefined;
-
-/**
- * @member {String} transactionId
- */
-SupplyResponse.prototype.transactionId = undefined;
-
-/**
- * @member {String} assetId
- */
-SupplyResponse.prototype.assetId = undefined;
-
-/**
- * @member {String} quantity
- */
-SupplyResponse.prototype.quantity = undefined;
+SupplyResponse.prototype.data = undefined;
 

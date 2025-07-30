@@ -13,7 +13,7 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Asset from './Asset';
+import AssetPrice from './AssetPrice';
 import Metadata from './Metadata';
 import ResponseEnvelope from './ResponseEnvelope';
 
@@ -45,14 +45,14 @@ export default class InlineResponse200 extends ResponseEnvelope {
       obj = obj || new InlineResponse200();
       ResponseEnvelope.constructFromObject(data, obj);
       if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [Asset]);
+        obj.data = ApiClient.convertToType(data['data'], [AssetPrice]);
     }
     return obj;
   }
 }
 
 /**
- * @member {Array.<module:model/Asset>} data
+ * @member {Array.<module:model/AssetPrice>} data
  */
 InlineResponse200.prototype.data = undefined;
 

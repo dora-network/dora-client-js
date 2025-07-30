@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **maxUtilization** | **Number** |  | [optional] 
 **name** | **String** |  | [optional] 
 **symbol** | **String** |  | [optional] 
-**kind** | **String** |  | [optional] 
+**kind** | [**AssetKind**](AssetKind.md) |  | [optional] 
 **_yield** | **Number** |  | [optional] 
 **canAddLiquidity** | **Boolean** |  | [optional] 
 **canDirectBorrow** | **Boolean** |  | [optional] 

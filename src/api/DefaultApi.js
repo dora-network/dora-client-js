@@ -13,62 +13,69 @@
  *
  */
 import ApiClient from "../ApiClient";
+import AssetKind from '../model/AssetKind';
+import CancelOrdersResponse from '../model/CancelOrdersResponse';
+import CandleResolution from '../model/CandleResolution';
 import CollateralizeRequest from '../model/CollateralizeRequest';
+import CollateralizeResponse from '../model/CollateralizeResponse';
 import CreateOrderRequest from '../model/CreateOrderRequest';
 import DeCollateralizeRequest from '../model/DeCollateralizeRequest';
+import DeCollateralizeResponse from '../model/DeCollateralizeResponse';
 import FundUserRequest from '../model/FundUserRequest';
+import FundUserResponse from '../model/FundUserResponse';
+import GetAssetByIDResponse from '../model/GetAssetByIDResponse';
+import GetAssetPriceResponse from '../model/GetAssetPriceResponse';
+import GetOrderBookResponse from '../model/GetOrderBookResponse';
+import GetOrderBookSummaryResponse from '../model/GetOrderBookSummaryResponse';
+import GetOrderResponse from '../model/GetOrderResponse';
+import GetPoolPriceResponse from '../model/GetPoolPriceResponse';
+import GetTopOfBookResponse from '../model/GetTopOfBookResponse';
+import GetTransactionResponse from '../model/GetTransactionResponse';
+import GetUserResponse from '../model/GetUserResponse';
 import InlineResponse200 from '../model/InlineResponse200';
-import InlineResponse2001 from '../model/InlineResponse2001';
-import InlineResponse20010 from '../model/InlineResponse20010';
-import InlineResponse20011 from '../model/InlineResponse20011';
-import InlineResponse20012 from '../model/InlineResponse20012';
-import InlineResponse20013 from '../model/InlineResponse20013';
-import InlineResponse20014 from '../model/InlineResponse20014';
-import InlineResponse20015 from '../model/InlineResponse20015';
-import InlineResponse20016 from '../model/InlineResponse20016';
-import InlineResponse20017 from '../model/InlineResponse20017';
-import InlineResponse20018 from '../model/InlineResponse20018';
-import InlineResponse20019 from '../model/InlineResponse20019';
-import InlineResponse2002 from '../model/InlineResponse2002';
-import InlineResponse20020 from '../model/InlineResponse20020';
-import InlineResponse20021 from '../model/InlineResponse20021';
-import InlineResponse20022 from '../model/InlineResponse20022';
-import InlineResponse20023 from '../model/InlineResponse20023';
-import InlineResponse20024 from '../model/InlineResponse20024';
-import InlineResponse20025 from '../model/InlineResponse20025';
-import InlineResponse20026 from '../model/InlineResponse20026';
-import InlineResponse20027 from '../model/InlineResponse20027';
-import InlineResponse20028 from '../model/InlineResponse20028';
-import InlineResponse20029 from '../model/InlineResponse20029';
-import InlineResponse2003 from '../model/InlineResponse2003';
-import InlineResponse20030 from '../model/InlineResponse20030';
-import InlineResponse2004 from '../model/InlineResponse2004';
-import InlineResponse2005 from '../model/InlineResponse2005';
-import InlineResponse2006 from '../model/InlineResponse2006';
-import InlineResponse2007 from '../model/InlineResponse2007';
-import InlineResponse2008 from '../model/InlineResponse2008';
-import InlineResponse2009 from '../model/InlineResponse2009';
 import InlineResponse201 from '../model/InlineResponse201';
-import InlineResponse2011 from '../model/InlineResponse2011';
-import InlineResponse2012 from '../model/InlineResponse2012';
-import InlineResponse2013 from '../model/InlineResponse2013';
-import InlineResponse2014 from '../model/InlineResponse2014';
-import InlineResponse2015 from '../model/InlineResponse2015';
-import InlineResponse2016 from '../model/InlineResponse2016';
-import InlineResponse2017 from '../model/InlineResponse2017';
-import InlineResponse2018 from '../model/InlineResponse2018';
-import InlineResponse204 from '../model/InlineResponse204';
 import InlineResponse400 from '../model/InlineResponse400';
 import IsolateCollateralRequest from '../model/IsolateCollateralRequest';
+import IsolateCollateralResponse from '../model/IsolateCollateralResponse';
 import IsolatePositionRequest from '../model/IsolatePositionRequest';
+import IsolatePositionResponse from '../model/IsolatePositionResponse';
+import LedgerModuleByAssetResponse from '../model/LedgerModuleByAssetResponse';
+import LedgerModuleResponse from '../model/LedgerModuleResponse';
 import LiquidityRequest from '../model/LiquidityRequest';
+import LiquidityResponse from '../model/LiquidityResponse';
+import ListAssetPriceResponse from '../model/ListAssetPriceResponse';
+import ListAssetsResponse from '../model/ListAssetsResponse';
+import ListCandlesResponse from '../model/ListCandlesResponse';
+import ListCouponPaymentsResponse from '../model/ListCouponPaymentsResponse';
+import ListOrderBookDepthResponse from '../model/ListOrderBookDepthResponse';
+import ListOrderBooksResponse from '../model/ListOrderBooksResponse';
+import ListOrdersResponse from '../model/ListOrdersResponse';
+import ListPositionsResponse from '../model/ListPositionsResponse';
+import ListTradeResponse from '../model/ListTradeResponse';
+import ListTransactionsResponse from '../model/ListTransactionsResponse';
+import OrderBookBalanceResponse from '../model/OrderBookBalanceResponse';
+import OrderBookStatus from '../model/OrderBookStatus';
+import OrderCancelledResponse from '../model/OrderCancelledResponse';
 import OrderId from '../model/OrderId';
+import OrderKind from '../model/OrderKind';
+import OrderStatus from '../model/OrderStatus';
 import ResponseEnvelope from '../model/ResponseEnvelope';
+import Side from '../model/Side';
 import SupplyRequest from '../model/SupplyRequest';
+import SupplyResponse from '../model/SupplyResponse';
 import TradeResponse from '../model/TradeResponse';
+import TransactionKind from '../model/TransactionKind';
 import UnitePositionRequest from '../model/UnitePositionRequest';
+import UnitePositionResponse from '../model/UnitePositionResponse';
 import UpdateUserConfigRequest from '../model/UpdateUserConfigRequest';
+import UserBalanceResponse from '../model/UserBalanceResponse';
+import UserDeletedResponse from '../model/UserDeletedResponse';
+import UserInterestResponse from '../model/UserInterestResponse';
+import UserPositionResponse from '../model/UserPositionResponse';
+import UserUpdatedResponse from '../model/UserUpdatedResponse';
+import UserValueResponse from '../model/UserValueResponse';
 import WithdrawRequest from '../model/WithdrawRequest';
+import WithdrawResponse from '../model/WithdrawResponse';
 
 /**
 * Default service.
@@ -93,7 +100,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the cancelAllOpenOrders operation.
      * @callback moduleapi/DefaultApi~cancelAllOpenOrdersCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20015{ data The data returned by the service call.
+     * @param {module:model/CancelOrdersResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -122,7 +129,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20015;
+      let returnType = CancelOrdersResponse;
 
       return this.apiClient.callApi(
         '/v1/orders', 'DELETE',
@@ -134,7 +141,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the cancelOrderById operation.
      * @callback moduleapi/DefaultApi~cancelOrderByIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse204{ data The data returned by the service call.
+     * @param {module:model/OrderCancelledResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -168,7 +175,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse204;
+      let returnType = OrderCancelledResponse;
 
       return this.apiClient.callApi(
         '/v1/orders/{order_id}', 'DELETE',
@@ -226,7 +233,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the deleteUser operation.
      * @callback moduleapi/DefaultApi~deleteUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2004{ data The data returned by the service call.
+     * @param {module:model/UserDeletedResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -260,7 +267,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2004;
+      let returnType = UserDeletedResponse;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}', 'DELETE',
@@ -272,7 +279,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getAllAssetPrices operation.
      * @callback moduleapi/DefaultApi~getAllAssetPricesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20028{ data The data returned by the service call.
+     * @param {module:model/ListAssetPriceResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -301,7 +308,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20028;
+      let returnType = ListAssetPriceResponse;
 
       return this.apiClient.callApi(
         '/v1/price', 'GET',
@@ -313,7 +320,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getAssetById operation.
      * @callback moduleapi/DefaultApi~getAssetByIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2001{ data The data returned by the service call.
+     * @param {module:model/GetAssetByIDResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -347,7 +354,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2001;
+      let returnType = GetAssetByIDResponse;
 
       return this.apiClient.callApi(
         '/v1/assets/{id}', 'GET',
@@ -359,7 +366,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getAssetPrice operation.
      * @callback moduleapi/DefaultApi~getAssetPriceCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20029{ data The data returned by the service call.
+     * @param {module:model/GetAssetPriceResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -393,7 +400,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20029;
+      let returnType = GetAssetPriceResponse;
 
       return this.apiClient.callApi(
         '/v1/price/asset/{asset_id}', 'GET',
@@ -405,7 +412,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getCandleData operation.
      * @callback moduleapi/DefaultApi~getCandleDataCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20017{ data The data returned by the service call.
+     * @param {module:model/ListCandlesResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -415,7 +422,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.start 
      * @param {Date} opts.end 
-     * @param {module:model/String} opts.resolution 
+     * @param {module:model/CandleResolution} opts.resolution 
      * @param {module:api/DefaultApi~getCandleDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -443,46 +450,41 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20017;
+      let returnType = ListCandlesResponse;
 
       return this.apiClient.callApi(
-        '/v1/charts/candle/{orderbook}', 'GET',
+        '/v1/charts/{orderbook}/candle', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
     /**
-     * Callback function to receive the result of the getCouponsByAssetId operation.
-     * @callback moduleapi/DefaultApi~getCouponsByAssetIdCallback
+     * Callback function to receive the result of the getCouponPaymentsByAssetId operation.
+     * @callback moduleapi/DefaultApi~getCouponPaymentsByAssetIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2002{ data The data returned by the service call.
+     * @param {module:model/ListCouponPaymentsResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get coupons for a bond asset
+     * Get coupon payments for a bond asset
      * @param {String} id 
-     * @param {Object} opts Optional parameters
-     * @param {Date} opts.start 
-     * @param {Date} opts.end 
-     * @param {Number} opts.page  (default to <.>)
-     * @param {Number} opts.limit  (default to <.>)
-     * @param {module:api/DefaultApi~getCouponsByAssetIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DefaultApi~getCouponPaymentsByAssetIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getCouponsByAssetId(id, opts, callback) {
-      opts = opts || {};
+    getCouponPaymentsByAssetId(id, callback) {
+      
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getCouponsByAssetId");
+        throw new Error("Missing the required parameter 'id' when calling getCouponPaymentsByAssetId");
       }
 
       let pathParams = {
         'id': id
       };
       let queryParams = {
-        'start': opts['start'],'end': opts['end'],'page': opts['page'],'limit': opts['limit']
+        
       };
       let headerParams = {
         
@@ -494,10 +496,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2002;
+      let returnType = ListCouponPaymentsResponse;
 
       return this.apiClient.callApi(
-        '/v1/assets/{id}/coupons', 'GET',
+        '/v1/assets/{id}/coupon_payments', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -506,26 +508,26 @@ export default class DefaultApi {
      * Callback function to receive the result of the getL1Depth operation.
      * @callback moduleapi/DefaultApi~getL1DepthCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20012{ data The data returned by the service call.
+     * @param {module:model/GetTopOfBookResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get the top price levels for a specific orderbook (L1 market depth)
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {module:api/DefaultApi~getL1DepthCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getL1Depth(orderbookId, callback) {
+    getL1Depth(orderBookId, callback) {
       
       let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling getL1Depth");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getL1Depth");
       }
 
       let pathParams = {
-        'orderbook_id': orderbookId
+        'order_book_id': orderBookId
       };
       let queryParams = {
         
@@ -540,10 +542,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20012;
+      let returnType = GetTopOfBookResponse;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{orderbook_id}/L1', 'GET',
+        '/v1/orderbooks/{order_book_id}/L1', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -552,26 +554,26 @@ export default class DefaultApi {
      * Callback function to receive the result of the getL2Depth operation.
      * @callback moduleapi/DefaultApi~getL2DepthCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20011{ data The data returned by the service call.
+     * @param {module:model/ListOrderBookDepthResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get the aggregated price levels for a specific orderbook (L2 market depth)
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {module:api/DefaultApi~getL2DepthCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getL2Depth(orderbookId, callback) {
+    getL2Depth(orderBookId, callback) {
       
       let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling getL2Depth");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getL2Depth");
       }
 
       let pathParams = {
-        'orderbook_id': orderbookId
+        'order_book_id': orderBookId
       };
       let queryParams = {
         
@@ -586,10 +588,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20011;
+      let returnType = ListOrderBookDepthResponse;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{orderbook_id}/L2', 'GET',
+        '/v1/orderbooks/{order_book_id}/L2', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -598,26 +600,26 @@ export default class DefaultApi {
      * Callback function to receive the result of the getL3Depth operation.
      * @callback moduleapi/DefaultApi~getL3DepthCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2006{ data The data returned by the service call.
+     * @param {module:model/ListOrdersResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get all open orders for a specific orderbook (L3 market depth)
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {module:api/DefaultApi~getL3DepthCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getL3Depth(orderbookId, callback) {
+    getL3Depth(orderBookId, callback) {
       
       let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling getL3Depth");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getL3Depth");
       }
 
       let pathParams = {
-        'orderbook_id': orderbookId
+        'order_book_id': orderBookId
       };
       let queryParams = {
         
@@ -632,10 +634,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2006;
+      let returnType = ListOrdersResponse;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{orderbook_id}/L3', 'GET',
+        '/v1/orderbooks/{order_book_id}/L3', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -644,7 +646,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getLedgerBalancesSelf operation.
      * @callback moduleapi/DefaultApi~getLedgerBalancesSelfCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20021{ data The data returned by the service call.
+     * @param {module:model/UserBalanceResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -673,7 +675,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20021;
+      let returnType = UserBalanceResponse;
 
       return this.apiClient.callApi(
         '/v1/ledger/balances/self', 'GET',
@@ -685,7 +687,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getLedgerInterestSelf operation.
      * @callback moduleapi/DefaultApi~getLedgerInterestSelfCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20023{ data The data returned by the service call.
+     * @param {module:model/UserInterestResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -714,7 +716,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20023;
+      let returnType = UserInterestResponse;
 
       return this.apiClient.callApi(
         '/v1/ledger/interest/self', 'GET',
@@ -726,7 +728,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getLedgerModule operation.
      * @callback moduleapi/DefaultApi~getLedgerModuleCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20018{ data The data returned by the service call.
+     * @param {module:model/LedgerModuleResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -755,7 +757,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20018;
+      let returnType = LedgerModuleResponse;
 
       return this.apiClient.callApi(
         '/v1/ledger/module', 'GET',
@@ -767,7 +769,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getLedgerModuleByAsset operation.
      * @callback moduleapi/DefaultApi~getLedgerModuleByAssetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20019{ data The data returned by the service call.
+     * @param {module:model/LedgerModuleByAssetResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -801,7 +803,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20019;
+      let returnType = LedgerModuleByAssetResponse;
 
       return this.apiClient.callApi(
         '/v1/ledger/module/{asset_id}', 'GET',
@@ -813,7 +815,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getLedgerPositionsSelf operation.
      * @callback moduleapi/DefaultApi~getLedgerPositionsSelfCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20020{ data The data returned by the service call.
+     * @param {module:model/UserPositionResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -842,7 +844,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20020;
+      let returnType = UserPositionResponse;
 
       return this.apiClient.callApi(
         '/v1/ledger/positions/self', 'GET',
@@ -854,7 +856,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getLedgerValueSelf operation.
      * @callback moduleapi/DefaultApi~getLedgerValueSelfCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20022{ data The data returned by the service call.
+     * @param {module:model/UserValueResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -883,7 +885,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20022;
+      let returnType = UserValueResponse;
 
       return this.apiClient.callApi(
         '/v1/ledger/value/self', 'GET',
@@ -895,7 +897,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getOrderById operation.
      * @callback moduleapi/DefaultApi~getOrderByIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20016{ data The data returned by the service call.
+     * @param {module:model/GetOrderResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -929,7 +931,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20016;
+      let returnType = GetOrderResponse;
 
       return this.apiClient.callApi(
         '/v1/orders/{order_id}', 'GET',
@@ -938,75 +940,29 @@ export default class DefaultApi {
       );
     }
     /**
-     * Callback function to receive the result of the getOrderbookBBO operation.
-     * @callback moduleapi/DefaultApi~getOrderbookBBOCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20012{ data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get the top price levels for a specific orderbook (L1 market depth)
-     * @param {String} orderbookId 
-     * @param {module:api/DefaultApi~getOrderbookBBOCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
-     */
-    getOrderbookBBO(orderbookId, callback) {
-      
-      let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling getOrderbookBBO");
-      }
-
-      let pathParams = {
-        'orderbook_id': orderbookId
-      };
-      let queryParams = {
-        
-      };
-      let headerParams = {
-        
-      };
-      let formParams = {
-        
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = InlineResponse20012;
-
-      return this.apiClient.callApi(
-        '/v1/orderbooks/{orderbook_id}/bbo', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-    /**
      * Callback function to receive the result of the getOrderbookById operation.
      * @callback moduleapi/DefaultApi~getOrderbookByIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20010{ data The data returned by the service call.
+     * @param {module:model/GetOrderBookResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get orderbook by ID
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {module:api/DefaultApi~getOrderbookByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getOrderbookById(orderbookId, callback) {
+    getOrderbookById(orderBookId, callback) {
       
       let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling getOrderbookById");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getOrderbookById");
       }
 
       let pathParams = {
-        'orderbook_id': orderbookId
+        'order_book_id': orderBookId
       };
       let queryParams = {
         
@@ -1021,10 +977,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20010;
+      let returnType = GetOrderBookResponse;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{orderbook_id}', 'GET',
+        '/v1/orderbooks/{order_book_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1033,26 +989,26 @@ export default class DefaultApi {
      * Callback function to receive the result of the getOrderbookDepth operation.
      * @callback moduleapi/DefaultApi~getOrderbookDepthCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20011{ data The data returned by the service call.
+     * @param {module:model/ListOrderBookDepthResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get the aggregated price levels for a specific orderbook (L2 market depth)
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {module:api/DefaultApi~getOrderbookDepthCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getOrderbookDepth(orderbookId, callback) {
+    getOrderbookDepth(orderBookId, callback) {
       
       let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling getOrderbookDepth");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getOrderbookDepth");
       }
 
       let pathParams = {
-        'orderbook_id': orderbookId
+        'order_book_id': orderBookId
       };
       let queryParams = {
         
@@ -1067,10 +1023,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20011;
+      let returnType = ListOrderBookDepthResponse;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{orderbook_id}/depth', 'GET',
+        '/v1/orderbooks/{order_book_id}/depth', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1079,26 +1035,26 @@ export default class DefaultApi {
      * Callback function to receive the result of the getOrderbookOrders operation.
      * @callback moduleapi/DefaultApi~getOrderbookOrdersCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2006{ data The data returned by the service call.
+     * @param {module:model/ListOrdersResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get all open orders for a specific orderbook (L3 market depth)
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {module:api/DefaultApi~getOrderbookOrdersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getOrderbookOrders(orderbookId, callback) {
+    getOrderbookOrders(orderBookId, callback) {
       
       let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling getOrderbookOrders");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getOrderbookOrders");
       }
 
       let pathParams = {
-        'orderbook_id': orderbookId
+        'order_book_id': orderBookId
       };
       let queryParams = {
         
@@ -1113,10 +1069,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2006;
+      let returnType = ListOrdersResponse;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{orderbook_id}/orders', 'GET',
+        '/v1/orderbooks/{order_book_id}/orders', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1125,26 +1081,26 @@ export default class DefaultApi {
      * Callback function to receive the result of the getOrderbookSummary operation.
      * @callback moduleapi/DefaultApi~getOrderbookSummaryCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20013{ data The data returned by the service call.
+     * @param {module:model/GetOrderBookSummaryResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get summary of an orderbook
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {module:api/DefaultApi~getOrderbookSummaryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getOrderbookSummary(orderbookId, callback) {
+    getOrderbookSummary(orderBookId, callback) {
       
       let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling getOrderbookSummary");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getOrderbookSummary");
       }
 
       let pathParams = {
-        'orderbook_id': orderbookId
+        'order_book_id': orderBookId
       };
       let queryParams = {
         
@@ -1159,10 +1115,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20013;
+      let returnType = GetOrderBookSummaryResponse;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{orderbook_id}/summary', 'GET',
+        '/v1/orderbooks/{order_book_id}/summary', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1171,26 +1127,26 @@ export default class DefaultApi {
      * Callback function to receive the result of the getOrderbookTop operation.
      * @callback moduleapi/DefaultApi~getOrderbookTopCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20012{ data The data returned by the service call.
+     * @param {module:model/GetTopOfBookResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get the top price levels for a specific orderbook (L1 market depth)
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {module:api/DefaultApi~getOrderbookTopCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getOrderbookTop(orderbookId, callback) {
+    getOrderbookTop(orderBookId, callback) {
       
       let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling getOrderbookTop");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getOrderbookTop");
       }
 
       let pathParams = {
-        'orderbook_id': orderbookId
+        'order_book_id': orderBookId
       };
       let queryParams = {
         
@@ -1205,10 +1161,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20012;
+      let returnType = GetTopOfBookResponse;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{orderbook_id}/top', 'GET',
+        '/v1/orderbooks/{order_book_id}/top', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1217,7 +1173,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getPoolPrice operation.
      * @callback moduleapi/DefaultApi~getPoolPriceCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20030{ data The data returned by the service call.
+     * @param {module:model/GetPoolPriceResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1251,7 +1207,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20030;
+      let returnType = GetPoolPriceResponse;
 
       return this.apiClient.callApi(
         '/v1/price/pool/{pool_id}', 'GET',
@@ -1263,7 +1219,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getTradeById operation.
      * @callback moduleapi/DefaultApi~getTradeByIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20027{ data The data returned by the service call.
+     * @param {module:model/TradeResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1297,7 +1253,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20027;
+      let returnType = TradeResponse;
 
       return this.apiClient.callApi(
         '/v1/trade/{trade_id}', 'GET',
@@ -1309,7 +1265,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getTrades operation.
      * @callback moduleapi/DefaultApi~getTradesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20026{ data The data returned by the service call.
+     * @param {module:model/ListTradeResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1345,7 +1301,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20026;
+      let returnType = ListTradeResponse;
 
       return this.apiClient.callApi(
         '/v1/trade', 'GET',
@@ -1357,7 +1313,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getTransactionById operation.
      * @callback moduleapi/DefaultApi~getTransactionByIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20025{ data The data returned by the service call.
+     * @param {module:model/GetTransactionResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1391,7 +1347,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20025;
+      let returnType = GetTransactionResponse;
 
       return this.apiClient.callApi(
         '/v1/transactions/{id}', 'GET',
@@ -1403,7 +1359,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getTransactions operation.
      * @callback moduleapi/DefaultApi~getTransactionsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2008{ data The data returned by the service call.
+     * @param {module:model/ListTransactionsResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1412,7 +1368,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.pools 
      * @param {Array.<String>} opts.userIds 
-     * @param {Array.<module:model/String>} opts.txKinds 
+     * @param {Array.<module:model/TransactionKind>} opts.txKinds 
      * @param {Date} opts.start 
      * @param {Date} opts.end 
      * @param {Number} opts.page  (default to <.>)
@@ -1440,7 +1396,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2008;
+      let returnType = ListTransactionsResponse;
 
       return this.apiClient.callApi(
         '/v1/transactions', 'GET',
@@ -1452,12 +1408,12 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserById operation.
      * @callback moduleapi/DefaultApi~getUserByIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2003{ data The data returned by the service call.
+     * @param {module:model/GetUserResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get user by ID
+     * Get user by ID (admin only)
      * @param {String} userId 
      * @param {module:api/DefaultApi~getUserByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
@@ -1486,7 +1442,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2003;
+      let returnType = GetUserResponse;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}', 'GET',
@@ -1498,7 +1454,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserLedgerStream operation.
      * @callback moduleapi/DefaultApi~getUserLedgerStreamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2007{ data The data returned by the service call.
+     * @param {module:model/ListPositionsResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1534,7 +1490,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2007;
+      let returnType = ListPositionsResponse;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/ledger/stream', 'GET',
@@ -1546,33 +1502,33 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserOrdersStream operation.
      * @callback moduleapi/DefaultApi~getUserOrdersStreamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2006{ data The data returned by the service call.
+     * @param {module:model/ListOrdersResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get a snapshot of user&#x27;s order updates for the given order book since a specific time, and opens a stream for further updates
      * @param {String} userId 
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
      * @param {module:api/DefaultApi~getUserOrdersStreamCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getUserOrdersStream(userId, orderbookId, opts, callback) {
+    getUserOrdersStream(userId, orderBookId, opts, callback) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling getUserOrdersStream");
       }
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling getUserOrdersStream");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getUserOrdersStream");
       }
 
       let pathParams = {
-        'user_id': userId,'orderbook_id': orderbookId
+        'user_id': userId,'order_book_id': orderBookId
       };
       let queryParams = {
         'since': opts['since']
@@ -1587,10 +1543,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2006;
+      let returnType = ListOrdersResponse;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/orders/{orderbook_id}/stream', 'GET',
+        '/v1/user/{user_id}/orders/{order_book_id}/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1599,32 +1555,36 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserOrdersStreamAll operation.
      * @callback moduleapi/DefaultApi~getUserOrdersStreamAllCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2006{ data The data returned by the service call.
+     * @param {module:model/ListOrdersResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get a snapshot of user&#x27;s order updates since a specific time, and opens a stream for further updates
+     * Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
      * @param {String} userId 
+     * @param {String} orderBookId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
-     * @param {Array.<String>} opts.orderbookIds 
      * @param {module:api/DefaultApi~getUserOrdersStreamAllCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getUserOrdersStreamAll(userId, opts, callback) {
+    getUserOrdersStreamAll(userId, orderBookId, opts, callback) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling getUserOrdersStreamAll");
       }
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getUserOrdersStreamAll");
+      }
 
       let pathParams = {
-        'user_id': userId
+        'user_id': userId,'order_book_id': orderBookId
       };
       let queryParams = {
-        'since': opts['since'],'orderbookIds': this.apiClient.buildCollectionParam(opts['orderbookIds'], 'multi')
+        'since': opts['since']
       };
       let headerParams = {
         
@@ -1636,7 +1596,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2006;
+      let returnType = ListOrdersResponse;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/orders/all/stream', 'GET',
@@ -1648,7 +1608,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserSelf operation.
      * @callback moduleapi/DefaultApi~getUserSelfCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2003{ data The data returned by the service call.
+     * @param {module:model/GetUserResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1677,7 +1637,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2003;
+      let returnType = GetUserResponse;
 
       return this.apiClient.callApi(
         '/v1/user/self', 'GET',
@@ -1689,7 +1649,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserTransactionsStream operation.
      * @callback moduleapi/DefaultApi~getUserTransactionsStreamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2008{ data The data returned by the service call.
+     * @param {module:model/ListTransactionsResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1725,7 +1685,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2008;
+      let returnType = ListTransactionsResponse;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/transactions/stream', 'GET',
@@ -1737,7 +1697,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the ledgerDeposit operation.
      * @callback moduleapi/DefaultApi~ledgerDepositCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse201{ data The data returned by the service call.
+     * @param {module:model/FundUserResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1772,7 +1732,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse201;
+      let returnType = FundUserResponse;
 
       return this.apiClient.callApi(
         '/v1/ledger/deposit', 'POST',
@@ -1784,7 +1744,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the ledgerWithdraw operation.
      * @callback moduleapi/DefaultApi~ledgerWithdrawCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse201{ data The data returned by the service call.
+     * @param {module:model/FundUserResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1819,7 +1779,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse201;
+      let returnType = FundUserResponse;
 
       return this.apiClient.callApi(
         '/v1/ledger/withdraw', 'POST',
@@ -1831,7 +1791,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the leverageBorrow operation.
      * @callback moduleapi/DefaultApi~leverageBorrowCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2015{ data The data returned by the service call.
+     * @param {module:model/InlineResponse201{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1866,7 +1826,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2015;
+      let returnType = InlineResponse201;
 
       return this.apiClient.callApi(
         '/v1/leverage/borrow', 'POST',
@@ -1878,7 +1838,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the leverageCollateralize operation.
      * @callback moduleapi/DefaultApi~leverageCollateralizeCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2011{ data The data returned by the service call.
+     * @param {module:model/CollateralizeResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1912,7 +1872,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2011;
+      let returnType = CollateralizeResponse;
 
       return this.apiClient.callApi(
         '/v1/leverage/collateralize', 'POST',
@@ -1924,7 +1884,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the leverageDeCollateralize operation.
      * @callback moduleapi/DefaultApi~leverageDeCollateralizeCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2012{ data The data returned by the service call.
+     * @param {module:model/DeCollateralizeResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1958,7 +1918,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2012;
+      let returnType = DeCollateralizeResponse;
 
       return this.apiClient.callApi(
         '/v1/leverage/de-collateralize', 'POST',
@@ -1970,7 +1930,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the leverageIsolateCollateral operation.
      * @callback moduleapi/DefaultApi~leverageIsolateCollateralCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2016{ data The data returned by the service call.
+     * @param {module:model/IsolateCollateralResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2004,7 +1964,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2016;
+      let returnType = IsolateCollateralResponse;
 
       return this.apiClient.callApi(
         '/v1/leverage/isolate_collateral', 'POST',
@@ -2016,7 +1976,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the leverageIsolatePosition operation.
      * @callback moduleapi/DefaultApi~leverageIsolatePositionCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2017{ data The data returned by the service call.
+     * @param {module:model/IsolatePositionResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2050,7 +2010,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2017;
+      let returnType = IsolatePositionResponse;
 
       return this.apiClient.callApi(
         '/v1/leverage/isolate_position', 'POST',
@@ -2062,7 +2022,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the leverageRepay operation.
      * @callback moduleapi/DefaultApi~leverageRepayCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2015{ data The data returned by the service call.
+     * @param {module:model/InlineResponse201{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2097,7 +2057,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2015;
+      let returnType = InlineResponse201;
 
       return this.apiClient.callApi(
         '/v1/leverage/repay', 'POST',
@@ -2109,7 +2069,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the leverageSupply operation.
      * @callback moduleapi/DefaultApi~leverageSupplyCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2013{ data The data returned by the service call.
+     * @param {module:model/SupplyResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2143,7 +2103,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2013;
+      let returnType = SupplyResponse;
 
       return this.apiClient.callApi(
         '/v1/leverage/supply', 'POST',
@@ -2155,7 +2115,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the leverageUnite operation.
      * @callback moduleapi/DefaultApi~leverageUniteCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20024{ data The data returned by the service call.
+     * @param {module:model/UnitePositionResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2190,7 +2150,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20024;
+      let returnType = UnitePositionResponse;
 
       return this.apiClient.callApi(
         '/v1/leverage/unite', 'POST',
@@ -2202,7 +2162,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the leverageWithdraw operation.
      * @callback moduleapi/DefaultApi~leverageWithdrawCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2014{ data The data returned by the service call.
+     * @param {module:model/WithdrawResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2236,7 +2196,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2014;
+      let returnType = WithdrawResponse;
 
       return this.apiClient.callApi(
         '/v1/leverage/withdraw', 'POST',
@@ -2248,7 +2208,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the liquidityAdd operation.
      * @callback moduleapi/DefaultApi~liquidityAddCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2018{ data The data returned by the service call.
+     * @param {module:model/LiquidityResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2287,7 +2247,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2018;
+      let returnType = LiquidityResponse;
 
       return this.apiClient.callApi(
         '/v1/liquidity/pool/{pool_id}/add', 'POST',
@@ -2299,7 +2259,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the liquiditySubtract operation.
      * @callback moduleapi/DefaultApi~liquiditySubtractCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2018{ data The data returned by the service call.
+     * @param {module:model/LiquidityResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2338,7 +2298,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2018;
+      let returnType = LiquidityResponse;
 
       return this.apiClient.callApi(
         '/v1/liquidity/pool/{pool_id}/subtract', 'POST',
@@ -2350,7 +2310,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the listAssets operation.
      * @callback moduleapi/DefaultApi~listAssetsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse200{ data The data returned by the service call.
+     * @param {module:model/ListAssetsResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2359,7 +2319,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.createdAfter 
      * @param {Date} opts.createdBefore 
-     * @param {String} opts.assetKind Asset kind (BOND, CURRENCY, INTEREST, POOL_SHARE)
+     * @param {module:model/AssetKind} opts.assetKind Asset kind (BOND, CURRENCY, INTEREST, POOL_SHARE)
      * @param {Boolean} opts.canAddLiquidity 
      * @param {Boolean} opts.canDirectBorrow 
      * @param {Boolean} opts.canOnboard 
@@ -2390,7 +2350,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse200;
+      let returnType = ListAssetsResponse;
 
       return this.apiClient.callApi(
         '/v1/assets', 'GET',
@@ -2402,14 +2362,14 @@ export default class DefaultApi {
      * Callback function to receive the result of the listOrderBooks operation.
      * @callback moduleapi/DefaultApi~listOrderBooksCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2009{ data The data returned by the service call.
+     * @param {module:model/ListOrderBooksResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * List order books
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.status 
+     * @param {module:model/OrderBookStatus} opts.status 
      * @param {String} opts.baseAssetId 
      * @param {String} opts.quoteAssetId 
      * @param {Number} opts.page  (default to <.>)
@@ -2437,7 +2397,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2009;
+      let returnType = ListOrderBooksResponse;
 
       return this.apiClient.callApi(
         '/v1/orderbooks', 'GET',
@@ -2449,17 +2409,17 @@ export default class DefaultApi {
      * Callback function to receive the result of the listOrders operation.
      * @callback moduleapi/DefaultApi~listOrdersCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2006{ data The data returned by the service call.
+     * @param {module:model/ListOrdersResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * List all orders
      * @param {Object} opts Optional parameters
-     * @param {Array.<String>} opts.orderbookId 
-     * @param {module:model/String} opts.kind 
-     * @param {module:model/String} opts.status 
-     * @param {module:model/String} opts.side 
+     * @param {Array.<String>} opts.orderBookId 
+     * @param {module:model/OrderKind} opts.kind 
+     * @param {module:model/OrderStatus} opts.status 
+     * @param {module:model/Side} opts.side 
      * @param {Date} opts.from 
      * @param {Date} opts.to 
      * @param {Number} opts.page  (default to <.>)
@@ -2475,7 +2435,7 @@ export default class DefaultApi {
         
       };
       let queryParams = {
-        'orderbook_id': this.apiClient.buildCollectionParam(opts['orderbookId'], 'multi'),'kind': opts['kind'],'status': opts['status'],'side': opts['side'],'from': opts['from'],'to': opts['to'],'page': opts['page'],'limit': opts['limit']
+        'order_book_id': this.apiClient.buildCollectionParam(opts['orderBookId'], 'multi'),'kind': opts['kind'],'status': opts['status'],'side': opts['side'],'from': opts['from'],'to': opts['to'],'page': opts['page'],'limit': opts['limit']
       };
       let headerParams = {
         
@@ -2487,7 +2447,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2006;
+      let returnType = ListOrdersResponse;
 
       return this.apiClient.callApi(
         '/v1/orders', 'GET',
@@ -2499,7 +2459,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamAssetPrices operation.
      * @callback moduleapi/DefaultApi~streamAssetPricesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20028{ data The data returned by the service call.
+     * @param {module:model/InlineResponse200{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2530,7 +2490,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20028;
+      let returnType = InlineResponse200;
 
       return this.apiClient.callApi(
         '/v1/price/stream', 'GET',
@@ -2542,7 +2502,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamCandleData operation.
      * @callback moduleapi/DefaultApi~streamCandleDataCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20017{ data The data returned by the service call.
+     * @param {module:model/ListCandlesResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2551,7 +2511,7 @@ export default class DefaultApi {
      * @param {String} orderbook 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
-     * @param {module:model/String} opts.resolution 
+     * @param {module:model/CandleResolution} opts.resolution 
      * @param {module:api/DefaultApi~streamCandleDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2579,10 +2539,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20017;
+      let returnType = ListCandlesResponse;
 
       return this.apiClient.callApi(
-        '/v1/charts/candle/stream/{orderbook}', 'GET',
+        '/v1/charts/{orderbook}/candle/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2591,28 +2551,28 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamOrderBookBalances operation.
      * @callback moduleapi/DefaultApi~streamOrderBookBalancesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse20014{ data The data returned by the service call.
+     * @param {module:model/OrderBookBalanceResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
      * @param {module:api/DefaultApi~streamOrderBookBalancesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    streamOrderBookBalances(orderbookId, opts, callback) {
+    streamOrderBookBalances(orderBookId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling streamOrderBookBalances");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling streamOrderBookBalances");
       }
 
       let pathParams = {
-        'orderbook_id': orderbookId
+        'order_book_id': orderBookId
       };
       let queryParams = {
         'since': opts['since']
@@ -2627,10 +2587,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20014;
+      let returnType = OrderBookBalanceResponse;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{orderbook_id}/stream/balances', 'GET',
+        '/v1/orderbooks/{order_book_id}/stream/balances', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2639,28 +2599,28 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamOrderbookOpenOrders operation.
      * @callback moduleapi/DefaultApi~streamOrderbookOpenOrdersCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2006{ data The data returned by the service call.
+     * @param {module:model/ListOrdersResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get a snapshot of open orders in an order book and open a stream for real-time updates
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
      * @param {module:api/DefaultApi~streamOrderbookOpenOrdersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    streamOrderbookOpenOrders(orderbookId, opts, callback) {
+    streamOrderbookOpenOrders(orderBookId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling streamOrderbookOpenOrders");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling streamOrderbookOpenOrders");
       }
 
       let pathParams = {
-        'orderbook_id': orderbookId
+        'order_book_id': orderBookId
       };
       let queryParams = {
         'since': opts['since']
@@ -2675,10 +2635,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2006;
+      let returnType = ListOrdersResponse;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{orderbook_id}/stream/open', 'GET',
+        '/v1/orderbooks/{order_book_id}/stream/open', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2687,12 +2647,12 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamTrades operation.
      * @callback moduleapi/DefaultApi~streamTradesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/TradeResponse{ data The data returned by the service call.
+     * @param {module:model/ListTradeResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get a snapshot of trades from a specific date and open a stream for real-time updates
+     * Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
      * @param {String} orderbookId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
@@ -2723,10 +2683,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = TradeResponse;
+      let returnType = ListTradeResponse;
 
       return this.apiClient.callApi(
-        '/v1/trade/{orderbook_id}/stream', 'GET',
+        '/v1/trade/{order_book_id}/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2735,7 +2695,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the updateUserConfig operation.
      * @callback moduleapi/DefaultApi~updateUserConfigCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2005{ data The data returned by the service call.
+     * @param {module:model/UserUpdatedResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2774,7 +2734,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2005;
+      let returnType = UserUpdatedResponse;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/config', 'PUT',
@@ -2786,7 +2746,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the updateUserConfigSelf operation.
      * @callback moduleapi/DefaultApi~updateUserConfigSelfCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2005{ data The data returned by the service call.
+     * @param {module:model/UserUpdatedResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2820,7 +2780,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2005;
+      let returnType = UserUpdatedResponse;
 
       return this.apiClient.callApi(
         '/v1/user/config/self', 'PUT',
@@ -2832,7 +2792,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the verifyUser operation.
      * @callback moduleapi/DefaultApi~verifyUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse2005{ data The data returned by the service call.
+     * @param {module:model/UserUpdatedResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2866,7 +2826,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2005;
+      let returnType = UserUpdatedResponse;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/verify', 'PUT',

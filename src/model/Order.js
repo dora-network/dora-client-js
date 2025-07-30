@@ -13,6 +13,10 @@
  *
  */
 import ApiClient from '../ApiClient';
+import OrderKind from './OrderKind';
+import OrderModifierKind from './OrderModifierKind';
+import OrderStatus from './OrderStatus';
+import Side from './Side';
 
 /**
  * The Order model module.
@@ -45,17 +49,23 @@ export default class Order {
       if (data.hasOwnProperty('quantity'))
         obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
       if (data.hasOwnProperty('kind'))
-        obj.kind = ApiClient.convertToType(data['kind'], 'String');
+        obj.kind = OrderKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('price'))
         obj.price = ApiClient.convertToType(data['price'], 'String');
+      if (data.hasOwnProperty('inverse_leverage'))
+        obj.inverseLeverage = ApiClient.convertToType(data['inverse_leverage'], 'Number');
+      if (data.hasOwnProperty('side'))
+        obj.side = Side.constructFromObject(data['side']);
       if (data.hasOwnProperty('status'))
-        obj.status = ApiClient.convertToType(data['status'], 'String');
+        obj.status = OrderStatus.constructFromObject(data['status']);
       if (data.hasOwnProperty('user_id'))
         obj.userId = ApiClient.convertToType(data['user_id'], 'String');
       if (data.hasOwnProperty('user_text'))
         obj.userText = ApiClient.convertToType(data['user_text'], 'String');
       if (data.hasOwnProperty('order_modifiers'))
-        obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], ['String']);
+        obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], [OrderModifierKind]);
+      if (data.hasOwnProperty('position_id'))
+        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
     }
     return obj;
   }
@@ -77,7 +87,7 @@ Order.prototype.orderBookId = undefined;
 Order.prototype.quantity = undefined;
 
 /**
- * @member {String} kind
+ * @member {module:model/OrderKind} kind
  */
 Order.prototype.kind = undefined;
 
@@ -87,7 +97,17 @@ Order.prototype.kind = undefined;
 Order.prototype.price = undefined;
 
 /**
- * @member {String} status
+ * @member {Number} inverseLeverage
+ */
+Order.prototype.inverseLeverage = undefined;
+
+/**
+ * @member {module:model/Side} side
+ */
+Order.prototype.side = undefined;
+
+/**
+ * @member {module:model/OrderStatus} status
  */
 Order.prototype.status = undefined;
 
@@ -102,7 +122,12 @@ Order.prototype.userId = undefined;
 Order.prototype.userText = undefined;
 
 /**
- * @member {Array.<String>} orderModifiers
+ * @member {Array.<module:model/OrderModifierKind>} orderModifiers
  */
 Order.prototype.orderModifiers = undefined;
+
+/**
+ * @member {String} positionId
+ */
+Order.prototype.positionId = undefined;
 

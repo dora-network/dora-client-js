@@ -13,6 +13,7 @@
  *
  */
 import ApiClient from '../ApiClient';
+import AssetKind from './AssetKind';
 import Bond from './Bond';
 
 /**
@@ -62,7 +63,7 @@ export default class Asset {
       if (data.hasOwnProperty('symbol'))
         obj.symbol = ApiClient.convertToType(data['symbol'], 'String');
       if (data.hasOwnProperty('kind'))
-        obj.kind = ApiClient.convertToType(data['kind'], 'String');
+        obj.kind = AssetKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('yield'))
         obj._yield = ApiClient.convertToType(data['yield'], 'Number');
       if (data.hasOwnProperty('can_add_liquidity'))
@@ -138,7 +139,7 @@ Asset.prototype.name = undefined;
 Asset.prototype.symbol = undefined;
 
 /**
- * @member {String} kind
+ * @member {module:model/AssetKind} kind
  */
 Asset.prototype.kind = undefined;
 

@@ -13,19 +13,24 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Collateral from './Collateral';
+import Metadata from './Metadata';
+import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The DeCollateralizeResponse model module.
  * @module model/DeCollateralizeResponse
  * @version 1.0.0
  */
-export default class DeCollateralizeResponse {
+export default class DeCollateralizeResponse extends ResponseEnvelope {
   /**
    * Constructs a new <code>DeCollateralizeResponse</code>.
    * @alias module:model/DeCollateralizeResponse
    * @class
+   * @extends module:model/ResponseEnvelope
    */
   constructor() {
+    super();
   }
 
   /**
@@ -38,36 +43,16 @@ export default class DeCollateralizeResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new DeCollateralizeResponse();
-      if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
-      if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
-      if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
-      if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+      ResponseEnvelope.constructFromObject(data, obj);
+      if (data.hasOwnProperty('data'))
+        obj.data = Collateral.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} positionId
+ * @member {module:model/Collateral} data
  */
-DeCollateralizeResponse.prototype.positionId = undefined;
-
-/**
- * @member {String} transactionId
- */
-DeCollateralizeResponse.prototype.transactionId = undefined;
-
-/**
- * @member {String} assetId
- */
-DeCollateralizeResponse.prototype.assetId = undefined;
-
-/**
- * @member {String} quantity
- */
-DeCollateralizeResponse.prototype.quantity = undefined;
+DeCollateralizeResponse.prototype.data = undefined;
 

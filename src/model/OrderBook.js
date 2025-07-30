@@ -13,6 +13,7 @@
  *
  */
 import ApiClient from '../ApiClient';
+import OrderBookStatus from './OrderBookStatus';
 
 /**
  * The OrderBook model module.
@@ -67,7 +68,7 @@ export default class OrderBook {
       if (data.hasOwnProperty('shares_quantity'))
         obj.sharesQuantity = ApiClient.convertToType(data['shares_quantity'], 'Number');
       if (data.hasOwnProperty('status'))
-        obj.status = ApiClient.convertToType(data['status'], 'String');
+        obj.status = OrderBookStatus.constructFromObject(data['status']);
       if (data.hasOwnProperty('tick_size'))
         obj.tickSize = ApiClient.convertToType(data['tick_size'], 'Number');
       if (data.hasOwnProperty('updated_at'))
@@ -158,7 +159,7 @@ OrderBook.prototype.quoteAssetId = undefined;
 OrderBook.prototype.sharesQuantity = undefined;
 
 /**
- * @member {String} status
+ * @member {module:model/OrderBookStatus} status
  */
 OrderBook.prototype.status = undefined;
 

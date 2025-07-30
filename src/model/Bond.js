@@ -13,6 +13,7 @@
  *
  */
 import ApiClient from '../ApiClient';
+import BondKind from './BondKind';
 
 /**
  * The Bond model module.
@@ -41,7 +42,7 @@ export default class Bond {
       if (data.hasOwnProperty('id'))
         obj.id = ApiClient.convertToType(data['id'], 'String');
       if (data.hasOwnProperty('kind'))
-        obj.kind = ApiClient.convertToType(data['kind'], 'String');
+        obj.kind = BondKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('coupon_start_at'))
         obj.couponStartAt = ApiClient.convertToType(data['coupon_start_at'], 'Date');
       if (data.hasOwnProperty('created_at'))
@@ -69,7 +70,7 @@ export default class Bond {
 Bond.prototype.id = undefined;
 
 /**
- * @member {String} kind
+ * @member {module:model/BondKind} kind
  */
 Bond.prototype.kind = undefined;
 

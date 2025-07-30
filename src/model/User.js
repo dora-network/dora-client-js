@@ -13,6 +13,7 @@
  *
  */
 import ApiClient from '../ApiClient';
+import UserRole from './UserRole';
 
 /**
  * The User model module.
@@ -57,11 +58,13 @@ export default class User {
       if (data.hasOwnProperty('provider_id'))
         obj.providerId = ApiClient.convertToType(data['provider_id'], 'String');
       if (data.hasOwnProperty('roles'))
-        obj.roles = ApiClient.convertToType(data['roles'], ['String']);
+        obj.roles = ApiClient.convertToType(data['roles'], [UserRole]);
       if (data.hasOwnProperty('timezone'))
         obj.timezone = ApiClient.convertToType(data['timezone'], 'String');
       if (data.hasOwnProperty('timezone_offset'))
         obj.timezoneOffset = ApiClient.convertToType(data['timezone_offset'], 'Number');
+      if (data.hasOwnProperty('verified_at'))
+        obj.verifiedAt = ApiClient.convertToType(data['verified_at'], 'Date');
     }
     return obj;
   }
@@ -113,7 +116,7 @@ User.prototype.provider = undefined;
 User.prototype.providerId = undefined;
 
 /**
- * @member {Array.<String>} roles
+ * @member {Array.<module:model/UserRole>} roles
  */
 User.prototype.roles = undefined;
 
@@ -128,4 +131,9 @@ User.prototype.timezone = undefined;
  * @member {Number} timezoneOffset
  */
 User.prototype.timezoneOffset = undefined;
+
+/**
+ * @member {Date} verifiedAt
+ */
+User.prototype.verifiedAt = undefined;
 

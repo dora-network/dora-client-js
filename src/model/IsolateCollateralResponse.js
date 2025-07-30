@@ -13,19 +13,24 @@
  *
  */
 import ApiClient from '../ApiClient';
+import IsolatedCollateral from './IsolatedCollateral';
+import Metadata from './Metadata';
+import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The IsolateCollateralResponse model module.
  * @module model/IsolateCollateralResponse
  * @version 1.0.0
  */
-export default class IsolateCollateralResponse {
+export default class IsolateCollateralResponse extends ResponseEnvelope {
   /**
    * Constructs a new <code>IsolateCollateralResponse</code>.
    * @alias module:model/IsolateCollateralResponse
    * @class
+   * @extends module:model/ResponseEnvelope
    */
   constructor() {
+    super();
   }
 
   /**
@@ -38,43 +43,16 @@ export default class IsolateCollateralResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new IsolateCollateralResponse();
-      if (data.hasOwnProperty('global_position_id'))
-        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], 'String');
-      if (data.hasOwnProperty('isolated_position_id'))
-        obj.isolatedPositionId = ApiClient.convertToType(data['isolated_position_id'], 'String');
-      if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
-      if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
-      if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+      ResponseEnvelope.constructFromObject(data, obj);
+      if (data.hasOwnProperty('data'))
+        obj.data = IsolatedCollateral.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} globalPositionId
+ * @member {module:model/IsolatedCollateral} data
  */
-IsolateCollateralResponse.prototype.globalPositionId = undefined;
-
-/**
- * @member {String} isolatedPositionId
- */
-IsolateCollateralResponse.prototype.isolatedPositionId = undefined;
-
-/**
- * @member {String} transactionId
- */
-IsolateCollateralResponse.prototype.transactionId = undefined;
-
-/**
- * @member {String} assetId
- */
-IsolateCollateralResponse.prototype.assetId = undefined;
-
-/**
- * @member {String} quantity
- */
-IsolateCollateralResponse.prototype.quantity = undefined;
+IsolateCollateralResponse.prototype.data = undefined;
 

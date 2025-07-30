@@ -3,4 +3,4 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[Asset]**](Asset.md) |  | [optional] 
+**data** | [**[AssetPrice]**](AssetPrice.md) |  | [optional] 

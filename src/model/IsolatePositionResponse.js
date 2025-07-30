@@ -13,19 +13,24 @@
  *
  */
 import ApiClient from '../ApiClient';
+import IsolatedPosition from './IsolatedPosition';
+import Metadata from './Metadata';
+import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The IsolatePositionResponse model module.
  * @module model/IsolatePositionResponse
  * @version 1.0.0
  */
-export default class IsolatePositionResponse {
+export default class IsolatePositionResponse extends ResponseEnvelope {
   /**
    * Constructs a new <code>IsolatePositionResponse</code>.
    * @alias module:model/IsolatePositionResponse
    * @class
+   * @extends module:model/ResponseEnvelope
    */
   constructor() {
+    super();
   }
 
   /**
@@ -38,29 +43,16 @@ export default class IsolatePositionResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new IsolatePositionResponse();
-      if (data.hasOwnProperty('global_position_id'))
-        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], 'String');
-      if (data.hasOwnProperty('isolated_position_id'))
-        obj.isolatedPositionId = ApiClient.convertToType(data['isolated_position_id'], 'String');
-      if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
+      ResponseEnvelope.constructFromObject(data, obj);
+      if (data.hasOwnProperty('data'))
+        obj.data = IsolatedPosition.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} globalPositionId
+ * @member {module:model/IsolatedPosition} data
  */
-IsolatePositionResponse.prototype.globalPositionId = undefined;
-
-/**
- * @member {String} isolatedPositionId
- */
-IsolatePositionResponse.prototype.isolatedPositionId = undefined;
-
-/**
- * @member {String} transactionId
- */
-IsolatePositionResponse.prototype.transactionId = undefined;
+IsolatePositionResponse.prototype.data = undefined;
 

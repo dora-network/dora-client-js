@@ -13,7 +13,6 @@
  *
  */
 import ApiClient from '../ApiClient';
-import FundUserResponse from './FundUserResponse';
 import Metadata from './Metadata';
 import ResponseEnvelope from './ResponseEnvelope';
 
@@ -45,14 +44,14 @@ export default class InlineResponse201 extends ResponseEnvelope {
       obj = obj || new InlineResponse201();
       ResponseEnvelope.constructFromObject(data, obj);
       if (data.hasOwnProperty('data'))
-        obj.data = FundUserResponse.constructFromObject(data['data']);
+        obj.data = ApiClient.convertToType(data['data'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {module:model/FundUserResponse} data
+ * @member {Object} data
  */
 InlineResponse201.prototype.data = undefined;
 

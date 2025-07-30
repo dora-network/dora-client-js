@@ -13,19 +13,24 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Collateral from './Collateral';
+import Metadata from './Metadata';
+import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The CollateralizeResponse model module.
  * @module model/CollateralizeResponse
  * @version 1.0.0
  */
-export default class CollateralizeResponse {
+export default class CollateralizeResponse extends ResponseEnvelope {
   /**
    * Constructs a new <code>CollateralizeResponse</code>.
    * @alias module:model/CollateralizeResponse
    * @class
+   * @extends module:model/ResponseEnvelope
    */
   constructor() {
+    super();
   }
 
   /**
@@ -38,36 +43,16 @@ export default class CollateralizeResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new CollateralizeResponse();
-      if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
-      if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
-      if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
-      if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+      ResponseEnvelope.constructFromObject(data, obj);
+      if (data.hasOwnProperty('data'))
+        obj.data = Collateral.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} positionId
+ * @member {module:model/Collateral} data
  */
-CollateralizeResponse.prototype.positionId = undefined;
-
-/**
- * @member {String} transactionId
- */
-CollateralizeResponse.prototype.transactionId = undefined;
-
-/**
- * @member {String} assetId
- */
-CollateralizeResponse.prototype.assetId = undefined;
-
-/**
- * @member {String} quantity
- */
-CollateralizeResponse.prototype.quantity = undefined;
+CollateralizeResponse.prototype.data = undefined;
 

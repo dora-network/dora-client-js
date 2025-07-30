@@ -13,19 +13,24 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Metadata from './Metadata';
+import ResponseEnvelope from './ResponseEnvelope';
+import UserValue from './UserValue';
 
 /**
  * The UserValueResponse model module.
  * @module model/UserValueResponse
  * @version 1.0.0
  */
-export default class UserValueResponse {
+export default class UserValueResponse extends ResponseEnvelope {
   /**
    * Constructs a new <code>UserValueResponse</code>.
    * @alias module:model/UserValueResponse
    * @class
+   * @extends module:model/ResponseEnvelope
    */
   constructor() {
+    super();
   }
 
   /**
@@ -38,71 +43,16 @@ export default class UserValueResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new UserValueResponse();
-      if (data.hasOwnProperty('available'))
-        obj.available = ApiClient.convertToType(data['available'], {'String': 'String'});
-      if (data.hasOwnProperty('locked'))
-        obj.locked = ApiClient.convertToType(data['locked'], {'String': 'String'});
-      if (data.hasOwnProperty('borrowed'))
-        obj.borrowed = ApiClient.convertToType(data['borrowed'], {'String': 'String'});
-      if (data.hasOwnProperty('notional_long'))
-        obj.notionalLong = ApiClient.convertToType(data['notional_long'], {'String': 'String'});
-      if (data.hasOwnProperty('notional_short'))
-        obj.notionalShort = ApiClient.convertToType(data['notional_short'], {'String': 'String'});
-      if (data.hasOwnProperty('portfolio_value'))
-        obj.portfolioValue = ApiClient.convertToType(data['portfolio_value'], {'String': 'String'});
-      if (data.hasOwnProperty('net_liquidation_value'))
-        obj.netLiquidationValue = ApiClient.convertToType(data['net_liquidation_value'], {'String': 'String'});
-      if (data.hasOwnProperty('unrealized_pnl'))
-        obj.unrealizedPnl = ApiClient.convertToType(data['unrealized_pnl'], {'String': 'String'});
-      if (data.hasOwnProperty('realized_pnl'))
-        obj.realizedPnl = ApiClient.convertToType(data['realized_pnl'], {'String': 'String'});
+      ResponseEnvelope.constructFromObject(data, obj);
+      if (data.hasOwnProperty('data'))
+        obj.data = UserValue.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {Object.<String, String>} available
+ * @member {module:model/UserValue} data
  */
-UserValueResponse.prototype.available = undefined;
-
-/**
- * @member {Object.<String, String>} locked
- */
-UserValueResponse.prototype.locked = undefined;
-
-/**
- * @member {Object.<String, String>} borrowed
- */
-UserValueResponse.prototype.borrowed = undefined;
-
-/**
- * @member {Object.<String, String>} notionalLong
- */
-UserValueResponse.prototype.notionalLong = undefined;
-
-/**
- * @member {Object.<String, String>} notionalShort
- */
-UserValueResponse.prototype.notionalShort = undefined;
-
-/**
- * @member {Object.<String, String>} portfolioValue
- */
-UserValueResponse.prototype.portfolioValue = undefined;
-
-/**
- * @member {Object.<String, String>} netLiquidationValue
- */
-UserValueResponse.prototype.netLiquidationValue = undefined;
-
-/**
- * @member {Object.<String, String>} unrealizedPnl
- */
-UserValueResponse.prototype.unrealizedPnl = undefined;
-
-/**
- * @member {Object.<String, String>} realizedPnl
- */
-UserValueResponse.prototype.realizedPnl = undefined;
+UserValueResponse.prototype.data = undefined;
 

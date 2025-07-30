@@ -13,19 +13,24 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Metadata from './Metadata';
+import ResponseEnvelope from './ResponseEnvelope';
+import UnitedPosition from './UnitedPosition';
 
 /**
  * The UnitePositionResponse model module.
  * @module model/UnitePositionResponse
  * @version 1.0.0
  */
-export default class UnitePositionResponse {
+export default class UnitePositionResponse extends ResponseEnvelope {
   /**
    * Constructs a new <code>UnitePositionResponse</code>.
    * @alias module:model/UnitePositionResponse
    * @class
+   * @extends module:model/ResponseEnvelope
    */
   constructor() {
+    super();
   }
 
   /**
@@ -38,22 +43,16 @@ export default class UnitePositionResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new UnitePositionResponse();
-      if (data.hasOwnProperty('global_position_id'))
-        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], 'String');
-      if (data.hasOwnProperty('transaction_ids'))
-        obj.transactionIds = ApiClient.convertToType(data['transaction_ids'], ['String']);
+      ResponseEnvelope.constructFromObject(data, obj);
+      if (data.hasOwnProperty('data'))
+        obj.data = UnitedPosition.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} globalPositionId
+ * @member {module:model/UnitedPosition} data
  */
-UnitePositionResponse.prototype.globalPositionId = undefined;
-
-/**
- * @member {Array.<String>} transactionIds
- */
-UnitePositionResponse.prototype.transactionIds = undefined;
+UnitePositionResponse.prototype.data = undefined;
 

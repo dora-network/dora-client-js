@@ -3,7 +3,4 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **String** |  | [optional] 
-**positionId** | **String** |  | [optional] 
-**assetId** | **String** |  | [optional] 
-**finalAmount** | **String** |  | [optional] 
+**data** | [**FundUser**](FundUser.md) |  | [optional] 

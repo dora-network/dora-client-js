@@ -13,19 +13,24 @@
  *
  */
 import ApiClient from '../ApiClient';
+import FundUser from './FundUser';
+import Metadata from './Metadata';
+import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The FundUserResponse model module.
  * @module model/FundUserResponse
  * @version 1.0.0
  */
-export default class FundUserResponse {
+export default class FundUserResponse extends ResponseEnvelope {
   /**
    * Constructs a new <code>FundUserResponse</code>.
    * @alias module:model/FundUserResponse
    * @class
+   * @extends module:model/ResponseEnvelope
    */
   constructor() {
+    super();
   }
 
   /**
@@ -38,36 +43,16 @@ export default class FundUserResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new FundUserResponse();
-      if (data.hasOwnProperty('user_id'))
-        obj.userId = ApiClient.convertToType(data['user_id'], 'String');
-      if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
-      if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
-      if (data.hasOwnProperty('final_amount'))
-        obj.finalAmount = ApiClient.convertToType(data['final_amount'], 'String');
+      ResponseEnvelope.constructFromObject(data, obj);
+      if (data.hasOwnProperty('data'))
+        obj.data = FundUser.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} userId
+ * @member {module:model/FundUser} data
  */
-FundUserResponse.prototype.userId = undefined;
-
-/**
- * @member {String} positionId
- */
-FundUserResponse.prototype.positionId = undefined;
-
-/**
- * @member {String} assetId
- */
-FundUserResponse.prototype.assetId = undefined;
-
-/**
- * @member {String} finalAmount
- */
-FundUserResponse.prototype.finalAmount = undefined;
+FundUserResponse.prototype.data = undefined;
 

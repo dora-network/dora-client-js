@@ -45,14 +45,14 @@ export default class ListAssetsResponse extends ResponseEnvelope {
       obj = obj || new ListAssetsResponse();
       ResponseEnvelope.constructFromObject(data, obj);
       if (data.hasOwnProperty('data'))
-        obj.data = Asset.constructFromObject(data['data']);
+        obj.data = ApiClient.convertToType(data['data'], [Asset]);
     }
     return obj;
   }
 }
 
 /**
- * @member {module:model/Asset} data
+ * @member {Array.<module:model/Asset>} data
  */
 ListAssetsResponse.prototype.data = undefined;
 

@@ -14,6 +14,9 @@
  */
 import ApiClient from "../ApiClient";
 import AssetKind from '../model/AssetKind';
+import AssetRequestError from '../model/AssetRequestError';
+import BorrowRequest from '../model/BorrowRequest';
+import BorrowResponse from '../model/BorrowResponse';
 import CancelOrdersResponse from '../model/CancelOrdersResponse';
 import CandleResolution from '../model/CandleResolution';
 import CollateralizeRequest from '../model/CollateralizeRequest';
@@ -32,15 +35,13 @@ import GetPoolPriceResponse from '../model/GetPoolPriceResponse';
 import GetTopOfBookResponse from '../model/GetTopOfBookResponse';
 import GetTransactionResponse from '../model/GetTransactionResponse';
 import GetUserResponse from '../model/GetUserResponse';
-import InlineResponse200 from '../model/InlineResponse200';
-import InlineResponse201 from '../model/InlineResponse201';
-import InlineResponse400 from '../model/InlineResponse400';
 import IsolateCollateralRequest from '../model/IsolateCollateralRequest';
 import IsolateCollateralResponse from '../model/IsolateCollateralResponse';
 import IsolatePositionRequest from '../model/IsolatePositionRequest';
 import IsolatePositionResponse from '../model/IsolatePositionResponse';
 import LedgerModuleByAssetResponse from '../model/LedgerModuleByAssetResponse';
 import LedgerModuleResponse from '../model/LedgerModuleResponse';
+import LeverageRequestError from '../model/LeverageRequestError';
 import LiquidityRequest from '../model/LiquidityRequest';
 import LiquidityResponse from '../model/LiquidityResponse';
 import ListAssetPriceResponse from '../model/ListAssetPriceResponse';
@@ -59,12 +60,17 @@ import OrderCancelledResponse from '../model/OrderCancelledResponse';
 import OrderId from '../model/OrderId';
 import OrderKind from '../model/OrderKind';
 import OrderStatus from '../model/OrderStatus';
+import PoolRequestError from '../model/PoolRequestError';
+import RepayRequest from '../model/RepayRequest';
+import RepayResponse from '../model/RepayResponse';
 import ResponseEnvelope from '../model/ResponseEnvelope';
 import Side from '../model/Side';
 import SupplyRequest from '../model/SupplyRequest';
 import SupplyResponse from '../model/SupplyResponse';
+import TradeRequestError from '../model/TradeRequestError';
 import TradeResponse from '../model/TradeResponse';
 import TransactionKind from '../model/TransactionKind';
+import TransactionRequestError from '../model/TransactionRequestError';
 import UnitePositionRequest from '../model/UnitePositionRequest';
 import UnitePositionResponse from '../model/UnitePositionResponse';
 import UpdateUserConfigRequest from '../model/UpdateUserConfigRequest';
@@ -1791,14 +1797,14 @@ export default class DefaultApi {
      * Callback function to receive the result of the leverageBorrow operation.
      * @callback moduleapi/DefaultApi~leverageBorrowCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse201{ data The data returned by the service call.
+     * @param {module:model/BorrowResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Directly borrow assets
      * TODO: Finish this when implementation has been completed
-     * @param {Object} body 
+     * @param {module:model/BorrowRequest} body 
      * @param {module:api/DefaultApi~leverageBorrowCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1826,7 +1832,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse201;
+      let returnType = BorrowResponse;
 
       return this.apiClient.callApi(
         '/v1/leverage/borrow', 'POST',
@@ -2022,14 +2028,14 @@ export default class DefaultApi {
      * Callback function to receive the result of the leverageRepay operation.
      * @callback moduleapi/DefaultApi~leverageRepayCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse201{ data The data returned by the service call.
+     * @param {module:model/RepayResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Repay borrowed assets
      * TODO: Finish this when implementation has been completed
-     * @param {Object} body 
+     * @param {module:model/RepayRequest} body 
      * @param {module:api/DefaultApi~leverageRepayCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2057,7 +2063,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = InlineResponse201;
+      let returnType = RepayResponse;
 
       return this.apiClient.callApi(
         '/v1/leverage/repay', 'POST',
@@ -2459,7 +2465,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamAssetPrices operation.
      * @callback moduleapi/DefaultApi~streamAssetPricesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse200{ data The data returned by the service call.
+     * @param {module:model/ListAssetPriceResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2490,7 +2496,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse200;
+      let returnType = ListAssetPriceResponse;
 
       return this.apiClient.callApi(
         '/v1/price/stream', 'GET',

@@ -16,9 +16,12 @@ import ApiClient from './ApiClient';
 import Asset from './model/Asset';
 import AssetKind from './model/AssetKind';
 import AssetPrice from './model/AssetPrice';
+import AssetRequestError from './model/AssetRequestError';
 import BalancesResponse from './model/BalancesResponse';
 import Bond from './model/Bond';
 import BondKind from './model/BondKind';
+import BorrowRequest from './model/BorrowRequest';
+import BorrowResponse from './model/BorrowResponse';
 import CancelOrdersResponse from './model/CancelOrdersResponse';
 import CancelOrdersResponseData from './model/CancelOrdersResponseData';
 import Candle from './model/Candle';
@@ -43,9 +46,6 @@ import GetTopOfBookResponse from './model/GetTopOfBookResponse';
 import GetTransactionResponse from './model/GetTransactionResponse';
 import GetUserConfigResponse from './model/GetUserConfigResponse';
 import GetUserResponse from './model/GetUserResponse';
-import InlineResponse200 from './model/InlineResponse200';
-import InlineResponse201 from './model/InlineResponse201';
-import InlineResponse400 from './model/InlineResponse400';
 import IsolateCollateralRequest from './model/IsolateCollateralRequest';
 import IsolateCollateralResponse from './model/IsolateCollateralResponse';
 import IsolatePositionRequest from './model/IsolatePositionRequest';
@@ -56,6 +56,7 @@ import LedgerModuleByAssetResponse from './model/LedgerModuleByAssetResponse';
 import LedgerModuleResponse from './model/LedgerModuleResponse';
 import LeverageBalanceResponse from './model/LeverageBalanceResponse';
 import LeverageModuleResponse from './model/LeverageModuleResponse';
+import LeverageRequestError from './model/LeverageRequestError';
 import LeverageType from './model/LeverageType';
 import LiquidationTargetsResponse from './model/LiquidationTargetsResponse';
 import Liquidity from './model/Liquidity';
@@ -90,20 +91,25 @@ import OrderKind from './model/OrderKind';
 import OrderModifierKind from './model/OrderModifierKind';
 import OrderStatus from './model/OrderStatus';
 import PoolPrice from './model/PoolPrice';
+import PoolRequestError from './model/PoolRequestError';
 import Portfolio from './model/Portfolio';
 import Position from './model/Position';
 import PositionResponse from './model/PositionResponse';
 import PositionType from './model/PositionType';
 import PriceLevel from './model/PriceLevel';
+import RepayRequest from './model/RepayRequest';
+import RepayResponse from './model/RepayResponse';
 import ResponseEnvelope from './model/ResponseEnvelope';
 import Side from './model/Side';
 import Supply from './model/Supply';
 import SupplyRequest from './model/SupplyRequest';
 import SupplyResponse from './model/SupplyResponse';
 import Trade from './model/Trade';
+import TradeRequestError from './model/TradeRequestError';
 import TradeResponse from './model/TradeResponse';
 import Transaction from './model/Transaction';
 import TransactionKind from './model/TransactionKind';
+import TransactionRequestError from './model/TransactionRequestError';
 import TransformedAssets from './model/TransformedAssets';
 import UnitePositionRequest from './model/UnitePositionRequest';
 import UnitePositionResponse from './model/UnitePositionResponse';
@@ -184,6 +190,12 @@ export {
     AssetPrice,
 
     /**
+     * The AssetRequestError model constructor.
+     * @property {module:model/AssetRequestError}
+     */
+    AssetRequestError,
+
+    /**
      * The BalancesResponse model constructor.
      * @property {module:model/BalancesResponse}
      */
@@ -200,6 +212,18 @@ export {
      * @property {module:model/BondKind}
      */
     BondKind,
+
+    /**
+     * The BorrowRequest model constructor.
+     * @property {module:model/BorrowRequest}
+     */
+    BorrowRequest,
+
+    /**
+     * The BorrowResponse model constructor.
+     * @property {module:model/BorrowResponse}
+     */
+    BorrowResponse,
 
     /**
      * The CancelOrdersResponse model constructor.
@@ -346,24 +370,6 @@ export {
     GetUserResponse,
 
     /**
-     * The InlineResponse200 model constructor.
-     * @property {module:model/InlineResponse200}
-     */
-    InlineResponse200,
-
-    /**
-     * The InlineResponse201 model constructor.
-     * @property {module:model/InlineResponse201}
-     */
-    InlineResponse201,
-
-    /**
-     * The InlineResponse400 model constructor.
-     * @property {module:model/InlineResponse400}
-     */
-    InlineResponse400,
-
-    /**
      * The IsolateCollateralRequest model constructor.
      * @property {module:model/IsolateCollateralRequest}
      */
@@ -422,6 +428,12 @@ export {
      * @property {module:model/LeverageModuleResponse}
      */
     LeverageModuleResponse,
+
+    /**
+     * The LeverageRequestError model constructor.
+     * @property {module:model/LeverageRequestError}
+     */
+    LeverageRequestError,
 
     /**
      * The LeverageType model constructor.
@@ -628,6 +640,12 @@ export {
     PoolPrice,
 
     /**
+     * The PoolRequestError model constructor.
+     * @property {module:model/PoolRequestError}
+     */
+    PoolRequestError,
+
+    /**
      * The Portfolio model constructor.
      * @property {module:model/Portfolio}
      */
@@ -656,6 +674,18 @@ export {
      * @property {module:model/PriceLevel}
      */
     PriceLevel,
+
+    /**
+     * The RepayRequest model constructor.
+     * @property {module:model/RepayRequest}
+     */
+    RepayRequest,
+
+    /**
+     * The RepayResponse model constructor.
+     * @property {module:model/RepayResponse}
+     */
+    RepayResponse,
 
     /**
      * The ResponseEnvelope model constructor.
@@ -694,6 +724,12 @@ export {
     Trade,
 
     /**
+     * The TradeRequestError model constructor.
+     * @property {module:model/TradeRequestError}
+     */
+    TradeRequestError,
+
+    /**
      * The TradeResponse model constructor.
      * @property {module:model/TradeResponse}
      */
@@ -710,6 +746,12 @@ export {
      * @property {module:model/TransactionKind}
      */
     TransactionKind,
+
+    /**
+     * The TransactionRequestError model constructor.
+     * @property {module:model/TransactionRequestError}
+     */
+    TransactionRequestError,
 
     /**
      * The TransformedAssets model constructor.

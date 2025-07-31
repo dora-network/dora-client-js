@@ -1594,7 +1594,7 @@ No authorization required
 
 <a name="leverageBorrow"></a>
 # **leverageBorrow**
-> InlineResponse201 leverageBorrow(body)
+> BorrowResponse leverageBorrow(body)
 
 Directly borrow assets
 
@@ -1605,7 +1605,7 @@ TODO: Finish this when implementation has been completed
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let body = null; // Object | 
+let body = new Dora.BorrowRequest(); // BorrowRequest | 
 
 apiInstance.leverageBorrow(body, (error, data, response) => {
   if (error) {
@@ -1620,11 +1620,11 @@ apiInstance.leverageBorrow(body, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)|  | 
+ **body** | [**BorrowRequest**](BorrowRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**BorrowResponse**](BorrowResponse.md)
 
 ### Authorization
 
@@ -1801,7 +1801,7 @@ No authorization required
 
 <a name="leverageRepay"></a>
 # **leverageRepay**
-> InlineResponse201 leverageRepay(body)
+> RepayResponse leverageRepay(body)
 
 Repay borrowed assets
 
@@ -1812,7 +1812,7 @@ TODO: Finish this when implementation has been completed
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let body = null; // Object | 
+let body = new Dora.RepayRequest(); // RepayRequest | 
 
 apiInstance.leverageRepay(body, (error, data, response) => {
   if (error) {
@@ -1827,11 +1827,11 @@ apiInstance.leverageRepay(body, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)|  | 
+ **body** | [**RepayRequest**](RepayRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**RepayResponse**](RepayResponse.md)
 
 ### Authorization
 
@@ -2221,7 +2221,7 @@ No authorization required
 
 <a name="streamAssetPrices"></a>
 # **streamAssetPrices**
-> InlineResponse200 streamAssetPrices(opts)
+> ListAssetPriceResponse streamAssetPrices(opts)
 
 Get a snapshot of asset prices from a specific date and open a stream for real-time updates
 
@@ -2250,7 +2250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**ListAssetPriceResponse**](ListAssetPriceResponse.md)
 
 ### Authorization
 

@@ -38,8 +38,8 @@ export default class FundUserRequest {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new FundUserRequest();
-      if (data.hasOwnProperty('user_id'))
-        obj.userId = ApiClient.convertToType(data['user_id'], 'String');
+      if (data.hasOwnProperty('position_id'))
+        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
       if (data.hasOwnProperty('asset_id'))
         obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
       if (data.hasOwnProperty('amount'))
@@ -50,9 +50,9 @@ export default class FundUserRequest {
 }
 
 /**
- * @member {String} userId
+ * @member {String} positionId
  */
-FundUserRequest.prototype.userId = undefined;
+FundUserRequest.prototype.positionId = undefined;
 
 /**
  * @member {String} assetId

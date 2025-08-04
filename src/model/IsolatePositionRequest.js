@@ -24,8 +24,10 @@ export default class IsolatePositionRequest {
    * Constructs a new <code>IsolatePositionRequest</code>.
    * @alias module:model/IsolatePositionRequest
    * @class
+   * @param globalPositionId {String} 
    */
-  constructor() {
+  constructor(globalPositionId) {
+    this.globalPositionId = globalPositionId;
   }
 
   /**

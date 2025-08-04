@@ -24,8 +24,14 @@ export default class IsolateCollateralRequest {
    * Constructs a new <code>IsolateCollateralRequest</code>.
    * @alias module:model/IsolateCollateralRequest
    * @class
+   * @param globalPositionId {String} 
+   * @param assetId {String} 
+   * @param quantity {String} 
    */
-  constructor() {
+  constructor(globalPositionId, assetId, quantity) {
+    this.globalPositionId = globalPositionId;
+    this.assetId = assetId;
+    this.quantity = quantity;
   }
 
   /**

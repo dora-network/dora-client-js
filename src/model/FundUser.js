@@ -44,8 +44,8 @@ export default class FundUser {
         obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
       if (data.hasOwnProperty('asset_id'))
         obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
-      if (data.hasOwnProperty('final_amount'))
-        obj.finalAmount = ApiClient.convertToType(data['final_amount'], 'String');
+      if (data.hasOwnProperty('final_quantity'))
+        obj.finalQuantity = ApiClient.convertToType(data['final_quantity'], 'String');
     }
     return obj;
   }
@@ -67,7 +67,7 @@ FundUser.prototype.positionId = undefined;
 FundUser.prototype.assetId = undefined;
 
 /**
- * @member {String} finalAmount
+ * @member {String} finalQuantity
  */
-FundUser.prototype.finalAmount = undefined;
+FundUser.prototype.finalQuantity = undefined;
 

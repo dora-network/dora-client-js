@@ -27,8 +27,20 @@ export default class CreateOrderRequest {
    * Constructs a new <code>CreateOrderRequest</code>.
    * @alias module:model/CreateOrderRequest
    * @class
+   * @param quantity {String} 
+   * @param inverseLeverage {Number} Required: Inverse leverage for the order, must be between 0 and 1 (inclusive)
+   * @param price {String} 
+   * @param kind {module:model/OrderKind} 
+   * @param side {module:model/Side} 
+   * @param orderBookId {String} Required: the order book to submit the order to
    */
-  constructor() {
+  constructor(quantity, inverseLeverage, price, kind, side, orderBookId) {
+    this.quantity = quantity;
+    this.inverseLeverage = inverseLeverage;
+    this.price = price;
+    this.kind = kind;
+    this.side = side;
+    this.orderBookId = orderBookId;
   }
 
   /**

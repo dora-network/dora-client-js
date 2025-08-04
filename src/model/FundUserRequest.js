@@ -24,8 +24,14 @@ export default class FundUserRequest {
    * Constructs a new <code>FundUserRequest</code>.
    * @alias module:model/FundUserRequest
    * @class
+   * @param positionId {String} 
+   * @param assetId {String} 
+   * @param quantity {String} 
    */
-  constructor() {
+  constructor(positionId, assetId, quantity) {
+    this.positionId = positionId;
+    this.assetId = assetId;
+    this.quantity = quantity;
   }
 
   /**
@@ -42,8 +48,8 @@ export default class FundUserRequest {
         obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
       if (data.hasOwnProperty('asset_id'))
         obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
-      if (data.hasOwnProperty('amount'))
-        obj.amount = ApiClient.convertToType(data['amount'], 'String');
+      if (data.hasOwnProperty('quantity'))
+        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
     }
     return obj;
   }
@@ -60,7 +66,7 @@ FundUserRequest.prototype.positionId = undefined;
 FundUserRequest.prototype.assetId = undefined;
 
 /**
- * @member {String} amount
+ * @member {String} quantity
  */
-FundUserRequest.prototype.amount = undefined;
+FundUserRequest.prototype.quantity = undefined;
 

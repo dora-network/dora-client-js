@@ -1262,7 +1262,7 @@ export default class DefaultApi {
       let returnType = TradeResponse;
 
       return this.apiClient.callApi(
-        '/v1/trade/{trade_id}', 'GET',
+        '/v1/trades/{trade_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1310,7 +1310,7 @@ export default class DefaultApi {
       let returnType = ListTradeResponse;
 
       return this.apiClient.callApi(
-        '/v1/trade', 'GET',
+        '/v1/trades', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2692,7 +2692,7 @@ export default class DefaultApi {
       let returnType = ListTradeResponse;
 
       return this.apiClient.callApi(
-        '/v1/trade/{order_book_id}/stream', 'GET',
+        '/v1/trades/{order_book_id}/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

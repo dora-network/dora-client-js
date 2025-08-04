@@ -24,8 +24,14 @@ export default class DeCollateralizeRequest {
    * Constructs a new <code>DeCollateralizeRequest</code>.
    * @alias module:model/DeCollateralizeRequest
    * @class
+   * @param positionId {String} 
+   * @param assetId {String} 
+   * @param quantity {String} 
    */
-  constructor() {
+  constructor(positionId, assetId, quantity) {
+    this.positionId = positionId;
+    this.assetId = assetId;
+    this.quantity = quantity;
   }
 
   /**

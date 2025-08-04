@@ -112,8 +112,8 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getOrderbookSummary**](docs/DefaultApi.md#getOrderbookSummary) | **GET** /v1/orderbooks/{order_book_id}/summary | Get summary of an orderbook
 *Dora.DefaultApi* | [**getOrderbookTop**](docs/DefaultApi.md#getOrderbookTop) | **GET** /v1/orderbooks/{order_book_id}/top | Get the top price levels for a specific orderbook (L1 market depth)
 *Dora.DefaultApi* | [**getPoolPrice**](docs/DefaultApi.md#getPoolPrice) | **GET** /v1/price/pool/{pool_id} | Get the current price of a pool
-*Dora.DefaultApi* | [**getTradeById**](docs/DefaultApi.md#getTradeById) | **GET** /v1/trade/{trade_id} | Get a trade by ID
-*Dora.DefaultApi* | [**getTrades**](docs/DefaultApi.md#getTrades) | **GET** /v1/trade | Get a filtered, paginated list of trades
+*Dora.DefaultApi* | [**getTradeById**](docs/DefaultApi.md#getTradeById) | **GET** /v1/trades/{trade_id} | Get a trade by ID
+*Dora.DefaultApi* | [**getTrades**](docs/DefaultApi.md#getTrades) | **GET** /v1/trades | Get a filtered, paginated list of trades
 *Dora.DefaultApi* | [**getTransactionById**](docs/DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{id} | Get a transaction by ID
 *Dora.DefaultApi* | [**getTransactions**](docs/DefaultApi.md#getTransactions) | **GET** /v1/transactions | Get a filtered, paginated list of transactions
 *Dora.DefaultApi* | [**getUserById**](docs/DefaultApi.md#getUserById) | **GET** /v1/user/{user_id} | Get user by ID (admin only)
@@ -142,7 +142,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**streamCandleData**](docs/DefaultApi.md#streamCandleData) | **GET** /v1/charts/{orderbook}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamOrderBookBalances**](docs/DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/stream/balances | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamOrderbookOpenOrders**](docs/DefaultApi.md#streamOrderbookOpenOrders) | **GET** /v1/orderbooks/{order_book_id}/stream/open | Get a snapshot of open orders in an order book and open a stream for real-time updates
-*Dora.DefaultApi* | [**streamTrades**](docs/DefaultApi.md#streamTrades) | **GET** /v1/trade/{order_book_id}/stream | Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
+*Dora.DefaultApi* | [**streamTrades**](docs/DefaultApi.md#streamTrades) | **GET** /v1/trades/{order_book_id}/stream | Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
 *Dora.DefaultApi* | [**updateUserConfig**](docs/DefaultApi.md#updateUserConfig) | **PUT** /v1/user/{user_id}/config | Update user configuration by ID
 *Dora.DefaultApi* | [**updateUserConfigSelf**](docs/DefaultApi.md#updateUserConfigSelf) | **PUT** /v1/user/config/self | Update user configuration for the authenticated user
 *Dora.DefaultApi* | [**verifyUser**](docs/DefaultApi.md#verifyUser) | **PUT** /v1/user/{user_id}/verify | Verify a user by ID
@@ -166,6 +166,7 @@ Class | Method | HTTP request | Description
  - [Dora.CollateralizeRequest](docs/CollateralizeRequest.md)
  - [Dora.CollateralizeResponse](docs/CollateralizeResponse.md)
  - [Dora.CouponPayment](docs/CouponPayment.md)
+ - [Dora.CreateOrUpdateUserResponse](docs/CreateOrUpdateUserResponse.md)
  - [Dora.CreateOrderRequest](docs/CreateOrderRequest.md)
  - [Dora.DeCollateralizeRequest](docs/DeCollateralizeRequest.md)
  - [Dora.DeCollateralizeResponse](docs/DeCollateralizeResponse.md)

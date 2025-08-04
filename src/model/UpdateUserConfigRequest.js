@@ -26,8 +26,12 @@ export default class UpdateUserConfigRequest {
    * Request body for PUT /user/{id}/config: update a user changeable details only. Other properties can only be changed by an admin following a manual request by the user.
    * @alias module:model/UpdateUserConfigRequest
    * @class
+   * @param photoUrl {module:model/UpdateFieldString} 
+   * @param timezone {module:model/UpdateFieldString} 
    */
-  constructor() {
+  constructor(photoUrl, timezone) {
+    this.photoUrl = photoUrl;
+    this.timezone = timezone;
   }
 
   /**

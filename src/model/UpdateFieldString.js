@@ -25,8 +25,10 @@ export default class UpdateFieldString {
    * A generic struct to handle optional updates for string fields in user requests.
    * @alias module:model/UpdateFieldString
    * @class
+   * @param update {Boolean} Whether to update the field.
    */
-  constructor() {
+  constructor(update) {
+    this.update = update;
   }
 
   /**

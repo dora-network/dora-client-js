@@ -26,8 +26,10 @@ export default class UpdateRolesString {
    * A generic struct to handle optional updates for roles fields in user requests.
    * @alias module:model/UpdateRolesString
    * @class
+   * @param update {Boolean} Whether to update the field.
    */
-  constructor() {
+  constructor(update) {
+    this.update = update;
   }
 
   /**

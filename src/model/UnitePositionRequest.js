@@ -24,8 +24,10 @@ export default class UnitePositionRequest {
    * Constructs a new <code>UnitePositionRequest</code>.
    * @alias module:model/UnitePositionRequest
    * @class
+   * @param globalPositionId {String} 
    */
-  constructor() {
+  constructor(globalPositionId) {
+    this.globalPositionId = globalPositionId;
   }
 
   /**

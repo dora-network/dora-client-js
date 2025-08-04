@@ -24,8 +24,14 @@ export default class WithdrawRequest {
    * Constructs a new <code>WithdrawRequest</code>.
    * @alias module:model/WithdrawRequest
    * @class
+   * @param positionId {String} 
+   * @param assetId {String} 
+   * @param quantity {String} 
    */
-  constructor() {
+  constructor(positionId, assetId, quantity) {
+    this.positionId = positionId;
+    this.assetId = assetId;
+    this.quantity = quantity;
   }
 
   /**

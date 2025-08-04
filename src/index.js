@@ -30,6 +30,7 @@ import Collateral from './model/Collateral';
 import CollateralizeRequest from './model/CollateralizeRequest';
 import CollateralizeResponse from './model/CollateralizeResponse';
 import CouponPayment from './model/CouponPayment';
+import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
 import DeCollateralizeRequest from './model/DeCollateralizeRequest';
 import DeCollateralizeResponse from './model/DeCollateralizeResponse';
@@ -272,6 +273,12 @@ export {
      * @property {module:model/CouponPayment}
      */
     CouponPayment,
+
+    /**
+     * The CreateOrUpdateUserResponse model constructor.
+     * @property {module:model/CreateOrUpdateUserResponse}
+     */
+    CreateOrUpdateUserResponse,
 
     /**
      * The CreateOrderRequest model constructor.

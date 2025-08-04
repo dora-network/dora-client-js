@@ -24,8 +24,14 @@ export default class SupplyRequest {
    * Constructs a new <code>SupplyRequest</code>.
    * @alias module:model/SupplyRequest
    * @class
+   * @param positionId {String} 
+   * @param assetId {String} 
+   * @param quantity {String} 
    */
-  constructor() {
+  constructor(positionId, assetId, quantity) {
+    this.positionId = positionId;
+    this.assetId = assetId;
+    this.quantity = quantity;
   }
 
   /**

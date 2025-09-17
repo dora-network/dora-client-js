@@ -41,10 +41,6 @@ export default class OrderBook {
       obj = obj || new OrderBook();
       if (data.hasOwnProperty('order_book_id'))
         obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
-      if (data.hasOwnProperty('order_book_seq'))
-        obj.orderBookSeq = ApiClient.convertToType(data['order_book_seq'], 'Number');
-      if (data.hasOwnProperty('accumulated_fees_id'))
-        obj.accumulatedFeesId = ApiClient.convertToType(data['accumulated_fees_id'], 'String');
       if (data.hasOwnProperty('base_quantity'))
         obj.baseQuantity = ApiClient.convertToType(data['base_quantity'], 'Number');
       if (data.hasOwnProperty('base_asset_id'))
@@ -59,8 +55,6 @@ export default class OrderBook {
         obj.initialAssetsRatio = ApiClient.convertToType(data['initial_assets_ratio'], 'Number');
       if (data.hasOwnProperty('maturity_at'))
         obj.maturityAt = ApiClient.convertToType(data['maturity_at'], 'Date');
-      if (data.hasOwnProperty('price_display_multiplier'))
-        obj.priceDisplayMultiplier = ApiClient.convertToType(data['price_display_multiplier'], 'Number');
       if (data.hasOwnProperty('quote_quantity'))
         obj.quoteQuantity = ApiClient.convertToType(data['quote_quantity'], 'Number');
       if (data.hasOwnProperty('quote_asset_id'))
@@ -79,8 +73,6 @@ export default class OrderBook {
         obj.terminatedAt = ApiClient.convertToType(data['terminated_at'], 'Date');
       if (data.hasOwnProperty('pool_updated_at'))
         obj.poolUpdatedAt = ApiClient.convertToType(data['pool_updated_at'], 'Date');
-      if (data.hasOwnProperty('pool_seq'))
-        obj.poolSeq = ApiClient.convertToType(data['pool_seq'], 'Number');
       if (data.hasOwnProperty('shares_asset_id'))
         obj.sharesAssetId = ApiClient.convertToType(data['shares_asset_id'], 'String');
     }
@@ -92,16 +84,6 @@ export default class OrderBook {
  * @member {String} orderBookId
  */
 OrderBook.prototype.orderBookId = undefined;
-
-/**
- * @member {Number} orderBookSeq
- */
-OrderBook.prototype.orderBookSeq = undefined;
-
-/**
- * @member {String} accumulatedFeesId
- */
-OrderBook.prototype.accumulatedFeesId = undefined;
 
 /**
  * @member {Number} baseQuantity
@@ -137,11 +119,6 @@ OrderBook.prototype.initialAssetsRatio = undefined;
  * @member {Date} maturityAt
  */
 OrderBook.prototype.maturityAt = undefined;
-
-/**
- * @member {Number} priceDisplayMultiplier
- */
-OrderBook.prototype.priceDisplayMultiplier = undefined;
 
 /**
  * @member {Number} quoteQuantity
@@ -187,11 +164,6 @@ OrderBook.prototype.terminatedAt = undefined;
  * @member {Date} poolUpdatedAt
  */
 OrderBook.prototype.poolUpdatedAt = undefined;
-
-/**
- * @member {Number} poolSeq
- */
-OrderBook.prototype.poolSeq = undefined;
 
 /**
  * @member {String} sharesAssetId

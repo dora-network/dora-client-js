@@ -59,9 +59,9 @@
         expect(instance.BOND_PROVIDER).to.be("BOND_PROVIDER");
       });
 
-      it('should have the property LIQUIDY_PROVIDER', function() {
-        expect(instance).to.have.property('LIQUIDY_PROVIDER');
-        expect(instance.LIQUIDY_PROVIDER).to.be("LIQUIDY_PROVIDER");
+      it('should have the property LIQUIDITY_PROVIDER', function() {
+        expect(instance).to.have.property('LIQUIDITY_PROVIDER');
+        expect(instance.LIQUIDITY_PROVIDER).to.be("LIQUIDITY_PROVIDER");
       });
 
       it('should have the property TRADER', function() {

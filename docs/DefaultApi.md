@@ -9,10 +9,10 @@ Method | HTTP request | Description
 [**createOrder**](DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
 [**getAllAssetPrices**](DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
-[**getAssetById**](DefaultApi.md#getAssetById) | **GET** /v1/assets/{id} | Get asset by ID
+[**getAssetById**](DefaultApi.md#getAssetById) | **GET** /v1/assets/{asset_id} | Get asset by ID
 [**getAssetPrice**](DefaultApi.md#getAssetPrice) | **GET** /v1/price/asset/{asset_id} | Get the current price of an asset
-[**getCandleData**](DefaultApi.md#getCandleData) | **GET** /v1/charts/{orderbook}/candle | Get candlestick data for an orderbook
-[**getCouponPaymentsByAssetId**](DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{id}/coupon_payments | Get coupon payments for a bond asset
+[**getCandleData**](DefaultApi.md#getCandleData) | **GET** /v1/charts/{order_book_id}/candle | Get candlestick data for an orderbook
+[**getCouponPaymentsByAssetId**](DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{asset_id}/coupon_payments | Get coupon payments for a bond asset
 [**getL1Depth**](DefaultApi.md#getL1Depth) | **GET** /v1/orderbooks/{order_book_id}/L1 | Get the top price levels for a specific orderbook (L1 market depth)
 [**getL2Depth**](DefaultApi.md#getL2Depth) | **GET** /v1/orderbooks/{order_book_id}/L2 | Get the aggregated price levels for a specific orderbook (L2 market depth)
 [**getL3Depth**](DefaultApi.md#getL3Depth) | **GET** /v1/orderbooks/{order_book_id}/L3 | Get all open orders for a specific orderbook (L3 market depth)
@@ -31,12 +31,12 @@ Method | HTTP request | Description
 [**getPoolPrice**](DefaultApi.md#getPoolPrice) | **GET** /v1/price/pool/{pool_id} | Get the current price of a pool
 [**getTradeById**](DefaultApi.md#getTradeById) | **GET** /v1/trades/{trade_id} | Get a trade by ID
 [**getTrades**](DefaultApi.md#getTrades) | **GET** /v1/trades | Get a filtered, paginated list of trades
-[**getTransactionById**](DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{id} | Get a transaction by ID
+[**getTransactionById**](DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{transaction_id} | Get a transaction by ID
 [**getTransactions**](DefaultApi.md#getTransactions) | **GET** /v1/transactions | Get a filtered, paginated list of transactions
 [**getUserById**](DefaultApi.md#getUserById) | **GET** /v1/user/{user_id} | Get user by ID (admin only)
 [**getUserLedgerStream**](DefaultApi.md#getUserLedgerStream) | **GET** /v1/user/{user_id}/ledger/stream | Get a snapshot of user&#x27;s ledger updates since a specific time, and opens a stream for further updates
-[**getUserOrdersStream**](DefaultApi.md#getUserOrdersStream) | **GET** /v1/user/{user_id}/orders/{order_book_id}/stream | Get a snapshot of user&#x27;s order updates for the given order book since a specific time, and opens a stream for further updates
-[**getUserOrdersStreamAll**](DefaultApi.md#getUserOrdersStreamAll) | **GET** /v1/user/{user_id}/orders/all/stream | Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
+[**getUserOrderUpdatesStream**](DefaultApi.md#getUserOrderUpdatesStream) | **GET** /v1/user/{user_id}/orders/{order_book_id}/updates/stream | Get a snapshot of user&#x27;s order updates for the given order book since a specific time, and opens a stream for further updates
+[**getUserOrdersUpdatesStreamAll**](DefaultApi.md#getUserOrdersUpdatesStreamAll) | **GET** /v1/user/{user_id}/orders/all/updates/stream | Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
 [**getUserSelf**](DefaultApi.md#getUserSelf) | **GET** /v1/user/self | Get user details for the authenticated user
 [**getUserTransactionsStream**](DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
 [**ledgerDeposit**](DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit | Deposit assets into your account from the outside world
@@ -55,10 +55,10 @@ Method | HTTP request | Description
 [**listAssets**](DefaultApi.md#listAssets) | **GET** /v1/assets | List assets
 [**listOrderBooks**](DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 [**listOrders**](DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
-[**streamAssetPrices**](DefaultApi.md#streamAssetPrices) | **GET** /v1/price/stream | Get a snapshot of asset prices from a specific date and open a stream for real-time updates
-[**streamCandleData**](DefaultApi.md#streamCandleData) | **GET** /v1/charts/{orderbook}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
-[**streamOrderBookBalances**](DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/stream/balances | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
-[**streamOrderbookOpenOrders**](DefaultApi.md#streamOrderbookOpenOrders) | **GET** /v1/orderbooks/{order_book_id}/stream/open | Get a snapshot of open orders in an order book and open a stream for real-time updates
+[**streamAssetPrices**](DefaultApi.md#streamAssetPrices) | **GET** /v1/prices/stream | Stream real-time asset prices as map objects
+[**streamCandleData**](DefaultApi.md#streamCandleData) | **GET** /v1/charts/{order_book_id}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
+[**streamOrderBookBalances**](DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
+[**streamOrderbookOpenOrders**](DefaultApi.md#streamOrderbookOpenOrders) | **GET** /v1/orderbooks/{order_book_id}/open/stream | Get a snapshot of open orders in an order book and open a stream for real-time updates
 [**streamTrades**](DefaultApi.md#streamTrades) | **GET** /v1/trades/{order_book_id}/stream | Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
 [**updateUserConfig**](DefaultApi.md#updateUserConfig) | **PUT** /v1/user/{user_id}/config | Update user configuration by ID
 [**updateUserConfigSelf**](DefaultApi.md#updateUserConfigSelf) | **PUT** /v1/user/config/self | Update user configuration for the authenticated user
@@ -66,7 +66,7 @@ Method | HTTP request | Description
 
 <a name="cancelAllOpenOrders"></a>
 # **cancelAllOpenOrders**
-> CancelOrdersResponse cancelAllOpenOrders()
+> ListOrdersResponse cancelAllOpenOrders()
 
 Cancel all open orders
 
@@ -89,7 +89,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CancelOrdersResponse**](CancelOrdersResponse.md)
+[**ListOrdersResponse**](ListOrdersResponse.md)
 
 ### Authorization
 
@@ -102,7 +102,7 @@ No authorization required
 
 <a name="cancelOrderById"></a>
 # **cancelOrderById**
-> OrderCancelledResponse cancelOrderById(orderId)
+> CancelOrderResponse cancelOrderById(orderId)
 
 Cancel an order by ID
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderCancelledResponse**](OrderCancelledResponse.md)
+[**CancelOrderResponse**](CancelOrderResponse.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ No authorization required
 
 <a name="createOrder"></a>
 # **createOrder**
-> OrderId createOrder(body)
+> CreateOrderResponse createOrder(body)
 
 Create a new order
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderId**](OrderId.md)
+[**CreateOrderResponse**](CreateOrderResponse.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ No authorization required
 
 <a name="getAssetById"></a>
 # **getAssetById**
-> GetAssetByIDResponse getAssetById(id)
+> GetAssetByIDResponse getAssetById(assetId)
 
 Get asset by ID
 
@@ -270,9 +270,9 @@ Get asset by ID
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let assetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
 
-apiInstance.getAssetById(id, (error, data, response) => {
+apiInstance.getAssetById(assetId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -285,7 +285,7 @@ apiInstance.getAssetById(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
+ **assetId** | [**String**](.md)|  | 
 
 ### Return type
 
@@ -343,7 +343,7 @@ No authorization required
 
 <a name="getCandleData"></a>
 # **getCandleData**
-> ListCandlesResponse getCandleData(orderbook, opts)
+> ListCandlesResponse getCandleData(orderBookId, opts)
 
 Get candlestick data for an orderbook
 
@@ -352,13 +352,13 @@ Get candlestick data for an orderbook
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderbook = "orderbook_example"; // String | 
+let orderBookId = "orderBookId_example"; // String | 
 let opts = { 
   'start': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'end': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'resolution': new Dora.CandleResolution() // CandleResolution | 
 };
-apiInstance.getCandleData(orderbook, opts, (error, data, response) => {
+apiInstance.getCandleData(orderBookId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -371,7 +371,7 @@ apiInstance.getCandleData(orderbook, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderbook** | **String**|  | 
+ **orderBookId** | **String**|  | 
  **start** | **Date**|  | [optional] 
  **end** | **Date**|  | [optional] 
  **resolution** | [**CandleResolution**](.md)|  | [optional] 
@@ -391,7 +391,7 @@ No authorization required
 
 <a name="getCouponPaymentsByAssetId"></a>
 # **getCouponPaymentsByAssetId**
-> ListCouponPaymentsResponse getCouponPaymentsByAssetId(id)
+> ListCouponPaymentsResponse getCouponPaymentsByAssetId(assetId)
 
 Get coupon payments for a bond asset
 
@@ -400,9 +400,9 @@ Get coupon payments for a bond asset
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let assetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
 
-apiInstance.getCouponPaymentsByAssetId(id, (error, data, response) => {
+apiInstance.getCouponPaymentsByAssetId(assetId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -415,7 +415,7 @@ apiInstance.getCouponPaymentsByAssetId(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
+ **assetId** | [**String**](.md)|  | 
 
 ### Return type
 
@@ -1156,7 +1156,7 @@ No authorization required
 
 <a name="getTransactionById"></a>
 # **getTransactionById**
-> GetTransactionResponse getTransactionById(id)
+> GetTransactionResponse getTransactionById(transactionId)
 
 Get a transaction by ID
 
@@ -1165,9 +1165,9 @@ Get a transaction by ID
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let transactionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
 
-apiInstance.getTransactionById(id, (error, data, response) => {
+apiInstance.getTransactionById(transactionId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -1180,7 +1180,7 @@ apiInstance.getTransactionById(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)|  | 
+ **transactionId** | [**String**](.md)|  | 
 
 ### Return type
 
@@ -1292,7 +1292,7 @@ No authorization required
 
 <a name="getUserLedgerStream"></a>
 # **getUserLedgerStream**
-> ListPositionsResponse getUserLedgerStream(userId, opts)
+> StreamPositionsResponse getUserLedgerStream(userId, opts)
 
 Get a snapshot of user&#x27;s ledger updates since a specific time, and opens a stream for further updates
 
@@ -1323,7 +1323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListPositionsResponse**](ListPositionsResponse.md)
+[**StreamPositionsResponse**](StreamPositionsResponse.md)
 
 ### Authorization
 
@@ -1334,9 +1334,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getUserOrdersStream"></a>
-# **getUserOrdersStream**
-> ListOrdersResponse getUserOrdersStream(userId, orderBookId, opts)
+<a name="getUserOrderUpdatesStream"></a>
+# **getUserOrderUpdatesStream**
+> StreamOrderUpdatesResponse getUserOrderUpdatesStream(userId, orderBookId, opts)
 
 Get a snapshot of user&#x27;s order updates for the given order book since a specific time, and opens a stream for further updates
 
@@ -1350,7 +1350,7 @@ let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String |
 let opts = { 
   'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
 };
-apiInstance.getUserOrdersStream(userId, orderBookId, opts, (error, data, response) => {
+apiInstance.getUserOrderUpdatesStream(userId, orderBookId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -1369,7 +1369,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOrdersResponse**](ListOrdersResponse.md)
+[**StreamOrderUpdatesResponse**](StreamOrderUpdatesResponse.md)
 
 ### Authorization
 
@@ -1380,9 +1380,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getUserOrdersStreamAll"></a>
-# **getUserOrdersStreamAll**
-> ListOrdersResponse getUserOrdersStreamAll(userId, orderBookId, opts)
+<a name="getUserOrdersUpdatesStreamAll"></a>
+# **getUserOrdersUpdatesStreamAll**
+> StreamOrderUpdatesResponse getUserOrdersUpdatesStreamAll(userId, orderBookId, opts)
 
 Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
 
@@ -1396,7 +1396,7 @@ let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String |
 let opts = { 
   'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
 };
-apiInstance.getUserOrdersStreamAll(userId, orderBookId, opts, (error, data, response) => {
+apiInstance.getUserOrdersUpdatesStreamAll(userId, orderBookId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -1415,7 +1415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOrdersResponse**](ListOrdersResponse.md)
+[**StreamOrderUpdatesResponse**](StreamOrderUpdatesResponse.md)
 
 ### Authorization
 
@@ -1464,7 +1464,7 @@ No authorization required
 
 <a name="getUserTransactionsStream"></a>
 # **getUserTransactionsStream**
-> ListTransactionsResponse getUserTransactionsStream(userId, opts)
+> StreamTransactionsResponse getUserTransactionsStream(userId, opts)
 
 Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
 
@@ -1495,7 +1495,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTransactionsResponse**](ListTransactionsResponse.md)
+[**StreamTransactionsResponse**](StreamTransactionsResponse.md)
 
 ### Authorization
 
@@ -2176,8 +2176,8 @@ import {Dora} from 'dora';
 let apiInstance = new Dora.DefaultApi();
 let opts = { 
   'orderBookId': ["orderBookId_example"], // [String] | 
-  'kind': new Dora.OrderKind(), // OrderKind | 
-  'status': new Dora.OrderStatus(), // OrderStatus | 
+  'kind': [new Dora.OrderKind()], // [OrderKind] | 
+  'status': [new Dora.OrderStatus()], // [OrderStatus] | 
   'side': new Dora.Side(), // Side | 
   'from': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'to': new Date("2013-10-20T19:20:30+01:00"), // Date | 
@@ -2198,8 +2198,8 @@ apiInstance.listOrders(opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderBookId** | [**[String]**](String.md)|  | [optional] 
- **kind** | [**OrderKind**](.md)|  | [optional] 
- **status** | [**OrderStatus**](.md)|  | [optional] 
+ **kind** | [**[OrderKind]**](OrderKind.md)|  | [optional] 
+ **status** | [**[OrderStatus]**](OrderStatus.md)|  | [optional] 
  **side** | [**Side**](.md)|  | [optional] 
  **from** | **Date**|  | [optional] 
  **to** | **Date**|  | [optional] 
@@ -2221,9 +2221,11 @@ No authorization required
 
 <a name="streamAssetPrices"></a>
 # **streamAssetPrices**
-> ListAssetPriceResponse streamAssetPrices(opts)
+> StreamAssetPricesResponse streamAssetPrices(opts)
 
-Get a snapshot of asset prices from a specific date and open a stream for real-time updates
+Stream real-time asset prices as map objects
+
+Opens a WebSocket stream for real-time asset price updates. First message contains all current prices, subsequent messages contain only changed prices. Data is sent as JSON objects keyed by asset ID.
 
 ### Example
 ```javascript
@@ -2250,7 +2252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListAssetPriceResponse**](ListAssetPriceResponse.md)
+[**StreamAssetPricesResponse**](StreamAssetPricesResponse.md)
 
 ### Authorization
 
@@ -2263,7 +2265,7 @@ No authorization required
 
 <a name="streamCandleData"></a>
 # **streamCandleData**
-> ListCandlesResponse streamCandleData(orderbook, opts)
+> StreamCandlesResponse streamCandleData(orderBookId, opts)
 
 Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
 
@@ -2272,12 +2274,12 @@ Get a snapshot of candlestick data from date provided, and open a stream for rea
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderbook = "orderbook_example"; // String | 
+let orderBookId = "orderBookId_example"; // String | 
 let opts = { 
   'since': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'resolution': new Dora.CandleResolution() // CandleResolution | 
 };
-apiInstance.streamCandleData(orderbook, opts, (error, data, response) => {
+apiInstance.streamCandleData(orderBookId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -2290,13 +2292,13 @@ apiInstance.streamCandleData(orderbook, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderbook** | **String**|  | 
+ **orderBookId** | **String**|  | 
  **since** | **Date**|  | [optional] 
  **resolution** | [**CandleResolution**](.md)|  | [optional] 
 
 ### Return type
 
-[**ListCandlesResponse**](ListCandlesResponse.md)
+[**StreamCandlesResponse**](StreamCandlesResponse.md)
 
 ### Authorization
 
@@ -2309,7 +2311,7 @@ No authorization required
 
 <a name="streamOrderBookBalances"></a>
 # **streamOrderBookBalances**
-> OrderBookBalanceResponse streamOrderBookBalances(orderBookId, opts)
+> StreamOrderBookBalancesResponse streamOrderBookBalances(orderBookId, opts)
 
 Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
 
@@ -2340,7 +2342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderBookBalanceResponse**](OrderBookBalanceResponse.md)
+[**StreamOrderBookBalancesResponse**](StreamOrderBookBalancesResponse.md)
 
 ### Authorization
 
@@ -2353,7 +2355,7 @@ No authorization required
 
 <a name="streamOrderbookOpenOrders"></a>
 # **streamOrderbookOpenOrders**
-> ListOrdersResponse streamOrderbookOpenOrders(orderBookId, opts)
+> LiveOrderbook streamOrderbookOpenOrders(orderBookId, opts)
 
 Get a snapshot of open orders in an order book and open a stream for real-time updates
 
@@ -2384,7 +2386,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOrdersResponse**](ListOrdersResponse.md)
+[**LiveOrderbook**](LiveOrderbook.md)
 
 ### Authorization
 
@@ -2397,7 +2399,7 @@ No authorization required
 
 <a name="streamTrades"></a>
 # **streamTrades**
-> ListTradeResponse streamTrades(orderbookId, opts)
+> StreamTradesResponse streamTrades(orderBookId, opts)
 
 Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
 
@@ -2406,11 +2408,11 @@ Get a snapshot of trades executed on the given order book from a specific date a
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderbookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
 let opts = { 
   'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
 };
-apiInstance.streamTrades(orderbookId, opts, (error, data, response) => {
+apiInstance.streamTrades(orderBookId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -2423,12 +2425,12 @@ apiInstance.streamTrades(orderbookId, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderbookId** | [**String**](.md)|  | 
+ **orderBookId** | [**String**](.md)|  | 
  **since** | **Date**|  | [optional] 
 
 ### Return type
 
-[**ListTradeResponse**](ListTradeResponse.md)
+[**StreamTradesResponse**](StreamTradesResponse.md)
 
 ### Authorization
 

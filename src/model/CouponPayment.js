@@ -42,16 +42,24 @@ export default class CouponPayment {
         obj.id = ApiClient.convertToType(data['id'], 'String');
       if (data.hasOwnProperty('asset_id'))
         obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
-      if (data.hasOwnProperty('start_at'))
-        obj.startAt = ApiClient.convertToType(data['start_at'], 'Date');
-      if (data.hasOwnProperty('pay_at'))
-        obj.payAt = ApiClient.convertToType(data['pay_at'], 'Date');
-      if (data.hasOwnProperty('created_at'))
-        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
-      if (data.hasOwnProperty('processed_at'))
-        obj.processedAt = ApiClient.convertToType(data['processed_at'], 'Date');
       if (data.hasOwnProperty('yield'))
         obj._yield = ApiClient.convertToType(data['yield'], 'Number');
+      if (data.hasOwnProperty('start_at'))
+        obj.startAt = ApiClient.convertToType(data['start_at'], 'Date');
+      if (data.hasOwnProperty('end_at'))
+        obj.endAt = ApiClient.convertToType(data['end_at'], 'Date');
+      if (data.hasOwnProperty('pay_at'))
+        obj.payAt = ApiClient.convertToType(data['pay_at'], 'Date');
+      if (data.hasOwnProperty('available_to_pay'))
+        obj.availableToPay = ApiClient.convertToType(data['available_to_pay'], 'String');
+      if (data.hasOwnProperty('completed_at'))
+        obj.completedAt = ApiClient.convertToType(data['completed_at'], 'Date');
+      if (data.hasOwnProperty('created_at'))
+        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
+      if (data.hasOwnProperty('process_every'))
+        obj.processEvery = ApiClient.convertToType(data['process_every'], 'Number');
+      if (data.hasOwnProperty('last_processed_at'))
+        obj.lastProcessedAt = ApiClient.convertToType(data['last_processed_at'], 'Date');
     }
     return obj;
   }
@@ -68,9 +76,19 @@ CouponPayment.prototype.id = undefined;
 CouponPayment.prototype.assetId = undefined;
 
 /**
+ * @member {Number} _yield
+ */
+CouponPayment.prototype._yield = undefined;
+
+/**
  * @member {Date} startAt
  */
 CouponPayment.prototype.startAt = undefined;
+
+/**
+ * @member {Date} endAt
+ */
+CouponPayment.prototype.endAt = undefined;
 
 /**
  * @member {Date} payAt
@@ -78,17 +96,28 @@ CouponPayment.prototype.startAt = undefined;
 CouponPayment.prototype.payAt = undefined;
 
 /**
+ * @member {String} availableToPay
+ */
+CouponPayment.prototype.availableToPay = undefined;
+
+/**
+ * @member {Date} completedAt
+ */
+CouponPayment.prototype.completedAt = undefined;
+
+/**
  * @member {Date} createdAt
  */
 CouponPayment.prototype.createdAt = undefined;
 
 /**
- * @member {Date} processedAt
+ * Number of nanoseconds to wait between coupon payment processing, must be at least 1000 (1 microsecond)
+ * @member {Number} processEvery
  */
-CouponPayment.prototype.processedAt = undefined;
+CouponPayment.prototype.processEvery = undefined;
 
 /**
- * @member {Number} _yield
+ * @member {Date} lastProcessedAt
  */
-CouponPayment.prototype._yield = undefined;
+CouponPayment.prototype.lastProcessedAt = undefined;
 

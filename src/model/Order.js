@@ -42,26 +42,36 @@ export default class Order {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new Order();
-      if (data.hasOwnProperty('id'))
-        obj.id = ApiClient.convertToType(data['id'], 'String');
+      if (data.hasOwnProperty('order_id'))
+        obj.orderId = ApiClient.convertToType(data['order_id'], 'String');
       if (data.hasOwnProperty('order_book_id'))
         obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
-      if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
       if (data.hasOwnProperty('kind'))
         obj.kind = OrderKind.constructFromObject(data['kind']);
-      if (data.hasOwnProperty('price'))
-        obj.price = ApiClient.convertToType(data['price'], 'String');
+      if (data.hasOwnProperty('original_price'))
+        obj.originalPrice = ApiClient.convertToType(data['original_price'], 'String');
+      if (data.hasOwnProperty('avg_fill_price'))
+        obj.avgFillPrice = ApiClient.convertToType(data['avg_fill_price'], 'String');
+      if (data.hasOwnProperty('cancelled_quantity'))
+        obj.cancelledQuantity = ApiClient.convertToType(data['cancelled_quantity'], 'String');
+      if (data.hasOwnProperty('open_quantity'))
+        obj.openQuantity = ApiClient.convertToType(data['open_quantity'], 'String');
+      if (data.hasOwnProperty('original_quantity'))
+        obj.originalQuantity = ApiClient.convertToType(data['original_quantity'], 'String');
+      if (data.hasOwnProperty('filled_quantity'))
+        obj.filledQuantity = ApiClient.convertToType(data['filled_quantity'], 'String');
+      if (data.hasOwnProperty('last_update_at'))
+        obj.lastUpdateAt = ApiClient.convertToType(data['last_update_at'], 'Date');
+      if (data.hasOwnProperty('opened_at'))
+        obj.openedAt = ApiClient.convertToType(data['opened_at'], 'Date');
       if (data.hasOwnProperty('inverse_leverage'))
-        obj.inverseLeverage = ApiClient.convertToType(data['inverse_leverage'], 'Number');
+        obj.inverseLeverage = ApiClient.convertToType(data['inverse_leverage'], 'String');
       if (data.hasOwnProperty('side'))
         obj.side = Side.constructFromObject(data['side']);
       if (data.hasOwnProperty('status'))
         obj.status = OrderStatus.constructFromObject(data['status']);
       if (data.hasOwnProperty('user_id'))
         obj.userId = ApiClient.convertToType(data['user_id'], 'String');
-      if (data.hasOwnProperty('user_text'))
-        obj.userText = ApiClient.convertToType(data['user_text'], 'String');
       if (data.hasOwnProperty('order_modifiers'))
         obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], [OrderModifierKind]);
       if (data.hasOwnProperty('position_id'))
@@ -72,9 +82,9 @@ export default class Order {
 }
 
 /**
- * @member {String} id
+ * @member {String} orderId
  */
-Order.prototype.id = undefined;
+Order.prototype.orderId = undefined;
 
 /**
  * @member {String} orderBookId
@@ -82,22 +92,57 @@ Order.prototype.id = undefined;
 Order.prototype.orderBookId = undefined;
 
 /**
- * @member {String} quantity
- */
-Order.prototype.quantity = undefined;
-
-/**
  * @member {module:model/OrderKind} kind
  */
 Order.prototype.kind = undefined;
 
 /**
- * @member {String} price
+ * If Kind is LIMIT, this is the original limit price. If Kind is MARKET, this may be 0 or omitted.
+ * @member {String} originalPrice
  */
-Order.prototype.price = undefined;
+Order.prototype.originalPrice = undefined;
 
 /**
- * @member {Number} inverseLeverage
+ * @member {String} avgFillPrice
+ */
+Order.prototype.avgFillPrice = undefined;
+
+/**
+ * Quantity that was cancelled, if any.
+ * @member {String} cancelledQuantity
+ */
+Order.prototype.cancelledQuantity = undefined;
+
+/**
+ * Quantity that is still open, i.e., not filled or cancelled.
+ * @member {String} openQuantity
+ */
+Order.prototype.openQuantity = undefined;
+
+/**
+ * The original quantity of the order when it was created.
+ * @member {String} originalQuantity
+ */
+Order.prototype.originalQuantity = undefined;
+
+/**
+ * Quantity that has been filled so far.
+ * @member {String} filledQuantity
+ */
+Order.prototype.filledQuantity = undefined;
+
+/**
+ * @member {Date} lastUpdateAt
+ */
+Order.prototype.lastUpdateAt = undefined;
+
+/**
+ * @member {Date} openedAt
+ */
+Order.prototype.openedAt = undefined;
+
+/**
+ * @member {String} inverseLeverage
  */
 Order.prototype.inverseLeverage = undefined;
 
@@ -115,11 +160,6 @@ Order.prototype.status = undefined;
  * @member {String} userId
  */
 Order.prototype.userId = undefined;
-
-/**
- * @member {String} userText
- */
-Order.prototype.userText = undefined;
 
 /**
  * @member {Array.<module:model/OrderModifierKind>} orderModifiers

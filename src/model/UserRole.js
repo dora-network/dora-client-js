@@ -45,10 +45,10 @@ const UserRole = {
   BOND_PROVIDER: "BOND_PROVIDER",
 
   /**
-   * value: "LIQUIDY_PROVIDER"
+   * value: "LIQUIDITY_PROVIDER"
    * @const
    */
-  LIQUIDY_PROVIDER: "LIQUIDY_PROVIDER",
+  LIQUIDITY_PROVIDER: "LIQUIDITY_PROVIDER",
 
   /**
    * value: "TRADER"

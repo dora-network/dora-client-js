@@ -40,27 +40,38 @@ export default class OrderBookBalance {
       obj = obj || new OrderBookBalance();
       if (data.hasOwnProperty('order_book_id'))
         obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
-      if (data.hasOwnProperty('base_balance'))
-        obj.baseBalance = ApiClient.convertToType(data['base_balance'], 'String');
-      if (data.hasOwnProperty('quote_balance'))
-        obj.quoteBalance = ApiClient.convertToType(data['quote_balance'], 'String');
+      if (data.hasOwnProperty('base_quantity'))
+        obj.baseQuantity = ApiClient.convertToType(data['base_quantity'], 'Number');
+      if (data.hasOwnProperty('quote_quantity'))
+        obj.quoteQuantity = ApiClient.convertToType(data['quote_quantity'], 'Number');
+      if (data.hasOwnProperty('shares_quantity'))
+        obj.sharesQuantity = ApiClient.convertToType(data['shares_quantity'], 'Number');
     }
     return obj;
   }
 }
 
 /**
+ * The ID of the order book.
  * @member {String} orderBookId
  */
 OrderBookBalance.prototype.orderBookId = undefined;
 
 /**
- * @member {String} baseBalance
+ * The quantity of the base asset.
+ * @member {Number} baseQuantity
  */
-OrderBookBalance.prototype.baseBalance = undefined;
+OrderBookBalance.prototype.baseQuantity = undefined;
 
 /**
- * @member {String} quoteBalance
+ * The quantity of the quote asset.
+ * @member {Number} quoteQuantity
  */
-OrderBookBalance.prototype.quoteBalance = undefined;
+OrderBookBalance.prototype.quoteQuantity = undefined;
+
+/**
+ * The quantity of pool shares.
+ * @member {Number} sharesQuantity
+ */
+OrderBookBalance.prototype.sharesQuantity = undefined;
 

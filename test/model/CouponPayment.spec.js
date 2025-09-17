@@ -51,10 +51,22 @@
         // expect(instance.assetId).to.be(expectedValueLiteral);
       });
 
+      it('should have the property _yield (base name: "yield")', function() {
+        // TODO: update the code to test the property _yield
+        expect(instance).to.have.property('_yield');
+        // expect(instance._yield).to.be(expectedValueLiteral);
+      });
+
       it('should have the property startAt (base name: "start_at")', function() {
         // TODO: update the code to test the property startAt
         expect(instance).to.have.property('startAt');
         // expect(instance.startAt).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property endAt (base name: "end_at")', function() {
+        // TODO: update the code to test the property endAt
+        expect(instance).to.have.property('endAt');
+        // expect(instance.endAt).to.be(expectedValueLiteral);
       });
 
       it('should have the property payAt (base name: "pay_at")', function() {
@@ -63,22 +75,34 @@
         // expect(instance.payAt).to.be(expectedValueLiteral);
       });
 
+      it('should have the property availableToPay (base name: "available_to_pay")', function() {
+        // TODO: update the code to test the property availableToPay
+        expect(instance).to.have.property('availableToPay');
+        // expect(instance.availableToPay).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property completedAt (base name: "completed_at")', function() {
+        // TODO: update the code to test the property completedAt
+        expect(instance).to.have.property('completedAt');
+        // expect(instance.completedAt).to.be(expectedValueLiteral);
+      });
+
       it('should have the property createdAt (base name: "created_at")', function() {
         // TODO: update the code to test the property createdAt
         expect(instance).to.have.property('createdAt');
         // expect(instance.createdAt).to.be(expectedValueLiteral);
       });
 
-      it('should have the property processedAt (base name: "processed_at")', function() {
-        // TODO: update the code to test the property processedAt
-        expect(instance).to.have.property('processedAt');
-        // expect(instance.processedAt).to.be(expectedValueLiteral);
+      it('should have the property processEvery (base name: "process_every")', function() {
+        // TODO: update the code to test the property processEvery
+        expect(instance).to.have.property('processEvery');
+        // expect(instance.processEvery).to.be(expectedValueLiteral);
       });
 
-      it('should have the property _yield (base name: "yield")', function() {
-        // TODO: update the code to test the property _yield
-        expect(instance).to.have.property('_yield');
-        // expect(instance._yield).to.be(expectedValueLiteral);
+      it('should have the property lastProcessedAt (base name: "last_processed_at")', function() {
+        // TODO: update the code to test the property lastProcessedAt
+        expect(instance).to.have.property('lastProcessedAt');
+        // expect(instance.lastProcessedAt).to.be(expectedValueLiteral);
       });
 
     });

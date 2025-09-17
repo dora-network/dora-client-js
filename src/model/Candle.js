@@ -43,15 +43,15 @@ export default class Candle {
       if (data.hasOwnProperty('start_timestamp'))
         obj.startTimestamp = ApiClient.convertToType(data['start_timestamp'], 'Date');
       if (data.hasOwnProperty('open'))
-        obj.open = ApiClient.convertToType(data['open'], 'Number');
+        obj.open = ApiClient.convertToType(data['open'], 'String');
       if (data.hasOwnProperty('high'))
-        obj.high = ApiClient.convertToType(data['high'], 'Number');
+        obj.high = ApiClient.convertToType(data['high'], 'String');
       if (data.hasOwnProperty('low'))
-        obj.low = ApiClient.convertToType(data['low'], 'Number');
+        obj.low = ApiClient.convertToType(data['low'], 'String');
       if (data.hasOwnProperty('close'))
-        obj.close = ApiClient.convertToType(data['close'], 'Number');
+        obj.close = ApiClient.convertToType(data['close'], 'String');
       if (data.hasOwnProperty('volume'))
-        obj.volume = ApiClient.convertToType(data['volume'], 'Number');
+        obj.volume = ApiClient.convertToType(data['volume'], 'String');
     }
     return obj;
   }
@@ -68,27 +68,27 @@ Candle.prototype.orderBookId = undefined;
 Candle.prototype.startTimestamp = undefined;
 
 /**
- * @member {Number} open
+ * @member {String} open
  */
 Candle.prototype.open = undefined;
 
 /**
- * @member {Number} high
+ * @member {String} high
  */
 Candle.prototype.high = undefined;
 
 /**
- * @member {Number} low
+ * @member {String} low
  */
 Candle.prototype.low = undefined;
 
 /**
- * @member {Number} close
+ * @member {String} close
  */
 Candle.prototype.close = undefined;
 
 /**
- * @member {Number} volume
+ * @member {String} volume
  */
 Candle.prototype.volume = undefined;
 

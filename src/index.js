@@ -22,8 +22,7 @@ import Bond from './model/Bond';
 import BondKind from './model/BondKind';
 import BorrowRequest from './model/BorrowRequest';
 import BorrowResponse from './model/BorrowResponse';
-import CancelOrdersResponse from './model/CancelOrdersResponse';
-import CancelOrdersResponseData from './model/CancelOrdersResponseData';
+import CancelOrderResponse from './model/CancelOrderResponse';
 import Candle from './model/Candle';
 import CandleResolution from './model/CandleResolution';
 import Collateral from './model/Collateral';
@@ -32,6 +31,7 @@ import CollateralizeResponse from './model/CollateralizeResponse';
 import CouponPayment from './model/CouponPayment';
 import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
+import CreateOrderResponse from './model/CreateOrderResponse';
 import DeCollateralizeRequest from './model/DeCollateralizeRequest';
 import DeCollateralizeResponse from './model/DeCollateralizeResponse';
 import FundUser from './model/FundUser';
@@ -73,12 +73,12 @@ import ListOrdersResponse from './model/ListOrdersResponse';
 import ListPositionsResponse from './model/ListPositionsResponse';
 import ListTradeResponse from './model/ListTradeResponse';
 import ListTransactionsResponse from './model/ListTransactionsResponse';
+import LiveOrderbook from './model/LiveOrderbook';
 import Metadata from './model/Metadata';
 import ModuleBalance from './model/ModuleBalance';
 import Order from './model/Order';
 import OrderBook from './model/OrderBook';
 import OrderBookBalance from './model/OrderBookBalance';
-import OrderBookBalanceResponse from './model/OrderBookBalanceResponse';
 import OrderBookDepth from './model/OrderBookDepth';
 import OrderBookHaltResponse from './model/OrderBookHaltResponse';
 import OrderBookResumeResponse from './model/OrderBookResumeResponse';
@@ -86,7 +86,6 @@ import OrderBookStatus from './model/OrderBookStatus';
 import OrderBookSummary from './model/OrderBookSummary';
 import OrderBookTerminateResponse from './model/OrderBookTerminateResponse';
 import OrderBookTop from './model/OrderBookTop';
-import OrderCancelledResponse from './model/OrderCancelledResponse';
 import OrderId from './model/OrderId';
 import OrderKind from './model/OrderKind';
 import OrderModifierKind from './model/OrderModifierKind';
@@ -102,6 +101,22 @@ import RepayRequest from './model/RepayRequest';
 import RepayResponse from './model/RepayResponse';
 import ResponseEnvelope from './model/ResponseEnvelope';
 import Side from './model/Side';
+import StreamAssetPricesResponse from './model/StreamAssetPricesResponse';
+import StreamCandlesEntry from './model/StreamCandlesEntry';
+import StreamCandlesResponse from './model/StreamCandlesResponse';
+import StreamEntry from './model/StreamEntry';
+import StreamOrderBookBalanceEntry from './model/StreamOrderBookBalanceEntry';
+import StreamOrderBookBalancesResponse from './model/StreamOrderBookBalancesResponse';
+import StreamOrderUpdatesEntry from './model/StreamOrderUpdatesEntry';
+import StreamOrderUpdatesResponse from './model/StreamOrderUpdatesResponse';
+import StreamOrdersEntry from './model/StreamOrdersEntry';
+import StreamOrdersResponse from './model/StreamOrdersResponse';
+import StreamPositionsEntry from './model/StreamPositionsEntry';
+import StreamPositionsResponse from './model/StreamPositionsResponse';
+import StreamTradesEntry from './model/StreamTradesEntry';
+import StreamTradesResponse from './model/StreamTradesResponse';
+import StreamTransactionsEntry from './model/StreamTransactionsEntry';
+import StreamTransactionsResponse from './model/StreamTransactionsResponse';
 import Supply from './model/Supply';
 import SupplyRequest from './model/SupplyRequest';
 import SupplyResponse from './model/SupplyResponse';
@@ -227,16 +242,10 @@ export {
     BorrowResponse,
 
     /**
-     * The CancelOrdersResponse model constructor.
-     * @property {module:model/CancelOrdersResponse}
+     * The CancelOrderResponse model constructor.
+     * @property {module:model/CancelOrderResponse}
      */
-    CancelOrdersResponse,
-
-    /**
-     * The CancelOrdersResponseData model constructor.
-     * @property {module:model/CancelOrdersResponseData}
-     */
-    CancelOrdersResponseData,
+    CancelOrderResponse,
 
     /**
      * The Candle model constructor.
@@ -285,6 +294,12 @@ export {
      * @property {module:model/CreateOrderRequest}
      */
     CreateOrderRequest,
+
+    /**
+     * The CreateOrderResponse model constructor.
+     * @property {module:model/CreateOrderResponse}
+     */
+    CreateOrderResponse,
 
     /**
      * The DeCollateralizeRequest model constructor.
@@ -533,6 +548,12 @@ export {
     ListTransactionsResponse,
 
     /**
+     * The LiveOrderbook model constructor.
+     * @property {module:model/LiveOrderbook}
+     */
+    LiveOrderbook,
+
+    /**
      * The Metadata model constructor.
      * @property {module:model/Metadata}
      */
@@ -561,12 +582,6 @@ export {
      * @property {module:model/OrderBookBalance}
      */
     OrderBookBalance,
-
-    /**
-     * The OrderBookBalanceResponse model constructor.
-     * @property {module:model/OrderBookBalanceResponse}
-     */
-    OrderBookBalanceResponse,
 
     /**
      * The OrderBookDepth model constructor.
@@ -609,12 +624,6 @@ export {
      * @property {module:model/OrderBookTop}
      */
     OrderBookTop,
-
-    /**
-     * The OrderCancelledResponse model constructor.
-     * @property {module:model/OrderCancelledResponse}
-     */
-    OrderCancelledResponse,
 
     /**
      * The OrderId model constructor.
@@ -705,6 +714,102 @@ export {
      * @property {module:model/Side}
      */
     Side,
+
+    /**
+     * The StreamAssetPricesResponse model constructor.
+     * @property {module:model/StreamAssetPricesResponse}
+     */
+    StreamAssetPricesResponse,
+
+    /**
+     * The StreamCandlesEntry model constructor.
+     * @property {module:model/StreamCandlesEntry}
+     */
+    StreamCandlesEntry,
+
+    /**
+     * The StreamCandlesResponse model constructor.
+     * @property {module:model/StreamCandlesResponse}
+     */
+    StreamCandlesResponse,
+
+    /**
+     * The StreamEntry model constructor.
+     * @property {module:model/StreamEntry}
+     */
+    StreamEntry,
+
+    /**
+     * The StreamOrderBookBalanceEntry model constructor.
+     * @property {module:model/StreamOrderBookBalanceEntry}
+     */
+    StreamOrderBookBalanceEntry,
+
+    /**
+     * The StreamOrderBookBalancesResponse model constructor.
+     * @property {module:model/StreamOrderBookBalancesResponse}
+     */
+    StreamOrderBookBalancesResponse,
+
+    /**
+     * The StreamOrderUpdatesEntry model constructor.
+     * @property {module:model/StreamOrderUpdatesEntry}
+     */
+    StreamOrderUpdatesEntry,
+
+    /**
+     * The StreamOrderUpdatesResponse model constructor.
+     * @property {module:model/StreamOrderUpdatesResponse}
+     */
+    StreamOrderUpdatesResponse,
+
+    /**
+     * The StreamOrdersEntry model constructor.
+     * @property {module:model/StreamOrdersEntry}
+     */
+    StreamOrdersEntry,
+
+    /**
+     * The StreamOrdersResponse model constructor.
+     * @property {module:model/StreamOrdersResponse}
+     */
+    StreamOrdersResponse,
+
+    /**
+     * The StreamPositionsEntry model constructor.
+     * @property {module:model/StreamPositionsEntry}
+     */
+    StreamPositionsEntry,
+
+    /**
+     * The StreamPositionsResponse model constructor.
+     * @property {module:model/StreamPositionsResponse}
+     */
+    StreamPositionsResponse,
+
+    /**
+     * The StreamTradesEntry model constructor.
+     * @property {module:model/StreamTradesEntry}
+     */
+    StreamTradesEntry,
+
+    /**
+     * The StreamTradesResponse model constructor.
+     * @property {module:model/StreamTradesResponse}
+     */
+    StreamTradesResponse,
+
+    /**
+     * The StreamTransactionsEntry model constructor.
+     * @property {module:model/StreamTransactionsEntry}
+     */
+    StreamTransactionsEntry,
+
+    /**
+     * The StreamTransactionsResponse model constructor.
+     * @property {module:model/StreamTransactionsResponse}
+     */
+    StreamTransactionsResponse,
 
     /**
      * The Supply model constructor.

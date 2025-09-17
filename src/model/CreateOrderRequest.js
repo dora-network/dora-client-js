@@ -28,18 +28,18 @@ export default class CreateOrderRequest {
    * @alias module:model/CreateOrderRequest
    * @class
    * @param quantity {String} 
-   * @param inverseLeverage {Number} Required: Inverse leverage for the order, must be between 0 and 1 (inclusive)
-   * @param price {String} 
+   * @param inverseLeverage {String} 
    * @param kind {module:model/OrderKind} 
    * @param side {module:model/Side} 
+   * @param positionId {String} position ID to use for the order. required.
    * @param orderBookId {String} Required: the order book to submit the order to
    */
-  constructor(quantity, inverseLeverage, price, kind, side, orderBookId) {
+  constructor(quantity, inverseLeverage, kind, side, positionId, orderBookId) {
     this.quantity = quantity;
     this.inverseLeverage = inverseLeverage;
-    this.price = price;
     this.kind = kind;
     this.side = side;
+    this.positionId = positionId;
     this.orderBookId = orderBookId;
   }
 
@@ -56,17 +56,19 @@ export default class CreateOrderRequest {
       if (data.hasOwnProperty('quantity'))
         obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
       if (data.hasOwnProperty('inverse_leverage'))
-        obj.inverseLeverage = ApiClient.convertToType(data['inverse_leverage'], 'Number');
+        obj.inverseLeverage = ApiClient.convertToType(data['inverse_leverage'], 'String');
       if (data.hasOwnProperty('price'))
         obj.price = ApiClient.convertToType(data['price'], 'String');
       if (data.hasOwnProperty('kind'))
         obj.kind = OrderKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('side'))
         obj.side = Side.constructFromObject(data['side']);
+      if (data.hasOwnProperty('position_id'))
+        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
       if (data.hasOwnProperty('order_book_id'))
         obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
-      if (data.hasOwnProperty('user_text'))
-        obj.userText = ApiClient.convertToType(data['user_text'], 'String');
+      if (data.hasOwnProperty('order_info'))
+        obj.orderInfo = ApiClient.convertToType(data['order_info'], 'String');
       if (data.hasOwnProperty('order_modifiers'))
         obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], [OrderModifierKind]);
     }
@@ -80,8 +82,7 @@ export default class CreateOrderRequest {
 CreateOrderRequest.prototype.quantity = undefined;
 
 /**
- * Required: Inverse leverage for the order, must be between 0 and 1 (inclusive)
- * @member {Number} inverseLeverage
+ * @member {String} inverseLeverage
  */
 CreateOrderRequest.prototype.inverseLeverage = undefined;
 
@@ -101,6 +102,12 @@ CreateOrderRequest.prototype.kind = undefined;
 CreateOrderRequest.prototype.side = undefined;
 
 /**
+ * position ID to use for the order. required.
+ * @member {String} positionId
+ */
+CreateOrderRequest.prototype.positionId = undefined;
+
+/**
  * Required: the order book to submit the order to
  * @member {String} orderBookId
  */
@@ -108,9 +115,9 @@ CreateOrderRequest.prototype.orderBookId = undefined;
 
 /**
  * Optional: User-defined text for the order, e.g., 'buying dips'
- * @member {String} userText
+ * @member {String} orderInfo
  */
-CreateOrderRequest.prototype.userText = undefined;
+CreateOrderRequest.prototype.orderInfo = undefined;
 
 /**
  * @member {Array.<module:model/OrderModifierKind>} orderModifiers

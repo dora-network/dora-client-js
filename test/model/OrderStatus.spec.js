@@ -49,6 +49,11 @@
         expect(instance.FILLED).to.be("FILLED");
       });
 
+      it('should have the property PARTIAL_FILL', function() {
+        expect(instance).to.have.property('PARTIAL_FILL');
+        expect(instance.PARTIAL_FILL).to.be("PARTIAL_FILL");
+      });
+
       it('should have the property CANCELLED', function() {
         expect(instance).to.have.property('CANCELLED');
         expect(instance.CANCELLED).to.be("CANCELLED");

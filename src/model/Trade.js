@@ -40,26 +40,26 @@ export default class Trade {
       obj = obj || new Trade();
       if (data.hasOwnProperty('transaction_id'))
         obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
-      if (data.hasOwnProperty('user_id'))
-        obj.userId = ApiClient.convertToType(data['user_id'], 'String');
-      if (data.hasOwnProperty('order_id'))
-        obj.orderId = ApiClient.convertToType(data['order_id'], 'String');
-      if (data.hasOwnProperty('order_seq'))
-        obj.orderSeq = ApiClient.convertToType(data['order_seq'], 'Number');
-      if (data.hasOwnProperty('order_book_id'))
-        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
-      if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
-      if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
-      if (data.hasOwnProperty('price'))
-        obj.price = ApiClient.convertToType(data['price'], 'String');
+      if (data.hasOwnProperty('asset_0'))
+        obj.asset0 = ApiClient.convertToType(data['asset_0'], 'String');
+      if (data.hasOwnProperty('created_at'))
+        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
       if (data.hasOwnProperty('fee_asset_id'))
         obj.feeAssetId = ApiClient.convertToType(data['fee_asset_id'], 'String');
       if (data.hasOwnProperty('fee_quantity'))
         obj.feeQuantity = ApiClient.convertToType(data['fee_quantity'], 'String');
-      if (data.hasOwnProperty('created_at'))
-        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
+      if (data.hasOwnProperty('order_book_id'))
+        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
+      if (data.hasOwnProperty('order_id'))
+        obj.orderId = ApiClient.convertToType(data['order_id'], 'String');
+      if (data.hasOwnProperty('order_seq'))
+        obj.orderSeq = ApiClient.convertToType(data['order_seq'], 'Number');
+      if (data.hasOwnProperty('price'))
+        obj.price = ApiClient.convertToType(data['price'], 'String');
+      if (data.hasOwnProperty('quantity_0'))
+        obj.quantity0 = ApiClient.convertToType(data['quantity_0'], 'String');
+      if (data.hasOwnProperty('user_id'))
+        obj.userId = ApiClient.convertToType(data['user_id'], 'String');
     }
     return obj;
   }
@@ -71,39 +71,14 @@ export default class Trade {
 Trade.prototype.transactionId = undefined;
 
 /**
- * @member {String} userId
+ * @member {String} asset0
  */
-Trade.prototype.userId = undefined;
+Trade.prototype.asset0 = undefined;
 
 /**
- * @member {String} orderId
+ * @member {Date} createdAt
  */
-Trade.prototype.orderId = undefined;
-
-/**
- * @member {Number} orderSeq
- */
-Trade.prototype.orderSeq = undefined;
-
-/**
- * @member {String} orderBookId
- */
-Trade.prototype.orderBookId = undefined;
-
-/**
- * @member {String} assetId
- */
-Trade.prototype.assetId = undefined;
-
-/**
- * @member {String} quantity
- */
-Trade.prototype.quantity = undefined;
-
-/**
- * @member {String} price
- */
-Trade.prototype.price = undefined;
+Trade.prototype.createdAt = undefined;
 
 /**
  * @member {String} feeAssetId
@@ -116,7 +91,32 @@ Trade.prototype.feeAssetId = undefined;
 Trade.prototype.feeQuantity = undefined;
 
 /**
- * @member {Date} createdAt
+ * @member {String} orderBookId
  */
-Trade.prototype.createdAt = undefined;
+Trade.prototype.orderBookId = undefined;
+
+/**
+ * @member {String} orderId
+ */
+Trade.prototype.orderId = undefined;
+
+/**
+ * @member {Number} orderSeq
+ */
+Trade.prototype.orderSeq = undefined;
+
+/**
+ * @member {String} price
+ */
+Trade.prototype.price = undefined;
+
+/**
+ * @member {String} quantity0
+ */
+Trade.prototype.quantity0 = undefined;
+
+/**
+ * @member {String} userId
+ */
+Trade.prototype.userId = undefined;
 

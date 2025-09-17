@@ -57,8 +57,12 @@ export default class Bond {
         obj.issuer = ApiClient.convertToType(data['issuer'], 'String');
       if (data.hasOwnProperty('maturity_at'))
         obj.maturityAt = ApiClient.convertToType(data['maturity_at'], 'Date');
+      if (data.hasOwnProperty('principal_value'))
+        obj.principalValue = ApiClient.convertToType(data['principal_value'], 'String');
       if (data.hasOwnProperty('payments_per_year'))
         obj.paymentsPerYear = ApiClient.convertToType(data['payments_per_year'], 'Number');
+      if (data.hasOwnProperty('payments_every'))
+        obj.paymentsEvery = ApiClient.convertToType(data['payments_every'], 'Number');
     }
     return obj;
   }
@@ -110,7 +114,18 @@ Bond.prototype.issuer = undefined;
 Bond.prototype.maturityAt = undefined;
 
 /**
+ * @member {String} principalValue
+ */
+Bond.prototype.principalValue = undefined;
+
+/**
  * @member {Number} paymentsPerYear
  */
 Bond.prototype.paymentsPerYear = undefined;
+
+/**
+ * Coupon payment frequency in nanoseconds (minimum 1000 i.e. 1 microsecond)
+ * @member {Number} paymentsEvery
+ */
+Bond.prototype.paymentsEvery = undefined;
 

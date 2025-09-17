@@ -4,8 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **orderBookId** | **String** |  | [optional] 
-**orderBookSeq** | **Number** |  | [optional] 
-**accumulatedFeesId** | **String** |  | [optional] 
 **baseQuantity** | **Number** |  | [optional] 
 **baseAssetId** | **String** |  | [optional] 
 **createdAt** | **Date** |  | [optional] 
@@ -13,7 +11,6 @@ Name | Type | Description | Notes
 **feeFactor** | **Number** |  | [optional] 
 **initialAssetsRatio** | **Number** |  | [optional] 
 **maturityAt** | **Date** |  | [optional] 
-**priceDisplayMultiplier** | **Number** |  | [optional] 
 **quoteQuantity** | **Number** |  | [optional] 
 **quoteAssetId** | **String** |  | [optional] 
 **sharesQuantity** | **Number** |  | [optional] 
@@ -23,5 +20,4 @@ Name | Type | Description | Notes
 **haltedAt** | **Date** |  | [optional] 
 **terminatedAt** | **Date** |  | [optional] 
 **poolUpdatedAt** | **Date** |  | [optional] 
-**poolSeq** | **Number** |  | [optional] 
 **sharesAssetId** | **String** |  | [optional] 

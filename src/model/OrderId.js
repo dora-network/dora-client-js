@@ -38,15 +38,15 @@ export default class OrderId {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new OrderId();
-      if (data.hasOwnProperty('id'))
-        obj.id = ApiClient.convertToType(data['id'], 'String');
+      if (data.hasOwnProperty('order_id'))
+        obj.orderId = ApiClient.convertToType(data['order_id'], 'String');
     }
     return obj;
   }
 }
 
 /**
- * @member {String} id
+ * @member {String} orderId
  */
-OrderId.prototype.id = undefined;
+OrderId.prototype.orderId = undefined;
 

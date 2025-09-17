@@ -12,4 +12,6 @@ Name | Type | Description | Notes
 **issuedAt** | **Date** |  | [optional] 
 **issuer** | **String** |  | [optional] 
 **maturityAt** | **Date** |  | [optional] 
+**principalValue** | **String** |  | [optional] 
 **paymentsPerYear** | **Number** |  | [optional] 
+**paymentsEvery** | **Number** | Coupon payment frequency in nanoseconds (minimum 1000 i.e. 1 microsecond) | [optional] 

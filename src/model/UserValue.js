@@ -44,6 +44,18 @@ export default class UserValue {
         obj.locked = ApiClient.convertToType(data['locked'], {'String': 'String'});
       if (data.hasOwnProperty('borrowed'))
         obj.borrowed = ApiClient.convertToType(data['borrowed'], {'String': 'String'});
+      if (data.hasOwnProperty('supplied'))
+        obj.supplied = ApiClient.convertToType(data['supplied'], {'String': 'String'});
+      if (data.hasOwnProperty('collateral'))
+        obj.collateral = ApiClient.convertToType(data['collateral'], {'String': 'String'});
+      if (data.hasOwnProperty('supplied_collateral'))
+        obj.suppliedCollateral = ApiClient.convertToType(data['supplied_collateral'], {'String': 'String'});
+      if (data.hasOwnProperty('impending_borrows'))
+        obj.impendingBorrows = ApiClient.convertToType(data['impending_borrows'], {'String': 'String'});
+      if (data.hasOwnProperty('borrow_limit'))
+        obj.borrowLimit = ApiClient.convertToType(data['borrow_limit'], {'String': 'String'});
+      if (data.hasOwnProperty('liquidation_threshold'))
+        obj.liquidationThreshold = ApiClient.convertToType(data['liquidation_threshold'], {'String': 'String'});
       if (data.hasOwnProperty('notional_long'))
         obj.notionalLong = ApiClient.convertToType(data['notional_long'], {'String': 'String'});
       if (data.hasOwnProperty('notional_short'))
@@ -75,6 +87,36 @@ UserValue.prototype.locked = undefined;
  * @member {Object.<String, String>} borrowed
  */
 UserValue.prototype.borrowed = undefined;
+
+/**
+ * @member {Object.<String, String>} supplied
+ */
+UserValue.prototype.supplied = undefined;
+
+/**
+ * @member {Object.<String, String>} collateral
+ */
+UserValue.prototype.collateral = undefined;
+
+/**
+ * @member {Object.<String, String>} suppliedCollateral
+ */
+UserValue.prototype.suppliedCollateral = undefined;
+
+/**
+ * @member {Object.<String, String>} impendingBorrows
+ */
+UserValue.prototype.impendingBorrows = undefined;
+
+/**
+ * @member {Object.<String, String>} borrowLimit
+ */
+UserValue.prototype.borrowLimit = undefined;
+
+/**
+ * @member {Object.<String, String>} liquidationThreshold
+ */
+UserValue.prototype.liquidationThreshold = undefined;
 
 /**
  * @member {Object.<String, String>} notionalLong

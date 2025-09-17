@@ -33,6 +33,12 @@ const OrderStatus = {
   FILLED: "FILLED",
 
   /**
+   * value: "PARTIAL_FILL"
+   * @const
+   */
+  PARTIAL_FILL: "PARTIAL_FILL",
+
+  /**
    * value: "CANCELLED"
    * @const
    */

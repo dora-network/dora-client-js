@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **collateralWeight** | **Number** |  | [optional] 
 **createdAt** | **Date** |  | [optional] 
 **decimals** | **Number** |  | [optional] 
+**fractionalizedUnits** | **Number** |  | [optional] 
 **description** | **String** |  | [optional] 
 **liquidationThreshold** | **Number** |  | [optional] 
 **maturityId** | **String** |  | [optional] 

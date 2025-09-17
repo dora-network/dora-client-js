@@ -17,11 +17,12 @@ import AssetKind from '../model/AssetKind';
 import AssetRequestError from '../model/AssetRequestError';
 import BorrowRequest from '../model/BorrowRequest';
 import BorrowResponse from '../model/BorrowResponse';
-import CancelOrdersResponse from '../model/CancelOrdersResponse';
+import CancelOrderResponse from '../model/CancelOrderResponse';
 import CandleResolution from '../model/CandleResolution';
 import CollateralizeRequest from '../model/CollateralizeRequest';
 import CollateralizeResponse from '../model/CollateralizeResponse';
 import CreateOrderRequest from '../model/CreateOrderRequest';
+import CreateOrderResponse from '../model/CreateOrderResponse';
 import DeCollateralizeRequest from '../model/DeCollateralizeRequest';
 import DeCollateralizeResponse from '../model/DeCollateralizeResponse';
 import FundUserRequest from '../model/FundUserRequest';
@@ -51,13 +52,10 @@ import ListCouponPaymentsResponse from '../model/ListCouponPaymentsResponse';
 import ListOrderBookDepthResponse from '../model/ListOrderBookDepthResponse';
 import ListOrderBooksResponse from '../model/ListOrderBooksResponse';
 import ListOrdersResponse from '../model/ListOrdersResponse';
-import ListPositionsResponse from '../model/ListPositionsResponse';
 import ListTradeResponse from '../model/ListTradeResponse';
 import ListTransactionsResponse from '../model/ListTransactionsResponse';
-import OrderBookBalanceResponse from '../model/OrderBookBalanceResponse';
+import LiveOrderbook from '../model/LiveOrderbook';
 import OrderBookStatus from '../model/OrderBookStatus';
-import OrderCancelledResponse from '../model/OrderCancelledResponse';
-import OrderId from '../model/OrderId';
 import OrderKind from '../model/OrderKind';
 import OrderStatus from '../model/OrderStatus';
 import PoolRequestError from '../model/PoolRequestError';
@@ -65,6 +63,13 @@ import RepayRequest from '../model/RepayRequest';
 import RepayResponse from '../model/RepayResponse';
 import ResponseEnvelope from '../model/ResponseEnvelope';
 import Side from '../model/Side';
+import StreamAssetPricesResponse from '../model/StreamAssetPricesResponse';
+import StreamCandlesResponse from '../model/StreamCandlesResponse';
+import StreamOrderBookBalancesResponse from '../model/StreamOrderBookBalancesResponse';
+import StreamOrderUpdatesResponse from '../model/StreamOrderUpdatesResponse';
+import StreamPositionsResponse from '../model/StreamPositionsResponse';
+import StreamTradesResponse from '../model/StreamTradesResponse';
+import StreamTransactionsResponse from '../model/StreamTransactionsResponse';
 import SupplyRequest from '../model/SupplyRequest';
 import SupplyResponse from '../model/SupplyResponse';
 import TradeRequestError from '../model/TradeRequestError';
@@ -106,7 +111,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the cancelAllOpenOrders operation.
      * @callback moduleapi/DefaultApi~cancelAllOpenOrdersCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/CancelOrdersResponse{ data The data returned by the service call.
+     * @param {module:model/ListOrdersResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -135,7 +140,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = CancelOrdersResponse;
+      let returnType = ListOrdersResponse;
 
       return this.apiClient.callApi(
         '/v1/orders', 'DELETE',
@@ -147,7 +152,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the cancelOrderById operation.
      * @callback moduleapi/DefaultApi~cancelOrderByIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/OrderCancelledResponse{ data The data returned by the service call.
+     * @param {module:model/CancelOrderResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -181,7 +186,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = OrderCancelledResponse;
+      let returnType = CancelOrderResponse;
 
       return this.apiClient.callApi(
         '/v1/orders/{order_id}', 'DELETE',
@@ -193,7 +198,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the createOrder operation.
      * @callback moduleapi/DefaultApi~createOrderCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/OrderId{ data The data returned by the service call.
+     * @param {module:model/CreateOrderResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -227,7 +232,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = OrderId;
+      let returnType = CreateOrderResponse;
 
       return this.apiClient.callApi(
         '/v1/orders', 'POST',
@@ -332,20 +337,20 @@ export default class DefaultApi {
 
     /**
      * Get asset by ID
-     * @param {String} id 
+     * @param {String} assetId 
      * @param {module:api/DefaultApi~getAssetByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getAssetById(id, callback) {
+    getAssetById(assetId, callback) {
       
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getAssetById");
+      // verify the required parameter 'assetId' is set
+      if (assetId === undefined || assetId === null) {
+        throw new Error("Missing the required parameter 'assetId' when calling getAssetById");
       }
 
       let pathParams = {
-        'id': id
+        'asset_id': assetId
       };
       let queryParams = {
         
@@ -363,7 +368,7 @@ export default class DefaultApi {
       let returnType = GetAssetByIDResponse;
 
       return this.apiClient.callApi(
-        '/v1/assets/{id}', 'GET',
+        '/v1/assets/{asset_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -424,7 +429,7 @@ export default class DefaultApi {
 
     /**
      * Get candlestick data for an orderbook
-     * @param {String} orderbook 
+     * @param {String} orderBookId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.start 
      * @param {Date} opts.end 
@@ -432,16 +437,16 @@ export default class DefaultApi {
      * @param {module:api/DefaultApi~getCandleDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getCandleData(orderbook, opts, callback) {
+    getCandleData(orderBookId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'orderbook' is set
-      if (orderbook === undefined || orderbook === null) {
-        throw new Error("Missing the required parameter 'orderbook' when calling getCandleData");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getCandleData");
       }
 
       let pathParams = {
-        'orderbook': orderbook
+        'order_book_id': orderBookId
       };
       let queryParams = {
         'start': opts['start'],'end': opts['end'],'resolution': opts['resolution']
@@ -459,7 +464,7 @@ export default class DefaultApi {
       let returnType = ListCandlesResponse;
 
       return this.apiClient.callApi(
-        '/v1/charts/{orderbook}/candle', 'GET',
+        '/v1/charts/{order_book_id}/candle', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -474,20 +479,20 @@ export default class DefaultApi {
 
     /**
      * Get coupon payments for a bond asset
-     * @param {String} id 
+     * @param {String} assetId 
      * @param {module:api/DefaultApi~getCouponPaymentsByAssetIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getCouponPaymentsByAssetId(id, callback) {
+    getCouponPaymentsByAssetId(assetId, callback) {
       
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getCouponPaymentsByAssetId");
+      // verify the required parameter 'assetId' is set
+      if (assetId === undefined || assetId === null) {
+        throw new Error("Missing the required parameter 'assetId' when calling getCouponPaymentsByAssetId");
       }
 
       let pathParams = {
-        'id': id
+        'asset_id': assetId
       };
       let queryParams = {
         
@@ -505,7 +510,7 @@ export default class DefaultApi {
       let returnType = ListCouponPaymentsResponse;
 
       return this.apiClient.callApi(
-        '/v1/assets/{id}/coupon_payments', 'GET',
+        '/v1/assets/{asset_id}/coupon_payments', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1325,20 +1330,20 @@ export default class DefaultApi {
 
     /**
      * Get a transaction by ID
-     * @param {String} id 
+     * @param {String} transactionId 
      * @param {module:api/DefaultApi~getTransactionByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getTransactionById(id, callback) {
+    getTransactionById(transactionId, callback) {
       
       let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getTransactionById");
+      // verify the required parameter 'transactionId' is set
+      if (transactionId === undefined || transactionId === null) {
+        throw new Error("Missing the required parameter 'transactionId' when calling getTransactionById");
       }
 
       let pathParams = {
-        'id': id
+        'transaction_id': transactionId
       };
       let queryParams = {
         
@@ -1356,7 +1361,7 @@ export default class DefaultApi {
       let returnType = GetTransactionResponse;
 
       return this.apiClient.callApi(
-        '/v1/transactions/{id}', 'GET',
+        '/v1/transactions/{transaction_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1460,7 +1465,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserLedgerStream operation.
      * @callback moduleapi/DefaultApi~getUserLedgerStreamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ListPositionsResponse{ data The data returned by the service call.
+     * @param {module:model/StreamPositionsResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1496,7 +1501,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ListPositionsResponse;
+      let returnType = StreamPositionsResponse;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/ledger/stream', 'GET',
@@ -1505,10 +1510,10 @@ export default class DefaultApi {
       );
     }
     /**
-     * Callback function to receive the result of the getUserOrdersStream operation.
-     * @callback moduleapi/DefaultApi~getUserOrdersStreamCallback
+     * Callback function to receive the result of the getUserOrderUpdatesStream operation.
+     * @callback moduleapi/DefaultApi~getUserOrderUpdatesStreamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ListOrdersResponse{ data The data returned by the service call.
+     * @param {module:model/StreamOrderUpdatesResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1518,19 +1523,19 @@ export default class DefaultApi {
      * @param {String} orderBookId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
-     * @param {module:api/DefaultApi~getUserOrdersStreamCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DefaultApi~getUserOrderUpdatesStreamCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getUserOrdersStream(userId, orderBookId, opts, callback) {
+    getUserOrderUpdatesStream(userId, orderBookId, opts, callback) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling getUserOrdersStream");
+        throw new Error("Missing the required parameter 'userId' when calling getUserOrderUpdatesStream");
       }
       // verify the required parameter 'orderBookId' is set
       if (orderBookId === undefined || orderBookId === null) {
-        throw new Error("Missing the required parameter 'orderBookId' when calling getUserOrdersStream");
+        throw new Error("Missing the required parameter 'orderBookId' when calling getUserOrderUpdatesStream");
       }
 
       let pathParams = {
@@ -1549,19 +1554,19 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ListOrdersResponse;
+      let returnType = StreamOrderUpdatesResponse;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/orders/{order_book_id}/stream', 'GET',
+        '/v1/user/{user_id}/orders/{order_book_id}/updates/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
     /**
-     * Callback function to receive the result of the getUserOrdersStreamAll operation.
-     * @callback moduleapi/DefaultApi~getUserOrdersStreamAllCallback
+     * Callback function to receive the result of the getUserOrdersUpdatesStreamAll operation.
+     * @callback moduleapi/DefaultApi~getUserOrdersUpdatesStreamAllCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ListOrdersResponse{ data The data returned by the service call.
+     * @param {module:model/StreamOrderUpdatesResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1571,19 +1576,19 @@ export default class DefaultApi {
      * @param {String} orderBookId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
-     * @param {module:api/DefaultApi~getUserOrdersStreamAllCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DefaultApi~getUserOrdersUpdatesStreamAllCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getUserOrdersStreamAll(userId, orderBookId, opts, callback) {
+    getUserOrdersUpdatesStreamAll(userId, orderBookId, opts, callback) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling getUserOrdersStreamAll");
+        throw new Error("Missing the required parameter 'userId' when calling getUserOrdersUpdatesStreamAll");
       }
       // verify the required parameter 'orderBookId' is set
       if (orderBookId === undefined || orderBookId === null) {
-        throw new Error("Missing the required parameter 'orderBookId' when calling getUserOrdersStreamAll");
+        throw new Error("Missing the required parameter 'orderBookId' when calling getUserOrdersUpdatesStreamAll");
       }
 
       let pathParams = {
@@ -1602,10 +1607,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ListOrdersResponse;
+      let returnType = StreamOrderUpdatesResponse;
 
       return this.apiClient.callApi(
-        '/v1/user/{user_id}/orders/all/stream', 'GET',
+        '/v1/user/{user_id}/orders/all/updates/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1655,7 +1660,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserTransactionsStream operation.
      * @callback moduleapi/DefaultApi~getUserTransactionsStreamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ListTransactionsResponse{ data The data returned by the service call.
+     * @param {module:model/StreamTransactionsResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1691,7 +1696,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ListTransactionsResponse;
+      let returnType = StreamTransactionsResponse;
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}/transactions/stream', 'GET',
@@ -2423,8 +2428,8 @@ export default class DefaultApi {
      * List all orders
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.orderBookId 
-     * @param {module:model/OrderKind} opts.kind 
-     * @param {module:model/OrderStatus} opts.status 
+     * @param {Array.<module:model/OrderKind>} opts.kind 
+     * @param {Array.<module:model/OrderStatus>} opts.status 
      * @param {module:model/Side} opts.side 
      * @param {Date} opts.from 
      * @param {Date} opts.to 
@@ -2441,7 +2446,7 @@ export default class DefaultApi {
         
       };
       let queryParams = {
-        'order_book_id': this.apiClient.buildCollectionParam(opts['orderBookId'], 'multi'),'kind': opts['kind'],'status': opts['status'],'side': opts['side'],'from': opts['from'],'to': opts['to'],'page': opts['page'],'limit': opts['limit']
+        'order_book_id': this.apiClient.buildCollectionParam(opts['orderBookId'], 'multi'),'kind': this.apiClient.buildCollectionParam(opts['kind'], 'multi'),'status': this.apiClient.buildCollectionParam(opts['status'], 'multi'),'side': opts['side'],'from': opts['from'],'to': opts['to'],'page': opts['page'],'limit': opts['limit']
       };
       let headerParams = {
         
@@ -2465,12 +2470,13 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamAssetPrices operation.
      * @callback moduleapi/DefaultApi~streamAssetPricesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ListAssetPriceResponse{ data The data returned by the service call.
+     * @param {module:model/StreamAssetPricesResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get a snapshot of asset prices from a specific date and open a stream for real-time updates
+     * Stream real-time asset prices as map objects
+     * Opens a WebSocket stream for real-time asset price updates. First message contains all current prices, subsequent messages contain only changed prices. Data is sent as JSON objects keyed by asset ID.
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
      * @param {module:api/DefaultApi~streamAssetPricesCallback} callback The callback function, accepting three arguments: error, data, response
@@ -2496,10 +2502,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ListAssetPriceResponse;
+      let returnType = StreamAssetPricesResponse;
 
       return this.apiClient.callApi(
-        '/v1/price/stream', 'GET',
+        '/v1/prices/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2508,29 +2514,29 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamCandleData operation.
      * @callback moduleapi/DefaultApi~streamCandleDataCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ListCandlesResponse{ data The data returned by the service call.
+     * @param {module:model/StreamCandlesResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
-     * @param {String} orderbook 
+     * @param {String} orderBookId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
      * @param {module:model/CandleResolution} opts.resolution 
      * @param {module:api/DefaultApi~streamCandleDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    streamCandleData(orderbook, opts, callback) {
+    streamCandleData(orderBookId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'orderbook' is set
-      if (orderbook === undefined || orderbook === null) {
-        throw new Error("Missing the required parameter 'orderbook' when calling streamCandleData");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling streamCandleData");
       }
 
       let pathParams = {
-        'orderbook': orderbook
+        'order_book_id': orderBookId
       };
       let queryParams = {
         'since': opts['since'],'resolution': opts['resolution']
@@ -2545,10 +2551,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ListCandlesResponse;
+      let returnType = StreamCandlesResponse;
 
       return this.apiClient.callApi(
-        '/v1/charts/{orderbook}/candle/stream', 'GET',
+        '/v1/charts/{order_book_id}/candle/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2557,7 +2563,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamOrderBookBalances operation.
      * @callback moduleapi/DefaultApi~streamOrderBookBalancesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/OrderBookBalanceResponse{ data The data returned by the service call.
+     * @param {module:model/StreamOrderBookBalancesResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2593,10 +2599,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = OrderBookBalanceResponse;
+      let returnType = StreamOrderBookBalancesResponse;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{order_book_id}/stream/balances', 'GET',
+        '/v1/orderbooks/{order_book_id}/balances/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2605,7 +2611,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamOrderbookOpenOrders operation.
      * @callback moduleapi/DefaultApi~streamOrderbookOpenOrdersCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ListOrdersResponse{ data The data returned by the service call.
+     * @param {module:model/LiveOrderbook{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2641,10 +2647,10 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ListOrdersResponse;
+      let returnType = LiveOrderbook;
 
       return this.apiClient.callApi(
-        '/v1/orderbooks/{order_book_id}/stream/open', 'GET',
+        '/v1/orderbooks/{order_book_id}/open/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2653,28 +2659,28 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamTrades operation.
      * @callback moduleapi/DefaultApi~streamTradesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ListTradeResponse{ data The data returned by the service call.
+     * @param {module:model/StreamTradesResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
-     * @param {String} orderbookId 
+     * @param {String} orderBookId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
      * @param {module:api/DefaultApi~streamTradesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    streamTrades(orderbookId, opts, callback) {
+    streamTrades(orderBookId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'orderbookId' is set
-      if (orderbookId === undefined || orderbookId === null) {
-        throw new Error("Missing the required parameter 'orderbookId' when calling streamTrades");
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling streamTrades");
       }
 
       let pathParams = {
-        'orderbookId': orderbookId
+        'order_book_id': orderBookId
       };
       let queryParams = {
         'since': opts['since']
@@ -2689,7 +2695,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ListTradeResponse;
+      let returnType = StreamTradesResponse;
 
       return this.apiClient.callApi(
         '/v1/trades/{order_book_id}/stream', 'GET',

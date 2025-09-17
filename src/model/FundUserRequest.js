@@ -24,12 +24,10 @@ export default class FundUserRequest {
    * Constructs a new <code>FundUserRequest</code>.
    * @alias module:model/FundUserRequest
    * @class
-   * @param positionId {String} 
    * @param assetId {String} 
    * @param quantity {String} 
    */
-  constructor(positionId, assetId, quantity) {
-    this.positionId = positionId;
+  constructor(assetId, quantity) {
     this.assetId = assetId;
     this.quantity = quantity;
   }
@@ -44,8 +42,6 @@ export default class FundUserRequest {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new FundUserRequest();
-      if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
       if (data.hasOwnProperty('asset_id'))
         obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
       if (data.hasOwnProperty('quantity'))
@@ -54,11 +50,6 @@ export default class FundUserRequest {
     return obj;
   }
 }
-
-/**
- * @member {String} positionId
- */
-FundUserRequest.prototype.positionId = undefined;
 
 /**
  * @member {String} assetId

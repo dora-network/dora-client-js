@@ -92,10 +92,10 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**createOrder**](docs/DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 *Dora.DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
 *Dora.DefaultApi* | [**getAllAssetPrices**](docs/DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
-*Dora.DefaultApi* | [**getAssetById**](docs/DefaultApi.md#getAssetById) | **GET** /v1/assets/{id} | Get asset by ID
+*Dora.DefaultApi* | [**getAssetById**](docs/DefaultApi.md#getAssetById) | **GET** /v1/assets/{asset_id} | Get asset by ID
 *Dora.DefaultApi* | [**getAssetPrice**](docs/DefaultApi.md#getAssetPrice) | **GET** /v1/price/asset/{asset_id} | Get the current price of an asset
-*Dora.DefaultApi* | [**getCandleData**](docs/DefaultApi.md#getCandleData) | **GET** /v1/charts/{orderbook}/candle | Get candlestick data for an orderbook
-*Dora.DefaultApi* | [**getCouponPaymentsByAssetId**](docs/DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{id}/coupon_payments | Get coupon payments for a bond asset
+*Dora.DefaultApi* | [**getCandleData**](docs/DefaultApi.md#getCandleData) | **GET** /v1/charts/{order_book_id}/candle | Get candlestick data for an orderbook
+*Dora.DefaultApi* | [**getCouponPaymentsByAssetId**](docs/DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{asset_id}/coupon_payments | Get coupon payments for a bond asset
 *Dora.DefaultApi* | [**getL1Depth**](docs/DefaultApi.md#getL1Depth) | **GET** /v1/orderbooks/{order_book_id}/L1 | Get the top price levels for a specific orderbook (L1 market depth)
 *Dora.DefaultApi* | [**getL2Depth**](docs/DefaultApi.md#getL2Depth) | **GET** /v1/orderbooks/{order_book_id}/L2 | Get the aggregated price levels for a specific orderbook (L2 market depth)
 *Dora.DefaultApi* | [**getL3Depth**](docs/DefaultApi.md#getL3Depth) | **GET** /v1/orderbooks/{order_book_id}/L3 | Get all open orders for a specific orderbook (L3 market depth)
@@ -114,12 +114,12 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getPoolPrice**](docs/DefaultApi.md#getPoolPrice) | **GET** /v1/price/pool/{pool_id} | Get the current price of a pool
 *Dora.DefaultApi* | [**getTradeById**](docs/DefaultApi.md#getTradeById) | **GET** /v1/trades/{trade_id} | Get a trade by ID
 *Dora.DefaultApi* | [**getTrades**](docs/DefaultApi.md#getTrades) | **GET** /v1/trades | Get a filtered, paginated list of trades
-*Dora.DefaultApi* | [**getTransactionById**](docs/DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{id} | Get a transaction by ID
+*Dora.DefaultApi* | [**getTransactionById**](docs/DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{transaction_id} | Get a transaction by ID
 *Dora.DefaultApi* | [**getTransactions**](docs/DefaultApi.md#getTransactions) | **GET** /v1/transactions | Get a filtered, paginated list of transactions
 *Dora.DefaultApi* | [**getUserById**](docs/DefaultApi.md#getUserById) | **GET** /v1/user/{user_id} | Get user by ID (admin only)
 *Dora.DefaultApi* | [**getUserLedgerStream**](docs/DefaultApi.md#getUserLedgerStream) | **GET** /v1/user/{user_id}/ledger/stream | Get a snapshot of user&#x27;s ledger updates since a specific time, and opens a stream for further updates
-*Dora.DefaultApi* | [**getUserOrdersStream**](docs/DefaultApi.md#getUserOrdersStream) | **GET** /v1/user/{user_id}/orders/{order_book_id}/stream | Get a snapshot of user&#x27;s order updates for the given order book since a specific time, and opens a stream for further updates
-*Dora.DefaultApi* | [**getUserOrdersStreamAll**](docs/DefaultApi.md#getUserOrdersStreamAll) | **GET** /v1/user/{user_id}/orders/all/stream | Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
+*Dora.DefaultApi* | [**getUserOrderUpdatesStream**](docs/DefaultApi.md#getUserOrderUpdatesStream) | **GET** /v1/user/{user_id}/orders/{order_book_id}/updates/stream | Get a snapshot of user&#x27;s order updates for the given order book since a specific time, and opens a stream for further updates
+*Dora.DefaultApi* | [**getUserOrdersUpdatesStreamAll**](docs/DefaultApi.md#getUserOrdersUpdatesStreamAll) | **GET** /v1/user/{user_id}/orders/all/updates/stream | Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
 *Dora.DefaultApi* | [**getUserSelf**](docs/DefaultApi.md#getUserSelf) | **GET** /v1/user/self | Get user details for the authenticated user
 *Dora.DefaultApi* | [**getUserTransactionsStream**](docs/DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
 *Dora.DefaultApi* | [**ledgerDeposit**](docs/DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit | Deposit assets into your account from the outside world
@@ -138,10 +138,10 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**listAssets**](docs/DefaultApi.md#listAssets) | **GET** /v1/assets | List assets
 *Dora.DefaultApi* | [**listOrderBooks**](docs/DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 *Dora.DefaultApi* | [**listOrders**](docs/DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
-*Dora.DefaultApi* | [**streamAssetPrices**](docs/DefaultApi.md#streamAssetPrices) | **GET** /v1/price/stream | Get a snapshot of asset prices from a specific date and open a stream for real-time updates
-*Dora.DefaultApi* | [**streamCandleData**](docs/DefaultApi.md#streamCandleData) | **GET** /v1/charts/{orderbook}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
-*Dora.DefaultApi* | [**streamOrderBookBalances**](docs/DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/stream/balances | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
-*Dora.DefaultApi* | [**streamOrderbookOpenOrders**](docs/DefaultApi.md#streamOrderbookOpenOrders) | **GET** /v1/orderbooks/{order_book_id}/stream/open | Get a snapshot of open orders in an order book and open a stream for real-time updates
+*Dora.DefaultApi* | [**streamAssetPrices**](docs/DefaultApi.md#streamAssetPrices) | **GET** /v1/prices/stream | Stream real-time asset prices as map objects
+*Dora.DefaultApi* | [**streamCandleData**](docs/DefaultApi.md#streamCandleData) | **GET** /v1/charts/{order_book_id}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
+*Dora.DefaultApi* | [**streamOrderBookBalances**](docs/DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
+*Dora.DefaultApi* | [**streamOrderbookOpenOrders**](docs/DefaultApi.md#streamOrderbookOpenOrders) | **GET** /v1/orderbooks/{order_book_id}/open/stream | Get a snapshot of open orders in an order book and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamTrades**](docs/DefaultApi.md#streamTrades) | **GET** /v1/trades/{order_book_id}/stream | Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
 *Dora.DefaultApi* | [**updateUserConfig**](docs/DefaultApi.md#updateUserConfig) | **PUT** /v1/user/{user_id}/config | Update user configuration by ID
 *Dora.DefaultApi* | [**updateUserConfigSelf**](docs/DefaultApi.md#updateUserConfigSelf) | **PUT** /v1/user/config/self | Update user configuration for the authenticated user
@@ -158,8 +158,7 @@ Class | Method | HTTP request | Description
  - [Dora.BondKind](docs/BondKind.md)
  - [Dora.BorrowRequest](docs/BorrowRequest.md)
  - [Dora.BorrowResponse](docs/BorrowResponse.md)
- - [Dora.CancelOrdersResponse](docs/CancelOrdersResponse.md)
- - [Dora.CancelOrdersResponseData](docs/CancelOrdersResponseData.md)
+ - [Dora.CancelOrderResponse](docs/CancelOrderResponse.md)
  - [Dora.Candle](docs/Candle.md)
  - [Dora.CandleResolution](docs/CandleResolution.md)
  - [Dora.Collateral](docs/Collateral.md)
@@ -168,6 +167,7 @@ Class | Method | HTTP request | Description
  - [Dora.CouponPayment](docs/CouponPayment.md)
  - [Dora.CreateOrUpdateUserResponse](docs/CreateOrUpdateUserResponse.md)
  - [Dora.CreateOrderRequest](docs/CreateOrderRequest.md)
+ - [Dora.CreateOrderResponse](docs/CreateOrderResponse.md)
  - [Dora.DeCollateralizeRequest](docs/DeCollateralizeRequest.md)
  - [Dora.DeCollateralizeResponse](docs/DeCollateralizeResponse.md)
  - [Dora.FundUser](docs/FundUser.md)
@@ -209,12 +209,12 @@ Class | Method | HTTP request | Description
  - [Dora.ListPositionsResponse](docs/ListPositionsResponse.md)
  - [Dora.ListTradeResponse](docs/ListTradeResponse.md)
  - [Dora.ListTransactionsResponse](docs/ListTransactionsResponse.md)
+ - [Dora.LiveOrderbook](docs/LiveOrderbook.md)
  - [Dora.Metadata](docs/Metadata.md)
  - [Dora.ModuleBalance](docs/ModuleBalance.md)
  - [Dora.Order](docs/Order.md)
  - [Dora.OrderBook](docs/OrderBook.md)
  - [Dora.OrderBookBalance](docs/OrderBookBalance.md)
- - [Dora.OrderBookBalanceResponse](docs/OrderBookBalanceResponse.md)
  - [Dora.OrderBookDepth](docs/OrderBookDepth.md)
  - [Dora.OrderBookHaltResponse](docs/OrderBookHaltResponse.md)
  - [Dora.OrderBookResumeResponse](docs/OrderBookResumeResponse.md)
@@ -222,7 +222,6 @@ Class | Method | HTTP request | Description
  - [Dora.OrderBookSummary](docs/OrderBookSummary.md)
  - [Dora.OrderBookTerminateResponse](docs/OrderBookTerminateResponse.md)
  - [Dora.OrderBookTop](docs/OrderBookTop.md)
- - [Dora.OrderCancelledResponse](docs/OrderCancelledResponse.md)
  - [Dora.OrderId](docs/OrderId.md)
  - [Dora.OrderKind](docs/OrderKind.md)
  - [Dora.OrderModifierKind](docs/OrderModifierKind.md)
@@ -238,6 +237,22 @@ Class | Method | HTTP request | Description
  - [Dora.RepayResponse](docs/RepayResponse.md)
  - [Dora.ResponseEnvelope](docs/ResponseEnvelope.md)
  - [Dora.Side](docs/Side.md)
+ - [Dora.StreamAssetPricesResponse](docs/StreamAssetPricesResponse.md)
+ - [Dora.StreamCandlesEntry](docs/StreamCandlesEntry.md)
+ - [Dora.StreamCandlesResponse](docs/StreamCandlesResponse.md)
+ - [Dora.StreamEntry](docs/StreamEntry.md)
+ - [Dora.StreamOrderBookBalanceEntry](docs/StreamOrderBookBalanceEntry.md)
+ - [Dora.StreamOrderBookBalancesResponse](docs/StreamOrderBookBalancesResponse.md)
+ - [Dora.StreamOrderUpdatesEntry](docs/StreamOrderUpdatesEntry.md)
+ - [Dora.StreamOrderUpdatesResponse](docs/StreamOrderUpdatesResponse.md)
+ - [Dora.StreamOrdersEntry](docs/StreamOrdersEntry.md)
+ - [Dora.StreamOrdersResponse](docs/StreamOrdersResponse.md)
+ - [Dora.StreamPositionsEntry](docs/StreamPositionsEntry.md)
+ - [Dora.StreamPositionsResponse](docs/StreamPositionsResponse.md)
+ - [Dora.StreamTradesEntry](docs/StreamTradesEntry.md)
+ - [Dora.StreamTradesResponse](docs/StreamTradesResponse.md)
+ - [Dora.StreamTransactionsEntry](docs/StreamTransactionsEntry.md)
+ - [Dora.StreamTransactionsResponse](docs/StreamTransactionsResponse.md)
  - [Dora.Supply](docs/Supply.md)
  - [Dora.SupplyRequest](docs/SupplyRequest.md)
  - [Dora.SupplyResponse](docs/SupplyResponse.md)

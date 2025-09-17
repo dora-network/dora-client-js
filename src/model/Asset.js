@@ -48,6 +48,8 @@ export default class Asset {
         obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
       if (data.hasOwnProperty('decimals'))
         obj.decimals = ApiClient.convertToType(data['decimals'], 'Number');
+      if (data.hasOwnProperty('fractionalized_units'))
+        obj.fractionalizedUnits = ApiClient.convertToType(data['fractionalized_units'], 'Number');
       if (data.hasOwnProperty('description'))
         obj.description = ApiClient.convertToType(data['description'], 'String');
       if (data.hasOwnProperty('liquidation_threshold'))
@@ -102,6 +104,11 @@ Asset.prototype.createdAt = undefined;
  * @member {Number} decimals
  */
 Asset.prototype.decimals = undefined;
+
+/**
+ * @member {Number} fractionalizedUnits
+ */
+Asset.prototype.fractionalizedUnits = undefined;
 
 /**
  * @member {String} description

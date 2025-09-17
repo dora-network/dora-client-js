@@ -42,8 +42,8 @@ export default class AssetPrice {
         obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
       if (data.hasOwnProperty('price'))
         obj.price = ApiClient.convertToType(data['price'], 'String');
-      if (data.hasOwnProperty('timestamp'))
-        obj.timestamp = ApiClient.convertToType(data['timestamp'], 'Date');
+      if (data.hasOwnProperty('time'))
+        obj.time = ApiClient.convertToType(data['time'], 'Date');
     }
     return obj;
   }
@@ -60,7 +60,7 @@ AssetPrice.prototype.assetId = undefined;
 AssetPrice.prototype.price = undefined;
 
 /**
- * @member {Date} timestamp
+ * @member {Date} time
  */
-AssetPrice.prototype.timestamp = undefined;
+AssetPrice.prototype.time = undefined;
 

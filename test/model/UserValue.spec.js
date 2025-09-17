@@ -57,6 +57,42 @@
         // expect(instance.borrowed).to.be(expectedValueLiteral);
       });
 
+      it('should have the property supplied (base name: "supplied")', function() {
+        // TODO: update the code to test the property supplied
+        expect(instance).to.have.property('supplied');
+        // expect(instance.supplied).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property collateral (base name: "collateral")', function() {
+        // TODO: update the code to test the property collateral
+        expect(instance).to.have.property('collateral');
+        // expect(instance.collateral).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property suppliedCollateral (base name: "supplied_collateral")', function() {
+        // TODO: update the code to test the property suppliedCollateral
+        expect(instance).to.have.property('suppliedCollateral');
+        // expect(instance.suppliedCollateral).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property impendingBorrows (base name: "impending_borrows")', function() {
+        // TODO: update the code to test the property impendingBorrows
+        expect(instance).to.have.property('impendingBorrows');
+        // expect(instance.impendingBorrows).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property borrowLimit (base name: "borrow_limit")', function() {
+        // TODO: update the code to test the property borrowLimit
+        expect(instance).to.have.property('borrowLimit');
+        // expect(instance.borrowLimit).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property liquidationThreshold (base name: "liquidation_threshold")', function() {
+        // TODO: update the code to test the property liquidationThreshold
+        expect(instance).to.have.property('liquidationThreshold');
+        // expect(instance.liquidationThreshold).to.be(expectedValueLiteral);
+      });
+
       it('should have the property notionalLong (base name: "notional_long")', function() {
         // TODO: update the code to test the property notionalLong
         expect(instance).to.have.property('notionalLong');

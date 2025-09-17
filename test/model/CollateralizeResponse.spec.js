@@ -39,28 +39,10 @@
         expect(instance).to.be.a(Dora.CollateralizeResponse);
       });
 
-      it('should have the property positionId (base name: "position_id")', function() {
-        // TODO: update the code to test the property positionId
-        expect(instance).to.have.property('positionId');
-        // expect(instance.positionId).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property transactionId (base name: "transaction_id")', function() {
-        // TODO: update the code to test the property transactionId
-        expect(instance).to.have.property('transactionId');
-        // expect(instance.transactionId).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property assetId (base name: "asset_id")', function() {
-        // TODO: update the code to test the property assetId
-        expect(instance).to.have.property('assetId');
-        // expect(instance.assetId).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property quantity (base name: "quantity")', function() {
-        // TODO: update the code to test the property quantity
-        expect(instance).to.have.property('quantity');
-        // expect(instance.quantity).to.be(expectedValueLiteral);
+      it('should have the property data (base name: "data")', function() {
+        // TODO: update the code to test the property data
+        expect(instance).to.have.property('data');
+        // expect(instance.data).to.be(expectedValueLiteral);
       });
 
     });

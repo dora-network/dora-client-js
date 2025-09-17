@@ -45,14 +45,14 @@ export default class ListOrderBookDepthResponse extends ResponseEnvelope {
       obj = obj || new ListOrderBookDepthResponse();
       ResponseEnvelope.constructFromObject(data, obj);
       if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [OrderBookDepth]);
+        obj.data = OrderBookDepth.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {Array.<module:model/OrderBookDepth>} data
+ * @member {module:model/OrderBookDepth} data
  */
 ListOrderBookDepthResponse.prototype.data = undefined;
 

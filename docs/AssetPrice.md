@@ -5,4 +5,4 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assetId** | **String** |  | [optional] 
 **price** | **String** |  | [optional] 
-**timestamp** | **Date** |  | [optional] 
+**time** | **Date** |  | [optional] 

@@ -60,6 +60,10 @@ export default class Position {
         obj.borrowed = ApiClient.convertToType(data['borrowed'], 'String');
       if (data.hasOwnProperty('impending_borrows'))
         obj.impendingBorrows = ApiClient.convertToType(data['impending_borrows'], 'String');
+      if (data.hasOwnProperty('avg_entry_price'))
+        obj.avgEntryPrice = ApiClient.convertToType(data['avg_entry_price'], 'String');
+      if (data.hasOwnProperty('created_at'))
+        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
     }
     return obj;
   }
@@ -127,4 +131,15 @@ Position.prototype.borrowed = undefined;
  * @member {String} impendingBorrows
  */
 Position.prototype.impendingBorrows = undefined;
+
+/**
+ * average cost per unit quantity that was paid (long positions) or received (short positions) for this asset.
+ * @member {String} avgEntryPrice
+ */
+Position.prototype.avgEntryPrice = undefined;
+
+/**
+ * @member {Date} createdAt
+ */
+Position.prototype.createdAt = undefined;
 

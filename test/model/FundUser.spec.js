@@ -57,10 +57,10 @@
         // expect(instance.assetId).to.be(expectedValueLiteral);
       });
 
-      it('should have the property finalAmount (base name: "final_amount")', function() {
-        // TODO: update the code to test the property finalAmount
-        expect(instance).to.have.property('finalAmount');
-        // expect(instance.finalAmount).to.be(expectedValueLiteral);
+      it('should have the property finalQuantity (base name: "final_quantity")', function() {
+        // TODO: update the code to test the property finalQuantity
+        expect(instance).to.have.property('finalQuantity');
+        // expect(instance.finalQuantity).to.be(expectedValueLiteral);
       });
 
     });

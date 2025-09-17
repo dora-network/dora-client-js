@@ -45,16 +45,22 @@
         // expect(instance.orderBookId).to.be(expectedValueLiteral);
       });
 
-      it('should have the property baseBalance (base name: "base_balance")', function() {
-        // TODO: update the code to test the property baseBalance
-        expect(instance).to.have.property('baseBalance');
-        // expect(instance.baseBalance).to.be(expectedValueLiteral);
+      it('should have the property baseQuantity (base name: "base_quantity")', function() {
+        // TODO: update the code to test the property baseQuantity
+        expect(instance).to.have.property('baseQuantity');
+        // expect(instance.baseQuantity).to.be(expectedValueLiteral);
       });
 
-      it('should have the property quoteBalance (base name: "quote_balance")', function() {
-        // TODO: update the code to test the property quoteBalance
-        expect(instance).to.have.property('quoteBalance');
-        // expect(instance.quoteBalance).to.be(expectedValueLiteral);
+      it('should have the property quoteQuantity (base name: "quote_quantity")', function() {
+        // TODO: update the code to test the property quoteQuantity
+        expect(instance).to.have.property('quoteQuantity');
+        // expect(instance.quoteQuantity).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property sharesQuantity (base name: "shares_quantity")', function() {
+        // TODO: update the code to test the property sharesQuantity
+        expect(instance).to.have.property('sharesQuantity');
+        // expect(instance.sharesQuantity).to.be(expectedValueLiteral);
       });
 
     });

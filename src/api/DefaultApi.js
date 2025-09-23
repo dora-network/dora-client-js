@@ -1472,13 +1472,11 @@ export default class DefaultApi {
     /**
      * Get a snapshot of user&#x27;s ledger updates since a specific time, and opens a stream for further updates
      * @param {String} userId 
-     * @param {Object} opts Optional parameters
-     * @param {Date} opts.since 
      * @param {module:api/DefaultApi~getUserLedgerStreamCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getUserLedgerStream(userId, opts, callback) {
-      opts = opts || {};
+    getUserLedgerStream(userId, callback) {
+      
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
@@ -1489,7 +1487,7 @@ export default class DefaultApi {
         'user_id': userId
       };
       let queryParams = {
-        'since': opts['since']
+        
       };
       let headerParams = {
         
@@ -2312,7 +2310,7 @@ export default class DefaultApi {
       let returnType = LiquidityResponse;
 
       return this.apiClient.callApi(
-        '/v1/liquidity/pool/{pool_id}/subtract', 'POST',
+        '/v1/liquidity/pool/{pool_id}/remove', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

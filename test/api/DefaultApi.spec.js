@@ -641,9 +641,8 @@
         it('should call getUserLedgerStream successfully', function(done) {
           // TODO: uncomment, update parameter values for getUserLedgerStream call and complete the assertions
           /*
-          var opts = {};
 
-          instance.getUserLedgerStream(userId, opts, function(error, data, response) {
+          instance.getUserLedgerStream(userId, function(error, data, response) {
             if (error) {
               done(error);
               return;

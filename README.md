@@ -134,7 +134,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**leverageUnite**](docs/DefaultApi.md#leverageUnite) | **POST** /v1/leverage/unite | Combines all isolated positions into a single global position
 *Dora.DefaultApi* | [**leverageWithdraw**](docs/DefaultApi.md#leverageWithdraw) | **POST** /v1/leverage/withdraw | Withdraw leverage for a specific asset
 *Dora.DefaultApi* | [**liquidityAdd**](docs/DefaultApi.md#liquidityAdd) | **POST** /v1/liquidity/pool/{pool_id}/add | Add liquidity to a pool
-*Dora.DefaultApi* | [**liquiditySubtract**](docs/DefaultApi.md#liquiditySubtract) | **POST** /v1/liquidity/pool/{pool_id}/subtract | Subtract liquidity from a pool
+*Dora.DefaultApi* | [**liquiditySubtract**](docs/DefaultApi.md#liquiditySubtract) | **POST** /v1/liquidity/pool/{pool_id}/remove | Subtract liquidity from a pool
 *Dora.DefaultApi* | [**listAssets**](docs/DefaultApi.md#listAssets) | **GET** /v1/assets | List assets
 *Dora.DefaultApi* | [**listOrderBooks**](docs/DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 *Dora.DefaultApi* | [**listOrders**](docs/DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders

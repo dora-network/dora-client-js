@@ -51,7 +51,7 @@ Method | HTTP request | Description
 [**leverageUnite**](DefaultApi.md#leverageUnite) | **POST** /v1/leverage/unite | Combines all isolated positions into a single global position
 [**leverageWithdraw**](DefaultApi.md#leverageWithdraw) | **POST** /v1/leverage/withdraw | Withdraw leverage for a specific asset
 [**liquidityAdd**](DefaultApi.md#liquidityAdd) | **POST** /v1/liquidity/pool/{pool_id}/add | Add liquidity to a pool
-[**liquiditySubtract**](DefaultApi.md#liquiditySubtract) | **POST** /v1/liquidity/pool/{pool_id}/subtract | Subtract liquidity from a pool
+[**liquiditySubtract**](DefaultApi.md#liquiditySubtract) | **POST** /v1/liquidity/pool/{pool_id}/remove | Subtract liquidity from a pool
 [**listAssets**](DefaultApi.md#listAssets) | **GET** /v1/assets | List assets
 [**listOrderBooks**](DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 [**listOrders**](DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
@@ -1292,7 +1292,7 @@ No authorization required
 
 <a name="getUserLedgerStream"></a>
 # **getUserLedgerStream**
-> StreamPositionsResponse getUserLedgerStream(userId, opts)
+> StreamPositionsResponse getUserLedgerStream(userId)
 
 Get a snapshot of user&#x27;s ledger updates since a specific time, and opens a stream for further updates
 
@@ -1302,10 +1302,8 @@ import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
 let userId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
-let opts = { 
-  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
-};
-apiInstance.getUserLedgerStream(userId, opts, (error, data, response) => {
+
+apiInstance.getUserLedgerStream(userId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -1319,7 +1317,6 @@ apiInstance.getUserLedgerStream(userId, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | [**String**](.md)|  | 
- **since** | **Date**|  | [optional] 
 
 ### Return type
 

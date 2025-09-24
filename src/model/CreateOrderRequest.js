@@ -67,8 +67,6 @@ export default class CreateOrderRequest {
         obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
       if (data.hasOwnProperty('order_book_id'))
         obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
-      if (data.hasOwnProperty('order_info'))
-        obj.orderInfo = ApiClient.convertToType(data['order_info'], 'String');
       if (data.hasOwnProperty('order_modifiers'))
         obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], [OrderModifierKind]);
     }
@@ -112,12 +110,6 @@ CreateOrderRequest.prototype.positionId = undefined;
  * @member {String} orderBookId
  */
 CreateOrderRequest.prototype.orderBookId = undefined;
-
-/**
- * Optional: User-defined text for the order, e.g., 'buying dips'
- * @member {String} orderInfo
- */
-CreateOrderRequest.prototype.orderInfo = undefined;
 
 /**
  * @member {Array.<module:model/OrderModifierKind>} orderModifiers

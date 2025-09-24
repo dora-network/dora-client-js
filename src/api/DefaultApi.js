@@ -15,8 +15,6 @@
 import ApiClient from "../ApiClient";
 import AssetKind from '../model/AssetKind';
 import AssetRequestError from '../model/AssetRequestError';
-import BorrowRequest from '../model/BorrowRequest';
-import BorrowResponse from '../model/BorrowResponse';
 import CancelOrderResponse from '../model/CancelOrderResponse';
 import CandleResolution from '../model/CandleResolution';
 import CollateralizeRequest from '../model/CollateralizeRequest';
@@ -59,11 +57,10 @@ import OrderBookStatus from '../model/OrderBookStatus';
 import OrderKind from '../model/OrderKind';
 import OrderStatus from '../model/OrderStatus';
 import PoolRequestError from '../model/PoolRequestError';
-import RepayRequest from '../model/RepayRequest';
-import RepayResponse from '../model/RepayResponse';
 import ResponseEnvelope from '../model/ResponseEnvelope';
 import Side from '../model/Side';
 import StreamAssetPricesResponse from '../model/StreamAssetPricesResponse';
+import StreamAssetsResponse from '../model/StreamAssetsResponse';
 import StreamCandlesResponse from '../model/StreamCandlesResponse';
 import StreamOrderBookBalancesResponse from '../model/StreamOrderBookBalancesResponse';
 import StreamOrderUpdatesResponse from '../model/StreamOrderUpdatesResponse';
@@ -415,6 +412,50 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/price/asset/{asset_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the getAssetsStream operation.
+     * @callback moduleapi/DefaultApi~getAssetsStreamCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/StreamAssetsResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get all inserts or updates for assets
+     * @param {Object} opts Optional parameters
+     * @param {Date} opts.since 
+     * @param {Date} opts.until 
+     * @param {module:api/DefaultApi~getAssetsStreamCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    getAssetsStream(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        'since': opts['since'],'until': opts['until']
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = StreamAssetsResponse;
+
+      return this.apiClient.callApi(
+        '/v1/assets/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1571,26 +1612,21 @@ export default class DefaultApi {
     /**
      * Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
      * @param {String} userId 
-     * @param {String} orderBookId 
      * @param {Object} opts Optional parameters
      * @param {Date} opts.since 
      * @param {module:api/DefaultApi~getUserOrdersUpdatesStreamAllCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    getUserOrdersUpdatesStreamAll(userId, orderBookId, opts, callback) {
+    getUserOrdersUpdatesStreamAll(userId, opts, callback) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling getUserOrdersUpdatesStreamAll");
       }
-      // verify the required parameter 'orderBookId' is set
-      if (orderBookId === undefined || orderBookId === null) {
-        throw new Error("Missing the required parameter 'orderBookId' when calling getUserOrdersUpdatesStreamAll");
-      }
 
       let pathParams = {
-        'user_id': userId,'order_book_id': orderBookId
+        'user_id': userId
       };
       let queryParams = {
         'since': opts['since']
@@ -1797,53 +1833,6 @@ export default class DefaultApi {
       );
     }
     /**
-     * Callback function to receive the result of the leverageBorrow operation.
-     * @callback moduleapi/DefaultApi~leverageBorrowCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/BorrowResponse{ data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Directly borrow assets
-     * TODO: Finish this when implementation has been completed
-     * @param {module:model/BorrowRequest} body 
-     * @param {module:api/DefaultApi~leverageBorrowCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
-     */
-    leverageBorrow(body, callback) {
-      
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling leverageBorrow");
-      }
-
-      let pathParams = {
-        
-      };
-      let queryParams = {
-        
-      };
-      let headerParams = {
-        
-      };
-      let formParams = {
-        
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = BorrowResponse;
-
-      return this.apiClient.callApi(
-        '/v1/leverage/borrow', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-    /**
      * Callback function to receive the result of the leverageCollateralize operation.
      * @callback moduleapi/DefaultApi~leverageCollateralizeCallback
      * @param {String} error Error message, if any.
@@ -2028,53 +2017,6 @@ export default class DefaultApi {
       );
     }
     /**
-     * Callback function to receive the result of the leverageRepay operation.
-     * @callback moduleapi/DefaultApi~leverageRepayCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/RepayResponse{ data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Repay borrowed assets
-     * TODO: Finish this when implementation has been completed
-     * @param {module:model/RepayRequest} body 
-     * @param {module:api/DefaultApi~leverageRepayCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
-     */
-    leverageRepay(body, callback) {
-      
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling leverageRepay");
-      }
-
-      let pathParams = {
-        
-      };
-      let queryParams = {
-        
-      };
-      let headerParams = {
-        
-      };
-      let formParams = {
-        
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = RepayResponse;
-
-      return this.apiClient.callApi(
-        '/v1/leverage/repay', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-    /**
      * Callback function to receive the result of the leverageSupply operation.
      * @callback moduleapi/DefaultApi~leverageSupplyCallback
      * @param {String} error Error message, if any.
@@ -2130,7 +2072,7 @@ export default class DefaultApi {
 
     /**
      * Combines all isolated positions into a single global position
-     * TODO: Finish this when implementation has been completed
+     * Combines all isolated positions into a single global position
      * @param {module:model/UnitePositionRequest} body 
      * @param {module:api/DefaultApi~leverageUniteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}

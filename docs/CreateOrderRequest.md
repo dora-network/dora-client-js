@@ -10,5 +10,4 @@ Name | Type | Description | Notes
 **side** | [**Side**](Side.md) |  | 
 **positionId** | **String** | position ID to use for the order. required. | 
 **orderBookId** | **String** | Required: the order book to submit the order to | 
-**orderInfo** | **String** | Optional: User-defined text for the order, e.g., &#x27;buying dips&#x27; | [optional] 
 **orderModifiers** | [**[OrderModifierKind]**](OrderModifierKind.md) |  | [optional] 

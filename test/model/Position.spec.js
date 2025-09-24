@@ -111,6 +111,18 @@
         // expect(instance.avgEntryPrice).to.be(expectedValueLiteral);
       });
 
+      it('should have the property borrowLimit (base name: "borrow_limit")', function() {
+        // TODO: update the code to test the property borrowLimit
+        expect(instance).to.have.property('borrowLimit');
+        // expect(instance.borrowLimit).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property liquidationThreshold (base name: "liquidation_threshold")', function() {
+        // TODO: update the code to test the property liquidationThreshold
+        expect(instance).to.have.property('liquidationThreshold');
+        // expect(instance.liquidationThreshold).to.be(expectedValueLiteral);
+      });
+
       it('should have the property createdAt (base name: "created_at")', function() {
         // TODO: update the code to test the property createdAt
         expect(instance).to.have.property('createdAt');

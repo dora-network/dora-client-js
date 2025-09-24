@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getAllAssetPrices**](docs/DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
 *Dora.DefaultApi* | [**getAssetById**](docs/DefaultApi.md#getAssetById) | **GET** /v1/assets/{asset_id} | Get asset by ID
 *Dora.DefaultApi* | [**getAssetPrice**](docs/DefaultApi.md#getAssetPrice) | **GET** /v1/price/asset/{asset_id} | Get the current price of an asset
+*Dora.DefaultApi* | [**getAssetsStream**](docs/DefaultApi.md#getAssetsStream) | **GET** /v1/assets/stream | Get all inserts or updates for assets
 *Dora.DefaultApi* | [**getCandleData**](docs/DefaultApi.md#getCandleData) | **GET** /v1/charts/{order_book_id}/candle | Get candlestick data for an orderbook
 *Dora.DefaultApi* | [**getCouponPaymentsByAssetId**](docs/DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{asset_id}/coupon_payments | Get coupon payments for a bond asset
 *Dora.DefaultApi* | [**getL1Depth**](docs/DefaultApi.md#getL1Depth) | **GET** /v1/orderbooks/{order_book_id}/L1 | Get the top price levels for a specific orderbook (L1 market depth)
@@ -124,12 +125,10 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getUserTransactionsStream**](docs/DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
 *Dora.DefaultApi* | [**ledgerDeposit**](docs/DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit | Deposit assets into your account from the outside world
 *Dora.DefaultApi* | [**ledgerWithdraw**](docs/DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw | Withdraw assets from your account to the outside world
-*Dora.DefaultApi* | [**leverageBorrow**](docs/DefaultApi.md#leverageBorrow) | **POST** /v1/leverage/borrow | Directly borrow assets
 *Dora.DefaultApi* | [**leverageCollateralize**](docs/DefaultApi.md#leverageCollateralize) | **POST** /v1/leverage/collateralize | Move supplied and available to supplied_collateral and collateral, for a specified position
 *Dora.DefaultApi* | [**leverageDeCollateralize**](docs/DefaultApi.md#leverageDeCollateralize) | **POST** /v1/leverage/de-collateralize | Move collateral and supplied_collateral to available and supplied, for a specified position.
 *Dora.DefaultApi* | [**leverageIsolateCollateral**](docs/DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
 *Dora.DefaultApi* | [**leverageIsolatePosition**](docs/DefaultApi.md#leverageIsolatePosition) | **POST** /v1/leverage/isolate_position | Create an isolated position using all collateral, supplied_collateral, and borrows from the user&#x27;s global position
-*Dora.DefaultApi* | [**leverageRepay**](docs/DefaultApi.md#leverageRepay) | **POST** /v1/leverage/repay | Repay borrowed assets
 *Dora.DefaultApi* | [**leverageSupply**](docs/DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
 *Dora.DefaultApi* | [**leverageUnite**](docs/DefaultApi.md#leverageUnite) | **POST** /v1/leverage/unite | Combines all isolated positions into a single global position
 *Dora.DefaultApi* | [**leverageWithdraw**](docs/DefaultApi.md#leverageWithdraw) | **POST** /v1/leverage/withdraw | Withdraw leverage for a specific asset
@@ -238,6 +237,8 @@ Class | Method | HTTP request | Description
  - [Dora.ResponseEnvelope](docs/ResponseEnvelope.md)
  - [Dora.Side](docs/Side.md)
  - [Dora.StreamAssetPricesResponse](docs/StreamAssetPricesResponse.md)
+ - [Dora.StreamAssetsEntry](docs/StreamAssetsEntry.md)
+ - [Dora.StreamAssetsResponse](docs/StreamAssetsResponse.md)
  - [Dora.StreamCandlesEntry](docs/StreamCandlesEntry.md)
  - [Dora.StreamCandlesResponse](docs/StreamCandlesResponse.md)
  - [Dora.StreamEntry](docs/StreamEntry.md)

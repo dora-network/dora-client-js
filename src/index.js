@@ -102,6 +102,8 @@ import RepayResponse from './model/RepayResponse';
 import ResponseEnvelope from './model/ResponseEnvelope';
 import Side from './model/Side';
 import StreamAssetPricesResponse from './model/StreamAssetPricesResponse';
+import StreamAssetsEntry from './model/StreamAssetsEntry';
+import StreamAssetsResponse from './model/StreamAssetsResponse';
 import StreamCandlesEntry from './model/StreamCandlesEntry';
 import StreamCandlesResponse from './model/StreamCandlesResponse';
 import StreamEntry from './model/StreamEntry';
@@ -720,6 +722,18 @@ export {
      * @property {module:model/StreamAssetPricesResponse}
      */
     StreamAssetPricesResponse,
+
+    /**
+     * The StreamAssetsEntry model constructor.
+     * @property {module:model/StreamAssetsEntry}
+     */
+    StreamAssetsEntry,
+
+    /**
+     * The StreamAssetsResponse model constructor.
+     * @property {module:model/StreamAssetsResponse}
+     */
+    StreamAssetsResponse,
 
     /**
      * The StreamCandlesEntry model constructor.

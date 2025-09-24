@@ -174,6 +174,27 @@
           done();
         });
       });
+      describe('getAssetsStream', function() {
+        it('should call getAssetsStream successfully', function(done) {
+          // TODO: uncomment, update parameter values for getAssetsStream call and complete the assertions
+          /*
+          var opts = {};
+
+          instance.getAssetsStream(opts, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.StreamAssetsResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('getCandleData', function() {
         it('should call getCandleData successfully', function(done) {
           // TODO: uncomment, update parameter values for getCandleData call and complete the assertions
@@ -684,7 +705,7 @@
           /*
           var opts = {};
 
-          instance.getUserOrdersUpdatesStreamAll(userId, orderBookId, opts, function(error, data, response) {
+          instance.getUserOrdersUpdatesStreamAll(userId, opts, function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -780,26 +801,6 @@
           done();
         });
       });
-      describe('leverageBorrow', function() {
-        it('should call leverageBorrow successfully', function(done) {
-          // TODO: uncomment, update parameter values for leverageBorrow call and complete the assertions
-          /*
-
-          instance.leverageBorrow(body, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
-            // TODO: update response assertions
-            expect(data).to.be.a(Dora.BorrowResponse);
-
-            done();
-          });
-          */
-          // TODO: uncomment and complete method invocation above, then delete this line and the next:
-          done();
-        });
-      });
       describe('leverageCollateralize', function() {
         it('should call leverageCollateralize successfully', function(done) {
           // TODO: uncomment, update parameter values for leverageCollateralize call and complete the assertions
@@ -872,26 +873,6 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.IsolatePositionResponse);
-
-            done();
-          });
-          */
-          // TODO: uncomment and complete method invocation above, then delete this line and the next:
-          done();
-        });
-      });
-      describe('leverageRepay', function() {
-        it('should call leverageRepay successfully', function(done) {
-          // TODO: uncomment, update parameter values for leverageRepay call and complete the assertions
-          /*
-
-          instance.leverageRepay(body, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
-            // TODO: update response assertions
-            expect(data).to.be.a(Dora.RepayResponse);
 
             done();
           });

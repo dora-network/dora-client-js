@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**getAllAssetPrices**](DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
 [**getAssetById**](DefaultApi.md#getAssetById) | **GET** /v1/assets/{asset_id} | Get asset by ID
 [**getAssetPrice**](DefaultApi.md#getAssetPrice) | **GET** /v1/price/asset/{asset_id} | Get the current price of an asset
+[**getAssetsStream**](DefaultApi.md#getAssetsStream) | **GET** /v1/assets/stream | Get all inserts or updates for assets
 [**getCandleData**](DefaultApi.md#getCandleData) | **GET** /v1/charts/{order_book_id}/candle | Get candlestick data for an orderbook
 [**getCouponPaymentsByAssetId**](DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{asset_id}/coupon_payments | Get coupon payments for a bond asset
 [**getL1Depth**](DefaultApi.md#getL1Depth) | **GET** /v1/orderbooks/{order_book_id}/L1 | Get the top price levels for a specific orderbook (L1 market depth)
@@ -41,12 +42,10 @@ Method | HTTP request | Description
 [**getUserTransactionsStream**](DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
 [**ledgerDeposit**](DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit | Deposit assets into your account from the outside world
 [**ledgerWithdraw**](DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw | Withdraw assets from your account to the outside world
-[**leverageBorrow**](DefaultApi.md#leverageBorrow) | **POST** /v1/leverage/borrow | Directly borrow assets
 [**leverageCollateralize**](DefaultApi.md#leverageCollateralize) | **POST** /v1/leverage/collateralize | Move supplied and available to supplied_collateral and collateral, for a specified position
 [**leverageDeCollateralize**](DefaultApi.md#leverageDeCollateralize) | **POST** /v1/leverage/de-collateralize | Move collateral and supplied_collateral to available and supplied, for a specified position.
 [**leverageIsolateCollateral**](DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
 [**leverageIsolatePosition**](DefaultApi.md#leverageIsolatePosition) | **POST** /v1/leverage/isolate_position | Create an isolated position using all collateral, supplied_collateral, and borrows from the user&#x27;s global position
-[**leverageRepay**](DefaultApi.md#leverageRepay) | **POST** /v1/leverage/repay | Repay borrowed assets
 [**leverageSupply**](DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
 [**leverageUnite**](DefaultApi.md#leverageUnite) | **POST** /v1/leverage/unite | Combines all isolated positions into a single global position
 [**leverageWithdraw**](DefaultApi.md#leverageWithdraw) | **POST** /v1/leverage/withdraw | Withdraw leverage for a specific asset
@@ -331,6 +330,50 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetAssetPriceResponse**](GetAssetPriceResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getAssetsStream"></a>
+# **getAssetsStream**
+> StreamAssetsResponse getAssetsStream(opts)
+
+Get all inserts or updates for assets
+
+### Example
+```javascript
+import {Dora} from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+let opts = { 
+  'since': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'until': new Date("2013-10-20T19:20:30+01:00") // Date | 
+};
+apiInstance.getAssetsStream(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **since** | **Date**|  | [optional] 
+ **until** | **Date**|  | [optional] 
+
+### Return type
+
+[**StreamAssetsResponse**](StreamAssetsResponse.md)
 
 ### Authorization
 
@@ -1379,7 +1422,7 @@ No authorization required
 
 <a name="getUserOrdersUpdatesStreamAll"></a>
 # **getUserOrdersUpdatesStreamAll**
-> StreamOrderUpdatesResponse getUserOrdersUpdatesStreamAll(userId, orderBookId, opts)
+> StreamOrderUpdatesResponse getUserOrdersUpdatesStreamAll(userId, opts)
 
 Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
 
@@ -1389,11 +1432,10 @@ import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
 let userId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
 let opts = { 
   'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
 };
-apiInstance.getUserOrdersUpdatesStreamAll(userId, orderBookId, opts, (error, data, response) => {
+apiInstance.getUserOrdersUpdatesStreamAll(userId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -1407,7 +1449,6 @@ apiInstance.getUserOrdersUpdatesStreamAll(userId, orderBookId, opts, (error, dat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | [**String**](.md)|  | 
- **orderBookId** | [**String**](.md)|  | 
  **since** | **Date**|  | [optional] 
 
 ### Return type
@@ -1589,49 +1630,6 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="leverageBorrow"></a>
-# **leverageBorrow**
-> BorrowResponse leverageBorrow(body)
-
-Directly borrow assets
-
-TODO: Finish this when implementation has been completed
-
-### Example
-```javascript
-import {Dora} from 'dora';
-
-let apiInstance = new Dora.DefaultApi();
-let body = new Dora.BorrowRequest(); // BorrowRequest | 
-
-apiInstance.leverageBorrow(body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**BorrowRequest**](BorrowRequest.md)|  | 
-
-### Return type
-
-[**BorrowResponse**](BorrowResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
 <a name="leverageCollateralize"></a>
 # **leverageCollateralize**
 > CollateralizeResponse leverageCollateralize(body)
@@ -1796,49 +1794,6 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="leverageRepay"></a>
-# **leverageRepay**
-> RepayResponse leverageRepay(body)
-
-Repay borrowed assets
-
-TODO: Finish this when implementation has been completed
-
-### Example
-```javascript
-import {Dora} from 'dora';
-
-let apiInstance = new Dora.DefaultApi();
-let body = new Dora.RepayRequest(); // RepayRequest | 
-
-apiInstance.leverageRepay(body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**RepayRequest**](RepayRequest.md)|  | 
-
-### Return type
-
-[**RepayResponse**](RepayResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
 <a name="leverageSupply"></a>
 # **leverageSupply**
 > SupplyResponse leverageSupply(body)
@@ -1886,7 +1841,7 @@ No authorization required
 
 Combines all isolated positions into a single global position
 
-TODO: Finish this when implementation has been completed
+Combines all isolated positions into a single global position
 
 ### Example
 ```javascript

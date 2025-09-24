@@ -62,6 +62,10 @@ export default class Position {
         obj.impendingBorrows = ApiClient.convertToType(data['impending_borrows'], 'String');
       if (data.hasOwnProperty('avg_entry_price'))
         obj.avgEntryPrice = ApiClient.convertToType(data['avg_entry_price'], 'String');
+      if (data.hasOwnProperty('borrow_limit'))
+        obj.borrowLimit = ApiClient.convertToType(data['borrow_limit'], 'String');
+      if (data.hasOwnProperty('liquidation_threshold'))
+        obj.liquidationThreshold = ApiClient.convertToType(data['liquidation_threshold'], 'String');
       if (data.hasOwnProperty('created_at'))
         obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
     }
@@ -137,6 +141,18 @@ Position.prototype.impendingBorrows = undefined;
  * @member {String} avgEntryPrice
  */
 Position.prototype.avgEntryPrice = undefined;
+
+/**
+ * The borrow limit
+ * @member {String} borrowLimit
+ */
+Position.prototype.borrowLimit = undefined;
+
+/**
+ * The borrow limit
+ * @member {String} liquidationThreshold
+ */
+Position.prototype.liquidationThreshold = undefined;
 
 /**
  * @member {Date} createdAt

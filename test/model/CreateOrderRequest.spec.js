@@ -81,12 +81,6 @@
         // expect(instance.orderBookId).to.be(expectedValueLiteral);
       });
 
-      it('should have the property orderInfo (base name: "order_info")', function() {
-        // TODO: update the code to test the property orderInfo
-        expect(instance).to.have.property('orderInfo');
-        // expect(instance.orderInfo).to.be(expectedValueLiteral);
-      });
-
       it('should have the property orderModifiers (base name: "order_modifiers")', function() {
         // TODO: update the code to test the property orderModifiers
         expect(instance).to.have.property('orderModifiers');

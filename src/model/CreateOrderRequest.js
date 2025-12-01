@@ -69,6 +69,10 @@ export default class CreateOrderRequest {
         obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
       if (data.hasOwnProperty('order_modifiers'))
         obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], [OrderModifierKind]);
+      if (data.hasOwnProperty('good_till_date'))
+        obj.goodTillDate = ApiClient.convertToType(data['good_till_date'], 'Date');
+      if (data.hasOwnProperty('trigger_price'))
+        obj.triggerPrice = ApiClient.convertToType(data['trigger_price'], 'String');
     }
     return obj;
   }
@@ -115,4 +119,14 @@ CreateOrderRequest.prototype.orderBookId = undefined;
  * @member {Array.<module:model/OrderModifierKind>} orderModifiers
  */
 CreateOrderRequest.prototype.orderModifiers = undefined;
+
+/**
+ * @member {Date} goodTillDate
+ */
+CreateOrderRequest.prototype.goodTillDate = undefined;
+
+/**
+ * @member {String} triggerPrice
+ */
+CreateOrderRequest.prototype.triggerPrice = undefined;
 

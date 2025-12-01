@@ -129,6 +129,12 @@
         // expect(instance.createdAt).to.be(expectedValueLiteral);
       });
 
+      it('should have the property positionName (base name: "position_name")', function() {
+        // TODO: update the code to test the property positionName
+        expect(instance).to.have.property('positionName');
+        // expect(instance.positionName).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

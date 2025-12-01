@@ -1,6 +1,6 @@
-# Dora.FundUserResponse
+# Dora.TransferBalancesResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**FundUser**](FundUser.md) |  | [optional] 
+**data** | [**BalanceTransfer**](BalanceTransfer.md) |  | [optional] 

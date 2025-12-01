@@ -45,6 +45,12 @@ const OrderStatus = {
   CANCELLED: "CANCELLED",
 
   /**
+   * value: "PENDING"
+   * @const
+   */
+  PENDING: "PENDING",
+
+  /**
    * Returns a <code>OrderStatus</code> enum value from a JavaScript object name.
    * @param {Object} data The plain JavaScript object containing the name of the enum value.
   * @return {module:model/OrderStatus} The enum <code>OrderStatus</code> value.

@@ -17,6 +17,7 @@ import Asset from './model/Asset';
 import AssetKind from './model/AssetKind';
 import AssetPrice from './model/AssetPrice';
 import AssetRequestError from './model/AssetRequestError';
+import BalanceTransfer from './model/BalanceTransfer';
 import BalancesResponse from './model/BalancesResponse';
 import Bond from './model/Bond';
 import BondKind from './model/BondKind';
@@ -26,17 +27,10 @@ import CancelOrderResponse from './model/CancelOrderResponse';
 import Candle from './model/Candle';
 import CandleResolution from './model/CandleResolution';
 import Collateral from './model/Collateral';
-import CollateralizeRequest from './model/CollateralizeRequest';
-import CollateralizeResponse from './model/CollateralizeResponse';
 import CouponPayment from './model/CouponPayment';
 import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
 import CreateOrderResponse from './model/CreateOrderResponse';
-import DeCollateralizeRequest from './model/DeCollateralizeRequest';
-import DeCollateralizeResponse from './model/DeCollateralizeResponse';
-import FundUser from './model/FundUser';
-import FundUserRequest from './model/FundUserRequest';
-import FundUserResponse from './model/FundUserResponse';
 import GetAssetByIDResponse from './model/GetAssetByIDResponse';
 import GetAssetPriceResponse from './model/GetAssetPriceResponse';
 import GetOrderBookResponse from './model/GetOrderBookResponse';
@@ -49,8 +43,6 @@ import GetUserConfigResponse from './model/GetUserConfigResponse';
 import GetUserResponse from './model/GetUserResponse';
 import IsolateCollateralRequest from './model/IsolateCollateralRequest';
 import IsolateCollateralResponse from './model/IsolateCollateralResponse';
-import IsolatePositionRequest from './model/IsolatePositionRequest';
-import IsolatePositionResponse from './model/IsolatePositionResponse';
 import IsolatedCollateral from './model/IsolatedCollateral';
 import IsolatedPosition from './model/IsolatedPosition';
 import LedgerModuleByAssetResponse from './model/LedgerModuleByAssetResponse';
@@ -76,6 +68,8 @@ import ListTransactionsResponse from './model/ListTransactionsResponse';
 import LiveOrderbook from './model/LiveOrderbook';
 import Metadata from './model/Metadata';
 import ModuleBalance from './model/ModuleBalance';
+import NewIsolatedPositionRequest from './model/NewIsolatedPositionRequest';
+import NewIsolatedPositionResponse from './model/NewIsolatedPositionResponse';
 import Order from './model/Order';
 import OrderBook from './model/OrderBook';
 import OrderBookBalance from './model/OrderBookBalance';
@@ -128,6 +122,8 @@ import TradeResponse from './model/TradeResponse';
 import Transaction from './model/Transaction';
 import TransactionKind from './model/TransactionKind';
 import TransactionRequestError from './model/TransactionRequestError';
+import TransferBalancesRequest from './model/TransferBalancesRequest';
+import TransferBalancesResponse from './model/TransferBalancesResponse';
 import TransformedAssets from './model/TransformedAssets';
 import UnitePositionRequest from './model/UnitePositionRequest';
 import UnitePositionResponse from './model/UnitePositionResponse';
@@ -146,6 +142,8 @@ import UserRole from './model/UserRole';
 import UserUpdatedResponse from './model/UserUpdatedResponse';
 import UserValue from './model/UserValue';
 import UserValueResponse from './model/UserValueResponse';
+import ValidateSubmitOrderRequest from './model/ValidateSubmitOrderRequest';
+import ValidateSubmitOrderResponse from './model/ValidateSubmitOrderResponse';
 import Withdraw from './model/Withdraw';
 import WithdrawRequest from './model/WithdrawRequest';
 import WithdrawResponse from './model/WithdrawResponse';
@@ -214,6 +212,12 @@ export {
     AssetRequestError,
 
     /**
+     * The BalanceTransfer model constructor.
+     * @property {module:model/BalanceTransfer}
+     */
+    BalanceTransfer,
+
+    /**
      * The BalancesResponse model constructor.
      * @property {module:model/BalancesResponse}
      */
@@ -268,18 +272,6 @@ export {
     Collateral,
 
     /**
-     * The CollateralizeRequest model constructor.
-     * @property {module:model/CollateralizeRequest}
-     */
-    CollateralizeRequest,
-
-    /**
-     * The CollateralizeResponse model constructor.
-     * @property {module:model/CollateralizeResponse}
-     */
-    CollateralizeResponse,
-
-    /**
      * The CouponPayment model constructor.
      * @property {module:model/CouponPayment}
      */
@@ -302,36 +294,6 @@ export {
      * @property {module:model/CreateOrderResponse}
      */
     CreateOrderResponse,
-
-    /**
-     * The DeCollateralizeRequest model constructor.
-     * @property {module:model/DeCollateralizeRequest}
-     */
-    DeCollateralizeRequest,
-
-    /**
-     * The DeCollateralizeResponse model constructor.
-     * @property {module:model/DeCollateralizeResponse}
-     */
-    DeCollateralizeResponse,
-
-    /**
-     * The FundUser model constructor.
-     * @property {module:model/FundUser}
-     */
-    FundUser,
-
-    /**
-     * The FundUserRequest model constructor.
-     * @property {module:model/FundUserRequest}
-     */
-    FundUserRequest,
-
-    /**
-     * The FundUserResponse model constructor.
-     * @property {module:model/FundUserResponse}
-     */
-    FundUserResponse,
 
     /**
      * The GetAssetByIDResponse model constructor.
@@ -404,18 +366,6 @@ export {
      * @property {module:model/IsolateCollateralResponse}
      */
     IsolateCollateralResponse,
-
-    /**
-     * The IsolatePositionRequest model constructor.
-     * @property {module:model/IsolatePositionRequest}
-     */
-    IsolatePositionRequest,
-
-    /**
-     * The IsolatePositionResponse model constructor.
-     * @property {module:model/IsolatePositionResponse}
-     */
-    IsolatePositionResponse,
 
     /**
      * The IsolatedCollateral model constructor.
@@ -566,6 +516,18 @@ export {
      * @property {module:model/ModuleBalance}
      */
     ModuleBalance,
+
+    /**
+     * The NewIsolatedPositionRequest model constructor.
+     * @property {module:model/NewIsolatedPositionRequest}
+     */
+    NewIsolatedPositionRequest,
+
+    /**
+     * The NewIsolatedPositionResponse model constructor.
+     * @property {module:model/NewIsolatedPositionResponse}
+     */
+    NewIsolatedPositionResponse,
 
     /**
      * The Order model constructor.
@@ -880,6 +842,18 @@ export {
     TransactionRequestError,
 
     /**
+     * The TransferBalancesRequest model constructor.
+     * @property {module:model/TransferBalancesRequest}
+     */
+    TransferBalancesRequest,
+
+    /**
+     * The TransferBalancesResponse model constructor.
+     * @property {module:model/TransferBalancesResponse}
+     */
+    TransferBalancesResponse,
+
+    /**
      * The TransformedAssets model constructor.
      * @property {module:model/TransformedAssets}
      */
@@ -986,6 +960,18 @@ export {
      * @property {module:model/UserValueResponse}
      */
     UserValueResponse,
+
+    /**
+     * The ValidateSubmitOrderRequest model constructor.
+     * @property {module:model/ValidateSubmitOrderRequest}
+     */
+    ValidateSubmitOrderRequest,
+
+    /**
+     * The ValidateSubmitOrderResponse model constructor.
+     * @property {module:model/ValidateSubmitOrderResponse}
+     */
+    ValidateSubmitOrderResponse,
 
     /**
      * The Withdraw model constructor.

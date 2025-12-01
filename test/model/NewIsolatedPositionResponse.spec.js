@@ -29,14 +29,14 @@
   var instance;
 
   describe('(package)', function() {
-    describe('CollateralizeResponse', function() {
+    describe('NewIsolatedPositionResponse', function() {
       beforeEach(function() {
-        instance = new Dora.CollateralizeResponse();
+        instance = new Dora.NewIsolatedPositionResponse();
       });
 
-      it('should create an instance of CollateralizeResponse', function() {
-        // TODO: update the code to test CollateralizeResponse
-        expect(instance).to.be.a(Dora.CollateralizeResponse);
+      it('should create an instance of NewIsolatedPositionResponse', function() {
+        // TODO: update the code to test NewIsolatedPositionResponse
+        expect(instance).to.be.a(Dora.NewIsolatedPositionResponse);
       });
 
       it('should have the property data (base name: "data")', function() {

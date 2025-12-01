@@ -29,14 +29,14 @@
   var instance;
 
   describe('(package)', function() {
-    describe('CreateOrderRequest', function() {
+    describe('ValidateSubmitOrderRequest', function() {
       beforeEach(function() {
-        instance = new Dora.CreateOrderRequest();
+        instance = new Dora.ValidateSubmitOrderRequest();
       });
 
-      it('should create an instance of CreateOrderRequest', function() {
-        // TODO: update the code to test CreateOrderRequest
-        expect(instance).to.be.a(Dora.CreateOrderRequest);
+      it('should create an instance of ValidateSubmitOrderRequest', function() {
+        // TODO: update the code to test ValidateSubmitOrderRequest
+        expect(instance).to.be.a(Dora.ValidateSubmitOrderRequest);
       });
 
       it('should have the property quantity (base name: "quantity")', function() {
@@ -45,16 +45,10 @@
         // expect(instance.quantity).to.be(expectedValueLiteral);
       });
 
-      it('should have the property inverseLeverage (base name: "inverse_leverage")', function() {
-        // TODO: update the code to test the property inverseLeverage
-        expect(instance).to.have.property('inverseLeverage');
-        // expect(instance.inverseLeverage).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property price (base name: "price")', function() {
-        // TODO: update the code to test the property price
-        expect(instance).to.have.property('price');
-        // expect(instance.price).to.be(expectedValueLiteral);
+      it('should have the property tick (base name: "tick")', function() {
+        // TODO: update the code to test the property tick
+        expect(instance).to.have.property('tick');
+        // expect(instance.tick).to.be(expectedValueLiteral);
       });
 
       it('should have the property kind (base name: "kind")', function() {
@@ -69,22 +63,10 @@
         // expect(instance.side).to.be(expectedValueLiteral);
       });
 
-      it('should have the property positionId (base name: "position_id")', function() {
-        // TODO: update the code to test the property positionId
-        expect(instance).to.have.property('positionId');
-        // expect(instance.positionId).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property orderBookId (base name: "order_book_id")', function() {
-        // TODO: update the code to test the property orderBookId
-        expect(instance).to.have.property('orderBookId');
-        // expect(instance.orderBookId).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property orderModifiers (base name: "order_modifiers")', function() {
-        // TODO: update the code to test the property orderModifiers
-        expect(instance).to.have.property('orderModifiers');
-        // expect(instance.orderModifiers).to.be(expectedValueLiteral);
+      it('should have the property price (base name: "price")', function() {
+        // TODO: update the code to test the property price
+        expect(instance).to.have.property('price');
+        // expect(instance.price).to.be(expectedValueLiteral);
       });
 
       it('should have the property goodTillDate (base name: "good_till_date")', function() {
@@ -93,10 +75,16 @@
         // expect(instance.goodTillDate).to.be(expectedValueLiteral);
       });
 
-      it('should have the property triggerPrice (base name: "trigger_price")', function() {
-        // TODO: update the code to test the property triggerPrice
-        expect(instance).to.have.property('triggerPrice');
-        // expect(instance.triggerPrice).to.be(expectedValueLiteral);
+      it('should have the property inverseLeverage (base name: "inverse_leverage")', function() {
+        // TODO: update the code to test the property inverseLeverage
+        expect(instance).to.have.property('inverseLeverage');
+        // expect(instance.inverseLeverage).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property userBalance (base name: "user_balance")', function() {
+        // TODO: update the code to test the property userBalance
+        expect(instance).to.have.property('userBalance');
+        // expect(instance.userBalance).to.be(expectedValueLiteral);
       });
 
     });

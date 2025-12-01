@@ -29,20 +29,26 @@
   var instance;
 
   describe('(package)', function() {
-    describe('DeCollateralizeRequest', function() {
+    describe('TransferBalancesRequest', function() {
       beforeEach(function() {
-        instance = new Dora.DeCollateralizeRequest();
+        instance = new Dora.TransferBalancesRequest();
       });
 
-      it('should create an instance of DeCollateralizeRequest', function() {
-        // TODO: update the code to test DeCollateralizeRequest
-        expect(instance).to.be.a(Dora.DeCollateralizeRequest);
+      it('should create an instance of TransferBalancesRequest', function() {
+        // TODO: update the code to test TransferBalancesRequest
+        expect(instance).to.be.a(Dora.TransferBalancesRequest);
       });
 
-      it('should have the property positionId (base name: "position_id")', function() {
-        // TODO: update the code to test the property positionId
-        expect(instance).to.have.property('positionId');
-        // expect(instance.positionId).to.be(expectedValueLiteral);
+      it('should have the property fromPositionId (base name: "from_position_id")', function() {
+        // TODO: update the code to test the property fromPositionId
+        expect(instance).to.have.property('fromPositionId');
+        // expect(instance.fromPositionId).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property toPositionId (base name: "to_position_id")', function() {
+        // TODO: update the code to test the property toPositionId
+        expect(instance).to.have.property('toPositionId');
+        // expect(instance.toPositionId).to.be(expectedValueLiteral);
       });
 
       it('should have the property assetId (base name: "asset_id")', function() {

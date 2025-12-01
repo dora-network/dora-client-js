@@ -57,6 +57,12 @@ const UserRole = {
   TRADER: "TRADER",
 
   /**
+   * value: "INTEGRATOR"
+   * @const
+   */
+  INTEGRATOR: "INTEGRATOR",
+
+  /**
    * Returns a <code>UserRole</code> enum value from a JavaScript object name.
    * @param {Object} data The plain JavaScript object containing the name of the enum value.
   * @return {module:model/UserRole} The enum <code>UserRole</code> value.

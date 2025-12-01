@@ -105,6 +105,18 @@
         // expect(instance.userId).to.be(expectedValueLiteral);
       });
 
+      it('should have the property side (base name: "side")', function() {
+        // TODO: update the code to test the property side
+        expect(instance).to.have.property('side');
+        // expect(instance.side).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property aggressorIndicator (base name: "aggressor_indicator")', function() {
+        // TODO: update the code to test the property aggressorIndicator
+        expect(instance).to.have.property('aggressorIndicator');
+        // expect(instance.aggressorIndicator).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

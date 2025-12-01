@@ -69,6 +69,11 @@
         expect(instance.TRADER).to.be("TRADER");
       });
 
+      it('should have the property INTEGRATOR', function() {
+        expect(instance).to.have.property('INTEGRATOR');
+        expect(instance.INTEGRATOR).to.be("INTEGRATOR");
+      });
+
     });
   });
 

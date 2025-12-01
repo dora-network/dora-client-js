@@ -13,19 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Collateral from './Collateral';
+import BalanceTransfer from './BalanceTransfer';
 import Metadata from './Metadata';
 import ResponseEnvelope from './ResponseEnvelope';
 
 /**
- * The DeCollateralizeResponse model module.
- * @module model/DeCollateralizeResponse
+ * The TransferBalancesResponse model module.
+ * @module model/TransferBalancesResponse
  * @version 1.0.0
  */
-export default class DeCollateralizeResponse extends ResponseEnvelope {
+export default class TransferBalancesResponse extends ResponseEnvelope {
   /**
-   * Constructs a new <code>DeCollateralizeResponse</code>.
-   * @alias module:model/DeCollateralizeResponse
+   * Constructs a new <code>TransferBalancesResponse</code>.
+   * @alias module:model/TransferBalancesResponse
    * @class
    * @extends module:model/ResponseEnvelope
    */
@@ -34,25 +34,25 @@ export default class DeCollateralizeResponse extends ResponseEnvelope {
   }
 
   /**
-   * Constructs a <code>DeCollateralizeResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>TransferBalancesResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/DeCollateralizeResponse} obj Optional instance to populate.
-   * @return {module:model/DeCollateralizeResponse} The populated <code>DeCollateralizeResponse</code> instance.
+   * @param {module:model/TransferBalancesResponse} obj Optional instance to populate.
+   * @return {module:model/TransferBalancesResponse} The populated <code>TransferBalancesResponse</code> instance.
    */
   static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new DeCollateralizeResponse();
+      obj = obj || new TransferBalancesResponse();
       ResponseEnvelope.constructFromObject(data, obj);
       if (data.hasOwnProperty('data'))
-        obj.data = Collateral.constructFromObject(data['data']);
+        obj.data = BalanceTransfer.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {module:model/Collateral} data
+ * @member {module:model/BalanceTransfer} data
  */
-DeCollateralizeResponse.prototype.data = undefined;
+TransferBalancesResponse.prototype.data = undefined;
 

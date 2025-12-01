@@ -59,6 +59,11 @@
         expect(instance.CANCELLED).to.be("CANCELLED");
       });
 
+      it('should have the property PENDING', function() {
+        expect(instance).to.have.property('PENDING');
+        expect(instance.PENDING).to.be("PENDING");
+      });
+
     });
   });
 

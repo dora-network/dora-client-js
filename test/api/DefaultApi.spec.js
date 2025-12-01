@@ -36,10 +36,11 @@
     describe('DefaultApi', function() {
       describe('cancelAllOpenOrders', function() {
         it('should call cancelAllOpenOrders successfully', function(done) {
-          // TODO: uncomment cancelAllOpenOrders call and complete the assertions
+          // TODO: uncomment, update parameter values for cancelAllOpenOrders call and complete the assertions
           /*
+          var opts = {};
 
-          instance.cancelAllOpenOrders(function(error, data, response) {
+          instance.cancelAllOpenOrders(opts, function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -66,6 +67,47 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.CancelOrderResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('checkUserEmailExists', function() {
+        it('should call checkUserEmailExists successfully', function(done) {
+          // TODO: uncomment, update parameter values for checkUserEmailExists call and complete the assertions
+          /*
+
+          instance.checkUserEmailExists(email, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(&#x27;boolean&#x27;);
+            // expect(data).to.be(null);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('createNewIsolatedPosition', function() {
+        it('should call createNewIsolatedPosition successfully', function(done) {
+          // TODO: uncomment, update parameter values for createNewIsolatedPosition call and complete the assertions
+          /*
+
+          instance.createNewIsolatedPosition(body, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.NewIsolatedPositionResponse);
 
             done();
           });
@@ -761,86 +803,6 @@
           done();
         });
       });
-      describe('ledgerDeposit', function() {
-        it('should call ledgerDeposit successfully', function(done) {
-          // TODO: uncomment, update parameter values for ledgerDeposit call and complete the assertions
-          /*
-
-          instance.ledgerDeposit(body, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
-            // TODO: update response assertions
-            expect(data).to.be.a(Dora.FundUserResponse);
-
-            done();
-          });
-          */
-          // TODO: uncomment and complete method invocation above, then delete this line and the next:
-          done();
-        });
-      });
-      describe('ledgerWithdraw', function() {
-        it('should call ledgerWithdraw successfully', function(done) {
-          // TODO: uncomment, update parameter values for ledgerWithdraw call and complete the assertions
-          /*
-
-          instance.ledgerWithdraw(body, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
-            // TODO: update response assertions
-            expect(data).to.be.a(Dora.FundUserResponse);
-
-            done();
-          });
-          */
-          // TODO: uncomment and complete method invocation above, then delete this line and the next:
-          done();
-        });
-      });
-      describe('leverageCollateralize', function() {
-        it('should call leverageCollateralize successfully', function(done) {
-          // TODO: uncomment, update parameter values for leverageCollateralize call and complete the assertions
-          /*
-
-          instance.leverageCollateralize(body, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
-            // TODO: update response assertions
-            expect(data).to.be.a(Dora.CollateralizeResponse);
-
-            done();
-          });
-          */
-          // TODO: uncomment and complete method invocation above, then delete this line and the next:
-          done();
-        });
-      });
-      describe('leverageDeCollateralize', function() {
-        it('should call leverageDeCollateralize successfully', function(done) {
-          // TODO: uncomment, update parameter values for leverageDeCollateralize call and complete the assertions
-          /*
-
-          instance.leverageDeCollateralize(body, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
-            // TODO: update response assertions
-            expect(data).to.be.a(Dora.DeCollateralizeResponse);
-
-            done();
-          });
-          */
-          // TODO: uncomment and complete method invocation above, then delete this line and the next:
-          done();
-        });
-      });
       describe('leverageIsolateCollateral', function() {
         it('should call leverageIsolateCollateral successfully', function(done) {
           // TODO: uncomment, update parameter values for leverageIsolateCollateral call and complete the assertions
@@ -853,26 +815,6 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.IsolateCollateralResponse);
-
-            done();
-          });
-          */
-          // TODO: uncomment and complete method invocation above, then delete this line and the next:
-          done();
-        });
-      });
-      describe('leverageIsolatePosition', function() {
-        it('should call leverageIsolatePosition successfully', function(done) {
-          // TODO: uncomment, update parameter values for leverageIsolatePosition call and complete the assertions
-          /*
-
-          instance.leverageIsolatePosition(body, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
-            // TODO: update response assertions
-            expect(data).to.be.a(Dora.IsolatePositionResponse);
 
             done();
           });
@@ -1149,6 +1091,26 @@
           done();
         });
       });
+      describe('transferAvailableBalances', function() {
+        it('should call transferAvailableBalances successfully', function(done) {
+          // TODO: uncomment, update parameter values for transferAvailableBalances call and complete the assertions
+          /*
+
+          instance.transferAvailableBalances(body, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.TransferBalancesResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('updateUserConfig', function() {
         it('should call updateUserConfig successfully', function(done) {
           // TODO: uncomment, update parameter values for updateUserConfig call and complete the assertions
@@ -1181,6 +1143,26 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.UserUpdatedResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('validateSubmitOrder', function() {
+        it('should call validateSubmitOrder successfully', function(done) {
+          // TODO: uncomment, update parameter values for validateSubmitOrder call and complete the assertions
+          /*
+
+          instance.validateSubmitOrder(body, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.ValidateSubmitOrderResponse);
 
             done();
           });

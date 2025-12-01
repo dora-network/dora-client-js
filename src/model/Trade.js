@@ -13,6 +13,7 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Side from './Side';
 
 /**
  * The Trade model module.
@@ -60,6 +61,10 @@ export default class Trade {
         obj.quantity0 = ApiClient.convertToType(data['quantity_0'], 'String');
       if (data.hasOwnProperty('user_id'))
         obj.userId = ApiClient.convertToType(data['user_id'], 'String');
+      if (data.hasOwnProperty('side'))
+        obj.side = Side.constructFromObject(data['side']);
+      if (data.hasOwnProperty('aggressor_indicator'))
+        obj.aggressorIndicator = ApiClient.convertToType(data['aggressor_indicator'], 'Boolean');
     }
     return obj;
   }
@@ -119,4 +124,15 @@ Trade.prototype.quantity0 = undefined;
  * @member {String} userId
  */
 Trade.prototype.userId = undefined;
+
+/**
+ * @member {module:model/Side} side
+ */
+Trade.prototype.side = undefined;
+
+/**
+ * If true, then this order is the aggressor (taker); otherwise it is the maker.
+ * @member {Boolean} aggressorIndicator
+ */
+Trade.prototype.aggressorIndicator = undefined;
 

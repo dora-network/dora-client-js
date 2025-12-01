@@ -17,14 +17,8 @@ import AssetKind from '../model/AssetKind';
 import AssetRequestError from '../model/AssetRequestError';
 import CancelOrderResponse from '../model/CancelOrderResponse';
 import CandleResolution from '../model/CandleResolution';
-import CollateralizeRequest from '../model/CollateralizeRequest';
-import CollateralizeResponse from '../model/CollateralizeResponse';
 import CreateOrderRequest from '../model/CreateOrderRequest';
 import CreateOrderResponse from '../model/CreateOrderResponse';
-import DeCollateralizeRequest from '../model/DeCollateralizeRequest';
-import DeCollateralizeResponse from '../model/DeCollateralizeResponse';
-import FundUserRequest from '../model/FundUserRequest';
-import FundUserResponse from '../model/FundUserResponse';
 import GetAssetByIDResponse from '../model/GetAssetByIDResponse';
 import GetAssetPriceResponse from '../model/GetAssetPriceResponse';
 import GetOrderBookResponse from '../model/GetOrderBookResponse';
@@ -36,8 +30,6 @@ import GetTransactionResponse from '../model/GetTransactionResponse';
 import GetUserResponse from '../model/GetUserResponse';
 import IsolateCollateralRequest from '../model/IsolateCollateralRequest';
 import IsolateCollateralResponse from '../model/IsolateCollateralResponse';
-import IsolatePositionRequest from '../model/IsolatePositionRequest';
-import IsolatePositionResponse from '../model/IsolatePositionResponse';
 import LedgerModuleByAssetResponse from '../model/LedgerModuleByAssetResponse';
 import LedgerModuleResponse from '../model/LedgerModuleResponse';
 import LeverageRequestError from '../model/LeverageRequestError';
@@ -53,6 +45,8 @@ import ListOrdersResponse from '../model/ListOrdersResponse';
 import ListTradeResponse from '../model/ListTradeResponse';
 import ListTransactionsResponse from '../model/ListTransactionsResponse';
 import LiveOrderbook from '../model/LiveOrderbook';
+import NewIsolatedPositionRequest from '../model/NewIsolatedPositionRequest';
+import NewIsolatedPositionResponse from '../model/NewIsolatedPositionResponse';
 import OrderBookStatus from '../model/OrderBookStatus';
 import OrderKind from '../model/OrderKind';
 import OrderStatus from '../model/OrderStatus';
@@ -73,6 +67,8 @@ import TradeRequestError from '../model/TradeRequestError';
 import TradeResponse from '../model/TradeResponse';
 import TransactionKind from '../model/TransactionKind';
 import TransactionRequestError from '../model/TransactionRequestError';
+import TransferBalancesRequest from '../model/TransferBalancesRequest';
+import TransferBalancesResponse from '../model/TransferBalancesResponse';
 import UnitePositionRequest from '../model/UnitePositionRequest';
 import UnitePositionResponse from '../model/UnitePositionResponse';
 import UpdateUserConfigRequest from '../model/UpdateUserConfigRequest';
@@ -82,6 +78,8 @@ import UserInterestResponse from '../model/UserInterestResponse';
 import UserPositionResponse from '../model/UserPositionResponse';
 import UserUpdatedResponse from '../model/UserUpdatedResponse';
 import UserValueResponse from '../model/UserValueResponse';
+import ValidateSubmitOrderRequest from '../model/ValidateSubmitOrderRequest';
+import ValidateSubmitOrderResponse from '../model/ValidateSubmitOrderResponse';
 import WithdrawRequest from '../model/WithdrawRequest';
 import WithdrawResponse from '../model/WithdrawResponse';
 
@@ -113,19 +111,23 @@ export default class DefaultApi {
      */
 
     /**
-     * Cancel all open orders
+     * Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.orderBookId 
+     * @param {String} opts.userId 
+     * @param {module:model/OrderKind} opts.orderKind 
      * @param {module:api/DefaultApi~cancelAllOpenOrdersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    cancelAllOpenOrders(callback) {
-      
+    cancelAllOpenOrders(opts, callback) {
+      opts = opts || {};
       let postBody = null;
 
       let pathParams = {
         
       };
       let queryParams = {
-        
+        'order_book_id': opts['orderBookId'],'user_id': opts['userId'],'order_kind': opts['orderKind']
       };
       let headerParams = {
         
@@ -187,6 +189,98 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/orders/{order_id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the checkUserEmailExists operation.
+     * @callback moduleapi/DefaultApi~checkUserEmailExistsCallback
+     * @param {String} error Error message, if any.
+     * @param {'Boolean'{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Check whether a user email exists
+     * @param {String} email 
+     * @param {module:api/DefaultApi~checkUserEmailExistsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    checkUserEmailExists(email, callback) {
+      
+      let postBody = null;
+      // verify the required parameter 'email' is set
+      if (email === undefined || email === null) {
+        throw new Error("Missing the required parameter 'email' when calling checkUserEmailExists");
+      }
+
+      let pathParams = {
+        'email': email
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = 'Boolean';
+
+      return this.apiClient.callApi(
+        '/v1/user/{email}/exists', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the createNewIsolatedPosition operation.
+     * @callback moduleapi/DefaultApi~createNewIsolatedPositionCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/NewIsolatedPositionResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a new isolated position for a user transferring available assets into the position
+     * @param {module:model/NewIsolatedPositionRequest} body 
+     * @param {module:api/DefaultApi~createNewIsolatedPositionCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    createNewIsolatedPosition(body, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling createNewIsolatedPosition");
+      }
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = NewIsolatedPositionResponse;
+
+      return this.apiClient.callApi(
+        '/v1/positions/new_isolated', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1324,7 +1418,7 @@ export default class DefaultApi {
     /**
      * Get a filtered, paginated list of trades
      * @param {Object} opts Optional parameters
-     * @param {Array.<String>} opts.pools 
+     * @param {Array.<String>} opts.orderBookIds 
      * @param {Array.<String>} opts.userIds 
      * @param {Date} opts.start 
      * @param {Date} opts.end 
@@ -1341,7 +1435,7 @@ export default class DefaultApi {
         
       };
       let queryParams = {
-        'pools': this.apiClient.buildCollectionParam(opts['pools'], 'multi'),'user_ids': this.apiClient.buildCollectionParam(opts['userIds'], 'multi'),'start': opts['start'],'end': opts['end'],'page': opts['page'],'limit': opts['limit']
+        'order_book_ids': this.apiClient.buildCollectionParam(opts['orderBookIds'], 'multi'),'user_ids': this.apiClient.buildCollectionParam(opts['userIds'], 'multi'),'start': opts['start'],'end': opts['end'],'page': opts['page'],'limit': opts['limit']
       };
       let headerParams = {
         
@@ -1739,192 +1833,6 @@ export default class DefaultApi {
       );
     }
     /**
-     * Callback function to receive the result of the ledgerDeposit operation.
-     * @callback moduleapi/DefaultApi~ledgerDepositCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/FundUserResponse{ data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Deposit assets into your account from the outside world
-     * TODO: finish this when implementation has been completed
-     * @param {module:model/FundUserRequest} body 
-     * @param {module:api/DefaultApi~ledgerDepositCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
-     */
-    ledgerDeposit(body, callback) {
-      
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling ledgerDeposit");
-      }
-
-      let pathParams = {
-        
-      };
-      let queryParams = {
-        
-      };
-      let headerParams = {
-        
-      };
-      let formParams = {
-        
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = FundUserResponse;
-
-      return this.apiClient.callApi(
-        '/v1/ledger/deposit', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-    /**
-     * Callback function to receive the result of the ledgerWithdraw operation.
-     * @callback moduleapi/DefaultApi~ledgerWithdrawCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/FundUserResponse{ data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Withdraw assets from your account to the outside world
-     * TODO: Finish this when implementation has been completed
-     * @param {module:model/FundUserRequest} body 
-     * @param {module:api/DefaultApi~ledgerWithdrawCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
-     */
-    ledgerWithdraw(body, callback) {
-      
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling ledgerWithdraw");
-      }
-
-      let pathParams = {
-        
-      };
-      let queryParams = {
-        
-      };
-      let headerParams = {
-        
-      };
-      let formParams = {
-        
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = FundUserResponse;
-
-      return this.apiClient.callApi(
-        '/v1/ledger/withdraw', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-    /**
-     * Callback function to receive the result of the leverageCollateralize operation.
-     * @callback moduleapi/DefaultApi~leverageCollateralizeCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/CollateralizeResponse{ data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Move supplied and available to supplied_collateral and collateral, for a specified position
-     * @param {module:model/CollateralizeRequest} body 
-     * @param {module:api/DefaultApi~leverageCollateralizeCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
-     */
-    leverageCollateralize(body, callback) {
-      
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling leverageCollateralize");
-      }
-
-      let pathParams = {
-        
-      };
-      let queryParams = {
-        
-      };
-      let headerParams = {
-        
-      };
-      let formParams = {
-        
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = CollateralizeResponse;
-
-      return this.apiClient.callApi(
-        '/v1/leverage/collateralize', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-    /**
-     * Callback function to receive the result of the leverageDeCollateralize operation.
-     * @callback moduleapi/DefaultApi~leverageDeCollateralizeCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/DeCollateralizeResponse{ data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Move collateral and supplied_collateral to available and supplied, for a specified position.
-     * @param {module:model/DeCollateralizeRequest} body 
-     * @param {module:api/DefaultApi~leverageDeCollateralizeCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
-     */
-    leverageDeCollateralize(body, callback) {
-      
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling leverageDeCollateralize");
-      }
-
-      let pathParams = {
-        
-      };
-      let queryParams = {
-        
-      };
-      let headerParams = {
-        
-      };
-      let formParams = {
-        
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = DeCollateralizeResponse;
-
-      return this.apiClient.callApi(
-        '/v1/leverage/de-collateralize', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-    /**
      * Callback function to receive the result of the leverageIsolateCollateral operation.
      * @callback moduleapi/DefaultApi~leverageIsolateCollateralCallback
      * @param {String} error Error message, if any.
@@ -1966,52 +1874,6 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/leverage/isolate_collateral', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-    /**
-     * Callback function to receive the result of the leverageIsolatePosition operation.
-     * @callback moduleapi/DefaultApi~leverageIsolatePositionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/IsolatePositionResponse{ data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Create an isolated position using all collateral, supplied_collateral, and borrows from the user&#x27;s global position
-     * @param {module:model/IsolatePositionRequest} body 
-     * @param {module:api/DefaultApi~leverageIsolatePositionCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
-     */
-    leverageIsolatePosition(body, callback) {
-      
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling leverageIsolatePosition");
-      }
-
-      let pathParams = {
-        
-      };
-      let queryParams = {
-        
-      };
-      let headerParams = {
-        
-      };
-      let formParams = {
-        
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = IsolatePositionResponse;
-
-      return this.apiClient.callApi(
-        '/v1/leverage/isolate_position', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2644,6 +2506,52 @@ export default class DefaultApi {
       );
     }
     /**
+     * Callback function to receive the result of the transferAvailableBalances operation.
+     * @callback moduleapi/DefaultApi~transferAvailableBalancesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TransferBalancesResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Transfer available balance between a user&#x27;s accounts (e.g. global to isolated position)
+     * @param {module:model/TransferBalancesRequest} body 
+     * @param {module:api/DefaultApi~transferAvailableBalancesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    transferAvailableBalances(body, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling transferAvailableBalances");
+      }
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TransferBalancesResponse;
+
+      return this.apiClient.callApi(
+        '/v1/positions/transfer_balances', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
      * Callback function to receive the result of the updateUserConfig operation.
      * @callback moduleapi/DefaultApi~updateUserConfigCallback
      * @param {String} error Error message, if any.
@@ -2736,6 +2644,52 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/user/config/self', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the validateSubmitOrder operation.
+     * @callback moduleapi/DefaultApi~validateSubmitOrderCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ValidateSubmitOrderResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Validate submit order request data
+     * @param {module:model/ValidateSubmitOrderRequest} body 
+     * @param {module:api/DefaultApi~validateSubmitOrderCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    validateSubmitOrder(body, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling validateSubmitOrder");
+      }
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = ValidateSubmitOrderResponse;
+
+      return this.apiClient.callApi(
+        '/v1/orders/validate', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

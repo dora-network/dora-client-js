@@ -29,20 +29,20 @@
   var instance;
 
   describe('(package)', function() {
-    describe('IsolatePositionRequest', function() {
+    describe('ValidateSubmitOrderResponse', function() {
       beforeEach(function() {
-        instance = new Dora.IsolatePositionRequest();
+        instance = new Dora.ValidateSubmitOrderResponse();
       });
 
-      it('should create an instance of IsolatePositionRequest', function() {
-        // TODO: update the code to test IsolatePositionRequest
-        expect(instance).to.be.a(Dora.IsolatePositionRequest);
+      it('should create an instance of ValidateSubmitOrderResponse', function() {
+        // TODO: update the code to test ValidateSubmitOrderResponse
+        expect(instance).to.be.a(Dora.ValidateSubmitOrderResponse);
       });
 
-      it('should have the property globalPositionId (base name: "global_position_id")', function() {
-        // TODO: update the code to test the property globalPositionId
-        expect(instance).to.have.property('globalPositionId');
-        // expect(instance.globalPositionId).to.be(expectedValueLiteral);
+      it('should have the property data (base name: "data")', function() {
+        // TODO: update the code to test the property data
+        expect(instance).to.have.property('data');
+        // expect(instance.data).to.be(expectedValueLiteral);
       });
 
     });

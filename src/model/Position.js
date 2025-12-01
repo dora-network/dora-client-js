@@ -68,6 +68,8 @@ export default class Position {
         obj.liquidationThreshold = ApiClient.convertToType(data['liquidation_threshold'], 'String');
       if (data.hasOwnProperty('created_at'))
         obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
+      if (data.hasOwnProperty('position_name'))
+        obj.positionName = ApiClient.convertToType(data['position_name'], 'String');
     }
     return obj;
   }
@@ -158,4 +160,9 @@ Position.prototype.liquidationThreshold = undefined;
  * @member {Date} createdAt
  */
 Position.prototype.createdAt = undefined;
+
+/**
+ * @member {String} positionName
+ */
+Position.prototype.positionName = undefined;
 

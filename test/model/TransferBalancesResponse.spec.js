@@ -29,14 +29,14 @@
   var instance;
 
   describe('(package)', function() {
-    describe('FundUserResponse', function() {
+    describe('TransferBalancesResponse', function() {
       beforeEach(function() {
-        instance = new Dora.FundUserResponse();
+        instance = new Dora.TransferBalancesResponse();
       });
 
-      it('should create an instance of FundUserResponse', function() {
-        // TODO: update the code to test FundUserResponse
-        expect(instance).to.be.a(Dora.FundUserResponse);
+      it('should create an instance of TransferBalancesResponse', function() {
+        // TODO: update the code to test TransferBalancesResponse
+        expect(instance).to.be.a(Dora.TransferBalancesResponse);
       });
 
       it('should have the property data (base name: "data")', function() {

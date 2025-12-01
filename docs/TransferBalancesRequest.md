@@ -1,8 +1,9 @@
-# Dora.CollateralizeRequest
+# Dora.TransferBalancesRequest
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**positionId** | **String** |  | 
+**fromPositionId** | **String** |  | 
+**toPositionId** | **String** |  | 
 **assetId** | **String** |  | 
 **quantity** | **String** |  | 

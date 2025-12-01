@@ -29,20 +29,20 @@
   var instance;
 
   describe('(package)', function() {
-    describe('CollateralizeRequest', function() {
+    describe('NewIsolatedPositionRequest', function() {
       beforeEach(function() {
-        instance = new Dora.CollateralizeRequest();
+        instance = new Dora.NewIsolatedPositionRequest();
       });
 
-      it('should create an instance of CollateralizeRequest', function() {
-        // TODO: update the code to test CollateralizeRequest
-        expect(instance).to.be.a(Dora.CollateralizeRequest);
+      it('should create an instance of NewIsolatedPositionRequest', function() {
+        // TODO: update the code to test NewIsolatedPositionRequest
+        expect(instance).to.be.a(Dora.NewIsolatedPositionRequest);
       });
 
-      it('should have the property positionId (base name: "position_id")', function() {
-        // TODO: update the code to test the property positionId
-        expect(instance).to.have.property('positionId');
-        // expect(instance.positionId).to.be(expectedValueLiteral);
+      it('should have the property globalPositionId (base name: "global_position_id")', function() {
+        // TODO: update the code to test the property globalPositionId
+        expect(instance).to.have.property('globalPositionId');
+        // expect(instance.globalPositionId).to.be(expectedValueLiteral);
       });
 
       it('should have the property assetId (base name: "asset_id")', function() {
@@ -55,6 +55,12 @@
         // TODO: update the code to test the property quantity
         expect(instance).to.have.property('quantity');
         // expect(instance.quantity).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property positionName (base name: "position_name")', function() {
+        // TODO: update the code to test the property positionName
+        expect(instance).to.have.property('positionName');
+        // expect(instance.positionName).to.be(expectedValueLiteral);
       });
 
     });

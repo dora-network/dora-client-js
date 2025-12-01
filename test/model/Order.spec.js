@@ -93,6 +93,12 @@
         // expect(instance.filledQuantity).to.be(expectedValueLiteral);
       });
 
+      it('should have the property filledNotional (base name: "filled_notional")', function() {
+        // TODO: update the code to test the property filledNotional
+        expect(instance).to.have.property('filledNotional');
+        // expect(instance.filledNotional).to.be(expectedValueLiteral);
+      });
+
       it('should have the property lastUpdateAt (base name: "last_update_at")', function() {
         // TODO: update the code to test the property lastUpdateAt
         expect(instance).to.have.property('lastUpdateAt');
@@ -139,6 +145,24 @@
         // TODO: update the code to test the property positionId
         expect(instance).to.have.property('positionId');
         // expect(instance.positionId).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property orderInfo (base name: "order_info")', function() {
+        // TODO: update the code to test the property orderInfo
+        expect(instance).to.have.property('orderInfo');
+        // expect(instance.orderInfo).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property goodTillDate (base name: "good_till_date")', function() {
+        // TODO: update the code to test the property goodTillDate
+        expect(instance).to.have.property('goodTillDate');
+        // expect(instance.goodTillDate).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property triggerPrice (base name: "trigger_price")', function() {
+        // TODO: update the code to test the property triggerPrice
+        expect(instance).to.have.property('triggerPrice');
+        // expect(instance.triggerPrice).to.be(expectedValueLiteral);
       });
 
     });

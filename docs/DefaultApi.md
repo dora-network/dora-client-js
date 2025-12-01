@@ -4,8 +4,10 @@ All URIs are relative to *https://localhost:8084*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelAllOpenOrders**](DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders
+[**cancelAllOpenOrders**](DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
 [**cancelOrderById**](DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
+[**checkUserEmailExists**](DefaultApi.md#checkUserEmailExists) | **GET** /v1/user/{email}/exists | Check whether a user email exists
+[**createNewIsolatedPosition**](DefaultApi.md#createNewIsolatedPosition) | **POST** /v1/positions/new_isolated | Create a new isolated position for a user transferring available assets into the position
 [**createOrder**](DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
 [**getAllAssetPrices**](DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
@@ -40,12 +42,7 @@ Method | HTTP request | Description
 [**getUserOrdersUpdatesStreamAll**](DefaultApi.md#getUserOrdersUpdatesStreamAll) | **GET** /v1/user/{user_id}/orders/all/updates/stream | Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
 [**getUserSelf**](DefaultApi.md#getUserSelf) | **GET** /v1/user/self | Get user details for the authenticated user
 [**getUserTransactionsStream**](DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
-[**ledgerDeposit**](DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit | Deposit assets into your account from the outside world
-[**ledgerWithdraw**](DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw | Withdraw assets from your account to the outside world
-[**leverageCollateralize**](DefaultApi.md#leverageCollateralize) | **POST** /v1/leverage/collateralize | Move supplied and available to supplied_collateral and collateral, for a specified position
-[**leverageDeCollateralize**](DefaultApi.md#leverageDeCollateralize) | **POST** /v1/leverage/de-collateralize | Move collateral and supplied_collateral to available and supplied, for a specified position.
 [**leverageIsolateCollateral**](DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
-[**leverageIsolatePosition**](DefaultApi.md#leverageIsolatePosition) | **POST** /v1/leverage/isolate_position | Create an isolated position using all collateral, supplied_collateral, and borrows from the user&#x27;s global position
 [**leverageSupply**](DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
 [**leverageUnite**](DefaultApi.md#leverageUnite) | **POST** /v1/leverage/unite | Combines all isolated positions into a single global position
 [**leverageWithdraw**](DefaultApi.md#leverageWithdraw) | **POST** /v1/leverage/withdraw | Withdraw leverage for a specific asset
@@ -59,22 +56,29 @@ Method | HTTP request | Description
 [**streamOrderBookBalances**](DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
 [**streamOrderbookOpenOrders**](DefaultApi.md#streamOrderbookOpenOrders) | **GET** /v1/orderbooks/{order_book_id}/open/stream | Get a snapshot of open orders in an order book and open a stream for real-time updates
 [**streamTrades**](DefaultApi.md#streamTrades) | **GET** /v1/trades/{order_book_id}/stream | Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
+[**transferAvailableBalances**](DefaultApi.md#transferAvailableBalances) | **POST** /v1/positions/transfer_balances | Transfer available balance between a user&#x27;s accounts (e.g. global to isolated position)
 [**updateUserConfig**](DefaultApi.md#updateUserConfig) | **PUT** /v1/user/{user_id}/config | Update user configuration by ID
 [**updateUserConfigSelf**](DefaultApi.md#updateUserConfigSelf) | **PUT** /v1/user/config/self | Update user configuration for the authenticated user
+[**validateSubmitOrder**](DefaultApi.md#validateSubmitOrder) | **POST** /v1/orders/validate | Validate submit order request data
 [**verifyUser**](DefaultApi.md#verifyUser) | **PUT** /v1/user/{user_id}/verify | Verify a user by ID
 
 <a name="cancelAllOpenOrders"></a>
 # **cancelAllOpenOrders**
-> ListOrdersResponse cancelAllOpenOrders()
+> ListOrdersResponse cancelAllOpenOrders(opts)
 
-Cancel all open orders
+Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
 
 ### Example
 ```javascript
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-apiInstance.cancelAllOpenOrders((error, data, response) => {
+let opts = { 
+  'orderBookId': "orderBookId_example", // String | 
+  'userId': "38400000-8cf0-11bd-b23e-10b96e4ef00d", // String | 
+  'orderKind': new Dora.OrderKind() // OrderKind | 
+};
+apiInstance.cancelAllOpenOrders(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -84,7 +88,12 @@ apiInstance.cancelAllOpenOrders((error, data, response) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderBookId** | **String**|  | [optional] 
+ **userId** | [**String**](.md)|  | [optional] 
+ **orderKind** | [**OrderKind**](.md)|  | [optional] 
 
 ### Return type
 
@@ -138,6 +147,88 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="checkUserEmailExists"></a>
+# **checkUserEmailExists**
+> &#x27;Boolean&#x27; checkUserEmailExists(email)
+
+Check whether a user email exists
+
+### Example
+```javascript
+import {Dora} from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+let email = "email_example"; // String | 
+
+apiInstance.checkUserEmailExists(email, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **String**|  | 
+
+### Return type
+
+**&#x27;Boolean&#x27;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="createNewIsolatedPosition"></a>
+# **createNewIsolatedPosition**
+> NewIsolatedPositionResponse createNewIsolatedPosition(body)
+
+Create a new isolated position for a user transferring available assets into the position
+
+### Example
+```javascript
+import {Dora} from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+let body = new Dora.NewIsolatedPositionRequest(); // NewIsolatedPositionRequest | 
+
+apiInstance.createNewIsolatedPosition(body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**NewIsolatedPositionRequest**](NewIsolatedPositionRequest.md)|  | 
+
+### Return type
+
+[**NewIsolatedPositionResponse**](NewIsolatedPositionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="createOrder"></a>
@@ -1157,7 +1248,7 @@ import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
 let opts = { 
-  'pools': ["pools_example"], // [String] | 
+  'orderBookIds': ["orderBookIds_example"], // [String] | 
   'userIds': ["userIds_example"], // [String] | 
   'start': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'end': new Date("2013-10-20T19:20:30+01:00"), // Date | 
@@ -1177,7 +1268,7 @@ apiInstance.getTrades(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pools** | [**[String]**](String.md)|  | [optional] 
+ **orderBookIds** | [**[String]**](String.md)|  | [optional] 
  **userIds** | [**[String]**](String.md)|  | [optional] 
  **start** | **Date**|  | [optional] 
  **end** | **Date**|  | [optional] 
@@ -1544,174 +1635,6 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerDeposit"></a>
-# **ledgerDeposit**
-> FundUserResponse ledgerDeposit(body)
-
-Deposit assets into your account from the outside world
-
-TODO: finish this when implementation has been completed
-
-### Example
-```javascript
-import {Dora} from 'dora';
-
-let apiInstance = new Dora.DefaultApi();
-let body = new Dora.FundUserRequest(); // FundUserRequest | 
-
-apiInstance.ledgerDeposit(body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**FundUserRequest**](FundUserRequest.md)|  | 
-
-### Return type
-
-[**FundUserResponse**](FundUserResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="ledgerWithdraw"></a>
-# **ledgerWithdraw**
-> FundUserResponse ledgerWithdraw(body)
-
-Withdraw assets from your account to the outside world
-
-TODO: Finish this when implementation has been completed
-
-### Example
-```javascript
-import {Dora} from 'dora';
-
-let apiInstance = new Dora.DefaultApi();
-let body = new Dora.FundUserRequest(); // FundUserRequest | 
-
-apiInstance.ledgerWithdraw(body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**FundUserRequest**](FundUserRequest.md)|  | 
-
-### Return type
-
-[**FundUserResponse**](FundUserResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="leverageCollateralize"></a>
-# **leverageCollateralize**
-> CollateralizeResponse leverageCollateralize(body)
-
-Move supplied and available to supplied_collateral and collateral, for a specified position
-
-### Example
-```javascript
-import {Dora} from 'dora';
-
-let apiInstance = new Dora.DefaultApi();
-let body = new Dora.CollateralizeRequest(); // CollateralizeRequest | 
-
-apiInstance.leverageCollateralize(body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**CollateralizeRequest**](CollateralizeRequest.md)|  | 
-
-### Return type
-
-[**CollateralizeResponse**](CollateralizeResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="leverageDeCollateralize"></a>
-# **leverageDeCollateralize**
-> DeCollateralizeResponse leverageDeCollateralize(body)
-
-Move collateral and supplied_collateral to available and supplied, for a specified position.
-
-### Example
-```javascript
-import {Dora} from 'dora';
-
-let apiInstance = new Dora.DefaultApi();
-let body = new Dora.DeCollateralizeRequest(); // DeCollateralizeRequest | 
-
-apiInstance.leverageDeCollateralize(body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**DeCollateralizeRequest**](DeCollateralizeRequest.md)|  | 
-
-### Return type
-
-[**DeCollateralizeResponse**](DeCollateralizeResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
 <a name="leverageIsolateCollateral"></a>
 # **leverageIsolateCollateral**
 > IsolateCollateralResponse leverageIsolateCollateral(body)
@@ -1743,47 +1666,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**IsolateCollateralResponse**](IsolateCollateralResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="leverageIsolatePosition"></a>
-# **leverageIsolatePosition**
-> IsolatePositionResponse leverageIsolatePosition(body)
-
-Create an isolated position using all collateral, supplied_collateral, and borrows from the user&#x27;s global position
-
-### Example
-```javascript
-import {Dora} from 'dora';
-
-let apiInstance = new Dora.DefaultApi();
-let body = new Dora.IsolatePositionRequest(); // IsolatePositionRequest | 
-
-apiInstance.leverageIsolatePosition(body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**IsolatePositionRequest**](IsolatePositionRequest.md)|  | 
-
-### Return type
-
-[**IsolatePositionResponse**](IsolatePositionResponse.md)
 
 ### Authorization
 
@@ -2393,6 +2275,47 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="transferAvailableBalances"></a>
+# **transferAvailableBalances**
+> TransferBalancesResponse transferAvailableBalances(body)
+
+Transfer available balance between a user&#x27;s accounts (e.g. global to isolated position)
+
+### Example
+```javascript
+import {Dora} from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+let body = new Dora.TransferBalancesRequest(); // TransferBalancesRequest | 
+
+apiInstance.transferAvailableBalances(body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**TransferBalancesRequest**](TransferBalancesRequest.md)|  | 
+
+### Return type
+
+[**TransferBalancesResponse**](TransferBalancesResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="updateUserConfig"></a>
 # **updateUserConfig**
 > UserUpdatedResponse updateUserConfig(body, userId)
@@ -2467,6 +2390,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserUpdatedResponse**](UserUpdatedResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="validateSubmitOrder"></a>
+# **validateSubmitOrder**
+> ValidateSubmitOrderResponse validateSubmitOrder(body)
+
+Validate submit order request data
+
+### Example
+```javascript
+import {Dora} from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+let body = new Dora.ValidateSubmitOrderRequest(); // ValidateSubmitOrderRequest | 
+
+apiInstance.validateSubmitOrder(body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ValidateSubmitOrderRequest**](ValidateSubmitOrderRequest.md)|  | 
+
+### Return type
+
+[**ValidateSubmitOrderResponse**](ValidateSubmitOrderResponse.md)
 
 ### Authorization
 

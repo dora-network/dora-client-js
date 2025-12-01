@@ -11,3 +11,5 @@ Name | Type | Description | Notes
 **positionId** | **String** | position ID to use for the order. required. | 
 **orderBookId** | **String** | Required: the order book to submit the order to | 
 **orderModifiers** | [**[OrderModifierKind]**](OrderModifierKind.md) |  | [optional] 
+**goodTillDate** | **Date** |  | [optional] 
+**triggerPrice** | **String** |  | [optional] 

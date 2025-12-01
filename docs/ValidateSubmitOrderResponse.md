@@ -1,6 +1,6 @@
-# Dora.DeCollateralizeResponse
+# Dora.ValidateSubmitOrderResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**Collateral**](Collateral.md) |  | [optional] 
+**data** | **Boolean** |  | [optional] 

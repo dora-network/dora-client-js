@@ -13,19 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import FundUser from './FundUser';
 import Metadata from './Metadata';
+import Position from './Position';
 import ResponseEnvelope from './ResponseEnvelope';
 
 /**
- * The FundUserResponse model module.
- * @module model/FundUserResponse
+ * The NewIsolatedPositionResponse model module.
+ * @module model/NewIsolatedPositionResponse
  * @version 1.0.0
  */
-export default class FundUserResponse extends ResponseEnvelope {
+export default class NewIsolatedPositionResponse extends ResponseEnvelope {
   /**
-   * Constructs a new <code>FundUserResponse</code>.
-   * @alias module:model/FundUserResponse
+   * Constructs a new <code>NewIsolatedPositionResponse</code>.
+   * @alias module:model/NewIsolatedPositionResponse
    * @class
    * @extends module:model/ResponseEnvelope
    */
@@ -34,25 +34,25 @@ export default class FundUserResponse extends ResponseEnvelope {
   }
 
   /**
-   * Constructs a <code>FundUserResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>NewIsolatedPositionResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/FundUserResponse} obj Optional instance to populate.
-   * @return {module:model/FundUserResponse} The populated <code>FundUserResponse</code> instance.
+   * @param {module:model/NewIsolatedPositionResponse} obj Optional instance to populate.
+   * @return {module:model/NewIsolatedPositionResponse} The populated <code>NewIsolatedPositionResponse</code> instance.
    */
   static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new FundUserResponse();
+      obj = obj || new NewIsolatedPositionResponse();
       ResponseEnvelope.constructFromObject(data, obj);
       if (data.hasOwnProperty('data'))
-        obj.data = FundUser.constructFromObject(data['data']);
+        obj.data = Position.constructFromObject(data['data']);
     }
     return obj;
   }
 }
 
 /**
- * @member {module:model/FundUser} data
+ * @member {module:model/Position} data
  */
-FundUserResponse.prototype.data = undefined;
+NewIsolatedPositionResponse.prototype.data = undefined;
 

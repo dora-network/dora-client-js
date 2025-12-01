@@ -71,6 +71,11 @@ Please follow the [installation](#installation) instruction and execute the foll
 var Dora = require('dora');
 
 var api = new Dora.DefaultApi()
+var opts = { 
+  'orderBookId': "orderBookId_example", // {String} 
+  'userId': "38400000-8cf0-11bd-b23e-10b96e4ef00d", // {String} 
+  'orderKind': new Dora.OrderKind() // {OrderKind} 
+};
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -78,7 +83,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.cancelAllOpenOrders(callback);
+api.cancelAllOpenOrders(opts, callback);
 ```
 
 ## Documentation for API Endpoints
@@ -87,8 +92,10 @@ All URIs are relative to *https://localhost:8084*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Dora.DefaultApi* | [**cancelAllOpenOrders**](docs/DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders
+*Dora.DefaultApi* | [**cancelAllOpenOrders**](docs/DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
 *Dora.DefaultApi* | [**cancelOrderById**](docs/DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
+*Dora.DefaultApi* | [**checkUserEmailExists**](docs/DefaultApi.md#checkUserEmailExists) | **GET** /v1/user/{email}/exists | Check whether a user email exists
+*Dora.DefaultApi* | [**createNewIsolatedPosition**](docs/DefaultApi.md#createNewIsolatedPosition) | **POST** /v1/positions/new_isolated | Create a new isolated position for a user transferring available assets into the position
 *Dora.DefaultApi* | [**createOrder**](docs/DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 *Dora.DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
 *Dora.DefaultApi* | [**getAllAssetPrices**](docs/DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
@@ -123,12 +130,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getUserOrdersUpdatesStreamAll**](docs/DefaultApi.md#getUserOrdersUpdatesStreamAll) | **GET** /v1/user/{user_id}/orders/all/updates/stream | Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
 *Dora.DefaultApi* | [**getUserSelf**](docs/DefaultApi.md#getUserSelf) | **GET** /v1/user/self | Get user details for the authenticated user
 *Dora.DefaultApi* | [**getUserTransactionsStream**](docs/DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
-*Dora.DefaultApi* | [**ledgerDeposit**](docs/DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit | Deposit assets into your account from the outside world
-*Dora.DefaultApi* | [**ledgerWithdraw**](docs/DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw | Withdraw assets from your account to the outside world
-*Dora.DefaultApi* | [**leverageCollateralize**](docs/DefaultApi.md#leverageCollateralize) | **POST** /v1/leverage/collateralize | Move supplied and available to supplied_collateral and collateral, for a specified position
-*Dora.DefaultApi* | [**leverageDeCollateralize**](docs/DefaultApi.md#leverageDeCollateralize) | **POST** /v1/leverage/de-collateralize | Move collateral and supplied_collateral to available and supplied, for a specified position.
 *Dora.DefaultApi* | [**leverageIsolateCollateral**](docs/DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
-*Dora.DefaultApi* | [**leverageIsolatePosition**](docs/DefaultApi.md#leverageIsolatePosition) | **POST** /v1/leverage/isolate_position | Create an isolated position using all collateral, supplied_collateral, and borrows from the user&#x27;s global position
 *Dora.DefaultApi* | [**leverageSupply**](docs/DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
 *Dora.DefaultApi* | [**leverageUnite**](docs/DefaultApi.md#leverageUnite) | **POST** /v1/leverage/unite | Combines all isolated positions into a single global position
 *Dora.DefaultApi* | [**leverageWithdraw**](docs/DefaultApi.md#leverageWithdraw) | **POST** /v1/leverage/withdraw | Withdraw leverage for a specific asset
@@ -142,8 +144,10 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**streamOrderBookBalances**](docs/DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamOrderbookOpenOrders**](docs/DefaultApi.md#streamOrderbookOpenOrders) | **GET** /v1/orderbooks/{order_book_id}/open/stream | Get a snapshot of open orders in an order book and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamTrades**](docs/DefaultApi.md#streamTrades) | **GET** /v1/trades/{order_book_id}/stream | Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
+*Dora.DefaultApi* | [**transferAvailableBalances**](docs/DefaultApi.md#transferAvailableBalances) | **POST** /v1/positions/transfer_balances | Transfer available balance between a user&#x27;s accounts (e.g. global to isolated position)
 *Dora.DefaultApi* | [**updateUserConfig**](docs/DefaultApi.md#updateUserConfig) | **PUT** /v1/user/{user_id}/config | Update user configuration by ID
 *Dora.DefaultApi* | [**updateUserConfigSelf**](docs/DefaultApi.md#updateUserConfigSelf) | **PUT** /v1/user/config/self | Update user configuration for the authenticated user
+*Dora.DefaultApi* | [**validateSubmitOrder**](docs/DefaultApi.md#validateSubmitOrder) | **POST** /v1/orders/validate | Validate submit order request data
 *Dora.DefaultApi* | [**verifyUser**](docs/DefaultApi.md#verifyUser) | **PUT** /v1/user/{user_id}/verify | Verify a user by ID
 
 ## Documentation for Models
@@ -152,6 +156,7 @@ Class | Method | HTTP request | Description
  - [Dora.AssetKind](docs/AssetKind.md)
  - [Dora.AssetPrice](docs/AssetPrice.md)
  - [Dora.AssetRequestError](docs/AssetRequestError.md)
+ - [Dora.BalanceTransfer](docs/BalanceTransfer.md)
  - [Dora.BalancesResponse](docs/BalancesResponse.md)
  - [Dora.Bond](docs/Bond.md)
  - [Dora.BondKind](docs/BondKind.md)
@@ -161,17 +166,10 @@ Class | Method | HTTP request | Description
  - [Dora.Candle](docs/Candle.md)
  - [Dora.CandleResolution](docs/CandleResolution.md)
  - [Dora.Collateral](docs/Collateral.md)
- - [Dora.CollateralizeRequest](docs/CollateralizeRequest.md)
- - [Dora.CollateralizeResponse](docs/CollateralizeResponse.md)
  - [Dora.CouponPayment](docs/CouponPayment.md)
  - [Dora.CreateOrUpdateUserResponse](docs/CreateOrUpdateUserResponse.md)
  - [Dora.CreateOrderRequest](docs/CreateOrderRequest.md)
  - [Dora.CreateOrderResponse](docs/CreateOrderResponse.md)
- - [Dora.DeCollateralizeRequest](docs/DeCollateralizeRequest.md)
- - [Dora.DeCollateralizeResponse](docs/DeCollateralizeResponse.md)
- - [Dora.FundUser](docs/FundUser.md)
- - [Dora.FundUserRequest](docs/FundUserRequest.md)
- - [Dora.FundUserResponse](docs/FundUserResponse.md)
  - [Dora.GetAssetByIDResponse](docs/GetAssetByIDResponse.md)
  - [Dora.GetAssetPriceResponse](docs/GetAssetPriceResponse.md)
  - [Dora.GetOrderBookResponse](docs/GetOrderBookResponse.md)
@@ -184,8 +182,6 @@ Class | Method | HTTP request | Description
  - [Dora.GetUserResponse](docs/GetUserResponse.md)
  - [Dora.IsolateCollateralRequest](docs/IsolateCollateralRequest.md)
  - [Dora.IsolateCollateralResponse](docs/IsolateCollateralResponse.md)
- - [Dora.IsolatePositionRequest](docs/IsolatePositionRequest.md)
- - [Dora.IsolatePositionResponse](docs/IsolatePositionResponse.md)
  - [Dora.IsolatedCollateral](docs/IsolatedCollateral.md)
  - [Dora.IsolatedPosition](docs/IsolatedPosition.md)
  - [Dora.LedgerModuleByAssetResponse](docs/LedgerModuleByAssetResponse.md)
@@ -211,6 +207,8 @@ Class | Method | HTTP request | Description
  - [Dora.LiveOrderbook](docs/LiveOrderbook.md)
  - [Dora.Metadata](docs/Metadata.md)
  - [Dora.ModuleBalance](docs/ModuleBalance.md)
+ - [Dora.NewIsolatedPositionRequest](docs/NewIsolatedPositionRequest.md)
+ - [Dora.NewIsolatedPositionResponse](docs/NewIsolatedPositionResponse.md)
  - [Dora.Order](docs/Order.md)
  - [Dora.OrderBook](docs/OrderBook.md)
  - [Dora.OrderBookBalance](docs/OrderBookBalance.md)
@@ -263,6 +261,8 @@ Class | Method | HTTP request | Description
  - [Dora.Transaction](docs/Transaction.md)
  - [Dora.TransactionKind](docs/TransactionKind.md)
  - [Dora.TransactionRequestError](docs/TransactionRequestError.md)
+ - [Dora.TransferBalancesRequest](docs/TransferBalancesRequest.md)
+ - [Dora.TransferBalancesResponse](docs/TransferBalancesResponse.md)
  - [Dora.TransformedAssets](docs/TransformedAssets.md)
  - [Dora.UnitePositionRequest](docs/UnitePositionRequest.md)
  - [Dora.UnitePositionResponse](docs/UnitePositionResponse.md)
@@ -281,11 +281,15 @@ Class | Method | HTTP request | Description
  - [Dora.UserUpdatedResponse](docs/UserUpdatedResponse.md)
  - [Dora.UserValue](docs/UserValue.md)
  - [Dora.UserValueResponse](docs/UserValueResponse.md)
+ - [Dora.ValidateSubmitOrderRequest](docs/ValidateSubmitOrderRequest.md)
+ - [Dora.ValidateSubmitOrderResponse](docs/ValidateSubmitOrderResponse.md)
  - [Dora.Withdraw](docs/Withdraw.md)
  - [Dora.WithdrawRequest](docs/WithdrawRequest.md)
  - [Dora.WithdrawResponse](docs/WithdrawResponse.md)
 
 ## Documentation for Authorization
 
- All endpoints do not require authorization.
+
+### BearerAuth
+
 

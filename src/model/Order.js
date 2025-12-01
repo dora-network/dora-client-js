@@ -60,6 +60,8 @@ export default class Order {
         obj.originalQuantity = ApiClient.convertToType(data['original_quantity'], 'String');
       if (data.hasOwnProperty('filled_quantity'))
         obj.filledQuantity = ApiClient.convertToType(data['filled_quantity'], 'String');
+      if (data.hasOwnProperty('filled_notional'))
+        obj.filledNotional = ApiClient.convertToType(data['filled_notional'], 'String');
       if (data.hasOwnProperty('last_update_at'))
         obj.lastUpdateAt = ApiClient.convertToType(data['last_update_at'], 'Date');
       if (data.hasOwnProperty('opened_at'))
@@ -76,6 +78,12 @@ export default class Order {
         obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], [OrderModifierKind]);
       if (data.hasOwnProperty('position_id'))
         obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
+      if (data.hasOwnProperty('order_info'))
+        obj.orderInfo = ApiClient.convertToType(data['order_info'], 'String');
+      if (data.hasOwnProperty('good_till_date'))
+        obj.goodTillDate = ApiClient.convertToType(data['good_till_date'], 'Date');
+      if (data.hasOwnProperty('trigger_price'))
+        obj.triggerPrice = ApiClient.convertToType(data['trigger_price'], 'String');
     }
     return obj;
   }
@@ -132,6 +140,12 @@ Order.prototype.originalQuantity = undefined;
 Order.prototype.filledQuantity = undefined;
 
 /**
+ * Quote quantity that has been filled so far.
+ * @member {String} filledNotional
+ */
+Order.prototype.filledNotional = undefined;
+
+/**
  * @member {Date} lastUpdateAt
  */
 Order.prototype.lastUpdateAt = undefined;
@@ -170,4 +184,19 @@ Order.prototype.orderModifiers = undefined;
  * @member {String} positionId
  */
 Order.prototype.positionId = undefined;
+
+/**
+ * @member {String} orderInfo
+ */
+Order.prototype.orderInfo = undefined;
+
+/**
+ * @member {Date} goodTillDate
+ */
+Order.prototype.goodTillDate = undefined;
+
+/**
+ * @member {String} triggerPrice
+ */
+Order.prototype.triggerPrice = undefined;
 

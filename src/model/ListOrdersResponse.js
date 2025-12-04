@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import Order from './Order';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The ListOrdersResponse model module.
  * @module model/ListOrdersResponse
  * @version 1.0.0
  */
-export default class ListOrdersResponse extends ResponseEnvelope {
+export default class ListOrdersResponse {
   /**
    * Constructs a new <code>ListOrdersResponse</code>.
    * @alias module:model/ListOrdersResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class ListOrdersResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new ListOrdersResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [Order]);
     }
     return obj;
   }
 }
-
-/**
- * @member {Array.<module:model/Order>} data
- */
-ListOrdersResponse.prototype.data = undefined;
-

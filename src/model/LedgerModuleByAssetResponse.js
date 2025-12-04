@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ModuleBalance from './ModuleBalance';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The LedgerModuleByAssetResponse model module.
  * @module model/LedgerModuleByAssetResponse
  * @version 1.0.0
  */
-export default class LedgerModuleByAssetResponse extends ResponseEnvelope {
+export default class LedgerModuleByAssetResponse {
   /**
    * Constructs a new <code>LedgerModuleByAssetResponse</code>.
    * @alias module:model/LedgerModuleByAssetResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class LedgerModuleByAssetResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new LedgerModuleByAssetResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ModuleBalance.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/ModuleBalance} data
- */
-LedgerModuleByAssetResponse.prototype.data = undefined;
-

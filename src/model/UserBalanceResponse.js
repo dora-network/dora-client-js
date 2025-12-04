@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import BalancesResponse from './BalancesResponse';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The UserBalanceResponse model module.
  * @module model/UserBalanceResponse
  * @version 1.0.0
  */
-export default class UserBalanceResponse extends ResponseEnvelope {
+export default class UserBalanceResponse {
   /**
    * Constructs a new <code>UserBalanceResponse</code>.
    * @alias module:model/UserBalanceResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class UserBalanceResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new UserBalanceResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = BalancesResponse.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/BalancesResponse} data
- */
-UserBalanceResponse.prototype.data = undefined;
-

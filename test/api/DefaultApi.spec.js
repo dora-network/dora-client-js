@@ -86,8 +86,7 @@
               return;
             }
             // TODO: update response assertions
-            expect(data).to.be.a(&#x27;boolean&#x27;);
-            // expect(data).to.be(null);
+            expect(data).to.be.a(Dora.EmailExistsResponse);
 
             done();
           });

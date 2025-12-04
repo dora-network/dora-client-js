@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import Order from './Order';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The GetOrderResponse model module.
  * @module model/GetOrderResponse
  * @version 1.0.0
  */
-export default class GetOrderResponse extends ResponseEnvelope {
+export default class GetOrderResponse {
   /**
    * Constructs a new <code>GetOrderResponse</code>.
    * @alias module:model/GetOrderResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class GetOrderResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new GetOrderResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = Order.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Order} data
- */
-GetOrderResponse.prototype.data = undefined;
-

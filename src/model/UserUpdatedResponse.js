@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import CreateOrUpdateUserResponse from './CreateOrUpdateUserResponse';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The UserUpdatedResponse model module.
  * @module model/UserUpdatedResponse
  * @version 1.0.0
  */
-export default class UserUpdatedResponse extends ResponseEnvelope {
+export default class UserUpdatedResponse {
   /**
    * Constructs a new <code>UserUpdatedResponse</code>.
    * @alias module:model/UserUpdatedResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class UserUpdatedResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new UserUpdatedResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = CreateOrUpdateUserResponse.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/CreateOrUpdateUserResponse} data
- */
-UserUpdatedResponse.prototype.data = undefined;
-

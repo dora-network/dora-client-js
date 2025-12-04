@@ -151,7 +151,7 @@ No authorization required
 
 <a name="checkUserEmailExists"></a>
 # **checkUserEmailExists**
-> &#x27;Boolean&#x27; checkUserEmailExists(email)
+> EmailExistsResponse checkUserEmailExists(email)
 
 Check whether a user email exists
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**&#x27;Boolean&#x27;**
+[**EmailExistsResponse**](EmailExistsResponse.md)
 
 ### Authorization
 

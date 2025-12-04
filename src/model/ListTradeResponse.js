@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
-import Trade from './Trade';
 
 /**
  * The ListTradeResponse model module.
  * @module model/ListTradeResponse
  * @version 1.0.0
  */
-export default class ListTradeResponse extends ResponseEnvelope {
+export default class ListTradeResponse {
   /**
    * Constructs a new <code>ListTradeResponse</code>.
    * @alias module:model/ListTradeResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class ListTradeResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new ListTradeResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [Trade]);
     }
     return obj;
   }
 }
-
-/**
- * @member {Array.<module:model/Trade>} data
- */
-ListTradeResponse.prototype.data = undefined;
-

@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import PoolPrice from './PoolPrice';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The GetPoolPriceResponse model module.
  * @module model/GetPoolPriceResponse
  * @version 1.0.0
  */
-export default class GetPoolPriceResponse extends ResponseEnvelope {
+export default class GetPoolPriceResponse {
   /**
    * Constructs a new <code>GetPoolPriceResponse</code>.
    * @alias module:model/GetPoolPriceResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class GetPoolPriceResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new GetPoolPriceResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = PoolPrice.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/PoolPrice} data
- */
-GetPoolPriceResponse.prototype.data = undefined;
-

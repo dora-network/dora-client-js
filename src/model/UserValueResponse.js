@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
-import UserValue from './UserValue';
 
 /**
  * The UserValueResponse model module.
  * @module model/UserValueResponse
  * @version 1.0.0
  */
-export default class UserValueResponse extends ResponseEnvelope {
+export default class UserValueResponse {
   /**
    * Constructs a new <code>UserValueResponse</code>.
    * @alias module:model/UserValueResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class UserValueResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new UserValueResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = UserValue.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/UserValue} data
- */
-UserValueResponse.prototype.data = undefined;
-

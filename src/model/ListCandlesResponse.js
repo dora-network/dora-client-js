@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Candle from './Candle';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The ListCandlesResponse model module.
  * @module model/ListCandlesResponse
  * @version 1.0.0
  */
-export default class ListCandlesResponse extends ResponseEnvelope {
+export default class ListCandlesResponse {
   /**
    * Constructs a new <code>ListCandlesResponse</code>.
    * @alias module:model/ListCandlesResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class ListCandlesResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new ListCandlesResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [Candle]);
     }
     return obj;
   }
 }
-
-/**
- * @member {Array.<module:model/Candle>} data
- */
-ListCandlesResponse.prototype.data = undefined;
-

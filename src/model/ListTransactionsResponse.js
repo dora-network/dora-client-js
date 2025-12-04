@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
-import Transaction from './Transaction';
 
 /**
  * The ListTransactionsResponse model module.
  * @module model/ListTransactionsResponse
  * @version 1.0.0
  */
-export default class ListTransactionsResponse extends ResponseEnvelope {
+export default class ListTransactionsResponse {
   /**
    * Constructs a new <code>ListTransactionsResponse</code>.
    * @alias module:model/ListTransactionsResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class ListTransactionsResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new ListTransactionsResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [Transaction]);
     }
     return obj;
   }
 }
-
-/**
- * @member {Array.<module:model/Transaction>} data
- */
-ListTransactionsResponse.prototype.data = undefined;
-

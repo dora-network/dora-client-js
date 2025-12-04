@@ -19,6 +19,7 @@ import CancelOrderResponse from '../model/CancelOrderResponse';
 import CandleResolution from '../model/CandleResolution';
 import CreateOrderRequest from '../model/CreateOrderRequest';
 import CreateOrderResponse from '../model/CreateOrderResponse';
+import EmailExistsResponse from '../model/EmailExistsResponse';
 import GetAssetByIDResponse from '../model/GetAssetByIDResponse';
 import GetAssetPriceResponse from '../model/GetAssetPriceResponse';
 import GetOrderBookResponse from '../model/GetOrderBookResponse';
@@ -197,7 +198,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the checkUserEmailExists operation.
      * @callback moduleapi/DefaultApi~checkUserEmailExistsCallback
      * @param {String} error Error message, if any.
-     * @param {'Boolean'{ data The data returned by the service call.
+     * @param {module:model/EmailExistsResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -231,7 +232,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = 'Boolean';
+      let returnType = EmailExistsResponse;
 
       return this.apiClient.callApi(
         '/v1/user/{email}/exists', 'GET',

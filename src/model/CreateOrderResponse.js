@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import OrderId from './OrderId';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The CreateOrderResponse model module.
  * @module model/CreateOrderResponse
  * @version 1.0.0
  */
-export default class CreateOrderResponse extends ResponseEnvelope {
+export default class CreateOrderResponse {
   /**
    * Constructs a new <code>CreateOrderResponse</code>.
    * @alias module:model/CreateOrderResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class CreateOrderResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new CreateOrderResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = OrderId.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/OrderId} data
- */
-CreateOrderResponse.prototype.data = undefined;
-

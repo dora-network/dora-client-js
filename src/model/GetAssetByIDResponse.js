@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Asset from './Asset';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The GetAssetByIDResponse model module.
  * @module model/GetAssetByIDResponse
  * @version 1.0.0
  */
-export default class GetAssetByIDResponse extends ResponseEnvelope {
+export default class GetAssetByIDResponse {
   /**
    * Constructs a new <code>GetAssetByIDResponse</code>.
    * @alias module:model/GetAssetByIDResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class GetAssetByIDResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new GetAssetByIDResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = Asset.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Asset} data
- */
-GetAssetByIDResponse.prototype.data = undefined;
-

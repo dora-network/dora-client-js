@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
-import UserInterest from './UserInterest';
 
 /**
  * The UserInterestResponse model module.
  * @module model/UserInterestResponse
  * @version 1.0.0
  */
-export default class UserInterestResponse extends ResponseEnvelope {
+export default class UserInterestResponse {
   /**
    * Constructs a new <code>UserInterestResponse</code>.
    * @alias module:model/UserInterestResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class UserInterestResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new UserInterestResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = UserInterest.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/UserInterest} data
- */
-UserInterestResponse.prototype.data = undefined;
-

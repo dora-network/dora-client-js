@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import OrderBook from './OrderBook';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The GetOrderBookResponse model module.
  * @module model/GetOrderBookResponse
  * @version 1.0.0
  */
-export default class GetOrderBookResponse extends ResponseEnvelope {
+export default class GetOrderBookResponse {
   /**
    * Constructs a new <code>GetOrderBookResponse</code>.
    * @alias module:model/GetOrderBookResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class GetOrderBookResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new GetOrderBookResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = OrderBook.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/OrderBook} data
- */
-GetOrderBookResponse.prototype.data = undefined;
-

@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
-import Trade from './Trade';
 
 /**
  * The TradeResponse model module.
  * @module model/TradeResponse
  * @version 1.0.0
  */
-export default class TradeResponse extends ResponseEnvelope {
+export default class TradeResponse {
   /**
    * Constructs a new <code>TradeResponse</code>.
    * @alias module:model/TradeResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class TradeResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new TradeResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = Trade.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Trade} data
- */
-TradeResponse.prototype.data = undefined;
-

@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Asset from './Asset';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The ListAssetsResponse model module.
  * @module model/ListAssetsResponse
  * @version 1.0.0
  */
-export default class ListAssetsResponse extends ResponseEnvelope {
+export default class ListAssetsResponse {
   /**
    * Constructs a new <code>ListAssetsResponse</code>.
    * @alias module:model/ListAssetsResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class ListAssetsResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new ListAssetsResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [Asset]);
     }
     return obj;
   }
 }
-
-/**
- * @member {Array.<module:model/Asset>} data
- */
-ListAssetsResponse.prototype.data = undefined;
-

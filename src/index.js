@@ -16,6 +16,7 @@ import ApiClient from './ApiClient';
 import Asset from './model/Asset';
 import AssetKind from './model/AssetKind';
 import AssetPrice from './model/AssetPrice';
+import AssetPriceResponseEnvelope from './model/AssetPriceResponseEnvelope';
 import AssetRequestError from './model/AssetRequestError';
 import BalanceTransfer from './model/BalanceTransfer';
 import BalancesResponse from './model/BalancesResponse';
@@ -24,6 +25,7 @@ import BondKind from './model/BondKind';
 import BorrowRequest from './model/BorrowRequest';
 import BorrowResponse from './model/BorrowResponse';
 import CancelOrderResponse from './model/CancelOrderResponse';
+import CancelOrderResponseEnvelope from './model/CancelOrderResponseEnvelope';
 import Candle from './model/Candle';
 import CandleResolution from './model/CandleResolution';
 import Collateral from './model/Collateral';
@@ -31,13 +33,18 @@ import CouponPayment from './model/CouponPayment';
 import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
 import CreateOrderResponse from './model/CreateOrderResponse';
+import CreateOrderResponseEnvelope from './model/CreateOrderResponseEnvelope';
+import EmailExistsResponse from './model/EmailExistsResponse';
+import EmailExistsResponseEnvelope from './model/EmailExistsResponseEnvelope';
 import GetAssetByIDResponse from './model/GetAssetByIDResponse';
+import GetAssetByIDResponseEnvelope from './model/GetAssetByIDResponseEnvelope';
 import GetAssetPriceResponse from './model/GetAssetPriceResponse';
 import GetOrderBookResponse from './model/GetOrderBookResponse';
 import GetOrderBookSummaryResponse from './model/GetOrderBookSummaryResponse';
 import GetOrderResponse from './model/GetOrderResponse';
 import GetPoolPriceResponse from './model/GetPoolPriceResponse';
 import GetTopOfBookResponse from './model/GetTopOfBookResponse';
+import GetTopOfBookResponseEnvelope from './model/GetTopOfBookResponseEnvelope';
 import GetTransactionResponse from './model/GetTransactionResponse';
 import GetUserConfigResponse from './model/GetUserConfigResponse';
 import GetUserResponse from './model/GetUserResponse';
@@ -46,45 +53,65 @@ import IsolateCollateralResponse from './model/IsolateCollateralResponse';
 import IsolatedCollateral from './model/IsolatedCollateral';
 import IsolatedPosition from './model/IsolatedPosition';
 import LedgerModuleByAssetResponse from './model/LedgerModuleByAssetResponse';
+import LedgerModuleByAssetResponseEnvelope from './model/LedgerModuleByAssetResponseEnvelope';
 import LedgerModuleResponse from './model/LedgerModuleResponse';
+import LedgerModuleResponseEnvelope from './model/LedgerModuleResponseEnvelope';
 import LeverageBalanceResponse from './model/LeverageBalanceResponse';
 import LeverageModuleResponse from './model/LeverageModuleResponse';
 import LeverageRequestError from './model/LeverageRequestError';
 import LeverageType from './model/LeverageType';
 import LiquidationTargetsResponse from './model/LiquidationTargetsResponse';
+import LiquidationTargetsResponseEnvelope from './model/LiquidationTargetsResponseEnvelope';
 import Liquidity from './model/Liquidity';
 import LiquidityRequest from './model/LiquidityRequest';
 import LiquidityResponse from './model/LiquidityResponse';
+import LiquidityResponseEnvelope from './model/LiquidityResponseEnvelope';
 import ListAssetPriceResponse from './model/ListAssetPriceResponse';
+import ListAssetPriceResponseEnvelope from './model/ListAssetPriceResponseEnvelope';
 import ListAssetsResponse from './model/ListAssetsResponse';
 import ListCandlesResponse from './model/ListCandlesResponse';
+import ListCandlesResponseEnvelope from './model/ListCandlesResponseEnvelope';
 import ListCouponPaymentsResponse from './model/ListCouponPaymentsResponse';
+import ListCouponPaymentsResponseEnvelope from './model/ListCouponPaymentsResponseEnvelope';
 import ListOrderBookDepthResponse from './model/ListOrderBookDepthResponse';
+import ListOrderBookDepthResponseEnvelope from './model/ListOrderBookDepthResponseEnvelope';
 import ListOrderBooksResponse from './model/ListOrderBooksResponse';
+import ListOrderbookResponseEnvelope from './model/ListOrderbookResponseEnvelope';
 import ListOrdersResponse from './model/ListOrdersResponse';
+import ListOrdersResponseEnvelope from './model/ListOrdersResponseEnvelope';
 import ListPositionsResponse from './model/ListPositionsResponse';
 import ListTradeResponse from './model/ListTradeResponse';
+import ListTradeResponseEnvelope from './model/ListTradeResponseEnvelope';
 import ListTransactionsResponse from './model/ListTransactionsResponse';
+import ListTransactionsResponseEnvelope from './model/ListTransactionsResponseEnvelope';
 import LiveOrderbook from './model/LiveOrderbook';
 import Metadata from './model/Metadata';
 import ModuleBalance from './model/ModuleBalance';
 import NewIsolatedPositionRequest from './model/NewIsolatedPositionRequest';
 import NewIsolatedPositionResponse from './model/NewIsolatedPositionResponse';
+import NewIsolatedPositionResponseEnvelope from './model/NewIsolatedPositionResponseEnvelope';
 import Order from './model/Order';
 import OrderBook from './model/OrderBook';
 import OrderBookBalance from './model/OrderBookBalance';
 import OrderBookDepth from './model/OrderBookDepth';
 import OrderBookHaltResponse from './model/OrderBookHaltResponse';
+import OrderBookHaltResponseEnvelope from './model/OrderBookHaltResponseEnvelope';
+import OrderBookResponseEnvelope from './model/OrderBookResponseEnvelope';
 import OrderBookResumeResponse from './model/OrderBookResumeResponse';
+import OrderBookResumeResponseEnvelope from './model/OrderBookResumeResponseEnvelope';
 import OrderBookStatus from './model/OrderBookStatus';
 import OrderBookSummary from './model/OrderBookSummary';
+import OrderBookSummaryResponseEnvelope from './model/OrderBookSummaryResponseEnvelope';
 import OrderBookTerminateResponse from './model/OrderBookTerminateResponse';
+import OrderBookTerminateResponseEnvelope from './model/OrderBookTerminateResponseEnvelope';
 import OrderBookTop from './model/OrderBookTop';
 import OrderId from './model/OrderId';
 import OrderKind from './model/OrderKind';
 import OrderModifierKind from './model/OrderModifierKind';
+import OrderResponseEnvelope from './model/OrderResponseEnvelope';
 import OrderStatus from './model/OrderStatus';
 import PoolPrice from './model/PoolPrice';
+import PoolPriceResponseEnvelope from './model/PoolPriceResponseEnvelope';
 import PoolRequestError from './model/PoolRequestError';
 import Portfolio from './model/Portfolio';
 import Position from './model/Position';
@@ -94,6 +121,7 @@ import PriceLevel from './model/PriceLevel';
 import RepayRequest from './model/RepayRequest';
 import RepayResponse from './model/RepayResponse';
 import ResponseEnvelope from './model/ResponseEnvelope';
+import ResponseEnvelopeOfListAssets from './model/ResponseEnvelopeOfListAssets';
 import Side from './model/Side';
 import StreamAssetPricesResponse from './model/StreamAssetPricesResponse';
 import StreamAssetsEntry from './model/StreamAssetsEntry';
@@ -116,37 +144,51 @@ import StreamTransactionsResponse from './model/StreamTransactionsResponse';
 import Supply from './model/Supply';
 import SupplyRequest from './model/SupplyRequest';
 import SupplyResponse from './model/SupplyResponse';
+import SupplyResponseEnvelope from './model/SupplyResponseEnvelope';
 import Trade from './model/Trade';
 import TradeRequestError from './model/TradeRequestError';
 import TradeResponse from './model/TradeResponse';
+import TradeResponseEnvelope from './model/TradeResponseEnvelope';
 import Transaction from './model/Transaction';
 import TransactionKind from './model/TransactionKind';
 import TransactionRequestError from './model/TransactionRequestError';
+import TransactionResponseEnvelope from './model/TransactionResponseEnvelope';
 import TransferBalancesRequest from './model/TransferBalancesRequest';
 import TransferBalancesResponse from './model/TransferBalancesResponse';
+import TransferBalancesResponseEnvelope from './model/TransferBalancesResponseEnvelope';
 import TransformedAssets from './model/TransformedAssets';
 import UnitePositionRequest from './model/UnitePositionRequest';
 import UnitePositionResponse from './model/UnitePositionResponse';
+import UnitePositionResponseEnvelope from './model/UnitePositionResponseEnvelope';
 import UnitedPosition from './model/UnitedPosition';
 import UpdateFieldString from './model/UpdateFieldString';
 import UpdateRolesString from './model/UpdateRolesString';
 import UpdateUserConfigRequest from './model/UpdateUserConfigRequest';
 import User from './model/User';
 import UserBalanceResponse from './model/UserBalanceResponse';
+import UserBalanceResponseEnvelope from './model/UserBalanceResponseEnvelope';
 import UserConfig from './model/UserConfig';
+import UserConfigResponseEnvelope from './model/UserConfigResponseEnvelope';
 import UserDeletedResponse from './model/UserDeletedResponse';
+import UserDeletedResponseEnvelope from './model/UserDeletedResponseEnvelope';
+import UserEnvelope from './model/UserEnvelope';
 import UserInterest from './model/UserInterest';
 import UserInterestResponse from './model/UserInterestResponse';
+import UserInterestResponseEnvelope from './model/UserInterestResponseEnvelope';
 import UserPositionResponse from './model/UserPositionResponse';
+import UserPositionResponseEnvelope from './model/UserPositionResponseEnvelope';
 import UserRole from './model/UserRole';
 import UserUpdatedResponse from './model/UserUpdatedResponse';
+import UserUpdatedResponseEnvelope from './model/UserUpdatedResponseEnvelope';
 import UserValue from './model/UserValue';
 import UserValueResponse from './model/UserValueResponse';
+import UserValueResponseEnvelope from './model/UserValueResponseEnvelope';
 import ValidateSubmitOrderRequest from './model/ValidateSubmitOrderRequest';
 import ValidateSubmitOrderResponse from './model/ValidateSubmitOrderResponse';
 import Withdraw from './model/Withdraw';
 import WithdrawRequest from './model/WithdrawRequest';
 import WithdrawResponse from './model/WithdrawResponse';
+import WithdrawResponseEnvelope from './model/WithdrawResponseEnvelope';
 import DefaultApi from './api/DefaultApi';
 
 /**
@@ -206,6 +248,12 @@ export {
     AssetPrice,
 
     /**
+     * The AssetPriceResponseEnvelope model constructor.
+     * @property {module:model/AssetPriceResponseEnvelope}
+     */
+    AssetPriceResponseEnvelope,
+
+    /**
      * The AssetRequestError model constructor.
      * @property {module:model/AssetRequestError}
      */
@@ -254,6 +302,12 @@ export {
     CancelOrderResponse,
 
     /**
+     * The CancelOrderResponseEnvelope model constructor.
+     * @property {module:model/CancelOrderResponseEnvelope}
+     */
+    CancelOrderResponseEnvelope,
+
+    /**
      * The Candle model constructor.
      * @property {module:model/Candle}
      */
@@ -296,10 +350,34 @@ export {
     CreateOrderResponse,
 
     /**
+     * The CreateOrderResponseEnvelope model constructor.
+     * @property {module:model/CreateOrderResponseEnvelope}
+     */
+    CreateOrderResponseEnvelope,
+
+    /**
+     * The EmailExistsResponse model constructor.
+     * @property {module:model/EmailExistsResponse}
+     */
+    EmailExistsResponse,
+
+    /**
+     * The EmailExistsResponseEnvelope model constructor.
+     * @property {module:model/EmailExistsResponseEnvelope}
+     */
+    EmailExistsResponseEnvelope,
+
+    /**
      * The GetAssetByIDResponse model constructor.
      * @property {module:model/GetAssetByIDResponse}
      */
     GetAssetByIDResponse,
+
+    /**
+     * The GetAssetByIDResponseEnvelope model constructor.
+     * @property {module:model/GetAssetByIDResponseEnvelope}
+     */
+    GetAssetByIDResponseEnvelope,
 
     /**
      * The GetAssetPriceResponse model constructor.
@@ -336,6 +414,12 @@ export {
      * @property {module:model/GetTopOfBookResponse}
      */
     GetTopOfBookResponse,
+
+    /**
+     * The GetTopOfBookResponseEnvelope model constructor.
+     * @property {module:model/GetTopOfBookResponseEnvelope}
+     */
+    GetTopOfBookResponseEnvelope,
 
     /**
      * The GetTransactionResponse model constructor.
@@ -386,10 +470,22 @@ export {
     LedgerModuleByAssetResponse,
 
     /**
+     * The LedgerModuleByAssetResponseEnvelope model constructor.
+     * @property {module:model/LedgerModuleByAssetResponseEnvelope}
+     */
+    LedgerModuleByAssetResponseEnvelope,
+
+    /**
      * The LedgerModuleResponse model constructor.
      * @property {module:model/LedgerModuleResponse}
      */
     LedgerModuleResponse,
+
+    /**
+     * The LedgerModuleResponseEnvelope model constructor.
+     * @property {module:model/LedgerModuleResponseEnvelope}
+     */
+    LedgerModuleResponseEnvelope,
 
     /**
      * The LeverageBalanceResponse model constructor.
@@ -422,6 +518,12 @@ export {
     LiquidationTargetsResponse,
 
     /**
+     * The LiquidationTargetsResponseEnvelope model constructor.
+     * @property {module:model/LiquidationTargetsResponseEnvelope}
+     */
+    LiquidationTargetsResponseEnvelope,
+
+    /**
      * The Liquidity model constructor.
      * @property {module:model/Liquidity}
      */
@@ -440,10 +542,22 @@ export {
     LiquidityResponse,
 
     /**
+     * The LiquidityResponseEnvelope model constructor.
+     * @property {module:model/LiquidityResponseEnvelope}
+     */
+    LiquidityResponseEnvelope,
+
+    /**
      * The ListAssetPriceResponse model constructor.
      * @property {module:model/ListAssetPriceResponse}
      */
     ListAssetPriceResponse,
+
+    /**
+     * The ListAssetPriceResponseEnvelope model constructor.
+     * @property {module:model/ListAssetPriceResponseEnvelope}
+     */
+    ListAssetPriceResponseEnvelope,
 
     /**
      * The ListAssetsResponse model constructor.
@@ -458,10 +572,22 @@ export {
     ListCandlesResponse,
 
     /**
+     * The ListCandlesResponseEnvelope model constructor.
+     * @property {module:model/ListCandlesResponseEnvelope}
+     */
+    ListCandlesResponseEnvelope,
+
+    /**
      * The ListCouponPaymentsResponse model constructor.
      * @property {module:model/ListCouponPaymentsResponse}
      */
     ListCouponPaymentsResponse,
+
+    /**
+     * The ListCouponPaymentsResponseEnvelope model constructor.
+     * @property {module:model/ListCouponPaymentsResponseEnvelope}
+     */
+    ListCouponPaymentsResponseEnvelope,
 
     /**
      * The ListOrderBookDepthResponse model constructor.
@@ -470,16 +596,34 @@ export {
     ListOrderBookDepthResponse,
 
     /**
+     * The ListOrderBookDepthResponseEnvelope model constructor.
+     * @property {module:model/ListOrderBookDepthResponseEnvelope}
+     */
+    ListOrderBookDepthResponseEnvelope,
+
+    /**
      * The ListOrderBooksResponse model constructor.
      * @property {module:model/ListOrderBooksResponse}
      */
     ListOrderBooksResponse,
 
     /**
+     * The ListOrderbookResponseEnvelope model constructor.
+     * @property {module:model/ListOrderbookResponseEnvelope}
+     */
+    ListOrderbookResponseEnvelope,
+
+    /**
      * The ListOrdersResponse model constructor.
      * @property {module:model/ListOrdersResponse}
      */
     ListOrdersResponse,
+
+    /**
+     * The ListOrdersResponseEnvelope model constructor.
+     * @property {module:model/ListOrdersResponseEnvelope}
+     */
+    ListOrdersResponseEnvelope,
 
     /**
      * The ListPositionsResponse model constructor.
@@ -494,10 +638,22 @@ export {
     ListTradeResponse,
 
     /**
+     * The ListTradeResponseEnvelope model constructor.
+     * @property {module:model/ListTradeResponseEnvelope}
+     */
+    ListTradeResponseEnvelope,
+
+    /**
      * The ListTransactionsResponse model constructor.
      * @property {module:model/ListTransactionsResponse}
      */
     ListTransactionsResponse,
+
+    /**
+     * The ListTransactionsResponseEnvelope model constructor.
+     * @property {module:model/ListTransactionsResponseEnvelope}
+     */
+    ListTransactionsResponseEnvelope,
 
     /**
      * The LiveOrderbook model constructor.
@@ -530,6 +686,12 @@ export {
     NewIsolatedPositionResponse,
 
     /**
+     * The NewIsolatedPositionResponseEnvelope model constructor.
+     * @property {module:model/NewIsolatedPositionResponseEnvelope}
+     */
+    NewIsolatedPositionResponseEnvelope,
+
+    /**
      * The Order model constructor.
      * @property {module:model/Order}
      */
@@ -560,10 +722,28 @@ export {
     OrderBookHaltResponse,
 
     /**
+     * The OrderBookHaltResponseEnvelope model constructor.
+     * @property {module:model/OrderBookHaltResponseEnvelope}
+     */
+    OrderBookHaltResponseEnvelope,
+
+    /**
+     * The OrderBookResponseEnvelope model constructor.
+     * @property {module:model/OrderBookResponseEnvelope}
+     */
+    OrderBookResponseEnvelope,
+
+    /**
      * The OrderBookResumeResponse model constructor.
      * @property {module:model/OrderBookResumeResponse}
      */
     OrderBookResumeResponse,
+
+    /**
+     * The OrderBookResumeResponseEnvelope model constructor.
+     * @property {module:model/OrderBookResumeResponseEnvelope}
+     */
+    OrderBookResumeResponseEnvelope,
 
     /**
      * The OrderBookStatus model constructor.
@@ -578,10 +758,22 @@ export {
     OrderBookSummary,
 
     /**
+     * The OrderBookSummaryResponseEnvelope model constructor.
+     * @property {module:model/OrderBookSummaryResponseEnvelope}
+     */
+    OrderBookSummaryResponseEnvelope,
+
+    /**
      * The OrderBookTerminateResponse model constructor.
      * @property {module:model/OrderBookTerminateResponse}
      */
     OrderBookTerminateResponse,
+
+    /**
+     * The OrderBookTerminateResponseEnvelope model constructor.
+     * @property {module:model/OrderBookTerminateResponseEnvelope}
+     */
+    OrderBookTerminateResponseEnvelope,
 
     /**
      * The OrderBookTop model constructor.
@@ -608,6 +800,12 @@ export {
     OrderModifierKind,
 
     /**
+     * The OrderResponseEnvelope model constructor.
+     * @property {module:model/OrderResponseEnvelope}
+     */
+    OrderResponseEnvelope,
+
+    /**
      * The OrderStatus model constructor.
      * @property {module:model/OrderStatus}
      */
@@ -618,6 +816,12 @@ export {
      * @property {module:model/PoolPrice}
      */
     PoolPrice,
+
+    /**
+     * The PoolPriceResponseEnvelope model constructor.
+     * @property {module:model/PoolPriceResponseEnvelope}
+     */
+    PoolPriceResponseEnvelope,
 
     /**
      * The PoolRequestError model constructor.
@@ -672,6 +876,12 @@ export {
      * @property {module:model/ResponseEnvelope}
      */
     ResponseEnvelope,
+
+    /**
+     * The ResponseEnvelopeOfListAssets model constructor.
+     * @property {module:model/ResponseEnvelopeOfListAssets}
+     */
+    ResponseEnvelopeOfListAssets,
 
     /**
      * The Side model constructor.
@@ -806,6 +1016,12 @@ export {
     SupplyResponse,
 
     /**
+     * The SupplyResponseEnvelope model constructor.
+     * @property {module:model/SupplyResponseEnvelope}
+     */
+    SupplyResponseEnvelope,
+
+    /**
      * The Trade model constructor.
      * @property {module:model/Trade}
      */
@@ -822,6 +1038,12 @@ export {
      * @property {module:model/TradeResponse}
      */
     TradeResponse,
+
+    /**
+     * The TradeResponseEnvelope model constructor.
+     * @property {module:model/TradeResponseEnvelope}
+     */
+    TradeResponseEnvelope,
 
     /**
      * The Transaction model constructor.
@@ -842,6 +1064,12 @@ export {
     TransactionRequestError,
 
     /**
+     * The TransactionResponseEnvelope model constructor.
+     * @property {module:model/TransactionResponseEnvelope}
+     */
+    TransactionResponseEnvelope,
+
+    /**
      * The TransferBalancesRequest model constructor.
      * @property {module:model/TransferBalancesRequest}
      */
@@ -852,6 +1080,12 @@ export {
      * @property {module:model/TransferBalancesResponse}
      */
     TransferBalancesResponse,
+
+    /**
+     * The TransferBalancesResponseEnvelope model constructor.
+     * @property {module:model/TransferBalancesResponseEnvelope}
+     */
+    TransferBalancesResponseEnvelope,
 
     /**
      * The TransformedAssets model constructor.
@@ -870,6 +1104,12 @@ export {
      * @property {module:model/UnitePositionResponse}
      */
     UnitePositionResponse,
+
+    /**
+     * The UnitePositionResponseEnvelope model constructor.
+     * @property {module:model/UnitePositionResponseEnvelope}
+     */
+    UnitePositionResponseEnvelope,
 
     /**
      * The UnitedPosition model constructor.
@@ -908,16 +1148,40 @@ export {
     UserBalanceResponse,
 
     /**
+     * The UserBalanceResponseEnvelope model constructor.
+     * @property {module:model/UserBalanceResponseEnvelope}
+     */
+    UserBalanceResponseEnvelope,
+
+    /**
      * The UserConfig model constructor.
      * @property {module:model/UserConfig}
      */
     UserConfig,
 
     /**
+     * The UserConfigResponseEnvelope model constructor.
+     * @property {module:model/UserConfigResponseEnvelope}
+     */
+    UserConfigResponseEnvelope,
+
+    /**
      * The UserDeletedResponse model constructor.
      * @property {module:model/UserDeletedResponse}
      */
     UserDeletedResponse,
+
+    /**
+     * The UserDeletedResponseEnvelope model constructor.
+     * @property {module:model/UserDeletedResponseEnvelope}
+     */
+    UserDeletedResponseEnvelope,
+
+    /**
+     * The UserEnvelope model constructor.
+     * @property {module:model/UserEnvelope}
+     */
+    UserEnvelope,
 
     /**
      * The UserInterest model constructor.
@@ -932,10 +1196,22 @@ export {
     UserInterestResponse,
 
     /**
+     * The UserInterestResponseEnvelope model constructor.
+     * @property {module:model/UserInterestResponseEnvelope}
+     */
+    UserInterestResponseEnvelope,
+
+    /**
      * The UserPositionResponse model constructor.
      * @property {module:model/UserPositionResponse}
      */
     UserPositionResponse,
+
+    /**
+     * The UserPositionResponseEnvelope model constructor.
+     * @property {module:model/UserPositionResponseEnvelope}
+     */
+    UserPositionResponseEnvelope,
 
     /**
      * The UserRole model constructor.
@@ -950,6 +1226,12 @@ export {
     UserUpdatedResponse,
 
     /**
+     * The UserUpdatedResponseEnvelope model constructor.
+     * @property {module:model/UserUpdatedResponseEnvelope}
+     */
+    UserUpdatedResponseEnvelope,
+
+    /**
      * The UserValue model constructor.
      * @property {module:model/UserValue}
      */
@@ -960,6 +1242,12 @@ export {
      * @property {module:model/UserValueResponse}
      */
     UserValueResponse,
+
+    /**
+     * The UserValueResponseEnvelope model constructor.
+     * @property {module:model/UserValueResponseEnvelope}
+     */
+    UserValueResponseEnvelope,
 
     /**
      * The ValidateSubmitOrderRequest model constructor.
@@ -990,6 +1278,12 @@ export {
      * @property {module:model/WithdrawResponse}
      */
     WithdrawResponse,
+
+    /**
+     * The WithdrawResponseEnvelope model constructor.
+     * @property {module:model/WithdrawResponseEnvelope}
+     */
+    WithdrawResponseEnvelope,
 
     /**
     * The DefaultApi service constructor.

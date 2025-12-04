@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import Order from './Order';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The CancelOrderResponse model module.
  * @module model/CancelOrderResponse
  * @version 1.0.0
  */
-export default class CancelOrderResponse extends ResponseEnvelope {
+export default class CancelOrderResponse {
   /**
    * Constructs a new <code>CancelOrderResponse</code>.
    * @alias module:model/CancelOrderResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class CancelOrderResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new CancelOrderResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = Order.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Order} data
- */
-CancelOrderResponse.prototype.data = undefined;
-

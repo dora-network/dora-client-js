@@ -39,12 +39,6 @@
         expect(instance).to.be.a(Dora.GetAssetPriceResponse);
       });
 
-      it('should have the property data (base name: "data")', function() {
-        // TODO: update the code to test the property data
-        expect(instance).to.have.property('data');
-        // expect(instance.data).to.be(expectedValueLiteral);
-      });
-
     });
   });
 

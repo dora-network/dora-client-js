@@ -38,36 +38,7 @@ export default class RevokeAPIKeyResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new RevokeAPIKeyResponse();
-      if (data.hasOwnProperty('user_id'))
-        obj.userId = ApiClient.convertToType(data['user_id'], 'String');
-      if (data.hasOwnProperty('key_id'))
-        obj.keyId = ApiClient.convertToType(data['key_id'], 'String');
-      if (data.hasOwnProperty('label'))
-        obj.label = ApiClient.convertToType(data['label'], 'String');
-      if (data.hasOwnProperty('is_active'))
-        obj.isActive = ApiClient.convertToType(data['is_active'], 'Boolean');
     }
     return obj;
   }
 }
-
-/**
- * @member {String} userId
- */
-RevokeAPIKeyResponse.prototype.userId = undefined;
-
-/**
- * @member {String} keyId
- */
-RevokeAPIKeyResponse.prototype.keyId = undefined;
-
-/**
- * @member {String} label
- */
-RevokeAPIKeyResponse.prototype.label = undefined;
-
-/**
- * @member {Boolean} isActive
- */
-RevokeAPIKeyResponse.prototype.isActive = undefined;
-

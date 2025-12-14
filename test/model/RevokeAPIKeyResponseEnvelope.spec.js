@@ -29,14 +29,20 @@
   var instance;
 
   describe('(package)', function() {
-    describe('RevokeAPIKeyResponse', function() {
+    describe('RevokeAPIKeyResponseEnvelope', function() {
       beforeEach(function() {
-        instance = new Dora.RevokeAPIKeyResponse();
+        instance = new Dora.RevokeAPIKeyResponseEnvelope();
       });
 
-      it('should create an instance of RevokeAPIKeyResponse', function() {
-        // TODO: update the code to test RevokeAPIKeyResponse
-        expect(instance).to.be.a(Dora.RevokeAPIKeyResponse);
+      it('should create an instance of RevokeAPIKeyResponseEnvelope', function() {
+        // TODO: update the code to test RevokeAPIKeyResponseEnvelope
+        expect(instance).to.be.a(Dora.RevokeAPIKeyResponseEnvelope);
+      });
+
+      it('should have the property data (base name: "data")', function() {
+        // TODO: update the code to test the property data
+        expect(instance).to.have.property('data');
+        // expect(instance.data).to.be(expectedValueLiteral);
       });
 
     });

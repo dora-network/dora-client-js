@@ -38,29 +38,7 @@ export default class CreateAPIKeyResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new CreateAPIKeyResponse();
-      if (data.hasOwnProperty('key_id'))
-        obj.keyId = ApiClient.convertToType(data['key_id'], 'String');
-      if (data.hasOwnProperty('api_key'))
-        obj.apiKey = ApiClient.convertToType(data['api_key'], 'String');
-      if (data.hasOwnProperty('label'))
-        obj.label = ApiClient.convertToType(data['label'], 'String');
     }
     return obj;
   }
 }
-
-/**
- * @member {String} keyId
- */
-CreateAPIKeyResponse.prototype.keyId = undefined;
-
-/**
- * @member {String} apiKey
- */
-CreateAPIKeyResponse.prototype.apiKey = undefined;
-
-/**
- * @member {String} label
- */
-CreateAPIKeyResponse.prototype.label = undefined;
-

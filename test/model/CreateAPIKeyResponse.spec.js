@@ -39,24 +39,6 @@
         expect(instance).to.be.a(Dora.CreateAPIKeyResponse);
       });
 
-      it('should have the property keyId (base name: "key_id")', function() {
-        // TODO: update the code to test the property keyId
-        expect(instance).to.have.property('keyId');
-        // expect(instance.keyId).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property apiKey (base name: "api_key")', function() {
-        // TODO: update the code to test the property apiKey
-        expect(instance).to.have.property('apiKey');
-        // expect(instance.apiKey).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property label (base name: "label")', function() {
-        // TODO: update the code to test the property label
-        expect(instance).to.have.property('label');
-        // expect(instance.label).to.be(expectedValueLiteral);
-      });
-
     });
   });
 

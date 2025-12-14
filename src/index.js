@@ -32,8 +32,10 @@ import Candle from './model/Candle';
 import CandleResolution from './model/CandleResolution';
 import Collateral from './model/Collateral';
 import CouponPayment from './model/CouponPayment';
+import CreateAPIKeyData from './model/CreateAPIKeyData';
 import CreateAPIKeyRequest from './model/CreateAPIKeyRequest';
 import CreateAPIKeyResponse from './model/CreateAPIKeyResponse';
+import CreateAPIKeyResponseEnvelope from './model/CreateAPIKeyResponseEnvelope';
 import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
 import CreateOrderResponse from './model/CreateOrderResponse';
@@ -131,7 +133,9 @@ import RepayRequest from './model/RepayRequest';
 import RepayResponse from './model/RepayResponse';
 import ResponseEnvelope from './model/ResponseEnvelope';
 import ResponseEnvelopeOfListAssets from './model/ResponseEnvelopeOfListAssets';
+import RevokeAPIKeyData from './model/RevokeAPIKeyData';
 import RevokeAPIKeyResponse from './model/RevokeAPIKeyResponse';
+import RevokeAPIKeyResponseEnvelope from './model/RevokeAPIKeyResponseEnvelope';
 import Side from './model/Side';
 import StreamAssetPricesResponse from './model/StreamAssetPricesResponse';
 import StreamAssetsEntry from './model/StreamAssetsEntry';
@@ -354,6 +358,12 @@ export {
     CouponPayment,
 
     /**
+     * The CreateAPIKeyData model constructor.
+     * @property {module:model/CreateAPIKeyData}
+     */
+    CreateAPIKeyData,
+
+    /**
      * The CreateAPIKeyRequest model constructor.
      * @property {module:model/CreateAPIKeyRequest}
      */
@@ -364,6 +374,12 @@ export {
      * @property {module:model/CreateAPIKeyResponse}
      */
     CreateAPIKeyResponse,
+
+    /**
+     * The CreateAPIKeyResponseEnvelope model constructor.
+     * @property {module:model/CreateAPIKeyResponseEnvelope}
+     */
+    CreateAPIKeyResponseEnvelope,
 
     /**
      * The CreateOrUpdateUserResponse model constructor.
@@ -948,10 +964,22 @@ export {
     ResponseEnvelopeOfListAssets,
 
     /**
+     * The RevokeAPIKeyData model constructor.
+     * @property {module:model/RevokeAPIKeyData}
+     */
+    RevokeAPIKeyData,
+
+    /**
      * The RevokeAPIKeyResponse model constructor.
      * @property {module:model/RevokeAPIKeyResponse}
      */
     RevokeAPIKeyResponse,
+
+    /**
+     * The RevokeAPIKeyResponseEnvelope model constructor.
+     * @property {module:model/RevokeAPIKeyResponseEnvelope}
+     */
+    RevokeAPIKeyResponseEnvelope,
 
     /**
      * The Side model constructor.

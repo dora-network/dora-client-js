@@ -78,6 +78,8 @@ export default class Asset {
         obj.canTrade = ApiClient.convertToType(data['can_trade'], 'Boolean');
       if (data.hasOwnProperty('can_virtual_borrow'))
         obj.canVirtualBorrow = ApiClient.convertToType(data['can_virtual_borrow'], 'Boolean');
+      if (data.hasOwnProperty('max_leverage'))
+        obj.maxLeverage = ApiClient.convertToType(data['max_leverage'], 'Number');
       if (data.hasOwnProperty('bond'))
         obj.bond = Bond.constructFromObject(data['bond']);
     }
@@ -179,6 +181,11 @@ Asset.prototype.canTrade = undefined;
  * @member {Boolean} canVirtualBorrow
  */
 Asset.prototype.canVirtualBorrow = undefined;
+
+/**
+ * @member {Number} maxLeverage
+ */
+Asset.prototype.maxLeverage = undefined;
 
 /**
  * @member {module:model/Bond} bond

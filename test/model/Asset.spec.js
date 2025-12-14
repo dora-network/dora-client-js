@@ -153,6 +153,12 @@
         // expect(instance.canVirtualBorrow).to.be(expectedValueLiteral);
       });
 
+      it('should have the property maxLeverage (base name: "max_leverage")', function() {
+        // TODO: update the code to test the property maxLeverage
+        expect(instance).to.have.property('maxLeverage');
+        // expect(instance.maxLeverage).to.be(expectedValueLiteral);
+      });
+
       it('should have the property bond (base name: "bond")', function() {
         // TODO: update the code to test the property bond
         expect(instance).to.have.property('bond');

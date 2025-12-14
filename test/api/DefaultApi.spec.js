@@ -985,6 +985,26 @@
           done();
         });
       });
+      describe('listPositionAccountsSelf', function() {
+        it('should call listPositionAccountsSelf successfully', function(done) {
+          // TODO: uncomment listPositionAccountsSelf call and complete the assertions
+          /*
+
+          instance.listPositionAccountsSelf(function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.ListPositionAccountsResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('streamAssetPrices', function() {
         it('should call streamAssetPrices successfully', function(done) {
           // TODO: uncomment, update parameter values for streamAssetPrices call and complete the assertions

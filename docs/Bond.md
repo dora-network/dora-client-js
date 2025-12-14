@@ -15,3 +15,4 @@ Name | Type | Description | Notes
 **principalValue** | **String** |  | [optional] 
 **paymentsPerYear** | **Number** |  | [optional] 
 **paymentsEvery** | **Number** | Coupon payment frequency in nanoseconds (minimum 1000 i.e. 1 microsecond) | [optional] 
+**nextCouponPayment** | **Date** |  | [optional] 

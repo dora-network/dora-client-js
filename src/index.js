@@ -79,6 +79,8 @@ import ListOrderBooksResponse from './model/ListOrderBooksResponse';
 import ListOrderbookResponseEnvelope from './model/ListOrderbookResponseEnvelope';
 import ListOrdersResponse from './model/ListOrdersResponse';
 import ListOrdersResponseEnvelope from './model/ListOrdersResponseEnvelope';
+import ListPositionAccountsResponse from './model/ListPositionAccountsResponse';
+import ListPositionAccountsResponseEnvelope from './model/ListPositionAccountsResponseEnvelope';
 import ListPositionsResponse from './model/ListPositionsResponse';
 import ListTradeResponse from './model/ListTradeResponse';
 import ListTradeResponseEnvelope from './model/ListTradeResponseEnvelope';
@@ -115,6 +117,8 @@ import PoolPriceResponseEnvelope from './model/PoolPriceResponseEnvelope';
 import PoolRequestError from './model/PoolRequestError';
 import Portfolio from './model/Portfolio';
 import Position from './model/Position';
+import PositionAccount from './model/PositionAccount';
+import PositionAccounts from './model/PositionAccounts';
 import PositionResponse from './model/PositionResponse';
 import PositionType from './model/PositionType';
 import PriceLevel from './model/PriceLevel';
@@ -626,6 +630,18 @@ export {
     ListOrdersResponseEnvelope,
 
     /**
+     * The ListPositionAccountsResponse model constructor.
+     * @property {module:model/ListPositionAccountsResponse}
+     */
+    ListPositionAccountsResponse,
+
+    /**
+     * The ListPositionAccountsResponseEnvelope model constructor.
+     * @property {module:model/ListPositionAccountsResponseEnvelope}
+     */
+    ListPositionAccountsResponseEnvelope,
+
+    /**
      * The ListPositionsResponse model constructor.
      * @property {module:model/ListPositionsResponse}
      */
@@ -840,6 +856,18 @@ export {
      * @property {module:model/Position}
      */
     Position,
+
+    /**
+     * The PositionAccount model constructor.
+     * @property {module:model/PositionAccount}
+     */
+    PositionAccount,
+
+    /**
+     * The PositionAccounts model constructor.
+     * @property {module:model/PositionAccounts}
+     */
+    PositionAccounts,
 
     /**
      * The PositionResponse model constructor.

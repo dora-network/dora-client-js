@@ -94,7 +94,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Dora.DefaultApi* | [**cancelAllOpenOrders**](docs/DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
 *Dora.DefaultApi* | [**cancelOrderById**](docs/DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
-*Dora.DefaultApi* | [**checkUserEmailExists**](docs/DefaultApi.md#checkUserEmailExists) | **GET** /v1/user/{email}/exists | Check whether a user email exists
+*Dora.DefaultApi* | [**checkUserEmailExists**](docs/DefaultApi.md#checkUserEmailExists) | **GET** /v1/user/exists | Check whether a user email exists
 *Dora.DefaultApi* | [**createNewIsolatedPosition**](docs/DefaultApi.md#createNewIsolatedPosition) | **POST** /v1/positions/new_isolated | Create a new isolated position for a user transferring available assets into the position
 *Dora.DefaultApi* | [**createOrder**](docs/DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 *Dora.DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
@@ -139,6 +139,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**listAssets**](docs/DefaultApi.md#listAssets) | **GET** /v1/assets | List assets
 *Dora.DefaultApi* | [**listOrderBooks**](docs/DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 *Dora.DefaultApi* | [**listOrders**](docs/DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
+*Dora.DefaultApi* | [**listPositionAccountsSelf**](docs/DefaultApi.md#listPositionAccountsSelf) | **GET** /v1/user/self/position_accounts | List all position accounts for the authenticated user
 *Dora.DefaultApi* | [**streamAssetPrices**](docs/DefaultApi.md#streamAssetPrices) | **GET** /v1/prices/stream | Stream real-time asset prices as map objects
 *Dora.DefaultApi* | [**streamCandleData**](docs/DefaultApi.md#streamCandleData) | **GET** /v1/charts/{order_book_id}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamOrderBookBalances**](docs/DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
@@ -218,6 +219,8 @@ Class | Method | HTTP request | Description
  - [Dora.ListOrderbookResponseEnvelope](docs/ListOrderbookResponseEnvelope.md)
  - [Dora.ListOrdersResponse](docs/ListOrdersResponse.md)
  - [Dora.ListOrdersResponseEnvelope](docs/ListOrdersResponseEnvelope.md)
+ - [Dora.ListPositionAccountsResponse](docs/ListPositionAccountsResponse.md)
+ - [Dora.ListPositionAccountsResponseEnvelope](docs/ListPositionAccountsResponseEnvelope.md)
  - [Dora.ListPositionsResponse](docs/ListPositionsResponse.md)
  - [Dora.ListTradeResponse](docs/ListTradeResponse.md)
  - [Dora.ListTradeResponseEnvelope](docs/ListTradeResponseEnvelope.md)
@@ -254,6 +257,8 @@ Class | Method | HTTP request | Description
  - [Dora.PoolRequestError](docs/PoolRequestError.md)
  - [Dora.Portfolio](docs/Portfolio.md)
  - [Dora.Position](docs/Position.md)
+ - [Dora.PositionAccount](docs/PositionAccount.md)
+ - [Dora.PositionAccounts](docs/PositionAccounts.md)
  - [Dora.PositionResponse](docs/PositionResponse.md)
  - [Dora.PositionType](docs/PositionType.md)
  - [Dora.PriceLevel](docs/PriceLevel.md)

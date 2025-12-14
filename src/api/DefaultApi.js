@@ -43,6 +43,7 @@ import ListCouponPaymentsResponse from '../model/ListCouponPaymentsResponse';
 import ListOrderBookDepthResponse from '../model/ListOrderBookDepthResponse';
 import ListOrderBooksResponse from '../model/ListOrderBooksResponse';
 import ListOrdersResponse from '../model/ListOrdersResponse';
+import ListPositionAccountsResponse from '../model/ListPositionAccountsResponse';
 import ListTradeResponse from '../model/ListTradeResponse';
 import ListTransactionsResponse from '../model/ListTransactionsResponse';
 import LiveOrderbook from '../model/LiveOrderbook';
@@ -217,10 +218,10 @@ export default class DefaultApi {
       }
 
       let pathParams = {
-        'email': email
+        
       };
       let queryParams = {
-        
+        'email': email
       };
       let headerParams = {
         
@@ -235,7 +236,7 @@ export default class DefaultApi {
       let returnType = EmailExistsResponse;
 
       return this.apiClient.callApi(
-        '/v1/user/{email}/exists', 'GET',
+        '/v1/user/exists', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2265,6 +2266,47 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/orders', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the listPositionAccountsSelf operation.
+     * @callback moduleapi/DefaultApi~listPositionAccountsSelfCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ListPositionAccountsResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List all position accounts for the authenticated user
+     * @param {module:api/DefaultApi~listPositionAccountsSelfCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    listPositionAccountsSelf(callback) {
+      
+      let postBody = null;
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListPositionAccountsResponse;
+
+      return this.apiClient.callApi(
+        '/v1/user/self/position_accounts', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

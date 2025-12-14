@@ -63,6 +63,8 @@ export default class Bond {
         obj.paymentsPerYear = ApiClient.convertToType(data['payments_per_year'], 'Number');
       if (data.hasOwnProperty('payments_every'))
         obj.paymentsEvery = ApiClient.convertToType(data['payments_every'], 'Number');
+      if (data.hasOwnProperty('next_coupon_payment'))
+        obj.nextCouponPayment = ApiClient.convertToType(data['next_coupon_payment'], 'Date');
     }
     return obj;
   }
@@ -128,4 +130,9 @@ Bond.prototype.paymentsPerYear = undefined;
  * @member {Number} paymentsEvery
  */
 Bond.prototype.paymentsEvery = undefined;
+
+/**
+ * @member {Date} nextCouponPayment
+ */
+Bond.prototype.nextCouponPayment = undefined;
 

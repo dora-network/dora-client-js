@@ -111,6 +111,12 @@
         // expect(instance.paymentsEvery).to.be(expectedValueLiteral);
       });
 
+      it('should have the property nextCouponPayment (base name: "next_coupon_payment")', function() {
+        // TODO: update the code to test the property nextCouponPayment
+        expect(instance).to.have.property('nextCouponPayment');
+        // expect(instance.nextCouponPayment).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

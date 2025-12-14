@@ -17,9 +17,12 @@ import AssetKind from '../model/AssetKind';
 import AssetRequestError from '../model/AssetRequestError';
 import CancelOrderResponse from '../model/CancelOrderResponse';
 import CandleResolution from '../model/CandleResolution';
+import CreateAPIKeyRequest from '../model/CreateAPIKeyRequest';
+import CreateAPIKeyResponse from '../model/CreateAPIKeyResponse';
 import CreateOrderRequest from '../model/CreateOrderRequest';
 import CreateOrderResponse from '../model/CreateOrderResponse';
 import EmailExistsResponse from '../model/EmailExistsResponse';
+import GetAPIKeyResponse from '../model/GetAPIKeyResponse';
 import GetAssetByIDResponse from '../model/GetAssetByIDResponse';
 import GetAssetPriceResponse from '../model/GetAssetPriceResponse';
 import GetOrderBookResponse from '../model/GetOrderBookResponse';
@@ -54,6 +57,7 @@ import OrderKind from '../model/OrderKind';
 import OrderStatus from '../model/OrderStatus';
 import PoolRequestError from '../model/PoolRequestError';
 import ResponseEnvelope from '../model/ResponseEnvelope';
+import RevokeAPIKeyResponse from '../model/RevokeAPIKeyResponse';
 import Side from '../model/Side';
 import StreamAssetPricesResponse from '../model/StreamAssetPricesResponse';
 import StreamAssetsResponse from '../model/StreamAssetsResponse';
@@ -237,6 +241,52 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/user/exists', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the createAPIKeyForUser operation.
+     * @callback moduleapi/DefaultApi~createAPIKeyForUserCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CreateAPIKeyResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create apikey for a user
+     * @param {module:model/CreateAPIKeyRequest} body 
+     * @param {module:api/DefaultApi~createAPIKeyForUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    createAPIKeyForUser(body, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling createAPIKeyForUser");
+      }
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = CreateAPIKeyResponse;
+
+      return this.apiClient.callApi(
+        '/v1/user/apikey', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1835,6 +1885,47 @@ export default class DefaultApi {
       );
     }
     /**
+     * Callback function to receive the result of the getUsersAPIKeys operation.
+     * @callback moduleapi/DefaultApi~getUsersAPIKeysCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetAPIKeyResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get user&#x27;s api keys
+     * @param {module:api/DefaultApi~getUsersAPIKeysCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    getUsersAPIKeys(callback) {
+      
+      let postBody = null;
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetAPIKeyResponse;
+
+      return this.apiClient.callApi(
+        '/v1/user/apikey', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
      * Callback function to receive the result of the leverageIsolateCollateral operation.
      * @callback moduleapi/DefaultApi~leverageIsolateCollateralCallback
      * @param {String} error Error message, if any.
@@ -2307,6 +2398,52 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/user/self/position_accounts', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the revokeAPIKeyForUser operation.
+     * @callback moduleapi/DefaultApi~revokeAPIKeyForUserCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/RevokeAPIKeyResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Revoke apikey for a user
+     * @param {String} keyId 
+     * @param {module:api/DefaultApi~revokeAPIKeyForUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    revokeAPIKeyForUser(keyId, callback) {
+      
+      let postBody = null;
+      // verify the required parameter 'keyId' is set
+      if (keyId === undefined || keyId === null) {
+        throw new Error("Missing the required parameter 'keyId' when calling revokeAPIKeyForUser");
+      }
+
+      let pathParams = {
+        'key_id': keyId
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = RevokeAPIKeyResponse;
+
+      return this.apiClient.callApi(
+        '/v1/user/apikey/{key_id}/revoke', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

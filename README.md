@@ -95,6 +95,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**cancelAllOpenOrders**](docs/DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
 *Dora.DefaultApi* | [**cancelOrderById**](docs/DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
 *Dora.DefaultApi* | [**checkUserEmailExists**](docs/DefaultApi.md#checkUserEmailExists) | **GET** /v1/user/exists | Check whether a user email exists
+*Dora.DefaultApi* | [**createAPIKeyForUser**](docs/DefaultApi.md#createAPIKeyForUser) | **POST** /v1/user/apikey | Create apikey for a user
 *Dora.DefaultApi* | [**createNewIsolatedPosition**](docs/DefaultApi.md#createNewIsolatedPosition) | **POST** /v1/positions/new_isolated | Create a new isolated position for a user transferring available assets into the position
 *Dora.DefaultApi* | [**createOrder**](docs/DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 *Dora.DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
@@ -130,6 +131,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getUserOrdersUpdatesStreamAll**](docs/DefaultApi.md#getUserOrdersUpdatesStreamAll) | **GET** /v1/user/{user_id}/orders/all/updates/stream | Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
 *Dora.DefaultApi* | [**getUserSelf**](docs/DefaultApi.md#getUserSelf) | **GET** /v1/user/self | Get user details for the authenticated user
 *Dora.DefaultApi* | [**getUserTransactionsStream**](docs/DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
+*Dora.DefaultApi* | [**getUsersAPIKeys**](docs/DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#x27;s api keys
 *Dora.DefaultApi* | [**leverageIsolateCollateral**](docs/DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
 *Dora.DefaultApi* | [**leverageSupply**](docs/DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
 *Dora.DefaultApi* | [**leverageUnite**](docs/DefaultApi.md#leverageUnite) | **POST** /v1/leverage/unite | Combines all isolated positions into a single global position
@@ -140,6 +142,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**listOrderBooks**](docs/DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 *Dora.DefaultApi* | [**listOrders**](docs/DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
 *Dora.DefaultApi* | [**listPositionAccountsSelf**](docs/DefaultApi.md#listPositionAccountsSelf) | **GET** /v1/user/self/position_accounts | List all position accounts for the authenticated user
+*Dora.DefaultApi* | [**revokeAPIKeyForUser**](docs/DefaultApi.md#revokeAPIKeyForUser) | **PUT** /v1/user/apikey/{key_id}/revoke | Revoke apikey for a user
 *Dora.DefaultApi* | [**streamAssetPrices**](docs/DefaultApi.md#streamAssetPrices) | **GET** /v1/prices/stream | Stream real-time asset prices as map objects
 *Dora.DefaultApi* | [**streamCandleData**](docs/DefaultApi.md#streamCandleData) | **GET** /v1/charts/{order_book_id}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamOrderBookBalances**](docs/DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
@@ -153,6 +156,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [Dora.APIKeyResponse](docs/APIKeyResponse.md)
+ - [Dora.APIKeyResponseEnvelope](docs/APIKeyResponseEnvelope.md)
  - [Dora.Asset](docs/Asset.md)
  - [Dora.AssetKind](docs/AssetKind.md)
  - [Dora.AssetPrice](docs/AssetPrice.md)
@@ -170,12 +175,15 @@ Class | Method | HTTP request | Description
  - [Dora.CandleResolution](docs/CandleResolution.md)
  - [Dora.Collateral](docs/Collateral.md)
  - [Dora.CouponPayment](docs/CouponPayment.md)
+ - [Dora.CreateAPIKeyRequest](docs/CreateAPIKeyRequest.md)
+ - [Dora.CreateAPIKeyResponse](docs/CreateAPIKeyResponse.md)
  - [Dora.CreateOrUpdateUserResponse](docs/CreateOrUpdateUserResponse.md)
  - [Dora.CreateOrderRequest](docs/CreateOrderRequest.md)
  - [Dora.CreateOrderResponse](docs/CreateOrderResponse.md)
  - [Dora.CreateOrderResponseEnvelope](docs/CreateOrderResponseEnvelope.md)
  - [Dora.EmailExistsResponse](docs/EmailExistsResponse.md)
  - [Dora.EmailExistsResponseEnvelope](docs/EmailExistsResponseEnvelope.md)
+ - [Dora.GetAPIKeyResponse](docs/GetAPIKeyResponse.md)
  - [Dora.GetAssetByIDResponse](docs/GetAssetByIDResponse.md)
  - [Dora.GetAssetByIDResponseEnvelope](docs/GetAssetByIDResponseEnvelope.md)
  - [Dora.GetAssetPriceResponse](docs/GetAssetPriceResponse.md)
@@ -266,6 +274,7 @@ Class | Method | HTTP request | Description
  - [Dora.RepayResponse](docs/RepayResponse.md)
  - [Dora.ResponseEnvelope](docs/ResponseEnvelope.md)
  - [Dora.ResponseEnvelopeOfListAssets](docs/ResponseEnvelopeOfListAssets.md)
+ - [Dora.RevokeAPIKeyResponse](docs/RevokeAPIKeyResponse.md)
  - [Dora.Side](docs/Side.md)
  - [Dora.StreamAssetPricesResponse](docs/StreamAssetPricesResponse.md)
  - [Dora.StreamAssetsEntry](docs/StreamAssetsEntry.md)

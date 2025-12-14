@@ -13,6 +13,8 @@
  *
  */
 import ApiClient from './ApiClient';
+import APIKeyResponse from './model/APIKeyResponse';
+import APIKeyResponseEnvelope from './model/APIKeyResponseEnvelope';
 import Asset from './model/Asset';
 import AssetKind from './model/AssetKind';
 import AssetPrice from './model/AssetPrice';
@@ -30,12 +32,15 @@ import Candle from './model/Candle';
 import CandleResolution from './model/CandleResolution';
 import Collateral from './model/Collateral';
 import CouponPayment from './model/CouponPayment';
+import CreateAPIKeyRequest from './model/CreateAPIKeyRequest';
+import CreateAPIKeyResponse from './model/CreateAPIKeyResponse';
 import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
 import CreateOrderResponse from './model/CreateOrderResponse';
 import CreateOrderResponseEnvelope from './model/CreateOrderResponseEnvelope';
 import EmailExistsResponse from './model/EmailExistsResponse';
 import EmailExistsResponseEnvelope from './model/EmailExistsResponseEnvelope';
+import GetAPIKeyResponse from './model/GetAPIKeyResponse';
 import GetAssetByIDResponse from './model/GetAssetByIDResponse';
 import GetAssetByIDResponseEnvelope from './model/GetAssetByIDResponseEnvelope';
 import GetAssetPriceResponse from './model/GetAssetPriceResponse';
@@ -126,6 +131,7 @@ import RepayRequest from './model/RepayRequest';
 import RepayResponse from './model/RepayResponse';
 import ResponseEnvelope from './model/ResponseEnvelope';
 import ResponseEnvelopeOfListAssets from './model/ResponseEnvelopeOfListAssets';
+import RevokeAPIKeyResponse from './model/RevokeAPIKeyResponse';
 import Side from './model/Side';
 import StreamAssetPricesResponse from './model/StreamAssetPricesResponse';
 import StreamAssetsEntry from './model/StreamAssetsEntry';
@@ -234,6 +240,18 @@ export {
     ApiClient,
 
     /**
+     * The APIKeyResponse model constructor.
+     * @property {module:model/APIKeyResponse}
+     */
+    APIKeyResponse,
+
+    /**
+     * The APIKeyResponseEnvelope model constructor.
+     * @property {module:model/APIKeyResponseEnvelope}
+     */
+    APIKeyResponseEnvelope,
+
+    /**
      * The Asset model constructor.
      * @property {module:model/Asset}
      */
@@ -336,6 +354,18 @@ export {
     CouponPayment,
 
     /**
+     * The CreateAPIKeyRequest model constructor.
+     * @property {module:model/CreateAPIKeyRequest}
+     */
+    CreateAPIKeyRequest,
+
+    /**
+     * The CreateAPIKeyResponse model constructor.
+     * @property {module:model/CreateAPIKeyResponse}
+     */
+    CreateAPIKeyResponse,
+
+    /**
      * The CreateOrUpdateUserResponse model constructor.
      * @property {module:model/CreateOrUpdateUserResponse}
      */
@@ -370,6 +400,12 @@ export {
      * @property {module:model/EmailExistsResponseEnvelope}
      */
     EmailExistsResponseEnvelope,
+
+    /**
+     * The GetAPIKeyResponse model constructor.
+     * @property {module:model/GetAPIKeyResponse}
+     */
+    GetAPIKeyResponse,
 
     /**
      * The GetAssetByIDResponse model constructor.
@@ -910,6 +946,12 @@ export {
      * @property {module:model/ResponseEnvelopeOfListAssets}
      */
     ResponseEnvelopeOfListAssets,
+
+    /**
+     * The RevokeAPIKeyResponse model constructor.
+     * @property {module:model/RevokeAPIKeyResponse}
+     */
+    RevokeAPIKeyResponse,
 
     /**
      * The Side model constructor.

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**cancelAllOpenOrders**](DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
 [**cancelOrderById**](DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
 [**checkUserEmailExists**](DefaultApi.md#checkUserEmailExists) | **GET** /v1/user/exists | Check whether a user email exists
+[**createAPIKeyForUser**](DefaultApi.md#createAPIKeyForUser) | **POST** /v1/user/apikey | Create apikey for a user
 [**createNewIsolatedPosition**](DefaultApi.md#createNewIsolatedPosition) | **POST** /v1/positions/new_isolated | Create a new isolated position for a user transferring available assets into the position
 [**createOrder**](DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
@@ -42,6 +43,7 @@ Method | HTTP request | Description
 [**getUserOrdersUpdatesStreamAll**](DefaultApi.md#getUserOrdersUpdatesStreamAll) | **GET** /v1/user/{user_id}/orders/all/updates/stream | Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
 [**getUserSelf**](DefaultApi.md#getUserSelf) | **GET** /v1/user/self | Get user details for the authenticated user
 [**getUserTransactionsStream**](DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
+[**getUsersAPIKeys**](DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#x27;s api keys
 [**leverageIsolateCollateral**](DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
 [**leverageSupply**](DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
 [**leverageUnite**](DefaultApi.md#leverageUnite) | **POST** /v1/leverage/unite | Combines all isolated positions into a single global position
@@ -52,6 +54,7 @@ Method | HTTP request | Description
 [**listOrderBooks**](DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 [**listOrders**](DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
 [**listPositionAccountsSelf**](DefaultApi.md#listPositionAccountsSelf) | **GET** /v1/user/self/position_accounts | List all position accounts for the authenticated user
+[**revokeAPIKeyForUser**](DefaultApi.md#revokeAPIKeyForUser) | **PUT** /v1/user/apikey/{key_id}/revoke | Revoke apikey for a user
 [**streamAssetPrices**](DefaultApi.md#streamAssetPrices) | **GET** /v1/prices/stream | Stream real-time asset prices as map objects
 [**streamCandleData**](DefaultApi.md#streamCandleData) | **GET** /v1/charts/{order_book_id}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
 [**streamOrderBookBalances**](DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
@@ -189,6 +192,47 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="createAPIKeyForUser"></a>
+# **createAPIKeyForUser**
+> CreateAPIKeyResponse createAPIKeyForUser(body)
+
+Create apikey for a user
+
+### Example
+```javascript
+import {Dora} from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+let body = new Dora.CreateAPIKeyRequest(); // CreateAPIKeyRequest | 
+
+apiInstance.createAPIKeyForUser(body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateAPIKeyRequest**](CreateAPIKeyRequest.md)|  | 
+
+### Return type
+
+[**CreateAPIKeyResponse**](CreateAPIKeyResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="createNewIsolatedPosition"></a>
@@ -1636,6 +1680,42 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getUsersAPIKeys"></a>
+# **getUsersAPIKeys**
+> GetAPIKeyResponse getUsersAPIKeys()
+
+Get user&#x27;s api keys
+
+### Example
+```javascript
+import {Dora} from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+apiInstance.getUsersAPIKeys((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetAPIKeyResponse**](GetAPIKeyResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="leverageIsolateCollateral"></a>
 # **leverageIsolateCollateral**
 > IsolateCollateralResponse leverageIsolateCollateral(body)
@@ -2080,6 +2160,47 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ListPositionAccountsResponse**](ListPositionAccountsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="revokeAPIKeyForUser"></a>
+# **revokeAPIKeyForUser**
+> RevokeAPIKeyResponse revokeAPIKeyForUser(keyId)
+
+Revoke apikey for a user
+
+### Example
+```javascript
+import {Dora} from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+let keyId = "keyId_example"; // String | 
+
+apiInstance.revokeAPIKeyForUser(keyId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **keyId** | **String**|  | 
+
+### Return type
+
+[**RevokeAPIKeyResponse**](RevokeAPIKeyResponse.md)
 
 ### Authorization
 

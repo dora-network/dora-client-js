@@ -95,6 +95,26 @@
           done();
         });
       });
+      describe('createAPIKeyForUser', function() {
+        it('should call createAPIKeyForUser successfully', function(done) {
+          // TODO: uncomment, update parameter values for createAPIKeyForUser call and complete the assertions
+          /*
+
+          instance.createAPIKeyForUser(body, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.CreateAPIKeyResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('createNewIsolatedPosition', function() {
         it('should call createNewIsolatedPosition successfully', function(done) {
           // TODO: uncomment, update parameter values for createNewIsolatedPosition call and complete the assertions
@@ -802,6 +822,26 @@
           done();
         });
       });
+      describe('getUsersAPIKeys', function() {
+        it('should call getUsersAPIKeys successfully', function(done) {
+          // TODO: uncomment getUsersAPIKeys call and complete the assertions
+          /*
+
+          instance.getUsersAPIKeys(function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.GetAPIKeyResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('leverageIsolateCollateral', function() {
         it('should call leverageIsolateCollateral successfully', function(done) {
           // TODO: uncomment, update parameter values for leverageIsolateCollateral call and complete the assertions
@@ -997,6 +1037,26 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.ListPositionAccountsResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('revokeAPIKeyForUser', function() {
+        it('should call revokeAPIKeyForUser successfully', function(done) {
+          // TODO: uncomment, update parameter values for revokeAPIKeyForUser call and complete the assertions
+          /*
+
+          instance.revokeAPIKeyForUser(keyId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.RevokeAPIKeyResponse);
 
             done();
           });

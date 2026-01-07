@@ -39,12 +39,6 @@
         expect(instance).to.be.a(Dora.StreamPositionsResponse);
       });
 
-      it('should have the property streamPositionsEntry (base name: "stream_positions_entry")', function() {
-        // TODO: update the code to test the property streamPositionsEntry
-        expect(instance).to.have.property('streamPositionsEntry');
-        // expect(instance.streamPositionsEntry).to.be(expectedValueLiteral);
-      });
-
     });
   });
 

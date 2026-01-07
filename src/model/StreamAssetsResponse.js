@@ -38,15 +38,7 @@ export default class StreamAssetsResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamAssetsResponse();
-      if (data.hasOwnProperty('stream_assets_entries'))
-        obj.streamAssetsEntries = ApiClient.convertToType(data['stream_assets_entries'], Object);
     }
     return obj;
   }
 }
-
-/**
- * @member {Object} streamAssetsEntries
- */
-StreamAssetsResponse.prototype.streamAssetsEntries = undefined;
-

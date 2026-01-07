@@ -38,15 +38,7 @@ export default class StreamTransactionsResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamTransactionsResponse();
-      if (data.hasOwnProperty('stream_transactions_entries'))
-        obj.streamTransactionsEntries = ApiClient.convertToType(data['stream_transactions_entries'], Object);
     }
     return obj;
   }
 }
-
-/**
- * @member {Object} streamTransactionsEntries
- */
-StreamTransactionsResponse.prototype.streamTransactionsEntries = undefined;
-

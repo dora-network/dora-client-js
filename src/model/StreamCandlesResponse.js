@@ -38,15 +38,7 @@ export default class StreamCandlesResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamCandlesResponse();
-      if (data.hasOwnProperty('stream_candles_entries'))
-        obj.streamCandlesEntries = ApiClient.convertToType(data['stream_candles_entries'], Object);
     }
     return obj;
   }
 }
-
-/**
- * @member {Object} streamCandlesEntries
- */
-StreamCandlesResponse.prototype.streamCandlesEntries = undefined;
-

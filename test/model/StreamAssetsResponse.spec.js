@@ -39,12 +39,6 @@
         expect(instance).to.be.a(Dora.StreamAssetsResponse);
       });
 
-      it('should have the property streamAssetsEntries (base name: "stream_assets_entries")', function() {
-        // TODO: update the code to test the property streamAssetsEntries
-        expect(instance).to.have.property('streamAssetsEntries');
-        // expect(instance.streamAssetsEntries).to.be(expectedValueLiteral);
-      });
-
     });
   });
 

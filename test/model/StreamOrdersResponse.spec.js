@@ -39,12 +39,6 @@
         expect(instance).to.be.a(Dora.StreamOrdersResponse);
       });
 
-      it('should have the property streamOrdersEntry (base name: "stream_orders_entry")', function() {
-        // TODO: update the code to test the property streamOrdersEntry
-        expect(instance).to.have.property('streamOrdersEntry');
-        // expect(instance.streamOrdersEntry).to.be(expectedValueLiteral);
-      });
-
     });
   });
 

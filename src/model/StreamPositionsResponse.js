@@ -38,15 +38,7 @@ export default class StreamPositionsResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamPositionsResponse();
-      if (data.hasOwnProperty('stream_positions_entry'))
-        obj.streamPositionsEntry = ApiClient.convertToType(data['stream_positions_entry'], Object);
     }
     return obj;
   }
 }
-
-/**
- * @member {Object} streamPositionsEntry
- */
-StreamPositionsResponse.prototype.streamPositionsEntry = undefined;
-

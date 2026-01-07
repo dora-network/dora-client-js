@@ -39,12 +39,6 @@
         expect(instance).to.be.a(Dora.PositionAccounts);
       });
 
-      it('should have the property positionAccounts (base name: "position_accounts")', function() {
-        // TODO: update the code to test the property positionAccounts
-        expect(instance).to.have.property('positionAccounts');
-        // expect(instance.positionAccounts).to.be(expectedValueLiteral);
-      });
-
     });
   });
 

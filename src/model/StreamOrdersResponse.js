@@ -38,15 +38,7 @@ export default class StreamOrdersResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamOrdersResponse();
-      if (data.hasOwnProperty('stream_orders_entry'))
-        obj.streamOrdersEntry = ApiClient.convertToType(data['stream_orders_entry'], Object);
     }
     return obj;
   }
 }
-
-/**
- * @member {Object} streamOrdersEntry
- */
-StreamOrdersResponse.prototype.streamOrdersEntry = undefined;
-

@@ -38,15 +38,7 @@ export default class PositionAccounts {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new PositionAccounts();
-      if (data.hasOwnProperty('position_accounts'))
-        obj.positionAccounts = ApiClient.convertToType(data['position_accounts'], Object);
     }
     return obj;
   }
 }
-
-/**
- * @member {Object} positionAccounts
- */
-PositionAccounts.prototype.positionAccounts = undefined;
-

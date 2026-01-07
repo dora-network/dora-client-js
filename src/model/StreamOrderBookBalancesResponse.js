@@ -38,15 +38,7 @@ export default class StreamOrderBookBalancesResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamOrderBookBalancesResponse();
-      if (data.hasOwnProperty('stream_order_book_balances'))
-        obj.streamOrderBookBalances = ApiClient.convertToType(data['stream_order_book_balances'], Object);
     }
     return obj;
   }
 }
-
-/**
- * @member {Object} streamOrderBookBalances
- */
-StreamOrderBookBalancesResponse.prototype.streamOrderBookBalances = undefined;
-

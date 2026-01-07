@@ -38,15 +38,7 @@ export default class StreamOrderUpdatesResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamOrderUpdatesResponse();
-      if (data.hasOwnProperty('stream_order_update_entries'))
-        obj.streamOrderUpdateEntries = ApiClient.convertToType(data['stream_order_update_entries'], Object);
     }
     return obj;
   }
 }
-
-/**
- * @member {Object} streamOrderUpdateEntries
- */
-StreamOrderUpdatesResponse.prototype.streamOrderUpdateEntries = undefined;
-

@@ -39,12 +39,6 @@
         expect(instance).to.be.a(Dora.StreamCandlesResponse);
       });
 
-      it('should have the property streamCandlesEntries (base name: "stream_candles_entries")', function() {
-        // TODO: update the code to test the property streamCandlesEntries
-        expect(instance).to.have.property('streamCandlesEntries');
-        // expect(instance.streamCandlesEntries).to.be(expectedValueLiteral);
-      });
-
     });
   });
 

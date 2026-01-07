@@ -40,7 +40,7 @@ export default class CreateOrUpdateUserResponse {
     if (data) {
       obj = obj || new CreateOrUpdateUserResponse();
       if (data.hasOwnProperty('id'))
-        obj.id = ApiClient.convertToType(data['id'], 'String');
+        obj.id = ApiClient.convertToType(data['id'], Object);
     }
     return obj;
   }
@@ -48,7 +48,7 @@ export default class CreateOrUpdateUserResponse {
 
 /**
  * The ID of the created or updated user.
- * @member {String} id
+ * @member {Object} id
  */
 CreateOrUpdateUserResponse.prototype.id = undefined;
 

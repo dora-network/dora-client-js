@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import LeverageModuleResponse from './LeverageModuleResponse';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The LedgerModuleResponseEnvelope model module.
  * @module model/LedgerModuleResponseEnvelope
  * @version 1.0.0
  */
-export default class LedgerModuleResponseEnvelope extends ResponseEnvelope {
+export default class LedgerModuleResponseEnvelope {
   /**
    * Constructs a new <code>LedgerModuleResponseEnvelope</code>.
    * @alias module:model/LedgerModuleResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class LedgerModuleResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new LedgerModuleResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [LeverageModuleResponse]);
     }
     return obj;
   }
 }
-
-/**
- * @member {Array.<module:model/LeverageModuleResponse>} data
- */
-LedgerModuleResponseEnvelope.prototype.data = undefined;
-

@@ -39,35 +39,35 @@ export default class Collateral {
     if (data) {
       obj = obj || new Collateral();
       if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
+        obj.positionId = ApiClient.convertToType(data['position_id'], Object);
       if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
+        obj.transactionId = ApiClient.convertToType(data['transaction_id'], Object);
       if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
+        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+        obj.quantity = ApiClient.convertToType(data['quantity'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} positionId
+ * @member {Object} positionId
  */
 Collateral.prototype.positionId = undefined;
 
 /**
- * @member {String} transactionId
+ * @member {Object} transactionId
  */
 Collateral.prototype.transactionId = undefined;
 
 /**
- * @member {String} assetId
+ * @member {Object} assetId
  */
 Collateral.prototype.assetId = undefined;
 
 /**
- * @member {String} quantity
+ * @member {Object} quantity
  */
 Collateral.prototype.quantity = undefined;
 

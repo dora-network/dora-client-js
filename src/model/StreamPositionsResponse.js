@@ -13,22 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import StreamPositionsEntry from './StreamPositionsEntry';
 
 /**
  * The StreamPositionsResponse model module.
  * @module model/StreamPositionsResponse
  * @version 1.0.0
  */
-export default class StreamPositionsResponse extends Array {
+export default class StreamPositionsResponse {
   /**
    * Constructs a new <code>StreamPositionsResponse</code>.
    * @alias module:model/StreamPositionsResponse
    * @class
-   * @extends Array
    */
   constructor() {
-    super();
   }
 
   /**
@@ -41,8 +38,15 @@ export default class StreamPositionsResponse extends Array {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamPositionsResponse();
-      ApiClient.constructFromObject(data, obj, 'StreamPositionsEntry');
+      if (data.hasOwnProperty('stream_positions_entry'))
+        obj.streamPositionsEntry = ApiClient.convertToType(data['stream_positions_entry'], Object);
     }
     return obj;
   }
 }
+
+/**
+ * @member {Object} streamPositionsEntry
+ */
+StreamPositionsResponse.prototype.streamPositionsEntry = undefined;
+

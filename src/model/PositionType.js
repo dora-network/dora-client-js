@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 
 /**
  * Enum class PositionType.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 const PositionType = {

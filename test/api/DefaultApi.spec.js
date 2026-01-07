@@ -95,6 +95,46 @@
           done();
         });
       });
+      describe('claimLeverageGetAccruedInterest', function() {
+        it('should call claimLeverageGetAccruedInterest successfully', function(done) {
+          // TODO: uncomment, update parameter values for claimLeverageGetAccruedInterest call and complete the assertions
+          /*
+
+          instance.claimLeverageGetAccruedInterest(body, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.ClaimLeverageAccruedInterestResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('closeIsolatedPosition', function() {
+        it('should call closeIsolatedPosition successfully', function(done) {
+          // TODO: uncomment, update parameter values for closeIsolatedPosition call and complete the assertions
+          /*
+
+          instance.closeIsolatedPosition(body, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.ClosePositionResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('createAPIKeyForUser', function() {
         it('should call createAPIKeyForUser successfully', function(done) {
           // TODO: uncomment, update parameter values for createAPIKeyForUser call and complete the assertions
@@ -557,6 +597,46 @@
           done();
         });
       });
+      describe('getOrderbookStats', function() {
+        it('should call getOrderbookStats successfully', function(done) {
+          // TODO: uncomment, update parameter values for getOrderbookStats call and complete the assertions
+          /*
+
+          instance.getOrderbookStats(orderBookId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.GetOrderbookStatsResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('getOrderbookStatsStream', function() {
+        it('should call getOrderbookStatsStream successfully', function(done) {
+          // TODO: uncomment, update parameter values for getOrderbookStatsStream call and complete the assertions
+          /*
+
+          instance.getOrderbookStatsStream(orderBookId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.OrderbookStats);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('getOrderbookSummary', function() {
         it('should call getOrderbookSummary successfully', function(done) {
           // TODO: uncomment, update parameter values for getOrderbookSummary call and complete the assertions
@@ -842,6 +922,27 @@
           done();
         });
       });
+      describe('leverageGetAccruedInterestByUser', function() {
+        it('should call leverageGetAccruedInterestByUser successfully', function(done) {
+          // TODO: uncomment, update parameter values for leverageGetAccruedInterestByUser call and complete the assertions
+          /*
+          var opts = {};
+
+          instance.leverageGetAccruedInterestByUser(opts, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.CurrentLeverageAccruedInterestResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('leverageIsolateCollateral', function() {
         it('should call leverageIsolateCollateral successfully', function(done) {
           // TODO: uncomment, update parameter values for leverageIsolateCollateral call and complete the assertions
@@ -1037,6 +1138,26 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.ListPositionAccountsResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('payLeverageGetAccruedInterest', function() {
+        it('should call payLeverageGetAccruedInterest successfully', function(done) {
+          // TODO: uncomment, update parameter values for payLeverageGetAccruedInterest call and complete the assertions
+          /*
+
+          instance.payLeverageGetAccruedInterest(body, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.PayLeverageAccruedInterestResponse);
 
             done();
           });

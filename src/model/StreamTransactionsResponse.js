@@ -13,22 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import StreamTransactionsEntry from './StreamTransactionsEntry';
 
 /**
  * The StreamTransactionsResponse model module.
  * @module model/StreamTransactionsResponse
  * @version 1.0.0
  */
-export default class StreamTransactionsResponse extends Array {
+export default class StreamTransactionsResponse {
   /**
    * Constructs a new <code>StreamTransactionsResponse</code>.
    * @alias module:model/StreamTransactionsResponse
    * @class
-   * @extends Array
    */
   constructor() {
-    super();
   }
 
   /**
@@ -41,8 +38,15 @@ export default class StreamTransactionsResponse extends Array {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamTransactionsResponse();
-      ApiClient.constructFromObject(data, obj, 'StreamTransactionsEntry');
+      if (data.hasOwnProperty('stream_transactions_entries'))
+        obj.streamTransactionsEntries = ApiClient.convertToType(data['stream_transactions_entries'], Object);
     }
     return obj;
   }
 }
+
+/**
+ * @member {Object} streamTransactionsEntries
+ */
+StreamTransactionsResponse.prototype.streamTransactionsEntries = undefined;
+

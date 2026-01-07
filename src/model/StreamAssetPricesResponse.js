@@ -25,7 +25,6 @@ export default class StreamAssetPricesResponse {
    * Map of asset prices keyed by asset ID. Format: {\&quot;asset_id\&quot;: {\&quot;asset_id\&quot;: \&quot;uuid\&quot;, \&quot;price\&quot;: \&quot;decimal\&quot;, \&quot;time\&quot;: \&quot;date-time\&quot;}}
    * @alias module:model/StreamAssetPricesResponse
    * @class
-   * @extends Object
    */
   constructor() {
   }
@@ -40,7 +39,6 @@ export default class StreamAssetPricesResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamAssetPricesResponse();
-      ApiClient.constructFromObject(data, obj, 'Object');
     }
     return obj;
   }

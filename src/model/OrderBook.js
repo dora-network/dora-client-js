@@ -40,98 +40,98 @@ export default class OrderBook {
     if (data) {
       obj = obj || new OrderBook();
       if (data.hasOwnProperty('order_book_id'))
-        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
+        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], Object);
       if (data.hasOwnProperty('base_quantity'))
-        obj.baseQuantity = ApiClient.convertToType(data['base_quantity'], 'Number');
+        obj.baseQuantity = ApiClient.convertToType(data['base_quantity'], Object);
       if (data.hasOwnProperty('base_asset_id'))
-        obj.baseAssetId = ApiClient.convertToType(data['base_asset_id'], 'String');
+        obj.baseAssetId = ApiClient.convertToType(data['base_asset_id'], Object);
       if (data.hasOwnProperty('created_at'))
-        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
+        obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
       if (data.hasOwnProperty('display_name'))
-        obj.displayName = ApiClient.convertToType(data['display_name'], 'String');
+        obj.displayName = ApiClient.convertToType(data['display_name'], Object);
       if (data.hasOwnProperty('fee_factor'))
-        obj.feeFactor = ApiClient.convertToType(data['fee_factor'], 'Number');
+        obj.feeFactor = ApiClient.convertToType(data['fee_factor'], Object);
       if (data.hasOwnProperty('initial_assets_ratio'))
-        obj.initialAssetsRatio = ApiClient.convertToType(data['initial_assets_ratio'], 'Number');
+        obj.initialAssetsRatio = ApiClient.convertToType(data['initial_assets_ratio'], Object);
       if (data.hasOwnProperty('maturity_at'))
-        obj.maturityAt = ApiClient.convertToType(data['maturity_at'], 'Date');
+        obj.maturityAt = ApiClient.convertToType(data['maturity_at'], Object);
       if (data.hasOwnProperty('quote_quantity'))
-        obj.quoteQuantity = ApiClient.convertToType(data['quote_quantity'], 'Number');
+        obj.quoteQuantity = ApiClient.convertToType(data['quote_quantity'], Object);
       if (data.hasOwnProperty('quote_asset_id'))
-        obj.quoteAssetId = ApiClient.convertToType(data['quote_asset_id'], 'String');
+        obj.quoteAssetId = ApiClient.convertToType(data['quote_asset_id'], Object);
       if (data.hasOwnProperty('shares_quantity'))
-        obj.sharesQuantity = ApiClient.convertToType(data['shares_quantity'], 'Number');
+        obj.sharesQuantity = ApiClient.convertToType(data['shares_quantity'], Object);
       if (data.hasOwnProperty('status'))
         obj.status = OrderBookStatus.constructFromObject(data['status']);
       if (data.hasOwnProperty('tick_size'))
-        obj.tickSize = ApiClient.convertToType(data['tick_size'], 'Number');
+        obj.tickSize = ApiClient.convertToType(data['tick_size'], Object);
       if (data.hasOwnProperty('updated_at'))
-        obj.updatedAt = ApiClient.convertToType(data['updated_at'], 'Date');
+        obj.updatedAt = ApiClient.convertToType(data['updated_at'], Object);
       if (data.hasOwnProperty('halted_at'))
-        obj.haltedAt = ApiClient.convertToType(data['halted_at'], 'Date');
+        obj.haltedAt = ApiClient.convertToType(data['halted_at'], Object);
       if (data.hasOwnProperty('terminated_at'))
-        obj.terminatedAt = ApiClient.convertToType(data['terminated_at'], 'Date');
+        obj.terminatedAt = ApiClient.convertToType(data['terminated_at'], Object);
       if (data.hasOwnProperty('pool_updated_at'))
-        obj.poolUpdatedAt = ApiClient.convertToType(data['pool_updated_at'], 'Date');
+        obj.poolUpdatedAt = ApiClient.convertToType(data['pool_updated_at'], Object);
       if (data.hasOwnProperty('shares_asset_id'))
-        obj.sharesAssetId = ApiClient.convertToType(data['shares_asset_id'], 'String');
+        obj.sharesAssetId = ApiClient.convertToType(data['shares_asset_id'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} orderBookId
+ * @member {Object} orderBookId
  */
 OrderBook.prototype.orderBookId = undefined;
 
 /**
- * @member {Number} baseQuantity
+ * @member {Object} baseQuantity
  */
 OrderBook.prototype.baseQuantity = undefined;
 
 /**
- * @member {String} baseAssetId
+ * @member {Object} baseAssetId
  */
 OrderBook.prototype.baseAssetId = undefined;
 
 /**
- * @member {Date} createdAt
+ * @member {Object} createdAt
  */
 OrderBook.prototype.createdAt = undefined;
 
 /**
- * @member {String} displayName
+ * @member {Object} displayName
  */
 OrderBook.prototype.displayName = undefined;
 
 /**
- * @member {Number} feeFactor
+ * @member {Object} feeFactor
  */
 OrderBook.prototype.feeFactor = undefined;
 
 /**
- * @member {Number} initialAssetsRatio
+ * @member {Object} initialAssetsRatio
  */
 OrderBook.prototype.initialAssetsRatio = undefined;
 
 /**
- * @member {Date} maturityAt
+ * @member {Object} maturityAt
  */
 OrderBook.prototype.maturityAt = undefined;
 
 /**
- * @member {Number} quoteQuantity
+ * @member {Object} quoteQuantity
  */
 OrderBook.prototype.quoteQuantity = undefined;
 
 /**
- * @member {String} quoteAssetId
+ * @member {Object} quoteAssetId
  */
 OrderBook.prototype.quoteAssetId = undefined;
 
 /**
- * @member {Number} sharesQuantity
+ * @member {Object} sharesQuantity
  */
 OrderBook.prototype.sharesQuantity = undefined;
 
@@ -141,32 +141,32 @@ OrderBook.prototype.sharesQuantity = undefined;
 OrderBook.prototype.status = undefined;
 
 /**
- * @member {Number} tickSize
+ * @member {Object} tickSize
  */
 OrderBook.prototype.tickSize = undefined;
 
 /**
- * @member {Date} updatedAt
+ * @member {Object} updatedAt
  */
 OrderBook.prototype.updatedAt = undefined;
 
 /**
- * @member {Date} haltedAt
+ * @member {Object} haltedAt
  */
 OrderBook.prototype.haltedAt = undefined;
 
 /**
- * @member {Date} terminatedAt
+ * @member {Object} terminatedAt
  */
 OrderBook.prototype.terminatedAt = undefined;
 
 /**
- * @member {Date} poolUpdatedAt
+ * @member {Object} poolUpdatedAt
  */
 OrderBook.prototype.poolUpdatedAt = undefined;
 
 /**
- * @member {String} sharesAssetId
+ * @member {Object} sharesAssetId
  */
 OrderBook.prototype.sharesAssetId = undefined;
 

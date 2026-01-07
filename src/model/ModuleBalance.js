@@ -39,61 +39,53 @@ export default class ModuleBalance {
     if (data) {
       obj = obj || new ModuleBalance();
       if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
+        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('seq'))
-        obj.seq = ApiClient.convertToType(data['seq'], 'Number');
+        obj.seq = ApiClient.convertToType(data['seq'], Object);
       if (data.hasOwnProperty('available'))
-        obj.available = ApiClient.convertToType(data['available'], 'String');
+        obj.available = ApiClient.convertToType(data['available'], Object);
       if (data.hasOwnProperty('supplied'))
-        obj.supplied = ApiClient.convertToType(data['supplied'], 'String');
-      if (data.hasOwnProperty('supplied_collateral'))
-        obj.suppliedCollateral = ApiClient.convertToType(data['supplied_collateral'], 'String');
+        obj.supplied = ApiClient.convertToType(data['supplied'], Object);
       if (data.hasOwnProperty('virtual'))
-        obj.virtual = ApiClient.convertToType(data['virtual'], 'String');
+        obj.virtual = ApiClient.convertToType(data['virtual'], Object);
       if (data.hasOwnProperty('borrowed'))
-        obj.borrowed = ApiClient.convertToType(data['borrowed'], 'String');
+        obj.borrowed = ApiClient.convertToType(data['borrowed'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} assetId
+ * @member {Object} assetId
  */
 ModuleBalance.prototype.assetId = undefined;
 
 /**
- * @member {Number} seq
+ * @member {Object} seq
  */
 ModuleBalance.prototype.seq = undefined;
 
 /**
  * The available balance in the module for this asset
- * @member {String} available
+ * @member {Object} available
  */
 ModuleBalance.prototype.available = undefined;
 
 /**
  * The total amount supplied to the module for this asset
- * @member {String} supplied
+ * @member {Object} supplied
  */
 ModuleBalance.prototype.supplied = undefined;
 
 /**
- * The amount supplied as collateral from user balances in the module for this asset
- * @member {String} suppliedCollateral
- */
-ModuleBalance.prototype.suppliedCollateral = undefined;
-
-/**
  * Assets minted by virtual-borrowing, but not yet repaid
- * @member {String} virtual
+ * @member {Object} virtual
  */
 ModuleBalance.prototype.virtual = undefined;
 
 /**
  * The total amount borrowed from the supplied but not yet repaid
- * @member {String} borrowed
+ * @member {Object} borrowed
  */
 ModuleBalance.prototype.borrowed = undefined;
 

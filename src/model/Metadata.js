@@ -40,11 +40,11 @@ export default class Metadata {
     if (data) {
       obj = obj || new Metadata();
       if (data.hasOwnProperty('status_code'))
-        obj.statusCode = ApiClient.convertToType(data['status_code'], 'Number');
+        obj.statusCode = ApiClient.convertToType(data['status_code'], Object);
       if (data.hasOwnProperty('trace_id'))
-        obj.traceId = ApiClient.convertToType(data['trace_id'], 'String');
+        obj.traceId = ApiClient.convertToType(data['trace_id'], Object);
       if (data.hasOwnProperty('request_id'))
-        obj.requestId = ApiClient.convertToType(data['request_id'], 'String');
+        obj.requestId = ApiClient.convertToType(data['request_id'], Object);
     }
     return obj;
   }
@@ -52,19 +52,19 @@ export default class Metadata {
 
 /**
  * HTTP status code for the response.
- * @member {Number} statusCode
+ * @member {Object} statusCode
  */
 Metadata.prototype.statusCode = undefined;
 
 /**
  * Trace ID for distributed tracing.
- * @member {String} traceId
+ * @member {Object} traceId
  */
 Metadata.prototype.traceId = undefined;
 
 /**
  * Request ID for correlating logs and debugging.
- * @member {String} requestId
+ * @member {Object} requestId
  */
 Metadata.prototype.requestId = undefined;
 

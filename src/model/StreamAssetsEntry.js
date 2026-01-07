@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Asset from './Asset';
-import StreamEntry from './StreamEntry';
 
 /**
  * The StreamAssetsEntry model module.
  * @module model/StreamAssetsEntry
  * @version 1.0.0
  */
-export default class StreamAssetsEntry extends StreamEntry {
+export default class StreamAssetsEntry {
   /**
    * Constructs a new <code>StreamAssetsEntry</code>.
    * @alias module:model/StreamAssetsEntry
    * @class
-   * @extends module:model/StreamEntry
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class StreamAssetsEntry extends StreamEntry {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamAssetsEntry();
-      StreamEntry.constructFromObject(data, obj);
-      if (data.hasOwnProperty('Val'))
-        obj.val = Asset.constructFromObject(data['Val']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Asset} val
- */
-StreamAssetsEntry.prototype.val = undefined;
-

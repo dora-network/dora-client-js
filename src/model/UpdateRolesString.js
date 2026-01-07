@@ -26,7 +26,7 @@ export default class UpdateRolesString {
    * A generic struct to handle optional updates for roles fields in user requests.
    * @alias module:model/UpdateRolesString
    * @class
-   * @param update {Boolean} Whether to update the field.
+   * @param update {Object} Whether to update the field.
    */
   constructor(update) {
     this.update = update;
@@ -43,7 +43,7 @@ export default class UpdateRolesString {
     if (data) {
       obj = obj || new UpdateRolesString();
       if (data.hasOwnProperty('update'))
-        obj.update = ApiClient.convertToType(data['update'], 'Boolean');
+        obj.update = ApiClient.convertToType(data['update'], Object);
       if (data.hasOwnProperty('value'))
         obj.value = UserRole.constructFromObject(data['value']);
     }
@@ -53,11 +53,12 @@ export default class UpdateRolesString {
 
 /**
  * Whether to update the field.
- * @member {Boolean} update
+ * @member {Object} update
  */
 UpdateRolesString.prototype.update = undefined;
 
 /**
+ * The new value to set for the field.
  * @member {module:model/UserRole} value
  */
 UpdateRolesString.prototype.value = undefined;

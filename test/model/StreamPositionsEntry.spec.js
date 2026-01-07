@@ -39,12 +39,6 @@
         expect(instance).to.be.a(Dora.StreamPositionsEntry);
       });
 
-      it('should have the property val (base name: "Val")', function() {
-        // TODO: update the code to test the property val
-        expect(instance).to.have.property('val');
-        // expect(instance.val).to.be(expectedValueLiteral);
-      });
-
     });
   });
 

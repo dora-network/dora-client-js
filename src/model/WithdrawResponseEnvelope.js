@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
-import Withdraw from './Withdraw';
 
 /**
  * The WithdrawResponseEnvelope model module.
  * @module model/WithdrawResponseEnvelope
  * @version 1.0.0
  */
-export default class WithdrawResponseEnvelope extends ResponseEnvelope {
+export default class WithdrawResponseEnvelope {
   /**
    * Constructs a new <code>WithdrawResponseEnvelope</code>.
    * @alias module:model/WithdrawResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class WithdrawResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new WithdrawResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = Withdraw.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Withdraw} data
- */
-WithdrawResponseEnvelope.prototype.data = undefined;
-

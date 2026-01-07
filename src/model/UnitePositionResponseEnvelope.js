@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
-import UnitedPosition from './UnitedPosition';
 
 /**
  * The UnitePositionResponseEnvelope model module.
  * @module model/UnitePositionResponseEnvelope
  * @version 1.0.0
  */
-export default class UnitePositionResponseEnvelope extends ResponseEnvelope {
+export default class UnitePositionResponseEnvelope {
   /**
    * Constructs a new <code>UnitePositionResponseEnvelope</code>.
    * @alias module:model/UnitePositionResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class UnitePositionResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new UnitePositionResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = UnitedPosition.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/UnitedPosition} data
- */
-UnitePositionResponseEnvelope.prototype.data = undefined;
-

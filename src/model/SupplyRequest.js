@@ -24,9 +24,9 @@ export default class SupplyRequest {
    * Constructs a new <code>SupplyRequest</code>.
    * @alias module:model/SupplyRequest
    * @class
-   * @param positionId {String} 
-   * @param assetId {String} 
-   * @param quantity {String} 
+   * @param positionId {Object} 
+   * @param assetId {Object} 
+   * @param quantity {Object} 
    */
   constructor(positionId, assetId, quantity) {
     this.positionId = positionId;
@@ -45,28 +45,28 @@ export default class SupplyRequest {
     if (data) {
       obj = obj || new SupplyRequest();
       if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
+        obj.positionId = ApiClient.convertToType(data['position_id'], Object);
       if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
+        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+        obj.quantity = ApiClient.convertToType(data['quantity'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} positionId
+ * @member {Object} positionId
  */
 SupplyRequest.prototype.positionId = undefined;
 
 /**
- * @member {String} assetId
+ * @member {Object} assetId
  */
 SupplyRequest.prototype.assetId = undefined;
 
 /**
- * @member {String} quantity
+ * @member {Object} quantity
  */
 SupplyRequest.prototype.quantity = undefined;
 

@@ -39,85 +39,85 @@ export default class CouponPayment {
     if (data) {
       obj = obj || new CouponPayment();
       if (data.hasOwnProperty('id'))
-        obj.id = ApiClient.convertToType(data['id'], 'String');
+        obj.id = ApiClient.convertToType(data['id'], Object);
       if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
+        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('yield'))
-        obj._yield = ApiClient.convertToType(data['yield'], 'Number');
+        obj._yield = ApiClient.convertToType(data['yield'], Object);
       if (data.hasOwnProperty('start_at'))
-        obj.startAt = ApiClient.convertToType(data['start_at'], 'Date');
+        obj.startAt = ApiClient.convertToType(data['start_at'], Object);
       if (data.hasOwnProperty('end_at'))
-        obj.endAt = ApiClient.convertToType(data['end_at'], 'Date');
+        obj.endAt = ApiClient.convertToType(data['end_at'], Object);
       if (data.hasOwnProperty('pay_at'))
-        obj.payAt = ApiClient.convertToType(data['pay_at'], 'Date');
+        obj.payAt = ApiClient.convertToType(data['pay_at'], Object);
       if (data.hasOwnProperty('available_to_pay'))
-        obj.availableToPay = ApiClient.convertToType(data['available_to_pay'], 'String');
+        obj.availableToPay = ApiClient.convertToType(data['available_to_pay'], Object);
       if (data.hasOwnProperty('completed_at'))
-        obj.completedAt = ApiClient.convertToType(data['completed_at'], 'Date');
+        obj.completedAt = ApiClient.convertToType(data['completed_at'], Object);
       if (data.hasOwnProperty('created_at'))
-        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
+        obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
       if (data.hasOwnProperty('process_every'))
-        obj.processEvery = ApiClient.convertToType(data['process_every'], 'Number');
+        obj.processEvery = ApiClient.convertToType(data['process_every'], Object);
       if (data.hasOwnProperty('last_processed_at'))
-        obj.lastProcessedAt = ApiClient.convertToType(data['last_processed_at'], 'Date');
+        obj.lastProcessedAt = ApiClient.convertToType(data['last_processed_at'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} id
+ * @member {Object} id
  */
 CouponPayment.prototype.id = undefined;
 
 /**
- * @member {String} assetId
+ * @member {Object} assetId
  */
 CouponPayment.prototype.assetId = undefined;
 
 /**
- * @member {Number} _yield
+ * @member {Object} _yield
  */
 CouponPayment.prototype._yield = undefined;
 
 /**
- * @member {Date} startAt
+ * @member {Object} startAt
  */
 CouponPayment.prototype.startAt = undefined;
 
 /**
- * @member {Date} endAt
+ * @member {Object} endAt
  */
 CouponPayment.prototype.endAt = undefined;
 
 /**
- * @member {Date} payAt
+ * @member {Object} payAt
  */
 CouponPayment.prototype.payAt = undefined;
 
 /**
- * @member {String} availableToPay
+ * @member {Object} availableToPay
  */
 CouponPayment.prototype.availableToPay = undefined;
 
 /**
- * @member {Date} completedAt
+ * @member {Object} completedAt
  */
 CouponPayment.prototype.completedAt = undefined;
 
 /**
- * @member {Date} createdAt
+ * @member {Object} createdAt
  */
 CouponPayment.prototype.createdAt = undefined;
 
 /**
  * Number of nanoseconds to wait between coupon payment processing, must be at least 1000 (1 microsecond)
- * @member {Number} processEvery
+ * @member {Object} processEvery
  */
 CouponPayment.prototype.processEvery = undefined;
 
 /**
- * @member {Date} lastProcessedAt
+ * @member {Object} lastProcessedAt
  */
 CouponPayment.prototype.lastProcessedAt = undefined;
 

@@ -40,38 +40,38 @@ export default class Bond {
     if (data) {
       obj = obj || new Bond();
       if (data.hasOwnProperty('id'))
-        obj.id = ApiClient.convertToType(data['id'], 'String');
+        obj.id = ApiClient.convertToType(data['id'], Object);
       if (data.hasOwnProperty('kind'))
         obj.kind = BondKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('coupon_start_at'))
-        obj.couponStartAt = ApiClient.convertToType(data['coupon_start_at'], 'Date');
+        obj.couponStartAt = ApiClient.convertToType(data['coupon_start_at'], Object);
       if (data.hasOwnProperty('created_at'))
-        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
+        obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
       if (data.hasOwnProperty('final_coupon_at'))
-        obj.finalCouponAt = ApiClient.convertToType(data['final_coupon_at'], 'Date');
+        obj.finalCouponAt = ApiClient.convertToType(data['final_coupon_at'], Object);
       if (data.hasOwnProperty('isin'))
-        obj.isin = ApiClient.convertToType(data['isin'], 'String');
+        obj.isin = ApiClient.convertToType(data['isin'], Object);
       if (data.hasOwnProperty('issued_at'))
-        obj.issuedAt = ApiClient.convertToType(data['issued_at'], 'Date');
+        obj.issuedAt = ApiClient.convertToType(data['issued_at'], Object);
       if (data.hasOwnProperty('issuer'))
-        obj.issuer = ApiClient.convertToType(data['issuer'], 'String');
+        obj.issuer = ApiClient.convertToType(data['issuer'], Object);
       if (data.hasOwnProperty('maturity_at'))
-        obj.maturityAt = ApiClient.convertToType(data['maturity_at'], 'Date');
+        obj.maturityAt = ApiClient.convertToType(data['maturity_at'], Object);
       if (data.hasOwnProperty('principal_value'))
-        obj.principalValue = ApiClient.convertToType(data['principal_value'], 'String');
+        obj.principalValue = ApiClient.convertToType(data['principal_value'], Object);
       if (data.hasOwnProperty('payments_per_year'))
-        obj.paymentsPerYear = ApiClient.convertToType(data['payments_per_year'], 'Number');
+        obj.paymentsPerYear = ApiClient.convertToType(data['payments_per_year'], Object);
       if (data.hasOwnProperty('payments_every'))
-        obj.paymentsEvery = ApiClient.convertToType(data['payments_every'], 'Number');
+        obj.paymentsEvery = ApiClient.convertToType(data['payments_every'], Object);
       if (data.hasOwnProperty('next_coupon_payment'))
-        obj.nextCouponPayment = ApiClient.convertToType(data['next_coupon_payment'], 'Date');
+        obj.nextCouponPayment = ApiClient.convertToType(data['next_coupon_payment'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} id
+ * @member {Object} id
  */
 Bond.prototype.id = undefined;
 
@@ -81,58 +81,58 @@ Bond.prototype.id = undefined;
 Bond.prototype.kind = undefined;
 
 /**
- * @member {Date} couponStartAt
+ * @member {Object} couponStartAt
  */
 Bond.prototype.couponStartAt = undefined;
 
 /**
- * @member {Date} createdAt
+ * @member {Object} createdAt
  */
 Bond.prototype.createdAt = undefined;
 
 /**
- * @member {Date} finalCouponAt
+ * @member {Object} finalCouponAt
  */
 Bond.prototype.finalCouponAt = undefined;
 
 /**
- * @member {String} isin
+ * @member {Object} isin
  */
 Bond.prototype.isin = undefined;
 
 /**
- * @member {Date} issuedAt
+ * @member {Object} issuedAt
  */
 Bond.prototype.issuedAt = undefined;
 
 /**
- * @member {String} issuer
+ * @member {Object} issuer
  */
 Bond.prototype.issuer = undefined;
 
 /**
- * @member {Date} maturityAt
+ * @member {Object} maturityAt
  */
 Bond.prototype.maturityAt = undefined;
 
 /**
- * @member {String} principalValue
+ * @member {Object} principalValue
  */
 Bond.prototype.principalValue = undefined;
 
 /**
- * @member {Number} paymentsPerYear
+ * @member {Object} paymentsPerYear
  */
 Bond.prototype.paymentsPerYear = undefined;
 
 /**
  * Coupon payment frequency in nanoseconds (minimum 1000 i.e. 1 microsecond)
- * @member {Number} paymentsEvery
+ * @member {Object} paymentsEvery
  */
 Bond.prototype.paymentsEvery = undefined;
 
 /**
- * @member {Date} nextCouponPayment
+ * @member {Object} nextCouponPayment
  */
 Bond.prototype.nextCouponPayment = undefined;
 

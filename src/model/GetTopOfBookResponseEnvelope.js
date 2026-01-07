@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import OrderBookTop from './OrderBookTop';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The GetTopOfBookResponseEnvelope model module.
  * @module model/GetTopOfBookResponseEnvelope
  * @version 1.0.0
  */
-export default class GetTopOfBookResponseEnvelope extends ResponseEnvelope {
+export default class GetTopOfBookResponseEnvelope {
   /**
    * Constructs a new <code>GetTopOfBookResponseEnvelope</code>.
    * @alias module:model/GetTopOfBookResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class GetTopOfBookResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new GetTopOfBookResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = OrderBookTop.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/OrderBookTop} data
- */
-GetTopOfBookResponseEnvelope.prototype.data = undefined;
-

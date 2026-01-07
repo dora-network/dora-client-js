@@ -17,10 +17,15 @@ import AssetKind from '../model/AssetKind';
 import AssetRequestError from '../model/AssetRequestError';
 import CancelOrderResponse from '../model/CancelOrderResponse';
 import CandleResolution from '../model/CandleResolution';
+import ClaimLeverageAccruedInterestRequest from '../model/ClaimLeverageAccruedInterestRequest';
+import ClaimLeverageAccruedInterestResponse from '../model/ClaimLeverageAccruedInterestResponse';
+import ClosePositionRequest from '../model/ClosePositionRequest';
+import ClosePositionResponse from '../model/ClosePositionResponse';
 import CreateAPIKeyRequest from '../model/CreateAPIKeyRequest';
 import CreateAPIKeyResponse from '../model/CreateAPIKeyResponse';
 import CreateOrderRequest from '../model/CreateOrderRequest';
 import CreateOrderResponse from '../model/CreateOrderResponse';
+import CurrentLeverageAccruedInterestResponse from '../model/CurrentLeverageAccruedInterestResponse';
 import EmailExistsResponse from '../model/EmailExistsResponse';
 import GetAPIKeyResponse from '../model/GetAPIKeyResponse';
 import GetAssetByIDResponse from '../model/GetAssetByIDResponse';
@@ -28,6 +33,7 @@ import GetAssetPriceResponse from '../model/GetAssetPriceResponse';
 import GetOrderBookResponse from '../model/GetOrderBookResponse';
 import GetOrderBookSummaryResponse from '../model/GetOrderBookSummaryResponse';
 import GetOrderResponse from '../model/GetOrderResponse';
+import GetOrderbookStatsResponse from '../model/GetOrderbookStatsResponse';
 import GetPoolPriceResponse from '../model/GetPoolPriceResponse';
 import GetTopOfBookResponse from '../model/GetTopOfBookResponse';
 import GetTransactionResponse from '../model/GetTransactionResponse';
@@ -54,7 +60,9 @@ import NewIsolatedPositionRequest from '../model/NewIsolatedPositionRequest';
 import NewIsolatedPositionResponse from '../model/NewIsolatedPositionResponse';
 import OrderBookStatus from '../model/OrderBookStatus';
 import OrderKind from '../model/OrderKind';
-import OrderStatus from '../model/OrderStatus';
+import OrderbookStats from '../model/OrderbookStats';
+import PayLeverageAccruedInterestRequest from '../model/PayLeverageAccruedInterestRequest';
+import PayLeverageAccruedInterestResponse from '../model/PayLeverageAccruedInterestResponse';
 import PoolRequestError from '../model/PoolRequestError';
 import ResponseEnvelope from '../model/ResponseEnvelope';
 import RevokeAPIKeyResponse from '../model/RevokeAPIKeyResponse';
@@ -71,7 +79,6 @@ import SupplyRequest from '../model/SupplyRequest';
 import SupplyResponse from '../model/SupplyResponse';
 import TradeRequestError from '../model/TradeRequestError';
 import TradeResponse from '../model/TradeResponse';
-import TransactionKind from '../model/TransactionKind';
 import TransactionRequestError from '../model/TransactionRequestError';
 import TransferBalancesRequest from '../model/TransferBalancesRequest';
 import TransferBalancesResponse from '../model/TransferBalancesResponse';
@@ -119,8 +126,8 @@ export default class DefaultApi {
     /**
      * Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
      * @param {Object} opts Optional parameters
-     * @param {String} opts.orderBookId 
-     * @param {String} opts.userId 
+     * @param {Object} opts.orderBookId 
+     * @param {Object} opts.userId 
      * @param {module:model/OrderKind} opts.orderKind 
      * @param {module:api/DefaultApi~cancelAllOpenOrdersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
@@ -142,7 +149,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListOrdersResponse;
@@ -163,7 +170,7 @@ export default class DefaultApi {
 
     /**
      * Cancel an order by ID
-     * @param {String} orderId 
+     * @param {Object} orderId 
      * @param {module:api/DefaultApi~cancelOrderByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -188,7 +195,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = CancelOrderResponse;
@@ -209,7 +216,7 @@ export default class DefaultApi {
 
     /**
      * Check whether a user email exists
-     * @param {String} email 
+     * @param {Object} email 
      * @param {module:api/DefaultApi~checkUserEmailExistsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -234,13 +241,105 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = EmailExistsResponse;
 
       return this.apiClient.callApi(
         '/v1/user/exists', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the claimLeverageGetAccruedInterest operation.
+     * @callback moduleapi/DefaultApi~claimLeverageGetAccruedInterestCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ClaimLeverageAccruedInterestResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Claim current accrued leverage interest for a specific user
+     * @param {module:model/ClaimLeverageAccruedInterestRequest} body 
+     * @param {module:api/DefaultApi~claimLeverageGetAccruedInterestCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    claimLeverageGetAccruedInterest(body, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling claimLeverageGetAccruedInterest");
+      }
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = ClaimLeverageAccruedInterestResponse;
+
+      return this.apiClient.callApi(
+        '/v1/leverage/accrued_interest/claim', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the closeIsolatedPosition operation.
+     * @callback moduleapi/DefaultApi~closeIsolatedPositionCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ClosePositionResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Close isolated positions, repaying the borrowed
+     * @param {module:model/ClosePositionRequest} body 
+     * @param {module:api/DefaultApi~closeIsolatedPositionCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    closeIsolatedPosition(body, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling closeIsolatedPosition");
+      }
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = ClosePositionResponse;
+
+      return this.apiClient.callApi(
+        '/v1/positions/close', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -280,7 +379,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateAPIKeyResponse;
@@ -326,7 +425,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = NewIsolatedPositionResponse;
@@ -372,7 +471,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = CreateOrderResponse;
@@ -393,7 +492,7 @@ export default class DefaultApi {
 
     /**
      * Delete user by ID
-     * @param {String} userId 
+     * @param {Object} userId 
      * @param {module:api/DefaultApi~deleteUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -418,7 +517,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = UserDeletedResponse;
@@ -459,7 +558,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListAssetPriceResponse;
@@ -480,7 +579,7 @@ export default class DefaultApi {
 
     /**
      * Get asset by ID
-     * @param {String} assetId 
+     * @param {Object} assetId 
      * @param {module:api/DefaultApi~getAssetByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -526,7 +625,7 @@ export default class DefaultApi {
 
     /**
      * Get the current price of an asset
-     * @param {String} assetId 
+     * @param {Object} assetId 
      * @param {module:api/DefaultApi~getAssetPriceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -551,7 +650,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GetAssetPriceResponse;
@@ -573,8 +672,8 @@ export default class DefaultApi {
     /**
      * Get all inserts or updates for assets
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.since 
-     * @param {Date} opts.until 
+     * @param {Object} opts.since 
+     * @param {Object} opts.until 
      * @param {module:api/DefaultApi~getAssetsStreamCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -616,10 +715,10 @@ export default class DefaultApi {
 
     /**
      * Get candlestick data for an orderbook
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.start 
-     * @param {Date} opts.end 
+     * @param {Object} opts.start 
+     * @param {Object} opts.end 
      * @param {module:model/CandleResolution} opts.resolution 
      * @param {module:api/DefaultApi~getCandleDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
@@ -666,7 +765,7 @@ export default class DefaultApi {
 
     /**
      * Get coupon payments for a bond asset
-     * @param {String} assetId 
+     * @param {Object} assetId 
      * @param {module:api/DefaultApi~getCouponPaymentsByAssetIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -712,7 +811,7 @@ export default class DefaultApi {
 
     /**
      * Get the top price levels for a specific orderbook (L1 market depth)
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {module:api/DefaultApi~getL1DepthCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -758,7 +857,7 @@ export default class DefaultApi {
 
     /**
      * Get the aggregated price levels for a specific orderbook (L2 market depth)
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {module:api/DefaultApi~getL2DepthCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -804,7 +903,7 @@ export default class DefaultApi {
 
     /**
      * Get all open orders for a specific orderbook (L3 market depth)
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {module:api/DefaultApi~getL3DepthCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -870,7 +969,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = UserBalanceResponse;
@@ -911,7 +1010,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = UserInterestResponse;
@@ -952,7 +1051,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = LedgerModuleResponse;
@@ -973,7 +1072,7 @@ export default class DefaultApi {
 
     /**
      * Get the module object for a single asset ID
-     * @param {String} assetId 
+     * @param {Object} assetId 
      * @param {module:api/DefaultApi~getLedgerModuleByAssetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -998,7 +1097,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = LedgerModuleByAssetResponse;
@@ -1039,7 +1138,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = UserPositionResponse;
@@ -1080,7 +1179,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = UserValueResponse;
@@ -1101,7 +1200,7 @@ export default class DefaultApi {
 
     /**
      * Get order by ID
-     * @param {String} orderId 
+     * @param {Object} orderId 
      * @param {module:api/DefaultApi~getOrderByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1126,7 +1225,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GetOrderResponse;
@@ -1147,7 +1246,7 @@ export default class DefaultApi {
 
     /**
      * Get orderbook by ID
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {module:api/DefaultApi~getOrderbookByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1172,7 +1271,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GetOrderBookResponse;
@@ -1193,7 +1292,7 @@ export default class DefaultApi {
 
     /**
      * Get the aggregated price levels for a specific orderbook (L2 market depth)
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {module:api/DefaultApi~getOrderbookDepthCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1239,7 +1338,7 @@ export default class DefaultApi {
 
     /**
      * Get all open orders for a specific orderbook (L3 market depth)
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {module:api/DefaultApi~getOrderbookOrdersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1276,6 +1375,98 @@ export default class DefaultApi {
       );
     }
     /**
+     * Callback function to receive the result of the getOrderbookStats operation.
+     * @callback moduleapi/DefaultApi~getOrderbookStatsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetOrderbookStatsResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get orderbook stats
+     * @param {Object} orderBookId 
+     * @param {module:api/DefaultApi~getOrderbookStatsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    getOrderbookStats(orderBookId, callback) {
+      
+      let postBody = null;
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getOrderbookStats");
+      }
+
+      let pathParams = {
+        'order_book_id': orderBookId
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetOrderbookStatsResponse;
+
+      return this.apiClient.callApi(
+        '/v1/orderbooks/{order_book_id}/stats', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the getOrderbookStatsStream operation.
+     * @callback moduleapi/DefaultApi~getOrderbookStatsStreamCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/OrderbookStats{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Orderbook stats stream
+     * @param {Object} orderBookId 
+     * @param {module:api/DefaultApi~getOrderbookStatsStreamCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    getOrderbookStatsStream(orderBookId, callback) {
+      
+      let postBody = null;
+      // verify the required parameter 'orderBookId' is set
+      if (orderBookId === undefined || orderBookId === null) {
+        throw new Error("Missing the required parameter 'orderBookId' when calling getOrderbookStatsStream");
+      }
+
+      let pathParams = {
+        'order_book_id': orderBookId
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = OrderbookStats;
+
+      return this.apiClient.callApi(
+        '/v1/orderbooks/{order_book_id}/stats/stream', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
      * Callback function to receive the result of the getOrderbookSummary operation.
      * @callback moduleapi/DefaultApi~getOrderbookSummaryCallback
      * @param {String} error Error message, if any.
@@ -1285,7 +1476,7 @@ export default class DefaultApi {
 
     /**
      * Get summary of an orderbook
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {module:api/DefaultApi~getOrderbookSummaryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1310,7 +1501,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GetOrderBookSummaryResponse;
@@ -1331,7 +1522,7 @@ export default class DefaultApi {
 
     /**
      * Get the top price levels for a specific orderbook (L1 market depth)
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {module:api/DefaultApi~getOrderbookTopCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1377,7 +1568,7 @@ export default class DefaultApi {
 
     /**
      * Get the current price of a pool
-     * @param {String} poolId 
+     * @param {Object} poolId 
      * @param {module:api/DefaultApi~getPoolPriceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1402,7 +1593,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GetPoolPriceResponse;
@@ -1423,7 +1614,7 @@ export default class DefaultApi {
 
     /**
      * Get a trade by ID
-     * @param {String} tradeId 
+     * @param {Object} tradeId 
      * @param {module:api/DefaultApi~getTradeByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1470,12 +1661,12 @@ export default class DefaultApi {
     /**
      * Get a filtered, paginated list of trades
      * @param {Object} opts Optional parameters
-     * @param {Array.<String>} opts.orderBookIds 
-     * @param {Array.<String>} opts.userIds 
-     * @param {Date} opts.start 
-     * @param {Date} opts.end 
-     * @param {Number} opts.page  (default to <.>)
-     * @param {Number} opts.limit  (default to <.>)
+     * @param {Object} opts.orderBookIds 
+     * @param {Object} opts.userIds 
+     * @param {Object} opts.start 
+     * @param {Object} opts.end 
+     * @param {Object} opts.page  (default to <.>)
+     * @param {Object} opts.limit  (default to <.>)
      * @param {module:api/DefaultApi~getTradesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1487,7 +1678,7 @@ export default class DefaultApi {
         
       };
       let queryParams = {
-        'order_book_ids': this.apiClient.buildCollectionParam(opts['orderBookIds'], 'multi'),'user_ids': this.apiClient.buildCollectionParam(opts['userIds'], 'multi'),'start': opts['start'],'end': opts['end'],'page': opts['page'],'limit': opts['limit']
+        'order_book_ids': opts['orderBookIds'],'user_ids': opts['userIds'],'start': opts['start'],'end': opts['end'],'page': opts['page'],'limit': opts['limit']
       };
       let headerParams = {
         
@@ -1496,7 +1687,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListTradeResponse;
@@ -1517,7 +1708,7 @@ export default class DefaultApi {
 
     /**
      * Get a transaction by ID
-     * @param {String} transactionId 
+     * @param {Object} transactionId 
      * @param {module:api/DefaultApi~getTransactionByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1564,13 +1755,13 @@ export default class DefaultApi {
     /**
      * Get a filtered, paginated list of transactions
      * @param {Object} opts Optional parameters
-     * @param {Array.<String>} opts.pools 
-     * @param {Array.<String>} opts.userIds 
-     * @param {Array.<module:model/TransactionKind>} opts.txKinds 
-     * @param {Date} opts.start 
-     * @param {Date} opts.end 
-     * @param {Number} opts.page  (default to <.>)
-     * @param {Number} opts.limit  (default to <.>)
+     * @param {Object} opts.pools 
+     * @param {Object} opts.userIds 
+     * @param {Object} opts.txKinds 
+     * @param {Object} opts.start 
+     * @param {Object} opts.end 
+     * @param {Object} opts.page  (default to <.>)
+     * @param {Object} opts.limit  (default to <.>)
      * @param {module:api/DefaultApi~getTransactionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1582,7 +1773,7 @@ export default class DefaultApi {
         
       };
       let queryParams = {
-        'pools': this.apiClient.buildCollectionParam(opts['pools'], 'multi'),'user_ids': this.apiClient.buildCollectionParam(opts['userIds'], 'multi'),'tx_kinds': this.apiClient.buildCollectionParam(opts['txKinds'], 'multi'),'start': opts['start'],'end': opts['end'],'page': opts['page'],'limit': opts['limit']
+        'pools': opts['pools'],'user_ids': opts['userIds'],'tx_kinds': opts['txKinds'],'start': opts['start'],'end': opts['end'],'page': opts['page'],'limit': opts['limit']
       };
       let headerParams = {
         
@@ -1612,7 +1803,7 @@ export default class DefaultApi {
 
     /**
      * Get user by ID (admin only)
-     * @param {String} userId 
+     * @param {Object} userId 
      * @param {module:api/DefaultApi~getUserByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1637,7 +1828,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GetUserResponse;
@@ -1658,7 +1849,7 @@ export default class DefaultApi {
 
     /**
      * Get a snapshot of user&#x27;s ledger updates since a specific time, and opens a stream for further updates
-     * @param {String} userId 
+     * @param {Object} userId 
      * @param {module:api/DefaultApi~getUserLedgerStreamCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1683,7 +1874,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthQuery'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = StreamPositionsResponse;
@@ -1704,10 +1895,10 @@ export default class DefaultApi {
 
     /**
      * Get a snapshot of user&#x27;s order updates for the given order book since a specific time, and opens a stream for further updates
-     * @param {String} userId 
-     * @param {String} orderBookId 
+     * @param {Object} userId 
+     * @param {Object} orderBookId 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.since 
+     * @param {Object} opts.since 
      * @param {module:api/DefaultApi~getUserOrderUpdatesStreamCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1736,7 +1927,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthQuery'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = StreamOrderUpdatesResponse;
@@ -1757,9 +1948,9 @@ export default class DefaultApi {
 
     /**
      * Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
-     * @param {String} userId 
+     * @param {Object} userId 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.since 
+     * @param {Object} opts.since 
      * @param {module:api/DefaultApi~getUserOrdersUpdatesStreamAllCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1784,7 +1975,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthQuery'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = StreamOrderUpdatesResponse;
@@ -1825,7 +2016,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GetUserResponse;
@@ -1846,9 +2037,9 @@ export default class DefaultApi {
 
     /**
      * Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
-     * @param {String} userId 
+     * @param {Object} userId 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.since 
+     * @param {Object} opts.since 
      * @param {module:api/DefaultApi~getUserTransactionsStreamCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -1873,7 +2064,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthQuery'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = StreamTransactionsResponse;
@@ -1914,13 +2105,57 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = GetAPIKeyResponse;
 
       return this.apiClient.callApi(
         '/v1/user/apikey', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the leverageGetAccruedInterestByUser operation.
+     * @callback moduleapi/DefaultApi~leverageGetAccruedInterestByUserCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CurrentLeverageAccruedInterestResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get current accrued leverage interest for the user
+     * @param {Object} opts Optional parameters
+     * @param {Object} opts.positionId 
+     * @param {Object} opts.assetId 
+     * @param {module:api/DefaultApi~leverageGetAccruedInterestByUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    leverageGetAccruedInterestByUser(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        'position_id': opts['positionId'],'asset_id': opts['assetId']
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = CurrentLeverageAccruedInterestResponse;
+
+      return this.apiClient.callApi(
+        '/v1/leverage/accrued_interest/self', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1960,7 +2195,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = IsolateCollateralResponse;
@@ -2006,7 +2241,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = SupplyResponse;
@@ -2053,7 +2288,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = UnitePositionResponse;
@@ -2099,7 +2334,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = WithdrawResponse;
@@ -2121,7 +2356,7 @@ export default class DefaultApi {
     /**
      * Add liquidity to a pool
      * @param {module:model/LiquidityRequest} body 
-     * @param {String} poolId 
+     * @param {Object} poolId 
      * @param {module:api/DefaultApi~liquidityAddCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2150,7 +2385,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = LiquidityResponse;
@@ -2172,7 +2407,7 @@ export default class DefaultApi {
     /**
      * Subtract liquidity from a pool
      * @param {module:model/LiquidityRequest} body 
-     * @param {String} poolId 
+     * @param {Object} poolId 
      * @param {module:api/DefaultApi~liquiditySubtractCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2201,7 +2436,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = LiquidityResponse;
@@ -2223,16 +2458,16 @@ export default class DefaultApi {
     /**
      * List assets
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.createdAfter 
-     * @param {Date} opts.createdBefore 
+     * @param {Object} opts.createdAfter 
+     * @param {Object} opts.createdBefore 
      * @param {module:model/AssetKind} opts.assetKind Asset kind (BOND, CURRENCY, INTEREST, POOL_SHARE)
-     * @param {Boolean} opts.canAddLiquidity 
-     * @param {Boolean} opts.canDirectBorrow 
-     * @param {Boolean} opts.canOnboard 
-     * @param {Boolean} opts.canTrade 
-     * @param {Boolean} opts.canVirtualBorrow 
-     * @param {Number} opts.page  (default to <.>)
-     * @param {Number} opts.limit  (default to <.>)
+     * @param {Object} opts.canAddLiquidity 
+     * @param {Object} opts.canDirectBorrow 
+     * @param {Object} opts.canOnboard 
+     * @param {Object} opts.canTrade 
+     * @param {Object} opts.canVirtualBorrow 
+     * @param {Object} opts.page  (default to <.>)
+     * @param {Object} opts.limit  (default to <.>)
      * @param {module:api/DefaultApi~listAssetsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2276,10 +2511,10 @@ export default class DefaultApi {
      * List order books
      * @param {Object} opts Optional parameters
      * @param {module:model/OrderBookStatus} opts.status 
-     * @param {String} opts.baseAssetId 
-     * @param {String} opts.quoteAssetId 
-     * @param {Number} opts.page  (default to <.>)
-     * @param {Number} opts.limit  (default to <.>)
+     * @param {Object} opts.baseAssetId 
+     * @param {Object} opts.quoteAssetId 
+     * @param {Object} opts.page  (default to <.>)
+     * @param {Object} opts.limit  (default to <.>)
      * @param {module:api/DefaultApi~listOrderBooksCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2300,7 +2535,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListOrderBooksResponse;
@@ -2322,14 +2557,14 @@ export default class DefaultApi {
     /**
      * List all orders
      * @param {Object} opts Optional parameters
-     * @param {Array.<String>} opts.orderBookId 
-     * @param {Array.<module:model/OrderKind>} opts.kind 
-     * @param {Array.<module:model/OrderStatus>} opts.status 
+     * @param {Object} opts.orderBookId 
+     * @param {Object} opts.kind 
+     * @param {Object} opts.status 
      * @param {module:model/Side} opts.side 
-     * @param {Date} opts.from 
-     * @param {Date} opts.to 
-     * @param {Number} opts.page  (default to <.>)
-     * @param {Number} opts.limit  (default to <.>)
+     * @param {Object} opts.from 
+     * @param {Object} opts.to 
+     * @param {Object} opts.page  (default to <.>)
+     * @param {Object} opts.limit  (default to <.>)
      * @param {module:api/DefaultApi~listOrdersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2341,7 +2576,7 @@ export default class DefaultApi {
         
       };
       let queryParams = {
-        'order_book_id': this.apiClient.buildCollectionParam(opts['orderBookId'], 'multi'),'kind': this.apiClient.buildCollectionParam(opts['kind'], 'multi'),'status': this.apiClient.buildCollectionParam(opts['status'], 'multi'),'side': opts['side'],'from': opts['from'],'to': opts['to'],'page': opts['page'],'limit': opts['limit']
+        'order_book_id': opts['orderBookId'],'kind': opts['kind'],'status': opts['status'],'side': opts['side'],'from': opts['from'],'to': opts['to'],'page': opts['page'],'limit': opts['limit']
       };
       let headerParams = {
         
@@ -2350,7 +2585,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListOrdersResponse;
@@ -2391,13 +2626,59 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListPositionAccountsResponse;
 
       return this.apiClient.callApi(
         '/v1/user/self/position_accounts', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the payLeverageGetAccruedInterest operation.
+     * @callback moduleapi/DefaultApi~payLeverageGetAccruedInterestCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PayLeverageAccruedInterestResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Pay current accrued leverage interest for a specific user
+     * @param {module:model/PayLeverageAccruedInterestRequest} body 
+     * @param {module:api/DefaultApi~payLeverageGetAccruedInterestCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    payLeverageGetAccruedInterest(body, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling payLeverageGetAccruedInterest");
+      }
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = PayLeverageAccruedInterestResponse;
+
+      return this.apiClient.callApi(
+        '/v1/leverage/accrued_interest/pay', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2412,7 +2693,7 @@ export default class DefaultApi {
 
     /**
      * Revoke apikey for a user
-     * @param {String} keyId 
+     * @param {Object} keyId 
      * @param {module:api/DefaultApi~revokeAPIKeyForUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2437,7 +2718,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = RevokeAPIKeyResponse;
@@ -2460,7 +2741,8 @@ export default class DefaultApi {
      * Stream real-time asset prices as map objects
      * Opens a WebSocket stream for real-time asset price updates. First message contains all current prices, subsequent messages contain only changed prices. Data is sent as JSON objects keyed by asset ID.
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.since 
+     * @param {Object} opts.since 
+     * @param {Object} opts.assetId 
      * @param {module:api/DefaultApi~streamAssetPricesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2472,7 +2754,7 @@ export default class DefaultApi {
         
       };
       let queryParams = {
-        'since': opts['since']
+        'since': opts['since'],'asset_id': opts['assetId']
       };
       let headerParams = {
         
@@ -2502,9 +2784,9 @@ export default class DefaultApi {
 
     /**
      * Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.since 
+     * @param {Object} opts.since 
      * @param {module:model/CandleResolution} opts.resolution 
      * @param {module:api/DefaultApi~streamCandleDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
@@ -2551,9 +2833,9 @@ export default class DefaultApi {
 
     /**
      * Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.since 
+     * @param {Object} opts.since 
      * @param {module:api/DefaultApi~streamOrderBookBalancesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2599,9 +2881,9 @@ export default class DefaultApi {
 
     /**
      * Get a snapshot of open orders in an order book and open a stream for real-time updates
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.since 
+     * @param {Object} opts.since 
      * @param {module:api/DefaultApi~streamOrderbookOpenOrdersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2647,9 +2929,9 @@ export default class DefaultApi {
 
     /**
      * Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
-     * @param {String} orderBookId 
+     * @param {Object} orderBookId 
      * @param {Object} opts Optional parameters
-     * @param {Date} opts.since 
+     * @param {Object} opts.since 
      * @param {module:api/DefaultApi~streamTradesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2720,7 +3002,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = TransferBalancesResponse;
@@ -2742,7 +3024,7 @@ export default class DefaultApi {
     /**
      * Update user configuration by ID
      * @param {module:model/UpdateUserConfigRequest} body 
-     * @param {String} userId 
+     * @param {Object} userId 
      * @param {module:api/DefaultApi~updateUserConfigCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2771,7 +3053,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = UserUpdatedResponse;
@@ -2817,7 +3099,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = UserUpdatedResponse;
@@ -2863,7 +3145,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = ValidateSubmitOrderResponse;
@@ -2884,7 +3166,7 @@ export default class DefaultApi {
 
     /**
      * Verify a user by ID
-     * @param {String} userId 
+     * @param {Object} userId 
      * @param {module:api/DefaultApi~verifyUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
@@ -2909,7 +3191,7 @@ export default class DefaultApi {
         
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = UserUpdatedResponse;

@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assetId** | **String** |  | [optional] 
-**price** | **String** |  | [optional] 
-**time** | **Date** |  | [optional] 
+**assetId** | **Object** |  | [optional] 
+**price** | **Object** |  | [optional] 
+**time** | **Object** |  | [optional] 

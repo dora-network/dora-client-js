@@ -3,4 +3,4 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**balances** | [**[Position]**](Position.md) |  | [optional] 
+**balances** | **Object** |  | [optional] 

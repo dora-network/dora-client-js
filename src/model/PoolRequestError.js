@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The PoolRequestError model module.
  * @module model/PoolRequestError
  * @version 1.0.0
  */
-export default class PoolRequestError extends ResponseEnvelope {
+export default class PoolRequestError {
   /**
    * Constructs a new <code>PoolRequestError</code>.
    * @alias module:model/PoolRequestError
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class PoolRequestError extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new PoolRequestError();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('error'))
-        obj.error = ApiClient.convertToType(data['error'], 'String');
     }
     return obj;
   }
 }
-
-/**
- * @member {String} error
- */
-PoolRequestError.prototype.error = undefined;
-

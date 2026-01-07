@@ -39,35 +39,35 @@ export default class OrderBookTop {
     if (data) {
       obj = obj || new OrderBookTop();
       if (data.hasOwnProperty('order_book_id'))
-        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
+        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], Object);
       if (data.hasOwnProperty('best_bid'))
-        obj.bestBid = ApiClient.convertToType(data['best_bid'], 'String');
+        obj.bestBid = ApiClient.convertToType(data['best_bid'], Object);
       if (data.hasOwnProperty('best_ask'))
-        obj.bestAsk = ApiClient.convertToType(data['best_ask'], 'String');
+        obj.bestAsk = ApiClient.convertToType(data['best_ask'], Object);
       if (data.hasOwnProperty('timestamp'))
-        obj.timestamp = ApiClient.convertToType(data['timestamp'], 'Date');
+        obj.timestamp = ApiClient.convertToType(data['timestamp'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} orderBookId
+ * @member {Object} orderBookId
  */
 OrderBookTop.prototype.orderBookId = undefined;
 
 /**
- * @member {String} bestBid
+ * @member {Object} bestBid
  */
 OrderBookTop.prototype.bestBid = undefined;
 
 /**
- * @member {String} bestAsk
+ * @member {Object} bestAsk
  */
 OrderBookTop.prototype.bestAsk = undefined;
 
 /**
- * @member {Date} timestamp
+ * @member {Object} timestamp
  */
 OrderBookTop.prototype.timestamp = undefined;
 

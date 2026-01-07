@@ -39,49 +39,49 @@ export default class Liquidity {
     if (data) {
       obj = obj || new Liquidity();
       if (data.hasOwnProperty('order_book_id'))
-        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
+        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], Object);
       if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
+        obj.positionId = ApiClient.convertToType(data['position_id'], Object);
       if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
+        obj.transactionId = ApiClient.convertToType(data['transaction_id'], Object);
       if (data.hasOwnProperty('base_quantity'))
-        obj.baseQuantity = ApiClient.convertToType(data['base_quantity'], 'String');
+        obj.baseQuantity = ApiClient.convertToType(data['base_quantity'], Object);
       if (data.hasOwnProperty('quote_quantity'))
-        obj.quoteQuantity = ApiClient.convertToType(data['quote_quantity'], 'String');
+        obj.quoteQuantity = ApiClient.convertToType(data['quote_quantity'], Object);
       if (data.hasOwnProperty('shares_quantity'))
-        obj.sharesQuantity = ApiClient.convertToType(data['shares_quantity'], 'String');
+        obj.sharesQuantity = ApiClient.convertToType(data['shares_quantity'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} orderBookId
+ * @member {Object} orderBookId
  */
 Liquidity.prototype.orderBookId = undefined;
 
 /**
- * @member {String} positionId
+ * @member {Object} positionId
  */
 Liquidity.prototype.positionId = undefined;
 
 /**
- * @member {String} transactionId
+ * @member {Object} transactionId
  */
 Liquidity.prototype.transactionId = undefined;
 
 /**
- * @member {String} baseQuantity
+ * @member {Object} baseQuantity
  */
 Liquidity.prototype.baseQuantity = undefined;
 
 /**
- * @member {String} quoteQuantity
+ * @member {Object} quoteQuantity
  */
 Liquidity.prototype.quoteQuantity = undefined;
 
 /**
- * @member {String} sharesQuantity
+ * @member {Object} sharesQuantity
  */
 Liquidity.prototype.sharesQuantity = undefined;
 

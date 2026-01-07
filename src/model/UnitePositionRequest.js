@@ -24,7 +24,7 @@ export default class UnitePositionRequest {
    * Constructs a new <code>UnitePositionRequest</code>.
    * @alias module:model/UnitePositionRequest
    * @class
-   * @param globalPositionId {String} 
+   * @param globalPositionId {Object} 
    */
   constructor(globalPositionId) {
     this.globalPositionId = globalPositionId;
@@ -41,14 +41,14 @@ export default class UnitePositionRequest {
     if (data) {
       obj = obj || new UnitePositionRequest();
       if (data.hasOwnProperty('global_position_id'))
-        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], 'String');
+        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} globalPositionId
+ * @member {Object} globalPositionId
  */
 UnitePositionRequest.prototype.globalPositionId = undefined;
 

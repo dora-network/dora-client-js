@@ -13,22 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import StreamAssetsEntry from './StreamAssetsEntry';
 
 /**
  * The StreamAssetsResponse model module.
  * @module model/StreamAssetsResponse
  * @version 1.0.0
  */
-export default class StreamAssetsResponse extends Array {
+export default class StreamAssetsResponse {
   /**
    * Constructs a new <code>StreamAssetsResponse</code>.
    * @alias module:model/StreamAssetsResponse
    * @class
-   * @extends Array
    */
   constructor() {
-    super();
   }
 
   /**
@@ -41,8 +38,15 @@ export default class StreamAssetsResponse extends Array {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamAssetsResponse();
-      ApiClient.constructFromObject(data, obj, 'StreamAssetsEntry');
+      if (data.hasOwnProperty('stream_assets_entries'))
+        obj.streamAssetsEntries = ApiClient.convertToType(data['stream_assets_entries'], Object);
     }
     return obj;
   }
 }
+
+/**
+ * @member {Object} streamAssetsEntries
+ */
+StreamAssetsResponse.prototype.streamAssetsEntries = undefined;
+

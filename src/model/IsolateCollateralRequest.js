@@ -24,9 +24,9 @@ export default class IsolateCollateralRequest {
    * Constructs a new <code>IsolateCollateralRequest</code>.
    * @alias module:model/IsolateCollateralRequest
    * @class
-   * @param globalPositionId {String} 
-   * @param assetId {String} 
-   * @param quantity {String} 
+   * @param globalPositionId {Object} 
+   * @param assetId {Object} 
+   * @param quantity {Object} 
    */
   constructor(globalPositionId, assetId, quantity) {
     this.globalPositionId = globalPositionId;
@@ -45,28 +45,28 @@ export default class IsolateCollateralRequest {
     if (data) {
       obj = obj || new IsolateCollateralRequest();
       if (data.hasOwnProperty('global_position_id'))
-        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], 'String');
+        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], Object);
       if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
+        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+        obj.quantity = ApiClient.convertToType(data['quantity'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} globalPositionId
+ * @member {Object} globalPositionId
  */
 IsolateCollateralRequest.prototype.globalPositionId = undefined;
 
 /**
- * @member {String} assetId
+ * @member {Object} assetId
  */
 IsolateCollateralRequest.prototype.assetId = undefined;
 
 /**
- * @member {String} quantity
+ * @member {Object} quantity
  */
 IsolateCollateralRequest.prototype.quantity = undefined;
 

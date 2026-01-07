@@ -13,7 +13,6 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Position from './Position';
 
 /**
  * The BalancesResponse model module.
@@ -40,14 +39,14 @@ export default class BalancesResponse {
     if (data) {
       obj = obj || new BalancesResponse();
       if (data.hasOwnProperty('balances'))
-        obj.balances = ApiClient.convertToType(data['balances'], [Position]);
+        obj.balances = ApiClient.convertToType(data['balances'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {Array.<module:model/Position>} balances
+ * @member {Object} balances
  */
 BalancesResponse.prototype.balances = undefined;
 

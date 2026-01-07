@@ -87,6 +87,30 @@
         // expect(instance.userBalance).to.be(expectedValueLiteral);
       });
 
+      it('should have the property baseAssetId (base name: "base_asset_id")', function() {
+        // TODO: update the code to test the property baseAssetId
+        expect(instance).to.have.property('baseAssetId');
+        // expect(instance.baseAssetId).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property quoteAssetId (base name: "quote_asset_id")', function() {
+        // TODO: update the code to test the property quoteAssetId
+        expect(instance).to.have.property('quoteAssetId');
+        // expect(instance.quoteAssetId).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property positionAssets (base name: "position_assets")', function() {
+        // TODO: update the code to test the property positionAssets
+        expect(instance).to.have.property('positionAssets');
+        // expect(instance.positionAssets).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property assetsConfig (base name: "assets_config")', function() {
+        // TODO: update the code to test the property assetsConfig
+        expect(instance).to.have.property('assetsConfig');
+        // expect(instance.assetsConfig).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

@@ -13,7 +13,6 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Position from './Position';
 import TransformedAssets from './TransformedAssets';
 
 /**
@@ -41,9 +40,9 @@ export default class Portfolio {
     if (data) {
       obj = obj || new Portfolio();
       if (data.hasOwnProperty('user_id'))
-        obj.userId = ApiClient.convertToType(data['user_id'], 'String');
+        obj.userId = ApiClient.convertToType(data['user_id'], Object);
       if (data.hasOwnProperty('position'))
-        obj.position = ApiClient.convertToType(data['position'], {'String': {'String': Position}});
+        obj.position = ApiClient.convertToType(data['position'], Object);
       if (data.hasOwnProperty('net_stablecoin_equivalence'))
         obj.netStablecoinEquivalence = TransformedAssets.constructFromObject(data['net_stablecoin_equivalence']);
     }
@@ -52,12 +51,12 @@ export default class Portfolio {
 }
 
 /**
- * @member {String} userId
+ * @member {Object} userId
  */
 Portfolio.prototype.userId = undefined;
 
 /**
- * @member {Object.<String, Object.<String, module:model/Position>>} position
+ * @member {Object} position
  */
 Portfolio.prototype.position = undefined;
 

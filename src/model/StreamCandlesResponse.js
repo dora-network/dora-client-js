@@ -13,22 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import StreamCandlesEntry from './StreamCandlesEntry';
 
 /**
  * The StreamCandlesResponse model module.
  * @module model/StreamCandlesResponse
  * @version 1.0.0
  */
-export default class StreamCandlesResponse extends Array {
+export default class StreamCandlesResponse {
   /**
    * Constructs a new <code>StreamCandlesResponse</code>.
    * @alias module:model/StreamCandlesResponse
    * @class
-   * @extends Array
    */
   constructor() {
-    super();
   }
 
   /**
@@ -41,8 +38,15 @@ export default class StreamCandlesResponse extends Array {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamCandlesResponse();
-      ApiClient.constructFromObject(data, obj, 'StreamCandlesEntry');
+      if (data.hasOwnProperty('stream_candles_entries'))
+        obj.streamCandlesEntries = ApiClient.convertToType(data['stream_candles_entries'], Object);
     }
     return obj;
   }
 }
+
+/**
+ * @member {Object} streamCandlesEntries
+ */
+StreamCandlesResponse.prototype.streamCandlesEntries = undefined;
+

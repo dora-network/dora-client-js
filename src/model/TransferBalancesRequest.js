@@ -24,10 +24,10 @@ export default class TransferBalancesRequest {
    * Constructs a new <code>TransferBalancesRequest</code>.
    * @alias module:model/TransferBalancesRequest
    * @class
-   * @param fromPositionId {String} 
-   * @param toPositionId {String} 
-   * @param assetId {String} 
-   * @param quantity {String} 
+   * @param fromPositionId {Object} 
+   * @param toPositionId {Object} 
+   * @param assetId {Object} 
+   * @param quantity {Object} 
    */
   constructor(fromPositionId, toPositionId, assetId, quantity) {
     this.fromPositionId = fromPositionId;
@@ -47,35 +47,35 @@ export default class TransferBalancesRequest {
     if (data) {
       obj = obj || new TransferBalancesRequest();
       if (data.hasOwnProperty('from_position_id'))
-        obj.fromPositionId = ApiClient.convertToType(data['from_position_id'], 'String');
+        obj.fromPositionId = ApiClient.convertToType(data['from_position_id'], Object);
       if (data.hasOwnProperty('to_position_id'))
-        obj.toPositionId = ApiClient.convertToType(data['to_position_id'], 'String');
+        obj.toPositionId = ApiClient.convertToType(data['to_position_id'], Object);
       if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
+        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+        obj.quantity = ApiClient.convertToType(data['quantity'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} fromPositionId
+ * @member {Object} fromPositionId
  */
 TransferBalancesRequest.prototype.fromPositionId = undefined;
 
 /**
- * @member {String} toPositionId
+ * @member {Object} toPositionId
  */
 TransferBalancesRequest.prototype.toPositionId = undefined;
 
 /**
- * @member {String} assetId
+ * @member {Object} assetId
  */
 TransferBalancesRequest.prototype.assetId = undefined;
 
 /**
- * @member {String} quantity
+ * @member {Object} quantity
  */
 TransferBalancesRequest.prototype.quantity = undefined;
 

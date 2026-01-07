@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Position from './Position';
-import StreamEntry from './StreamEntry';
 
 /**
  * The StreamPositionsEntry model module.
  * @module model/StreamPositionsEntry
  * @version 1.0.0
  */
-export default class StreamPositionsEntry extends StreamEntry {
+export default class StreamPositionsEntry {
   /**
    * Constructs a new <code>StreamPositionsEntry</code>.
    * @alias module:model/StreamPositionsEntry
    * @class
-   * @extends module:model/StreamEntry
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class StreamPositionsEntry extends StreamEntry {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamPositionsEntry();
-      StreamEntry.constructFromObject(data, obj);
-      if (data.hasOwnProperty('Val'))
-        obj.val = Position.constructFromObject(data['Val']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Position} val
- */
-StreamPositionsEntry.prototype.val = undefined;
-

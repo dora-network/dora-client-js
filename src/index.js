@@ -15,6 +15,7 @@
 import ApiClient from './ApiClient';
 import APIKeyResponse from './model/APIKeyResponse';
 import APIKeyResponseEnvelope from './model/APIKeyResponseEnvelope';
+import APIKeys from './model/APIKeys';
 import Asset from './model/Asset';
 import AssetKind from './model/AssetKind';
 import AssetPrice from './model/AssetPrice';
@@ -30,6 +31,15 @@ import CancelOrderResponse from './model/CancelOrderResponse';
 import CancelOrderResponseEnvelope from './model/CancelOrderResponseEnvelope';
 import Candle from './model/Candle';
 import CandleResolution from './model/CandleResolution';
+import ClaimLeverageAccruedInterest from './model/ClaimLeverageAccruedInterest';
+import ClaimLeverageAccruedInterestReq from './model/ClaimLeverageAccruedInterestReq';
+import ClaimLeverageAccruedInterestRequest from './model/ClaimLeverageAccruedInterestRequest';
+import ClaimLeverageAccruedInterestResponse from './model/ClaimLeverageAccruedInterestResponse';
+import ClaimLeverageAccruedInterestResponseEnvelope from './model/ClaimLeverageAccruedInterestResponseEnvelope';
+import ClosePositionRequest from './model/ClosePositionRequest';
+import ClosePositionResp from './model/ClosePositionResp';
+import ClosePositionResponse from './model/ClosePositionResponse';
+import ClosePositionResponseEnvelope from './model/ClosePositionResponseEnvelope';
 import Collateral from './model/Collateral';
 import CouponPayment from './model/CouponPayment';
 import CreateAPIKeyData from './model/CreateAPIKeyData';
@@ -40,6 +50,9 @@ import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
 import CreateOrderResponse from './model/CreateOrderResponse';
 import CreateOrderResponseEnvelope from './model/CreateOrderResponseEnvelope';
+import CurrentLeverageAccruedInterest from './model/CurrentLeverageAccruedInterest';
+import CurrentLeverageAccruedInterestResponse from './model/CurrentLeverageAccruedInterestResponse';
+import CurrentLeverageAccruedInterestResponseEnvelope from './model/CurrentLeverageAccruedInterestResponseEnvelope';
 import EmailExistsResponse from './model/EmailExistsResponse';
 import EmailExistsResponseEnvelope from './model/EmailExistsResponseEnvelope';
 import GetAPIKeyResponse from './model/GetAPIKeyResponse';
@@ -49,6 +62,7 @@ import GetAssetPriceResponse from './model/GetAssetPriceResponse';
 import GetOrderBookResponse from './model/GetOrderBookResponse';
 import GetOrderBookSummaryResponse from './model/GetOrderBookSummaryResponse';
 import GetOrderResponse from './model/GetOrderResponse';
+import GetOrderbookStatsResponse from './model/GetOrderbookStatsResponse';
 import GetPoolPriceResponse from './model/GetPoolPriceResponse';
 import GetTopOfBookResponse from './model/GetTopOfBookResponse';
 import GetTopOfBookResponseEnvelope from './model/GetTopOfBookResponseEnvelope';
@@ -119,6 +133,13 @@ import OrderKind from './model/OrderKind';
 import OrderModifierKind from './model/OrderModifierKind';
 import OrderResponseEnvelope from './model/OrderResponseEnvelope';
 import OrderStatus from './model/OrderStatus';
+import OrderbookStats from './model/OrderbookStats';
+import OrderbookStatsResponseEnvelope from './model/OrderbookStatsResponseEnvelope';
+import PayLeverageAccruedInterest from './model/PayLeverageAccruedInterest';
+import PayLeverageAccruedInterestReq from './model/PayLeverageAccruedInterestReq';
+import PayLeverageAccruedInterestRequest from './model/PayLeverageAccruedInterestRequest';
+import PayLeverageAccruedInterestResponse from './model/PayLeverageAccruedInterestResponse';
+import PayLeverageAccruedInterestResponseEnvelope from './model/PayLeverageAccruedInterestResponseEnvelope';
 import PoolPrice from './model/PoolPrice';
 import PoolPriceResponseEnvelope from './model/PoolPriceResponseEnvelope';
 import PoolRequestError from './model/PoolRequestError';
@@ -171,6 +192,7 @@ import TransferBalancesRequest from './model/TransferBalancesRequest';
 import TransferBalancesResponse from './model/TransferBalancesResponse';
 import TransferBalancesResponseEnvelope from './model/TransferBalancesResponseEnvelope';
 import TransformedAssets from './model/TransformedAssets';
+import TriggerType from './model/TriggerType';
 import UnitePositionRequest from './model/UnitePositionRequest';
 import UnitePositionResponse from './model/UnitePositionResponse';
 import UnitePositionResponseEnvelope from './model/UnitePositionResponseEnvelope';
@@ -254,6 +276,12 @@ export {
      * @property {module:model/APIKeyResponseEnvelope}
      */
     APIKeyResponseEnvelope,
+
+    /**
+     * The APIKeys model constructor.
+     * @property {module:model/APIKeys}
+     */
+    APIKeys,
 
     /**
      * The Asset model constructor.
@@ -346,6 +374,60 @@ export {
     CandleResolution,
 
     /**
+     * The ClaimLeverageAccruedInterest model constructor.
+     * @property {module:model/ClaimLeverageAccruedInterest}
+     */
+    ClaimLeverageAccruedInterest,
+
+    /**
+     * The ClaimLeverageAccruedInterestReq model constructor.
+     * @property {module:model/ClaimLeverageAccruedInterestReq}
+     */
+    ClaimLeverageAccruedInterestReq,
+
+    /**
+     * The ClaimLeverageAccruedInterestRequest model constructor.
+     * @property {module:model/ClaimLeverageAccruedInterestRequest}
+     */
+    ClaimLeverageAccruedInterestRequest,
+
+    /**
+     * The ClaimLeverageAccruedInterestResponse model constructor.
+     * @property {module:model/ClaimLeverageAccruedInterestResponse}
+     */
+    ClaimLeverageAccruedInterestResponse,
+
+    /**
+     * The ClaimLeverageAccruedInterestResponseEnvelope model constructor.
+     * @property {module:model/ClaimLeverageAccruedInterestResponseEnvelope}
+     */
+    ClaimLeverageAccruedInterestResponseEnvelope,
+
+    /**
+     * The ClosePositionRequest model constructor.
+     * @property {module:model/ClosePositionRequest}
+     */
+    ClosePositionRequest,
+
+    /**
+     * The ClosePositionResp model constructor.
+     * @property {module:model/ClosePositionResp}
+     */
+    ClosePositionResp,
+
+    /**
+     * The ClosePositionResponse model constructor.
+     * @property {module:model/ClosePositionResponse}
+     */
+    ClosePositionResponse,
+
+    /**
+     * The ClosePositionResponseEnvelope model constructor.
+     * @property {module:model/ClosePositionResponseEnvelope}
+     */
+    ClosePositionResponseEnvelope,
+
+    /**
      * The Collateral model constructor.
      * @property {module:model/Collateral}
      */
@@ -406,6 +488,24 @@ export {
     CreateOrderResponseEnvelope,
 
     /**
+     * The CurrentLeverageAccruedInterest model constructor.
+     * @property {module:model/CurrentLeverageAccruedInterest}
+     */
+    CurrentLeverageAccruedInterest,
+
+    /**
+     * The CurrentLeverageAccruedInterestResponse model constructor.
+     * @property {module:model/CurrentLeverageAccruedInterestResponse}
+     */
+    CurrentLeverageAccruedInterestResponse,
+
+    /**
+     * The CurrentLeverageAccruedInterestResponseEnvelope model constructor.
+     * @property {module:model/CurrentLeverageAccruedInterestResponseEnvelope}
+     */
+    CurrentLeverageAccruedInterestResponseEnvelope,
+
+    /**
      * The EmailExistsResponse model constructor.
      * @property {module:model/EmailExistsResponse}
      */
@@ -458,6 +558,12 @@ export {
      * @property {module:model/GetOrderResponse}
      */
     GetOrderResponse,
+
+    /**
+     * The GetOrderbookStatsResponse model constructor.
+     * @property {module:model/GetOrderbookStatsResponse}
+     */
+    GetOrderbookStatsResponse,
 
     /**
      * The GetPoolPriceResponse model constructor.
@@ -880,6 +986,48 @@ export {
     OrderStatus,
 
     /**
+     * The OrderbookStats model constructor.
+     * @property {module:model/OrderbookStats}
+     */
+    OrderbookStats,
+
+    /**
+     * The OrderbookStatsResponseEnvelope model constructor.
+     * @property {module:model/OrderbookStatsResponseEnvelope}
+     */
+    OrderbookStatsResponseEnvelope,
+
+    /**
+     * The PayLeverageAccruedInterest model constructor.
+     * @property {module:model/PayLeverageAccruedInterest}
+     */
+    PayLeverageAccruedInterest,
+
+    /**
+     * The PayLeverageAccruedInterestReq model constructor.
+     * @property {module:model/PayLeverageAccruedInterestReq}
+     */
+    PayLeverageAccruedInterestReq,
+
+    /**
+     * The PayLeverageAccruedInterestRequest model constructor.
+     * @property {module:model/PayLeverageAccruedInterestRequest}
+     */
+    PayLeverageAccruedInterestRequest,
+
+    /**
+     * The PayLeverageAccruedInterestResponse model constructor.
+     * @property {module:model/PayLeverageAccruedInterestResponse}
+     */
+    PayLeverageAccruedInterestResponse,
+
+    /**
+     * The PayLeverageAccruedInterestResponseEnvelope model constructor.
+     * @property {module:model/PayLeverageAccruedInterestResponseEnvelope}
+     */
+    PayLeverageAccruedInterestResponseEnvelope,
+
+    /**
      * The PoolPrice model constructor.
      * @property {module:model/PoolPrice}
      */
@@ -1190,6 +1338,12 @@ export {
      * @property {module:model/TransformedAssets}
      */
     TransformedAssets,
+
+    /**
+     * The TriggerType model constructor.
+     * @property {module:model/TriggerType}
+     */
+    TriggerType,
 
     /**
      * The UnitePositionRequest model constructor.

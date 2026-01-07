@@ -13,7 +13,6 @@
  *
  */
 import ApiClient from '../ApiClient';
-import UserRole from './UserRole';
 
 /**
  * The User model module.
@@ -40,100 +39,100 @@ export default class User {
     if (data) {
       obj = obj || new User();
       if (data.hasOwnProperty('id'))
-        obj.id = ApiClient.convertToType(data['id'], 'String');
+        obj.id = ApiClient.convertToType(data['id'], Object);
       if (data.hasOwnProperty('closed_at'))
-        obj.closedAt = ApiClient.convertToType(data['closed_at'], 'Date');
+        obj.closedAt = ApiClient.convertToType(data['closed_at'], Object);
       if (data.hasOwnProperty('disabled_at'))
-        obj.disabledAt = ApiClient.convertToType(data['disabled_at'], 'Date');
+        obj.disabledAt = ApiClient.convertToType(data['disabled_at'], Object);
       if (data.hasOwnProperty('email'))
-        obj.email = ApiClient.convertToType(data['email'], 'String');
+        obj.email = ApiClient.convertToType(data['email'], Object);
       if (data.hasOwnProperty('name'))
-        obj.name = ApiClient.convertToType(data['name'], 'String');
+        obj.name = ApiClient.convertToType(data['name'], Object);
       if (data.hasOwnProperty('native_asset_id'))
-        obj.nativeAssetId = ApiClient.convertToType(data['native_asset_id'], 'String');
+        obj.nativeAssetId = ApiClient.convertToType(data['native_asset_id'], Object);
       if (data.hasOwnProperty('photo_url'))
-        obj.photoUrl = ApiClient.convertToType(data['photo_url'], 'String');
+        obj.photoUrl = ApiClient.convertToType(data['photo_url'], Object);
       if (data.hasOwnProperty('provider'))
-        obj.provider = ApiClient.convertToType(data['provider'], 'String');
+        obj.provider = ApiClient.convertToType(data['provider'], Object);
       if (data.hasOwnProperty('provider_id'))
-        obj.providerId = ApiClient.convertToType(data['provider_id'], 'String');
+        obj.providerId = ApiClient.convertToType(data['provider_id'], Object);
       if (data.hasOwnProperty('roles'))
-        obj.roles = ApiClient.convertToType(data['roles'], [UserRole]);
+        obj.roles = ApiClient.convertToType(data['roles'], Object);
       if (data.hasOwnProperty('timezone'))
-        obj.timezone = ApiClient.convertToType(data['timezone'], 'String');
+        obj.timezone = ApiClient.convertToType(data['timezone'], Object);
       if (data.hasOwnProperty('timezone_offset'))
-        obj.timezoneOffset = ApiClient.convertToType(data['timezone_offset'], 'Number');
+        obj.timezoneOffset = ApiClient.convertToType(data['timezone_offset'], Object);
       if (data.hasOwnProperty('verified_at'))
-        obj.verifiedAt = ApiClient.convertToType(data['verified_at'], 'Date');
+        obj.verifiedAt = ApiClient.convertToType(data['verified_at'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} id
+ * @member {Object} id
  */
 User.prototype.id = undefined;
 
 /**
- * @member {Date} closedAt
+ * @member {Object} closedAt
  */
 User.prototype.closedAt = undefined;
 
 /**
- * @member {Date} disabledAt
+ * @member {Object} disabledAt
  */
 User.prototype.disabledAt = undefined;
 
 /**
- * @member {String} email
+ * @member {Object} email
  */
 User.prototype.email = undefined;
 
 /**
- * @member {String} name
+ * @member {Object} name
  */
 User.prototype.name = undefined;
 
 /**
- * @member {String} nativeAssetId
+ * @member {Object} nativeAssetId
  */
 User.prototype.nativeAssetId = undefined;
 
 /**
- * @member {String} photoUrl
+ * @member {Object} photoUrl
  */
 User.prototype.photoUrl = undefined;
 
 /**
- * @member {String} provider
+ * @member {Object} provider
  */
 User.prototype.provider = undefined;
 
 /**
- * @member {String} providerId
+ * @member {Object} providerId
  */
 User.prototype.providerId = undefined;
 
 /**
- * @member {Array.<module:model/UserRole>} roles
+ * @member {Object} roles
  */
 User.prototype.roles = undefined;
 
 /**
  * User's timezone, e.g., 'America/New_York', or an offset.
- * @member {String} timezone
+ * @member {Object} timezone
  */
 User.prototype.timezone = undefined;
 
 /**
  * timezone offset in seconds
- * @member {Number} timezoneOffset
+ * @member {Object} timezoneOffset
  */
 User.prototype.timezoneOffset = undefined;
 
 /**
- * @member {Date} verifiedAt
+ * @member {Object} verifiedAt
  */
 User.prototype.verifiedAt = undefined;
 

@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The OrderBookHaltResponseEnvelope model module.
  * @module model/OrderBookHaltResponseEnvelope
  * @version 1.0.0
  */
-export default class OrderBookHaltResponseEnvelope extends ResponseEnvelope {
+export default class OrderBookHaltResponseEnvelope {
   /**
    * Constructs a new <code>OrderBookHaltResponseEnvelope</code>.
    * @alias module:model/OrderBookHaltResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class OrderBookHaltResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new OrderBookHaltResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], 'Boolean');
     }
     return obj;
   }
 }
-
-/**
- * @member {Boolean} data
- */
-OrderBookHaltResponseEnvelope.prototype.data = undefined;
-

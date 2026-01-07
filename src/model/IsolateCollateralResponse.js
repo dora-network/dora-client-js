@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import IsolatedCollateral from './IsolatedCollateral';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The IsolateCollateralResponse model module.
  * @module model/IsolateCollateralResponse
  * @version 1.0.0
  */
-export default class IsolateCollateralResponse extends ResponseEnvelope {
+export default class IsolateCollateralResponse {
   /**
    * Constructs a new <code>IsolateCollateralResponse</code>.
    * @alias module:model/IsolateCollateralResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class IsolateCollateralResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new IsolateCollateralResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = IsolatedCollateral.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/IsolatedCollateral} data
- */
-IsolateCollateralResponse.prototype.data = undefined;
-

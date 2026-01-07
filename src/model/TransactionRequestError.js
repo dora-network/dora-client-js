@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The TransactionRequestError model module.
  * @module model/TransactionRequestError
  * @version 1.0.0
  */
-export default class TransactionRequestError extends ResponseEnvelope {
+export default class TransactionRequestError {
   /**
    * Constructs a new <code>TransactionRequestError</code>.
    * @alias module:model/TransactionRequestError
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class TransactionRequestError extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new TransactionRequestError();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('error'))
-        obj.error = ApiClient.convertToType(data['error'], 'String');
     }
     return obj;
   }
 }
-
-/**
- * @member {String} error
- */
-TransactionRequestError.prototype.error = undefined;
-

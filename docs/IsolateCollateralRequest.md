@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**globalPositionId** | **String** |  | 
-**assetId** | **String** |  | 
-**quantity** | **String** |  | 
+**globalPositionId** | **Object** |  | 
+**assetId** | **Object** |  | 
+**quantity** | **Object** |  | 

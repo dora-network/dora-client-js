@@ -13,7 +13,6 @@
  *
  */
 import ApiClient from '../ApiClient';
-import ModuleBalance from './ModuleBalance';
 
 /**
  * The LeverageModuleResponse model module.
@@ -40,7 +39,7 @@ export default class LeverageModuleResponse {
     if (data) {
       obj = obj || new LeverageModuleResponse();
       if (data.hasOwnProperty('balances'))
-        obj.balances = ApiClient.convertToType(data['balances'], {'String': ModuleBalance});
+        obj.balances = ApiClient.convertToType(data['balances'], Object);
     }
     return obj;
   }
@@ -48,7 +47,7 @@ export default class LeverageModuleResponse {
 
 /**
  * A map of asset IDs to their module balances
- * @member {Object.<String, module:model/ModuleBalance>} balances
+ * @member {Object} balances
  */
 LeverageModuleResponse.prototype.balances = undefined;
 

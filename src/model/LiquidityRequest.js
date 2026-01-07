@@ -24,8 +24,8 @@ export default class LiquidityRequest {
    * Constructs a new <code>LiquidityRequest</code>.
    * @alias module:model/LiquidityRequest
    * @class
-   * @param positionId {String} 
-   * @param quantity {String} 
+   * @param positionId {Object} 
+   * @param quantity {Object} 
    */
   constructor(positionId, quantity) {
     this.positionId = positionId;
@@ -43,21 +43,21 @@ export default class LiquidityRequest {
     if (data) {
       obj = obj || new LiquidityRequest();
       if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
+        obj.positionId = ApiClient.convertToType(data['position_id'], Object);
       if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+        obj.quantity = ApiClient.convertToType(data['quantity'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} positionId
+ * @member {Object} positionId
  */
 LiquidityRequest.prototype.positionId = undefined;
 
 /**
- * @member {String} quantity
+ * @member {Object} quantity
  */
 LiquidityRequest.prototype.quantity = undefined;
 

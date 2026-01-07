@@ -165,6 +165,12 @@
         // expect(instance.triggerPrice).to.be(expectedValueLiteral);
       });
 
+      it('should have the property triggerType (base name: "trigger_type")', function() {
+        // TODO: update the code to test the property triggerType
+        expect(instance).to.have.property('triggerType');
+        // expect(instance.triggerType).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

@@ -13,22 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import PositionAccount from './PositionAccount';
 
 /**
  * The PositionAccounts model module.
  * @module model/PositionAccounts
  * @version 1.0.0
  */
-export default class PositionAccounts extends Array {
+export default class PositionAccounts {
   /**
    * Constructs a new <code>PositionAccounts</code>.
    * @alias module:model/PositionAccounts
    * @class
-   * @extends Array
    */
   constructor() {
-    super();
   }
 
   /**
@@ -41,8 +38,15 @@ export default class PositionAccounts extends Array {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new PositionAccounts();
-      ApiClient.constructFromObject(data, obj, 'PositionAccount');
+      if (data.hasOwnProperty('position_accounts'))
+        obj.positionAccounts = ApiClient.convertToType(data['position_accounts'], Object);
     }
     return obj;
   }
 }
+
+/**
+ * @member {Object} positionAccounts
+ */
+PositionAccounts.prototype.positionAccounts = undefined;
+

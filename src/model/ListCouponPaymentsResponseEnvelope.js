@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import CouponPayment from './CouponPayment';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The ListCouponPaymentsResponseEnvelope model module.
  * @module model/ListCouponPaymentsResponseEnvelope
  * @version 1.0.0
  */
-export default class ListCouponPaymentsResponseEnvelope extends ResponseEnvelope {
+export default class ListCouponPaymentsResponseEnvelope {
   /**
    * Constructs a new <code>ListCouponPaymentsResponseEnvelope</code>.
    * @alias module:model/ListCouponPaymentsResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class ListCouponPaymentsResponseEnvelope extends ResponseEnvelope
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new ListCouponPaymentsResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [CouponPayment]);
     }
     return obj;
   }
 }
-
-/**
- * @member {Array.<module:model/CouponPayment>} data
- */
-ListCouponPaymentsResponseEnvelope.prototype.data = undefined;
-

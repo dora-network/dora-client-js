@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The EmailExistsResponseEnvelope model module.
  * @module model/EmailExistsResponseEnvelope
  * @version 1.0.0
  */
-export default class EmailExistsResponseEnvelope extends ResponseEnvelope {
+export default class EmailExistsResponseEnvelope {
   /**
    * Constructs a new <code>EmailExistsResponseEnvelope</code>.
    * @alias module:model/EmailExistsResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class EmailExistsResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new EmailExistsResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], 'Boolean');
     }
     return obj;
   }
 }
-
-/**
- * @member {Boolean} data
- */
-EmailExistsResponseEnvelope.prototype.data = undefined;
-

@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import PositionAccounts from './PositionAccounts';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The ListPositionAccountsResponseEnvelope model module.
  * @module model/ListPositionAccountsResponseEnvelope
  * @version 1.0.0
  */
-export default class ListPositionAccountsResponseEnvelope extends ResponseEnvelope {
+export default class ListPositionAccountsResponseEnvelope {
   /**
    * Constructs a new <code>ListPositionAccountsResponseEnvelope</code>.
    * @alias module:model/ListPositionAccountsResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class ListPositionAccountsResponseEnvelope extends ResponseEnvelo
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new ListPositionAccountsResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = PositionAccounts.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/PositionAccounts} data
- */
-ListPositionAccountsResponseEnvelope.prototype.data = undefined;
-

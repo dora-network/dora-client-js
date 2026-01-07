@@ -13,7 +13,6 @@
  *
  */
 import ApiClient from '../ApiClient';
-import PriceLevel from './PriceLevel';
 
 /**
  * The OrderBookDepth model module.
@@ -40,35 +39,35 @@ export default class OrderBookDepth {
     if (data) {
       obj = obj || new OrderBookDepth();
       if (data.hasOwnProperty('order_book_id'))
-        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
+        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], Object);
       if (data.hasOwnProperty('bids'))
-        obj.bids = ApiClient.convertToType(data['bids'], [PriceLevel]);
+        obj.bids = ApiClient.convertToType(data['bids'], Object);
       if (data.hasOwnProperty('asks'))
-        obj.asks = ApiClient.convertToType(data['asks'], [PriceLevel]);
+        obj.asks = ApiClient.convertToType(data['asks'], Object);
       if (data.hasOwnProperty('timestamp'))
-        obj.timestamp = ApiClient.convertToType(data['timestamp'], 'Date');
+        obj.timestamp = ApiClient.convertToType(data['timestamp'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} orderBookId
+ * @member {Object} orderBookId
  */
 OrderBookDepth.prototype.orderBookId = undefined;
 
 /**
- * @member {Array.<module:model/PriceLevel>} bids
+ * @member {Object} bids
  */
 OrderBookDepth.prototype.bids = undefined;
 
 /**
- * @member {Array.<module:model/PriceLevel>} asks
+ * @member {Object} asks
  */
 OrderBookDepth.prototype.asks = undefined;
 
 /**
- * @member {Date} timestamp
+ * @member {Object} timestamp
  */
 OrderBookDepth.prototype.timestamp = undefined;
 

@@ -39,42 +39,42 @@ export default class IsolatedCollateral {
     if (data) {
       obj = obj || new IsolatedCollateral();
       if (data.hasOwnProperty('global_position_id'))
-        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], 'String');
+        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], Object);
       if (data.hasOwnProperty('isolated_position_id'))
-        obj.isolatedPositionId = ApiClient.convertToType(data['isolated_position_id'], 'String');
+        obj.isolatedPositionId = ApiClient.convertToType(data['isolated_position_id'], Object);
       if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
+        obj.transactionId = ApiClient.convertToType(data['transaction_id'], Object);
       if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
+        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+        obj.quantity = ApiClient.convertToType(data['quantity'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} globalPositionId
+ * @member {Object} globalPositionId
  */
 IsolatedCollateral.prototype.globalPositionId = undefined;
 
 /**
- * @member {String} isolatedPositionId
+ * @member {Object} isolatedPositionId
  */
 IsolatedCollateral.prototype.isolatedPositionId = undefined;
 
 /**
- * @member {String} transactionId
+ * @member {Object} transactionId
  */
 IsolatedCollateral.prototype.transactionId = undefined;
 
 /**
- * @member {String} assetId
+ * @member {Object} assetId
  */
 IsolatedCollateral.prototype.assetId = undefined;
 
 /**
- * @member {String} quantity
+ * @member {Object} quantity
  */
 IsolatedCollateral.prototype.quantity = undefined;
 

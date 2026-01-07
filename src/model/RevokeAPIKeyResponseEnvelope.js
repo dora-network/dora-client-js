@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
-import RevokeAPIKeyData from './RevokeAPIKeyData';
 
 /**
  * The RevokeAPIKeyResponseEnvelope model module.
  * @module model/RevokeAPIKeyResponseEnvelope
  * @version 1.0.0
  */
-export default class RevokeAPIKeyResponseEnvelope extends ResponseEnvelope {
+export default class RevokeAPIKeyResponseEnvelope {
   /**
    * Constructs a new <code>RevokeAPIKeyResponseEnvelope</code>.
    * @alias module:model/RevokeAPIKeyResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class RevokeAPIKeyResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new RevokeAPIKeyResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = RevokeAPIKeyData.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/RevokeAPIKeyData} data
- */
-RevokeAPIKeyResponseEnvelope.prototype.data = undefined;
-

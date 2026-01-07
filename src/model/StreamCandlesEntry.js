@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Candle from './Candle';
-import StreamEntry from './StreamEntry';
 
 /**
  * The StreamCandlesEntry model module.
  * @module model/StreamCandlesEntry
  * @version 1.0.0
  */
-export default class StreamCandlesEntry extends StreamEntry {
+export default class StreamCandlesEntry {
   /**
    * Constructs a new <code>StreamCandlesEntry</code>.
    * @alias module:model/StreamCandlesEntry
    * @class
-   * @extends module:model/StreamEntry
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class StreamCandlesEntry extends StreamEntry {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamCandlesEntry();
-      StreamEntry.constructFromObject(data, obj);
-      if (data.hasOwnProperty('Val'))
-        obj.val = Candle.constructFromObject(data['Val']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Candle} val
- */
-StreamCandlesEntry.prototype.val = undefined;
-

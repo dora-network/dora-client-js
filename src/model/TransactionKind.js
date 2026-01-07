@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 
 /**
  * Enum class TransactionKind.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 const TransactionKind = {

@@ -39,11 +39,11 @@ export default class PositionAccount {
     if (data) {
       obj = obj || new PositionAccount();
       if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
+        obj.positionId = ApiClient.convertToType(data['position_id'], Object);
       if (data.hasOwnProperty('position_name'))
-        obj.positionName = ApiClient.convertToType(data['position_name'], 'String');
+        obj.positionName = ApiClient.convertToType(data['position_name'], Object);
       if (data.hasOwnProperty('is_global'))
-        obj.isGlobal = ApiClient.convertToType(data['is_global'], 'Boolean');
+        obj.isGlobal = ApiClient.convertToType(data['is_global'], Object);
     }
     return obj;
   }
@@ -51,19 +51,19 @@ export default class PositionAccount {
 
 /**
  * The ID of the position account
- * @member {String} positionId
+ * @member {Object} positionId
  */
 PositionAccount.prototype.positionId = undefined;
 
 /**
  * The name of the position account
- * @member {String} positionName
+ * @member {Object} positionName
  */
 PositionAccount.prototype.positionName = undefined;
 
 /**
  * Whether the position account is the global or an isolated account
- * @member {Boolean} isGlobal
+ * @member {Object} isGlobal
  */
 PositionAccount.prototype.isGlobal = undefined;
 

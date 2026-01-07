@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Liquidity from './Liquidity';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The LiquidityResponseEnvelope model module.
  * @module model/LiquidityResponseEnvelope
  * @version 1.0.0
  */
-export default class LiquidityResponseEnvelope extends ResponseEnvelope {
+export default class LiquidityResponseEnvelope {
   /**
    * Constructs a new <code>LiquidityResponseEnvelope</code>.
    * @alias module:model/LiquidityResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class LiquidityResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new LiquidityResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = Liquidity.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Liquidity} data
- */
-LiquidityResponseEnvelope.prototype.data = undefined;
-

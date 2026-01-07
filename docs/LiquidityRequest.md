@@ -3,5 +3,5 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**positionId** | **String** |  | 
-**quantity** | **String** |  | 
+**positionId** | **Object** |  | 
+**quantity** | **Object** |  | 

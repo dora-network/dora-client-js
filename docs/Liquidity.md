@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderBookId** | **String** |  | [optional] 
-**positionId** | **String** |  | [optional] 
-**transactionId** | **String** |  | [optional] 
-**baseQuantity** | **String** |  | [optional] 
-**quoteQuantity** | **String** |  | [optional] 
-**sharesQuantity** | **String** |  | [optional] 
+**orderBookId** | **Object** |  | [optional] 
+**positionId** | **Object** |  | [optional] 
+**transactionId** | **Object** |  | [optional] 
+**baseQuantity** | **Object** |  | [optional] 
+**quoteQuantity** | **Object** |  | [optional] 
+**sharesQuantity** | **Object** |  | [optional] 

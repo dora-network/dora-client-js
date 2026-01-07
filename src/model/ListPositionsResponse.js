@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import Position from './Position';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The ListPositionsResponse model module.
  * @module model/ListPositionsResponse
  * @version 1.0.0
  */
-export default class ListPositionsResponse extends ResponseEnvelope {
+export default class ListPositionsResponse {
   /**
    * Constructs a new <code>ListPositionsResponse</code>.
    * @alias module:model/ListPositionsResponse
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class ListPositionsResponse extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new ListPositionsResponse();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [Position]);
     }
     return obj;
   }
 }
-
-/**
- * @member {Array.<module:model/Position>} data
- */
-ListPositionsResponse.prototype.data = undefined;
-

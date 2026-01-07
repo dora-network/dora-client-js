@@ -39,43 +39,43 @@ export default class UserConfig {
     if (data) {
       obj = obj || new UserConfig();
       if (data.hasOwnProperty('id'))
-        obj.id = ApiClient.convertToType(data['id'], 'String');
+        obj.id = ApiClient.convertToType(data['id'], Object);
       if (data.hasOwnProperty('photo_url'))
-        obj.photoUrl = ApiClient.convertToType(data['photo_url'], 'String');
+        obj.photoUrl = ApiClient.convertToType(data['photo_url'], Object);
       if (data.hasOwnProperty('timezone'))
-        obj.timezone = ApiClient.convertToType(data['timezone'], 'String');
+        obj.timezone = ApiClient.convertToType(data['timezone'], Object);
       if (data.hasOwnProperty('created_at'))
-        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
+        obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
       if (data.hasOwnProperty('updated_at'))
-        obj.updatedAt = ApiClient.convertToType(data['updated_at'], 'Date');
+        obj.updatedAt = ApiClient.convertToType(data['updated_at'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} id
+ * @member {Object} id
  */
 UserConfig.prototype.id = undefined;
 
 /**
- * @member {String} photoUrl
+ * @member {Object} photoUrl
  */
 UserConfig.prototype.photoUrl = undefined;
 
 /**
  * User's timezone, e.g., 'America/New_York', or an offset.
- * @member {String} timezone
+ * @member {Object} timezone
  */
 UserConfig.prototype.timezone = undefined;
 
 /**
- * @member {Date} createdAt
+ * @member {Object} createdAt
  */
 UserConfig.prototype.createdAt = undefined;
 
 /**
- * @member {Date} updatedAt
+ * @member {Object} updatedAt
  */
 UserConfig.prototype.updatedAt = undefined;
 

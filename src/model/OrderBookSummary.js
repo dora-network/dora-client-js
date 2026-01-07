@@ -39,42 +39,42 @@ export default class OrderBookSummary {
     if (data) {
       obj = obj || new OrderBookSummary();
       if (data.hasOwnProperty('order_book_id'))
-        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
+        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], Object);
       if (data.hasOwnProperty('mid_price'))
-        obj.midPrice = ApiClient.convertToType(data['mid_price'], 'String');
+        obj.midPrice = ApiClient.convertToType(data['mid_price'], Object);
       if (data.hasOwnProperty('spread'))
-        obj.spread = ApiClient.convertToType(data['spread'], 'String');
+        obj.spread = ApiClient.convertToType(data['spread'], Object);
       if (data.hasOwnProperty('best_bid'))
-        obj.bestBid = ApiClient.convertToType(data['best_bid'], 'String');
+        obj.bestBid = ApiClient.convertToType(data['best_bid'], Object);
       if (data.hasOwnProperty('best_ask'))
-        obj.bestAsk = ApiClient.convertToType(data['best_ask'], 'String');
+        obj.bestAsk = ApiClient.convertToType(data['best_ask'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} orderBookId
+ * @member {Object} orderBookId
  */
 OrderBookSummary.prototype.orderBookId = undefined;
 
 /**
- * @member {String} midPrice
+ * @member {Object} midPrice
  */
 OrderBookSummary.prototype.midPrice = undefined;
 
 /**
- * @member {String} spread
+ * @member {Object} spread
  */
 OrderBookSummary.prototype.spread = undefined;
 
 /**
- * @member {String} bestBid
+ * @member {Object} bestBid
  */
 OrderBookSummary.prototype.bestBid = undefined;
 
 /**
- * @member {String} bestAsk
+ * @member {Object} bestAsk
  */
 OrderBookSummary.prototype.bestAsk = undefined;
 

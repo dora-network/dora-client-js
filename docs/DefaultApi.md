@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**cancelAllOpenOrders**](DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
 [**cancelOrderById**](DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
 [**checkUserEmailExists**](DefaultApi.md#checkUserEmailExists) | **GET** /v1/user/exists | Check whether a user email exists
+[**claimLeverageGetAccruedInterest**](DefaultApi.md#claimLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/claim | Claim current accrued leverage interest for a specific user
+[**closeIsolatedPosition**](DefaultApi.md#closeIsolatedPosition) | **POST** /v1/positions/close | Close isolated positions, repaying the borrowed
 [**createAPIKeyForUser**](DefaultApi.md#createAPIKeyForUser) | **POST** /v1/user/apikey | Create apikey for a user
 [**createNewIsolatedPosition**](DefaultApi.md#createNewIsolatedPosition) | **POST** /v1/positions/new_isolated | Create a new isolated position for a user transferring available assets into the position
 [**createOrder**](DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
@@ -30,6 +32,8 @@ Method | HTTP request | Description
 [**getOrderbookById**](DefaultApi.md#getOrderbookById) | **GET** /v1/orderbooks/{order_book_id} | Get orderbook by ID
 [**getOrderbookDepth**](DefaultApi.md#getOrderbookDepth) | **GET** /v1/orderbooks/{order_book_id}/depth | Get the aggregated price levels for a specific orderbook (L2 market depth)
 [**getOrderbookOrders**](DefaultApi.md#getOrderbookOrders) | **GET** /v1/orderbooks/{order_book_id}/orders | Get all open orders for a specific orderbook (L3 market depth)
+[**getOrderbookStats**](DefaultApi.md#getOrderbookStats) | **GET** /v1/orderbooks/{order_book_id}/stats | Get orderbook stats
+[**getOrderbookStatsStream**](DefaultApi.md#getOrderbookStatsStream) | **GET** /v1/orderbooks/{order_book_id}/stats/stream | Orderbook stats stream
 [**getOrderbookSummary**](DefaultApi.md#getOrderbookSummary) | **GET** /v1/orderbooks/{order_book_id}/summary | Get summary of an orderbook
 [**getOrderbookTop**](DefaultApi.md#getOrderbookTop) | **GET** /v1/orderbooks/{order_book_id}/top | Get the top price levels for a specific orderbook (L1 market depth)
 [**getPoolPrice**](DefaultApi.md#getPoolPrice) | **GET** /v1/price/pool/{pool_id} | Get the current price of a pool
@@ -44,6 +48,7 @@ Method | HTTP request | Description
 [**getUserSelf**](DefaultApi.md#getUserSelf) | **GET** /v1/user/self | Get user details for the authenticated user
 [**getUserTransactionsStream**](DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
 [**getUsersAPIKeys**](DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#x27;s api keys
+[**leverageGetAccruedInterestByUser**](DefaultApi.md#leverageGetAccruedInterestByUser) | **GET** /v1/leverage/accrued_interest/self | Get current accrued leverage interest for the user
 [**leverageIsolateCollateral**](DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
 [**leverageSupply**](DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
 [**leverageUnite**](DefaultApi.md#leverageUnite) | **POST** /v1/leverage/unite | Combines all isolated positions into a single global position
@@ -54,6 +59,7 @@ Method | HTTP request | Description
 [**listOrderBooks**](DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 [**listOrders**](DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
 [**listPositionAccountsSelf**](DefaultApi.md#listPositionAccountsSelf) | **GET** /v1/user/self/position_accounts | List all position accounts for the authenticated user
+[**payLeverageGetAccruedInterest**](DefaultApi.md#payLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/pay | Pay current accrued leverage interest for a specific user
 [**revokeAPIKeyForUser**](DefaultApi.md#revokeAPIKeyForUser) | **PUT** /v1/user/apikey/{key_id}/revoke | Revoke apikey for a user
 [**streamAssetPrices**](DefaultApi.md#streamAssetPrices) | **GET** /v1/prices/stream | Stream real-time asset prices as map objects
 [**streamCandleData**](DefaultApi.md#streamCandleData) | **GET** /v1/charts/{order_book_id}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
@@ -75,11 +81,19 @@ Cancel all open orders, if user passes orderbook on query param it will cancel a
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let opts = { 
-  'orderBookId': "orderBookId_example", // String | 
-  'userId': "38400000-8cf0-11bd-b23e-10b96e4ef00d", // String | 
+  'orderBookId': null, // Object | 
+  'userId': null, // Object | 
   'orderKind': new Dora.OrderKind() // OrderKind | 
 };
 apiInstance.cancelAllOpenOrders(opts, (error, data, response) => {
@@ -95,8 +109,8 @@ apiInstance.cancelAllOpenOrders(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | **String**|  | [optional] 
- **userId** | [**String**](.md)|  | [optional] 
+ **orderBookId** | [**Object**](.md)|  | [optional] 
+ **userId** | [**Object**](.md)|  | [optional] 
  **orderKind** | [**OrderKind**](.md)|  | [optional] 
 
 ### Return type
@@ -105,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -121,9 +135,17 @@ Cancel an order by ID
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderId = null; // Object | 
 
 apiInstance.cancelOrderById(orderId, (error, data, response) => {
   if (error) {
@@ -138,7 +160,7 @@ apiInstance.cancelOrderById(orderId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | [**String**](.md)|  | 
+ **orderId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -146,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -162,9 +184,17 @@ Check whether a user email exists
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let email = "email_example"; // String | 
+let email = null; // Object | 
 
 apiInstance.checkUserEmailExists(email, (error, data, response) => {
   if (error) {
@@ -179,7 +209,7 @@ apiInstance.checkUserEmailExists(email, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**|  | 
+ **email** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -187,11 +217,109 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="claimLeverageGetAccruedInterest"></a>
+# **claimLeverageGetAccruedInterest**
+> ClaimLeverageAccruedInterestResponse claimLeverageGetAccruedInterest(body)
+
+Claim current accrued leverage interest for a specific user
+
+### Example
+```javascript
+import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
+
+let apiInstance = new Dora.DefaultApi();
+let body = new Dora.ClaimLeverageAccruedInterestRequest(); // ClaimLeverageAccruedInterestRequest | 
+
+apiInstance.claimLeverageGetAccruedInterest(body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ClaimLeverageAccruedInterestRequest**](ClaimLeverageAccruedInterestRequest.md)|  | 
+
+### Return type
+
+[**ClaimLeverageAccruedInterestResponse**](ClaimLeverageAccruedInterestResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="closeIsolatedPosition"></a>
+# **closeIsolatedPosition**
+> ClosePositionResponse closeIsolatedPosition(body)
+
+Close isolated positions, repaying the borrowed
+
+### Example
+```javascript
+import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
+
+let apiInstance = new Dora.DefaultApi();
+let body = new Dora.ClosePositionRequest(); // ClosePositionRequest | 
+
+apiInstance.closeIsolatedPosition(body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ClosePositionRequest**](ClosePositionRequest.md)|  | 
+
+### Return type
+
+[**ClosePositionResponse**](ClosePositionResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="createAPIKeyForUser"></a>
@@ -203,6 +331,14 @@ Create apikey for a user
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.CreateAPIKeyRequest(); // CreateAPIKeyRequest | 
@@ -228,7 +364,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -244,6 +380,14 @@ Create a new isolated position for a user transferring available assets into the
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.NewIsolatedPositionRequest(); // NewIsolatedPositionRequest | 
@@ -269,7 +413,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -285,6 +429,14 @@ Create a new order
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.CreateOrderRequest(); // CreateOrderRequest | 
@@ -310,7 +462,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -326,9 +478,17 @@ Delete user by ID
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let userId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let userId = null; // Object | 
 
 apiInstance.deleteUser(userId, (error, data, response) => {
   if (error) {
@@ -343,7 +503,7 @@ apiInstance.deleteUser(userId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**String**](.md)|  | 
+ **userId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -351,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -367,6 +527,14 @@ Get the current price of all assets
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getAllAssetPrices((error, data, response) => {
@@ -387,7 +555,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -405,7 +573,7 @@ Get asset by ID
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let assetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let assetId = null; // Object | 
 
 apiInstance.getAssetById(assetId, (error, data, response) => {
   if (error) {
@@ -420,7 +588,7 @@ apiInstance.getAssetById(assetId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assetId** | [**String**](.md)|  | 
+ **assetId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -444,9 +612,17 @@ Get the current price of an asset
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let assetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let assetId = null; // Object | 
 
 apiInstance.getAssetPrice(assetId, (error, data, response) => {
   if (error) {
@@ -461,7 +637,7 @@ apiInstance.getAssetPrice(assetId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assetId** | [**String**](.md)|  | 
+ **assetId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -469,7 +645,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -488,8 +664,8 @@ import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
 let opts = { 
-  'since': new Date("2013-10-20T19:20:30+01:00"), // Date | 
-  'until': new Date("2013-10-20T19:20:30+01:00") // Date | 
+  'since': null, // Object | 
+  'until': null // Object | 
 };
 apiInstance.getAssetsStream(opts, (error, data, response) => {
   if (error) {
@@ -504,8 +680,8 @@ apiInstance.getAssetsStream(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | **Date**|  | [optional] 
- **until** | **Date**|  | [optional] 
+ **since** | [**Object**](.md)|  | [optional] 
+ **until** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -531,10 +707,10 @@ Get candlestick data for an orderbook
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "orderBookId_example"; // String | 
+let orderBookId = null; // Object | 
 let opts = { 
-  'start': new Date("2013-10-20T19:20:30+01:00"), // Date | 
-  'end': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'start': null, // Object | 
+  'end': null, // Object | 
   'resolution': new Dora.CandleResolution() // CandleResolution | 
 };
 apiInstance.getCandleData(orderBookId, opts, (error, data, response) => {
@@ -550,9 +726,9 @@ apiInstance.getCandleData(orderBookId, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | **String**|  | 
- **start** | **Date**|  | [optional] 
- **end** | **Date**|  | [optional] 
+ **orderBookId** | [**Object**](.md)|  | 
+ **start** | [**Object**](.md)|  | [optional] 
+ **end** | [**Object**](.md)|  | [optional] 
  **resolution** | [**CandleResolution**](.md)|  | [optional] 
 
 ### Return type
@@ -579,7 +755,7 @@ Get coupon payments for a bond asset
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let assetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let assetId = null; // Object | 
 
 apiInstance.getCouponPaymentsByAssetId(assetId, (error, data, response) => {
   if (error) {
@@ -594,7 +770,7 @@ apiInstance.getCouponPaymentsByAssetId(assetId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assetId** | [**String**](.md)|  | 
+ **assetId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -620,7 +796,7 @@ Get the top price levels for a specific orderbook (L1 market depth)
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = null; // Object | 
 
 apiInstance.getL1Depth(orderBookId, (error, data, response) => {
   if (error) {
@@ -635,7 +811,7 @@ apiInstance.getL1Depth(orderBookId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**String**](.md)|  | 
+ **orderBookId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -661,7 +837,7 @@ Get the aggregated price levels for a specific orderbook (L2 market depth)
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = null; // Object | 
 
 apiInstance.getL2Depth(orderBookId, (error, data, response) => {
   if (error) {
@@ -676,7 +852,7 @@ apiInstance.getL2Depth(orderBookId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**String**](.md)|  | 
+ **orderBookId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -702,7 +878,7 @@ Get all open orders for a specific orderbook (L3 market depth)
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = null; // Object | 
 
 apiInstance.getL3Depth(orderBookId, (error, data, response) => {
   if (error) {
@@ -717,7 +893,7 @@ apiInstance.getL3Depth(orderBookId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**String**](.md)|  | 
+ **orderBookId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -741,6 +917,14 @@ Get your own available, locked, and borrowed assets
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getLedgerBalancesSelf((error, data, response) => {
@@ -761,7 +945,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -777,6 +961,14 @@ Get your own interest
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getLedgerInterestSelf((error, data, response) => {
@@ -797,7 +989,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -813,6 +1005,14 @@ Get the entire module object, including unborrowed leverage assets and total lev
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getLedgerModule((error, data, response) => {
@@ -833,7 +1033,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -849,9 +1049,17 @@ Get the module object for a single asset ID
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let assetId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let assetId = null; // Object | 
 
 apiInstance.getLedgerModuleByAsset(assetId, (error, data, response) => {
   if (error) {
@@ -866,7 +1074,7 @@ apiInstance.getLedgerModuleByAsset(assetId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assetId** | [**String**](.md)|  | 
+ **assetId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -874,7 +1082,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -890,6 +1098,14 @@ Get your own positions
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getLedgerPositionsSelf((error, data, response) => {
@@ -910,7 +1126,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -926,6 +1142,14 @@ Get your own available, locked, and borrowed USD value; and realized and unreali
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getLedgerValueSelf((error, data, response) => {
@@ -946,7 +1170,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -962,9 +1186,17 @@ Get order by ID
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderId = null; // Object | 
 
 apiInstance.getOrderById(orderId, (error, data, response) => {
   if (error) {
@@ -979,7 +1211,7 @@ apiInstance.getOrderById(orderId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | [**String**](.md)|  | 
+ **orderId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -987,7 +1219,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1003,9 +1235,17 @@ Get orderbook by ID
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = null; // Object | 
 
 apiInstance.getOrderbookById(orderBookId, (error, data, response) => {
   if (error) {
@@ -1020,7 +1260,7 @@ apiInstance.getOrderbookById(orderBookId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**String**](.md)|  | 
+ **orderBookId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1028,7 +1268,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1046,7 +1286,7 @@ Get the aggregated price levels for a specific orderbook (L2 market depth)
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = null; // Object | 
 
 apiInstance.getOrderbookDepth(orderBookId, (error, data, response) => {
   if (error) {
@@ -1061,7 +1301,7 @@ apiInstance.getOrderbookDepth(orderBookId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**String**](.md)|  | 
+ **orderBookId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1087,7 +1327,7 @@ Get all open orders for a specific orderbook (L3 market depth)
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = null; // Object | 
 
 apiInstance.getOrderbookOrders(orderBookId, (error, data, response) => {
   if (error) {
@@ -1102,7 +1342,7 @@ apiInstance.getOrderbookOrders(orderBookId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**String**](.md)|  | 
+ **orderBookId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1111,6 +1351,96 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getOrderbookStats"></a>
+# **getOrderbookStats**
+> GetOrderbookStatsResponse getOrderbookStats(orderBookId)
+
+Get orderbook stats
+
+### Example
+```javascript
+import {Dora} from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+let orderBookId = null; // Object | 
+
+apiInstance.getOrderbookStats(orderBookId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderBookId** | [**Object**](.md)|  | 
+
+### Return type
+
+[**GetOrderbookStatsResponse**](GetOrderbookStatsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getOrderbookStatsStream"></a>
+# **getOrderbookStatsStream**
+> OrderbookStats getOrderbookStatsStream(orderBookId)
+
+Orderbook stats stream
+
+### Example
+```javascript
+import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
+
+let apiInstance = new Dora.DefaultApi();
+let orderBookId = null; // Object | 
+
+apiInstance.getOrderbookStatsStream(orderBookId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderBookId** | [**Object**](.md)|  | 
+
+### Return type
+
+[**OrderbookStats**](OrderbookStats.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1126,9 +1456,17 @@ Get summary of an orderbook
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = null; // Object | 
 
 apiInstance.getOrderbookSummary(orderBookId, (error, data, response) => {
   if (error) {
@@ -1143,7 +1481,7 @@ apiInstance.getOrderbookSummary(orderBookId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**String**](.md)|  | 
+ **orderBookId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1151,7 +1489,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1169,7 +1507,7 @@ Get the top price levels for a specific orderbook (L1 market depth)
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = null; // Object | 
 
 apiInstance.getOrderbookTop(orderBookId, (error, data, response) => {
   if (error) {
@@ -1184,7 +1522,7 @@ apiInstance.getOrderbookTop(orderBookId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**String**](.md)|  | 
+ **orderBookId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1208,9 +1546,17 @@ Get the current price of a pool
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let poolId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let poolId = null; // Object | 
 
 apiInstance.getPoolPrice(poolId, (error, data, response) => {
   if (error) {
@@ -1225,7 +1571,7 @@ apiInstance.getPoolPrice(poolId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | [**String**](.md)|  | 
+ **poolId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1233,7 +1579,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1251,7 +1597,7 @@ Get a trade by ID
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let tradeId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let tradeId = null; // Object | 
 
 apiInstance.getTradeById(tradeId, (error, data, response) => {
   if (error) {
@@ -1266,7 +1612,7 @@ apiInstance.getTradeById(tradeId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tradeId** | [**String**](.md)|  | 
+ **tradeId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1290,15 +1636,23 @@ Get a filtered, paginated list of trades
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let opts = { 
-  'orderBookIds': ["orderBookIds_example"], // [String] | 
-  'userIds': ["userIds_example"], // [String] | 
-  'start': new Date("2013-10-20T19:20:30+01:00"), // Date | 
-  'end': new Date("2013-10-20T19:20:30+01:00"), // Date | 
-  'page': 1, // Number | 
-  'limit': 100 // Number | 
+  'orderBookIds': null, // Object | 
+  'userIds': null, // Object | 
+  'start': null, // Object | 
+  'end': null, // Object | 
+  'page': 1, // Object | 
+  'limit': 100 // Object | 
 };
 apiInstance.getTrades(opts, (error, data, response) => {
   if (error) {
@@ -1313,12 +1667,12 @@ apiInstance.getTrades(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookIds** | [**[String]**](String.md)|  | [optional] 
- **userIds** | [**[String]**](String.md)|  | [optional] 
- **start** | **Date**|  | [optional] 
- **end** | **Date**|  | [optional] 
- **page** | **Number**|  | [optional] [default to 1]
- **limit** | **Number**|  | [optional] [default to 100]
+ **orderBookIds** | [**Object**](.md)|  | [optional] 
+ **userIds** | [**Object**](.md)|  | [optional] 
+ **start** | [**Object**](.md)|  | [optional] 
+ **end** | [**Object**](.md)|  | [optional] 
+ **page** | [**Object**](.md)|  | [optional] [default to 1]
+ **limit** | [**Object**](.md)|  | [optional] [default to 100]
 
 ### Return type
 
@@ -1326,7 +1680,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1344,7 +1698,7 @@ Get a transaction by ID
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let transactionId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let transactionId = null; // Object | 
 
 apiInstance.getTransactionById(transactionId, (error, data, response) => {
   if (error) {
@@ -1359,7 +1713,7 @@ apiInstance.getTransactionById(transactionId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transactionId** | [**String**](.md)|  | 
+ **transactionId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1386,13 +1740,13 @@ import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
 let opts = { 
-  'pools': ["pools_example"], // [String] | 
-  'userIds': ["userIds_example"], // [String] | 
-  'txKinds': [new Dora.TransactionKind()], // [TransactionKind] | 
-  'start': new Date("2013-10-20T19:20:30+01:00"), // Date | 
-  'end': new Date("2013-10-20T19:20:30+01:00"), // Date | 
-  'page': 1, // Number | 
-  'limit': 100 // Number | 
+  'pools': null, // Object | 
+  'userIds': null, // Object | 
+  'txKinds': null, // Object | 
+  'start': null, // Object | 
+  'end': null, // Object | 
+  'page': 1, // Object | 
+  'limit': 100 // Object | 
 };
 apiInstance.getTransactions(opts, (error, data, response) => {
   if (error) {
@@ -1407,13 +1761,13 @@ apiInstance.getTransactions(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pools** | [**[String]**](String.md)|  | [optional] 
- **userIds** | [**[String]**](String.md)|  | [optional] 
- **txKinds** | [**[TransactionKind]**](TransactionKind.md)|  | [optional] 
- **start** | **Date**|  | [optional] 
- **end** | **Date**|  | [optional] 
- **page** | **Number**|  | [optional] [default to 1]
- **limit** | **Number**|  | [optional] [default to 100]
+ **pools** | [**Object**](.md)|  | [optional] 
+ **userIds** | [**Object**](.md)|  | [optional] 
+ **txKinds** | [**Object**](.md)|  | [optional] 
+ **start** | [**Object**](.md)|  | [optional] 
+ **end** | [**Object**](.md)|  | [optional] 
+ **page** | [**Object**](.md)|  | [optional] [default to 1]
+ **limit** | [**Object**](.md)|  | [optional] [default to 100]
 
 ### Return type
 
@@ -1437,9 +1791,17 @@ Get user by ID (admin only)
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let userId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let userId = null; // Object | 
 
 apiInstance.getUserById(userId, (error, data, response) => {
   if (error) {
@@ -1454,7 +1816,7 @@ apiInstance.getUserById(userId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**String**](.md)|  | 
+ **userId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1462,7 +1824,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1478,9 +1840,16 @@ Get a snapshot of user&#x27;s ledger updates since a specific time, and opens a 
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthQuery
+let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
+apiKeyAuthQuery.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthQuery.apiKeyPrefix = 'Token';
 
 let apiInstance = new Dora.DefaultApi();
-let userId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let userId = null; // Object | 
 
 apiInstance.getUserLedgerStream(userId, (error, data, response) => {
   if (error) {
@@ -1495,7 +1864,7 @@ apiInstance.getUserLedgerStream(userId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**String**](.md)|  | 
+ **userId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1503,7 +1872,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthQuery](../README.md#apiKeyAuthQuery)
 
 ### HTTP request headers
 
@@ -1519,12 +1888,19 @@ Get a snapshot of user&#x27;s order updates for the given order book since a spe
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthQuery
+let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
+apiKeyAuthQuery.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthQuery.apiKeyPrefix = 'Token';
 
 let apiInstance = new Dora.DefaultApi();
-let userId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let userId = null; // Object | 
+let orderBookId = null; // Object | 
 let opts = { 
-  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
+  'since': null // Object | 
 };
 apiInstance.getUserOrderUpdatesStream(userId, orderBookId, opts, (error, data, response) => {
   if (error) {
@@ -1539,9 +1915,9 @@ apiInstance.getUserOrderUpdatesStream(userId, orderBookId, opts, (error, data, r
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**String**](.md)|  | 
- **orderBookId** | [**String**](.md)|  | 
- **since** | **Date**|  | [optional] 
+ **userId** | [**Object**](.md)|  | 
+ **orderBookId** | [**Object**](.md)|  | 
+ **since** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -1549,7 +1925,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthQuery](../README.md#apiKeyAuthQuery)
 
 ### HTTP request headers
 
@@ -1565,11 +1941,18 @@ Get a snapshot of user&#x27;s order updates across all order books since a speci
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthQuery
+let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
+apiKeyAuthQuery.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthQuery.apiKeyPrefix = 'Token';
 
 let apiInstance = new Dora.DefaultApi();
-let userId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let userId = null; // Object | 
 let opts = { 
-  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
+  'since': null // Object | 
 };
 apiInstance.getUserOrdersUpdatesStreamAll(userId, opts, (error, data, response) => {
   if (error) {
@@ -1584,8 +1967,8 @@ apiInstance.getUserOrdersUpdatesStreamAll(userId, opts, (error, data, response) 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**String**](.md)|  | 
- **since** | **Date**|  | [optional] 
+ **userId** | [**Object**](.md)|  | 
+ **since** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -1593,7 +1976,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthQuery](../README.md#apiKeyAuthQuery)
 
 ### HTTP request headers
 
@@ -1609,6 +1992,14 @@ Get user details for the authenticated user
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getUserSelf((error, data, response) => {
@@ -1629,7 +2020,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1645,11 +2036,18 @@ Get a snapshot of user&#x27;s executed transactions since a specific time, and o
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthQuery
+let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
+apiKeyAuthQuery.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthQuery.apiKeyPrefix = 'Token';
 
 let apiInstance = new Dora.DefaultApi();
-let userId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let userId = null; // Object | 
 let opts = { 
-  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
+  'since': null // Object | 
 };
 apiInstance.getUserTransactionsStream(userId, opts, (error, data, response) => {
   if (error) {
@@ -1664,8 +2062,8 @@ apiInstance.getUserTransactionsStream(userId, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**String**](.md)|  | 
- **since** | **Date**|  | [optional] 
+ **userId** | [**Object**](.md)|  | 
+ **since** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -1673,7 +2071,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthQuery](../README.md#apiKeyAuthQuery)
 
 ### HTTP request headers
 
@@ -1689,6 +2087,14 @@ Get user&#x27;s api keys
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getUsersAPIKeys((error, data, response) => {
@@ -1709,7 +2115,59 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="leverageGetAccruedInterestByUser"></a>
+# **leverageGetAccruedInterestByUser**
+> CurrentLeverageAccruedInterestResponse leverageGetAccruedInterestByUser(opts)
+
+Get current accrued leverage interest for the user
+
+### Example
+```javascript
+import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
+
+let apiInstance = new Dora.DefaultApi();
+let opts = { 
+  'positionId': null, // Object | 
+  'assetId': null // Object | 
+};
+apiInstance.leverageGetAccruedInterestByUser(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **positionId** | [**Object**](.md)|  | [optional] 
+ **assetId** | [**Object**](.md)|  | [optional] 
+
+### Return type
+
+[**CurrentLeverageAccruedInterestResponse**](CurrentLeverageAccruedInterestResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1725,6 +2183,14 @@ Create an isolated position by transferring collateral to the position from the 
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.IsolateCollateralRequest(); // IsolateCollateralRequest | 
@@ -1750,7 +2216,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1766,6 +2232,14 @@ Supply leverage for a specific asset
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.SupplyRequest(); // SupplyRequest | 
@@ -1791,7 +2265,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1809,6 +2283,14 @@ Combines all isolated positions into a single global position
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.UnitePositionRequest(); // UnitePositionRequest | 
@@ -1834,7 +2316,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1850,6 +2332,14 @@ Withdraw leverage for a specific asset
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.WithdrawRequest(); // WithdrawRequest | 
@@ -1875,7 +2365,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1891,10 +2381,18 @@ Add liquidity to a pool
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.LiquidityRequest(); // LiquidityRequest | 
-let poolId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let poolId = null; // Object | 
 
 apiInstance.liquidityAdd(body, poolId, (error, data, response) => {
   if (error) {
@@ -1910,7 +2408,7 @@ apiInstance.liquidityAdd(body, poolId, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**LiquidityRequest**](LiquidityRequest.md)|  | 
- **poolId** | [**String**](.md)|  | 
+ **poolId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1918,7 +2416,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1934,10 +2432,18 @@ Subtract liquidity from a pool
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.LiquidityRequest(); // LiquidityRequest | 
-let poolId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let poolId = null; // Object | 
 
 apiInstance.liquiditySubtract(body, poolId, (error, data, response) => {
   if (error) {
@@ -1953,7 +2459,7 @@ apiInstance.liquiditySubtract(body, poolId, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**LiquidityRequest**](LiquidityRequest.md)|  | 
- **poolId** | [**String**](.md)|  | 
+ **poolId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -1961,7 +2467,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1980,16 +2486,16 @@ import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
 let opts = { 
-  'createdAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | 
-  'createdBefore': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'createdAfter': null, // Object | 
+  'createdBefore': null, // Object | 
   'assetKind': new Dora.AssetKind(), // AssetKind | Asset kind (BOND, CURRENCY, INTEREST, POOL_SHARE)
-  'canAddLiquidity': true, // Boolean | 
-  'canDirectBorrow': true, // Boolean | 
-  'canOnboard': true, // Boolean | 
-  'canTrade': true, // Boolean | 
-  'canVirtualBorrow': true, // Boolean | 
-  'page': 1, // Number | 
-  'limit': 100 // Number | 
+  'canAddLiquidity': null, // Object | 
+  'canDirectBorrow': null, // Object | 
+  'canOnboard': null, // Object | 
+  'canTrade': null, // Object | 
+  'canVirtualBorrow': null, // Object | 
+  'page': 1, // Object | 
+  'limit': 100 // Object | 
 };
 apiInstance.listAssets(opts, (error, data, response) => {
   if (error) {
@@ -2004,16 +2510,16 @@ apiInstance.listAssets(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createdAfter** | **Date**|  | [optional] 
- **createdBefore** | **Date**|  | [optional] 
+ **createdAfter** | [**Object**](.md)|  | [optional] 
+ **createdBefore** | [**Object**](.md)|  | [optional] 
  **assetKind** | [**AssetKind**](.md)| Asset kind (BOND, CURRENCY, INTEREST, POOL_SHARE) | [optional] 
- **canAddLiquidity** | **Boolean**|  | [optional] 
- **canDirectBorrow** | **Boolean**|  | [optional] 
- **canOnboard** | **Boolean**|  | [optional] 
- **canTrade** | **Boolean**|  | [optional] 
- **canVirtualBorrow** | **Boolean**|  | [optional] 
- **page** | **Number**|  | [optional] [default to 1]
- **limit** | **Number**|  | [optional] [default to 100]
+ **canAddLiquidity** | [**Object**](.md)|  | [optional] 
+ **canDirectBorrow** | [**Object**](.md)|  | [optional] 
+ **canOnboard** | [**Object**](.md)|  | [optional] 
+ **canTrade** | [**Object**](.md)|  | [optional] 
+ **canVirtualBorrow** | [**Object**](.md)|  | [optional] 
+ **page** | [**Object**](.md)|  | [optional] [default to 1]
+ **limit** | [**Object**](.md)|  | [optional] [default to 100]
 
 ### Return type
 
@@ -2037,14 +2543,22 @@ List order books
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let opts = { 
   'status': new Dora.OrderBookStatus(), // OrderBookStatus | 
-  'baseAssetId': "38400000-8cf0-11bd-b23e-10b96e4ef00d", // String | 
-  'quoteAssetId': "38400000-8cf0-11bd-b23e-10b96e4ef00d", // String | 
-  'page': 1, // Number | 
-  'limit': 100 // Number | 
+  'baseAssetId': null, // Object | 
+  'quoteAssetId': null, // Object | 
+  'page': 1, // Object | 
+  'limit': 100 // Object | 
 };
 apiInstance.listOrderBooks(opts, (error, data, response) => {
   if (error) {
@@ -2060,10 +2574,10 @@ apiInstance.listOrderBooks(opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | [**OrderBookStatus**](.md)|  | [optional] 
- **baseAssetId** | [**String**](.md)|  | [optional] 
- **quoteAssetId** | [**String**](.md)|  | [optional] 
- **page** | **Number**|  | [optional] [default to 1]
- **limit** | **Number**|  | [optional] [default to 100]
+ **baseAssetId** | [**Object**](.md)|  | [optional] 
+ **quoteAssetId** | [**Object**](.md)|  | [optional] 
+ **page** | [**Object**](.md)|  | [optional] [default to 1]
+ **limit** | [**Object**](.md)|  | [optional] [default to 100]
 
 ### Return type
 
@@ -2071,7 +2585,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2087,17 +2601,25 @@ List all orders
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let opts = { 
-  'orderBookId': ["orderBookId_example"], // [String] | 
-  'kind': [new Dora.OrderKind()], // [OrderKind] | 
-  'status': [new Dora.OrderStatus()], // [OrderStatus] | 
+  'orderBookId': null, // Object | 
+  'kind': null, // Object | 
+  'status': null, // Object | 
   'side': new Dora.Side(), // Side | 
-  'from': new Date("2013-10-20T19:20:30+01:00"), // Date | 
-  'to': new Date("2013-10-20T19:20:30+01:00"), // Date | 
-  'page': 1, // Number | 
-  'limit': 100 // Number | 
+  'from': null, // Object | 
+  'to': null, // Object | 
+  'page': 1, // Object | 
+  'limit': 100 // Object | 
 };
 apiInstance.listOrders(opts, (error, data, response) => {
   if (error) {
@@ -2112,14 +2634,14 @@ apiInstance.listOrders(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**[String]**](String.md)|  | [optional] 
- **kind** | [**[OrderKind]**](OrderKind.md)|  | [optional] 
- **status** | [**[OrderStatus]**](OrderStatus.md)|  | [optional] 
+ **orderBookId** | [**Object**](.md)|  | [optional] 
+ **kind** | [**Object**](.md)|  | [optional] 
+ **status** | [**Object**](.md)|  | [optional] 
  **side** | [**Side**](.md)|  | [optional] 
- **from** | **Date**|  | [optional] 
- **to** | **Date**|  | [optional] 
- **page** | **Number**|  | [optional] [default to 1]
- **limit** | **Number**|  | [optional] [default to 100]
+ **from** | [**Object**](.md)|  | [optional] 
+ **to** | [**Object**](.md)|  | [optional] 
+ **page** | [**Object**](.md)|  | [optional] [default to 1]
+ **limit** | [**Object**](.md)|  | [optional] [default to 100]
 
 ### Return type
 
@@ -2127,7 +2649,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2143,6 +2665,14 @@ List all position accounts for the authenticated user
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.listPositionAccountsSelf((error, data, response) => {
@@ -2163,11 +2693,60 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="payLeverageGetAccruedInterest"></a>
+# **payLeverageGetAccruedInterest**
+> PayLeverageAccruedInterestResponse payLeverageGetAccruedInterest(body)
+
+Pay current accrued leverage interest for a specific user
+
+### Example
+```javascript
+import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
+
+let apiInstance = new Dora.DefaultApi();
+let body = new Dora.PayLeverageAccruedInterestRequest(); // PayLeverageAccruedInterestRequest | 
+
+apiInstance.payLeverageGetAccruedInterest(body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**PayLeverageAccruedInterestRequest**](PayLeverageAccruedInterestRequest.md)|  | 
+
+### Return type
+
+[**PayLeverageAccruedInterestResponse**](PayLeverageAccruedInterestResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="revokeAPIKeyForUser"></a>
@@ -2179,9 +2758,17 @@ Revoke apikey for a user
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let keyId = "keyId_example"; // String | 
+let keyId = null; // Object | 
 
 apiInstance.revokeAPIKeyForUser(keyId, (error, data, response) => {
   if (error) {
@@ -2196,7 +2783,7 @@ apiInstance.revokeAPIKeyForUser(keyId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyId** | **String**|  | 
+ **keyId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -2204,7 +2791,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2225,7 +2812,8 @@ import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
 let opts = { 
-  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
+  'since': null, // Object | 
+  'assetId': null // Object | 
 };
 apiInstance.streamAssetPrices(opts, (error, data, response) => {
   if (error) {
@@ -2240,7 +2828,8 @@ apiInstance.streamAssetPrices(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | **Date**|  | [optional] 
+ **since** | [**Object**](.md)|  | [optional] 
+ **assetId** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -2266,9 +2855,9 @@ Get a snapshot of candlestick data from date provided, and open a stream for rea
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "orderBookId_example"; // String | 
+let orderBookId = null; // Object | 
 let opts = { 
-  'since': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'since': null, // Object | 
   'resolution': new Dora.CandleResolution() // CandleResolution | 
 };
 apiInstance.streamCandleData(orderBookId, opts, (error, data, response) => {
@@ -2284,8 +2873,8 @@ apiInstance.streamCandleData(orderBookId, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | **String**|  | 
- **since** | **Date**|  | [optional] 
+ **orderBookId** | [**Object**](.md)|  | 
+ **since** | [**Object**](.md)|  | [optional] 
  **resolution** | [**CandleResolution**](.md)|  | [optional] 
 
 ### Return type
@@ -2312,9 +2901,9 @@ Get a snapshot of base and quote balances for an order book and open a stream fo
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = null; // Object | 
 let opts = { 
-  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
+  'since': null // Object | 
 };
 apiInstance.streamOrderBookBalances(orderBookId, opts, (error, data, response) => {
   if (error) {
@@ -2329,8 +2918,8 @@ apiInstance.streamOrderBookBalances(orderBookId, opts, (error, data, response) =
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**String**](.md)|  | 
- **since** | **Date**|  | [optional] 
+ **orderBookId** | [**Object**](.md)|  | 
+ **since** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -2356,9 +2945,9 @@ Get a snapshot of open orders in an order book and open a stream for real-time u
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = null; // Object | 
 let opts = { 
-  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
+  'since': null // Object | 
 };
 apiInstance.streamOrderbookOpenOrders(orderBookId, opts, (error, data, response) => {
   if (error) {
@@ -2373,8 +2962,8 @@ apiInstance.streamOrderbookOpenOrders(orderBookId, opts, (error, data, response)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**String**](.md)|  | 
- **since** | **Date**|  | [optional] 
+ **orderBookId** | [**Object**](.md)|  | 
+ **since** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -2400,9 +2989,9 @@ Get a snapshot of trades executed on the given order book from a specific date a
 import {Dora} from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let orderBookId = null; // Object | 
 let opts = { 
-  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
+  'since': null // Object | 
 };
 apiInstance.streamTrades(orderBookId, opts, (error, data, response) => {
   if (error) {
@@ -2417,8 +3006,8 @@ apiInstance.streamTrades(orderBookId, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**String**](.md)|  | 
- **since** | **Date**|  | [optional] 
+ **orderBookId** | [**Object**](.md)|  | 
+ **since** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -2442,6 +3031,14 @@ Transfer available balance between a user&#x27;s accounts (e.g. global to isolat
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.TransferBalancesRequest(); // TransferBalancesRequest | 
@@ -2467,7 +3064,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2483,10 +3080,18 @@ Update user configuration by ID
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.UpdateUserConfigRequest(); // UpdateUserConfigRequest | 
-let userId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let userId = null; // Object | 
 
 apiInstance.updateUserConfig(body, userId, (error, data, response) => {
   if (error) {
@@ -2502,7 +3107,7 @@ apiInstance.updateUserConfig(body, userId, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**UpdateUserConfigRequest**](UpdateUserConfigRequest.md)|  | 
- **userId** | [**String**](.md)|  | 
+ **userId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -2510,7 +3115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2526,6 +3131,14 @@ Update user configuration for the authenticated user
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.UpdateUserConfigRequest(); // UpdateUserConfigRequest | 
@@ -2551,7 +3164,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2567,6 +3180,14 @@ Validate submit order request data
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
 let body = new Dora.ValidateSubmitOrderRequest(); // ValidateSubmitOrderRequest | 
@@ -2592,7 +3213,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2608,9 +3229,17 @@ Verify a user by ID
 ### Example
 ```javascript
 import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
 
 let apiInstance = new Dora.DefaultApi();
-let userId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | 
+let userId = null; // Object | 
 
 apiInstance.verifyUser(userId, (error, data, response) => {
   if (error) {
@@ -2625,7 +3254,7 @@ apiInstance.verifyUser(userId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**String**](.md)|  | 
+ **userId** | [**Object**](.md)|  | 
 
 ### Return type
 
@@ -2633,7 +3262,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

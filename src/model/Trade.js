@@ -40,88 +40,88 @@ export default class Trade {
     if (data) {
       obj = obj || new Trade();
       if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
+        obj.transactionId = ApiClient.convertToType(data['transaction_id'], Object);
       if (data.hasOwnProperty('asset_0'))
-        obj.asset0 = ApiClient.convertToType(data['asset_0'], 'String');
+        obj.asset0 = ApiClient.convertToType(data['asset_0'], Object);
       if (data.hasOwnProperty('created_at'))
-        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
+        obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
       if (data.hasOwnProperty('fee_asset_id'))
-        obj.feeAssetId = ApiClient.convertToType(data['fee_asset_id'], 'String');
+        obj.feeAssetId = ApiClient.convertToType(data['fee_asset_id'], Object);
       if (data.hasOwnProperty('fee_quantity'))
-        obj.feeQuantity = ApiClient.convertToType(data['fee_quantity'], 'String');
+        obj.feeQuantity = ApiClient.convertToType(data['fee_quantity'], Object);
       if (data.hasOwnProperty('order_book_id'))
-        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
+        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], Object);
       if (data.hasOwnProperty('order_id'))
-        obj.orderId = ApiClient.convertToType(data['order_id'], 'String');
+        obj.orderId = ApiClient.convertToType(data['order_id'], Object);
       if (data.hasOwnProperty('order_seq'))
-        obj.orderSeq = ApiClient.convertToType(data['order_seq'], 'Number');
+        obj.orderSeq = ApiClient.convertToType(data['order_seq'], Object);
       if (data.hasOwnProperty('price'))
-        obj.price = ApiClient.convertToType(data['price'], 'String');
+        obj.price = ApiClient.convertToType(data['price'], Object);
       if (data.hasOwnProperty('quantity_0'))
-        obj.quantity0 = ApiClient.convertToType(data['quantity_0'], 'String');
+        obj.quantity0 = ApiClient.convertToType(data['quantity_0'], Object);
       if (data.hasOwnProperty('user_id'))
-        obj.userId = ApiClient.convertToType(data['user_id'], 'String');
+        obj.userId = ApiClient.convertToType(data['user_id'], Object);
       if (data.hasOwnProperty('side'))
         obj.side = Side.constructFromObject(data['side']);
       if (data.hasOwnProperty('aggressor_indicator'))
-        obj.aggressorIndicator = ApiClient.convertToType(data['aggressor_indicator'], 'Boolean');
+        obj.aggressorIndicator = ApiClient.convertToType(data['aggressor_indicator'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} transactionId
+ * @member {Object} transactionId
  */
 Trade.prototype.transactionId = undefined;
 
 /**
- * @member {String} asset0
+ * @member {Object} asset0
  */
 Trade.prototype.asset0 = undefined;
 
 /**
- * @member {Date} createdAt
+ * @member {Object} createdAt
  */
 Trade.prototype.createdAt = undefined;
 
 /**
- * @member {String} feeAssetId
+ * @member {Object} feeAssetId
  */
 Trade.prototype.feeAssetId = undefined;
 
 /**
- * @member {String} feeQuantity
+ * @member {Object} feeQuantity
  */
 Trade.prototype.feeQuantity = undefined;
 
 /**
- * @member {String} orderBookId
+ * @member {Object} orderBookId
  */
 Trade.prototype.orderBookId = undefined;
 
 /**
- * @member {String} orderId
+ * @member {Object} orderId
  */
 Trade.prototype.orderId = undefined;
 
 /**
- * @member {Number} orderSeq
+ * @member {Object} orderSeq
  */
 Trade.prototype.orderSeq = undefined;
 
 /**
- * @member {String} price
+ * @member {Object} price
  */
 Trade.prototype.price = undefined;
 
 /**
- * @member {String} quantity0
+ * @member {Object} quantity0
  */
 Trade.prototype.quantity0 = undefined;
 
 /**
- * @member {String} userId
+ * @member {Object} userId
  */
 Trade.prototype.userId = undefined;
 
@@ -132,7 +132,7 @@ Trade.prototype.side = undefined;
 
 /**
  * If true, then this order is the aggressor (taker); otherwise it is the maker.
- * @member {Boolean} aggressorIndicator
+ * @member {Object} aggressorIndicator
  */
 Trade.prototype.aggressorIndicator = undefined;
 

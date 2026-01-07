@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderBookId** | **String** |  | [optional] 
-**bestBid** | **String** |  | [optional] 
-**bestAsk** | **String** |  | [optional] 
-**timestamp** | **Date** |  | [optional] 
+**orderBookId** | **Object** |  | [optional] 
+**bestBid** | **Object** |  | [optional] 
+**bestAsk** | **Object** |  | [optional] 
+**timestamp** | **Object** |  | [optional] 

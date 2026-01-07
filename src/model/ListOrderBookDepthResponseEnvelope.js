@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import OrderBookDepth from './OrderBookDepth';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The ListOrderBookDepthResponseEnvelope model module.
  * @module model/ListOrderBookDepthResponseEnvelope
  * @version 1.0.0
  */
-export default class ListOrderBookDepthResponseEnvelope extends ResponseEnvelope {
+export default class ListOrderBookDepthResponseEnvelope {
   /**
    * Constructs a new <code>ListOrderBookDepthResponseEnvelope</code>.
    * @alias module:model/ListOrderBookDepthResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class ListOrderBookDepthResponseEnvelope extends ResponseEnvelope
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new ListOrderBookDepthResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = OrderBookDepth.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/OrderBookDepth} data
- */
-ListOrderBookDepthResponseEnvelope.prototype.data = undefined;
-

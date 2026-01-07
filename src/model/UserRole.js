@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 
 /**
  * Enum class UserRole.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 const UserRole = {

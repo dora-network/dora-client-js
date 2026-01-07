@@ -41,7 +41,7 @@ export default class StreamEntry {
       if (data.hasOwnProperty('Val'))
         obj.val = ApiClient.convertToType(data['Val'], Object);
       if (data.hasOwnProperty('Time'))
-        obj.time = ApiClient.convertToType(data['Time'], 'Date');
+        obj.time = ApiClient.convertToType(data['Time'], Object);
     }
     return obj;
   }
@@ -55,7 +55,7 @@ StreamEntry.prototype.val = undefined;
 
 /**
  * The timestamp when the data was created
- * @member {Date} time
+ * @member {Object} time
  */
 StreamEntry.prototype.time = undefined;
 

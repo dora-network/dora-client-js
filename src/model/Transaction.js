@@ -40,33 +40,33 @@ export default class Transaction {
     if (data) {
       obj = obj || new Transaction();
       if (data.hasOwnProperty('id'))
-        obj.id = ApiClient.convertToType(data['id'], 'String');
+        obj.id = ApiClient.convertToType(data['id'], Object);
       if (data.hasOwnProperty('created_at'))
-        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
+        obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
       if (data.hasOwnProperty('kind'))
         obj.kind = TransactionKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('asset0'))
-        obj.asset0 = ApiClient.convertToType(data['asset0'], 'String');
+        obj.asset0 = ApiClient.convertToType(data['asset0'], Object);
       if (data.hasOwnProperty('quantity0'))
-        obj.quantity0 = ApiClient.convertToType(data['quantity0'], 'String');
+        obj.quantity0 = ApiClient.convertToType(data['quantity0'], Object);
       if (data.hasOwnProperty('quantity1'))
-        obj.quantity1 = ApiClient.convertToType(data['quantity1'], 'String');
+        obj.quantity1 = ApiClient.convertToType(data['quantity1'], Object);
       if (data.hasOwnProperty('asset1'))
-        obj.asset1 = ApiClient.convertToType(data['asset1'], 'String');
+        obj.asset1 = ApiClient.convertToType(data['asset1'], Object);
       if (data.hasOwnProperty('user_id'))
-        obj.userId = ApiClient.convertToType(data['user_id'], 'String');
+        obj.userId = ApiClient.convertToType(data['user_id'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} id
+ * @member {Object} id
  */
 Transaction.prototype.id = undefined;
 
 /**
- * @member {Date} createdAt
+ * @member {Object} createdAt
  */
 Transaction.prototype.createdAt = undefined;
 
@@ -76,27 +76,27 @@ Transaction.prototype.createdAt = undefined;
 Transaction.prototype.kind = undefined;
 
 /**
- * @member {String} asset0
+ * @member {Object} asset0
  */
 Transaction.prototype.asset0 = undefined;
 
 /**
- * @member {String} quantity0
+ * @member {Object} quantity0
  */
 Transaction.prototype.quantity0 = undefined;
 
 /**
- * @member {String} quantity1
+ * @member {Object} quantity1
  */
 Transaction.prototype.quantity1 = undefined;
 
 /**
- * @member {String} asset1
+ * @member {Object} asset1
  */
 Transaction.prototype.asset1 = undefined;
 
 /**
- * @member {String} userId
+ * @member {Object} userId
  */
 Transaction.prototype.userId = undefined;
 

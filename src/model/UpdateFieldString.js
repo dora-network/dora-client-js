@@ -25,7 +25,7 @@ export default class UpdateFieldString {
    * A generic struct to handle optional updates for string fields in user requests.
    * @alias module:model/UpdateFieldString
    * @class
-   * @param update {Boolean} Whether to update the field.
+   * @param update {Object} Whether to update the field.
    */
   constructor(update) {
     this.update = update;
@@ -42,9 +42,9 @@ export default class UpdateFieldString {
     if (data) {
       obj = obj || new UpdateFieldString();
       if (data.hasOwnProperty('update'))
-        obj.update = ApiClient.convertToType(data['update'], 'Boolean');
+        obj.update = ApiClient.convertToType(data['update'], Object);
       if (data.hasOwnProperty('value'))
-        obj.value = ApiClient.convertToType(data['value'], 'String');
+        obj.value = ApiClient.convertToType(data['value'], Object);
     }
     return obj;
   }
@@ -52,13 +52,13 @@ export default class UpdateFieldString {
 
 /**
  * Whether to update the field.
- * @member {Boolean} update
+ * @member {Object} update
  */
 UpdateFieldString.prototype.update = undefined;
 
 /**
  * The new value to set for the field.
- * @member {String} value
+ * @member {Object} value
  */
 UpdateFieldString.prototype.value = undefined;
 

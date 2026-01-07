@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import AssetPrice from './AssetPrice';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The ListAssetPriceResponseEnvelope model module.
  * @module model/ListAssetPriceResponseEnvelope
  * @version 1.0.0
  */
-export default class ListAssetPriceResponseEnvelope extends ResponseEnvelope {
+export default class ListAssetPriceResponseEnvelope {
   /**
    * Constructs a new <code>ListAssetPriceResponseEnvelope</code>.
    * @alias module:model/ListAssetPriceResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class ListAssetPriceResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new ListAssetPriceResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [AssetPrice]);
     }
     return obj;
   }
 }
-
-/**
- * @member {Array.<module:model/AssetPrice>} data
- */
-ListAssetPriceResponseEnvelope.prototype.data = undefined;
-

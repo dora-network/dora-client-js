@@ -39,12 +39,6 @@
         expect(instance).to.be.a(Dora.AssetRequestError);
       });
 
-      it('should have the property error (base name: "error")', function() {
-        // TODO: update the code to test the property error
-        expect(instance).to.have.property('error');
-        // expect(instance.error).to.be(expectedValueLiteral);
-      });
-
     });
   });
 

@@ -14,9 +14,9 @@
  */
 import ApiClient from '../ApiClient';
 import OrderKind from './OrderKind';
-import OrderModifierKind from './OrderModifierKind';
 import OrderStatus from './OrderStatus';
 import Side from './Side';
+import TriggerType from './TriggerType';
 
 /**
  * The Order model module.
@@ -43,59 +43,61 @@ export default class Order {
     if (data) {
       obj = obj || new Order();
       if (data.hasOwnProperty('order_id'))
-        obj.orderId = ApiClient.convertToType(data['order_id'], 'String');
+        obj.orderId = ApiClient.convertToType(data['order_id'], Object);
       if (data.hasOwnProperty('order_book_id'))
-        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
+        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], Object);
       if (data.hasOwnProperty('kind'))
         obj.kind = OrderKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('original_price'))
-        obj.originalPrice = ApiClient.convertToType(data['original_price'], 'String');
+        obj.originalPrice = ApiClient.convertToType(data['original_price'], Object);
       if (data.hasOwnProperty('avg_fill_price'))
-        obj.avgFillPrice = ApiClient.convertToType(data['avg_fill_price'], 'String');
+        obj.avgFillPrice = ApiClient.convertToType(data['avg_fill_price'], Object);
       if (data.hasOwnProperty('cancelled_quantity'))
-        obj.cancelledQuantity = ApiClient.convertToType(data['cancelled_quantity'], 'String');
+        obj.cancelledQuantity = ApiClient.convertToType(data['cancelled_quantity'], Object);
       if (data.hasOwnProperty('open_quantity'))
-        obj.openQuantity = ApiClient.convertToType(data['open_quantity'], 'String');
+        obj.openQuantity = ApiClient.convertToType(data['open_quantity'], Object);
       if (data.hasOwnProperty('original_quantity'))
-        obj.originalQuantity = ApiClient.convertToType(data['original_quantity'], 'String');
+        obj.originalQuantity = ApiClient.convertToType(data['original_quantity'], Object);
       if (data.hasOwnProperty('filled_quantity'))
-        obj.filledQuantity = ApiClient.convertToType(data['filled_quantity'], 'String');
+        obj.filledQuantity = ApiClient.convertToType(data['filled_quantity'], Object);
       if (data.hasOwnProperty('filled_notional'))
-        obj.filledNotional = ApiClient.convertToType(data['filled_notional'], 'String');
+        obj.filledNotional = ApiClient.convertToType(data['filled_notional'], Object);
       if (data.hasOwnProperty('last_update_at'))
-        obj.lastUpdateAt = ApiClient.convertToType(data['last_update_at'], 'Date');
+        obj.lastUpdateAt = ApiClient.convertToType(data['last_update_at'], Object);
       if (data.hasOwnProperty('opened_at'))
-        obj.openedAt = ApiClient.convertToType(data['opened_at'], 'Date');
+        obj.openedAt = ApiClient.convertToType(data['opened_at'], Object);
       if (data.hasOwnProperty('inverse_leverage'))
-        obj.inverseLeverage = ApiClient.convertToType(data['inverse_leverage'], 'String');
+        obj.inverseLeverage = ApiClient.convertToType(data['inverse_leverage'], Object);
       if (data.hasOwnProperty('side'))
         obj.side = Side.constructFromObject(data['side']);
       if (data.hasOwnProperty('status'))
         obj.status = OrderStatus.constructFromObject(data['status']);
       if (data.hasOwnProperty('user_id'))
-        obj.userId = ApiClient.convertToType(data['user_id'], 'String');
+        obj.userId = ApiClient.convertToType(data['user_id'], Object);
       if (data.hasOwnProperty('order_modifiers'))
-        obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], [OrderModifierKind]);
+        obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], Object);
       if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
+        obj.positionId = ApiClient.convertToType(data['position_id'], Object);
       if (data.hasOwnProperty('order_info'))
-        obj.orderInfo = ApiClient.convertToType(data['order_info'], 'String');
+        obj.orderInfo = ApiClient.convertToType(data['order_info'], Object);
       if (data.hasOwnProperty('good_till_date'))
-        obj.goodTillDate = ApiClient.convertToType(data['good_till_date'], 'Date');
+        obj.goodTillDate = ApiClient.convertToType(data['good_till_date'], Object);
       if (data.hasOwnProperty('trigger_price'))
-        obj.triggerPrice = ApiClient.convertToType(data['trigger_price'], 'String');
+        obj.triggerPrice = ApiClient.convertToType(data['trigger_price'], Object);
+      if (data.hasOwnProperty('trigger_type'))
+        obj.triggerType = TriggerType.constructFromObject(data['trigger_type']);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} orderId
+ * @member {Object} orderId
  */
 Order.prototype.orderId = undefined;
 
 /**
- * @member {String} orderBookId
+ * @member {Object} orderBookId
  */
 Order.prototype.orderBookId = undefined;
 
@@ -106,57 +108,57 @@ Order.prototype.kind = undefined;
 
 /**
  * If Kind is LIMIT, this is the original limit price. If Kind is MARKET, this may be 0 or omitted.
- * @member {String} originalPrice
+ * @member {Object} originalPrice
  */
 Order.prototype.originalPrice = undefined;
 
 /**
- * @member {String} avgFillPrice
+ * @member {Object} avgFillPrice
  */
 Order.prototype.avgFillPrice = undefined;
 
 /**
  * Quantity that was cancelled, if any.
- * @member {String} cancelledQuantity
+ * @member {Object} cancelledQuantity
  */
 Order.prototype.cancelledQuantity = undefined;
 
 /**
  * Quantity that is still open, i.e., not filled or cancelled.
- * @member {String} openQuantity
+ * @member {Object} openQuantity
  */
 Order.prototype.openQuantity = undefined;
 
 /**
  * The original quantity of the order when it was created.
- * @member {String} originalQuantity
+ * @member {Object} originalQuantity
  */
 Order.prototype.originalQuantity = undefined;
 
 /**
  * Quantity that has been filled so far.
- * @member {String} filledQuantity
+ * @member {Object} filledQuantity
  */
 Order.prototype.filledQuantity = undefined;
 
 /**
  * Quote quantity that has been filled so far.
- * @member {String} filledNotional
+ * @member {Object} filledNotional
  */
 Order.prototype.filledNotional = undefined;
 
 /**
- * @member {Date} lastUpdateAt
+ * @member {Object} lastUpdateAt
  */
 Order.prototype.lastUpdateAt = undefined;
 
 /**
- * @member {Date} openedAt
+ * @member {Object} openedAt
  */
 Order.prototype.openedAt = undefined;
 
 /**
- * @member {String} inverseLeverage
+ * @member {Object} inverseLeverage
  */
 Order.prototype.inverseLeverage = undefined;
 
@@ -171,32 +173,37 @@ Order.prototype.side = undefined;
 Order.prototype.status = undefined;
 
 /**
- * @member {String} userId
+ * @member {Object} userId
  */
 Order.prototype.userId = undefined;
 
 /**
- * @member {Array.<module:model/OrderModifierKind>} orderModifiers
+ * @member {Object} orderModifiers
  */
 Order.prototype.orderModifiers = undefined;
 
 /**
- * @member {String} positionId
+ * @member {Object} positionId
  */
 Order.prototype.positionId = undefined;
 
 /**
- * @member {String} orderInfo
+ * @member {Object} orderInfo
  */
 Order.prototype.orderInfo = undefined;
 
 /**
- * @member {Date} goodTillDate
+ * @member {Object} goodTillDate
  */
 Order.prototype.goodTillDate = undefined;
 
 /**
- * @member {String} triggerPrice
+ * @member {Object} triggerPrice
  */
 Order.prototype.triggerPrice = undefined;
+
+/**
+ * @member {module:model/TriggerType} triggerType
+ */
+Order.prototype.triggerType = undefined;
 

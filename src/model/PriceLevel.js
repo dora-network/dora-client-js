@@ -39,21 +39,21 @@ export default class PriceLevel {
     if (data) {
       obj = obj || new PriceLevel();
       if (data.hasOwnProperty('price'))
-        obj.price = ApiClient.convertToType(data['price'], 'String');
+        obj.price = ApiClient.convertToType(data['price'], Object);
       if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+        obj.quantity = ApiClient.convertToType(data['quantity'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} price
+ * @member {Object} price
  */
 PriceLevel.prototype.price = undefined;
 
 /**
- * @member {String} quantity
+ * @member {Object} quantity
  */
 PriceLevel.prototype.quantity = undefined;
 

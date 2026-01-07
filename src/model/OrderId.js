@@ -39,14 +39,14 @@ export default class OrderId {
     if (data) {
       obj = obj || new OrderId();
       if (data.hasOwnProperty('order_id'))
-        obj.orderId = ApiClient.convertToType(data['order_id'], 'String');
+        obj.orderId = ApiClient.convertToType(data['order_id'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} orderId
+ * @member {Object} orderId
  */
 OrderId.prototype.orderId = undefined;
 

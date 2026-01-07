@@ -14,8 +14,8 @@
  */
 import ApiClient from '../ApiClient';
 import OrderKind from './OrderKind';
-import OrderModifierKind from './OrderModifierKind';
 import Side from './Side';
+import TriggerType from './TriggerType';
 
 /**
  * The CreateOrderRequest model module.
@@ -27,19 +27,19 @@ export default class CreateOrderRequest {
    * Constructs a new <code>CreateOrderRequest</code>.
    * @alias module:model/CreateOrderRequest
    * @class
-   * @param quantity {String} 
-   * @param inverseLeverage {String} 
+   * @param quantity {Object} 
+   * @param inverseLeverage {Object} 
    * @param kind {module:model/OrderKind} 
-   * @param side {module:model/Side} 
-   * @param positionId {String} position ID to use for the order. required.
-   * @param orderBookId {String} Required: the order book to submit the order to
+   * @param side {module:model/Side} Required: Must be either 'BUY' or 'SELL'
+   * @param fromGlobalPosition {Object} use global position for the order or isolated. required.
+   * @param orderBookId {Object} Required: the order book to submit the order to
    */
-  constructor(quantity, inverseLeverage, kind, side, positionId, orderBookId) {
+  constructor(quantity, inverseLeverage, kind, side, fromGlobalPosition, orderBookId) {
     this.quantity = quantity;
     this.inverseLeverage = inverseLeverage;
     this.kind = kind;
     this.side = side;
-    this.positionId = positionId;
+    this.fromGlobalPosition = fromGlobalPosition;
     this.orderBookId = orderBookId;
   }
 
@@ -54,42 +54,44 @@ export default class CreateOrderRequest {
     if (data) {
       obj = obj || new CreateOrderRequest();
       if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+        obj.quantity = ApiClient.convertToType(data['quantity'], Object);
       if (data.hasOwnProperty('inverse_leverage'))
-        obj.inverseLeverage = ApiClient.convertToType(data['inverse_leverage'], 'String');
+        obj.inverseLeverage = ApiClient.convertToType(data['inverse_leverage'], Object);
       if (data.hasOwnProperty('price'))
-        obj.price = ApiClient.convertToType(data['price'], 'String');
+        obj.price = ApiClient.convertToType(data['price'], Object);
       if (data.hasOwnProperty('kind'))
         obj.kind = OrderKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('side'))
         obj.side = Side.constructFromObject(data['side']);
-      if (data.hasOwnProperty('position_id'))
-        obj.positionId = ApiClient.convertToType(data['position_id'], 'String');
+      if (data.hasOwnProperty('from_global_position'))
+        obj.fromGlobalPosition = ApiClient.convertToType(data['from_global_position'], Object);
       if (data.hasOwnProperty('order_book_id'))
-        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
+        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], Object);
       if (data.hasOwnProperty('order_modifiers'))
-        obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], [OrderModifierKind]);
+        obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], Object);
       if (data.hasOwnProperty('good_till_date'))
-        obj.goodTillDate = ApiClient.convertToType(data['good_till_date'], 'Date');
+        obj.goodTillDate = ApiClient.convertToType(data['good_till_date'], Object);
       if (data.hasOwnProperty('trigger_price'))
-        obj.triggerPrice = ApiClient.convertToType(data['trigger_price'], 'String');
+        obj.triggerPrice = ApiClient.convertToType(data['trigger_price'], Object);
+      if (data.hasOwnProperty('trigger_type'))
+        obj.triggerType = TriggerType.constructFromObject(data['trigger_type']);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} quantity
+ * @member {Object} quantity
  */
 CreateOrderRequest.prototype.quantity = undefined;
 
 /**
- * @member {String} inverseLeverage
+ * @member {Object} inverseLeverage
  */
 CreateOrderRequest.prototype.inverseLeverage = undefined;
 
 /**
- * @member {String} price
+ * @member {Object} price
  */
 CreateOrderRequest.prototype.price = undefined;
 
@@ -99,34 +101,40 @@ CreateOrderRequest.prototype.price = undefined;
 CreateOrderRequest.prototype.kind = undefined;
 
 /**
+ * Required: Must be either 'BUY' or 'SELL'
  * @member {module:model/Side} side
  */
 CreateOrderRequest.prototype.side = undefined;
 
 /**
- * position ID to use for the order. required.
- * @member {String} positionId
+ * use global position for the order or isolated. required.
+ * @member {Object} fromGlobalPosition
  */
-CreateOrderRequest.prototype.positionId = undefined;
+CreateOrderRequest.prototype.fromGlobalPosition = undefined;
 
 /**
  * Required: the order book to submit the order to
- * @member {String} orderBookId
+ * @member {Object} orderBookId
  */
 CreateOrderRequest.prototype.orderBookId = undefined;
 
 /**
- * @member {Array.<module:model/OrderModifierKind>} orderModifiers
+ * @member {Object} orderModifiers
  */
 CreateOrderRequest.prototype.orderModifiers = undefined;
 
 /**
- * @member {Date} goodTillDate
+ * @member {Object} goodTillDate
  */
 CreateOrderRequest.prototype.goodTillDate = undefined;
 
 /**
- * @member {String} triggerPrice
+ * @member {Object} triggerPrice
  */
 CreateOrderRequest.prototype.triggerPrice = undefined;
+
+/**
+ * @member {module:model/TriggerType} triggerType
+ */
+CreateOrderRequest.prototype.triggerType = undefined;
 

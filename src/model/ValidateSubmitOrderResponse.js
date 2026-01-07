@@ -39,14 +39,14 @@ export default class ValidateSubmitOrderResponse {
     if (data) {
       obj = obj || new ValidateSubmitOrderResponse();
       if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], 'Boolean');
+        obj.data = ApiClient.convertToType(data['data'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {Boolean} data
+ * @member {Object} data
  */
 ValidateSubmitOrderResponse.prototype.data = undefined;
 

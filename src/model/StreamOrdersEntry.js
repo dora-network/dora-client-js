@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Order from './Order';
-import StreamEntry from './StreamEntry';
 
 /**
  * The StreamOrdersEntry model module.
  * @module model/StreamOrdersEntry
  * @version 1.0.0
  */
-export default class StreamOrdersEntry extends StreamEntry {
+export default class StreamOrdersEntry {
   /**
    * Constructs a new <code>StreamOrdersEntry</code>.
    * @alias module:model/StreamOrdersEntry
    * @class
-   * @extends module:model/StreamEntry
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class StreamOrdersEntry extends StreamEntry {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamOrdersEntry();
-      StreamEntry.constructFromObject(data, obj);
-      if (data.hasOwnProperty('Val'))
-        obj.val = Order.constructFromObject(data['Val']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Order} val
- */
-StreamOrdersEntry.prototype.val = undefined;
-

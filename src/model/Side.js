@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 
 /**
  * Enum class Side.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 const Side = {

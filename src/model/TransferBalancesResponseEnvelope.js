@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import BalanceTransfer from './BalanceTransfer';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The TransferBalancesResponseEnvelope model module.
  * @module model/TransferBalancesResponseEnvelope
  * @version 1.0.0
  */
-export default class TransferBalancesResponseEnvelope extends ResponseEnvelope {
+export default class TransferBalancesResponseEnvelope {
   /**
    * Constructs a new <code>TransferBalancesResponseEnvelope</code>.
    * @alias module:model/TransferBalancesResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class TransferBalancesResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new TransferBalancesResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = BalanceTransfer.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/BalanceTransfer} data
- */
-TransferBalancesResponseEnvelope.prototype.data = undefined;
-

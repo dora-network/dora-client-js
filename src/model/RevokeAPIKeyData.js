@@ -39,35 +39,35 @@ export default class RevokeAPIKeyData {
     if (data) {
       obj = obj || new RevokeAPIKeyData();
       if (data.hasOwnProperty('user_id'))
-        obj.userId = ApiClient.convertToType(data['user_id'], 'String');
+        obj.userId = ApiClient.convertToType(data['user_id'], Object);
       if (data.hasOwnProperty('key_id'))
-        obj.keyId = ApiClient.convertToType(data['key_id'], 'String');
+        obj.keyId = ApiClient.convertToType(data['key_id'], Object);
       if (data.hasOwnProperty('label'))
-        obj.label = ApiClient.convertToType(data['label'], 'String');
+        obj.label = ApiClient.convertToType(data['label'], Object);
       if (data.hasOwnProperty('is_active'))
-        obj.isActive = ApiClient.convertToType(data['is_active'], 'Boolean');
+        obj.isActive = ApiClient.convertToType(data['is_active'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} userId
+ * @member {Object} userId
  */
 RevokeAPIKeyData.prototype.userId = undefined;
 
 /**
- * @member {String} keyId
+ * @member {Object} keyId
  */
 RevokeAPIKeyData.prototype.keyId = undefined;
 
 /**
- * @member {String} label
+ * @member {Object} label
  */
 RevokeAPIKeyData.prototype.label = undefined;
 
 /**
- * @member {Boolean} isActive
+ * @member {Object} isActive
  */
 RevokeAPIKeyData.prototype.isActive = undefined;
 

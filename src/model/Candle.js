@@ -39,56 +39,56 @@ export default class Candle {
     if (data) {
       obj = obj || new Candle();
       if (data.hasOwnProperty('order_book_id'))
-        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], 'String');
+        obj.orderBookId = ApiClient.convertToType(data['order_book_id'], Object);
       if (data.hasOwnProperty('start_timestamp'))
-        obj.startTimestamp = ApiClient.convertToType(data['start_timestamp'], 'Date');
+        obj.startTimestamp = ApiClient.convertToType(data['start_timestamp'], Object);
       if (data.hasOwnProperty('open'))
-        obj.open = ApiClient.convertToType(data['open'], 'String');
+        obj.open = ApiClient.convertToType(data['open'], Object);
       if (data.hasOwnProperty('high'))
-        obj.high = ApiClient.convertToType(data['high'], 'String');
+        obj.high = ApiClient.convertToType(data['high'], Object);
       if (data.hasOwnProperty('low'))
-        obj.low = ApiClient.convertToType(data['low'], 'String');
+        obj.low = ApiClient.convertToType(data['low'], Object);
       if (data.hasOwnProperty('close'))
-        obj.close = ApiClient.convertToType(data['close'], 'String');
+        obj.close = ApiClient.convertToType(data['close'], Object);
       if (data.hasOwnProperty('volume'))
-        obj.volume = ApiClient.convertToType(data['volume'], 'String');
+        obj.volume = ApiClient.convertToType(data['volume'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} orderBookId
+ * @member {Object} orderBookId
  */
 Candle.prototype.orderBookId = undefined;
 
 /**
- * @member {Date} startTimestamp
+ * @member {Object} startTimestamp
  */
 Candle.prototype.startTimestamp = undefined;
 
 /**
- * @member {String} open
+ * @member {Object} open
  */
 Candle.prototype.open = undefined;
 
 /**
- * @member {String} high
+ * @member {Object} high
  */
 Candle.prototype.high = undefined;
 
 /**
- * @member {String} low
+ * @member {Object} low
  */
 Candle.prototype.low = undefined;
 
 /**
- * @member {String} close
+ * @member {Object} close
  */
 Candle.prototype.close = undefined;
 
 /**
- * @member {String} volume
+ * @member {Object} volume
  */
 Candle.prototype.volume = undefined;
 

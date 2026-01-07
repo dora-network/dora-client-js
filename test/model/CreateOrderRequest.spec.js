@@ -69,10 +69,10 @@
         // expect(instance.side).to.be(expectedValueLiteral);
       });
 
-      it('should have the property positionId (base name: "position_id")', function() {
-        // TODO: update the code to test the property positionId
-        expect(instance).to.have.property('positionId');
-        // expect(instance.positionId).to.be(expectedValueLiteral);
+      it('should have the property fromGlobalPosition (base name: "from_global_position")', function() {
+        // TODO: update the code to test the property fromGlobalPosition
+        expect(instance).to.have.property('fromGlobalPosition');
+        // expect(instance.fromGlobalPosition).to.be(expectedValueLiteral);
       });
 
       it('should have the property orderBookId (base name: "order_book_id")', function() {
@@ -97,6 +97,12 @@
         // TODO: update the code to test the property triggerPrice
         expect(instance).to.have.property('triggerPrice');
         // expect(instance.triggerPrice).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property triggerType (base name: "trigger_type")', function() {
+        // TODO: update the code to test the property triggerType
+        expect(instance).to.have.property('triggerType');
+        // expect(instance.triggerType).to.be(expectedValueLiteral);
       });
 
     });

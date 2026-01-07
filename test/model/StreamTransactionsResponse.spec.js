@@ -39,6 +39,12 @@
         expect(instance).to.be.a(Dora.StreamTransactionsResponse);
       });
 
+      it('should have the property streamTransactionsEntries (base name: "stream_transactions_entries")', function() {
+        // TODO: update the code to test the property streamTransactionsEntries
+        expect(instance).to.have.property('streamTransactionsEntries');
+        // expect(instance.streamTransactionsEntries).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The UserDeletedResponseEnvelope model module.
  * @module model/UserDeletedResponseEnvelope
  * @version 1.0.0
  */
-export default class UserDeletedResponseEnvelope extends ResponseEnvelope {
+export default class UserDeletedResponseEnvelope {
   /**
    * Constructs a new <code>UserDeletedResponseEnvelope</code>.
    * @alias module:model/UserDeletedResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class UserDeletedResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new UserDeletedResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], 'String');
     }
     return obj;
   }
 }
-
-/**
- * @member {String} data
- */
-UserDeletedResponseEnvelope.prototype.data = undefined;
-

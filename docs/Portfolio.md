@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **String** |  | [optional] 
-**position** | **{String: {String: Position}}** |  | [optional] 
+**userId** | **Object** |  | [optional] 
+**position** | **Object** |  | [optional] 
 **netStablecoinEquivalence** | [**TransformedAssets**](TransformedAssets.md) |  | [optional] 

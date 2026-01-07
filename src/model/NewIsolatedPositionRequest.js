@@ -24,9 +24,9 @@ export default class NewIsolatedPositionRequest {
    * Constructs a new <code>NewIsolatedPositionRequest</code>.
    * @alias module:model/NewIsolatedPositionRequest
    * @class
-   * @param globalPositionId {String} 
-   * @param assetId {String} 
-   * @param quantity {String} 
+   * @param globalPositionId {Object} 
+   * @param assetId {Object} 
+   * @param quantity {Object} 
    */
   constructor(globalPositionId, assetId, quantity) {
     this.globalPositionId = globalPositionId;
@@ -45,35 +45,35 @@ export default class NewIsolatedPositionRequest {
     if (data) {
       obj = obj || new NewIsolatedPositionRequest();
       if (data.hasOwnProperty('global_position_id'))
-        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], 'String');
+        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], Object);
       if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
+        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+        obj.quantity = ApiClient.convertToType(data['quantity'], Object);
       if (data.hasOwnProperty('position_name'))
-        obj.positionName = ApiClient.convertToType(data['position_name'], 'String');
+        obj.positionName = ApiClient.convertToType(data['position_name'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} globalPositionId
+ * @member {Object} globalPositionId
  */
 NewIsolatedPositionRequest.prototype.globalPositionId = undefined;
 
 /**
- * @member {String} assetId
+ * @member {Object} assetId
  */
 NewIsolatedPositionRequest.prototype.assetId = undefined;
 
 /**
- * @member {String} quantity
+ * @member {Object} quantity
  */
 NewIsolatedPositionRequest.prototype.quantity = undefined;
 
 /**
- * @member {String} positionName
+ * @member {Object} positionName
  */
 NewIsolatedPositionRequest.prototype.positionName = undefined;
 

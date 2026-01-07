@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 
 /**
  * Enum class CandleResolution.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 const CandleResolution = {

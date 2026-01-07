@@ -39,28 +39,28 @@ export default class BalanceTransfer {
     if (data) {
       obj = obj || new BalanceTransfer();
       if (data.hasOwnProperty('from_position_id'))
-        obj.fromPositionId = ApiClient.convertToType(data['from_position_id'], 'String');
+        obj.fromPositionId = ApiClient.convertToType(data['from_position_id'], Object);
       if (data.hasOwnProperty('to_position_id'))
-        obj.toPositionId = ApiClient.convertToType(data['to_position_id'], 'String');
+        obj.toPositionId = ApiClient.convertToType(data['to_position_id'], Object);
       if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
+        obj.transactionId = ApiClient.convertToType(data['transaction_id'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} fromPositionId
+ * @member {Object} fromPositionId
  */
 BalanceTransfer.prototype.fromPositionId = undefined;
 
 /**
- * @member {String} toPositionId
+ * @member {Object} toPositionId
  */
 BalanceTransfer.prototype.toPositionId = undefined;
 
 /**
- * @member {String} transactionId
+ * @member {Object} transactionId
  */
 BalanceTransfer.prototype.transactionId = undefined;
 

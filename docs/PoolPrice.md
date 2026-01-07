@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**poolId** | **String** |  | [optional] 
-**price** | **String** |  | [optional] 
-**timestamp** | **Date** |  | [optional] 
+**poolId** | **Object** |  | [optional] 
+**price** | **Object** |  | [optional] 
+**timestamp** | **Object** |  | [optional] 

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 
 /**
  * Enum class LeverageType.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 const LeverageType = {

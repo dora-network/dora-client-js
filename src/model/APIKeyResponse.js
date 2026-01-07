@@ -39,42 +39,42 @@ export default class APIKeyResponse {
     if (data) {
       obj = obj || new APIKeyResponse();
       if (data.hasOwnProperty('user_id'))
-        obj.userId = ApiClient.convertToType(data['user_id'], 'String');
+        obj.userId = ApiClient.convertToType(data['user_id'], Object);
       if (data.hasOwnProperty('key_id'))
-        obj.keyId = ApiClient.convertToType(data['key_id'], 'String');
+        obj.keyId = ApiClient.convertToType(data['key_id'], Object);
       if (data.hasOwnProperty('label'))
-        obj.label = ApiClient.convertToType(data['label'], 'String');
+        obj.label = ApiClient.convertToType(data['label'], Object);
       if (data.hasOwnProperty('expires_at'))
-        obj.expiresAt = ApiClient.convertToType(data['expires_at'], 'Date');
+        obj.expiresAt = ApiClient.convertToType(data['expires_at'], Object);
       if (data.hasOwnProperty('is_active'))
-        obj.isActive = ApiClient.convertToType(data['is_active'], 'Boolean');
+        obj.isActive = ApiClient.convertToType(data['is_active'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} userId
+ * @member {Object} userId
  */
 APIKeyResponse.prototype.userId = undefined;
 
 /**
- * @member {String} keyId
+ * @member {Object} keyId
  */
 APIKeyResponse.prototype.keyId = undefined;
 
 /**
- * @member {String} label
+ * @member {Object} label
  */
 APIKeyResponse.prototype.label = undefined;
 
 /**
- * @member {Date} expiresAt
+ * @member {Object} expiresAt
  */
 APIKeyResponse.prototype.expiresAt = undefined;
 
 /**
- * @member {Boolean} isActive
+ * @member {Object} isActive
  */
 APIKeyResponse.prototype.isActive = undefined;
 

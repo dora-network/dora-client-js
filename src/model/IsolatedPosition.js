@@ -39,28 +39,28 @@ export default class IsolatedPosition {
     if (data) {
       obj = obj || new IsolatedPosition();
       if (data.hasOwnProperty('global_position_id'))
-        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], 'String');
+        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], Object);
       if (data.hasOwnProperty('isolated_position_id'))
-        obj.isolatedPositionId = ApiClient.convertToType(data['isolated_position_id'], 'String');
+        obj.isolatedPositionId = ApiClient.convertToType(data['isolated_position_id'], Object);
       if (data.hasOwnProperty('transaction_id'))
-        obj.transactionId = ApiClient.convertToType(data['transaction_id'], 'String');
+        obj.transactionId = ApiClient.convertToType(data['transaction_id'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} globalPositionId
+ * @member {Object} globalPositionId
  */
 IsolatedPosition.prototype.globalPositionId = undefined;
 
 /**
- * @member {String} isolatedPositionId
+ * @member {Object} isolatedPositionId
  */
 IsolatedPosition.prototype.isolatedPositionId = undefined;
 
 /**
- * @member {String} transactionId
+ * @member {Object} transactionId
  */
 IsolatedPosition.prototype.transactionId = undefined;
 

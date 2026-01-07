@@ -39,37 +39,33 @@ export default class Position {
     if (data) {
       obj = obj || new Position();
       if (data.hasOwnProperty('id'))
-        obj.id = ApiClient.convertToType(data['id'], 'String');
+        obj.id = ApiClient.convertToType(data['id'], Object);
       if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], 'String');
+        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('seq'))
-        obj.seq = ApiClient.convertToType(data['seq'], 'Number');
+        obj.seq = ApiClient.convertToType(data['seq'], Object);
       if (data.hasOwnProperty('is_global'))
-        obj.isGlobal = ApiClient.convertToType(data['is_global'], 'Boolean');
+        obj.isGlobal = ApiClient.convertToType(data['is_global'], Object);
       if (data.hasOwnProperty('available'))
-        obj.available = ApiClient.convertToType(data['available'], 'String');
+        obj.available = ApiClient.convertToType(data['available'], Object);
       if (data.hasOwnProperty('locked'))
-        obj.locked = ApiClient.convertToType(data['locked'], 'String');
+        obj.locked = ApiClient.convertToType(data['locked'], Object);
       if (data.hasOwnProperty('supplied'))
-        obj.supplied = ApiClient.convertToType(data['supplied'], 'String');
-      if (data.hasOwnProperty('collateral'))
-        obj.collateral = ApiClient.convertToType(data['collateral'], 'String');
-      if (data.hasOwnProperty('supplied_collateral'))
-        obj.suppliedCollateral = ApiClient.convertToType(data['supplied_collateral'], 'String');
+        obj.supplied = ApiClient.convertToType(data['supplied'], Object);
       if (data.hasOwnProperty('borrowed'))
-        obj.borrowed = ApiClient.convertToType(data['borrowed'], 'String');
+        obj.borrowed = ApiClient.convertToType(data['borrowed'], Object);
       if (data.hasOwnProperty('impending_borrows'))
-        obj.impendingBorrows = ApiClient.convertToType(data['impending_borrows'], 'String');
+        obj.impendingBorrows = ApiClient.convertToType(data['impending_borrows'], Object);
       if (data.hasOwnProperty('avg_entry_price'))
-        obj.avgEntryPrice = ApiClient.convertToType(data['avg_entry_price'], 'String');
+        obj.avgEntryPrice = ApiClient.convertToType(data['avg_entry_price'], Object);
       if (data.hasOwnProperty('borrow_limit'))
-        obj.borrowLimit = ApiClient.convertToType(data['borrow_limit'], 'String');
+        obj.borrowLimit = ApiClient.convertToType(data['borrow_limit'], Object);
       if (data.hasOwnProperty('liquidation_threshold'))
-        obj.liquidationThreshold = ApiClient.convertToType(data['liquidation_threshold'], 'String');
+        obj.liquidationThreshold = ApiClient.convertToType(data['liquidation_threshold'], Object);
       if (data.hasOwnProperty('created_at'))
-        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
+        obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
       if (data.hasOwnProperty('position_name'))
-        obj.positionName = ApiClient.convertToType(data['position_name'], 'String');
+        obj.positionName = ApiClient.convertToType(data['position_name'], Object);
     }
     return obj;
   }
@@ -77,92 +73,80 @@ export default class Position {
 
 /**
  * The unique identifier for the position. Used, for example, when creating an order from a position, or deciding collateral should be transferred from position A to position B.
- * @member {String} id
+ * @member {Object} id
  */
 Position.prototype.id = undefined;
 
 /**
- * @member {String} assetId
+ * @member {Object} assetId
  */
 Position.prototype.assetId = undefined;
 
 /**
- * @member {Number} seq
+ * @member {Object} seq
  */
 Position.prototype.seq = undefined;
 
 /**
- * @member {Boolean} isGlobal
+ * @member {Object} isGlobal
  */
 Position.prototype.isGlobal = undefined;
 
 /**
  * The available balance in the position for this asset that are not locked, supplied, or used as collateral
- * @member {String} available
+ * @member {Object} available
  */
 Position.prototype.available = undefined;
 
 /**
  * The balance that has been reserved for a current order. If spent by the order, they are removed. If the order is cancelled, they are returned to the position's available balance.
- * @member {String} locked
+ * @member {Object} locked
  */
 Position.prototype.locked = undefined;
 
 /**
  * The balance that user has supplied to the leverage module. The user remains entitled to these assets and can withdraw them into their available balance.
- * @member {String} supplied
+ * @member {Object} supplied
  */
 Position.prototype.supplied = undefined;
 
 /**
- * The balance that has been locked or supplied, but are marked as collateral to support borrow limits and can be consumed in case of liquidation. When unmarked as collateral, the balance returns to the available balance.
- * @member {String} collateral
- */
-Position.prototype.collateral = undefined;
-
-/**
- * The balance that have been supplied to the leverage module and marked as collateral. The user remains entitled to this balance and can withdraw it into the collateral balance, or unmark them as collateral and move them to the supplied balance.
- * @member {String} suppliedCollateral
- */
-Position.prototype.suppliedCollateral = undefined;
-
-/**
- * The total amount of debt outstanding for this position. The position's collateral + supplied_collateral must support a borrow limit sufficient to cover all borrowed assets. This position cannot be closed until all debt is fully repaid, i.e. borrowed = 0.
- * @member {String} borrowed
+ * The total amount of debt outstanding for this position. This position cannot be closed until all debt is fully repaid, i.e. borrowed = 0.
+ * @member {Object} borrowed
  */
 Position.prototype.borrowed = undefined;
 
 /**
  * The equivalent of locked balances, but for leveraged orders. If a user has an active order that would borrow assets as part of its input, then their borrow limit must be reduced until the order is executed or cancelled.
- * @member {String} impendingBorrows
+ * @member {Object} impendingBorrows
  */
 Position.prototype.impendingBorrows = undefined;
 
 /**
  * average cost per unit quantity that was paid (long positions) or received (short positions) for this asset.
- * @member {String} avgEntryPrice
+ * @member {Object} avgEntryPrice
  */
 Position.prototype.avgEntryPrice = undefined;
 
 /**
  * The borrow limit
- * @member {String} borrowLimit
+ * @member {Object} borrowLimit
  */
 Position.prototype.borrowLimit = undefined;
 
 /**
  * The borrow limit
- * @member {String} liquidationThreshold
+ * @member {Object} liquidationThreshold
  */
 Position.prototype.liquidationThreshold = undefined;
 
 /**
- * @member {Date} createdAt
+ * @member {Object} createdAt
  */
 Position.prototype.createdAt = undefined;
 
 /**
- * @member {String} positionName
+ * @member {Object} positionName
  */
 Position.prototype.positionName = undefined;
 

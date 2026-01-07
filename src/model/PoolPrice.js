@@ -39,28 +39,28 @@ export default class PoolPrice {
     if (data) {
       obj = obj || new PoolPrice();
       if (data.hasOwnProperty('pool_id'))
-        obj.poolId = ApiClient.convertToType(data['pool_id'], 'String');
+        obj.poolId = ApiClient.convertToType(data['pool_id'], Object);
       if (data.hasOwnProperty('price'))
-        obj.price = ApiClient.convertToType(data['price'], 'String');
+        obj.price = ApiClient.convertToType(data['price'], Object);
       if (data.hasOwnProperty('timestamp'))
-        obj.timestamp = ApiClient.convertToType(data['timestamp'], 'Date');
+        obj.timestamp = ApiClient.convertToType(data['timestamp'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} poolId
+ * @member {Object} poolId
  */
 PoolPrice.prototype.poolId = undefined;
 
 /**
- * @member {String} price
+ * @member {Object} price
  */
 PoolPrice.prototype.price = undefined;
 
 /**
- * @member {Date} timestamp
+ * @member {Object} timestamp
  */
 PoolPrice.prototype.timestamp = undefined;
 

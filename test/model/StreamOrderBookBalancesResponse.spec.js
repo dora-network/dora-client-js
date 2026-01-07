@@ -39,6 +39,12 @@
         expect(instance).to.be.a(Dora.StreamOrderBookBalancesResponse);
       });
 
+      it('should have the property streamOrderBookBalances (base name: "stream_order_book_balances")', function() {
+        // TODO: update the code to test the property streamOrderBookBalances
+        expect(instance).to.have.property('streamOrderBookBalances');
+        // expect(instance.streamOrderBookBalances).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

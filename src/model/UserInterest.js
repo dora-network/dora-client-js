@@ -39,21 +39,21 @@ export default class UserInterest {
     if (data) {
       obj = obj || new UserInterest();
       if (data.hasOwnProperty('available'))
-        obj.available = ApiClient.convertToType(data['available'], {'String': 'Number'});
+        obj.available = ApiClient.convertToType(data['available'], Object);
       if (data.hasOwnProperty('value'))
-        obj.value = ApiClient.convertToType(data['value'], {'String': 'String'});
+        obj.value = ApiClient.convertToType(data['value'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {Object.<String, Number>} available
+ * @member {Object} available
  */
 UserInterest.prototype.available = undefined;
 
 /**
- * @member {Object.<String, String>} value
+ * @member {Object} value
  */
 UserInterest.prototype.value = undefined;
 

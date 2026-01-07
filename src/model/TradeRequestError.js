@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The TradeRequestError model module.
  * @module model/TradeRequestError
  * @version 1.0.0
  */
-export default class TradeRequestError extends ResponseEnvelope {
+export default class TradeRequestError {
   /**
    * Constructs a new <code>TradeRequestError</code>.
    * @alias module:model/TradeRequestError
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class TradeRequestError extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new TradeRequestError();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('error'))
-        obj.error = ApiClient.convertToType(data['error'], 'String');
     }
     return obj;
   }
 }
-
-/**
- * @member {String} error
- */
-TradeRequestError.prototype.error = undefined;
-

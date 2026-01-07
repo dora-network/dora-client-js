@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 
 /**
  * Enum class BondKind.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 const BondKind = {

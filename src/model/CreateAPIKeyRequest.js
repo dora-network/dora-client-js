@@ -39,22 +39,22 @@ export default class CreateAPIKeyRequest {
     if (data) {
       obj = obj || new CreateAPIKeyRequest();
       if (data.hasOwnProperty('label'))
-        obj.label = ApiClient.convertToType(data['label'], 'String');
+        obj.label = ApiClient.convertToType(data['label'], Object);
       if (data.hasOwnProperty('expires'))
-        obj.expires = ApiClient.convertToType(data['expires'], 'Date');
+        obj.expires = ApiClient.convertToType(data['expires'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} label
+ * @member {Object} label
  */
 CreateAPIKeyRequest.prototype.label = undefined;
 
 /**
  * Date at which the api-key will expire
- * @member {Date} expires
+ * @member {Object} expires
  */
 CreateAPIKeyRequest.prototype.expires = undefined;
 

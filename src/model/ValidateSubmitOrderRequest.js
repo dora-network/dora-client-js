@@ -26,12 +26,12 @@ export default class ValidateSubmitOrderRequest {
    * Constructs a new <code>ValidateSubmitOrderRequest</code>.
    * @alias module:model/ValidateSubmitOrderRequest
    * @class
-   * @param quantity {String} 
-   * @param tick {String} Minimum tradable increment for the selected order book
-   * @param kind {module:model/OrderKind} 
-   * @param price {String} If kind is LIMIT, must be > 0; if MARKET it must be 0 or omitted
-   * @param inverseLeverage {String} 
-   * @param userBalance {String} User balance used to ensure they can afford the requested quantity
+   * @param quantity {Object} 
+   * @param tick {Object} Minimum tradable increment for the selected order book
+   * @param kind {module:model/OrderKind} Must be LIMIT or MARKET
+   * @param price {Object} If kind is LIMIT, must be > 0; if MARKET it must be 0 or omitted
+   * @param inverseLeverage {Object} 
+   * @param userBalance {Object} User balance used to ensure they can afford the requested quantity
    */
   constructor(quantity, tick, kind, price, inverseLeverage, userBalance) {
     this.quantity = quantity;
@@ -53,66 +53,100 @@ export default class ValidateSubmitOrderRequest {
     if (data) {
       obj = obj || new ValidateSubmitOrderRequest();
       if (data.hasOwnProperty('quantity'))
-        obj.quantity = ApiClient.convertToType(data['quantity'], 'String');
+        obj.quantity = ApiClient.convertToType(data['quantity'], Object);
       if (data.hasOwnProperty('tick'))
-        obj.tick = ApiClient.convertToType(data['tick'], 'String');
+        obj.tick = ApiClient.convertToType(data['tick'], Object);
       if (data.hasOwnProperty('kind'))
         obj.kind = OrderKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('side'))
         obj.side = Side.constructFromObject(data['side']);
       if (data.hasOwnProperty('price'))
-        obj.price = ApiClient.convertToType(data['price'], 'String');
+        obj.price = ApiClient.convertToType(data['price'], Object);
       if (data.hasOwnProperty('good_till_date'))
-        obj.goodTillDate = ApiClient.convertToType(data['good_till_date'], 'Date');
+        obj.goodTillDate = ApiClient.convertToType(data['good_till_date'], Object);
       if (data.hasOwnProperty('inverse_leverage'))
-        obj.inverseLeverage = ApiClient.convertToType(data['inverse_leverage'], 'String');
+        obj.inverseLeverage = ApiClient.convertToType(data['inverse_leverage'], Object);
       if (data.hasOwnProperty('user_balance'))
-        obj.userBalance = ApiClient.convertToType(data['user_balance'], 'String');
+        obj.userBalance = ApiClient.convertToType(data['user_balance'], Object);
+      if (data.hasOwnProperty('base_asset_id'))
+        obj.baseAssetId = ApiClient.convertToType(data['base_asset_id'], Object);
+      if (data.hasOwnProperty('quote_asset_id'))
+        obj.quoteAssetId = ApiClient.convertToType(data['quote_asset_id'], Object);
+      if (data.hasOwnProperty('position_assets'))
+        obj.positionAssets = ApiClient.convertToType(data['position_assets'], Object);
+      if (data.hasOwnProperty('assets_config'))
+        obj.assetsConfig = ApiClient.convertToType(data['assets_config'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} quantity
+ * @member {Object} quantity
  */
 ValidateSubmitOrderRequest.prototype.quantity = undefined;
 
 /**
  * Minimum tradable increment for the selected order book
- * @member {String} tick
+ * @member {Object} tick
  */
 ValidateSubmitOrderRequest.prototype.tick = undefined;
 
 /**
+ * Must be LIMIT or MARKET
  * @member {module:model/OrderKind} kind
  */
 ValidateSubmitOrderRequest.prototype.kind = undefined;
 
 /**
+ * Must be BUY or SELL
  * @member {module:model/Side} side
  */
 ValidateSubmitOrderRequest.prototype.side = undefined;
 
 /**
  * If kind is LIMIT, must be > 0; if MARKET it must be 0 or omitted
- * @member {String} price
+ * @member {Object} price
  */
 ValidateSubmitOrderRequest.prototype.price = undefined;
 
 /**
- * @member {Date} goodTillDate
+ * @member {Object} goodTillDate
  */
 ValidateSubmitOrderRequest.prototype.goodTillDate = undefined;
 
 /**
- * @member {String} inverseLeverage
+ * @member {Object} inverseLeverage
  */
 ValidateSubmitOrderRequest.prototype.inverseLeverage = undefined;
 
 /**
  * User balance used to ensure they can afford the requested quantity
- * @member {String} userBalance
+ * @member {Object} userBalance
  */
 ValidateSubmitOrderRequest.prototype.userBalance = undefined;
+
+/**
+ * base asset of orderbook
+ * @member {Object} baseAssetId
+ */
+ValidateSubmitOrderRequest.prototype.baseAssetId = undefined;
+
+/**
+ * quote asset of orderbook
+ * @member {Object} quoteAssetId
+ */
+ValidateSubmitOrderRequest.prototype.quoteAssetId = undefined;
+
+/**
+ * Full list of assets in the position with their price and collateral weight, required when inverse_leverage < 1 for leverage health checks
+ * @member {Object} positionAssets
+ */
+ValidateSubmitOrderRequest.prototype.positionAssets = undefined;
+
+/**
+ * Configuration for the assets in the order
+ * @member {Object} assetsConfig
+ */
+ValidateSubmitOrderRequest.prototype.assetsConfig = undefined;
 

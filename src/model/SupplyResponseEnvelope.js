@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
-import Supply from './Supply';
 
 /**
  * The SupplyResponseEnvelope model module.
  * @module model/SupplyResponseEnvelope
  * @version 1.0.0
  */
-export default class SupplyResponseEnvelope extends ResponseEnvelope {
+export default class SupplyResponseEnvelope {
   /**
    * Constructs a new <code>SupplyResponseEnvelope</code>.
    * @alias module:model/SupplyResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class SupplyResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new SupplyResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = Supply.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Supply} data
- */
-SupplyResponseEnvelope.prototype.data = undefined;
-

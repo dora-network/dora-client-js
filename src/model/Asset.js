@@ -41,45 +41,45 @@ export default class Asset {
     if (data) {
       obj = obj || new Asset();
       if (data.hasOwnProperty('id'))
-        obj.id = ApiClient.convertToType(data['id'], 'String');
+        obj.id = ApiClient.convertToType(data['id'], Object);
       if (data.hasOwnProperty('collateral_weight'))
-        obj.collateralWeight = ApiClient.convertToType(data['collateral_weight'], 'Number');
+        obj.collateralWeight = ApiClient.convertToType(data['collateral_weight'], Object);
       if (data.hasOwnProperty('created_at'))
-        obj.createdAt = ApiClient.convertToType(data['created_at'], 'Date');
+        obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
       if (data.hasOwnProperty('decimals'))
-        obj.decimals = ApiClient.convertToType(data['decimals'], 'Number');
+        obj.decimals = ApiClient.convertToType(data['decimals'], Object);
       if (data.hasOwnProperty('fractionalized_units'))
-        obj.fractionalizedUnits = ApiClient.convertToType(data['fractionalized_units'], 'Number');
+        obj.fractionalizedUnits = ApiClient.convertToType(data['fractionalized_units'], Object);
       if (data.hasOwnProperty('description'))
-        obj.description = ApiClient.convertToType(data['description'], 'String');
+        obj.description = ApiClient.convertToType(data['description'], Object);
       if (data.hasOwnProperty('liquidation_threshold'))
-        obj.liquidationThreshold = ApiClient.convertToType(data['liquidation_threshold'], 'Number');
+        obj.liquidationThreshold = ApiClient.convertToType(data['liquidation_threshold'], Object);
       if (data.hasOwnProperty('maturity_id'))
-        obj.maturityId = ApiClient.convertToType(data['maturity_id'], 'String');
+        obj.maturityId = ApiClient.convertToType(data['maturity_id'], Object);
       if (data.hasOwnProperty('max_supply'))
-        obj.maxSupply = ApiClient.convertToType(data['max_supply'], 'Number');
+        obj.maxSupply = ApiClient.convertToType(data['max_supply'], Object);
       if (data.hasOwnProperty('max_utilization'))
-        obj.maxUtilization = ApiClient.convertToType(data['max_utilization'], 'Number');
+        obj.maxUtilization = ApiClient.convertToType(data['max_utilization'], Object);
       if (data.hasOwnProperty('name'))
-        obj.name = ApiClient.convertToType(data['name'], 'String');
+        obj.name = ApiClient.convertToType(data['name'], Object);
       if (data.hasOwnProperty('symbol'))
-        obj.symbol = ApiClient.convertToType(data['symbol'], 'String');
+        obj.symbol = ApiClient.convertToType(data['symbol'], Object);
       if (data.hasOwnProperty('kind'))
         obj.kind = AssetKind.constructFromObject(data['kind']);
       if (data.hasOwnProperty('yield'))
-        obj._yield = ApiClient.convertToType(data['yield'], 'Number');
+        obj._yield = ApiClient.convertToType(data['yield'], Object);
       if (data.hasOwnProperty('can_add_liquidity'))
-        obj.canAddLiquidity = ApiClient.convertToType(data['can_add_liquidity'], 'Boolean');
+        obj.canAddLiquidity = ApiClient.convertToType(data['can_add_liquidity'], Object);
       if (data.hasOwnProperty('can_direct_borrow'))
-        obj.canDirectBorrow = ApiClient.convertToType(data['can_direct_borrow'], 'Boolean');
+        obj.canDirectBorrow = ApiClient.convertToType(data['can_direct_borrow'], Object);
       if (data.hasOwnProperty('can_onboard'))
-        obj.canOnboard = ApiClient.convertToType(data['can_onboard'], 'Boolean');
+        obj.canOnboard = ApiClient.convertToType(data['can_onboard'], Object);
       if (data.hasOwnProperty('can_trade'))
-        obj.canTrade = ApiClient.convertToType(data['can_trade'], 'Boolean');
+        obj.canTrade = ApiClient.convertToType(data['can_trade'], Object);
       if (data.hasOwnProperty('can_virtual_borrow'))
-        obj.canVirtualBorrow = ApiClient.convertToType(data['can_virtual_borrow'], 'Boolean');
+        obj.canVirtualBorrow = ApiClient.convertToType(data['can_virtual_borrow'], Object);
       if (data.hasOwnProperty('max_leverage'))
-        obj.maxLeverage = ApiClient.convertToType(data['max_leverage'], 'Number');
+        obj.maxLeverage = ApiClient.convertToType(data['max_leverage'], Object);
       if (data.hasOwnProperty('bond'))
         obj.bond = Bond.constructFromObject(data['bond']);
     }
@@ -88,62 +88,62 @@ export default class Asset {
 }
 
 /**
- * @member {String} id
+ * @member {Object} id
  */
 Asset.prototype.id = undefined;
 
 /**
- * @member {Number} collateralWeight
+ * @member {Object} collateralWeight
  */
 Asset.prototype.collateralWeight = undefined;
 
 /**
- * @member {Date} createdAt
+ * @member {Object} createdAt
  */
 Asset.prototype.createdAt = undefined;
 
 /**
- * @member {Number} decimals
+ * @member {Object} decimals
  */
 Asset.prototype.decimals = undefined;
 
 /**
- * @member {Number} fractionalizedUnits
+ * @member {Object} fractionalizedUnits
  */
 Asset.prototype.fractionalizedUnits = undefined;
 
 /**
- * @member {String} description
+ * @member {Object} description
  */
 Asset.prototype.description = undefined;
 
 /**
- * @member {Number} liquidationThreshold
+ * @member {Object} liquidationThreshold
  */
 Asset.prototype.liquidationThreshold = undefined;
 
 /**
- * @member {String} maturityId
+ * @member {Object} maturityId
  */
 Asset.prototype.maturityId = undefined;
 
 /**
- * @member {Number} maxSupply
+ * @member {Object} maxSupply
  */
 Asset.prototype.maxSupply = undefined;
 
 /**
- * @member {Number} maxUtilization
+ * @member {Object} maxUtilization
  */
 Asset.prototype.maxUtilization = undefined;
 
 /**
- * @member {String} name
+ * @member {Object} name
  */
 Asset.prototype.name = undefined;
 
 /**
- * @member {String} symbol
+ * @member {Object} symbol
  */
 Asset.prototype.symbol = undefined;
 
@@ -153,37 +153,37 @@ Asset.prototype.symbol = undefined;
 Asset.prototype.kind = undefined;
 
 /**
- * @member {Number} _yield
+ * @member {Object} _yield
  */
 Asset.prototype._yield = undefined;
 
 /**
- * @member {Boolean} canAddLiquidity
+ * @member {Object} canAddLiquidity
  */
 Asset.prototype.canAddLiquidity = undefined;
 
 /**
- * @member {Boolean} canDirectBorrow
+ * @member {Object} canDirectBorrow
  */
 Asset.prototype.canDirectBorrow = undefined;
 
 /**
- * @member {Boolean} canOnboard
+ * @member {Object} canOnboard
  */
 Asset.prototype.canOnboard = undefined;
 
 /**
- * @member {Boolean} canTrade
+ * @member {Object} canTrade
  */
 Asset.prototype.canTrade = undefined;
 
 /**
- * @member {Boolean} canVirtualBorrow
+ * @member {Object} canVirtualBorrow
  */
 Asset.prototype.canVirtualBorrow = undefined;
 
 /**
- * @member {Number} maxLeverage
+ * @member {Object} maxLeverage
  */
 Asset.prototype.maxLeverage = undefined;
 

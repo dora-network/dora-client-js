@@ -13,22 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import StreamOrderBookBalanceEntry from './StreamOrderBookBalanceEntry';
 
 /**
  * The StreamOrderBookBalancesResponse model module.
  * @module model/StreamOrderBookBalancesResponse
  * @version 1.0.0
  */
-export default class StreamOrderBookBalancesResponse extends Array {
+export default class StreamOrderBookBalancesResponse {
   /**
    * Constructs a new <code>StreamOrderBookBalancesResponse</code>.
    * @alias module:model/StreamOrderBookBalancesResponse
    * @class
-   * @extends Array
    */
   constructor() {
-    super();
   }
 
   /**
@@ -41,8 +38,15 @@ export default class StreamOrderBookBalancesResponse extends Array {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamOrderBookBalancesResponse();
-      ApiClient.constructFromObject(data, obj, 'StreamOrderBookBalanceEntry');
+      if (data.hasOwnProperty('stream_order_book_balances'))
+        obj.streamOrderBookBalances = ApiClient.convertToType(data['stream_order_book_balances'], Object);
     }
     return obj;
   }
 }
+
+/**
+ * @member {Object} streamOrderBookBalances
+ */
+StreamOrderBookBalancesResponse.prototype.streamOrderBookBalances = undefined;
+

@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import PositionResponse from './PositionResponse';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The UserPositionResponseEnvelope model module.
  * @module model/UserPositionResponseEnvelope
  * @version 1.0.0
  */
-export default class UserPositionResponseEnvelope extends ResponseEnvelope {
+export default class UserPositionResponseEnvelope {
   /**
    * Constructs a new <code>UserPositionResponseEnvelope</code>.
    * @alias module:model/UserPositionResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class UserPositionResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new UserPositionResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = PositionResponse.constructFromObject(data['data']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/PositionResponse} data
- */
-UserPositionResponseEnvelope.prototype.data = undefined;
-

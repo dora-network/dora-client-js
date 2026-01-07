@@ -63,18 +63,6 @@
         // expect(instance.supplied).to.be(expectedValueLiteral);
       });
 
-      it('should have the property collateral (base name: "collateral")', function() {
-        // TODO: update the code to test the property collateral
-        expect(instance).to.have.property('collateral');
-        // expect(instance.collateral).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property suppliedCollateral (base name: "supplied_collateral")', function() {
-        // TODO: update the code to test the property suppliedCollateral
-        expect(instance).to.have.property('suppliedCollateral');
-        // expect(instance.suppliedCollateral).to.be(expectedValueLiteral);
-      });
-
       it('should have the property impendingBorrows (base name: "impending_borrows")', function() {
         // TODO: update the code to test the property impendingBorrows
         expect(instance).to.have.property('impendingBorrows');

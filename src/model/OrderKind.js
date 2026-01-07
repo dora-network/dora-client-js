@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 
 /**
  * Enum class OrderKind.
- * @enum {String}
+ * @enum {Object}
  * @readonly
  */
 const OrderKind = {

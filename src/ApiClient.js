@@ -40,6 +40,8 @@ export default class ApiClient {
          * @type {Array.<String>}
          */
         this.authentications = {
+            'apiKeyAuthHeader': {type: 'apiKey', 'in': 'header', name: 'Authorization'},
+            'apiKeyAuthQuery': {type: 'apiKey', 'in': 'query', name: 'x-api-key'},
         }
 
         /**

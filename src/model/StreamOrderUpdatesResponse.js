@@ -13,22 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import StreamOrderUpdatesEntry from './StreamOrderUpdatesEntry';
 
 /**
  * The StreamOrderUpdatesResponse model module.
  * @module model/StreamOrderUpdatesResponse
  * @version 1.0.0
  */
-export default class StreamOrderUpdatesResponse extends Array {
+export default class StreamOrderUpdatesResponse {
   /**
    * Constructs a new <code>StreamOrderUpdatesResponse</code>.
    * @alias module:model/StreamOrderUpdatesResponse
    * @class
-   * @extends Array
    */
   constructor() {
-    super();
   }
 
   /**
@@ -41,8 +38,15 @@ export default class StreamOrderUpdatesResponse extends Array {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamOrderUpdatesResponse();
-      ApiClient.constructFromObject(data, obj, 'StreamOrderUpdatesEntry');
+      if (data.hasOwnProperty('stream_order_update_entries'))
+        obj.streamOrderUpdateEntries = ApiClient.convertToType(data['stream_order_update_entries'], Object);
     }
     return obj;
   }
 }
+
+/**
+ * @member {Object} streamOrderUpdateEntries
+ */
+StreamOrderUpdatesResponse.prototype.streamOrderUpdateEntries = undefined;
+

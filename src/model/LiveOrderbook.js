@@ -13,7 +13,6 @@
  *
  */
 import ApiClient from '../ApiClient';
-import PriceLevel from './PriceLevel';
 
 /**
  * The LiveOrderbook model module.
@@ -40,9 +39,9 @@ export default class LiveOrderbook {
     if (data) {
       obj = obj || new LiveOrderbook();
       if (data.hasOwnProperty('bids'))
-        obj.bids = ApiClient.convertToType(data['bids'], [PriceLevel]);
+        obj.bids = ApiClient.convertToType(data['bids'], Object);
       if (data.hasOwnProperty('asks'))
-        obj.asks = ApiClient.convertToType(data['asks'], [PriceLevel]);
+        obj.asks = ApiClient.convertToType(data['asks'], Object);
     }
     return obj;
   }
@@ -50,13 +49,13 @@ export default class LiveOrderbook {
 
 /**
  * sorted in desc order by price
- * @member {Array.<module:model/PriceLevel>} bids
+ * @member {Object} bids
  */
 LiveOrderbook.prototype.bids = undefined;
 
 /**
  * sorted in asc order by price
- * @member {Array.<module:model/PriceLevel>} asks
+ * @member {Object} asks
  */
 LiveOrderbook.prototype.asks = undefined;
 

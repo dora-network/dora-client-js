@@ -43,7 +43,7 @@ export default class ResponseEnvelope {
       if (data.hasOwnProperty('data'))
         obj.data = ApiClient.convertToType(data['data'], Object);
       if (data.hasOwnProperty('error'))
-        obj.error = ApiClient.convertToType(data['error'], 'String');
+        obj.error = ApiClient.convertToType(data['error'], Object);
       if (data.hasOwnProperty('metadata'))
         obj.metadata = Metadata.constructFromObject(data['metadata']);
     }
@@ -59,11 +59,12 @@ ResponseEnvelope.prototype.data = undefined;
 
 /**
  * The error message. Present for error (non-2xx) responses.
- * @member {String} error
+ * @member {Object} error
  */
 ResponseEnvelope.prototype.error = undefined;
 
 /**
+ * Metadata about the response, including status code and trace information.
  * @member {module:model/Metadata} metadata
  */
 ResponseEnvelope.prototype.metadata = undefined;

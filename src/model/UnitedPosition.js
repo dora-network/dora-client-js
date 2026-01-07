@@ -39,21 +39,21 @@ export default class UnitedPosition {
     if (data) {
       obj = obj || new UnitedPosition();
       if (data.hasOwnProperty('global_position_id'))
-        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], 'String');
+        obj.globalPositionId = ApiClient.convertToType(data['global_position_id'], Object);
       if (data.hasOwnProperty('transaction_ids'))
-        obj.transactionIds = ApiClient.convertToType(data['transaction_ids'], ['String']);
+        obj.transactionIds = ApiClient.convertToType(data['transaction_ids'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} globalPositionId
+ * @member {Object} globalPositionId
  */
 UnitedPosition.prototype.globalPositionId = undefined;
 
 /**
- * @member {Array.<String>} transactionIds
+ * @member {Object} transactionIds
  */
 UnitedPosition.prototype.transactionIds = undefined;
 

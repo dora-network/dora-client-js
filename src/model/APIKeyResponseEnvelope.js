@@ -13,24 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import APIKeyResponse from './APIKeyResponse';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The APIKeyResponseEnvelope model module.
  * @module model/APIKeyResponseEnvelope
  * @version 1.0.0
  */
-export default class APIKeyResponseEnvelope extends ResponseEnvelope {
+export default class APIKeyResponseEnvelope {
   /**
    * Constructs a new <code>APIKeyResponseEnvelope</code>.
    * @alias module:model/APIKeyResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -43,16 +38,7 @@ export default class APIKeyResponseEnvelope extends ResponseEnvelope {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new APIKeyResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], [APIKeyResponse]);
     }
     return obj;
   }
 }
-
-/**
- * @member {Array.<module:model/APIKeyResponse>} data
- */
-APIKeyResponseEnvelope.prototype.data = undefined;
-

@@ -3,13 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**quantity** | **String** |  | 
-**inverseLeverage** | **String** |  | 
-**price** | **String** |  | [optional] 
+**quantity** | **Object** |  | 
+**inverseLeverage** | **Object** |  | 
+**price** | **Object** |  | [optional] 
 **kind** | [**OrderKind**](OrderKind.md) |  | 
-**side** | [**Side**](Side.md) |  | 
-**positionId** | **String** | position ID to use for the order. required. | 
-**orderBookId** | **String** | Required: the order book to submit the order to | 
-**orderModifiers** | [**[OrderModifierKind]**](OrderModifierKind.md) |  | [optional] 
-**goodTillDate** | **Date** |  | [optional] 
-**triggerPrice** | **String** |  | [optional] 
+**side** | [**Side**](Side.md) | Required: Must be either &#x27;BUY&#x27; or &#x27;SELL&#x27; | 
+**fromGlobalPosition** | **Object** | use global position for the order or isolated. required. | 
+**orderBookId** | **Object** | Required: the order book to submit the order to | 
+**orderModifiers** | **Object** |  | [optional] 
+**goodTillDate** | **Object** |  | [optional] 
+**triggerPrice** | **Object** |  | [optional] 
+**triggerType** | [**TriggerType**](TriggerType.md) |  | [optional] 

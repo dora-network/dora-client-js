@@ -39,28 +39,28 @@ export default class CreateAPIKeyData {
     if (data) {
       obj = obj || new CreateAPIKeyData();
       if (data.hasOwnProperty('key_id'))
-        obj.keyId = ApiClient.convertToType(data['key_id'], 'String');
+        obj.keyId = ApiClient.convertToType(data['key_id'], Object);
       if (data.hasOwnProperty('api_key'))
-        obj.apiKey = ApiClient.convertToType(data['api_key'], 'String');
+        obj.apiKey = ApiClient.convertToType(data['api_key'], Object);
       if (data.hasOwnProperty('label'))
-        obj.label = ApiClient.convertToType(data['label'], 'String');
+        obj.label = ApiClient.convertToType(data['label'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {String} keyId
+ * @member {Object} keyId
  */
 CreateAPIKeyData.prototype.keyId = undefined;
 
 /**
- * @member {String} apiKey
+ * @member {Object} apiKey
  */
 CreateAPIKeyData.prototype.apiKey = undefined;
 
 /**
- * @member {String} label
+ * @member {Object} label
  */
 CreateAPIKeyData.prototype.label = undefined;
 

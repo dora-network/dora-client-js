@@ -39,112 +39,98 @@ export default class UserValue {
     if (data) {
       obj = obj || new UserValue();
       if (data.hasOwnProperty('available'))
-        obj.available = ApiClient.convertToType(data['available'], {'String': 'String'});
+        obj.available = ApiClient.convertToType(data['available'], Object);
       if (data.hasOwnProperty('locked'))
-        obj.locked = ApiClient.convertToType(data['locked'], {'String': 'String'});
+        obj.locked = ApiClient.convertToType(data['locked'], Object);
       if (data.hasOwnProperty('borrowed'))
-        obj.borrowed = ApiClient.convertToType(data['borrowed'], {'String': 'String'});
+        obj.borrowed = ApiClient.convertToType(data['borrowed'], Object);
       if (data.hasOwnProperty('supplied'))
-        obj.supplied = ApiClient.convertToType(data['supplied'], {'String': 'String'});
-      if (data.hasOwnProperty('collateral'))
-        obj.collateral = ApiClient.convertToType(data['collateral'], {'String': 'String'});
-      if (data.hasOwnProperty('supplied_collateral'))
-        obj.suppliedCollateral = ApiClient.convertToType(data['supplied_collateral'], {'String': 'String'});
+        obj.supplied = ApiClient.convertToType(data['supplied'], Object);
       if (data.hasOwnProperty('impending_borrows'))
-        obj.impendingBorrows = ApiClient.convertToType(data['impending_borrows'], {'String': 'String'});
+        obj.impendingBorrows = ApiClient.convertToType(data['impending_borrows'], Object);
       if (data.hasOwnProperty('borrow_limit'))
-        obj.borrowLimit = ApiClient.convertToType(data['borrow_limit'], {'String': 'String'});
+        obj.borrowLimit = ApiClient.convertToType(data['borrow_limit'], Object);
       if (data.hasOwnProperty('liquidation_threshold'))
-        obj.liquidationThreshold = ApiClient.convertToType(data['liquidation_threshold'], {'String': 'String'});
+        obj.liquidationThreshold = ApiClient.convertToType(data['liquidation_threshold'], Object);
       if (data.hasOwnProperty('notional_long'))
-        obj.notionalLong = ApiClient.convertToType(data['notional_long'], {'String': 'String'});
+        obj.notionalLong = ApiClient.convertToType(data['notional_long'], Object);
       if (data.hasOwnProperty('notional_short'))
-        obj.notionalShort = ApiClient.convertToType(data['notional_short'], {'String': 'String'});
+        obj.notionalShort = ApiClient.convertToType(data['notional_short'], Object);
       if (data.hasOwnProperty('portfolio_value'))
-        obj.portfolioValue = ApiClient.convertToType(data['portfolio_value'], {'String': 'String'});
+        obj.portfolioValue = ApiClient.convertToType(data['portfolio_value'], Object);
       if (data.hasOwnProperty('net_liquidation_value'))
-        obj.netLiquidationValue = ApiClient.convertToType(data['net_liquidation_value'], {'String': 'String'});
+        obj.netLiquidationValue = ApiClient.convertToType(data['net_liquidation_value'], Object);
       if (data.hasOwnProperty('unrealized_pnl'))
-        obj.unrealizedPnl = ApiClient.convertToType(data['unrealized_pnl'], {'String': 'String'});
+        obj.unrealizedPnl = ApiClient.convertToType(data['unrealized_pnl'], Object);
       if (data.hasOwnProperty('realized_pnl'))
-        obj.realizedPnl = ApiClient.convertToType(data['realized_pnl'], {'String': 'String'});
+        obj.realizedPnl = ApiClient.convertToType(data['realized_pnl'], Object);
     }
     return obj;
   }
 }
 
 /**
- * @member {Object.<String, String>} available
+ * @member {Object} available
  */
 UserValue.prototype.available = undefined;
 
 /**
- * @member {Object.<String, String>} locked
+ * @member {Object} locked
  */
 UserValue.prototype.locked = undefined;
 
 /**
- * @member {Object.<String, String>} borrowed
+ * @member {Object} borrowed
  */
 UserValue.prototype.borrowed = undefined;
 
 /**
- * @member {Object.<String, String>} supplied
+ * @member {Object} supplied
  */
 UserValue.prototype.supplied = undefined;
 
 /**
- * @member {Object.<String, String>} collateral
- */
-UserValue.prototype.collateral = undefined;
-
-/**
- * @member {Object.<String, String>} suppliedCollateral
- */
-UserValue.prototype.suppliedCollateral = undefined;
-
-/**
- * @member {Object.<String, String>} impendingBorrows
+ * @member {Object} impendingBorrows
  */
 UserValue.prototype.impendingBorrows = undefined;
 
 /**
- * @member {Object.<String, String>} borrowLimit
+ * @member {Object} borrowLimit
  */
 UserValue.prototype.borrowLimit = undefined;
 
 /**
- * @member {Object.<String, String>} liquidationThreshold
+ * @member {Object} liquidationThreshold
  */
 UserValue.prototype.liquidationThreshold = undefined;
 
 /**
- * @member {Object.<String, String>} notionalLong
+ * @member {Object} notionalLong
  */
 UserValue.prototype.notionalLong = undefined;
 
 /**
- * @member {Object.<String, String>} notionalShort
+ * @member {Object} notionalShort
  */
 UserValue.prototype.notionalShort = undefined;
 
 /**
- * @member {Object.<String, String>} portfolioValue
+ * @member {Object} portfolioValue
  */
 UserValue.prototype.portfolioValue = undefined;
 
 /**
- * @member {Object.<String, String>} netLiquidationValue
+ * @member {Object} netLiquidationValue
  */
 UserValue.prototype.netLiquidationValue = undefined;
 
 /**
- * @member {Object.<String, String>} unrealizedPnl
+ * @member {Object} unrealizedPnl
  */
 UserValue.prototype.unrealizedPnl = undefined;
 
 /**
- * @member {Object.<String, String>} realizedPnl
+ * @member {Object} realizedPnl
  */
 UserValue.prototype.realizedPnl = undefined;
 

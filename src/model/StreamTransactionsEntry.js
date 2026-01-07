@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import StreamEntry from './StreamEntry';
-import Transaction from './Transaction';
 
 /**
  * The StreamTransactionsEntry model module.
  * @module model/StreamTransactionsEntry
  * @version 1.0.0
  */
-export default class StreamTransactionsEntry extends StreamEntry {
+export default class StreamTransactionsEntry {
   /**
    * Constructs a new <code>StreamTransactionsEntry</code>.
    * @alias module:model/StreamTransactionsEntry
    * @class
-   * @extends module:model/StreamEntry
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class StreamTransactionsEntry extends StreamEntry {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamTransactionsEntry();
-      StreamEntry.constructFromObject(data, obj);
-      if (data.hasOwnProperty('Val'))
-        obj.val = Transaction.constructFromObject(data['Val']);
     }
     return obj;
   }
 }
-
-/**
- * @member {module:model/Transaction} val
- */
-StreamTransactionsEntry.prototype.val = undefined;
-

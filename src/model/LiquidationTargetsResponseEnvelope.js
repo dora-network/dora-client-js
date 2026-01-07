@@ -13,23 +13,19 @@
  *
  */
 import ApiClient from '../ApiClient';
-import Metadata from './Metadata';
-import ResponseEnvelope from './ResponseEnvelope';
 
 /**
  * The LiquidationTargetsResponseEnvelope model module.
  * @module model/LiquidationTargetsResponseEnvelope
  * @version 1.0.0
  */
-export default class LiquidationTargetsResponseEnvelope extends ResponseEnvelope {
+export default class LiquidationTargetsResponseEnvelope {
   /**
    * Constructs a new <code>LiquidationTargetsResponseEnvelope</code>.
    * @alias module:model/LiquidationTargetsResponseEnvelope
    * @class
-   * @extends module:model/ResponseEnvelope
    */
   constructor() {
-    super();
   }
 
   /**
@@ -42,16 +38,7 @@ export default class LiquidationTargetsResponseEnvelope extends ResponseEnvelope
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new LiquidationTargetsResponseEnvelope();
-      ResponseEnvelope.constructFromObject(data, obj);
-      if (data.hasOwnProperty('data'))
-        obj.data = ApiClient.convertToType(data['data'], ['String']);
     }
     return obj;
   }
 }
-
-/**
- * @member {Array.<String>} data
- */
-LiquidationTargetsResponseEnvelope.prototype.data = undefined;
-

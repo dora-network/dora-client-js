@@ -23,10 +23,14 @@ import ClosePositionRequest from '../model/ClosePositionRequest';
 import ClosePositionResponse from '../model/ClosePositionResponse';
 import CreateAPIKeyRequest from '../model/CreateAPIKeyRequest';
 import CreateAPIKeyResponse from '../model/CreateAPIKeyResponse';
+import CreateIntegratorUserRequest from '../model/CreateIntegratorUserRequest';
 import CreateOrderRequest from '../model/CreateOrderRequest';
 import CreateOrderResponse from '../model/CreateOrderResponse';
 import CurrentLeverageAccruedInterestResponse from '../model/CurrentLeverageAccruedInterestResponse';
+import DefundUserRequest from '../model/DefundUserRequest';
 import EmailExistsResponse from '../model/EmailExistsResponse';
+import FundUserRequest from '../model/FundUserRequest';
+import FundUserResponse from '../model/FundUserResponse';
 import GetAPIKeyResponse from '../model/GetAPIKeyResponse';
 import GetAssetByIDResponse from '../model/GetAssetByIDResponse';
 import GetAssetPriceResponse from '../model/GetAssetPriceResponse';
@@ -56,16 +60,17 @@ import ListPositionAccountsResponse from '../model/ListPositionAccountsResponse'
 import ListTradeResponse from '../model/ListTradeResponse';
 import ListTransactionsResponse from '../model/ListTransactionsResponse';
 import LiveOrderbook from '../model/LiveOrderbook';
-import NewIsolatedPositionRequest from '../model/NewIsolatedPositionRequest';
-import NewIsolatedPositionResponse from '../model/NewIsolatedPositionResponse';
 import OrderBookStatus from '../model/OrderBookStatus';
 import OrderKind from '../model/OrderKind';
 import OrderbookStats from '../model/OrderbookStats';
+import PLResponse from '../model/PLResponse';
 import PayLeverageAccruedInterestRequest from '../model/PayLeverageAccruedInterestRequest';
 import PayLeverageAccruedInterestResponse from '../model/PayLeverageAccruedInterestResponse';
 import PoolRequestError from '../model/PoolRequestError';
 import ResponseEnvelope from '../model/ResponseEnvelope';
 import RevokeAPIKeyResponse from '../model/RevokeAPIKeyResponse';
+import SettleLeverageAccruedInterestRequest from '../model/SettleLeverageAccruedInterestRequest';
+import SettleLeverageAccruedInterestResponse from '../model/SettleLeverageAccruedInterestResponse';
 import Side from '../model/Side';
 import StreamAssetPricesResponse from '../model/StreamAssetPricesResponse';
 import StreamAssetsResponse from '../model/StreamAssetsResponse';
@@ -75,6 +80,7 @@ import StreamOrderUpdatesResponse from '../model/StreamOrderUpdatesResponse';
 import StreamPositionsResponse from '../model/StreamPositionsResponse';
 import StreamTradesResponse from '../model/StreamTradesResponse';
 import StreamTransactionsResponse from '../model/StreamTransactionsResponse';
+import StreamUserCouponPaymentsResponse from '../model/StreamUserCouponPaymentsResponse';
 import SupplyRequest from '../model/SupplyRequest';
 import SupplyResponse from '../model/SupplyResponse';
 import TradeRequestError from '../model/TradeRequestError';
@@ -86,6 +92,7 @@ import UnitePositionRequest from '../model/UnitePositionRequest';
 import UnitePositionResponse from '../model/UnitePositionResponse';
 import UpdateUserConfigRequest from '../model/UpdateUserConfigRequest';
 import UserBalanceResponse from '../model/UserBalanceResponse';
+import UserCreatedResponse from '../model/UserCreatedResponse';
 import UserDeletedResponse from '../model/UserDeletedResponse';
 import UserInterestResponse from '../model/UserInterestResponse';
 import UserPositionResponse from '../model/UserPositionResponse';
@@ -391,29 +398,34 @@ export default class DefaultApi {
       );
     }
     /**
-     * Callback function to receive the result of the createNewIsolatedPosition operation.
-     * @callback moduleapi/DefaultApi~createNewIsolatedPositionCallback
+     * Callback function to receive the result of the createAPIKeyForUserID operation.
+     * @callback moduleapi/DefaultApi~createAPIKeyForUserIDCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/NewIsolatedPositionResponse{ data The data returned by the service call.
+     * @param {module:model/CreateAPIKeyResponse{ data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Create a new isolated position for a user transferring available assets into the position
-     * @param {module:model/NewIsolatedPositionRequest} body 
-     * @param {module:api/DefaultApi~createNewIsolatedPositionCallback} callback The callback function, accepting three arguments: error, data, response
+     * Create apikey for a user
+     * @param {module:model/CreateAPIKeyRequest} body 
+     * @param {Object} userId 
+     * @param {module:api/DefaultApi~createAPIKeyForUserIDCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
      */
-    createNewIsolatedPosition(body, callback) {
+    createAPIKeyForUserID(body, userId, callback) {
       
       let postBody = body;
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling createNewIsolatedPosition");
+        throw new Error("Missing the required parameter 'body' when calling createAPIKeyForUserID");
+      }
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling createAPIKeyForUserID");
       }
 
       let pathParams = {
-        
+        'user_id': userId
       };
       let queryParams = {
         
@@ -428,10 +440,10 @@ export default class DefaultApi {
       let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = NewIsolatedPositionResponse;
+      let returnType = CreateAPIKeyResponse;
 
       return this.apiClient.callApi(
-        '/v1/positions/new_isolated', 'POST',
+        '/v1/user/{user_id}/apikey', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -483,6 +495,52 @@ export default class DefaultApi {
       );
     }
     /**
+     * Callback function to receive the result of the createUser operation.
+     * @callback moduleapi/DefaultApi~createUserCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UserCreatedResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a new user
+     * @param {module:model/CreateIntegratorUserRequest} body 
+     * @param {module:api/DefaultApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    createUser(body, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling createUser");
+      }
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = UserCreatedResponse;
+
+      return this.apiClient.callApi(
+        '/v1/integrators/user', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
      * Callback function to receive the result of the deleteUser operation.
      * @callback moduleapi/DefaultApi~deleteUserCallback
      * @param {String} error Error message, if any.
@@ -524,6 +582,52 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/user/{user_id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the getAPIKeysForUserID operation.
+     * @callback moduleapi/DefaultApi~getAPIKeysForUserIDCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetAPIKeyResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get user&#x27;s api keys: admin or integrator only
+     * @param {Object} userId 
+     * @param {module:api/DefaultApi~getAPIKeysForUserIDCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    getAPIKeysForUserID(userId, callback) {
+      
+      let postBody = null;
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling getAPIKeysForUserID");
+      }
+
+      let pathParams = {
+        'user_id': userId
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetAPIKeyResponse;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/apikey', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -1559,6 +1663,47 @@ export default class DefaultApi {
       );
     }
     /**
+     * Callback function to receive the result of the getPLForSelfByAccount operation.
+     * @callback moduleapi/DefaultApi~getPLForSelfByAccountCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PLResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get account-by-account PL breakdown for the logged in user
+     * @param {module:api/DefaultApi~getPLForSelfByAccountCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    getPLForSelfByAccount(callback) {
+      
+      let postBody = null;
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = PLResponse;
+
+      return this.apiClient.callApi(
+        '/v1/pl/self', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
      * Callback function to receive the result of the getPoolPrice operation.
      * @callback moduleapi/DefaultApi~getPoolPriceCallback
      * @param {String} error Error message, if any.
@@ -1840,6 +1985,52 @@ export default class DefaultApi {
       );
     }
     /**
+     * Callback function to receive the result of the getUserCouponPaymentsStream operation.
+     * @callback moduleapi/DefaultApi~getUserCouponPaymentsStreamCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/StreamUserCouponPaymentsResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Stream user&#x27;s coupon payment accruals in real time
+     * @param {Object} userId 
+     * @param {module:api/DefaultApi~getUserCouponPaymentsStreamCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    getUserCouponPaymentsStream(userId, callback) {
+      
+      let postBody = null;
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling getUserCouponPaymentsStream");
+      }
+
+      let pathParams = {
+        'user_id': userId
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthQuery'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = StreamUserCouponPaymentsResponse;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/coupon_payments/stream', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
      * Callback function to receive the result of the getUserLedgerStream operation.
      * @callback moduleapi/DefaultApi~getUserLedgerStreamCallback
      * @param {String} error Error message, if any.
@@ -2112,6 +2303,110 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/user/apikey', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the ledgerDeposit operation.
+     * @callback moduleapi/DefaultApi~ledgerDepositCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/FundUserResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Deposit assets into this user&#x27;s account from the outside world
+     * Deposit assets into this user&#x27;s account from the outside world. Note that this does not interact with any external systems; it simply adds the amount to the user&#x27;s available balance in the ledger. Actual transfer of assets must be handled separately.
+     * @param {module:model/FundUserRequest} body 
+     * @param {Object} userId 
+     * @param {module:api/DefaultApi~ledgerDepositCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    ledgerDeposit(body, userId, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling ledgerDeposit");
+      }
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling ledgerDeposit");
+      }
+
+      let pathParams = {
+        'user_id': userId
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = FundUserResponse;
+
+      return this.apiClient.callApi(
+        '/v1/ledger/deposit/{user_id}', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the ledgerWithdraw operation.
+     * @callback moduleapi/DefaultApi~ledgerWithdrawCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/FundUserResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Withdraw assets from this user to the outside world
+     * Withdraw assets from this user&#x27;s account to the outside world. Note that this does not interact with any external systems; it simply deducts the amount from the user&#x27;s available balance in the ledger. Actual transfer of assets must be handled separately.
+     * @param {module:model/DefundUserRequest} body 
+     * @param {Object} userId 
+     * @param {module:api/DefaultApi~ledgerWithdrawCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    ledgerWithdraw(body, userId, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling ledgerWithdraw");
+      }
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling ledgerWithdraw");
+      }
+
+      let pathParams = {
+        'user_id': userId
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = FundUserResponse;
+
+      return this.apiClient.callApi(
+        '/v1/ledger/withdraw/{user_id}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2725,6 +3020,103 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/user/apikey/{key_id}/revoke', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the revokeAPIKeyForUserID operation.
+     * @callback moduleapi/DefaultApi~revokeAPIKeyForUserIDCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/RevokeAPIKeyResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Revoke apikey for a user: admin or integrator only
+     * @param {Object} userId 
+     * @param {Object} keyId 
+     * @param {module:api/DefaultApi~revokeAPIKeyForUserIDCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    revokeAPIKeyForUserID(userId, keyId, callback) {
+      
+      let postBody = null;
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling revokeAPIKeyForUserID");
+      }
+      // verify the required parameter 'keyId' is set
+      if (keyId === undefined || keyId === null) {
+        throw new Error("Missing the required parameter 'keyId' when calling revokeAPIKeyForUserID");
+      }
+
+      let pathParams = {
+        'user_id': userId,'key_id': keyId
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = RevokeAPIKeyResponse;
+
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/apikey/{key_id}/revoke', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the settleLeverageAccruedInterest operation.
+     * @callback moduleapi/DefaultApi~settleLeverageAccruedInterestCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SettleLeverageAccruedInterestResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Settle current accrued leverage interest for a specific user
+     * @param {module:model/SettleLeverageAccruedInterestRequest} body 
+     * @param {module:api/DefaultApi~settleLeverageAccruedInterestCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    settleLeverageAccruedInterest(body, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling settleLeverageAccruedInterest");
+      }
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SettleLeverageAccruedInterestResponse;
+
+      return this.apiClient.callApi(
+        '/v1/leverage/accrued_interest/settle', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

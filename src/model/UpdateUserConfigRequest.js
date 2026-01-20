@@ -13,6 +13,7 @@
  *
  */
 import ApiClient from '../ApiClient';
+import UpdateFieldBoolean from './UpdateFieldBoolean';
 import UpdateFieldString from './UpdateFieldString';
 
 /**
@@ -46,6 +47,10 @@ export default class UpdateUserConfigRequest {
         obj.photoUrl = UpdateFieldString.constructFromObject(data['photo_url']);
       if (data.hasOwnProperty('timezone'))
         obj.timezone = UpdateFieldString.constructFromObject(data['timezone']);
+      if (data.hasOwnProperty('show_tutorial_cards'))
+        obj.showTutorialCards = UpdateFieldBoolean.constructFromObject(data['show_tutorial_cards']);
+      if (data.hasOwnProperty('notifications_enabled'))
+        obj.notificationsEnabled = UpdateFieldBoolean.constructFromObject(data['notifications_enabled']);
     }
     return obj;
   }
@@ -62,4 +67,16 @@ UpdateUserConfigRequest.prototype.photoUrl = undefined;
  * @member {module:model/UpdateFieldString} timezone
  */
 UpdateUserConfigRequest.prototype.timezone = undefined;
+
+/**
+ * Optional: Whether to show the tutorial.
+ * @member {module:model/UpdateFieldBoolean} showTutorialCards
+ */
+UpdateUserConfigRequest.prototype.showTutorialCards = undefined;
+
+/**
+ * Optional: Whether to show the notifications.
+ * @member {module:model/UpdateFieldBoolean} notificationsEnabled
+ */
+UpdateUserConfigRequest.prototype.notificationsEnabled = undefined;
 

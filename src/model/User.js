@@ -64,6 +64,10 @@ export default class User {
         obj.timezoneOffset = ApiClient.convertToType(data['timezone_offset'], Object);
       if (data.hasOwnProperty('verified_at'))
         obj.verifiedAt = ApiClient.convertToType(data['verified_at'], Object);
+      if (data.hasOwnProperty('show_tutorial_cards'))
+        obj.showTutorialCards = ApiClient.convertToType(data['show_tutorial_cards'], Object);
+      if (data.hasOwnProperty('notifications_enabled'))
+        obj.notificationsEnabled = ApiClient.convertToType(data['notifications_enabled'], Object);
     }
     return obj;
   }
@@ -135,4 +139,14 @@ User.prototype.timezoneOffset = undefined;
  * @member {Object} verifiedAt
  */
 User.prototype.verifiedAt = undefined;
+
+/**
+ * @member {Object} showTutorialCards
+ */
+User.prototype.showTutorialCards = undefined;
+
+/**
+ * @member {Object} notificationsEnabled
+ */
+User.prototype.notificationsEnabled = undefined;
 

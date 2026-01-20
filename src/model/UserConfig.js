@@ -48,6 +48,10 @@ export default class UserConfig {
         obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
       if (data.hasOwnProperty('updated_at'))
         obj.updatedAt = ApiClient.convertToType(data['updated_at'], Object);
+      if (data.hasOwnProperty('show_tutorial_cards'))
+        obj.showTutorialCards = ApiClient.convertToType(data['show_tutorial_cards'], Object);
+      if (data.hasOwnProperty('notifications_enabled'))
+        obj.notificationsEnabled = ApiClient.convertToType(data['notifications_enabled'], Object);
     }
     return obj;
   }
@@ -78,4 +82,14 @@ UserConfig.prototype.createdAt = undefined;
  * @member {Object} updatedAt
  */
 UserConfig.prototype.updatedAt = undefined;
+
+/**
+ * @member {Object} showTutorialCards
+ */
+UserConfig.prototype.showTutorialCards = undefined;
+
+/**
+ * @member {Object} notificationsEnabled
+ */
+UserConfig.prototype.notificationsEnabled = undefined;
 

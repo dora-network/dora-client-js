@@ -69,6 +69,18 @@
         // expect(instance.updatedAt).to.be(expectedValueLiteral);
       });
 
+      it('should have the property showTutorialCards (base name: "show_tutorial_cards")', function() {
+        // TODO: update the code to test the property showTutorialCards
+        expect(instance).to.have.property('showTutorialCards');
+        // expect(instance.showTutorialCards).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property notificationsEnabled (base name: "notifications_enabled")', function() {
+        // TODO: update the code to test the property notificationsEnabled
+        expect(instance).to.have.property('notificationsEnabled');
+        // expect(instance.notificationsEnabled).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

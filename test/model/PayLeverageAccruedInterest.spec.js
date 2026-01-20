@@ -57,10 +57,10 @@
         // expect(instance.positionId).to.be(expectedValueLiteral);
       });
 
-      it('should have the property currentAccruedInterest (base name: "current_accrued_interest")', function() {
-        // TODO: update the code to test the property currentAccruedInterest
-        expect(instance).to.have.property('currentAccruedInterest');
-        // expect(instance.currentAccruedInterest).to.be(expectedValueLiteral);
+      it('should have the property currentAccruedInterestUsd (base name: "current_accrued_interest_usd")', function() {
+        // TODO: update the code to test the property currentAccruedInterestUsd
+        expect(instance).to.have.property('currentAccruedInterestUsd');
+        // expect(instance.currentAccruedInterestUsd).to.be(expectedValueLiteral);
       });
 
     });

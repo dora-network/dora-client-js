@@ -44,8 +44,8 @@ export default class PayLeverageAccruedInterest {
         obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('position_id'))
         obj.positionId = ApiClient.convertToType(data['position_id'], Object);
-      if (data.hasOwnProperty('current_accrued_interest'))
-        obj.currentAccruedInterest = ApiClient.convertToType(data['current_accrued_interest'], Object);
+      if (data.hasOwnProperty('current_accrued_interest_usd'))
+        obj.currentAccruedInterestUsd = ApiClient.convertToType(data['current_accrued_interest_usd'], Object);
     }
     return obj;
   }
@@ -67,7 +67,7 @@ PayLeverageAccruedInterest.prototype.assetId = undefined;
 PayLeverageAccruedInterest.prototype.positionId = undefined;
 
 /**
- * @member {Object} currentAccruedInterest
+ * @member {Object} currentAccruedInterestUsd
  */
-PayLeverageAccruedInterest.prototype.currentAccruedInterest = undefined;
+PayLeverageAccruedInterest.prototype.currentAccruedInterestUsd = undefined;
 

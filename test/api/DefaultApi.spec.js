@@ -155,18 +155,18 @@
           done();
         });
       });
-      describe('createNewIsolatedPosition', function() {
-        it('should call createNewIsolatedPosition successfully', function(done) {
-          // TODO: uncomment, update parameter values for createNewIsolatedPosition call and complete the assertions
+      describe('createAPIKeyForUserID', function() {
+        it('should call createAPIKeyForUserID successfully', function(done) {
+          // TODO: uncomment, update parameter values for createAPIKeyForUserID call and complete the assertions
           /*
 
-          instance.createNewIsolatedPosition(body, function(error, data, response) {
+          instance.createAPIKeyForUserID(body, userId, function(error, data, response) {
             if (error) {
               done(error);
               return;
             }
             // TODO: update response assertions
-            expect(data).to.be.a(Dora.NewIsolatedPositionResponse);
+            expect(data).to.be.a(Dora.CreateAPIKeyResponse);
 
             done();
           });
@@ -195,6 +195,26 @@
           done();
         });
       });
+      describe('createUser', function() {
+        it('should call createUser successfully', function(done) {
+          // TODO: uncomment, update parameter values for createUser call and complete the assertions
+          /*
+
+          instance.createUser(body, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.UserCreatedResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('deleteUser', function() {
         it('should call deleteUser successfully', function(done) {
           // TODO: uncomment, update parameter values for deleteUser call and complete the assertions
@@ -207,6 +227,26 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.UserDeletedResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('getAPIKeysForUserID', function() {
+        it('should call getAPIKeysForUserID successfully', function(done) {
+          // TODO: uncomment, update parameter values for getAPIKeysForUserID call and complete the assertions
+          /*
+
+          instance.getAPIKeysForUserID(userId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.GetAPIKeyResponse);
 
             done();
           });
@@ -677,6 +717,26 @@
           done();
         });
       });
+      describe('getPLForSelfByAccount', function() {
+        it('should call getPLForSelfByAccount successfully', function(done) {
+          // TODO: uncomment getPLForSelfByAccount call and complete the assertions
+          /*
+
+          instance.getPLForSelfByAccount(function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.PLResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('getPoolPrice', function() {
         it('should call getPoolPrice successfully', function(done) {
           // TODO: uncomment, update parameter values for getPoolPrice call and complete the assertions
@@ -791,6 +851,26 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.GetUserResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('getUserCouponPaymentsStream', function() {
+        it('should call getUserCouponPaymentsStream successfully', function(done) {
+          // TODO: uncomment, update parameter values for getUserCouponPaymentsStream call and complete the assertions
+          /*
+
+          instance.getUserCouponPaymentsStream(userId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.StreamUserCouponPaymentsResponse);
 
             done();
           });
@@ -914,6 +994,46 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.GetAPIKeyResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('ledgerDeposit', function() {
+        it('should call ledgerDeposit successfully', function(done) {
+          // TODO: uncomment, update parameter values for ledgerDeposit call and complete the assertions
+          /*
+
+          instance.ledgerDeposit(body, userId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.FundUserResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('ledgerWithdraw', function() {
+        it('should call ledgerWithdraw successfully', function(done) {
+          // TODO: uncomment, update parameter values for ledgerWithdraw call and complete the assertions
+          /*
+
+          instance.ledgerWithdraw(body, userId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.FundUserResponse);
 
             done();
           });
@@ -1178,6 +1298,46 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.RevokeAPIKeyResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('revokeAPIKeyForUserID', function() {
+        it('should call revokeAPIKeyForUserID successfully', function(done) {
+          // TODO: uncomment, update parameter values for revokeAPIKeyForUserID call and complete the assertions
+          /*
+
+          instance.revokeAPIKeyForUserID(userId, keyId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.RevokeAPIKeyResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('settleLeverageAccruedInterest', function() {
+        it('should call settleLeverageAccruedInterest successfully', function(done) {
+          // TODO: uncomment, update parameter values for settleLeverageAccruedInterest call and complete the assertions
+          /*
+
+          instance.settleLeverageAccruedInterest(body, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.SettleLeverageAccruedInterestResponse);
 
             done();
           });

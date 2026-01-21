@@ -315,6 +315,26 @@
           done();
         });
       });
+      describe('getAssetYTMById', function() {
+        it('should call getAssetYTMById successfully', function(done) {
+          // TODO: uncomment, update parameter values for getAssetYTMById call and complete the assertions
+          /*
+
+          instance.getAssetYTMById(assetId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.GetAssetYTMByIDResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('getAssetsStream', function() {
         it('should call getAssetsStream successfully', function(done) {
           // TODO: uncomment, update parameter values for getAssetsStream call and complete the assertions

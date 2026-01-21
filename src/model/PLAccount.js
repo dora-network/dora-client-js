@@ -45,8 +45,8 @@ export default class PLAccount {
         obj.accountName = ApiClient.convertToType(data['account_name'], Object);
       if (data.hasOwnProperty('is_global'))
         obj.isGlobal = ApiClient.convertToType(data['is_global'], Object);
-      if (data.hasOwnProperty('rows'))
-        obj.rows = ApiClient.convertToType(data['rows'], Object);
+      if (data.hasOwnProperty('assets'))
+        obj.assets = ApiClient.convertToType(data['assets'], Object);
       if (data.hasOwnProperty('summary'))
         obj.summary = PLSummary.constructFromObject(data['summary']);
     }
@@ -73,9 +73,9 @@ PLAccount.prototype.accountName = undefined;
 PLAccount.prototype.isGlobal = undefined;
 
 /**
- * @member {Object} rows
+ * @member {Object} assets
  */
-PLAccount.prototype.rows = undefined;
+PLAccount.prototype.assets = undefined;
 
 /**
  * @member {module:model/PLSummary} summary

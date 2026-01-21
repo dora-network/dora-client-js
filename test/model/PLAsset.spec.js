@@ -111,6 +111,30 @@
         // expect(instance.sl).to.be(expectedValueLiteral);
       });
 
+      it('should have the property initialCapital (base name: "initial_capital")', function() {
+        // TODO: update the code to test the property initialCapital
+        expect(instance).to.have.property('initialCapital');
+        // expect(instance.initialCapital).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property impendingBorrows (base name: "impending_borrows")', function() {
+        // TODO: update the code to test the property impendingBorrows
+        expect(instance).to.have.property('impendingBorrows');
+        // expect(instance.impendingBorrows).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property locked (base name: "locked")', function() {
+        // TODO: update the code to test the property locked
+        expect(instance).to.have.property('locked');
+        // expect(instance.locked).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property unusedCollateral (base name: "unused_collateral")', function() {
+        // TODO: update the code to test the property unusedCollateral
+        expect(instance).to.have.property('unusedCollateral');
+        // expect(instance.unusedCollateral).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

@@ -34,6 +34,7 @@ import FundUserResponse from '../model/FundUserResponse';
 import GetAPIKeyResponse from '../model/GetAPIKeyResponse';
 import GetAssetByIDResponse from '../model/GetAssetByIDResponse';
 import GetAssetPriceResponse from '../model/GetAssetPriceResponse';
+import GetAssetYTMByIDResponse from '../model/GetAssetYTMByIDResponse';
 import GetOrderBookResponse from '../model/GetOrderBookResponse';
 import GetOrderBookSummaryResponse from '../model/GetOrderBookSummaryResponse';
 import GetOrderResponse from '../model/GetOrderResponse';
@@ -761,6 +762,52 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/price/asset/{asset_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the getAssetYTMById operation.
+     * @callback moduleapi/DefaultApi~getAssetYTMByIdCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetAssetYTMByIDResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get annualized yield to maturity for a bond asset
+     * @param {Object} assetId 
+     * @param {module:api/DefaultApi~getAssetYTMByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    getAssetYTMById(assetId, callback) {
+      
+      let postBody = null;
+      // verify the required parameter 'assetId' is set
+      if (assetId === undefined || assetId === null) {
+        throw new Error("Missing the required parameter 'assetId' when calling getAssetYTMById");
+      }
+
+      let pathParams = {
+        'asset_id': assetId
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetAssetYTMByIDResponse;
+
+      return this.apiClient.callApi(
+        '/v1/assets/{asset_id}/ytm', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

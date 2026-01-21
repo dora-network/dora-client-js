@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**getAllAssetPrices**](DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
 [**getAssetById**](DefaultApi.md#getAssetById) | **GET** /v1/assets/{asset_id} | Get asset by ID
 [**getAssetPrice**](DefaultApi.md#getAssetPrice) | **GET** /v1/price/asset/{asset_id} | Get the current price of an asset
+[**getAssetYTMById**](DefaultApi.md#getAssetYTMById) | **GET** /v1/assets/{asset_id}/ytm | Get annualized yield to maturity for a bond asset
 [**getAssetsStream**](DefaultApi.md#getAssetsStream) | **GET** /v1/assets/stream | Get all inserts or updates for assets
 [**getCandleData**](DefaultApi.md#getCandleData) | **GET** /v1/charts/{order_book_id}/candle | Get candlestick data for an orderbook
 [**getCouponPaymentsByAssetId**](DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{asset_id}/coupon_payments | Get coupon payments for a bond asset
@@ -754,6 +755,47 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getAssetYTMById"></a>
+# **getAssetYTMById**
+> GetAssetYTMByIDResponse getAssetYTMById(assetId)
+
+Get annualized yield to maturity for a bond asset
+
+### Example
+```javascript
+import {Dora} from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+let assetId = null; // Object | 
+
+apiInstance.getAssetYTMById(assetId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **assetId** | [**Object**](.md)|  | 
+
+### Return type
+
+[**GetAssetYTMByIDResponse**](GetAssetYTMByIDResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

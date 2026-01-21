@@ -57,10 +57,10 @@
         // expect(instance.isGlobal).to.be(expectedValueLiteral);
       });
 
-      it('should have the property rows (base name: "rows")', function() {
-        // TODO: update the code to test the property rows
-        expect(instance).to.have.property('rows');
-        // expect(instance.rows).to.be(expectedValueLiteral);
+      it('should have the property assets (base name: "assets")', function() {
+        // TODO: update the code to test the property assets
+        expect(instance).to.have.property('assets');
+        // expect(instance.assets).to.be(expectedValueLiteral);
       });
 
       it('should have the property summary (base name: "summary")', function() {

@@ -21,6 +21,7 @@ import AssetKind from './model/AssetKind';
 import AssetPrice from './model/AssetPrice';
 import AssetPriceResponseEnvelope from './model/AssetPriceResponseEnvelope';
 import AssetRequestError from './model/AssetRequestError';
+import AssetYTM from './model/AssetYTM';
 import BalanceTransfer from './model/BalanceTransfer';
 import BalancesResponse from './model/BalancesResponse';
 import Bond from './model/Bond';
@@ -64,6 +65,8 @@ import GetAPIKeyResponse from './model/GetAPIKeyResponse';
 import GetAssetByIDResponse from './model/GetAssetByIDResponse';
 import GetAssetByIDResponseEnvelope from './model/GetAssetByIDResponseEnvelope';
 import GetAssetPriceResponse from './model/GetAssetPriceResponse';
+import GetAssetYTMByIDResponse from './model/GetAssetYTMByIDResponse';
+import GetAssetYTMByIDResponseEnvelope from './model/GetAssetYTMByIDResponseEnvelope';
 import GetOrderBookResponse from './model/GetOrderBookResponse';
 import GetOrderBookSummaryResponse from './model/GetOrderBookSummaryResponse';
 import GetOrderResponse from './model/GetOrderResponse';
@@ -333,6 +336,12 @@ export {
     AssetRequestError,
 
     /**
+     * The AssetYTM model constructor.
+     * @property {module:model/AssetYTM}
+     */
+    AssetYTM,
+
+    /**
      * The BalanceTransfer model constructor.
      * @property {module:model/BalanceTransfer}
      */
@@ -589,6 +598,18 @@ export {
      * @property {module:model/GetAssetPriceResponse}
      */
     GetAssetPriceResponse,
+
+    /**
+     * The GetAssetYTMByIDResponse model constructor.
+     * @property {module:model/GetAssetYTMByIDResponse}
+     */
+    GetAssetYTMByIDResponse,
+
+    /**
+     * The GetAssetYTMByIDResponseEnvelope model constructor.
+     * @property {module:model/GetAssetYTMByIDResponseEnvelope}
+     */
+    GetAssetYTMByIDResponseEnvelope,
 
     /**
      * The GetOrderBookResponse model constructor.

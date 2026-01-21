@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getAllAssetPrices**](docs/DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
 *Dora.DefaultApi* | [**getAssetById**](docs/DefaultApi.md#getAssetById) | **GET** /v1/assets/{asset_id} | Get asset by ID
 *Dora.DefaultApi* | [**getAssetPrice**](docs/DefaultApi.md#getAssetPrice) | **GET** /v1/price/asset/{asset_id} | Get the current price of an asset
+*Dora.DefaultApi* | [**getAssetYTMById**](docs/DefaultApi.md#getAssetYTMById) | **GET** /v1/assets/{asset_id}/ytm | Get annualized yield to maturity for a bond asset
 *Dora.DefaultApi* | [**getAssetsStream**](docs/DefaultApi.md#getAssetsStream) | **GET** /v1/assets/stream | Get all inserts or updates for assets
 *Dora.DefaultApi* | [**getCandleData**](docs/DefaultApi.md#getCandleData) | **GET** /v1/charts/{order_book_id}/candle | Get candlestick data for an orderbook
 *Dora.DefaultApi* | [**getCouponPaymentsByAssetId**](docs/DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{asset_id}/coupon_payments | Get coupon payments for a bond asset
@@ -186,6 +187,7 @@ Class | Method | HTTP request | Description
  - [Dora.AssetPrice](docs/AssetPrice.md)
  - [Dora.AssetPriceResponseEnvelope](docs/AssetPriceResponseEnvelope.md)
  - [Dora.AssetRequestError](docs/AssetRequestError.md)
+ - [Dora.AssetYTM](docs/AssetYTM.md)
  - [Dora.BalanceTransfer](docs/BalanceTransfer.md)
  - [Dora.BalancesResponse](docs/BalancesResponse.md)
  - [Dora.Bond](docs/Bond.md)
@@ -229,6 +231,8 @@ Class | Method | HTTP request | Description
  - [Dora.GetAssetByIDResponse](docs/GetAssetByIDResponse.md)
  - [Dora.GetAssetByIDResponseEnvelope](docs/GetAssetByIDResponseEnvelope.md)
  - [Dora.GetAssetPriceResponse](docs/GetAssetPriceResponse.md)
+ - [Dora.GetAssetYTMByIDResponse](docs/GetAssetYTMByIDResponse.md)
+ - [Dora.GetAssetYTMByIDResponseEnvelope](docs/GetAssetYTMByIDResponseEnvelope.md)
  - [Dora.GetOrderBookResponse](docs/GetOrderBookResponse.md)
  - [Dora.GetOrderBookSummaryResponse](docs/GetOrderBookSummaryResponse.md)
  - [Dora.GetOrderResponse](docs/GetOrderResponse.md)

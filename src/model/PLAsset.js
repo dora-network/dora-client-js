@@ -63,6 +63,14 @@ export default class PLAsset {
         obj.tp = ApiClient.convertToType(data['tp'], Object);
       if (data.hasOwnProperty('sl'))
         obj.sl = ApiClient.convertToType(data['sl'], Object);
+      if (data.hasOwnProperty('initial_capital'))
+        obj.initialCapital = ApiClient.convertToType(data['initial_capital'], Object);
+      if (data.hasOwnProperty('impending_borrows'))
+        obj.impendingBorrows = ApiClient.convertToType(data['impending_borrows'], Object);
+      if (data.hasOwnProperty('locked'))
+        obj.locked = ApiClient.convertToType(data['locked'], Object);
+      if (data.hasOwnProperty('unused_collateral'))
+        obj.unusedCollateral = ApiClient.convertToType(data['unused_collateral'], Object);
     }
     return obj;
   }
@@ -138,4 +146,28 @@ PLAsset.prototype.tp = undefined;
  * @member {Object} sl
  */
 PLAsset.prototype.sl = undefined;
+
+/**
+ * The initial capital of the position
+ * @member {Object} initialCapital
+ */
+PLAsset.prototype.initialCapital = undefined;
+
+/**
+ * The impending borrows of the position
+ * @member {Object} impendingBorrows
+ */
+PLAsset.prototype.impendingBorrows = undefined;
+
+/**
+ * The locked amount of the position
+ * @member {Object} locked
+ */
+PLAsset.prototype.locked = undefined;
+
+/**
+ * The unused collateral of the position
+ * @member {Object} unusedCollateral
+ */
+PLAsset.prototype.unusedCollateral = undefined;
 

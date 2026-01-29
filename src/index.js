@@ -115,6 +115,8 @@ import ListTradeResponse from './model/ListTradeResponse';
 import ListTradeResponseEnvelope from './model/ListTradeResponseEnvelope';
 import ListTransactionsResponse from './model/ListTransactionsResponse';
 import ListTransactionsResponseEnvelope from './model/ListTransactionsResponseEnvelope';
+import ListUserCouponPaymentsResponse from './model/ListUserCouponPaymentsResponse';
+import ListUserCouponPaymentsResponseEnvelope from './model/ListUserCouponPaymentsResponseEnvelope';
 import LiveOrderbook from './model/LiveOrderbook';
 import Margin from './model/Margin';
 import Metadata from './model/Metadata';
@@ -224,6 +226,8 @@ import UserBalanceResponseEnvelope from './model/UserBalanceResponseEnvelope';
 import UserConfig from './model/UserConfig';
 import UserConfigResponseEnvelope from './model/UserConfigResponseEnvelope';
 import UserCouponPayment from './model/UserCouponPayment';
+import UserCouponPaymentAssetSummary from './model/UserCouponPaymentAssetSummary';
+import UserCouponPaymentsResponseData from './model/UserCouponPaymentsResponseData';
 import UserCreatedResponse from './model/UserCreatedResponse';
 import UserCreatedResponseEnvelope from './model/UserCreatedResponseEnvelope';
 import UserDeletedResponse from './model/UserDeletedResponse';
@@ -900,6 +904,18 @@ export {
     ListTransactionsResponseEnvelope,
 
     /**
+     * The ListUserCouponPaymentsResponse model constructor.
+     * @property {module:model/ListUserCouponPaymentsResponse}
+     */
+    ListUserCouponPaymentsResponse,
+
+    /**
+     * The ListUserCouponPaymentsResponseEnvelope model constructor.
+     * @property {module:model/ListUserCouponPaymentsResponseEnvelope}
+     */
+    ListUserCouponPaymentsResponseEnvelope,
+
+    /**
      * The LiveOrderbook model constructor.
      * @property {module:model/LiveOrderbook}
      */
@@ -1552,6 +1568,18 @@ export {
      * @property {module:model/UserCouponPayment}
      */
     UserCouponPayment,
+
+    /**
+     * The UserCouponPaymentAssetSummary model constructor.
+     * @property {module:model/UserCouponPaymentAssetSummary}
+     */
+    UserCouponPaymentAssetSummary,
+
+    /**
+     * The UserCouponPaymentsResponseData model constructor.
+     * @property {module:model/UserCouponPaymentsResponseData}
+     */
+    UserCouponPaymentsResponseData,
 
     /**
      * The UserCreatedResponse model constructor.

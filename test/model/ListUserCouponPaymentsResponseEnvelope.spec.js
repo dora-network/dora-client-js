@@ -29,26 +29,14 @@
   var instance;
 
   describe('(package)', function() {
-    describe('StreamUserCouponPaymentsResponse', function() {
+    describe('ListUserCouponPaymentsResponseEnvelope', function() {
       beforeEach(function() {
-        instance = new Dora.StreamUserCouponPaymentsResponse();
+        instance = new Dora.ListUserCouponPaymentsResponseEnvelope();
       });
 
-      it('should create an instance of StreamUserCouponPaymentsResponse', function() {
-        // TODO: update the code to test StreamUserCouponPaymentsResponse
-        expect(instance).to.be.a(Dora.StreamUserCouponPaymentsResponse);
-      });
-
-      it('should have the property entries (base name: "entries")', function() {
-        // TODO: update the code to test the property entries
-        expect(instance).to.have.property('entries');
-        // expect(instance.entries).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property summaryByAsset (base name: "summary_by_asset")', function() {
-        // TODO: update the code to test the property summaryByAsset
-        expect(instance).to.have.property('summaryByAsset');
-        // expect(instance.summaryByAsset).to.be(expectedValueLiteral);
+      it('should create an instance of ListUserCouponPaymentsResponseEnvelope', function() {
+        // TODO: update the code to test ListUserCouponPaymentsResponseEnvelope
+        expect(instance).to.be.a(Dora.ListUserCouponPaymentsResponseEnvelope);
       });
 
     });

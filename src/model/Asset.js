@@ -52,8 +52,8 @@ export default class Asset {
         obj.fractionalizedUnits = ApiClient.convertToType(data['fractionalized_units'], Object);
       if (data.hasOwnProperty('description'))
         obj.description = ApiClient.convertToType(data['description'], Object);
-      if (data.hasOwnProperty('liquidation_threshold'))
-        obj.liquidationThreshold = ApiClient.convertToType(data['liquidation_threshold'], Object);
+      if (data.hasOwnProperty('liquidation_weight'))
+        obj.liquidationWeight = ApiClient.convertToType(data['liquidation_weight'], Object);
       if (data.hasOwnProperty('maturity_id'))
         obj.maturityId = ApiClient.convertToType(data['maturity_id'], Object);
       if (data.hasOwnProperty('max_supply'))
@@ -118,9 +118,9 @@ Asset.prototype.fractionalizedUnits = undefined;
 Asset.prototype.description = undefined;
 
 /**
- * @member {Object} liquidationThreshold
+ * @member {Object} liquidationWeight
  */
-Asset.prototype.liquidationThreshold = undefined;
+Asset.prototype.liquidationWeight = undefined;
 
 /**
  * @member {Object} maturityId

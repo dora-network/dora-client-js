@@ -1,7 +1,7 @@
-# Dora.StreamUserCouponPaymentsResponse
+# Dora.UserCouponPaymentsResponseData
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entries** | **Object** |  | [optional] 
+**couponPayments** | **Object** |  | [optional] 
 **summaryByAsset** | **Object** |  | [optional] 

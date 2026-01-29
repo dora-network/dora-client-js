@@ -75,10 +75,10 @@
         // expect(instance.description).to.be(expectedValueLiteral);
       });
 
-      it('should have the property liquidationThreshold (base name: "liquidation_threshold")', function() {
-        // TODO: update the code to test the property liquidationThreshold
-        expect(instance).to.have.property('liquidationThreshold');
-        // expect(instance.liquidationThreshold).to.be(expectedValueLiteral);
+      it('should have the property liquidationWeight (base name: "liquidation_weight")', function() {
+        // TODO: update the code to test the property liquidationWeight
+        expect(instance).to.have.property('liquidationWeight');
+        // expect(instance.liquidationWeight).to.be(expectedValueLiteral);
       });
 
       it('should have the property maturityId (base name: "maturity_id")', function() {

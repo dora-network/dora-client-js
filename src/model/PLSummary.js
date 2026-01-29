@@ -46,6 +46,8 @@ export default class PLSummary {
         obj.available = ApiClient.convertToType(data['available'], Object);
       if (data.hasOwnProperty('health'))
         obj.health = ApiClient.convertToType(data['health'], Object);
+      if (data.hasOwnProperty('ltv'))
+        obj.ltv = ApiClient.convertToType(data['ltv'], Object);
     }
     return obj;
   }
@@ -71,4 +73,9 @@ PLSummary.prototype.available = undefined;
  * @member {Object} health
  */
 PLSummary.prototype.health = undefined;
+
+/**
+ * @member {Object} ltv
+ */
+PLSummary.prototype.ltv = undefined;
 

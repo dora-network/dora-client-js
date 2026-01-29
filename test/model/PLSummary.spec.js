@@ -63,6 +63,12 @@
         // expect(instance.health).to.be(expectedValueLiteral);
       });
 
+      it('should have the property ltv (base name: "ltv")', function() {
+        // TODO: update the code to test the property ltv
+        expect(instance).to.have.property('ltv');
+        // expect(instance.ltv).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

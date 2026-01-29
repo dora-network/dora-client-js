@@ -38,7 +38,22 @@ export default class StreamUserCouponPaymentsResponse {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new StreamUserCouponPaymentsResponse();
+      if (data.hasOwnProperty('entries'))
+        obj.entries = ApiClient.convertToType(data['entries'], Object);
+      if (data.hasOwnProperty('summary_by_asset'))
+        obj.summaryByAsset = ApiClient.convertToType(data['summary_by_asset'], Object);
     }
     return obj;
   }
 }
+
+/**
+ * @member {Object} entries
+ */
+StreamUserCouponPaymentsResponse.prototype.entries = undefined;
+
+/**
+ * @member {Object} summaryByAsset
+ */
+StreamUserCouponPaymentsResponse.prototype.summaryByAsset = undefined;
+

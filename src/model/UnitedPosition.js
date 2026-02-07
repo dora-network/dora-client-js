@@ -24,8 +24,10 @@ export default class UnitedPosition {
    * Constructs a new <code>UnitedPosition</code>.
    * @alias module:model/UnitedPosition
    * @class
+   * @param globalPositionId {Object} 
    */
-  constructor() {
+  constructor(globalPositionId) {
+    this.globalPositionId = globalPositionId;
   }
 
   /**

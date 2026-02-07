@@ -24,8 +24,16 @@ export default class OrderBookDepth {
    * Constructs a new <code>OrderBookDepth</code>.
    * @alias module:model/OrderBookDepth
    * @class
+   * @param orderBookId {Object} 
+   * @param bids {Object} 
+   * @param asks {Object} 
+   * @param timestamp {Object} 
    */
-  constructor() {
+  constructor(orderBookId, bids, asks, timestamp) {
+    this.orderBookId = orderBookId;
+    this.bids = bids;
+    this.asks = asks;
+    this.timestamp = timestamp;
   }
 
   /**

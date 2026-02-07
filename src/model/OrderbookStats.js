@@ -24,8 +24,26 @@ export default class OrderbookStats {
    * Constructs a new <code>OrderbookStats</code>.
    * @alias module:model/OrderbookStats
    * @class
+   * @param orderBookId {Object} 
+   * @param openPrice {Object} Open price of the orderbook
+   * @param lastPrice {Object} Price of the most recent executed trade.
+   * @param high24h {Object} Highest price of the orderbook in the last 24 hours.
+   * @param low24h {Object} Lowest price of the orderbook in the last 24 hours.
+   * @param change24h {Object} Change in price of the orderbook in the last 24 hours.
+   * @param changePct24h {Object} Change percentage in price of the orderbook in the last 24 hours.
+   * @param volume24hBase {Object} Total volume of the orderbook in the last 24 hours.
+   * @param volume24hUsd {Object} Total volume of the orderbook in the last 24 hours in USD.
    */
-  constructor() {
+  constructor(orderBookId, openPrice, lastPrice, high24h, low24h, change24h, changePct24h, volume24hBase, volume24hUsd) {
+    this.orderBookId = orderBookId;
+    this.openPrice = openPrice;
+    this.lastPrice = lastPrice;
+    this.high24h = high24h;
+    this.low24h = low24h;
+    this.change24h = change24h;
+    this.changePct24h = changePct24h;
+    this.volume24hBase = volume24hBase;
+    this.volume24hUsd = volume24hUsd;
   }
 
   /**

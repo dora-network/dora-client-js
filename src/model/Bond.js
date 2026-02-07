@@ -25,8 +25,28 @@ export default class Bond {
    * Constructs a new <code>Bond</code>.
    * @alias module:model/Bond
    * @class
+   * @param id {Object} 
+   * @param kind {module:model/BondKind} 
+   * @param createdAt {Object} 
+   * @param isin {Object} 
+   * @param issuedAt {Object} 
+   * @param issuer {Object} 
+   * @param maturityAt {Object} 
+   * @param principalValue {Object} 
+   * @param paymentsPerYear {Object} 
+   * @param paymentsEvery {Object} Coupon payment frequency in nanoseconds (minimum 1000 i.e. 1 microsecond)
    */
-  constructor() {
+  constructor(id, kind, createdAt, isin, issuedAt, issuer, maturityAt, principalValue, paymentsPerYear, paymentsEvery) {
+    this.id = id;
+    this.kind = kind;
+    this.createdAt = createdAt;
+    this.isin = isin;
+    this.issuedAt = issuedAt;
+    this.issuer = issuer;
+    this.maturityAt = maturityAt;
+    this.principalValue = principalValue;
+    this.paymentsPerYear = paymentsPerYear;
+    this.paymentsEvery = paymentsEvery;
   }
 
   /**

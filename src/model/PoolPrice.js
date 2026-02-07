@@ -24,8 +24,14 @@ export default class PoolPrice {
    * Constructs a new <code>PoolPrice</code>.
    * @alias module:model/PoolPrice
    * @class
+   * @param poolId {Object} 
+   * @param price {Object} 
+   * @param timestamp {Object} 
    */
-  constructor() {
+  constructor(poolId, price, timestamp) {
+    this.poolId = poolId;
+    this.price = price;
+    this.timestamp = timestamp;
   }
 
   /**

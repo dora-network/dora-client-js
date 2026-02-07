@@ -24,8 +24,16 @@ export default class OrderBookTop {
    * Constructs a new <code>OrderBookTop</code>.
    * @alias module:model/OrderBookTop
    * @class
+   * @param orderBookId {Object} 
+   * @param bestBid {Object} 
+   * @param bestAsk {Object} 
+   * @param timestamp {Object} 
    */
-  constructor() {
+  constructor(orderBookId, bestBid, bestAsk, timestamp) {
+    this.orderBookId = orderBookId;
+    this.bestBid = bestBid;
+    this.bestAsk = bestAsk;
+    this.timestamp = timestamp;
   }
 
   /**

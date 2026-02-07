@@ -24,8 +24,14 @@ export default class CreateAPIKeyData {
    * Constructs a new <code>CreateAPIKeyData</code>.
    * @alias module:model/CreateAPIKeyData
    * @class
+   * @param keyId {Object} 
+   * @param apiKey {Object} 
+   * @param label {Object} 
    */
-  constructor() {
+  constructor(keyId, apiKey, label) {
+    this.keyId = keyId;
+    this.apiKey = apiKey;
+    this.label = label;
   }
 
   /**

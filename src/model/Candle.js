@@ -24,8 +24,22 @@ export default class Candle {
    * Constructs a new <code>Candle</code>.
    * @alias module:model/Candle
    * @class
+   * @param orderBookId {Object} 
+   * @param startTimestamp {Object} 
+   * @param open {Object} 
+   * @param high {Object} 
+   * @param low {Object} 
+   * @param close {Object} 
+   * @param volume {Object} 
    */
-  constructor() {
+  constructor(orderBookId, startTimestamp, open, high, low, close, volume) {
+    this.orderBookId = orderBookId;
+    this.startTimestamp = startTimestamp;
+    this.open = open;
+    this.high = high;
+    this.low = low;
+    this.close = close;
+    this.volume = volume;
   }
 
   /**

@@ -24,8 +24,26 @@ export default class UserCouponPayment {
    * Constructs a new <code>UserCouponPayment</code>.
    * @alias module:model/UserCouponPayment
    * @class
+   * @param userId {Object} 
+   * @param positionId {Object} 
+   * @param assetId {Object} 
+   * @param couponPaymentId {Object} 
+   * @param seq {Object} 
+   * @param pending {Object} 
+   * @param completed {Object} 
+   * @param startedAt {Object} 
+   * @param endedAt {Object} 
    */
-  constructor() {
+  constructor(userId, positionId, assetId, couponPaymentId, seq, pending, completed, startedAt, endedAt) {
+    this.userId = userId;
+    this.positionId = positionId;
+    this.assetId = assetId;
+    this.couponPaymentId = couponPaymentId;
+    this.seq = seq;
+    this.pending = pending;
+    this.completed = completed;
+    this.startedAt = startedAt;
+    this.endedAt = endedAt;
   }
 
   /**

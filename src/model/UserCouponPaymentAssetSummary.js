@@ -24,8 +24,14 @@ export default class UserCouponPaymentAssetSummary {
    * Constructs a new <code>UserCouponPaymentAssetSummary</code>.
    * @alias module:model/UserCouponPaymentAssetSummary
    * @class
+   * @param assetId {Object} 
+   * @param pending {Object} 
+   * @param completed {Object} 
    */
-  constructor() {
+  constructor(assetId, pending, completed) {
+    this.assetId = assetId;
+    this.pending = pending;
+    this.completed = completed;
   }
 
   /**

@@ -81,42 +81,6 @@
         // expect(instance.liquidationThreshold).to.be(expectedValueLiteral);
       });
 
-      it('should have the property notionalLong (base name: "notional_long")', function() {
-        // TODO: update the code to test the property notionalLong
-        expect(instance).to.have.property('notionalLong');
-        // expect(instance.notionalLong).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property notionalShort (base name: "notional_short")', function() {
-        // TODO: update the code to test the property notionalShort
-        expect(instance).to.have.property('notionalShort');
-        // expect(instance.notionalShort).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property portfolioValue (base name: "portfolio_value")', function() {
-        // TODO: update the code to test the property portfolioValue
-        expect(instance).to.have.property('portfolioValue');
-        // expect(instance.portfolioValue).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property netLiquidationValue (base name: "net_liquidation_value")', function() {
-        // TODO: update the code to test the property netLiquidationValue
-        expect(instance).to.have.property('netLiquidationValue');
-        // expect(instance.netLiquidationValue).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property unrealizedPnl (base name: "unrealized_pnl")', function() {
-        // TODO: update the code to test the property unrealizedPnl
-        expect(instance).to.have.property('unrealizedPnl');
-        // expect(instance.unrealizedPnl).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property realizedPnl (base name: "realized_pnl")', function() {
-        // TODO: update the code to test the property realizedPnl
-        expect(instance).to.have.property('realizedPnl');
-        // expect(instance.realizedPnl).to.be(expectedValueLiteral);
-      });
-
     });
   });
 

@@ -75,6 +75,8 @@ export default class CreateOrderRequest {
         obj.triggerPrice = ApiClient.convertToType(data['trigger_price'], Object);
       if (data.hasOwnProperty('trigger_type'))
         obj.triggerType = TriggerType.constructFromObject(data['trigger_type']);
+      if (data.hasOwnProperty('client_order_id'))
+        obj.clientOrderId = ApiClient.convertToType(data['client_order_id'], Object);
     }
     return obj;
   }
@@ -137,4 +139,10 @@ CreateOrderRequest.prototype.triggerPrice = undefined;
  * @member {module:model/TriggerType} triggerType
  */
 CreateOrderRequest.prototype.triggerType = undefined;
+
+/**
+ * An optional client-provided identifier for the order.
+ * @member {Object} clientOrderId
+ */
+CreateOrderRequest.prototype.clientOrderId = undefined;
 

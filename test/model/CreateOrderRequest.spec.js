@@ -105,6 +105,12 @@
         // expect(instance.triggerType).to.be(expectedValueLiteral);
       });
 
+      it('should have the property clientOrderId (base name: "client_order_id")', function() {
+        // TODO: update the code to test the property clientOrderId
+        expect(instance).to.have.property('clientOrderId');
+        // expect(instance.clientOrderId).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

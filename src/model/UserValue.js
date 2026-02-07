@@ -24,8 +24,22 @@ export default class UserValue {
    * Constructs a new <code>UserValue</code>.
    * @alias module:model/UserValue
    * @class
+   * @param available {Object} 
+   * @param locked {Object} 
+   * @param borrowed {Object} 
+   * @param supplied {Object} 
+   * @param impendingBorrows {Object} 
+   * @param borrowLimit {Object} 
+   * @param liquidationThreshold {Object} 
    */
-  constructor() {
+  constructor(available, locked, borrowed, supplied, impendingBorrows, borrowLimit, liquidationThreshold) {
+    this.available = available;
+    this.locked = locked;
+    this.borrowed = borrowed;
+    this.supplied = supplied;
+    this.impendingBorrows = impendingBorrows;
+    this.borrowLimit = borrowLimit;
+    this.liquidationThreshold = liquidationThreshold;
   }
 
   /**
@@ -52,18 +66,6 @@ export default class UserValue {
         obj.borrowLimit = ApiClient.convertToType(data['borrow_limit'], Object);
       if (data.hasOwnProperty('liquidation_threshold'))
         obj.liquidationThreshold = ApiClient.convertToType(data['liquidation_threshold'], Object);
-      if (data.hasOwnProperty('notional_long'))
-        obj.notionalLong = ApiClient.convertToType(data['notional_long'], Object);
-      if (data.hasOwnProperty('notional_short'))
-        obj.notionalShort = ApiClient.convertToType(data['notional_short'], Object);
-      if (data.hasOwnProperty('portfolio_value'))
-        obj.portfolioValue = ApiClient.convertToType(data['portfolio_value'], Object);
-      if (data.hasOwnProperty('net_liquidation_value'))
-        obj.netLiquidationValue = ApiClient.convertToType(data['net_liquidation_value'], Object);
-      if (data.hasOwnProperty('unrealized_pnl'))
-        obj.unrealizedPnl = ApiClient.convertToType(data['unrealized_pnl'], Object);
-      if (data.hasOwnProperty('realized_pnl'))
-        obj.realizedPnl = ApiClient.convertToType(data['realized_pnl'], Object);
     }
     return obj;
   }
@@ -103,34 +105,4 @@ UserValue.prototype.borrowLimit = undefined;
  * @member {Object} liquidationThreshold
  */
 UserValue.prototype.liquidationThreshold = undefined;
-
-/**
- * @member {Object} notionalLong
- */
-UserValue.prototype.notionalLong = undefined;
-
-/**
- * @member {Object} notionalShort
- */
-UserValue.prototype.notionalShort = undefined;
-
-/**
- * @member {Object} portfolioValue
- */
-UserValue.prototype.portfolioValue = undefined;
-
-/**
- * @member {Object} netLiquidationValue
- */
-UserValue.prototype.netLiquidationValue = undefined;
-
-/**
- * @member {Object} unrealizedPnl
- */
-UserValue.prototype.unrealizedPnl = undefined;
-
-/**
- * @member {Object} realizedPnl
- */
-UserValue.prototype.realizedPnl = undefined;
 

@@ -24,8 +24,16 @@ export default class APIKeyResponse {
    * Constructs a new <code>APIKeyResponse</code>.
    * @alias module:model/APIKeyResponse
    * @class
+   * @param userId {Object} 
+   * @param keyId {Object} 
+   * @param label {Object} 
+   * @param isActive {Object} 
    */
-  constructor() {
+  constructor(userId, keyId, label, isActive) {
+    this.userId = userId;
+    this.keyId = keyId;
+    this.label = label;
+    this.isActive = isActive;
   }
 
   /**

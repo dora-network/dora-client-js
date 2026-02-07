@@ -24,8 +24,14 @@ export default class AssetPrice {
    * Constructs a new <code>AssetPrice</code>.
    * @alias module:model/AssetPrice
    * @class
+   * @param assetId {Object} 
+   * @param price {Object} 
+   * @param time {Object} 
    */
-  constructor() {
+  constructor(assetId, price, time) {
+    this.assetId = assetId;
+    this.price = price;
+    this.time = time;
   }
 
   /**

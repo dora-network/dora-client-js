@@ -28,8 +28,40 @@ export default class Order {
    * Constructs a new <code>Order</code>.
    * @alias module:model/Order
    * @class
+   * @param orderId {Object} 
+   * @param orderBookId {Object} 
+   * @param kind {module:model/OrderKind} 
+   * @param originalPrice {Object} If Kind is LIMIT, this is the original limit price. If Kind is MARKET, this may be 0 or omitted.
+   * @param avgFillPrice {Object} 
+   * @param cancelledQuantity {Object} Quantity that was cancelled, if any.
+   * @param openQuantity {Object} Quantity that is still open, i.e., not filled or cancelled.
+   * @param originalQuantity {Object} The original quantity of the order when it was created.
+   * @param filledQuantity {Object} Quantity that has been filled so far.
+   * @param filledNotional {Object} Quote quantity that has been filled so far.
+   * @param openedAt {Object} 
+   * @param inverseLeverage {Object} 
+   * @param side {module:model/Side} 
+   * @param status {module:model/OrderStatus} 
+   * @param userId {Object} 
+   * @param positionId {Object} 
    */
-  constructor() {
+  constructor(orderId, orderBookId, kind, originalPrice, avgFillPrice, cancelledQuantity, openQuantity, originalQuantity, filledQuantity, filledNotional, openedAt, inverseLeverage, side, status, userId, positionId) {
+    this.orderId = orderId;
+    this.orderBookId = orderBookId;
+    this.kind = kind;
+    this.originalPrice = originalPrice;
+    this.avgFillPrice = avgFillPrice;
+    this.cancelledQuantity = cancelledQuantity;
+    this.openQuantity = openQuantity;
+    this.originalQuantity = originalQuantity;
+    this.filledQuantity = filledQuantity;
+    this.filledNotional = filledNotional;
+    this.openedAt = openedAt;
+    this.inverseLeverage = inverseLeverage;
+    this.side = side;
+    this.status = status;
+    this.userId = userId;
+    this.positionId = positionId;
   }
 
   /**
@@ -86,6 +118,8 @@ export default class Order {
         obj.triggerPrice = ApiClient.convertToType(data['trigger_price'], Object);
       if (data.hasOwnProperty('trigger_type'))
         obj.triggerType = TriggerType.constructFromObject(data['trigger_type']);
+      if (data.hasOwnProperty('client_order_id'))
+        obj.clientOrderId = ApiClient.convertToType(data['client_order_id'], Object);
     }
     return obj;
   }
@@ -206,4 +240,10 @@ Order.prototype.triggerPrice = undefined;
  * @member {module:model/TriggerType} triggerType
  */
 Order.prototype.triggerType = undefined;
+
+/**
+ * An optional client-provided identifier for the order.
+ * @member {Object} clientOrderId
+ */
+Order.prototype.clientOrderId = undefined;
 

@@ -24,8 +24,10 @@ export default class CreateAPIKeyRequest {
    * Constructs a new <code>CreateAPIKeyRequest</code>.
    * @alias module:model/CreateAPIKeyRequest
    * @class
+   * @param label {Object} 
    */
-  constructor() {
+  constructor(label) {
+    this.label = label;
   }
 
   /**

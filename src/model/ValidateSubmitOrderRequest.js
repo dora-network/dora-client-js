@@ -72,6 +72,8 @@ export default class ValidateSubmitOrderRequest {
         obj.baseAssetId = ApiClient.convertToType(data['base_asset_id'], Object);
       if (data.hasOwnProperty('quote_asset_id'))
         obj.quoteAssetId = ApiClient.convertToType(data['quote_asset_id'], Object);
+      if (data.hasOwnProperty('client_order_id'))
+        obj.clientOrderId = ApiClient.convertToType(data['client_order_id'], Object);
       if (data.hasOwnProperty('position_assets'))
         obj.positionAssets = ApiClient.convertToType(data['position_assets'], Object);
       if (data.hasOwnProperty('assets_config'))
@@ -137,6 +139,12 @@ ValidateSubmitOrderRequest.prototype.baseAssetId = undefined;
  * @member {Object} quoteAssetId
  */
 ValidateSubmitOrderRequest.prototype.quoteAssetId = undefined;
+
+/**
+ * An optional client-provided identifier for the order.
+ * @member {Object} clientOrderId
+ */
+ValidateSubmitOrderRequest.prototype.clientOrderId = undefined;
 
 /**
  * Full list of assets in the position with their price and collateral weight, required when inverse_leverage < 1 for leverage health checks

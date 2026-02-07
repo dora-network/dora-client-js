@@ -57,18 +57,6 @@
         // expect(instance.createdAt).to.be(expectedValueLiteral);
       });
 
-      it('should have the property feeAssetId (base name: "fee_asset_id")', function() {
-        // TODO: update the code to test the property feeAssetId
-        expect(instance).to.have.property('feeAssetId');
-        // expect(instance.feeAssetId).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property feeQuantity (base name: "fee_quantity")', function() {
-        // TODO: update the code to test the property feeQuantity
-        expect(instance).to.have.property('feeQuantity');
-        // expect(instance.feeQuantity).to.be(expectedValueLiteral);
-      });
-
       it('should have the property orderBookId (base name: "order_book_id")', function() {
         // TODO: update the code to test the property orderBookId
         expect(instance).to.have.property('orderBookId');

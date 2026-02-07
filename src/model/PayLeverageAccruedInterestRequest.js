@@ -24,8 +24,14 @@ export default class PayLeverageAccruedInterestRequest {
    * Constructs a new <code>PayLeverageAccruedInterestRequest</code>.
    * @alias module:model/PayLeverageAccruedInterestRequest
    * @class
+   * @param positionId {Object} 
+   * @param assetId {Object} 
+   * @param quantity {Object} 
    */
-  constructor() {
+  constructor(positionId, assetId, quantity) {
+    this.positionId = positionId;
+    this.assetId = assetId;
+    this.quantity = quantity;
   }
 
   /**
@@ -38,10 +44,10 @@ export default class PayLeverageAccruedInterestRequest {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new PayLeverageAccruedInterestRequest();
-      if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('position_id'))
         obj.positionId = ApiClient.convertToType(data['position_id'], Object);
+      if (data.hasOwnProperty('asset_id'))
+        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('quantity'))
         obj.quantity = ApiClient.convertToType(data['quantity'], Object);
     }
@@ -50,14 +56,14 @@ export default class PayLeverageAccruedInterestRequest {
 }
 
 /**
- * @member {Object} assetId
- */
-PayLeverageAccruedInterestRequest.prototype.assetId = undefined;
-
-/**
  * @member {Object} positionId
  */
 PayLeverageAccruedInterestRequest.prototype.positionId = undefined;
+
+/**
+ * @member {Object} assetId
+ */
+PayLeverageAccruedInterestRequest.prototype.assetId = undefined;
 
 /**
  * @member {Object} quantity

@@ -24,8 +24,18 @@ export default class OrderBookSummary {
    * Constructs a new <code>OrderBookSummary</code>.
    * @alias module:model/OrderBookSummary
    * @class
+   * @param orderBookId {Object} 
+   * @param midPrice {Object} 
+   * @param spread {Object} 
+   * @param bestBid {Object} 
+   * @param bestAsk {Object} 
    */
-  constructor() {
+  constructor(orderBookId, midPrice, spread, bestBid, bestAsk) {
+    this.orderBookId = orderBookId;
+    this.midPrice = midPrice;
+    this.spread = spread;
+    this.bestBid = bestBid;
+    this.bestAsk = bestAsk;
   }
 
   /**

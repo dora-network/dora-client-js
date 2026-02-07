@@ -26,8 +26,6 @@ import BalanceTransfer from './model/BalanceTransfer';
 import BalancesResponse from './model/BalancesResponse';
 import Bond from './model/Bond';
 import BondKind from './model/BondKind';
-import BorrowRequest from './model/BorrowRequest';
-import BorrowResponse from './model/BorrowResponse';
 import CancelOrderResponse from './model/CancelOrderResponse';
 import CancelOrderResponseEnvelope from './model/CancelOrderResponseEnvelope';
 import Candle from './model/Candle';
@@ -163,8 +161,6 @@ import PositionAccounts from './model/PositionAccounts';
 import PositionResponse from './model/PositionResponse';
 import PositionType from './model/PositionType';
 import PriceLevel from './model/PriceLevel';
-import RepayRequest from './model/RepayRequest';
-import RepayResponse from './model/RepayResponse';
 import ResponseEnvelope from './model/ResponseEnvelope';
 import ResponseEnvelopeOfListAssets from './model/ResponseEnvelopeOfListAssets';
 import RevokeAPIKeyData from './model/RevokeAPIKeyData';
@@ -368,18 +364,6 @@ export {
      * @property {module:model/BondKind}
      */
     BondKind,
-
-    /**
-     * The BorrowRequest model constructor.
-     * @property {module:model/BorrowRequest}
-     */
-    BorrowRequest,
-
-    /**
-     * The BorrowResponse model constructor.
-     * @property {module:model/BorrowResponse}
-     */
-    BorrowResponse,
 
     /**
      * The CancelOrderResponse model constructor.
@@ -1190,18 +1174,6 @@ export {
      * @property {module:model/PriceLevel}
      */
     PriceLevel,
-
-    /**
-     * The RepayRequest model constructor.
-     * @property {module:model/RepayRequest}
-     */
-    RepayRequest,
-
-    /**
-     * The RepayResponse model constructor.
-     * @property {module:model/RepayResponse}
-     */
-    RepayResponse,
 
     /**
      * The ResponseEnvelope model constructor.

@@ -24,8 +24,20 @@ export default class ModuleBalance {
    * Constructs a new <code>ModuleBalance</code>.
    * @alias module:model/ModuleBalance
    * @class
+   * @param assetId {Object} 
+   * @param seq {Object} 
+   * @param available {Object} The available balance in the module for this asset
+   * @param supplied {Object} The total amount supplied to the module for this asset
+   * @param virtual {Object} Assets minted by virtual-borrowing, but not yet repaid
+   * @param borrowed {Object} The total amount borrowed from the supplied but not yet repaid
    */
-  constructor() {
+  constructor(assetId, seq, available, supplied, virtual, borrowed) {
+    this.assetId = assetId;
+    this.seq = seq;
+    this.available = available;
+    this.supplied = supplied;
+    this.virtual = virtual;
+    this.borrowed = borrowed;
   }
 
   /**

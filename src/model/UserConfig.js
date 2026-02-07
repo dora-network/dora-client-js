@@ -24,8 +24,18 @@ export default class UserConfig {
    * Constructs a new <code>UserConfig</code>.
    * @alias module:model/UserConfig
    * @class
+   * @param id {Object} 
+   * @param createdAt {Object} 
+   * @param updatedAt {Object} 
+   * @param showTutorialCards {Object} 
+   * @param notificationsEnabled {Object} 
    */
-  constructor() {
+  constructor(id, createdAt, updatedAt, showTutorialCards, notificationsEnabled) {
+    this.id = id;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    this.showTutorialCards = showTutorialCards;
+    this.notificationsEnabled = notificationsEnabled;
   }
 
   /**

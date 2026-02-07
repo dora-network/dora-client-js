@@ -24,8 +24,34 @@ export default class Position {
    * Constructs a new <code>Position</code>.
    * @alias module:model/Position
    * @class
+   * @param id {Object} The unique identifier for the position. Used, for example, when creating an order from a position, or deciding collateral should be transferred from position A to position B.
+   * @param assetId {Object} 
+   * @param seq {Object} 
+   * @param available {Object} The available balance in the position for this asset that are not locked, supplied, or used as collateral
+   * @param locked {Object} The balance that has been reserved for a current order. If spent by the order, they are removed. If the order is cancelled, they are returned to the position's available balance.
+   * @param supplied {Object} The balance that user has supplied to the leverage module. The user remains entitled to these assets and can withdraw them into their available balance.
+   * @param borrowed {Object} The total amount of debt outstanding for this position. This position cannot be closed until all debt is fully repaid, i.e. borrowed = 0.
+   * @param impendingBorrows {Object} The equivalent of locked balances, but for leveraged orders. If a user has an active order that would borrow assets as part of its input, then their borrow limit must be reduced until the order is executed or cancelled.
+   * @param avgEntryPrice {Object} average cost per unit quantity that was paid (long positions) or received (short positions) for this asset.
+   * @param borrowLimit {Object} The borrow limit
+   * @param liquidationThreshold {Object} The borrow limit
+   * @param createdAt {Object} 
+   * @param positionName {Object} 
    */
-  constructor() {
+  constructor(id, assetId, seq, available, locked, supplied, borrowed, impendingBorrows, avgEntryPrice, borrowLimit, liquidationThreshold, createdAt, positionName) {
+    this.id = id;
+    this.assetId = assetId;
+    this.seq = seq;
+    this.available = available;
+    this.locked = locked;
+    this.supplied = supplied;
+    this.borrowed = borrowed;
+    this.impendingBorrows = impendingBorrows;
+    this.avgEntryPrice = avgEntryPrice;
+    this.borrowLimit = borrowLimit;
+    this.liquidationThreshold = liquidationThreshold;
+    this.createdAt = createdAt;
+    this.positionName = positionName;
   }
 
   /**

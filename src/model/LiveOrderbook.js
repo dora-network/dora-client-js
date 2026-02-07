@@ -24,8 +24,12 @@ export default class LiveOrderbook {
    * Constructs a new <code>LiveOrderbook</code>.
    * @alias module:model/LiveOrderbook
    * @class
+   * @param bids {Object} sorted in desc order by price
+   * @param asks {Object} sorted in asc order by price
    */
-  constructor() {
+  constructor(bids, asks) {
+    this.bids = bids;
+    this.asks = asks;
   }
 
   /**

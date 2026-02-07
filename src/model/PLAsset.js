@@ -25,8 +25,34 @@ export default class PLAsset {
    * Constructs a new <code>PLAsset</code>.
    * @alias module:model/PLAsset
    * @class
+   * @param symbol {Object} The symbol of the asset
+   * @param side {Object} The side of the position (LONG or SHORT)
+   * @param avgEntryPrice {Object} The average entry price of the position
+   * @param markPrice {Object} The current mark price for the asset to calculate daily PL. This is usually the close price of the previous day
+   * @param liquidationPrice {Object} The liquidation price of the position
+   * @param available {Object} The available quantity in units of the asset
+   * @param borrowed {Object} The borrowed quantity in units of the asset
+   * @param margin {module:model/Margin} 
+   * @param unrealizedPl {Object} The unrealized profit or loss of the position
+   * @param leverageLimit {Object} The leverage limit for the position
+   * @param initialCapital {Object} The initial capital of the position
+   * @param locked {Object} The locked amount of the position
+   * @param unusedCollateral {Object} The unused collateral of the position
    */
-  constructor() {
+  constructor(symbol, side, avgEntryPrice, markPrice, liquidationPrice, available, borrowed, margin, unrealizedPl, leverageLimit, initialCapital, locked, unusedCollateral) {
+    this.symbol = symbol;
+    this.side = side;
+    this.avgEntryPrice = avgEntryPrice;
+    this.markPrice = markPrice;
+    this.liquidationPrice = liquidationPrice;
+    this.available = available;
+    this.borrowed = borrowed;
+    this.margin = margin;
+    this.unrealizedPl = unrealizedPl;
+    this.leverageLimit = leverageLimit;
+    this.initialCapital = initialCapital;
+    this.locked = locked;
+    this.unusedCollateral = unusedCollateral;
   }
 
   /**

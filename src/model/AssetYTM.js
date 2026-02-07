@@ -24,8 +24,16 @@ export default class AssetYTM {
    * Constructs a new <code>AssetYTM</code>.
    * @alias module:model/AssetYTM
    * @class
+   * @param assetId {Object} 
+   * @param currentTime {Object} 
+   * @param currentPrice {Object} 
+   * @param yieldToMaturity {Object} 
    */
-  constructor() {
+  constructor(assetId, currentTime, currentPrice, yieldToMaturity) {
+    this.assetId = assetId;
+    this.currentTime = currentTime;
+    this.currentPrice = currentPrice;
+    this.yieldToMaturity = yieldToMaturity;
   }
 
   /**

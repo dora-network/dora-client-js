@@ -24,8 +24,16 @@ export default class Collateral {
    * Constructs a new <code>Collateral</code>.
    * @alias module:model/Collateral
    * @class
+   * @param positionId {Object} 
+   * @param transactionId {Object} 
+   * @param assetId {Object} 
+   * @param quantity {Object} 
    */
-  constructor() {
+  constructor(positionId, transactionId, assetId, quantity) {
+    this.positionId = positionId;
+    this.transactionId = transactionId;
+    this.assetId = assetId;
+    this.quantity = quantity;
   }
 
   /**

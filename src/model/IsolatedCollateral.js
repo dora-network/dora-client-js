@@ -24,8 +24,18 @@ export default class IsolatedCollateral {
    * Constructs a new <code>IsolatedCollateral</code>.
    * @alias module:model/IsolatedCollateral
    * @class
+   * @param globalPositionId {Object} 
+   * @param isolatedPositionId {Object} 
+   * @param transactionId {Object} 
+   * @param assetId {Object} 
+   * @param quantity {Object} 
    */
-  constructor() {
+  constructor(globalPositionId, isolatedPositionId, transactionId, assetId, quantity) {
+    this.globalPositionId = globalPositionId;
+    this.isolatedPositionId = isolatedPositionId;
+    this.transactionId = transactionId;
+    this.assetId = assetId;
+    this.quantity = quantity;
   }
 
   /**

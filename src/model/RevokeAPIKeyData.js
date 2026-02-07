@@ -24,8 +24,16 @@ export default class RevokeAPIKeyData {
    * Constructs a new <code>RevokeAPIKeyData</code>.
    * @alias module:model/RevokeAPIKeyData
    * @class
+   * @param userId {Object} 
+   * @param keyId {Object} 
+   * @param label {Object} 
+   * @param isActive {Object} 
    */
-  constructor() {
+  constructor(userId, keyId, label, isActive) {
+    this.userId = userId;
+    this.keyId = keyId;
+    this.label = label;
+    this.isActive = isActive;
   }
 
   /**

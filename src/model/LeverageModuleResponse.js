@@ -24,8 +24,10 @@ export default class LeverageModuleResponse {
    * Constructs a new <code>LeverageModuleResponse</code>.
    * @alias module:model/LeverageModuleResponse
    * @class
+   * @param balances {Object} A map of asset IDs to their module balances
    */
-  constructor() {
+  constructor(balances) {
+    this.balances = balances;
   }
 
   /**

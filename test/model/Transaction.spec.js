@@ -87,6 +87,18 @@
         // expect(instance.userId).to.be(expectedValueLiteral);
       });
 
+      it('should have the property adminUserId (base name: "admin_user_id")', function() {
+        // TODO: update the code to test the property adminUserId
+        expect(instance).to.have.property('adminUserId');
+        // expect(instance.adminUserId).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property orderSide (base name: "order_side")', function() {
+        // TODO: update the code to test the property orderSide
+        expect(instance).to.have.property('orderSide');
+        // expect(instance.orderSide).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

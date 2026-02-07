@@ -81,12 +81,6 @@
         // expect(instance.liquidationWeight).to.be(expectedValueLiteral);
       });
 
-      it('should have the property maturityId (base name: "maturity_id")', function() {
-        // TODO: update the code to test the property maturityId
-        expect(instance).to.have.property('maturityId');
-        // expect(instance.maturityId).to.be(expectedValueLiteral);
-      });
-
       it('should have the property maxSupply (base name: "max_supply")', function() {
         // TODO: update the code to test the property maxSupply
         expect(instance).to.have.property('maxSupply');
@@ -157,6 +151,12 @@
         // TODO: update the code to test the property maxLeverage
         expect(instance).to.have.property('maxLeverage');
         // expect(instance.maxLeverage).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property leverageInterestRate (base name: "leverage_interest_rate")', function() {
+        // TODO: update the code to test the property leverageInterestRate
+        expect(instance).to.have.property('leverageInterestRate');
+        // expect(instance.leverageInterestRate).to.be(expectedValueLiteral);
       });
 
       it('should have the property bond (base name: "bond")', function() {

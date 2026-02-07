@@ -24,8 +24,18 @@ export default class FundUser {
    * Constructs a new <code>FundUser</code>.
    * @alias module:model/FundUser
    * @class
+   * @param userId {Object} 
+   * @param positionId {Object} 
+   * @param assetId {Object} 
+   * @param finalQuantity {Object} 
+   * @param amount {Object} 
    */
-  constructor() {
+  constructor(userId, positionId, assetId, finalQuantity, amount) {
+    this.userId = userId;
+    this.positionId = positionId;
+    this.assetId = assetId;
+    this.finalQuantity = finalQuantity;
+    this.amount = amount;
   }
 
   /**

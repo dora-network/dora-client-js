@@ -24,8 +24,14 @@ export default class BalanceTransfer {
    * Constructs a new <code>BalanceTransfer</code>.
    * @alias module:model/BalanceTransfer
    * @class
+   * @param fromPositionId {Object} 
+   * @param toPositionId {Object} 
+   * @param transactionId {Object} 
    */
-  constructor() {
+  constructor(fromPositionId, toPositionId, transactionId) {
+    this.fromPositionId = fromPositionId;
+    this.toPositionId = toPositionId;
+    this.transactionId = transactionId;
   }
 
   /**

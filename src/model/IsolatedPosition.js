@@ -24,8 +24,14 @@ export default class IsolatedPosition {
    * Constructs a new <code>IsolatedPosition</code>.
    * @alias module:model/IsolatedPosition
    * @class
+   * @param globalPositionId {Object} 
+   * @param isolatedPositionId {Object} 
+   * @param transactionId {Object} 
    */
-  constructor() {
+  constructor(globalPositionId, isolatedPositionId, transactionId) {
+    this.globalPositionId = globalPositionId;
+    this.isolatedPositionId = isolatedPositionId;
+    this.transactionId = transactionId;
   }
 
   /**

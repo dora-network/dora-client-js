@@ -25,8 +25,10 @@ export default class CreateOrUpdateUserResponse {
    * Response body for POST /user or PUT /user/{id}: contains the ID of the created or updated user.
    * @alias module:model/CreateOrUpdateUserResponse
    * @class
+   * @param id {Object} The ID of the created or updated user.
    */
-  constructor() {
+  constructor(id) {
+    this.id = id;
   }
 
   /**

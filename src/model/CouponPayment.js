@@ -24,8 +24,30 @@ export default class CouponPayment {
    * Constructs a new <code>CouponPayment</code>.
    * @alias module:model/CouponPayment
    * @class
+   * @param id {Object} 
+   * @param assetId {Object} 
+   * @param _yield {Object} 
+   * @param startAt {Object} 
+   * @param endAt {Object} 
+   * @param payAt {Object} 
+   * @param availableToPay {Object} 
+   * @param completedAt {Object} 
+   * @param createdAt {Object} 
+   * @param processEvery {Object} Number of nanoseconds to wait between coupon payment processing, must be at least 1000 (1 microsecond)
+   * @param lastProcessedAt {Object} 
    */
-  constructor() {
+  constructor(id, assetId, _yield, startAt, endAt, payAt, availableToPay, completedAt, createdAt, processEvery, lastProcessedAt) {
+    this.id = id;
+    this.assetId = assetId;
+    this._yield = _yield;
+    this.startAt = startAt;
+    this.endAt = endAt;
+    this.payAt = payAt;
+    this.availableToPay = availableToPay;
+    this.completedAt = completedAt;
+    this.createdAt = createdAt;
+    this.processEvery = processEvery;
+    this.lastProcessedAt = lastProcessedAt;
   }
 
   /**

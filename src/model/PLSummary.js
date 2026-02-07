@@ -24,8 +24,18 @@ export default class PLSummary {
    * Constructs a new <code>PLSummary</code>.
    * @alias module:model/PLSummary
    * @class
+   * @param leverage {Object} The leverage used to obtain the position on the isolated account
+   * @param accountEquity {Object} 
+   * @param available {Object} 
+   * @param health {Object} 
+   * @param ltv {Object} 
    */
-  constructor() {
+  constructor(leverage, accountEquity, available, health, ltv) {
+    this.leverage = leverage;
+    this.accountEquity = accountEquity;
+    this.available = available;
+    this.health = health;
+    this.ltv = ltv;
   }
 
   /**

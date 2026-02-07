@@ -24,8 +24,16 @@ export default class Supply {
    * Constructs a new <code>Supply</code>.
    * @alias module:model/Supply
    * @class
+   * @param positionId {Object} 
+   * @param transactionId {Object} 
+   * @param assetId {Object} 
+   * @param quantity {Object} 
    */
-  constructor() {
+  constructor(positionId, transactionId, assetId, quantity) {
+    this.positionId = positionId;
+    this.transactionId = transactionId;
+    this.assetId = assetId;
+    this.quantity = quantity;
   }
 
   /**

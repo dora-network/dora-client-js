@@ -24,8 +24,12 @@ export default class StreamEntry {
    * Constructs a new <code>StreamEntry</code>.
    * @alias module:model/StreamEntry
    * @class
+   * @param val {Object} The data being streamed
+   * @param time {Object} The timestamp when the data was created
    */
-  constructor() {
+  constructor(val, time) {
+    this.val = val;
+    this.time = time;
   }
 
   /**

@@ -99,6 +99,12 @@
         // expect(instance.quoteAssetId).to.be(expectedValueLiteral);
       });
 
+      it('should have the property clientOrderId (base name: "client_order_id")', function() {
+        // TODO: update the code to test the property clientOrderId
+        expect(instance).to.have.property('clientOrderId');
+        // expect(instance.clientOrderId).to.be(expectedValueLiteral);
+      });
+
       it('should have the property positionAssets (base name: "position_assets")', function() {
         // TODO: update the code to test the property positionAssets
         expect(instance).to.have.property('positionAssets');

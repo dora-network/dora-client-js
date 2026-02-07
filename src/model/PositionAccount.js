@@ -24,8 +24,14 @@ export default class PositionAccount {
    * Constructs a new <code>PositionAccount</code>.
    * @alias module:model/PositionAccount
    * @class
+   * @param positionId {Object} The ID of the position account
+   * @param positionName {Object} The name of the position account
+   * @param isGlobal {Object} Whether the position account is the global or an isolated account
    */
-  constructor() {
+  constructor(positionId, positionName, isGlobal) {
+    this.positionId = positionId;
+    this.positionName = positionName;
+    this.isGlobal = isGlobal;
   }
 
   /**

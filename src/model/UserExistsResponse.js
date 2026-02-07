@@ -24,8 +24,14 @@ export default class UserExistsResponse {
    * Constructs a new <code>UserExistsResponse</code>.
    * @alias module:model/UserExistsResponse
    * @class
+   * @param emailExists {Object} 
+   * @param firebaseSet {Object} 
+   * @param shouldCreateUser {Object} 
    */
-  constructor() {
+  constructor(emailExists, firebaseSet, shouldCreateUser) {
+    this.emailExists = emailExists;
+    this.firebaseSet = firebaseSet;
+    this.shouldCreateUser = shouldCreateUser;
   }
 
   /**

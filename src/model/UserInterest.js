@@ -24,8 +24,12 @@ export default class UserInterest {
    * Constructs a new <code>UserInterest</code>.
    * @alias module:model/UserInterest
    * @class
+   * @param available {Object} 
+   * @param value {Object} 
    */
-  constructor() {
+  constructor(available, value) {
+    this.available = available;
+    this.value = value;
   }
 
   /**

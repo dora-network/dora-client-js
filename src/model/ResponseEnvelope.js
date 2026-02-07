@@ -26,8 +26,10 @@ export default class ResponseEnvelope {
    * Standard response envelope. For 2xx responses, &#x27;data&#x27; is set. For errors, &#x27;error&#x27; is set.
    * @alias module:model/ResponseEnvelope
    * @class
+   * @param metadata {module:model/Metadata} Metadata about the response, including status code and trace information.
    */
-  constructor() {
+  constructor(metadata) {
+    this.metadata = metadata;
   }
 
   /**

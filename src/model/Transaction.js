@@ -13,6 +13,7 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Side from './Side';
 import TransactionKind from './TransactionKind';
 
 /**
@@ -25,8 +26,28 @@ export default class Transaction {
    * Constructs a new <code>Transaction</code>.
    * @alias module:model/Transaction
    * @class
+   * @param id {Object} 
+   * @param createdAt {Object} 
+   * @param kind {module:model/TransactionKind} 
+   * @param asset0 {Object} 
+   * @param quantity0 {Object} 
+   * @param quantity1 {Object} 
+   * @param asset1 {Object} 
+   * @param userId {Object} 
+   * @param adminUserId {Object} 
+   * @param orderSide {module:model/Side} 
    */
-  constructor() {
+  constructor(id, createdAt, kind, asset0, quantity0, quantity1, asset1, userId, adminUserId, orderSide) {
+    this.id = id;
+    this.createdAt = createdAt;
+    this.kind = kind;
+    this.asset0 = asset0;
+    this.quantity0 = quantity0;
+    this.quantity1 = quantity1;
+    this.asset1 = asset1;
+    this.userId = userId;
+    this.adminUserId = adminUserId;
+    this.orderSide = orderSide;
   }
 
   /**
@@ -55,6 +76,10 @@ export default class Transaction {
         obj.asset1 = ApiClient.convertToType(data['asset1'], Object);
       if (data.hasOwnProperty('user_id'))
         obj.userId = ApiClient.convertToType(data['user_id'], Object);
+      if (data.hasOwnProperty('admin_user_id'))
+        obj.adminUserId = ApiClient.convertToType(data['admin_user_id'], Object);
+      if (data.hasOwnProperty('order_side'))
+        obj.orderSide = Side.constructFromObject(data['order_side']);
     }
     return obj;
   }
@@ -99,4 +124,14 @@ Transaction.prototype.asset1 = undefined;
  * @member {Object} userId
  */
 Transaction.prototype.userId = undefined;
+
+/**
+ * @member {Object} adminUserId
+ */
+Transaction.prototype.adminUserId = undefined;
+
+/**
+ * @member {module:model/Side} orderSide
+ */
+Transaction.prototype.orderSide = undefined;
 

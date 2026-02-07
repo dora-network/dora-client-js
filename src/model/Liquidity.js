@@ -24,8 +24,20 @@ export default class Liquidity {
    * Constructs a new <code>Liquidity</code>.
    * @alias module:model/Liquidity
    * @class
+   * @param orderBookId {Object} 
+   * @param positionId {Object} 
+   * @param transactionId {Object} 
+   * @param baseQuantity {Object} 
+   * @param quoteQuantity {Object} 
+   * @param sharesQuantity {Object} 
    */
-  constructor() {
+  constructor(orderBookId, positionId, transactionId, baseQuantity, quoteQuantity, sharesQuantity) {
+    this.orderBookId = orderBookId;
+    this.positionId = positionId;
+    this.transactionId = transactionId;
+    this.baseQuantity = baseQuantity;
+    this.quoteQuantity = quoteQuantity;
+    this.sharesQuantity = sharesQuantity;
   }
 
   /**

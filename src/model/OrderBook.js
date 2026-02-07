@@ -25,8 +25,38 @@ export default class OrderBook {
    * Constructs a new <code>OrderBook</code>.
    * @alias module:model/OrderBook
    * @class
+   * @param orderBookId {Object} 
+   * @param baseQuantity {Object} 
+   * @param baseAssetId {Object} 
+   * @param createdAt {Object} 
+   * @param displayName {Object} 
+   * @param feeFactor {Object} 
+   * @param initialAssetsRatio {Object} 
+   * @param maturityAt {Object} 
+   * @param quoteQuantity {Object} 
+   * @param quoteAssetId {Object} 
+   * @param sharesQuantity {Object} 
+   * @param status {module:model/OrderBookStatus} 
+   * @param tickSize {Object} 
+   * @param updatedAt {Object} 
+   * @param sharesAssetId {Object} 
    */
-  constructor() {
+  constructor(orderBookId, baseQuantity, baseAssetId, createdAt, displayName, feeFactor, initialAssetsRatio, maturityAt, quoteQuantity, quoteAssetId, sharesQuantity, status, tickSize, updatedAt, sharesAssetId) {
+    this.orderBookId = orderBookId;
+    this.baseQuantity = baseQuantity;
+    this.baseAssetId = baseAssetId;
+    this.createdAt = createdAt;
+    this.displayName = displayName;
+    this.feeFactor = feeFactor;
+    this.initialAssetsRatio = initialAssetsRatio;
+    this.maturityAt = maturityAt;
+    this.quoteQuantity = quoteQuantity;
+    this.quoteAssetId = quoteAssetId;
+    this.sharesQuantity = sharesQuantity;
+    this.status = status;
+    this.tickSize = tickSize;
+    this.updatedAt = updatedAt;
+    this.sharesAssetId = sharesAssetId;
   }
 
   /**

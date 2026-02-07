@@ -25,8 +25,18 @@ export default class PLAccount {
    * Constructs a new <code>PLAccount</code>.
    * @alias module:model/PLAccount
    * @class
+   * @param accountId {Object} The ID of the account holding the position
+   * @param accountName {Object} The name of the account holding the position
+   * @param isGlobal {Object} Whether the account is the global or an isolated account
+   * @param assets {Object} 
+   * @param summary {module:model/PLSummary} 
    */
-  constructor() {
+  constructor(accountId, accountName, isGlobal, assets, summary) {
+    this.accountId = accountId;
+    this.accountName = accountName;
+    this.isGlobal = isGlobal;
+    this.assets = assets;
+    this.summary = summary;
   }
 
   /**

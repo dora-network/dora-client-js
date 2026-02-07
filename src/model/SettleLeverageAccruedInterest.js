@@ -24,8 +24,16 @@ export default class SettleLeverageAccruedInterest {
    * Constructs a new <code>SettleLeverageAccruedInterest</code>.
    * @alias module:model/SettleLeverageAccruedInterest
    * @class
+   * @param transactionId {Object} 
+   * @param assetId {Object} 
+   * @param positionId {Object} 
+   * @param currentAccruedInterestUsd {Object} 
    */
-  constructor() {
+  constructor(transactionId, assetId, positionId, currentAccruedInterestUsd) {
+    this.transactionId = transactionId;
+    this.assetId = assetId;
+    this.positionId = positionId;
+    this.currentAccruedInterestUsd = currentAccruedInterestUsd;
   }
 
   /**

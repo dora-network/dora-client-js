@@ -24,8 +24,22 @@ export default class User {
    * Constructs a new <code>User</code>.
    * @alias module:model/User
    * @class
+   * @param id {Object} 
+   * @param email {Object} 
+   * @param name {Object} 
+   * @param nativeAssetId {Object} 
+   * @param roles {Object} 
+   * @param showTutorialCards {Object} 
+   * @param notificationsEnabled {Object} 
    */
-  constructor() {
+  constructor(id, email, name, nativeAssetId, roles, showTutorialCards, notificationsEnabled) {
+    this.id = id;
+    this.email = email;
+    this.name = name;
+    this.nativeAssetId = nativeAssetId;
+    this.roles = roles;
+    this.showTutorialCards = showTutorialCards;
+    this.notificationsEnabled = notificationsEnabled;
   }
 
   /**

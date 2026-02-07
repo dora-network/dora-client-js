@@ -24,8 +24,16 @@ export default class OrderBookBalance {
    * Constructs a new <code>OrderBookBalance</code>.
    * @alias module:model/OrderBookBalance
    * @class
+   * @param orderBookId {Object} The ID of the order book.
+   * @param baseQuantity {Object} The quantity of the base asset.
+   * @param quoteQuantity {Object} The quantity of the quote asset.
+   * @param sharesQuantity {Object} The quantity of pool shares.
    */
-  constructor() {
+  constructor(orderBookId, baseQuantity, quoteQuantity, sharesQuantity) {
+    this.orderBookId = orderBookId;
+    this.baseQuantity = baseQuantity;
+    this.quoteQuantity = quoteQuantity;
+    this.sharesQuantity = sharesQuantity;
   }
 
   /**

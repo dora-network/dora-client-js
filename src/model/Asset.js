@@ -26,8 +26,48 @@ export default class Asset {
    * Constructs a new <code>Asset</code>.
    * @alias module:model/Asset
    * @class
+   * @param id {Object} 
+   * @param collateralWeight {Object} 
+   * @param createdAt {Object} 
+   * @param decimals {Object} 
+   * @param fractionalizedUnits {Object} 
+   * @param description {Object} 
+   * @param liquidationWeight {Object} 
+   * @param maxSupply {Object} 
+   * @param maxUtilization {Object} 
+   * @param name {Object} 
+   * @param symbol {Object} 
+   * @param kind {module:model/AssetKind} 
+   * @param _yield {Object} 
+   * @param canAddLiquidity {Object} 
+   * @param canDirectBorrow {Object} 
+   * @param canOnboard {Object} 
+   * @param canTrade {Object} 
+   * @param canVirtualBorrow {Object} 
+   * @param maxLeverage {Object} 
+   * @param leverageInterestRate {Object} 
    */
-  constructor() {
+  constructor(id, collateralWeight, createdAt, decimals, fractionalizedUnits, description, liquidationWeight, maxSupply, maxUtilization, name, symbol, kind, _yield, canAddLiquidity, canDirectBorrow, canOnboard, canTrade, canVirtualBorrow, maxLeverage, leverageInterestRate) {
+    this.id = id;
+    this.collateralWeight = collateralWeight;
+    this.createdAt = createdAt;
+    this.decimals = decimals;
+    this.fractionalizedUnits = fractionalizedUnits;
+    this.description = description;
+    this.liquidationWeight = liquidationWeight;
+    this.maxSupply = maxSupply;
+    this.maxUtilization = maxUtilization;
+    this.name = name;
+    this.symbol = symbol;
+    this.kind = kind;
+    this._yield = _yield;
+    this.canAddLiquidity = canAddLiquidity;
+    this.canDirectBorrow = canDirectBorrow;
+    this.canOnboard = canOnboard;
+    this.canTrade = canTrade;
+    this.canVirtualBorrow = canVirtualBorrow;
+    this.maxLeverage = maxLeverage;
+    this.leverageInterestRate = leverageInterestRate;
   }
 
   /**
@@ -54,8 +94,6 @@ export default class Asset {
         obj.description = ApiClient.convertToType(data['description'], Object);
       if (data.hasOwnProperty('liquidation_weight'))
         obj.liquidationWeight = ApiClient.convertToType(data['liquidation_weight'], Object);
-      if (data.hasOwnProperty('maturity_id'))
-        obj.maturityId = ApiClient.convertToType(data['maturity_id'], Object);
       if (data.hasOwnProperty('max_supply'))
         obj.maxSupply = ApiClient.convertToType(data['max_supply'], Object);
       if (data.hasOwnProperty('max_utilization'))
@@ -80,6 +118,8 @@ export default class Asset {
         obj.canVirtualBorrow = ApiClient.convertToType(data['can_virtual_borrow'], Object);
       if (data.hasOwnProperty('max_leverage'))
         obj.maxLeverage = ApiClient.convertToType(data['max_leverage'], Object);
+      if (data.hasOwnProperty('leverage_interest_rate'))
+        obj.leverageInterestRate = ApiClient.convertToType(data['leverage_interest_rate'], Object);
       if (data.hasOwnProperty('bond'))
         obj.bond = Bond.constructFromObject(data['bond']);
     }
@@ -121,11 +161,6 @@ Asset.prototype.description = undefined;
  * @member {Object} liquidationWeight
  */
 Asset.prototype.liquidationWeight = undefined;
-
-/**
- * @member {Object} maturityId
- */
-Asset.prototype.maturityId = undefined;
 
 /**
  * @member {Object} maxSupply
@@ -186,6 +221,11 @@ Asset.prototype.canVirtualBorrow = undefined;
  * @member {Object} maxLeverage
  */
 Asset.prototype.maxLeverage = undefined;
+
+/**
+ * @member {Object} leverageInterestRate
+ */
+Asset.prototype.leverageInterestRate = undefined;
 
 /**
  * @member {module:model/Bond} bond

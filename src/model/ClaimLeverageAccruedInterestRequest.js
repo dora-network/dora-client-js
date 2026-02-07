@@ -24,8 +24,14 @@ export default class ClaimLeverageAccruedInterestRequest {
    * Constructs a new <code>ClaimLeverageAccruedInterestRequest</code>.
    * @alias module:model/ClaimLeverageAccruedInterestRequest
    * @class
+   * @param positionId {Object} 
+   * @param assetId {Object} 
+   * @param quantity {Object} 
    */
-  constructor() {
+  constructor(positionId, assetId, quantity) {
+    this.positionId = positionId;
+    this.assetId = assetId;
+    this.quantity = quantity;
   }
 
   /**
@@ -38,10 +44,10 @@ export default class ClaimLeverageAccruedInterestRequest {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new ClaimLeverageAccruedInterestRequest();
-      if (data.hasOwnProperty('asset_id'))
-        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('position_id'))
         obj.positionId = ApiClient.convertToType(data['position_id'], Object);
+      if (data.hasOwnProperty('asset_id'))
+        obj.assetId = ApiClient.convertToType(data['asset_id'], Object);
       if (data.hasOwnProperty('quantity'))
         obj.quantity = ApiClient.convertToType(data['quantity'], Object);
     }
@@ -50,14 +56,14 @@ export default class ClaimLeverageAccruedInterestRequest {
 }
 
 /**
- * @member {Object} assetId
- */
-ClaimLeverageAccruedInterestRequest.prototype.assetId = undefined;
-
-/**
  * @member {Object} positionId
  */
 ClaimLeverageAccruedInterestRequest.prototype.positionId = undefined;
+
+/**
+ * @member {Object} assetId
+ */
+ClaimLeverageAccruedInterestRequest.prototype.assetId = undefined;
 
 /**
  * @member {Object} quantity

@@ -24,8 +24,12 @@ export default class PriceLevel {
    * Constructs a new <code>PriceLevel</code>.
    * @alias module:model/PriceLevel
    * @class
+   * @param price {Object} 
+   * @param quantity {Object} 
    */
-  constructor() {
+  constructor(price, quantity) {
+    this.price = price;
+    this.quantity = quantity;
   }
 
   /**

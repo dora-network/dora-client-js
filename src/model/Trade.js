@@ -25,8 +25,30 @@ export default class Trade {
    * Constructs a new <code>Trade</code>.
    * @alias module:model/Trade
    * @class
+   * @param transactionId {Object} 
+   * @param asset0 {Object} 
+   * @param createdAt {Object} 
+   * @param orderBookId {Object} 
+   * @param orderId {Object} 
+   * @param orderSeq {Object} 
+   * @param price {Object} 
+   * @param quantity0 {Object} 
+   * @param userId {Object} 
+   * @param side {module:model/Side} 
+   * @param aggressorIndicator {Object} If true, then this order is the aggressor (taker); otherwise it is the maker.
    */
-  constructor() {
+  constructor(transactionId, asset0, createdAt, orderBookId, orderId, orderSeq, price, quantity0, userId, side, aggressorIndicator) {
+    this.transactionId = transactionId;
+    this.asset0 = asset0;
+    this.createdAt = createdAt;
+    this.orderBookId = orderBookId;
+    this.orderId = orderId;
+    this.orderSeq = orderSeq;
+    this.price = price;
+    this.quantity0 = quantity0;
+    this.userId = userId;
+    this.side = side;
+    this.aggressorIndicator = aggressorIndicator;
   }
 
   /**
@@ -45,10 +67,6 @@ export default class Trade {
         obj.asset0 = ApiClient.convertToType(data['asset_0'], Object);
       if (data.hasOwnProperty('created_at'))
         obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
-      if (data.hasOwnProperty('fee_asset_id'))
-        obj.feeAssetId = ApiClient.convertToType(data['fee_asset_id'], Object);
-      if (data.hasOwnProperty('fee_quantity'))
-        obj.feeQuantity = ApiClient.convertToType(data['fee_quantity'], Object);
       if (data.hasOwnProperty('order_book_id'))
         obj.orderBookId = ApiClient.convertToType(data['order_book_id'], Object);
       if (data.hasOwnProperty('order_id'))
@@ -84,16 +102,6 @@ Trade.prototype.asset0 = undefined;
  * @member {Object} createdAt
  */
 Trade.prototype.createdAt = undefined;
-
-/**
- * @member {Object} feeAssetId
- */
-Trade.prototype.feeAssetId = undefined;
-
-/**
- * @member {Object} feeQuantity
- */
-Trade.prototype.feeQuantity = undefined;
 
 /**
  * @member {Object} orderBookId

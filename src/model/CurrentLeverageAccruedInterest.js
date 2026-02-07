@@ -24,8 +24,16 @@ export default class CurrentLeverageAccruedInterest {
    * Constructs a new <code>CurrentLeverageAccruedInterest</code>.
    * @alias module:model/CurrentLeverageAccruedInterest
    * @class
+   * @param userId {Object} 
+   * @param assetId {Object} 
+   * @param positionId {Object} 
+   * @param currentAccruedInterestUsd {Object} 
    */
-  constructor() {
+  constructor(userId, assetId, positionId, currentAccruedInterestUsd) {
+    this.userId = userId;
+    this.assetId = assetId;
+    this.positionId = positionId;
+    this.currentAccruedInterestUsd = currentAccruedInterestUsd;
   }
 
   /**

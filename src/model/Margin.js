@@ -24,8 +24,14 @@ export default class Margin {
    * Constructs a new <code>Margin</code>.
    * @alias module:model/Margin
    * @class
+   * @param available {Object} The total margin available from this position.
+   * @param used {Object} The amount of margin used from this position.
+   * @param remaining {Object} The margin remaining available from this position.
    */
-  constructor() {
+  constructor(available, used, remaining) {
+    this.available = available;
+    this.used = used;
+    this.remaining = remaining;
   }
 
   /**

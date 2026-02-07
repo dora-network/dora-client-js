@@ -25,8 +25,14 @@ export default class Metadata {
    * Metadata about the response, including status code and tracing information.
    * @alias module:model/Metadata
    * @class
+   * @param statusCode {Object} HTTP status code for the response.
+   * @param traceId {Object} Trace ID for distributed tracing.
+   * @param requestId {Object} Request ID for correlating logs and debugging.
    */
-  constructor() {
+  constructor(statusCode, traceId, requestId) {
+    this.statusCode = statusCode;
+    this.traceId = traceId;
+    this.requestId = requestId;
   }
 
   /**

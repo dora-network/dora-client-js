@@ -34,9 +34,8 @@ export default class Bond {
    * @param maturityAt {Object} 
    * @param principalValue {Object} 
    * @param paymentsPerYear {Object} 
-   * @param paymentsEvery {Object} Coupon payment frequency in nanoseconds (minimum 1000 i.e. 1 microsecond)
    */
-  constructor(id, kind, createdAt, isin, issuedAt, issuer, maturityAt, principalValue, paymentsPerYear, paymentsEvery) {
+  constructor(id, kind, createdAt, isin, issuedAt, issuer, maturityAt, principalValue, paymentsPerYear) {
     this.id = id;
     this.kind = kind;
     this.createdAt = createdAt;
@@ -46,7 +45,6 @@ export default class Bond {
     this.maturityAt = maturityAt;
     this.principalValue = principalValue;
     this.paymentsPerYear = paymentsPerYear;
-    this.paymentsEvery = paymentsEvery;
   }
 
   /**

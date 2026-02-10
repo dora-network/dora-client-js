@@ -38,16 +38,14 @@ export default class Asset {
    * @param name {Object} 
    * @param symbol {Object} 
    * @param kind {module:model/AssetKind} 
-   * @param _yield {Object} 
    * @param canAddLiquidity {Object} 
    * @param canDirectBorrow {Object} 
    * @param canOnboard {Object} 
    * @param canTrade {Object} 
    * @param canVirtualBorrow {Object} 
    * @param maxLeverage {Object} 
-   * @param leverageInterestRate {Object} 
    */
-  constructor(id, collateralWeight, createdAt, decimals, fractionalizedUnits, description, liquidationWeight, maxSupply, maxUtilization, name, symbol, kind, _yield, canAddLiquidity, canDirectBorrow, canOnboard, canTrade, canVirtualBorrow, maxLeverage, leverageInterestRate) {
+  constructor(id, collateralWeight, createdAt, decimals, fractionalizedUnits, description, liquidationWeight, maxSupply, maxUtilization, name, symbol, kind, canAddLiquidity, canDirectBorrow, canOnboard, canTrade, canVirtualBorrow, maxLeverage) {
     this.id = id;
     this.collateralWeight = collateralWeight;
     this.createdAt = createdAt;
@@ -60,14 +58,12 @@ export default class Asset {
     this.name = name;
     this.symbol = symbol;
     this.kind = kind;
-    this._yield = _yield;
     this.canAddLiquidity = canAddLiquidity;
     this.canDirectBorrow = canDirectBorrow;
     this.canOnboard = canOnboard;
     this.canTrade = canTrade;
     this.canVirtualBorrow = canVirtualBorrow;
     this.maxLeverage = maxLeverage;
-    this.leverageInterestRate = leverageInterestRate;
   }
 
   /**

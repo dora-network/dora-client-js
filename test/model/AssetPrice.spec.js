@@ -51,6 +51,12 @@
         // expect(instance.price).to.be(expectedValueLiteral);
       });
 
+      it('should have the property ytm (base name: "ytm")', function() {
+        // TODO: update the code to test the property ytm
+        expect(instance).to.have.property('ytm');
+        // expect(instance.ytm).to.be(expectedValueLiteral);
+      });
+
       it('should have the property time (base name: "time")', function() {
         // TODO: update the code to test the property time
         expect(instance).to.have.property('time');

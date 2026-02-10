@@ -30,6 +30,8 @@ export default class OrderBook {
    * @param baseAssetId {Object} 
    * @param createdAt {Object} 
    * @param displayName {Object} 
+   * @param baseAssetFractionalizedUnits {Object} 
+   * @param quoteAssetFractionalizedUnits {Object} 
    * @param feeFactor {Object} 
    * @param initialAssetsRatio {Object} 
    * @param maturityAt {Object} 
@@ -41,12 +43,14 @@ export default class OrderBook {
    * @param updatedAt {Object} 
    * @param sharesAssetId {Object} 
    */
-  constructor(orderBookId, baseQuantity, baseAssetId, createdAt, displayName, feeFactor, initialAssetsRatio, maturityAt, quoteQuantity, quoteAssetId, sharesQuantity, status, tickSize, updatedAt, sharesAssetId) {
+  constructor(orderBookId, baseQuantity, baseAssetId, createdAt, displayName, baseAssetFractionalizedUnits, quoteAssetFractionalizedUnits, feeFactor, initialAssetsRatio, maturityAt, quoteQuantity, quoteAssetId, sharesQuantity, status, tickSize, updatedAt, sharesAssetId) {
     this.orderBookId = orderBookId;
     this.baseQuantity = baseQuantity;
     this.baseAssetId = baseAssetId;
     this.createdAt = createdAt;
     this.displayName = displayName;
+    this.baseAssetFractionalizedUnits = baseAssetFractionalizedUnits;
+    this.quoteAssetFractionalizedUnits = quoteAssetFractionalizedUnits;
     this.feeFactor = feeFactor;
     this.initialAssetsRatio = initialAssetsRatio;
     this.maturityAt = maturityAt;
@@ -79,6 +83,10 @@ export default class OrderBook {
         obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
       if (data.hasOwnProperty('display_name'))
         obj.displayName = ApiClient.convertToType(data['display_name'], Object);
+      if (data.hasOwnProperty('base_asset_fractionalized_units'))
+        obj.baseAssetFractionalizedUnits = ApiClient.convertToType(data['base_asset_fractionalized_units'], Object);
+      if (data.hasOwnProperty('quote_asset_fractionalized_units'))
+        obj.quoteAssetFractionalizedUnits = ApiClient.convertToType(data['quote_asset_fractionalized_units'], Object);
       if (data.hasOwnProperty('fee_factor'))
         obj.feeFactor = ApiClient.convertToType(data['fee_factor'], Object);
       if (data.hasOwnProperty('initial_assets_ratio'))
@@ -134,6 +142,16 @@ OrderBook.prototype.createdAt = undefined;
  * @member {Object} displayName
  */
 OrderBook.prototype.displayName = undefined;
+
+/**
+ * @member {Object} baseAssetFractionalizedUnits
+ */
+OrderBook.prototype.baseAssetFractionalizedUnits = undefined;
+
+/**
+ * @member {Object} quoteAssetFractionalizedUnits
+ */
+OrderBook.prototype.quoteAssetFractionalizedUnits = undefined;
 
 /**
  * @member {Object} feeFactor

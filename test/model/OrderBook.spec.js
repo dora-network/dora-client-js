@@ -69,6 +69,18 @@
         // expect(instance.displayName).to.be(expectedValueLiteral);
       });
 
+      it('should have the property baseAssetFractionalizedUnits (base name: "base_asset_fractionalized_units")', function() {
+        // TODO: update the code to test the property baseAssetFractionalizedUnits
+        expect(instance).to.have.property('baseAssetFractionalizedUnits');
+        // expect(instance.baseAssetFractionalizedUnits).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property quoteAssetFractionalizedUnits (base name: "quote_asset_fractionalized_units")', function() {
+        // TODO: update the code to test the property quoteAssetFractionalizedUnits
+        expect(instance).to.have.property('quoteAssetFractionalizedUnits');
+        // expect(instance.quoteAssetFractionalizedUnits).to.be(expectedValueLiteral);
+      });
+
       it('should have the property feeFactor (base name: "fee_factor")', function() {
         // TODO: update the code to test the property feeFactor
         expect(instance).to.have.property('feeFactor');

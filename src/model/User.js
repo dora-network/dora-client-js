@@ -31,8 +31,9 @@ export default class User {
    * @param roles {Object} 
    * @param showTutorialCards {Object} 
    * @param notificationsEnabled {Object} 
+   * @param tenantId {Object} 
    */
-  constructor(id, email, name, nativeAssetId, roles, showTutorialCards, notificationsEnabled) {
+  constructor(id, email, name, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId) {
     this.id = id;
     this.email = email;
     this.name = name;
@@ -40,6 +41,7 @@ export default class User {
     this.roles = roles;
     this.showTutorialCards = showTutorialCards;
     this.notificationsEnabled = notificationsEnabled;
+    this.tenantId = tenantId;
   }
 
   /**
@@ -82,6 +84,8 @@ export default class User {
         obj.showTutorialCards = ApiClient.convertToType(data['show_tutorial_cards'], Object);
       if (data.hasOwnProperty('notifications_enabled'))
         obj.notificationsEnabled = ApiClient.convertToType(data['notifications_enabled'], Object);
+      if (data.hasOwnProperty('tenant_id'))
+        obj.tenantId = ApiClient.convertToType(data['tenant_id'], Object);
     }
     return obj;
   }
@@ -163,4 +167,9 @@ User.prototype.showTutorialCards = undefined;
  * @member {Object} notificationsEnabled
  */
 User.prototype.notificationsEnabled = undefined;
+
+/**
+ * @member {Object} tenantId
+ */
+User.prototype.tenantId = undefined;
 

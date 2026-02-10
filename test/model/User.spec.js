@@ -129,6 +129,12 @@
         // expect(instance.notificationsEnabled).to.be(expectedValueLiteral);
       });
 
+      it('should have the property tenantId (base name: "tenant_id")', function() {
+        // TODO: update the code to test the property tenantId
+        expect(instance).to.have.property('tenantId');
+        // expect(instance.tenantId).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

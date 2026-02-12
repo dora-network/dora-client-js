@@ -123,6 +123,12 @@
         // expect(instance.positionName).to.be(expectedValueLiteral);
       });
 
+      it('should have the property pendingWithdrawal (base name: "pending_withdrawal")', function() {
+        // TODO: update the code to test the property pendingWithdrawal
+        expect(instance).to.have.property('pendingWithdrawal');
+        // expect(instance.pendingWithdrawal).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

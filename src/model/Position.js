@@ -37,8 +37,9 @@ export default class Position {
    * @param liquidationThreshold {Object} The borrow limit
    * @param createdAt {Object} 
    * @param positionName {Object} 
+   * @param pendingWithdrawal {Object} The amount of asset that is pending withdrawal from the position.
    */
-  constructor(id, assetId, seq, available, locked, supplied, borrowed, impendingBorrows, avgEntryPrice, borrowLimit, liquidationThreshold, createdAt, positionName) {
+  constructor(id, assetId, seq, available, locked, supplied, borrowed, impendingBorrows, avgEntryPrice, borrowLimit, liquidationThreshold, createdAt, positionName, pendingWithdrawal) {
     this.id = id;
     this.assetId = assetId;
     this.seq = seq;
@@ -52,6 +53,7 @@ export default class Position {
     this.liquidationThreshold = liquidationThreshold;
     this.createdAt = createdAt;
     this.positionName = positionName;
+    this.pendingWithdrawal = pendingWithdrawal;
   }
 
   /**
@@ -92,6 +94,8 @@ export default class Position {
         obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
       if (data.hasOwnProperty('position_name'))
         obj.positionName = ApiClient.convertToType(data['position_name'], Object);
+      if (data.hasOwnProperty('pending_withdrawal'))
+        obj.pendingWithdrawal = ApiClient.convertToType(data['pending_withdrawal'], Object);
     }
     return obj;
   }
@@ -175,4 +179,10 @@ Position.prototype.createdAt = undefined;
  * @member {Object} positionName
  */
 Position.prototype.positionName = undefined;
+
+/**
+ * The amount of asset that is pending withdrawal from the position.
+ * @member {Object} pendingWithdrawal
+ */
+Position.prototype.pendingWithdrawal = undefined;
 

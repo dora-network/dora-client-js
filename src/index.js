@@ -16,6 +16,8 @@ import ApiClient from './ApiClient';
 import APIKeyResponse from './model/APIKeyResponse';
 import APIKeyResponseEnvelope from './model/APIKeyResponseEnvelope';
 import APIKeys from './model/APIKeys';
+import AllWithdrawalInitiationsResponse from './model/AllWithdrawalInitiationsResponse';
+import AllWithdrawalInitiationsResponseEnvelope from './model/AllWithdrawalInitiationsResponseEnvelope';
 import Asset from './model/Asset';
 import AssetKind from './model/AssetKind';
 import AssetPrice from './model/AssetPrice';
@@ -247,6 +249,9 @@ import Withdraw from './model/Withdraw';
 import WithdrawRequest from './model/WithdrawRequest';
 import WithdrawResponse from './model/WithdrawResponse';
 import WithdrawResponseEnvelope from './model/WithdrawResponseEnvelope';
+import WithdrawalInitiation from './model/WithdrawalInitiation';
+import WithdrawalInitiationResponse from './model/WithdrawalInitiationResponse';
+import WithdrawalInitiationResponseEnvelope from './model/WithdrawalInitiationResponseEnvelope';
 import DefaultApi from './api/DefaultApi';
 
 /**
@@ -304,6 +309,18 @@ export {
      * @property {module:model/APIKeys}
      */
     APIKeys,
+
+    /**
+     * The AllWithdrawalInitiationsResponse model constructor.
+     * @property {module:model/AllWithdrawalInitiationsResponse}
+     */
+    AllWithdrawalInitiationsResponse,
+
+    /**
+     * The AllWithdrawalInitiationsResponseEnvelope model constructor.
+     * @property {module:model/AllWithdrawalInitiationsResponseEnvelope}
+     */
+    AllWithdrawalInitiationsResponseEnvelope,
 
     /**
      * The Asset model constructor.
@@ -1690,6 +1707,24 @@ export {
      * @property {module:model/WithdrawResponseEnvelope}
      */
     WithdrawResponseEnvelope,
+
+    /**
+     * The WithdrawalInitiation model constructor.
+     * @property {module:model/WithdrawalInitiation}
+     */
+    WithdrawalInitiation,
+
+    /**
+     * The WithdrawalInitiationResponse model constructor.
+     * @property {module:model/WithdrawalInitiationResponse}
+     */
+    WithdrawalInitiationResponse,
+
+    /**
+     * The WithdrawalInitiationResponseEnvelope model constructor.
+     * @property {module:model/WithdrawalInitiationResponseEnvelope}
+     */
+    WithdrawalInitiationResponseEnvelope,
 
     /**
     * The DefaultApi service constructor.

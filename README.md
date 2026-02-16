@@ -127,6 +127,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getLedgerModuleByAsset**](docs/DefaultApi.md#getLedgerModuleByAsset) | **GET** /v1/ledger/module/{asset_id} | Get the module object for a single asset ID
 *Dora.DefaultApi* | [**getLedgerPositionsSelf**](docs/DefaultApi.md#getLedgerPositionsSelf) | **GET** /v1/ledger/positions/self | Get your own positions
 *Dora.DefaultApi* | [**getLedgerValueSelf**](docs/DefaultApi.md#getLedgerValueSelf) | **GET** /v1/ledger/value/self | Get your own available, locked, and borrowed USD value; and realized and unrealized PnL
+*Dora.DefaultApi* | [**getLedgerWithdrawRequestsBySelf**](docs/DefaultApi.md#getLedgerWithdrawRequestsBySelf) | **GET** /v1/ledger/withdraw/requests/self | Get all pending withdrawal requests for the logged in user
 *Dora.DefaultApi* | [**getOrderById**](docs/DefaultApi.md#getOrderById) | **GET** /v1/orders/{order_id} | Get order by ID
 *Dora.DefaultApi* | [**getOrderbookById**](docs/DefaultApi.md#getOrderbookById) | **GET** /v1/orderbooks/{order_book_id} | Get orderbook by ID
 *Dora.DefaultApi* | [**getOrderbookDepth**](docs/DefaultApi.md#getOrderbookDepth) | **GET** /v1/orderbooks/{order_book_id}/depth | Get the aggregated price levels for a specific orderbook (L2 market depth)
@@ -151,6 +152,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getUsersAPIKeys**](docs/DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#x27;s api keys
 *Dora.DefaultApi* | [**ledgerDeposit**](docs/DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit/{user_id} | Deposit assets into this user&#x27;s account from the outside world
 *Dora.DefaultApi* | [**ledgerWithdraw**](docs/DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw/{user_id} | Withdraw assets from this user to the outside world
+*Dora.DefaultApi* | [**ledgerWithdrawRequest**](docs/DefaultApi.md#ledgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/self | Initiate a withdrawal request for the logged in user to the outside world
 *Dora.DefaultApi* | [**leverageGetAccruedInterestByUser**](docs/DefaultApi.md#leverageGetAccruedInterestByUser) | **GET** /v1/leverage/accrued_interest/self | Get current accrued leverage interest for the user
 *Dora.DefaultApi* | [**leverageIsolateCollateral**](docs/DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
 *Dora.DefaultApi* | [**leverageSupply**](docs/DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
@@ -182,6 +184,8 @@ Class | Method | HTTP request | Description
  - [Dora.APIKeyResponse](docs/APIKeyResponse.md)
  - [Dora.APIKeyResponseEnvelope](docs/APIKeyResponseEnvelope.md)
  - [Dora.APIKeys](docs/APIKeys.md)
+ - [Dora.AllWithdrawalInitiationsResponse](docs/AllWithdrawalInitiationsResponse.md)
+ - [Dora.AllWithdrawalInitiationsResponseEnvelope](docs/AllWithdrawalInitiationsResponseEnvelope.md)
  - [Dora.Asset](docs/Asset.md)
  - [Dora.AssetKind](docs/AssetKind.md)
  - [Dora.AssetPrice](docs/AssetPrice.md)
@@ -413,6 +417,9 @@ Class | Method | HTTP request | Description
  - [Dora.WithdrawRequest](docs/WithdrawRequest.md)
  - [Dora.WithdrawResponse](docs/WithdrawResponse.md)
  - [Dora.WithdrawResponseEnvelope](docs/WithdrawResponseEnvelope.md)
+ - [Dora.WithdrawalInitiation](docs/WithdrawalInitiation.md)
+ - [Dora.WithdrawalInitiationResponse](docs/WithdrawalInitiationResponse.md)
+ - [Dora.WithdrawalInitiationResponseEnvelope](docs/WithdrawalInitiationResponseEnvelope.md)
 
 ## Documentation for Authorization
 

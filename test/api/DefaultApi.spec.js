@@ -577,6 +577,26 @@
           done();
         });
       });
+      describe('getLedgerWithdrawRequestsBySelf', function() {
+        it('should call getLedgerWithdrawRequestsBySelf successfully', function(done) {
+          // TODO: uncomment getLedgerWithdrawRequestsBySelf call and complete the assertions
+          /*
+
+          instance.getLedgerWithdrawRequestsBySelf(function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.AllWithdrawalInitiationsResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('getOrderById', function() {
         it('should call getOrderById successfully', function(done) {
           // TODO: uncomment, update parameter values for getOrderById call and complete the assertions
@@ -1054,6 +1074,26 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.FundUserResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('ledgerWithdrawRequest', function() {
+        it('should call ledgerWithdrawRequest successfully', function(done) {
+          // TODO: uncomment, update parameter values for ledgerWithdrawRequest call and complete the assertions
+          /*
+
+          instance.ledgerWithdrawRequest(body, userId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.WithdrawalInitiationResponse);
 
             done();
           });

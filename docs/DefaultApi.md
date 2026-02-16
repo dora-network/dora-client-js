@@ -31,6 +31,7 @@ Method | HTTP request | Description
 [**getLedgerModuleByAsset**](DefaultApi.md#getLedgerModuleByAsset) | **GET** /v1/ledger/module/{asset_id} | Get the module object for a single asset ID
 [**getLedgerPositionsSelf**](DefaultApi.md#getLedgerPositionsSelf) | **GET** /v1/ledger/positions/self | Get your own positions
 [**getLedgerValueSelf**](DefaultApi.md#getLedgerValueSelf) | **GET** /v1/ledger/value/self | Get your own available, locked, and borrowed USD value; and realized and unrealized PnL
+[**getLedgerWithdrawRequestsBySelf**](DefaultApi.md#getLedgerWithdrawRequestsBySelf) | **GET** /v1/ledger/withdraw/requests/self | Get all pending withdrawal requests for the logged in user
 [**getOrderById**](DefaultApi.md#getOrderById) | **GET** /v1/orders/{order_id} | Get order by ID
 [**getOrderbookById**](DefaultApi.md#getOrderbookById) | **GET** /v1/orderbooks/{order_book_id} | Get orderbook by ID
 [**getOrderbookDepth**](DefaultApi.md#getOrderbookDepth) | **GET** /v1/orderbooks/{order_book_id}/depth | Get the aggregated price levels for a specific orderbook (L2 market depth)
@@ -55,6 +56,7 @@ Method | HTTP request | Description
 [**getUsersAPIKeys**](DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#x27;s api keys
 [**ledgerDeposit**](DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit/{user_id} | Deposit assets into this user&#x27;s account from the outside world
 [**ledgerWithdraw**](DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw/{user_id} | Withdraw assets from this user to the outside world
+[**ledgerWithdrawRequest**](DefaultApi.md#ledgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/self | Initiate a withdrawal request for the logged in user to the outside world
 [**leverageGetAccruedInterestByUser**](DefaultApi.md#leverageGetAccruedInterestByUser) | **GET** /v1/leverage/accrued_interest/self | Get current accrued leverage interest for the user
 [**leverageIsolateCollateral**](DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
 [**leverageSupply**](DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
@@ -1327,6 +1329,50 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getLedgerWithdrawRequestsBySelf"></a>
+# **getLedgerWithdrawRequestsBySelf**
+> AllWithdrawalInitiationsResponse getLedgerWithdrawRequestsBySelf()
+
+Get all pending withdrawal requests for the logged in user
+
+### Example
+```javascript
+import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
+
+let apiInstance = new Dora.DefaultApi();
+apiInstance.getLedgerWithdrawRequestsBySelf((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AllWithdrawalInitiationsResponse**](AllWithdrawalInitiationsResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getOrderById"></a>
 # **getOrderById**
 > GetOrderResponse getOrderById(orderId)
@@ -2460,6 +2506,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FundUserResponse**](FundUserResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="ledgerWithdrawRequest"></a>
+# **ledgerWithdrawRequest**
+> WithdrawalInitiationResponse ledgerWithdrawRequest(body, userId)
+
+Initiate a withdrawal request for the logged in user to the outside world
+
+Withdraw assets from the logged in user&#x27;s account to the outside world. Note that this does not interact with any external systems; it simply deducts the amount from the user&#x27;s available balance in the ledger. Actual transfer of assets must be handled separately.
+
+### Example
+```javascript
+import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
+
+let apiInstance = new Dora.DefaultApi();
+let body = new Dora.DefundUserRequest(); // DefundUserRequest | 
+let userId = null; // Object | 
+
+apiInstance.ledgerWithdrawRequest(body, userId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DefundUserRequest**](DefundUserRequest.md)|  | 
+ **userId** | [**Object**](.md)|  | 
+
+### Return type
+
+[**WithdrawalInitiationResponse**](WithdrawalInitiationResponse.md)
 
 ### Authorization
 

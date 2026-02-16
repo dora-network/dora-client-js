@@ -75,6 +75,8 @@ export default class OrderBook {
       obj = obj || new OrderBook();
       if (data.hasOwnProperty('order_book_id'))
         obj.orderBookId = ApiClient.convertToType(data['order_book_id'], Object);
+      if (data.hasOwnProperty('order_book_seq'))
+        obj.orderBookSeq = ApiClient.convertToType(data['order_book_seq'], Object);
       if (data.hasOwnProperty('base_quantity'))
         obj.baseQuantity = ApiClient.convertToType(data['base_quantity'], Object);
       if (data.hasOwnProperty('base_asset_id'))
@@ -122,6 +124,11 @@ export default class OrderBook {
  * @member {Object} orderBookId
  */
 OrderBook.prototype.orderBookId = undefined;
+
+/**
+ * @member {Object} orderBookSeq
+ */
+OrderBook.prototype.orderBookSeq = undefined;
 
 /**
  * @member {Object} baseQuantity

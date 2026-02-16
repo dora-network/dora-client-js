@@ -13,6 +13,7 @@
  *
  */
 import ApiClient from "../ApiClient";
+import AllWithdrawalInitiationsResponse from '../model/AllWithdrawalInitiationsResponse';
 import AssetKind from '../model/AssetKind';
 import AssetRequestError from '../model/AssetRequestError';
 import CancelOrderResponse from '../model/CancelOrderResponse';
@@ -103,6 +104,7 @@ import ValidateSubmitOrderRequest from '../model/ValidateSubmitOrderRequest';
 import ValidateSubmitOrderResponse from '../model/ValidateSubmitOrderResponse';
 import WithdrawRequest from '../model/WithdrawRequest';
 import WithdrawResponse from '../model/WithdrawResponse';
+import WithdrawalInitiationResponse from '../model/WithdrawalInitiationResponse';
 
 /**
 * Default service.
@@ -1342,6 +1344,47 @@ export default class DefaultApi {
       );
     }
     /**
+     * Callback function to receive the result of the getLedgerWithdrawRequestsBySelf operation.
+     * @callback moduleapi/DefaultApi~getLedgerWithdrawRequestsBySelfCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AllWithdrawalInitiationsResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get all pending withdrawal requests for the logged in user
+     * @param {module:api/DefaultApi~getLedgerWithdrawRequestsBySelfCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    getLedgerWithdrawRequestsBySelf(callback) {
+      
+      let postBody = null;
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AllWithdrawalInitiationsResponse;
+
+      return this.apiClient.callApi(
+        '/v1/ledger/withdraw/requests/self', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
      * Callback function to receive the result of the getOrderById operation.
      * @callback moduleapi/DefaultApi~getOrderByIdCallback
      * @param {String} error Error message, if any.
@@ -2454,6 +2497,58 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/ledger/withdraw/{user_id}', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the ledgerWithdrawRequest operation.
+     * @callback moduleapi/DefaultApi~ledgerWithdrawRequestCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/WithdrawalInitiationResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Initiate a withdrawal request for the logged in user to the outside world
+     * Withdraw assets from the logged in user&#x27;s account to the outside world. Note that this does not interact with any external systems; it simply deducts the amount from the user&#x27;s available balance in the ledger. Actual transfer of assets must be handled separately.
+     * @param {module:model/DefundUserRequest} body 
+     * @param {Object} userId 
+     * @param {module:api/DefaultApi~ledgerWithdrawRequestCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    ledgerWithdrawRequest(body, userId, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling ledgerWithdrawRequest");
+      }
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling ledgerWithdrawRequest");
+      }
+
+      let pathParams = {
+        'user_id': userId
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = WithdrawalInitiationResponse;
+
+      return this.apiClient.callApi(
+        '/v1/ledger/withdraw/requests/self', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

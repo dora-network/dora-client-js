@@ -45,6 +45,12 @@
         // expect(instance.orderBookId).to.be(expectedValueLiteral);
       });
 
+      it('should have the property orderBookSeq (base name: "order_book_seq")', function() {
+        // TODO: update the code to test the property orderBookSeq
+        expect(instance).to.have.property('orderBookSeq');
+        // expect(instance.orderBookSeq).to.be(expectedValueLiteral);
+      });
+
       it('should have the property baseQuantity (base name: "base_quantity")', function() {
         // TODO: update the code to test the property baseQuantity
         expect(instance).to.have.property('baseQuantity');

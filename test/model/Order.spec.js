@@ -177,6 +177,12 @@
         // expect(instance.clientOrderId).to.be(expectedValueLiteral);
       });
 
+      it('should have the property parentOrderId (base name: "parent_order_id")', function() {
+        // TODO: update the code to test the property parentOrderId
+        expect(instance).to.have.property('parentOrderId');
+        // expect(instance.parentOrderId).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

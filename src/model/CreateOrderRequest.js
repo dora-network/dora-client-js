@@ -15,7 +15,6 @@
 import ApiClient from '../ApiClient';
 import OrderKind from './OrderKind';
 import Side from './Side';
-import TriggerType from './TriggerType';
 
 /**
  * The CreateOrderRequest model module.
@@ -71,12 +70,12 @@ export default class CreateOrderRequest {
         obj.orderModifiers = ApiClient.convertToType(data['order_modifiers'], Object);
       if (data.hasOwnProperty('good_till_date'))
         obj.goodTillDate = ApiClient.convertToType(data['good_till_date'], Object);
-      if (data.hasOwnProperty('trigger_price'))
-        obj.triggerPrice = ApiClient.convertToType(data['trigger_price'], Object);
-      if (data.hasOwnProperty('trigger_type'))
-        obj.triggerType = TriggerType.constructFromObject(data['trigger_type']);
       if (data.hasOwnProperty('client_order_id'))
         obj.clientOrderId = ApiClient.convertToType(data['client_order_id'], Object);
+      if (data.hasOwnProperty('stop_loss_price'))
+        obj.stopLossPrice = ApiClient.convertToType(data['stop_loss_price'], Object);
+      if (data.hasOwnProperty('take_profit_price'))
+        obj.takeProfitPrice = ApiClient.convertToType(data['take_profit_price'], Object);
     }
     return obj;
   }
@@ -131,18 +130,20 @@ CreateOrderRequest.prototype.orderModifiers = undefined;
 CreateOrderRequest.prototype.goodTillDate = undefined;
 
 /**
- * @member {Object} triggerPrice
- */
-CreateOrderRequest.prototype.triggerPrice = undefined;
-
-/**
- * @member {module:model/TriggerType} triggerType
- */
-CreateOrderRequest.prototype.triggerType = undefined;
-
-/**
  * An optional client-provided identifier for the order.
  * @member {Object} clientOrderId
  */
 CreateOrderRequest.prototype.clientOrderId = undefined;
+
+/**
+ * Stop loss price
+ * @member {Object} stopLossPrice
+ */
+CreateOrderRequest.prototype.stopLossPrice = undefined;
+
+/**
+ * Take profit price
+ * @member {Object} takeProfitPrice
+ */
+CreateOrderRequest.prototype.takeProfitPrice = undefined;
 

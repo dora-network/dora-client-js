@@ -93,22 +93,22 @@
         // expect(instance.goodTillDate).to.be(expectedValueLiteral);
       });
 
-      it('should have the property triggerPrice (base name: "trigger_price")', function() {
-        // TODO: update the code to test the property triggerPrice
-        expect(instance).to.have.property('triggerPrice');
-        // expect(instance.triggerPrice).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property triggerType (base name: "trigger_type")', function() {
-        // TODO: update the code to test the property triggerType
-        expect(instance).to.have.property('triggerType');
-        // expect(instance.triggerType).to.be(expectedValueLiteral);
-      });
-
       it('should have the property clientOrderId (base name: "client_order_id")', function() {
         // TODO: update the code to test the property clientOrderId
         expect(instance).to.have.property('clientOrderId');
         // expect(instance.clientOrderId).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property stopLossPrice (base name: "stop_loss_price")', function() {
+        // TODO: update the code to test the property stopLossPrice
+        expect(instance).to.have.property('stopLossPrice');
+        // expect(instance.stopLossPrice).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property takeProfitPrice (base name: "take_profit_price")', function() {
+        // TODO: update the code to test the property takeProfitPrice
+        expect(instance).to.have.property('takeProfitPrice');
+        // expect(instance.takeProfitPrice).to.be(expectedValueLiteral);
       });
 
     });

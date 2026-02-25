@@ -252,6 +252,8 @@ import WithdrawResponseEnvelope from './model/WithdrawResponseEnvelope';
 import WithdrawalInitiation from './model/WithdrawalInitiation';
 import WithdrawalInitiationResponse from './model/WithdrawalInitiationResponse';
 import WithdrawalInitiationResponseEnvelope from './model/WithdrawalInitiationResponseEnvelope';
+import WithdrawalRequestReason from './model/WithdrawalRequestReason';
+import WithdrawalStatus from './model/WithdrawalStatus';
 import DefaultApi from './api/DefaultApi';
 
 /**
@@ -1725,6 +1727,18 @@ export {
      * @property {module:model/WithdrawalInitiationResponseEnvelope}
      */
     WithdrawalInitiationResponseEnvelope,
+
+    /**
+     * The WithdrawalRequestReason model constructor.
+     * @property {module:model/WithdrawalRequestReason}
+     */
+    WithdrawalRequestReason,
+
+    /**
+     * The WithdrawalStatus model constructor.
+     * @property {module:model/WithdrawalStatus}
+     */
+    WithdrawalStatus,
 
     /**
     * The DefaultApi service constructor.

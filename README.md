@@ -79,10 +79,9 @@ apiKeyAuthHeader.apiKey = "YOUR API KEY"
 
 
 var api = new Dora.DefaultApi()
+var withdrawalId = null; // {Object} 
 var opts = { 
-  'orderBookId': null, // {Object} 
-  'userId': null, // {Object} 
-  'orderKind': new Dora.OrderKind() // {OrderKind} 
+  'body': new Dora.WithdrawalRequestReason() // {WithdrawalRequestReason} 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -91,16 +90,18 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.cancelAllOpenOrders(opts, callback);
+api.approveLedgerWithdrawRequest(withdrawalId, opts, callback);
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://localhost:8084*
+All URIs are relative to *https://staging.dora.co/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*Dora.DefaultApi* | [**approveLedgerWithdrawRequest**](docs/DefaultApi.md#approveLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/approve | Approve a pending withdrawal request
 *Dora.DefaultApi* | [**cancelAllOpenOrders**](docs/DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
+*Dora.DefaultApi* | [**cancelLedgerWithdrawRequest**](docs/DefaultApi.md#cancelLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/cancel | Cancel a pending withdrawal request
 *Dora.DefaultApi* | [**cancelOrderById**](docs/DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
 *Dora.DefaultApi* | [**checkUserEmailExists**](docs/DefaultApi.md#checkUserEmailExists) | **GET** /v1/user/exists | Check whether a user email exists
 *Dora.DefaultApi* | [**claimLeverageGetAccruedInterest**](docs/DefaultApi.md#claimLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/claim | Claim current accrued leverage interest for a specific user
@@ -112,6 +113,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
 *Dora.DefaultApi* | [**getAPIKeysForUserID**](docs/DefaultApi.md#getAPIKeysForUserID) | **GET** /v1/user/{user_id}/apikey | Get user&#x27;s api keys: admin or integrator only
 *Dora.DefaultApi* | [**getAllAssetPrices**](docs/DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
+*Dora.DefaultApi* | [**getAllWithdrawalRequests**](docs/DefaultApi.md#getAllWithdrawalRequests) | **GET** /v1/ledger/withdraw/requests | Get all withdrawal requests
 *Dora.DefaultApi* | [**getAssetById**](docs/DefaultApi.md#getAssetById) | **GET** /v1/assets/{asset_id} | Get asset by ID
 *Dora.DefaultApi* | [**getAssetPrice**](docs/DefaultApi.md#getAssetPrice) | **GET** /v1/price/asset/{asset_id} | Get the current price of an asset
 *Dora.DefaultApi* | [**getAssetYTMById**](docs/DefaultApi.md#getAssetYTMById) | **GET** /v1/assets/{asset_id}/ytm | Get annualized yield to maturity for a bond asset
@@ -128,6 +130,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getLedgerPositionsSelf**](docs/DefaultApi.md#getLedgerPositionsSelf) | **GET** /v1/ledger/positions/self | Get your own positions
 *Dora.DefaultApi* | [**getLedgerValueSelf**](docs/DefaultApi.md#getLedgerValueSelf) | **GET** /v1/ledger/value/self | Get your own available, locked, and borrowed USD value; and realized and unrealized PnL
 *Dora.DefaultApi* | [**getLedgerWithdrawRequestsBySelf**](docs/DefaultApi.md#getLedgerWithdrawRequestsBySelf) | **GET** /v1/ledger/withdraw/requests/self | Get all pending withdrawal requests for the logged in user
+*Dora.DefaultApi* | [**getLedgerWithdrawRequestsByUserID**](docs/DefaultApi.md#getLedgerWithdrawRequestsByUserID) | **GET** /v1/ledger/withdraw/requests/{user_id} | Get all pending withdrawal requests for this user
 *Dora.DefaultApi* | [**getOrderById**](docs/DefaultApi.md#getOrderById) | **GET** /v1/orders/{order_id} | Get order by ID
 *Dora.DefaultApi* | [**getOrderbookById**](docs/DefaultApi.md#getOrderbookById) | **GET** /v1/orderbooks/{order_book_id} | Get orderbook by ID
 *Dora.DefaultApi* | [**getOrderbookDepth**](docs/DefaultApi.md#getOrderbookDepth) | **GET** /v1/orderbooks/{order_book_id}/depth | Get the aggregated price levels for a specific orderbook (L2 market depth)
@@ -152,7 +155,8 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getUsersAPIKeys**](docs/DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#x27;s api keys
 *Dora.DefaultApi* | [**ledgerDeposit**](docs/DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit/{user_id} | Deposit assets into this user&#x27;s account from the outside world
 *Dora.DefaultApi* | [**ledgerWithdraw**](docs/DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw/{user_id} | Withdraw assets from this user to the outside world
-*Dora.DefaultApi* | [**ledgerWithdrawRequest**](docs/DefaultApi.md#ledgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/self | Initiate a withdrawal request for the logged in user to the outside world
+*Dora.DefaultApi* | [**ledgerWithdrawRequest**](docs/DefaultApi.md#ledgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{user_id} | Initiate a withdrawal request for this user to the outside world
+*Dora.DefaultApi* | [**ledgerWithdrawRequestSelf**](docs/DefaultApi.md#ledgerWithdrawRequestSelf) | **POST** /v1/ledger/withdraw/requests/self | Initiate a withdrawal request for the logged in user to the outside world
 *Dora.DefaultApi* | [**leverageGetAccruedInterestByUser**](docs/DefaultApi.md#leverageGetAccruedInterestByUser) | **GET** /v1/leverage/accrued_interest/self | Get current accrued leverage interest for the user
 *Dora.DefaultApi* | [**leverageIsolateCollateral**](docs/DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
 *Dora.DefaultApi* | [**leverageSupply**](docs/DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
@@ -165,6 +169,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**listOrders**](docs/DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
 *Dora.DefaultApi* | [**listPositionAccountsSelf**](docs/DefaultApi.md#listPositionAccountsSelf) | **GET** /v1/user/self/position_accounts | List all position accounts for the authenticated user
 *Dora.DefaultApi* | [**payLeverageGetAccruedInterest**](docs/DefaultApi.md#payLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/pay | Pay current accrued leverage interest for a specific user
+*Dora.DefaultApi* | [**rejectLedgerWithdrawRequest**](docs/DefaultApi.md#rejectLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/reject | Reject a pending withdrawal request
 *Dora.DefaultApi* | [**revokeAPIKeyForUser**](docs/DefaultApi.md#revokeAPIKeyForUser) | **PUT** /v1/user/apikey/{key_id}/revoke | Revoke apikey for a user
 *Dora.DefaultApi* | [**revokeAPIKeyForUserID**](docs/DefaultApi.md#revokeAPIKeyForUserID) | **PUT** /v1/user/{user_id}/apikey/{key_id}/revoke | Revoke apikey for a user: admin or integrator only
 *Dora.DefaultApi* | [**settleLeverageAccruedInterest**](docs/DefaultApi.md#settleLeverageAccruedInterest) | **POST** /v1/leverage/accrued_interest/settle | Settle current accrued leverage interest for a specific user
@@ -420,6 +425,8 @@ Class | Method | HTTP request | Description
  - [Dora.WithdrawalInitiation](docs/WithdrawalInitiation.md)
  - [Dora.WithdrawalInitiationResponse](docs/WithdrawalInitiationResponse.md)
  - [Dora.WithdrawalInitiationResponseEnvelope](docs/WithdrawalInitiationResponseEnvelope.md)
+ - [Dora.WithdrawalRequestReason](docs/WithdrawalRequestReason.md)
+ - [Dora.WithdrawalStatus](docs/WithdrawalStatus.md)
 
 ## Documentation for Authorization
 

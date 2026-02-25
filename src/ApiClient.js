@@ -31,9 +31,9 @@ export default class ApiClient {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://localhost:8084
+         * @default https://staging.dora.co/
          */
-        this.basePath = 'https://localhost:8084'.replace(/\/+$/, '');
+        this.basePath = 'https://staging.dora.co/'.replace(/\/+$/, '');
 
         /**
          * The authentication methods to be included for all API calls.

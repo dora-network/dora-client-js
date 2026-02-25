@@ -34,6 +34,27 @@
 
   describe('(package)', function() {
     describe('DefaultApi', function() {
+      describe('approveLedgerWithdrawRequest', function() {
+        it('should call approveLedgerWithdrawRequest successfully', function(done) {
+          // TODO: uncomment, update parameter values for approveLedgerWithdrawRequest call and complete the assertions
+          /*
+          var opts = {};
+
+          instance.approveLedgerWithdrawRequest(withdrawalId, opts, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.WithdrawalInitiationResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('cancelAllOpenOrders', function() {
         it('should call cancelAllOpenOrders successfully', function(done) {
           // TODO: uncomment, update parameter values for cancelAllOpenOrders call and complete the assertions
@@ -47,6 +68,27 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.ListOrdersResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('cancelLedgerWithdrawRequest', function() {
+        it('should call cancelLedgerWithdrawRequest successfully', function(done) {
+          // TODO: uncomment, update parameter values for cancelLedgerWithdrawRequest call and complete the assertions
+          /*
+          var opts = {};
+
+          instance.cancelLedgerWithdrawRequest(withdrawalId, opts, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.WithdrawalInitiationResponse);
 
             done();
           });
@@ -267,6 +309,27 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.ListAssetPriceResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('getAllWithdrawalRequests', function() {
+        it('should call getAllWithdrawalRequests successfully', function(done) {
+          // TODO: uncomment, update parameter values for getAllWithdrawalRequests call and complete the assertions
+          /*
+          var opts = {};
+
+          instance.getAllWithdrawalRequests(opts, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.AllWithdrawalInitiationsResponse);
 
             done();
           });
@@ -579,10 +642,32 @@
       });
       describe('getLedgerWithdrawRequestsBySelf', function() {
         it('should call getLedgerWithdrawRequestsBySelf successfully', function(done) {
-          // TODO: uncomment getLedgerWithdrawRequestsBySelf call and complete the assertions
+          // TODO: uncomment, update parameter values for getLedgerWithdrawRequestsBySelf call and complete the assertions
           /*
+          var opts = {};
 
-          instance.getLedgerWithdrawRequestsBySelf(function(error, data, response) {
+          instance.getLedgerWithdrawRequestsBySelf(opts, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.AllWithdrawalInitiationsResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('getLedgerWithdrawRequestsByUserID', function() {
+        it('should call getLedgerWithdrawRequestsByUserID successfully', function(done) {
+          // TODO: uncomment, update parameter values for getLedgerWithdrawRequestsByUserID call and complete the assertions
+          /*
+          var opts = {};
+
+          instance.getLedgerWithdrawRequestsByUserID(userId, opts, function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -1066,8 +1151,9 @@
         it('should call ledgerWithdraw successfully', function(done) {
           // TODO: uncomment, update parameter values for ledgerWithdraw call and complete the assertions
           /*
+          var opts = {};
 
-          instance.ledgerWithdraw(body, userId, function(error, data, response) {
+          instance.ledgerWithdraw(body, userId, opts, function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -1088,6 +1174,26 @@
           /*
 
           instance.ledgerWithdrawRequest(body, userId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.WithdrawalInitiationResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('ledgerWithdrawRequestSelf', function() {
+        it('should call ledgerWithdrawRequestSelf successfully', function(done) {
+          // TODO: uncomment, update parameter values for ledgerWithdrawRequestSelf call and complete the assertions
+          /*
+
+          instance.ledgerWithdrawRequestSelf(body, userId, function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -1338,6 +1444,26 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.PayLeverageAccruedInterestResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('rejectLedgerWithdrawRequest', function() {
+        it('should call rejectLedgerWithdrawRequest successfully', function(done) {
+          // TODO: uncomment, update parameter values for rejectLedgerWithdrawRequest call and complete the assertions
+          /*
+
+          instance.rejectLedgerWithdrawRequest(body, withdrawalId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.WithdrawalInitiationResponse);
 
             done();
           });

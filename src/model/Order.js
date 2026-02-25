@@ -120,6 +120,8 @@ export default class Order {
         obj.triggerType = TriggerType.constructFromObject(data['trigger_type']);
       if (data.hasOwnProperty('client_order_id'))
         obj.clientOrderId = ApiClient.convertToType(data['client_order_id'], Object);
+      if (data.hasOwnProperty('parent_order_id'))
+        obj.parentOrderId = ApiClient.convertToType(data['parent_order_id'], Object);
     }
     return obj;
   }
@@ -246,4 +248,9 @@ Order.prototype.triggerType = undefined;
  * @member {Object} clientOrderId
  */
 Order.prototype.clientOrderId = undefined;
+
+/**
+ * @member {Object} parentOrderId
+ */
+Order.prototype.parentOrderId = undefined;
 

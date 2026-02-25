@@ -117,6 +117,18 @@
         // expect(instance.assetsConfig).to.be(expectedValueLiteral);
       });
 
+      it('should have the property stopLossPrice (base name: "stop_loss_price")', function() {
+        // TODO: update the code to test the property stopLossPrice
+        expect(instance).to.have.property('stopLossPrice');
+        // expect(instance.stopLossPrice).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property takeProfitPrice (base name: "take_profit_price")', function() {
+        // TODO: update the code to test the property takeProfitPrice
+        expect(instance).to.have.property('takeProfitPrice');
+        // expect(instance.takeProfitPrice).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

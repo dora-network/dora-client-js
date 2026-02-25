@@ -78,6 +78,10 @@ export default class ValidateSubmitOrderRequest {
         obj.positionAssets = ApiClient.convertToType(data['position_assets'], Object);
       if (data.hasOwnProperty('assets_config'))
         obj.assetsConfig = ApiClient.convertToType(data['assets_config'], Object);
+      if (data.hasOwnProperty('stop_loss_price'))
+        obj.stopLossPrice = ApiClient.convertToType(data['stop_loss_price'], Object);
+      if (data.hasOwnProperty('take_profit_price'))
+        obj.takeProfitPrice = ApiClient.convertToType(data['take_profit_price'], Object);
     }
     return obj;
   }
@@ -157,4 +161,16 @@ ValidateSubmitOrderRequest.prototype.positionAssets = undefined;
  * @member {Object} assetsConfig
  */
 ValidateSubmitOrderRequest.prototype.assetsConfig = undefined;
+
+/**
+ * Stop loss price
+ * @member {Object} stopLossPrice
+ */
+ValidateSubmitOrderRequest.prototype.stopLossPrice = undefined;
+
+/**
+ * Take profit price
+ * @member {Object} takeProfitPrice
+ */
+ValidateSubmitOrderRequest.prototype.takeProfitPrice = undefined;
 

@@ -13,6 +13,7 @@
  *
  */
 import ApiClient from '../ApiClient';
+import WithdrawalStatus from './WithdrawalStatus';
 
 /**
  * The WithdrawalInitiation model module.
@@ -29,11 +30,14 @@ export default class WithdrawalInitiation {
    * @param positionId {Object} 
    * @param assetId {Object} 
    * @param quantity {Object} 
-   * @param status {Object} 
+   * @param status {module:model/WithdrawalStatus} 
    * @param createdAt {Object} 
+   * @param createdBy {Object} 
    * @param updatedAt {Object} 
+   * @param updatedBy {Object} 
+   * @param reason {Object} 
    */
-  constructor(withdrawalId, userId, positionId, assetId, quantity, status, createdAt, updatedAt) {
+  constructor(withdrawalId, userId, positionId, assetId, quantity, status, createdAt, createdBy, updatedAt, updatedBy, reason) {
     this.withdrawalId = withdrawalId;
     this.userId = userId;
     this.positionId = positionId;
@@ -41,7 +45,10 @@ export default class WithdrawalInitiation {
     this.quantity = quantity;
     this.status = status;
     this.createdAt = createdAt;
+    this.createdBy = createdBy;
     this.updatedAt = updatedAt;
+    this.updatedBy = updatedBy;
+    this.reason = reason;
   }
 
   /**
@@ -65,11 +72,17 @@ export default class WithdrawalInitiation {
       if (data.hasOwnProperty('quantity'))
         obj.quantity = ApiClient.convertToType(data['quantity'], Object);
       if (data.hasOwnProperty('status'))
-        obj.status = ApiClient.convertToType(data['status'], Object);
+        obj.status = WithdrawalStatus.constructFromObject(data['status']);
       if (data.hasOwnProperty('created_at'))
         obj.createdAt = ApiClient.convertToType(data['created_at'], Object);
+      if (data.hasOwnProperty('created_by'))
+        obj.createdBy = ApiClient.convertToType(data['created_by'], Object);
       if (data.hasOwnProperty('updated_at'))
         obj.updatedAt = ApiClient.convertToType(data['updated_at'], Object);
+      if (data.hasOwnProperty('updated_by'))
+        obj.updatedBy = ApiClient.convertToType(data['updated_by'], Object);
+      if (data.hasOwnProperty('reason'))
+        obj.reason = ApiClient.convertToType(data['reason'], Object);
     }
     return obj;
   }
@@ -101,7 +114,7 @@ WithdrawalInitiation.prototype.assetId = undefined;
 WithdrawalInitiation.prototype.quantity = undefined;
 
 /**
- * @member {Object} status
+ * @member {module:model/WithdrawalStatus} status
  */
 WithdrawalInitiation.prototype.status = undefined;
 
@@ -111,7 +124,22 @@ WithdrawalInitiation.prototype.status = undefined;
 WithdrawalInitiation.prototype.createdAt = undefined;
 
 /**
+ * @member {Object} createdBy
+ */
+WithdrawalInitiation.prototype.createdBy = undefined;
+
+/**
  * @member {Object} updatedAt
  */
 WithdrawalInitiation.prototype.updatedAt = undefined;
+
+/**
+ * @member {Object} updatedBy
+ */
+WithdrawalInitiation.prototype.updatedBy = undefined;
+
+/**
+ * @member {Object} reason
+ */
+WithdrawalInitiation.prototype.reason = undefined;
 

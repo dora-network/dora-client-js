@@ -99,6 +99,18 @@
         // expect(instance.filledNotional).to.be(expectedValueLiteral);
       });
 
+      it('should have the property lockedQuantity (base name: "locked_quantity")', function() {
+        // TODO: update the code to test the property lockedQuantity
+        expect(instance).to.have.property('lockedQuantity');
+        // expect(instance.lockedQuantity).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property impendingBorrowsQuantity (base name: "impending_borrows_quantity")', function() {
+        // TODO: update the code to test the property impendingBorrowsQuantity
+        expect(instance).to.have.property('impendingBorrowsQuantity');
+        // expect(instance.impendingBorrowsQuantity).to.be(expectedValueLiteral);
+      });
+
       it('should have the property lastUpdateAt (base name: "last_update_at")', function() {
         // TODO: update the code to test the property lastUpdateAt
         expect(instance).to.have.property('lastUpdateAt');

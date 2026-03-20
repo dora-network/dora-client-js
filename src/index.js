@@ -16,6 +16,9 @@ import ApiClient from './ApiClient';
 import APIKeyResponse from './model/APIKeyResponse';
 import APIKeyResponseEnvelope from './model/APIKeyResponseEnvelope';
 import APIKeys from './model/APIKeys';
+import AllPositions from './model/AllPositions';
+import AllPositionsResponse from './model/AllPositionsResponse';
+import AllPositionsResponseEnvelope from './model/AllPositionsResponseEnvelope';
 import AllWithdrawalInitiationsResponse from './model/AllWithdrawalInitiationsResponse';
 import AllWithdrawalInitiationsResponseEnvelope from './model/AllWithdrawalInitiationsResponseEnvelope';
 import Asset from './model/Asset';
@@ -46,6 +49,9 @@ import CreateAPIKeyData from './model/CreateAPIKeyData';
 import CreateAPIKeyRequest from './model/CreateAPIKeyRequest';
 import CreateAPIKeyResponse from './model/CreateAPIKeyResponse';
 import CreateAPIKeyResponseEnvelope from './model/CreateAPIKeyResponseEnvelope';
+import CreateConditionalOrderRequest from './model/CreateConditionalOrderRequest';
+import CreateConditionalOrderResponse from './model/CreateConditionalOrderResponse';
+import CreateConditionalOrderResponseEnvelope from './model/CreateConditionalOrderResponseEnvelope';
 import CreateIntegratorUserRequest from './model/CreateIntegratorUserRequest';
 import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
@@ -72,6 +78,8 @@ import GetOrderBookSummaryResponse from './model/GetOrderBookSummaryResponse';
 import GetOrderResponse from './model/GetOrderResponse';
 import GetOrderbookStatsResponse from './model/GetOrderbookStatsResponse';
 import GetPoolPriceResponse from './model/GetPoolPriceResponse';
+import GetRealizedPnlSettlementsResponse from './model/GetRealizedPnlSettlementsResponse';
+import GetRealizedPnlSettlementsResponseEnvelope from './model/GetRealizedPnlSettlementsResponseEnvelope';
 import GetTopOfBookResponse from './model/GetTopOfBookResponse';
 import GetTopOfBookResponseEnvelope from './model/GetTopOfBookResponseEnvelope';
 import GetTransactionResponse from './model/GetTransactionResponse';
@@ -161,10 +169,14 @@ import Position from './model/Position';
 import PositionAccount from './model/PositionAccount';
 import PositionAccounts from './model/PositionAccounts';
 import PositionResponse from './model/PositionResponse';
+import PositionSide from './model/PositionSide';
 import PositionType from './model/PositionType';
 import PriceLevel from './model/PriceLevel';
+import RealizedPnlSettlement from './model/RealizedPnlSettlement';
+import RealizedPnlSettlements from './model/RealizedPnlSettlements';
 import ResponseEnvelope from './model/ResponseEnvelope';
 import ResponseEnvelopeOfListAssets from './model/ResponseEnvelopeOfListAssets';
+import Restriction from './model/Restriction';
 import RevokeAPIKeyData from './model/RevokeAPIKeyData';
 import RevokeAPIKeyResponse from './model/RevokeAPIKeyResponse';
 import RevokeAPIKeyResponseEnvelope from './model/RevokeAPIKeyResponseEnvelope';
@@ -172,6 +184,8 @@ import SettleLeverageAccruedInterest from './model/SettleLeverageAccruedInterest
 import SettleLeverageAccruedInterestRequest from './model/SettleLeverageAccruedInterestRequest';
 import SettleLeverageAccruedInterestResponse from './model/SettleLeverageAccruedInterestResponse';
 import SettleLeverageAccruedInterestResponseEnvelope from './model/SettleLeverageAccruedInterestResponseEnvelope';
+import SettleRealizedPnlRecordResponse from './model/SettleRealizedPnlRecordResponse';
+import SettleRealizedPnlRecordResponseEnvelope from './model/SettleRealizedPnlRecordResponseEnvelope';
 import Side from './model/Side';
 import StreamAssetPricesResponse from './model/StreamAssetPricesResponse';
 import StreamAssetsEntry from './model/StreamAssetsEntry';
@@ -311,6 +325,24 @@ export {
      * @property {module:model/APIKeys}
      */
     APIKeys,
+
+    /**
+     * The AllPositions model constructor.
+     * @property {module:model/AllPositions}
+     */
+    AllPositions,
+
+    /**
+     * The AllPositionsResponse model constructor.
+     * @property {module:model/AllPositionsResponse}
+     */
+    AllPositionsResponse,
+
+    /**
+     * The AllPositionsResponseEnvelope model constructor.
+     * @property {module:model/AllPositionsResponseEnvelope}
+     */
+    AllPositionsResponseEnvelope,
 
     /**
      * The AllWithdrawalInitiationsResponse model constructor.
@@ -493,6 +525,24 @@ export {
     CreateAPIKeyResponseEnvelope,
 
     /**
+     * The CreateConditionalOrderRequest model constructor.
+     * @property {module:model/CreateConditionalOrderRequest}
+     */
+    CreateConditionalOrderRequest,
+
+    /**
+     * The CreateConditionalOrderResponse model constructor.
+     * @property {module:model/CreateConditionalOrderResponse}
+     */
+    CreateConditionalOrderResponse,
+
+    /**
+     * The CreateConditionalOrderResponseEnvelope model constructor.
+     * @property {module:model/CreateConditionalOrderResponseEnvelope}
+     */
+    CreateConditionalOrderResponseEnvelope,
+
+    /**
      * The CreateIntegratorUserRequest model constructor.
      * @property {module:model/CreateIntegratorUserRequest}
      */
@@ -647,6 +697,18 @@ export {
      * @property {module:model/GetPoolPriceResponse}
      */
     GetPoolPriceResponse,
+
+    /**
+     * The GetRealizedPnlSettlementsResponse model constructor.
+     * @property {module:model/GetRealizedPnlSettlementsResponse}
+     */
+    GetRealizedPnlSettlementsResponse,
+
+    /**
+     * The GetRealizedPnlSettlementsResponseEnvelope model constructor.
+     * @property {module:model/GetRealizedPnlSettlementsResponseEnvelope}
+     */
+    GetRealizedPnlSettlementsResponseEnvelope,
 
     /**
      * The GetTopOfBookResponse model constructor.
@@ -1183,6 +1245,12 @@ export {
     PositionResponse,
 
     /**
+     * The PositionSide model constructor.
+     * @property {module:model/PositionSide}
+     */
+    PositionSide,
+
+    /**
      * The PositionType model constructor.
      * @property {module:model/PositionType}
      */
@@ -1195,6 +1263,18 @@ export {
     PriceLevel,
 
     /**
+     * The RealizedPnlSettlement model constructor.
+     * @property {module:model/RealizedPnlSettlement}
+     */
+    RealizedPnlSettlement,
+
+    /**
+     * The RealizedPnlSettlements model constructor.
+     * @property {module:model/RealizedPnlSettlements}
+     */
+    RealizedPnlSettlements,
+
+    /**
      * The ResponseEnvelope model constructor.
      * @property {module:model/ResponseEnvelope}
      */
@@ -1205,6 +1285,12 @@ export {
      * @property {module:model/ResponseEnvelopeOfListAssets}
      */
     ResponseEnvelopeOfListAssets,
+
+    /**
+     * The Restriction model constructor.
+     * @property {module:model/Restriction}
+     */
+    Restriction,
 
     /**
      * The RevokeAPIKeyData model constructor.
@@ -1247,6 +1333,18 @@ export {
      * @property {module:model/SettleLeverageAccruedInterestResponseEnvelope}
      */
     SettleLeverageAccruedInterestResponseEnvelope,
+
+    /**
+     * The SettleRealizedPnlRecordResponse model constructor.
+     * @property {module:model/SettleRealizedPnlRecordResponse}
+     */
+    SettleRealizedPnlRecordResponse,
+
+    /**
+     * The SettleRealizedPnlRecordResponseEnvelope model constructor.
+     * @property {module:model/SettleRealizedPnlRecordResponseEnvelope}
+     */
+    SettleRealizedPnlRecordResponseEnvelope,
 
     /**
      * The Side model constructor.

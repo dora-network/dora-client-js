@@ -38,6 +38,9 @@ export default class Order {
    * @param originalQuantity {Object} The original quantity of the order when it was created.
    * @param filledQuantity {Object} Quantity that has been filled so far.
    * @param filledNotional {Object} Quote quantity that has been filled so far.
+   * @param lockedQuantity {Object} Balance locked to ensure limit buy orders have sufficient balance to be fulfilled
+   * @param impendingBorrowsQuantity {Object} Borrows locked from the liquidity pool to ensure limit short sell orders have sufficient balance to be fulfilled
+   * @param lastUpdateAt {Object} 
    * @param openedAt {Object} 
    * @param inverseLeverage {Object} 
    * @param side {module:model/Side} 
@@ -45,7 +48,7 @@ export default class Order {
    * @param userId {Object} 
    * @param positionId {Object} 
    */
-  constructor(orderId, orderBookId, kind, originalPrice, avgFillPrice, cancelledQuantity, openQuantity, originalQuantity, filledQuantity, filledNotional, openedAt, inverseLeverage, side, status, userId, positionId) {
+  constructor(orderId, orderBookId, kind, originalPrice, avgFillPrice, cancelledQuantity, openQuantity, originalQuantity, filledQuantity, filledNotional, lockedQuantity, impendingBorrowsQuantity, lastUpdateAt, openedAt, inverseLeverage, side, status, userId, positionId) {
     this.orderId = orderId;
     this.orderBookId = orderBookId;
     this.kind = kind;
@@ -56,6 +59,9 @@ export default class Order {
     this.originalQuantity = originalQuantity;
     this.filledQuantity = filledQuantity;
     this.filledNotional = filledNotional;
+    this.lockedQuantity = lockedQuantity;
+    this.impendingBorrowsQuantity = impendingBorrowsQuantity;
+    this.lastUpdateAt = lastUpdateAt;
     this.openedAt = openedAt;
     this.inverseLeverage = inverseLeverage;
     this.side = side;
@@ -94,6 +100,10 @@ export default class Order {
         obj.filledQuantity = ApiClient.convertToType(data['filled_quantity'], Object);
       if (data.hasOwnProperty('filled_notional'))
         obj.filledNotional = ApiClient.convertToType(data['filled_notional'], Object);
+      if (data.hasOwnProperty('locked_quantity'))
+        obj.lockedQuantity = ApiClient.convertToType(data['locked_quantity'], Object);
+      if (data.hasOwnProperty('impending_borrows_quantity'))
+        obj.impendingBorrowsQuantity = ApiClient.convertToType(data['impending_borrows_quantity'], Object);
       if (data.hasOwnProperty('last_update_at'))
         obj.lastUpdateAt = ApiClient.convertToType(data['last_update_at'], Object);
       if (data.hasOwnProperty('opened_at'))
@@ -182,6 +192,18 @@ Order.prototype.filledQuantity = undefined;
  * @member {Object} filledNotional
  */
 Order.prototype.filledNotional = undefined;
+
+/**
+ * Balance locked to ensure limit buy orders have sufficient balance to be fulfilled
+ * @member {Object} lockedQuantity
+ */
+Order.prototype.lockedQuantity = undefined;
+
+/**
+ * Borrows locked from the liquidity pool to ensure limit short sell orders have sufficient balance to be fulfilled
+ * @member {Object} impendingBorrowsQuantity
+ */
+Order.prototype.impendingBorrowsQuantity = undefined;
 
 /**
  * @member {Object} lastUpdateAt

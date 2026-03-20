@@ -32,8 +32,12 @@ export default class User {
    * @param showTutorialCards {Object} 
    * @param notificationsEnabled {Object} 
    * @param tenantId {Object} 
+   * @param allowEmailNotifications {Object} 
+   * @param allowLiquidationsNotifications {Object} 
+   * @param allowDepositWithdrawalNotifications {Object} 
+   * @param allowOrdersNotifications {Object} 
    */
-  constructor(id, email, name, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId) {
+  constructor(id, email, name, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications) {
     this.id = id;
     this.email = email;
     this.name = name;
@@ -42,6 +46,10 @@ export default class User {
     this.showTutorialCards = showTutorialCards;
     this.notificationsEnabled = notificationsEnabled;
     this.tenantId = tenantId;
+    this.allowEmailNotifications = allowEmailNotifications;
+    this.allowLiquidationsNotifications = allowLiquidationsNotifications;
+    this.allowDepositWithdrawalNotifications = allowDepositWithdrawalNotifications;
+    this.allowOrdersNotifications = allowOrdersNotifications;
   }
 
   /**
@@ -86,6 +94,14 @@ export default class User {
         obj.notificationsEnabled = ApiClient.convertToType(data['notifications_enabled'], Object);
       if (data.hasOwnProperty('tenant_id'))
         obj.tenantId = ApiClient.convertToType(data['tenant_id'], Object);
+      if (data.hasOwnProperty('allow_email_notifications'))
+        obj.allowEmailNotifications = ApiClient.convertToType(data['allow_email_notifications'], Object);
+      if (data.hasOwnProperty('allow_liquidations_notifications'))
+        obj.allowLiquidationsNotifications = ApiClient.convertToType(data['allow_liquidations_notifications'], Object);
+      if (data.hasOwnProperty('allow_deposit_withdrawal_notifications'))
+        obj.allowDepositWithdrawalNotifications = ApiClient.convertToType(data['allow_deposit_withdrawal_notifications'], Object);
+      if (data.hasOwnProperty('allow_orders_notifications'))
+        obj.allowOrdersNotifications = ApiClient.convertToType(data['allow_orders_notifications'], Object);
     }
     return obj;
   }
@@ -172,4 +188,24 @@ User.prototype.notificationsEnabled = undefined;
  * @member {Object} tenantId
  */
 User.prototype.tenantId = undefined;
+
+/**
+ * @member {Object} allowEmailNotifications
+ */
+User.prototype.allowEmailNotifications = undefined;
+
+/**
+ * @member {Object} allowLiquidationsNotifications
+ */
+User.prototype.allowLiquidationsNotifications = undefined;
+
+/**
+ * @member {Object} allowDepositWithdrawalNotifications
+ */
+User.prototype.allowDepositWithdrawalNotifications = undefined;
+
+/**
+ * @member {Object} allowOrdersNotifications
+ */
+User.prototype.allowOrdersNotifications = undefined;
 

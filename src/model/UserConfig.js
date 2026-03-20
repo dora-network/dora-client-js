@@ -29,13 +29,21 @@ export default class UserConfig {
    * @param updatedAt {Object} 
    * @param showTutorialCards {Object} 
    * @param notificationsEnabled {Object} 
+   * @param allowEmailNotifications {Object} 
+   * @param allowLiquidationsNotifications {Object} 
+   * @param allowDepositWithdrawalNotifications {Object} 
+   * @param allowOrdersNotifications {Object} 
    */
-  constructor(id, createdAt, updatedAt, showTutorialCards, notificationsEnabled) {
+  constructor(id, createdAt, updatedAt, showTutorialCards, notificationsEnabled, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications) {
     this.id = id;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
     this.showTutorialCards = showTutorialCards;
     this.notificationsEnabled = notificationsEnabled;
+    this.allowEmailNotifications = allowEmailNotifications;
+    this.allowLiquidationsNotifications = allowLiquidationsNotifications;
+    this.allowDepositWithdrawalNotifications = allowDepositWithdrawalNotifications;
+    this.allowOrdersNotifications = allowOrdersNotifications;
   }
 
   /**
@@ -62,6 +70,14 @@ export default class UserConfig {
         obj.showTutorialCards = ApiClient.convertToType(data['show_tutorial_cards'], Object);
       if (data.hasOwnProperty('notifications_enabled'))
         obj.notificationsEnabled = ApiClient.convertToType(data['notifications_enabled'], Object);
+      if (data.hasOwnProperty('allow_email_notifications'))
+        obj.allowEmailNotifications = ApiClient.convertToType(data['allow_email_notifications'], Object);
+      if (data.hasOwnProperty('allow_liquidations_notifications'))
+        obj.allowLiquidationsNotifications = ApiClient.convertToType(data['allow_liquidations_notifications'], Object);
+      if (data.hasOwnProperty('allow_deposit_withdrawal_notifications'))
+        obj.allowDepositWithdrawalNotifications = ApiClient.convertToType(data['allow_deposit_withdrawal_notifications'], Object);
+      if (data.hasOwnProperty('allow_orders_notifications'))
+        obj.allowOrdersNotifications = ApiClient.convertToType(data['allow_orders_notifications'], Object);
     }
     return obj;
   }
@@ -102,4 +118,24 @@ UserConfig.prototype.showTutorialCards = undefined;
  * @member {Object} notificationsEnabled
  */
 UserConfig.prototype.notificationsEnabled = undefined;
+
+/**
+ * @member {Object} allowEmailNotifications
+ */
+UserConfig.prototype.allowEmailNotifications = undefined;
+
+/**
+ * @member {Object} allowLiquidationsNotifications
+ */
+UserConfig.prototype.allowLiquidationsNotifications = undefined;
+
+/**
+ * @member {Object} allowDepositWithdrawalNotifications
+ */
+UserConfig.prototype.allowDepositWithdrawalNotifications = undefined;
+
+/**
+ * @member {Object} allowOrdersNotifications
+ */
+UserConfig.prototype.allowOrdersNotifications = undefined;
 

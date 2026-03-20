@@ -63,6 +63,18 @@
         // expect(instance.currentAccruedInterestUsd).to.be(expectedValueLiteral);
       });
 
+      it('should have the property assetName (base name: "asset_name")', function() {
+        // TODO: update the code to test the property assetName
+        expect(instance).to.have.property('assetName');
+        // expect(instance.assetName).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property assetSymbol (base name: "asset_symbol")', function() {
+        // TODO: update the code to test the property assetSymbol
+        expect(instance).to.have.property('assetSymbol');
+        // expect(instance.assetSymbol).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

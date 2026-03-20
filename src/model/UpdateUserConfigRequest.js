@@ -51,6 +51,14 @@ export default class UpdateUserConfigRequest {
         obj.showTutorialCards = UpdateFieldBoolean.constructFromObject(data['show_tutorial_cards']);
       if (data.hasOwnProperty('notifications_enabled'))
         obj.notificationsEnabled = UpdateFieldBoolean.constructFromObject(data['notifications_enabled']);
+      if (data.hasOwnProperty('allow_email_notifications'))
+        obj.allowEmailNotifications = UpdateFieldBoolean.constructFromObject(data['allow_email_notifications']);
+      if (data.hasOwnProperty('allow_liquidations_notifications'))
+        obj.allowLiquidationsNotifications = UpdateFieldBoolean.constructFromObject(data['allow_liquidations_notifications']);
+      if (data.hasOwnProperty('allow_deposit_withdrawal_notifications'))
+        obj.allowDepositWithdrawalNotifications = UpdateFieldBoolean.constructFromObject(data['allow_deposit_withdrawal_notifications']);
+      if (data.hasOwnProperty('allow_orders_notifications'))
+        obj.allowOrdersNotifications = UpdateFieldBoolean.constructFromObject(data['allow_orders_notifications']);
     }
     return obj;
   }
@@ -79,4 +87,28 @@ UpdateUserConfigRequest.prototype.showTutorialCards = undefined;
  * @member {module:model/UpdateFieldBoolean} notificationsEnabled
  */
 UpdateUserConfigRequest.prototype.notificationsEnabled = undefined;
+
+/**
+ * Optional: Whether to allow email notifications.
+ * @member {module:model/UpdateFieldBoolean} allowEmailNotifications
+ */
+UpdateUserConfigRequest.prototype.allowEmailNotifications = undefined;
+
+/**
+ * Optional: Whether to allow liquidations notifications.
+ * @member {module:model/UpdateFieldBoolean} allowLiquidationsNotifications
+ */
+UpdateUserConfigRequest.prototype.allowLiquidationsNotifications = undefined;
+
+/**
+ * Optional: Whether to allow deposit/withdrawal notifications.
+ * @member {module:model/UpdateFieldBoolean} allowDepositWithdrawalNotifications
+ */
+UpdateUserConfigRequest.prototype.allowDepositWithdrawalNotifications = undefined;
+
+/**
+ * Optional: Whether to allow orders notifications.
+ * @member {module:model/UpdateFieldBoolean} allowOrdersNotifications
+ */
+UpdateUserConfigRequest.prototype.allowOrdersNotifications = undefined;
 

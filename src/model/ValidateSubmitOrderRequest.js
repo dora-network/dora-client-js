@@ -82,6 +82,8 @@ export default class ValidateSubmitOrderRequest {
         obj.stopLossPrice = ApiClient.convertToType(data['stop_loss_price'], Object);
       if (data.hasOwnProperty('take_profit_price'))
         obj.takeProfitPrice = ApiClient.convertToType(data['take_profit_price'], Object);
+      if (data.hasOwnProperty('restrictions'))
+        obj.restrictions = ApiClient.convertToType(data['restrictions'], Object);
     }
     return obj;
   }
@@ -173,4 +175,10 @@ ValidateSubmitOrderRequest.prototype.stopLossPrice = undefined;
  * @member {Object} takeProfitPrice
  */
 ValidateSubmitOrderRequest.prototype.takeProfitPrice = undefined;
+
+/**
+ * Map of restriction keys to Restriction objects
+ * @member {Object} restrictions
+ */
+ValidateSubmitOrderRequest.prototype.restrictions = undefined;
 

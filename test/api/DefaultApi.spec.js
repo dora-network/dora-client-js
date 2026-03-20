@@ -217,6 +217,26 @@
           done();
         });
       });
+      describe('createConditionalOrder', function() {
+        it('should call createConditionalOrder successfully', function(done) {
+          // TODO: uncomment, update parameter values for createConditionalOrder call and complete the assertions
+          /*
+
+          instance.createConditionalOrder(body, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.CreateConditionalOrderResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('createOrder', function() {
         it('should call createOrder successfully', function(done) {
           // TODO: uncomment, update parameter values for createOrder call and complete the assertions
@@ -309,6 +329,26 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.ListAssetPriceResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('getAllPositions', function() {
+        it('should call getAllPositions successfully', function(done) {
+          // TODO: uncomment getAllPositions call and complete the assertions
+          /*
+
+          instance.getAllPositions(function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.AllPositionsResponse);
 
             done();
           });
@@ -874,6 +914,27 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.GetPoolPriceResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('getRealizedPnlSettlements', function() {
+        it('should call getRealizedPnlSettlements successfully', function(done) {
+          // TODO: uncomment, update parameter values for getRealizedPnlSettlements call and complete the assertions
+          /*
+          var opts = {};
+
+          instance.getRealizedPnlSettlements(opts, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.GetRealizedPnlSettlementsResponse);
 
             done();
           });
@@ -1524,6 +1585,26 @@
             }
             // TODO: update response assertions
             expect(data).to.be.a(Dora.SettleLeverageAccruedInterestResponse);
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('settleRealizedPnlRecord', function() {
+        it('should call settleRealizedPnlRecord successfully', function(done) {
+          // TODO: uncomment, update parameter values for settleRealizedPnlRecord call and complete the assertions
+          /*
+
+          instance.settleRealizedPnlRecord(settlementId, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(Dora.SettleRealizedPnlRecordResponse);
 
             done();
           });

@@ -13,6 +13,7 @@
  *
  */
 import ApiClient from "../ApiClient";
+import AllPositionsResponse from '../model/AllPositionsResponse';
 import AllWithdrawalInitiationsResponse from '../model/AllWithdrawalInitiationsResponse';
 import AssetKind from '../model/AssetKind';
 import AssetRequestError from '../model/AssetRequestError';
@@ -24,6 +25,8 @@ import ClosePositionRequest from '../model/ClosePositionRequest';
 import ClosePositionResponse from '../model/ClosePositionResponse';
 import CreateAPIKeyRequest from '../model/CreateAPIKeyRequest';
 import CreateAPIKeyResponse from '../model/CreateAPIKeyResponse';
+import CreateConditionalOrderRequest from '../model/CreateConditionalOrderRequest';
+import CreateConditionalOrderResponse from '../model/CreateConditionalOrderResponse';
 import CreateIntegratorUserRequest from '../model/CreateIntegratorUserRequest';
 import CreateOrderRequest from '../model/CreateOrderRequest';
 import CreateOrderResponse from '../model/CreateOrderResponse';
@@ -41,6 +44,7 @@ import GetOrderBookSummaryResponse from '../model/GetOrderBookSummaryResponse';
 import GetOrderResponse from '../model/GetOrderResponse';
 import GetOrderbookStatsResponse from '../model/GetOrderbookStatsResponse';
 import GetPoolPriceResponse from '../model/GetPoolPriceResponse';
+import GetRealizedPnlSettlementsResponse from '../model/GetRealizedPnlSettlementsResponse';
 import GetTopOfBookResponse from '../model/GetTopOfBookResponse';
 import GetTransactionResponse from '../model/GetTransactionResponse';
 import GetUserResponse from '../model/GetUserResponse';
@@ -73,6 +77,7 @@ import ResponseEnvelope from '../model/ResponseEnvelope';
 import RevokeAPIKeyResponse from '../model/RevokeAPIKeyResponse';
 import SettleLeverageAccruedInterestRequest from '../model/SettleLeverageAccruedInterestRequest';
 import SettleLeverageAccruedInterestResponse from '../model/SettleLeverageAccruedInterestResponse';
+import SettleRealizedPnlRecordResponse from '../model/SettleRealizedPnlRecordResponse';
 import Side from '../model/Side';
 import StreamAssetPricesResponse from '../model/StreamAssetPricesResponse';
 import StreamAssetsResponse from '../model/StreamAssetsResponse';
@@ -551,6 +556,52 @@ export default class DefaultApi {
       );
     }
     /**
+     * Callback function to receive the result of the createConditionalOrder operation.
+     * @callback moduleapi/DefaultApi~createConditionalOrderCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CreateConditionalOrderResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a new conditional orders
+     * @param {module:model/CreateConditionalOrderRequest} body 
+     * @param {module:api/DefaultApi~createConditionalOrderCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    createConditionalOrder(body, callback) {
+      
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling createConditionalOrder");
+      }
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = CreateConditionalOrderResponse;
+
+      return this.apiClient.callApi(
+        '/v1/orders/conditional', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
      * Callback function to receive the result of the createOrder operation.
      * @callback moduleapi/DefaultApi~createOrderCallback
      * @param {String} error Error message, if any.
@@ -771,6 +822,47 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/price', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the getAllPositions operation.
+     * @callback moduleapi/DefaultApi~getAllPositionsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AllPositionsResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get all users&#x27; positions
+     * @param {module:api/DefaultApi~getAllPositionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    getAllPositions(callback) {
+      
+      let postBody = null;
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AllPositionsResponse;
+
+      return this.apiClient.callApi(
+        '/v1/ledger/positions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -2032,6 +2124,54 @@ export default class DefaultApi {
       );
     }
     /**
+     * Callback function to receive the result of the getRealizedPnlSettlements operation.
+     * @callback moduleapi/DefaultApi~getRealizedPnlSettlementsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetRealizedPnlSettlementsResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get realized P&amp;L settlements with filters
+     * @param {Object} opts Optional parameters
+     * @param {Object} opts.userId 
+     * @param {Object} opts.tenantId 
+     * @param {Object} opts.positionId 
+     * @param {Object} opts.createdAfter 
+     * @param {Object} opts.settledBefore 
+     * @param {Object} opts.isSettled 
+     * @param {module:api/DefaultApi~getRealizedPnlSettlementsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    getRealizedPnlSettlements(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+        
+      };
+      let queryParams = {
+        'user_id': opts['userId'],'tenant_id': opts['tenantId'],'position_id': opts['positionId'],'created_after': opts['createdAfter'],'settled_before': opts['settledBefore'],'is_settled': opts['isSettled']
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetRealizedPnlSettlementsResponse;
+
+      return this.apiClient.callApi(
+        '/v1/realized_pnl_settlements', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
      * Callback function to receive the result of the getTradeById operation.
      * @callback moduleapi/DefaultApi~getTradeByIdCallback
      * @param {String} error Error message, if any.
@@ -2187,6 +2327,7 @@ export default class DefaultApi {
      * @param {Object} opts.txKinds 
      * @param {Object} opts.start 
      * @param {Object} opts.end 
+     * @param {Object} opts.tenantId 
      * @param {Object} opts.page  (default to <.>)
      * @param {Object} opts.limit  (default to <.>)
      * @param {module:api/DefaultApi~getTransactionsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -2200,7 +2341,7 @@ export default class DefaultApi {
         
       };
       let queryParams = {
-        'pools': opts['pools'],'user_ids': opts['userIds'],'tx_kinds': opts['txKinds'],'start': opts['start'],'end': opts['end'],'page': opts['page'],'limit': opts['limit']
+        'pools': opts['pools'],'user_ids': opts['userIds'],'tx_kinds': opts['txKinds'],'start': opts['start'],'end': opts['end'],'tenant_id': opts['tenantId'],'page': opts['page'],'limit': opts['limit']
       };
       let headerParams = {
         
@@ -3557,6 +3698,52 @@ export default class DefaultApi {
 
       return this.apiClient.callApi(
         '/v1/leverage/accrued_interest/settle', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
+     * Callback function to receive the result of the settleRealizedPnlRecord operation.
+     * @callback moduleapi/DefaultApi~settleRealizedPnlRecordCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SettleRealizedPnlRecordResponse{ data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Mark a realized P&amp;L settlement as settled
+     * @param {Object} settlementId 
+     * @param {module:api/DefaultApi~settleRealizedPnlRecordCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
+     */
+    settleRealizedPnlRecord(settlementId, callback) {
+      
+      let postBody = null;
+      // verify the required parameter 'settlementId' is set
+      if (settlementId === undefined || settlementId === null) {
+        throw new Error("Missing the required parameter 'settlementId' when calling settleRealizedPnlRecord");
+      }
+
+      let pathParams = {
+        'settlement_id': settlementId
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = SettleRealizedPnlRecordResponse;
+
+      return this.apiClient.callApi(
+        '/v1/realized_pnl_settlements/{settlement_id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

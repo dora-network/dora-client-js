@@ -63,6 +63,30 @@
         // expect(instance.notificationsEnabled).to.be(expectedValueLiteral);
       });
 
+      it('should have the property allowEmailNotifications (base name: "allow_email_notifications")', function() {
+        // TODO: update the code to test the property allowEmailNotifications
+        expect(instance).to.have.property('allowEmailNotifications');
+        // expect(instance.allowEmailNotifications).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property allowLiquidationsNotifications (base name: "allow_liquidations_notifications")', function() {
+        // TODO: update the code to test the property allowLiquidationsNotifications
+        expect(instance).to.have.property('allowLiquidationsNotifications');
+        // expect(instance.allowLiquidationsNotifications).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property allowDepositWithdrawalNotifications (base name: "allow_deposit_withdrawal_notifications")', function() {
+        // TODO: update the code to test the property allowDepositWithdrawalNotifications
+        expect(instance).to.have.property('allowDepositWithdrawalNotifications');
+        // expect(instance.allowDepositWithdrawalNotifications).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property allowOrdersNotifications (base name: "allow_orders_notifications")', function() {
+        // TODO: update the code to test the property allowOrdersNotifications
+        expect(instance).to.have.property('allowOrdersNotifications');
+        // expect(instance.allowOrdersNotifications).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

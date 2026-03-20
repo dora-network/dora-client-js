@@ -129,6 +129,12 @@
         // expect(instance.takeProfitPrice).to.be(expectedValueLiteral);
       });
 
+      it('should have the property restrictions (base name: "restrictions")', function() {
+        // TODO: update the code to test the property restrictions
+        expect(instance).to.have.property('restrictions');
+        // expect(instance.restrictions).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

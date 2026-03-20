@@ -54,6 +54,10 @@ export default class CurrentLeverageAccruedInterest {
         obj.positionId = ApiClient.convertToType(data['position_id'], Object);
       if (data.hasOwnProperty('current_accrued_interest_usd'))
         obj.currentAccruedInterestUsd = ApiClient.convertToType(data['current_accrued_interest_usd'], Object);
+      if (data.hasOwnProperty('asset_name'))
+        obj.assetName = ApiClient.convertToType(data['asset_name'], Object);
+      if (data.hasOwnProperty('asset_symbol'))
+        obj.assetSymbol = ApiClient.convertToType(data['asset_symbol'], Object);
     }
     return obj;
   }
@@ -78,4 +82,14 @@ CurrentLeverageAccruedInterest.prototype.positionId = undefined;
  * @member {Object} currentAccruedInterestUsd
  */
 CurrentLeverageAccruedInterest.prototype.currentAccruedInterestUsd = undefined;
+
+/**
+ * @member {Object} assetName
+ */
+CurrentLeverageAccruedInterest.prototype.assetName = undefined;
+
+/**
+ * @member {Object} assetSymbol
+ */
+CurrentLeverageAccruedInterest.prototype.assetSymbol = undefined;
 

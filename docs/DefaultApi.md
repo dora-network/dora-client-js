@@ -13,11 +13,13 @@ Method | HTTP request | Description
 [**closeIsolatedPosition**](DefaultApi.md#closeIsolatedPosition) | **POST** /v1/positions/close | Close isolated positions, repaying the borrowed
 [**createAPIKeyForUser**](DefaultApi.md#createAPIKeyForUser) | **POST** /v1/user/apikey | Create apikey for a user
 [**createAPIKeyForUserID**](DefaultApi.md#createAPIKeyForUserID) | **POST** /v1/user/{user_id}/apikey | Create apikey for a user
+[**createConditionalOrder**](DefaultApi.md#createConditionalOrder) | **POST** /v1/orders/conditional | Create a new conditional orders
 [**createOrder**](DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 [**createUser**](DefaultApi.md#createUser) | **POST** /v1/integrators/user | Create a new user
 [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
 [**getAPIKeysForUserID**](DefaultApi.md#getAPIKeysForUserID) | **GET** /v1/user/{user_id}/apikey | Get user&#x27;s api keys: admin or integrator only
 [**getAllAssetPrices**](DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
+[**getAllPositions**](DefaultApi.md#getAllPositions) | **GET** /v1/ledger/positions | Get all users&#x27; positions
 [**getAllWithdrawalRequests**](DefaultApi.md#getAllWithdrawalRequests) | **GET** /v1/ledger/withdraw/requests | Get all withdrawal requests
 [**getAssetById**](DefaultApi.md#getAssetById) | **GET** /v1/assets/{asset_id} | Get asset by ID
 [**getAssetPrice**](DefaultApi.md#getAssetPrice) | **GET** /v1/price/asset/{asset_id} | Get the current price of an asset
@@ -46,6 +48,7 @@ Method | HTTP request | Description
 [**getOrderbookTop**](DefaultApi.md#getOrderbookTop) | **GET** /v1/orderbooks/{order_book_id}/top | Get the top price levels for a specific orderbook (L1 market depth)
 [**getPLForSelfByAccount**](DefaultApi.md#getPLForSelfByAccount) | **GET** /v1/pl/self | Get account-by-account PL breakdown for the logged in user
 [**getPoolPrice**](DefaultApi.md#getPoolPrice) | **GET** /v1/price/pool/{pool_id} | Get the current price of a pool
+[**getRealizedPnlSettlements**](DefaultApi.md#getRealizedPnlSettlements) | **GET** /v1/realized_pnl_settlements | Get realized P&amp;L settlements with filters
 [**getTradeById**](DefaultApi.md#getTradeById) | **GET** /v1/trades/{trade_id} | Get a trade by ID
 [**getTrades**](DefaultApi.md#getTrades) | **GET** /v1/trades | Get a filtered, paginated list of trades
 [**getTransactionById**](DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{transaction_id} | Get a transaction by ID
@@ -78,6 +81,7 @@ Method | HTTP request | Description
 [**revokeAPIKeyForUser**](DefaultApi.md#revokeAPIKeyForUser) | **PUT** /v1/user/apikey/{key_id}/revoke | Revoke apikey for a user
 [**revokeAPIKeyForUserID**](DefaultApi.md#revokeAPIKeyForUserID) | **PUT** /v1/user/{user_id}/apikey/{key_id}/revoke | Revoke apikey for a user: admin or integrator only
 [**settleLeverageAccruedInterest**](DefaultApi.md#settleLeverageAccruedInterest) | **POST** /v1/leverage/accrued_interest/settle | Settle current accrued leverage interest for a specific user
+[**settleRealizedPnlRecord**](DefaultApi.md#settleRealizedPnlRecord) | **PUT** /v1/realized_pnl_settlements/{settlement_id} | Mark a realized P&amp;L settlement as settled
 [**streamAssetPrices**](DefaultApi.md#streamAssetPrices) | **GET** /v1/prices/stream | Stream real-time asset prices as map objects
 [**streamCandleData**](DefaultApi.md#streamCandleData) | **GET** /v1/charts/{order_book_id}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
 [**streamOrderBookBalances**](DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
@@ -547,6 +551,55 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="createConditionalOrder"></a>
+# **createConditionalOrder**
+> CreateConditionalOrderResponse createConditionalOrder(body)
+
+Create a new conditional orders
+
+### Example
+```javascript
+import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
+
+let apiInstance = new Dora.DefaultApi();
+let body = new Dora.CreateConditionalOrderRequest(); // CreateConditionalOrderRequest | 
+
+apiInstance.createConditionalOrder(body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateConditionalOrderRequest**](CreateConditionalOrderRequest.md)|  | 
+
+### Return type
+
+[**CreateConditionalOrderResponse**](CreateConditionalOrderResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="createOrder"></a>
 # **createOrder**
 > CreateOrderResponse createOrder(body)
@@ -777,6 +830,50 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ListAssetPriceResponse**](ListAssetPriceResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getAllPositions"></a>
+# **getAllPositions**
+> AllPositionsResponse getAllPositions()
+
+Get all users&#x27; positions
+
+### Example
+```javascript
+import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
+
+let apiInstance = new Dora.DefaultApi();
+apiInstance.getAllPositions((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AllPositionsResponse**](AllPositionsResponse.md)
 
 ### Authorization
 
@@ -2048,6 +2145,66 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getRealizedPnlSettlements"></a>
+# **getRealizedPnlSettlements**
+> GetRealizedPnlSettlementsResponse getRealizedPnlSettlements(opts)
+
+Get realized P&amp;L settlements with filters
+
+### Example
+```javascript
+import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
+
+let apiInstance = new Dora.DefaultApi();
+let opts = { 
+  'userId': null, // Object | 
+  'tenantId': null, // Object | 
+  'positionId': null, // Object | 
+  'createdAfter': null, // Object | 
+  'settledBefore': null, // Object | 
+  'isSettled': null // Object | 
+};
+apiInstance.getRealizedPnlSettlements(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | [**Object**](.md)|  | [optional] 
+ **tenantId** | [**Object**](.md)|  | [optional] 
+ **positionId** | [**Object**](.md)|  | [optional] 
+ **createdAfter** | [**Object**](.md)|  | [optional] 
+ **settledBefore** | [**Object**](.md)|  | [optional] 
+ **isSettled** | [**Object**](.md)|  | [optional] 
+
+### Return type
+
+[**GetRealizedPnlSettlementsResponse**](GetRealizedPnlSettlementsResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getTradeById"></a>
 # **getTradeById**
 > TradeResponse getTradeById(tradeId)
@@ -2207,6 +2364,7 @@ let opts = {
   'txKinds': null, // Object | 
   'start': null, // Object | 
   'end': null, // Object | 
+  'tenantId': null, // Object | 
   'page': 1, // Object | 
   'limit': 100 // Object | 
 };
@@ -2228,6 +2386,7 @@ Name | Type | Description  | Notes
  **txKinds** | [**Object**](.md)|  | [optional] 
  **start** | [**Object**](.md)|  | [optional] 
  **end** | [**Object**](.md)|  | [optional] 
+ **tenantId** | [**Object**](.md)|  | [optional] 
  **page** | [**Object**](.md)|  | [optional] [default to 1]
  **limit** | [**Object**](.md)|  | [optional] [default to 100]
 
@@ -3674,6 +3833,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="settleRealizedPnlRecord"></a>
+# **settleRealizedPnlRecord**
+> SettleRealizedPnlRecordResponse settleRealizedPnlRecord(settlementId)
+
+Mark a realized P&amp;L settlement as settled
+
+### Example
+```javascript
+import {Dora} from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+
+
+let apiInstance = new Dora.DefaultApi();
+let settlementId = null; // Object | 
+
+apiInstance.settleRealizedPnlRecord(settlementId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settlementId** | [**Object**](.md)|  | 
+
+### Return type
+
+[**SettleRealizedPnlRecordResponse**](SettleRealizedPnlRecordResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="streamAssetPrices"></a>

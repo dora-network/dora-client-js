@@ -108,11 +108,13 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**closeIsolatedPosition**](docs/DefaultApi.md#closeIsolatedPosition) | **POST** /v1/positions/close | Close isolated positions, repaying the borrowed
 *Dora.DefaultApi* | [**createAPIKeyForUser**](docs/DefaultApi.md#createAPIKeyForUser) | **POST** /v1/user/apikey | Create apikey for a user
 *Dora.DefaultApi* | [**createAPIKeyForUserID**](docs/DefaultApi.md#createAPIKeyForUserID) | **POST** /v1/user/{user_id}/apikey | Create apikey for a user
+*Dora.DefaultApi* | [**createConditionalOrder**](docs/DefaultApi.md#createConditionalOrder) | **POST** /v1/orders/conditional | Create a new conditional orders
 *Dora.DefaultApi* | [**createOrder**](docs/DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 *Dora.DefaultApi* | [**createUser**](docs/DefaultApi.md#createUser) | **POST** /v1/integrators/user | Create a new user
 *Dora.DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
 *Dora.DefaultApi* | [**getAPIKeysForUserID**](docs/DefaultApi.md#getAPIKeysForUserID) | **GET** /v1/user/{user_id}/apikey | Get user&#x27;s api keys: admin or integrator only
 *Dora.DefaultApi* | [**getAllAssetPrices**](docs/DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
+*Dora.DefaultApi* | [**getAllPositions**](docs/DefaultApi.md#getAllPositions) | **GET** /v1/ledger/positions | Get all users&#x27; positions
 *Dora.DefaultApi* | [**getAllWithdrawalRequests**](docs/DefaultApi.md#getAllWithdrawalRequests) | **GET** /v1/ledger/withdraw/requests | Get all withdrawal requests
 *Dora.DefaultApi* | [**getAssetById**](docs/DefaultApi.md#getAssetById) | **GET** /v1/assets/{asset_id} | Get asset by ID
 *Dora.DefaultApi* | [**getAssetPrice**](docs/DefaultApi.md#getAssetPrice) | **GET** /v1/price/asset/{asset_id} | Get the current price of an asset
@@ -141,6 +143,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getOrderbookTop**](docs/DefaultApi.md#getOrderbookTop) | **GET** /v1/orderbooks/{order_book_id}/top | Get the top price levels for a specific orderbook (L1 market depth)
 *Dora.DefaultApi* | [**getPLForSelfByAccount**](docs/DefaultApi.md#getPLForSelfByAccount) | **GET** /v1/pl/self | Get account-by-account PL breakdown for the logged in user
 *Dora.DefaultApi* | [**getPoolPrice**](docs/DefaultApi.md#getPoolPrice) | **GET** /v1/price/pool/{pool_id} | Get the current price of a pool
+*Dora.DefaultApi* | [**getRealizedPnlSettlements**](docs/DefaultApi.md#getRealizedPnlSettlements) | **GET** /v1/realized_pnl_settlements | Get realized P&amp;L settlements with filters
 *Dora.DefaultApi* | [**getTradeById**](docs/DefaultApi.md#getTradeById) | **GET** /v1/trades/{trade_id} | Get a trade by ID
 *Dora.DefaultApi* | [**getTrades**](docs/DefaultApi.md#getTrades) | **GET** /v1/trades | Get a filtered, paginated list of trades
 *Dora.DefaultApi* | [**getTransactionById**](docs/DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{transaction_id} | Get a transaction by ID
@@ -173,6 +176,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**revokeAPIKeyForUser**](docs/DefaultApi.md#revokeAPIKeyForUser) | **PUT** /v1/user/apikey/{key_id}/revoke | Revoke apikey for a user
 *Dora.DefaultApi* | [**revokeAPIKeyForUserID**](docs/DefaultApi.md#revokeAPIKeyForUserID) | **PUT** /v1/user/{user_id}/apikey/{key_id}/revoke | Revoke apikey for a user: admin or integrator only
 *Dora.DefaultApi* | [**settleLeverageAccruedInterest**](docs/DefaultApi.md#settleLeverageAccruedInterest) | **POST** /v1/leverage/accrued_interest/settle | Settle current accrued leverage interest for a specific user
+*Dora.DefaultApi* | [**settleRealizedPnlRecord**](docs/DefaultApi.md#settleRealizedPnlRecord) | **PUT** /v1/realized_pnl_settlements/{settlement_id} | Mark a realized P&amp;L settlement as settled
 *Dora.DefaultApi* | [**streamAssetPrices**](docs/DefaultApi.md#streamAssetPrices) | **GET** /v1/prices/stream | Stream real-time asset prices as map objects
 *Dora.DefaultApi* | [**streamCandleData**](docs/DefaultApi.md#streamCandleData) | **GET** /v1/charts/{order_book_id}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamOrderBookBalances**](docs/DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
@@ -189,6 +193,9 @@ Class | Method | HTTP request | Description
  - [Dora.APIKeyResponse](docs/APIKeyResponse.md)
  - [Dora.APIKeyResponseEnvelope](docs/APIKeyResponseEnvelope.md)
  - [Dora.APIKeys](docs/APIKeys.md)
+ - [Dora.AllPositions](docs/AllPositions.md)
+ - [Dora.AllPositionsResponse](docs/AllPositionsResponse.md)
+ - [Dora.AllPositionsResponseEnvelope](docs/AllPositionsResponseEnvelope.md)
  - [Dora.AllWithdrawalInitiationsResponse](docs/AllWithdrawalInitiationsResponse.md)
  - [Dora.AllWithdrawalInitiationsResponseEnvelope](docs/AllWithdrawalInitiationsResponseEnvelope.md)
  - [Dora.Asset](docs/Asset.md)
@@ -219,6 +226,9 @@ Class | Method | HTTP request | Description
  - [Dora.CreateAPIKeyRequest](docs/CreateAPIKeyRequest.md)
  - [Dora.CreateAPIKeyResponse](docs/CreateAPIKeyResponse.md)
  - [Dora.CreateAPIKeyResponseEnvelope](docs/CreateAPIKeyResponseEnvelope.md)
+ - [Dora.CreateConditionalOrderRequest](docs/CreateConditionalOrderRequest.md)
+ - [Dora.CreateConditionalOrderResponse](docs/CreateConditionalOrderResponse.md)
+ - [Dora.CreateConditionalOrderResponseEnvelope](docs/CreateConditionalOrderResponseEnvelope.md)
  - [Dora.CreateIntegratorUserRequest](docs/CreateIntegratorUserRequest.md)
  - [Dora.CreateOrUpdateUserResponse](docs/CreateOrUpdateUserResponse.md)
  - [Dora.CreateOrderRequest](docs/CreateOrderRequest.md)
@@ -245,6 +255,8 @@ Class | Method | HTTP request | Description
  - [Dora.GetOrderResponse](docs/GetOrderResponse.md)
  - [Dora.GetOrderbookStatsResponse](docs/GetOrderbookStatsResponse.md)
  - [Dora.GetPoolPriceResponse](docs/GetPoolPriceResponse.md)
+ - [Dora.GetRealizedPnlSettlementsResponse](docs/GetRealizedPnlSettlementsResponse.md)
+ - [Dora.GetRealizedPnlSettlementsResponseEnvelope](docs/GetRealizedPnlSettlementsResponseEnvelope.md)
  - [Dora.GetTopOfBookResponse](docs/GetTopOfBookResponse.md)
  - [Dora.GetTopOfBookResponseEnvelope](docs/GetTopOfBookResponseEnvelope.md)
  - [Dora.GetTransactionResponse](docs/GetTransactionResponse.md)
@@ -334,10 +346,14 @@ Class | Method | HTTP request | Description
  - [Dora.PositionAccount](docs/PositionAccount.md)
  - [Dora.PositionAccounts](docs/PositionAccounts.md)
  - [Dora.PositionResponse](docs/PositionResponse.md)
+ - [Dora.PositionSide](docs/PositionSide.md)
  - [Dora.PositionType](docs/PositionType.md)
  - [Dora.PriceLevel](docs/PriceLevel.md)
+ - [Dora.RealizedPnlSettlement](docs/RealizedPnlSettlement.md)
+ - [Dora.RealizedPnlSettlements](docs/RealizedPnlSettlements.md)
  - [Dora.ResponseEnvelope](docs/ResponseEnvelope.md)
  - [Dora.ResponseEnvelopeOfListAssets](docs/ResponseEnvelopeOfListAssets.md)
+ - [Dora.Restriction](docs/Restriction.md)
  - [Dora.RevokeAPIKeyData](docs/RevokeAPIKeyData.md)
  - [Dora.RevokeAPIKeyResponse](docs/RevokeAPIKeyResponse.md)
  - [Dora.RevokeAPIKeyResponseEnvelope](docs/RevokeAPIKeyResponseEnvelope.md)
@@ -345,6 +361,8 @@ Class | Method | HTTP request | Description
  - [Dora.SettleLeverageAccruedInterestRequest](docs/SettleLeverageAccruedInterestRequest.md)
  - [Dora.SettleLeverageAccruedInterestResponse](docs/SettleLeverageAccruedInterestResponse.md)
  - [Dora.SettleLeverageAccruedInterestResponseEnvelope](docs/SettleLeverageAccruedInterestResponseEnvelope.md)
+ - [Dora.SettleRealizedPnlRecordResponse](docs/SettleRealizedPnlRecordResponse.md)
+ - [Dora.SettleRealizedPnlRecordResponseEnvelope](docs/SettleRealizedPnlRecordResponseEnvelope.md)
  - [Dora.Side](docs/Side.md)
  - [Dora.StreamAssetPricesResponse](docs/StreamAssetPricesResponse.md)
  - [Dora.StreamAssetsEntry](docs/StreamAssetsEntry.md)

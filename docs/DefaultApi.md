@@ -1,11 +1,11 @@
 # Dora.DefaultApi
 
-All URIs are relative to *https://staging.dora.co/*
+All URIs are relative to *https://staging.dora.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**approveLedgerWithdrawRequest**](DefaultApi.md#approveLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/approve | Approve a pending withdrawal request
-[**cancelAllOpenOrders**](DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
+[**cancelAllOpenOrders**](DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#39;s orders on specific orderbook
 [**cancelLedgerWithdrawRequest**](DefaultApi.md#cancelLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/cancel | Cancel a pending withdrawal request
 [**cancelOrderById**](DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
 [**checkUserEmailExists**](DefaultApi.md#checkUserEmailExists) | **GET** /v1/user/exists | Check whether a user email exists
@@ -17,9 +17,9 @@ Method | HTTP request | Description
 [**createOrder**](DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 [**createUser**](DefaultApi.md#createUser) | **POST** /v1/integrators/user | Create a new user
 [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
-[**getAPIKeysForUserID**](DefaultApi.md#getAPIKeysForUserID) | **GET** /v1/user/{user_id}/apikey | Get user&#x27;s api keys: admin or integrator only
+[**getAPIKeysForUserID**](DefaultApi.md#getAPIKeysForUserID) | **GET** /v1/user/{user_id}/apikey | Get user&#39;s api keys: admin or integrator only
 [**getAllAssetPrices**](DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
-[**getAllPositions**](DefaultApi.md#getAllPositions) | **GET** /v1/ledger/positions | Get all users&#x27; positions
+[**getAllPositions**](DefaultApi.md#getAllPositions) | **GET** /v1/ledger/positions | Get all users&#39; positions
 [**getAllWithdrawalRequests**](DefaultApi.md#getAllWithdrawalRequests) | **GET** /v1/ledger/withdraw/requests | Get all withdrawal requests
 [**getAssetById**](DefaultApi.md#getAssetById) | **GET** /v1/assets/{asset_id} | Get asset by ID
 [**getAssetPrice**](DefaultApi.md#getAssetPrice) | **GET** /v1/price/asset/{asset_id} | Get the current price of an asset
@@ -53,20 +53,21 @@ Method | HTTP request | Description
 [**getTrades**](DefaultApi.md#getTrades) | **GET** /v1/trades | Get a filtered, paginated list of trades
 [**getTransactionById**](DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{transaction_id} | Get a transaction by ID
 [**getTransactions**](DefaultApi.md#getTransactions) | **GET** /v1/transactions | Get a filtered, paginated list of transactions
+[**getTransactionsSettlements**](DefaultApi.md#getTransactionsSettlements) | **GET** /v1/transactions/settlements | Get transactions settlements with filters
 [**getUserById**](DefaultApi.md#getUserById) | **GET** /v1/user/{user_id} | Get user by ID (admin only)
-[**getUserCouponPaymentsStream**](DefaultApi.md#getUserCouponPaymentsStream) | **GET** /v1/user/{user_id}/coupon_payments/stream | Stream user&#x27;s coupon payment accruals in real time
-[**getUserLedgerStream**](DefaultApi.md#getUserLedgerStream) | **GET** /v1/user/{user_id}/ledger/stream | Get a snapshot of user&#x27;s ledger updates since a specific time, and opens a stream for further updates
-[**getUserOrderUpdatesStream**](DefaultApi.md#getUserOrderUpdatesStream) | **GET** /v1/user/{user_id}/orders/{order_book_id}/updates/stream | Get a snapshot of user&#x27;s order updates for the given order book since a specific time, and opens a stream for further updates
-[**getUserOrdersUpdatesStreamAll**](DefaultApi.md#getUserOrdersUpdatesStreamAll) | **GET** /v1/user/{user_id}/orders/all/updates/stream | Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
+[**getUserCouponPaymentsStream**](DefaultApi.md#getUserCouponPaymentsStream) | **GET** /v1/user/{user_id}/coupon_payments/stream | Stream user&#39;s coupon payment accruals in real time
+[**getUserLedgerStream**](DefaultApi.md#getUserLedgerStream) | **GET** /v1/user/{user_id}/ledger/stream | Get a snapshot of user&#39;s ledger updates since a specific time, and opens a stream for further updates
+[**getUserOrderUpdatesStream**](DefaultApi.md#getUserOrderUpdatesStream) | **GET** /v1/user/{user_id}/orders/{order_book_id}/updates/stream | Get a snapshot of user&#39;s order updates for the given order book since a specific time, and opens a stream for further updates
+[**getUserOrdersUpdatesStreamAll**](DefaultApi.md#getUserOrdersUpdatesStreamAll) | **GET** /v1/user/{user_id}/orders/all/updates/stream | Get a snapshot of user&#39;s order updates across all order books since a specific time, and opens a stream for further updates
 [**getUserSelf**](DefaultApi.md#getUserSelf) | **GET** /v1/user/self | Get user details for the authenticated user
-[**getUserTransactionsStream**](DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
-[**getUsersAPIKeys**](DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#x27;s api keys
-[**ledgerDeposit**](DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit/{user_id} | Deposit assets into this user&#x27;s account from the outside world
+[**getUserTransactionsStream**](DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#39;s executed transactions since a specific time, and opens a stream for further updates
+[**getUsersAPIKeys**](DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#39;s api keys
+[**ledgerDeposit**](DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit/{user_id} | Deposit assets into this user&#39;s account from the outside world
 [**ledgerWithdraw**](DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw/{user_id} | Withdraw assets from this user to the outside world
 [**ledgerWithdrawRequest**](DefaultApi.md#ledgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{user_id} | Initiate a withdrawal request for this user to the outside world
 [**ledgerWithdrawRequestSelf**](DefaultApi.md#ledgerWithdrawRequestSelf) | **POST** /v1/ledger/withdraw/requests/self | Initiate a withdrawal request for the logged in user to the outside world
 [**leverageGetAccruedInterestByUser**](DefaultApi.md#leverageGetAccruedInterestByUser) | **GET** /v1/leverage/accrued_interest/self | Get current accrued leverage interest for the user
-[**leverageIsolateCollateral**](DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
+[**leverageIsolateCollateral**](DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#39;s global collateral
 [**leverageSupply**](DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
 [**leverageUnite**](DefaultApi.md#leverageUnite) | **POST** /v1/leverage/unite | Combines all isolated positions into a single global position
 [**leverageWithdraw**](DefaultApi.md#leverageWithdraw) | **POST** /v1/leverage/withdraw | Withdraw leverage for a specific asset
@@ -82,41 +83,46 @@ Method | HTTP request | Description
 [**revokeAPIKeyForUserID**](DefaultApi.md#revokeAPIKeyForUserID) | **PUT** /v1/user/{user_id}/apikey/{key_id}/revoke | Revoke apikey for a user: admin or integrator only
 [**settleLeverageAccruedInterest**](DefaultApi.md#settleLeverageAccruedInterest) | **POST** /v1/leverage/accrued_interest/settle | Settle current accrued leverage interest for a specific user
 [**settleRealizedPnlRecord**](DefaultApi.md#settleRealizedPnlRecord) | **PUT** /v1/realized_pnl_settlements/{settlement_id} | Mark a realized P&amp;L settlement as settled
+[**settleTransactionsSettlements**](DefaultApi.md#settleTransactionsSettlements) | **PUT** /v1/transactions/settlements | Settle multiple transactions settlements in batch
 [**streamAssetPrices**](DefaultApi.md#streamAssetPrices) | **GET** /v1/prices/stream | Stream real-time asset prices as map objects
 [**streamCandleData**](DefaultApi.md#streamCandleData) | **GET** /v1/charts/{order_book_id}/candle/stream | Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
 [**streamOrderBookBalances**](DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
 [**streamOrderbookOpenOrders**](DefaultApi.md#streamOrderbookOpenOrders) | **GET** /v1/orderbooks/{order_book_id}/open/stream | Get a snapshot of open orders in an order book and open a stream for real-time updates
 [**streamTrades**](DefaultApi.md#streamTrades) | **GET** /v1/trades/{order_book_id}/stream | Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
-[**transferAvailableBalances**](DefaultApi.md#transferAvailableBalances) | **POST** /v1/positions/transfer_balances | Transfer available balance between a user&#x27;s accounts (e.g. global to isolated position)
+[**transferAvailableBalances**](DefaultApi.md#transferAvailableBalances) | **POST** /v1/positions/transfer_balances | Transfer available balance between a user&#39;s accounts (e.g. global to isolated position)
 [**updateUserConfig**](DefaultApi.md#updateUserConfig) | **PUT** /v1/user/{user_id}/config | Update user configuration by ID
 [**updateUserConfigSelf**](DefaultApi.md#updateUserConfigSelf) | **PUT** /v1/user/config/self | Update user configuration for the authenticated user
 [**validateSubmitOrder**](DefaultApi.md#validateSubmitOrder) | **POST** /v1/orders/validate | Validate submit order request data
 [**verifyUser**](DefaultApi.md#verifyUser) | **PUT** /v1/user/{user_id}/verify | Verify a user by ID
 
-<a name="approveLedgerWithdrawRequest"></a>
-# **approveLedgerWithdrawRequest**
-> WithdrawalInitiationResponse approveLedgerWithdrawRequest(withdrawalId, opts)
+
+
+## approveLedgerWithdrawRequest
+
+> WithdrawalInitiationResponseEnvelope approveLedgerWithdrawRequest(withdrawalId, opts)
 
 Approve a pending withdrawal request
 
 Approve a pending withdrawal request, allowing the transfer of assets to the outside world to proceed. Note that this does not interact with any external systems; it simply updates the status of the withdrawal request in the ledger. Actual transfer of assets must be handled separately.
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let withdrawalId = null; // Object | 
-let opts = { 
-  'body': new Dora.WithdrawalRequestReason() // WithdrawalRequestReason | 
+let withdrawalId = "withdrawalId_example"; // String | 
+let opts = {
+  'withdrawalRequestReason': new Dora.WithdrawalRequestReason() // WithdrawalRequestReason | 
 };
 apiInstance.approveLedgerWithdrawRequest(withdrawalId, opts, (error, data, response) => {
   if (error) {
@@ -129,14 +135,15 @@ apiInstance.approveLedgerWithdrawRequest(withdrawalId, opts, (error, data, respo
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **withdrawalId** | [**Object**](.md)|  | 
- **body** | [**WithdrawalRequestReason**](WithdrawalRequestReason.md)|  | [optional] 
+ **withdrawalId** | **String**|  | 
+ **withdrawalRequestReason** | [**WithdrawalRequestReason**](WithdrawalRequestReason.md)|  | [optional] 
 
 ### Return type
 
-[**WithdrawalInitiationResponse**](WithdrawalInitiationResponse.md)
+[**WithdrawalInitiationResponseEnvelope**](WithdrawalInitiationResponseEnvelope.md)
 
 ### Authorization
 
@@ -144,31 +151,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="cancelAllOpenOrders"></a>
-# **cancelAllOpenOrders**
-> ListOrdersResponse cancelAllOpenOrders(opts)
 
-Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#x27;s orders on specific orderbook
+## cancelAllOpenOrders
+
+> ListOrdersResponseEnvelope cancelAllOpenOrders(opts)
+
+Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#39;s orders on specific orderbook
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
-  'orderBookId': null, // Object | 
-  'userId': null, // Object | 
+let opts = {
+  'orderBookId': "orderBookId_example", // String | 
+  'userId': "userId_example", // String | 
   'orderKind': new Dora.OrderKind() // OrderKind | 
 };
 apiInstance.cancelAllOpenOrders(opts, (error, data, response) => {
@@ -182,15 +192,16 @@ apiInstance.cancelAllOpenOrders(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | [optional] 
- **userId** | [**Object**](.md)|  | [optional] 
+ **orderBookId** | **String**|  | [optional] 
+ **userId** | **String**|  | [optional] 
  **orderKind** | [**OrderKind**](.md)|  | [optional] 
 
 ### Return type
 
-[**ListOrdersResponse**](ListOrdersResponse.md)
+[**ListOrdersResponseEnvelope**](ListOrdersResponseEnvelope.md)
 
 ### Authorization
 
@@ -198,33 +209,36 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="cancelLedgerWithdrawRequest"></a>
-# **cancelLedgerWithdrawRequest**
-> WithdrawalInitiationResponse cancelLedgerWithdrawRequest(withdrawalId, opts)
+
+## cancelLedgerWithdrawRequest
+
+> WithdrawalInitiationResponseEnvelope cancelLedgerWithdrawRequest(withdrawalId, opts)
 
 Cancel a pending withdrawal request
 
 Cancel a pending withdrawal request, providing an optional reason for the cancellation.
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let withdrawalId = null; // Object | 
-let opts = { 
-  'body': new Dora.WithdrawalRequestReason() // WithdrawalRequestReason | 
+let withdrawalId = "withdrawalId_example"; // String | 
+let opts = {
+  'withdrawalRequestReason': new Dora.WithdrawalRequestReason() // WithdrawalRequestReason | 
 };
 apiInstance.cancelLedgerWithdrawRequest(withdrawalId, opts, (error, data, response) => {
   if (error) {
@@ -237,14 +251,15 @@ apiInstance.cancelLedgerWithdrawRequest(withdrawalId, opts, (error, data, respon
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **withdrawalId** | [**Object**](.md)|  | 
- **body** | [**WithdrawalRequestReason**](WithdrawalRequestReason.md)|  | [optional] 
+ **withdrawalId** | **String**|  | 
+ **withdrawalRequestReason** | [**WithdrawalRequestReason**](WithdrawalRequestReason.md)|  | [optional] 
 
 ### Return type
 
-[**WithdrawalInitiationResponse**](WithdrawalInitiationResponse.md)
+[**WithdrawalInitiationResponseEnvelope**](WithdrawalInitiationResponseEnvelope.md)
 
 ### Authorization
 
@@ -252,30 +267,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="cancelOrderById"></a>
-# **cancelOrderById**
-> CancelOrderResponse cancelOrderById(orderId)
+
+## cancelOrderById
+
+> CancelOrderResponseEnvelope cancelOrderById(orderId)
 
 Cancel an order by ID
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let orderId = null; // Object | 
-
+let orderId = "orderId_example"; // String | 
 apiInstance.cancelOrderById(orderId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -287,13 +304,14 @@ apiInstance.cancelOrderById(orderId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | [**Object**](.md)|  | 
+ **orderId** | **String**|  | 
 
 ### Return type
 
-[**CancelOrderResponse**](CancelOrderResponse.md)
+[**CancelOrderResponseEnvelope**](CancelOrderResponseEnvelope.md)
 
 ### Authorization
 
@@ -301,30 +319,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="checkUserEmailExists"></a>
-# **checkUserEmailExists**
-> EmailExistsResponse checkUserEmailExists(email)
+
+## checkUserEmailExists
+
+> EmailExistsResponseEnvelope checkUserEmailExists(email)
 
 Check whether a user email exists
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let email = null; // Object | 
-
+let email = "email_example"; // String | 
 apiInstance.checkUserEmailExists(email, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -336,13 +356,14 @@ apiInstance.checkUserEmailExists(email, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | [**Object**](.md)|  | 
+ **email** | **String**|  | 
 
 ### Return type
 
-[**EmailExistsResponse**](EmailExistsResponse.md)
+[**EmailExistsResponseEnvelope**](EmailExistsResponseEnvelope.md)
 
 ### Authorization
 
@@ -350,31 +371,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="claimLeverageGetAccruedInterest"></a>
-# **claimLeverageGetAccruedInterest**
-> ClaimLeverageAccruedInterestResponse claimLeverageGetAccruedInterest(body)
+
+## claimLeverageGetAccruedInterest
+
+> ClaimLeverageAccruedInterestResponseEnvelope claimLeverageGetAccruedInterest(claimLeverageAccruedInterestRequest)
 
 Claim current accrued leverage interest for a specific user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.ClaimLeverageAccruedInterestRequest(); // ClaimLeverageAccruedInterestRequest | 
-
-apiInstance.claimLeverageGetAccruedInterest(body, (error, data, response) => {
+let claimLeverageAccruedInterestRequest = new Dora.ClaimLeverageAccruedInterestRequest(); // ClaimLeverageAccruedInterestRequest | 
+apiInstance.claimLeverageGetAccruedInterest(claimLeverageAccruedInterestRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -385,13 +408,14 @@ apiInstance.claimLeverageGetAccruedInterest(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ClaimLeverageAccruedInterestRequest**](ClaimLeverageAccruedInterestRequest.md)|  | 
+ **claimLeverageAccruedInterestRequest** | [**ClaimLeverageAccruedInterestRequest**](ClaimLeverageAccruedInterestRequest.md)|  | 
 
 ### Return type
 
-[**ClaimLeverageAccruedInterestResponse**](ClaimLeverageAccruedInterestResponse.md)
+[**ClaimLeverageAccruedInterestResponseEnvelope**](ClaimLeverageAccruedInterestResponseEnvelope.md)
 
 ### Authorization
 
@@ -399,31 +423,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="closeIsolatedPosition"></a>
-# **closeIsolatedPosition**
-> ClosePositionResponse closeIsolatedPosition(body)
+
+## closeIsolatedPosition
+
+> ClosePositionResponseEnvelope closeIsolatedPosition(closePositionRequest)
 
 Close isolated positions, repaying the borrowed
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.ClosePositionRequest(); // ClosePositionRequest | 
-
-apiInstance.closeIsolatedPosition(body, (error, data, response) => {
+let closePositionRequest = new Dora.ClosePositionRequest(); // ClosePositionRequest | 
+apiInstance.closeIsolatedPosition(closePositionRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -434,13 +460,14 @@ apiInstance.closeIsolatedPosition(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ClosePositionRequest**](ClosePositionRequest.md)|  | 
+ **closePositionRequest** | [**ClosePositionRequest**](ClosePositionRequest.md)|  | 
 
 ### Return type
 
-[**ClosePositionResponse**](ClosePositionResponse.md)
+[**ClosePositionResponseEnvelope**](ClosePositionResponseEnvelope.md)
 
 ### Authorization
 
@@ -448,31 +475,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="createAPIKeyForUser"></a>
-# **createAPIKeyForUser**
-> CreateAPIKeyResponse createAPIKeyForUser(body)
+
+## createAPIKeyForUser
+
+> CreateAPIKeyResponseEnvelope createAPIKeyForUser(createAPIKeyRequest)
 
 Create apikey for a user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.CreateAPIKeyRequest(); // CreateAPIKeyRequest | 
-
-apiInstance.createAPIKeyForUser(body, (error, data, response) => {
+let createAPIKeyRequest = new Dora.CreateAPIKeyRequest(); // CreateAPIKeyRequest | 
+apiInstance.createAPIKeyForUser(createAPIKeyRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -483,13 +512,14 @@ apiInstance.createAPIKeyForUser(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateAPIKeyRequest**](CreateAPIKeyRequest.md)|  | 
+ **createAPIKeyRequest** | [**CreateAPIKeyRequest**](CreateAPIKeyRequest.md)|  | 
 
 ### Return type
 
-[**CreateAPIKeyResponse**](CreateAPIKeyResponse.md)
+[**CreateAPIKeyResponseEnvelope**](CreateAPIKeyResponseEnvelope.md)
 
 ### Authorization
 
@@ -497,32 +527,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="createAPIKeyForUserID"></a>
-# **createAPIKeyForUserID**
-> CreateAPIKeyResponse createAPIKeyForUserID(body, userId)
+
+## createAPIKeyForUserID
+
+> CreateAPIKeyResponseEnvelope createAPIKeyForUserID(userId, createAPIKeyRequest)
 
 Create apikey for a user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.CreateAPIKeyRequest(); // CreateAPIKeyRequest | 
-let userId = null; // Object | 
-
-apiInstance.createAPIKeyForUserID(body, userId, (error, data, response) => {
+let userId = "userId_example"; // String | 
+let createAPIKeyRequest = new Dora.CreateAPIKeyRequest(); // CreateAPIKeyRequest | 
+apiInstance.createAPIKeyForUserID(userId, createAPIKeyRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -533,14 +565,15 @@ apiInstance.createAPIKeyForUserID(body, userId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateAPIKeyRequest**](CreateAPIKeyRequest.md)|  | 
- **userId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
+ **createAPIKeyRequest** | [**CreateAPIKeyRequest**](CreateAPIKeyRequest.md)|  | 
 
 ### Return type
 
-[**CreateAPIKeyResponse**](CreateAPIKeyResponse.md)
+[**CreateAPIKeyResponseEnvelope**](CreateAPIKeyResponseEnvelope.md)
 
 ### Authorization
 
@@ -548,31 +581,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="createConditionalOrder"></a>
-# **createConditionalOrder**
-> CreateConditionalOrderResponse createConditionalOrder(body)
+
+## createConditionalOrder
+
+> CreateConditionalOrderResponseEnvelope createConditionalOrder(createConditionalOrderRequest)
 
 Create a new conditional orders
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.CreateConditionalOrderRequest(); // CreateConditionalOrderRequest | 
-
-apiInstance.createConditionalOrder(body, (error, data, response) => {
+let createConditionalOrderRequest = new Dora.CreateConditionalOrderRequest(); // CreateConditionalOrderRequest | 
+apiInstance.createConditionalOrder(createConditionalOrderRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -583,13 +618,14 @@ apiInstance.createConditionalOrder(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateConditionalOrderRequest**](CreateConditionalOrderRequest.md)|  | 
+ **createConditionalOrderRequest** | [**CreateConditionalOrderRequest**](CreateConditionalOrderRequest.md)|  | 
 
 ### Return type
 
-[**CreateConditionalOrderResponse**](CreateConditionalOrderResponse.md)
+[**CreateConditionalOrderResponseEnvelope**](CreateConditionalOrderResponseEnvelope.md)
 
 ### Authorization
 
@@ -597,31 +633,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="createOrder"></a>
-# **createOrder**
-> CreateOrderResponse createOrder(body)
+
+## createOrder
+
+> CreateOrderResponseEnvelope createOrder(createOrderRequest)
 
 Create a new order
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.CreateOrderRequest(); // CreateOrderRequest | 
-
-apiInstance.createOrder(body, (error, data, response) => {
+let createOrderRequest = new Dora.CreateOrderRequest(); // CreateOrderRequest | 
+apiInstance.createOrder(createOrderRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -632,13 +670,14 @@ apiInstance.createOrder(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateOrderRequest**](CreateOrderRequest.md)|  | 
+ **createOrderRequest** | [**CreateOrderRequest**](CreateOrderRequest.md)|  | 
 
 ### Return type
 
-[**CreateOrderResponse**](CreateOrderResponse.md)
+[**CreateOrderResponseEnvelope**](CreateOrderResponseEnvelope.md)
 
 ### Authorization
 
@@ -646,31 +685,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="createUser"></a>
-# **createUser**
-> UserCreatedResponse createUser(body)
+
+## createUser
+
+> UserCreatedResponseEnvelope createUser(createIntegratorUserRequest)
 
 Create a new user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.CreateIntegratorUserRequest(); // CreateIntegratorUserRequest | 
-
-apiInstance.createUser(body, (error, data, response) => {
+let createIntegratorUserRequest = new Dora.CreateIntegratorUserRequest(); // CreateIntegratorUserRequest | 
+apiInstance.createUser(createIntegratorUserRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -681,13 +722,14 @@ apiInstance.createUser(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateIntegratorUserRequest**](CreateIntegratorUserRequest.md)|  | 
+ **createIntegratorUserRequest** | [**CreateIntegratorUserRequest**](CreateIntegratorUserRequest.md)|  | 
 
 ### Return type
 
-[**UserCreatedResponse**](UserCreatedResponse.md)
+[**UserCreatedResponseEnvelope**](UserCreatedResponseEnvelope.md)
 
 ### Authorization
 
@@ -695,30 +737,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="deleteUser"></a>
-# **deleteUser**
-> UserDeletedResponse deleteUser(userId)
+
+## deleteUser
+
+> UserDeletedResponseEnvelope deleteUser(userId)
 
 Delete user by ID
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let userId = null; // Object | 
-
+let userId = "userId_example"; // String | 
 apiInstance.deleteUser(userId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -730,13 +774,14 @@ apiInstance.deleteUser(userId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
 
 ### Return type
 
-[**UserDeletedResponse**](UserDeletedResponse.md)
+[**UserDeletedResponseEnvelope**](UserDeletedResponseEnvelope.md)
 
 ### Authorization
 
@@ -744,30 +789,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getAPIKeysForUserID"></a>
-# **getAPIKeysForUserID**
-> GetAPIKeyResponse getAPIKeysForUserID(userId)
 
-Get user&#x27;s api keys: admin or integrator only
+## getAPIKeysForUserID
+
+> APIKeyResponseEnvelope getAPIKeysForUserID(userId)
+
+Get user&#39;s api keys: admin or integrator only
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let userId = null; // Object | 
-
+let userId = "userId_example"; // String | 
 apiInstance.getAPIKeysForUserID(userId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -779,13 +826,14 @@ apiInstance.getAPIKeysForUserID(userId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
 
 ### Return type
 
-[**GetAPIKeyResponse**](GetAPIKeyResponse.md)
+[**APIKeyResponseEnvelope**](APIKeyResponseEnvelope.md)
 
 ### Authorization
 
@@ -793,26 +841,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getAllAssetPrices"></a>
-# **getAllAssetPrices**
-> ListAssetPriceResponse getAllAssetPrices()
+
+## getAllAssetPrices
+
+> ListAssetPriceResponseEnvelope getAllAssetPrices()
 
 Get the current price of all assets
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getAllAssetPrices((error, data, response) => {
@@ -825,11 +876,12 @@ apiInstance.getAllAssetPrices((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**ListAssetPriceResponse**](ListAssetPriceResponse.md)
+[**ListAssetPriceResponseEnvelope**](ListAssetPriceResponseEnvelope.md)
 
 ### Authorization
 
@@ -837,26 +889,29 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getAllPositions"></a>
-# **getAllPositions**
-> AllPositionsResponse getAllPositions()
 
-Get all users&#x27; positions
+## getAllPositions
+
+> AllPositionsResponseEnvelope getAllPositions()
+
+Get all users&#39; positions
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getAllPositions((error, data, response) => {
@@ -869,11 +924,12 @@ apiInstance.getAllPositions((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**AllPositionsResponse**](AllPositionsResponse.md)
+[**AllPositionsResponseEnvelope**](AllPositionsResponseEnvelope.md)
 
 ### Authorization
 
@@ -881,30 +937,33 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getAllWithdrawalRequests"></a>
-# **getAllWithdrawalRequests**
-> AllWithdrawalInitiationsResponse getAllWithdrawalRequests(opts)
+
+## getAllWithdrawalRequests
+
+> AllWithdrawalInitiationsResponseEnvelope getAllWithdrawalRequests(opts)
 
 Get all withdrawal requests
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
-  'status': null // Object | 
+let opts = {
+  'status': "status_example" // String | 
 };
 apiInstance.getAllWithdrawalRequests(opts, (error, data, response) => {
   if (error) {
@@ -917,13 +976,14 @@ apiInstance.getAllWithdrawalRequests(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | [**Object**](.md)|  | [optional] 
+ **status** | **String**|  | [optional] 
 
 ### Return type
 
-[**AllWithdrawalInitiationsResponse**](AllWithdrawalInitiationsResponse.md)
+[**AllWithdrawalInitiationsResponseEnvelope**](AllWithdrawalInitiationsResponseEnvelope.md)
 
 ### Authorization
 
@@ -931,22 +991,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getAssetById"></a>
-# **getAssetById**
-> GetAssetByIDResponse getAssetById(assetId)
+
+## getAssetById
+
+> GetAssetByIDResponseEnvelope getAssetById(assetId)
 
 Get asset by ID
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let assetId = null; // Object | 
-
+let assetId = "assetId_example"; // String | 
 apiInstance.getAssetById(assetId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -958,13 +1019,14 @@ apiInstance.getAssetById(assetId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assetId** | [**Object**](.md)|  | 
+ **assetId** | **String**|  | 
 
 ### Return type
 
-[**GetAssetByIDResponse**](GetAssetByIDResponse.md)
+[**GetAssetByIDResponseEnvelope**](GetAssetByIDResponseEnvelope.md)
 
 ### Authorization
 
@@ -972,30 +1034,32 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getAssetPrice"></a>
-# **getAssetPrice**
-> GetAssetPriceResponse getAssetPrice(assetId)
+
+## getAssetPrice
+
+> AssetPriceResponseEnvelope getAssetPrice(assetId)
 
 Get the current price of an asset
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let assetId = null; // Object | 
-
+let assetId = "assetId_example"; // String | 
 apiInstance.getAssetPrice(assetId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1007,13 +1071,14 @@ apiInstance.getAssetPrice(assetId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assetId** | [**Object**](.md)|  | 
+ **assetId** | **String**|  | 
 
 ### Return type
 
-[**GetAssetPriceResponse**](GetAssetPriceResponse.md)
+[**AssetPriceResponseEnvelope**](AssetPriceResponseEnvelope.md)
 
 ### Authorization
 
@@ -1021,22 +1086,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getAssetYTMById"></a>
-# **getAssetYTMById**
-> GetAssetYTMByIDResponse getAssetYTMById(assetId)
+
+## getAssetYTMById
+
+> GetAssetYTMByIDResponseEnvelope getAssetYTMById(assetId)
 
 Get annualized yield to maturity for a bond asset
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let assetId = null; // Object | 
-
+let assetId = "assetId_example"; // String | 
 apiInstance.getAssetYTMById(assetId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1048,13 +1114,14 @@ apiInstance.getAssetYTMById(assetId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assetId** | [**Object**](.md)|  | 
+ **assetId** | **String**|  | 
 
 ### Return type
 
-[**GetAssetYTMByIDResponse**](GetAssetYTMByIDResponse.md)
+[**GetAssetYTMByIDResponseEnvelope**](GetAssetYTMByIDResponseEnvelope.md)
 
 ### Authorization
 
@@ -1062,23 +1129,25 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getAssetsStream"></a>
-# **getAssetsStream**
+
+## getAssetsStream
+
 > StreamAssetsResponse getAssetsStream(opts)
 
 Get all inserts or updates for assets
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
-  'since': null, // Object | 
-  'until': null // Object | 
+let opts = {
+  'since': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'until': new Date("2013-10-20T19:20:30+01:00") // Date | 
 };
 apiInstance.getAssetsStream(opts, (error, data, response) => {
   if (error) {
@@ -1091,10 +1160,11 @@ apiInstance.getAssetsStream(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | [**Object**](.md)|  | [optional] 
- **until** | [**Object**](.md)|  | [optional] 
+ **since** | **Date**|  | [optional] 
+ **until** | **Date**|  | [optional] 
 
 ### Return type
 
@@ -1106,27 +1176,29 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getCandleData"></a>
-# **getCandleData**
-> ListCandlesResponse getCandleData(orderBookId, opts)
+
+## getCandleData
+
+> ListCandlesResponseEnvelope getCandleData(orderBookId, start, end, opts)
 
 Get candlestick data for an orderbook
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-let opts = { 
-  'start': null, // Object | 
-  'end': null, // Object | 
+let orderBookId = "orderBookId_example"; // String | 
+let start = new Date("2013-10-20T19:20:30+01:00"); // Date | 
+let end = new Date("2013-10-20T19:20:30+01:00"); // Date | 
+let opts = {
   'resolution': new Dora.CandleResolution() // CandleResolution | 
 };
-apiInstance.getCandleData(orderBookId, opts, (error, data, response) => {
+apiInstance.getCandleData(orderBookId, start, end, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -1137,16 +1209,17 @@ apiInstance.getCandleData(orderBookId, opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
- **start** | [**Object**](.md)|  | [optional] 
- **end** | [**Object**](.md)|  | [optional] 
+ **orderBookId** | **String**|  | 
+ **start** | **Date**|  | 
+ **end** | **Date**|  | 
  **resolution** | [**CandleResolution**](.md)|  | [optional] 
 
 ### Return type
 
-[**ListCandlesResponse**](ListCandlesResponse.md)
+[**ListCandlesResponseEnvelope**](ListCandlesResponseEnvelope.md)
 
 ### Authorization
 
@@ -1154,22 +1227,23 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getCouponPaymentsByAssetId"></a>
-# **getCouponPaymentsByAssetId**
-> ListCouponPaymentsResponse getCouponPaymentsByAssetId(assetId)
+
+## getCouponPaymentsByAssetId
+
+> ListCouponPaymentsResponseEnvelope getCouponPaymentsByAssetId(assetId)
 
 Get coupon payments for a bond asset
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let assetId = null; // Object | 
-
+let assetId = "assetId_example"; // String | 
 apiInstance.getCouponPaymentsByAssetId(assetId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1181,13 +1255,14 @@ apiInstance.getCouponPaymentsByAssetId(assetId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assetId** | [**Object**](.md)|  | 
+ **assetId** | **String**|  | 
 
 ### Return type
 
-[**ListCouponPaymentsResponse**](ListCouponPaymentsResponse.md)
+[**ListCouponPaymentsResponseEnvelope**](ListCouponPaymentsResponseEnvelope.md)
 
 ### Authorization
 
@@ -1195,22 +1270,23 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getL1Depth"></a>
-# **getL1Depth**
-> GetTopOfBookResponse getL1Depth(orderBookId)
+
+## getL1Depth
+
+> GetTopOfBookResponseEnvelope getL1Depth(orderBookId)
 
 Get the top price levels for a specific orderbook (L1 market depth)
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-
+let orderBookId = "orderBookId_example"; // String | 
 apiInstance.getL1Depth(orderBookId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1222,13 +1298,14 @@ apiInstance.getL1Depth(orderBookId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
+ **orderBookId** | **String**|  | 
 
 ### Return type
 
-[**GetTopOfBookResponse**](GetTopOfBookResponse.md)
+[**GetTopOfBookResponseEnvelope**](GetTopOfBookResponseEnvelope.md)
 
 ### Authorization
 
@@ -1236,22 +1313,23 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getL2Depth"></a>
-# **getL2Depth**
-> ListOrderBookDepthResponse getL2Depth(orderBookId)
+
+## getL2Depth
+
+> ListOrderBookDepthResponseEnvelope getL2Depth(orderBookId)
 
 Get the aggregated price levels for a specific orderbook (L2 market depth)
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-
+let orderBookId = "orderBookId_example"; // String | 
 apiInstance.getL2Depth(orderBookId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1263,13 +1341,14 @@ apiInstance.getL2Depth(orderBookId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
+ **orderBookId** | **String**|  | 
 
 ### Return type
 
-[**ListOrderBookDepthResponse**](ListOrderBookDepthResponse.md)
+[**ListOrderBookDepthResponseEnvelope**](ListOrderBookDepthResponseEnvelope.md)
 
 ### Authorization
 
@@ -1277,22 +1356,23 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getL3Depth"></a>
-# **getL3Depth**
-> ListOrdersResponse getL3Depth(orderBookId)
+
+## getL3Depth
+
+> ListOrdersResponseEnvelope getL3Depth(orderBookId)
 
 Get all open orders for a specific orderbook (L3 market depth)
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-
+let orderBookId = "orderBookId_example"; // String | 
 apiInstance.getL3Depth(orderBookId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1304,13 +1384,14 @@ apiInstance.getL3Depth(orderBookId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
+ **orderBookId** | **String**|  | 
 
 ### Return type
 
-[**ListOrdersResponse**](ListOrdersResponse.md)
+[**ListOrdersResponseEnvelope**](ListOrdersResponseEnvelope.md)
 
 ### Authorization
 
@@ -1318,26 +1399,29 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getLedgerBalancesSelf"></a>
-# **getLedgerBalancesSelf**
-> UserBalanceResponse getLedgerBalancesSelf()
+
+## getLedgerBalancesSelf
+
+> UserBalanceResponseEnvelope getLedgerBalancesSelf()
 
 Get your own available, locked, and borrowed assets
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getLedgerBalancesSelf((error, data, response) => {
@@ -1350,11 +1434,12 @@ apiInstance.getLedgerBalancesSelf((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserBalanceResponse**](UserBalanceResponse.md)
+[**UserBalanceResponseEnvelope**](UserBalanceResponseEnvelope.md)
 
 ### Authorization
 
@@ -1362,26 +1447,29 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getLedgerInterestSelf"></a>
-# **getLedgerInterestSelf**
-> UserInterestResponse getLedgerInterestSelf()
+
+## getLedgerInterestSelf
+
+> UserInterestResponseEnvelope getLedgerInterestSelf()
 
 Get your own interest
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getLedgerInterestSelf((error, data, response) => {
@@ -1394,11 +1482,12 @@ apiInstance.getLedgerInterestSelf((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserInterestResponse**](UserInterestResponse.md)
+[**UserInterestResponseEnvelope**](UserInterestResponseEnvelope.md)
 
 ### Authorization
 
@@ -1406,26 +1495,29 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getLedgerModule"></a>
-# **getLedgerModule**
-> LedgerModuleResponse getLedgerModule()
+
+## getLedgerModule
+
+> LedgerModuleResponseEnvelope getLedgerModule()
 
 Get the entire module object, including unborrowed leverage assets and total leverage trackers
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getLedgerModule((error, data, response) => {
@@ -1438,11 +1530,12 @@ apiInstance.getLedgerModule((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**LedgerModuleResponse**](LedgerModuleResponse.md)
+[**LedgerModuleResponseEnvelope**](LedgerModuleResponseEnvelope.md)
 
 ### Authorization
 
@@ -1450,30 +1543,32 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getLedgerModuleByAsset"></a>
-# **getLedgerModuleByAsset**
-> LedgerModuleByAssetResponse getLedgerModuleByAsset(assetId)
+
+## getLedgerModuleByAsset
+
+> LedgerModuleByAssetResponseEnvelope getLedgerModuleByAsset(assetId)
 
 Get the module object for a single asset ID
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let assetId = null; // Object | 
-
+let assetId = "assetId_example"; // String | 
 apiInstance.getLedgerModuleByAsset(assetId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1485,13 +1580,14 @@ apiInstance.getLedgerModuleByAsset(assetId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **assetId** | [**Object**](.md)|  | 
+ **assetId** | **String**|  | 
 
 ### Return type
 
-[**LedgerModuleByAssetResponse**](LedgerModuleByAssetResponse.md)
+[**LedgerModuleByAssetResponseEnvelope**](LedgerModuleByAssetResponseEnvelope.md)
 
 ### Authorization
 
@@ -1499,26 +1595,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getLedgerPositionsSelf"></a>
-# **getLedgerPositionsSelf**
-> UserPositionResponse getLedgerPositionsSelf()
+
+## getLedgerPositionsSelf
+
+> UserPositionResponseEnvelope getLedgerPositionsSelf()
 
 Get your own positions
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getLedgerPositionsSelf((error, data, response) => {
@@ -1531,11 +1630,12 @@ apiInstance.getLedgerPositionsSelf((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserPositionResponse**](UserPositionResponse.md)
+[**UserPositionResponseEnvelope**](UserPositionResponseEnvelope.md)
 
 ### Authorization
 
@@ -1543,26 +1643,29 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getLedgerValueSelf"></a>
-# **getLedgerValueSelf**
-> UserValueResponse getLedgerValueSelf()
+
+## getLedgerValueSelf
+
+> UserValueResponseEnvelope getLedgerValueSelf()
 
 Get your own available, locked, and borrowed USD value; and realized and unrealized PnL
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getLedgerValueSelf((error, data, response) => {
@@ -1575,11 +1678,12 @@ apiInstance.getLedgerValueSelf((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserValueResponse**](UserValueResponse.md)
+[**UserValueResponseEnvelope**](UserValueResponseEnvelope.md)
 
 ### Authorization
 
@@ -1587,30 +1691,33 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getLedgerWithdrawRequestsBySelf"></a>
-# **getLedgerWithdrawRequestsBySelf**
-> AllWithdrawalInitiationsResponse getLedgerWithdrawRequestsBySelf(opts)
+
+## getLedgerWithdrawRequestsBySelf
+
+> AllWithdrawalInitiationsResponseEnvelope getLedgerWithdrawRequestsBySelf(opts)
 
 Get all pending withdrawal requests for the logged in user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
-  'status': null // Object | 
+let opts = {
+  'status': "status_example" // String | 
 };
 apiInstance.getLedgerWithdrawRequestsBySelf(opts, (error, data, response) => {
   if (error) {
@@ -1623,13 +1730,14 @@ apiInstance.getLedgerWithdrawRequestsBySelf(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | [**Object**](.md)|  | [optional] 
+ **status** | **String**|  | [optional] 
 
 ### Return type
 
-[**AllWithdrawalInitiationsResponse**](AllWithdrawalInitiationsResponse.md)
+[**AllWithdrawalInitiationsResponseEnvelope**](AllWithdrawalInitiationsResponseEnvelope.md)
 
 ### Authorization
 
@@ -1637,31 +1745,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getLedgerWithdrawRequestsByUserID"></a>
-# **getLedgerWithdrawRequestsByUserID**
-> AllWithdrawalInitiationsResponse getLedgerWithdrawRequestsByUserID(userId, opts)
+
+## getLedgerWithdrawRequestsByUserID
+
+> AllWithdrawalInitiationsResponseEnvelope getLedgerWithdrawRequestsByUserID(userId, opts)
 
 Get all pending withdrawal requests for this user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let userId = null; // Object | 
-let opts = { 
-  'status': null // Object | 
+let userId = "userId_example"; // String | 
+let opts = {
+  'status': "status_example" // String | 
 };
 apiInstance.getLedgerWithdrawRequestsByUserID(userId, opts, (error, data, response) => {
   if (error) {
@@ -1674,14 +1785,15 @@ apiInstance.getLedgerWithdrawRequestsByUserID(userId, opts, (error, data, respon
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | 
- **status** | [**Object**](.md)|  | [optional] 
+ **userId** | **String**|  | 
+ **status** | **String**|  | [optional] 
 
 ### Return type
 
-[**AllWithdrawalInitiationsResponse**](AllWithdrawalInitiationsResponse.md)
+[**AllWithdrawalInitiationsResponseEnvelope**](AllWithdrawalInitiationsResponseEnvelope.md)
 
 ### Authorization
 
@@ -1689,30 +1801,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getOrderById"></a>
-# **getOrderById**
-> GetOrderResponse getOrderById(orderId)
+
+## getOrderById
+
+> OrderResponseEnvelope getOrderById(orderId)
 
 Get order by ID
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let orderId = null; // Object | 
-
+let orderId = "orderId_example"; // String | 
 apiInstance.getOrderById(orderId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1724,13 +1838,14 @@ apiInstance.getOrderById(orderId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | [**Object**](.md)|  | 
+ **orderId** | **String**|  | 
 
 ### Return type
 
-[**GetOrderResponse**](GetOrderResponse.md)
+[**OrderResponseEnvelope**](OrderResponseEnvelope.md)
 
 ### Authorization
 
@@ -1738,30 +1853,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getOrderbookById"></a>
-# **getOrderbookById**
-> GetOrderBookResponse getOrderbookById(orderBookId)
+
+## getOrderbookById
+
+> OrderBookResponseEnvelope getOrderbookById(orderBookId)
 
 Get orderbook by ID
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-
+let orderBookId = "orderBookId_example"; // String | 
 apiInstance.getOrderbookById(orderBookId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1773,13 +1890,14 @@ apiInstance.getOrderbookById(orderBookId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
+ **orderBookId** | **String**|  | 
 
 ### Return type
 
-[**GetOrderBookResponse**](GetOrderBookResponse.md)
+[**OrderBookResponseEnvelope**](OrderBookResponseEnvelope.md)
 
 ### Authorization
 
@@ -1787,22 +1905,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getOrderbookDepth"></a>
-# **getOrderbookDepth**
-> ListOrderBookDepthResponse getOrderbookDepth(orderBookId)
+
+## getOrderbookDepth
+
+> ListOrderBookDepthResponseEnvelope getOrderbookDepth(orderBookId)
 
 Get the aggregated price levels for a specific orderbook (L2 market depth)
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-
+let orderBookId = "orderBookId_example"; // String | 
 apiInstance.getOrderbookDepth(orderBookId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1814,13 +1933,14 @@ apiInstance.getOrderbookDepth(orderBookId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
+ **orderBookId** | **String**|  | 
 
 ### Return type
 
-[**ListOrderBookDepthResponse**](ListOrderBookDepthResponse.md)
+[**ListOrderBookDepthResponseEnvelope**](ListOrderBookDepthResponseEnvelope.md)
 
 ### Authorization
 
@@ -1828,22 +1948,23 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getOrderbookOrders"></a>
-# **getOrderbookOrders**
-> ListOrdersResponse getOrderbookOrders(orderBookId)
+
+## getOrderbookOrders
+
+> ListOrdersResponseEnvelope getOrderbookOrders(orderBookId)
 
 Get all open orders for a specific orderbook (L3 market depth)
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-
+let orderBookId = "orderBookId_example"; // String | 
 apiInstance.getOrderbookOrders(orderBookId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1855,13 +1976,14 @@ apiInstance.getOrderbookOrders(orderBookId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
+ **orderBookId** | **String**|  | 
 
 ### Return type
 
-[**ListOrdersResponse**](ListOrdersResponse.md)
+[**ListOrdersResponseEnvelope**](ListOrdersResponseEnvelope.md)
 
 ### Authorization
 
@@ -1869,22 +1991,23 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getOrderbookStats"></a>
-# **getOrderbookStats**
-> GetOrderbookStatsResponse getOrderbookStats(orderBookId)
+
+## getOrderbookStats
+
+> OrderbookStatsResponseEnvelope getOrderbookStats(orderBookId)
 
 Get orderbook stats
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-
+let orderBookId = "orderBookId_example"; // String | 
 apiInstance.getOrderbookStats(orderBookId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1896,13 +2019,14 @@ apiInstance.getOrderbookStats(orderBookId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
+ **orderBookId** | **String**|  | 
 
 ### Return type
 
-[**GetOrderbookStatsResponse**](GetOrderbookStatsResponse.md)
+[**OrderbookStatsResponseEnvelope**](OrderbookStatsResponseEnvelope.md)
 
 ### Authorization
 
@@ -1910,30 +2034,32 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getOrderbookStatsStream"></a>
-# **getOrderbookStatsStream**
+
+## getOrderbookStatsStream
+
 > OrderbookStats getOrderbookStatsStream(orderBookId)
 
 Orderbook stats stream
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-
+let orderBookId = "orderBookId_example"; // String | 
 apiInstance.getOrderbookStatsStream(orderBookId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1945,9 +2071,10 @@ apiInstance.getOrderbookStatsStream(orderBookId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
+ **orderBookId** | **String**|  | 
 
 ### Return type
 
@@ -1959,30 +2086,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getOrderbookSummary"></a>
-# **getOrderbookSummary**
-> GetOrderBookSummaryResponse getOrderbookSummary(orderBookId)
+
+## getOrderbookSummary
+
+> OrderBookSummaryResponseEnvelope getOrderbookSummary(orderBookId)
 
 Get summary of an orderbook
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-
+let orderBookId = "orderBookId_example"; // String | 
 apiInstance.getOrderbookSummary(orderBookId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -1994,13 +2123,14 @@ apiInstance.getOrderbookSummary(orderBookId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
+ **orderBookId** | **String**|  | 
 
 ### Return type
 
-[**GetOrderBookSummaryResponse**](GetOrderBookSummaryResponse.md)
+[**OrderBookSummaryResponseEnvelope**](OrderBookSummaryResponseEnvelope.md)
 
 ### Authorization
 
@@ -2008,22 +2138,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getOrderbookTop"></a>
-# **getOrderbookTop**
-> GetTopOfBookResponse getOrderbookTop(orderBookId)
+
+## getOrderbookTop
+
+> GetTopOfBookResponseEnvelope getOrderbookTop(orderBookId)
 
 Get the top price levels for a specific orderbook (L1 market depth)
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-
+let orderBookId = "orderBookId_example"; // String | 
 apiInstance.getOrderbookTop(orderBookId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -2035,13 +2166,14 @@ apiInstance.getOrderbookTop(orderBookId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
+ **orderBookId** | **String**|  | 
 
 ### Return type
 
-[**GetTopOfBookResponse**](GetTopOfBookResponse.md)
+[**GetTopOfBookResponseEnvelope**](GetTopOfBookResponseEnvelope.md)
 
 ### Authorization
 
@@ -2049,26 +2181,29 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getPLForSelfByAccount"></a>
-# **getPLForSelfByAccount**
-> PLResponse getPLForSelfByAccount()
+
+## getPLForSelfByAccount
+
+> PLResponseEnvelope getPLForSelfByAccount()
 
 Get account-by-account PL breakdown for the logged in user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getPLForSelfByAccount((error, data, response) => {
@@ -2081,11 +2216,12 @@ apiInstance.getPLForSelfByAccount((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**PLResponse**](PLResponse.md)
+[**PLResponseEnvelope**](PLResponseEnvelope.md)
 
 ### Authorization
 
@@ -2093,30 +2229,32 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getPoolPrice"></a>
-# **getPoolPrice**
-> GetPoolPriceResponse getPoolPrice(poolId)
+
+## getPoolPrice
+
+> PoolPriceResponseEnvelope getPoolPrice(poolId)
 
 Get the current price of a pool
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let poolId = null; // Object | 
-
+let poolId = "poolId_example"; // String | 
 apiInstance.getPoolPrice(poolId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -2128,13 +2266,14 @@ apiInstance.getPoolPrice(poolId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **poolId** | [**Object**](.md)|  | 
+ **poolId** | **String**|  | 
 
 ### Return type
 
-[**GetPoolPriceResponse**](GetPoolPriceResponse.md)
+[**PoolPriceResponseEnvelope**](PoolPriceResponseEnvelope.md)
 
 ### Authorization
 
@@ -2142,35 +2281,38 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getRealizedPnlSettlements"></a>
-# **getRealizedPnlSettlements**
-> GetRealizedPnlSettlementsResponse getRealizedPnlSettlements(opts)
+
+## getRealizedPnlSettlements
+
+> GetRealizedPnlSettlementsResponseEnvelope getRealizedPnlSettlements(opts)
 
 Get realized P&amp;L settlements with filters
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
-  'userId': null, // Object | 
-  'tenantId': null, // Object | 
-  'positionId': null, // Object | 
-  'createdAfter': null, // Object | 
-  'settledBefore': null, // Object | 
-  'isSettled': null // Object | 
+let opts = {
+  'userId': "userId_example", // String | 
+  'tenantId': "tenantId_example", // String | 
+  'positionId': "positionId_example", // String | 
+  'createdAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'settledBefore': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'isSettled': true // Boolean | 
 };
 apiInstance.getRealizedPnlSettlements(opts, (error, data, response) => {
   if (error) {
@@ -2183,18 +2325,19 @@ apiInstance.getRealizedPnlSettlements(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | [optional] 
- **tenantId** | [**Object**](.md)|  | [optional] 
- **positionId** | [**Object**](.md)|  | [optional] 
- **createdAfter** | [**Object**](.md)|  | [optional] 
- **settledBefore** | [**Object**](.md)|  | [optional] 
- **isSettled** | [**Object**](.md)|  | [optional] 
+ **userId** | **String**|  | [optional] 
+ **tenantId** | **String**|  | [optional] 
+ **positionId** | **String**|  | [optional] 
+ **createdAfter** | **Date**|  | [optional] 
+ **settledBefore** | **Date**|  | [optional] 
+ **isSettled** | **Boolean**|  | [optional] 
 
 ### Return type
 
-[**GetRealizedPnlSettlementsResponse**](GetRealizedPnlSettlementsResponse.md)
+[**GetRealizedPnlSettlementsResponseEnvelope**](GetRealizedPnlSettlementsResponseEnvelope.md)
 
 ### Authorization
 
@@ -2202,22 +2345,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getTradeById"></a>
-# **getTradeById**
-> TradeResponse getTradeById(tradeId)
+
+## getTradeById
+
+> TradeResponseEnvelope getTradeById(tradeId)
 
 Get a trade by ID
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let tradeId = null; // Object | 
-
+let tradeId = "tradeId_example"; // String | 
 apiInstance.getTradeById(tradeId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -2229,13 +2373,14 @@ apiInstance.getTradeById(tradeId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tradeId** | [**Object**](.md)|  | 
+ **tradeId** | **String**|  | 
 
 ### Return type
 
-[**TradeResponse**](TradeResponse.md)
+[**TradeResponseEnvelope**](TradeResponseEnvelope.md)
 
 ### Authorization
 
@@ -2243,35 +2388,38 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getTrades"></a>
-# **getTrades**
-> ListTradeResponse getTrades(opts)
+
+## getTrades
+
+> ListTradeResponseEnvelope getTrades(opts)
 
 Get a filtered, paginated list of trades
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
-  'orderBookIds': null, // Object | 
-  'userIds': null, // Object | 
-  'start': null, // Object | 
-  'end': null, // Object | 
-  'page': 1, // Object | 
-  'limit': 100 // Object | 
+let opts = {
+  'orderBookIds': ["null"], // [String] | 
+  'userIds': ["null"], // [String] | 
+  'start': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'end': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'page': 1, // Number | 
+  'limit': 100 // Number | 
 };
 apiInstance.getTrades(opts, (error, data, response) => {
   if (error) {
@@ -2284,18 +2432,19 @@ apiInstance.getTrades(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookIds** | [**Object**](.md)|  | [optional] 
- **userIds** | [**Object**](.md)|  | [optional] 
- **start** | [**Object**](.md)|  | [optional] 
- **end** | [**Object**](.md)|  | [optional] 
- **page** | [**Object**](.md)|  | [optional] [default to 1]
- **limit** | [**Object**](.md)|  | [optional] [default to 100]
+ **orderBookIds** | [**[String]**](String.md)|  | [optional] 
+ **userIds** | [**[String]**](String.md)|  | [optional] 
+ **start** | **Date**|  | [optional] 
+ **end** | **Date**|  | [optional] 
+ **page** | **Number**|  | [optional] [default to 1]
+ **limit** | **Number**|  | [optional] [default to 100]
 
 ### Return type
 
-[**ListTradeResponse**](ListTradeResponse.md)
+[**ListTradeResponseEnvelope**](ListTradeResponseEnvelope.md)
 
 ### Authorization
 
@@ -2303,22 +2452,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getTransactionById"></a>
-# **getTransactionById**
-> GetTransactionResponse getTransactionById(transactionId)
+
+## getTransactionById
+
+> TransactionResponseEnvelope getTransactionById(transactionId)
 
 Get a transaction by ID
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let transactionId = null; // Object | 
-
+let transactionId = "transactionId_example"; // String | 
 apiInstance.getTransactionById(transactionId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -2330,13 +2480,14 @@ apiInstance.getTransactionById(transactionId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transactionId** | [**Object**](.md)|  | 
+ **transactionId** | **String**|  | 
 
 ### Return type
 
-[**GetTransactionResponse**](GetTransactionResponse.md)
+[**TransactionResponseEnvelope**](TransactionResponseEnvelope.md)
 
 ### Authorization
 
@@ -2344,29 +2495,31 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getTransactions"></a>
-# **getTransactions**
-> ListTransactionsResponse getTransactions(opts)
+
+## getTransactions
+
+> ListTransactionsResponseEnvelope getTransactions(opts)
 
 Get a filtered, paginated list of transactions
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
-  'pools': null, // Object | 
-  'userIds': null, // Object | 
-  'txKinds': null, // Object | 
-  'start': null, // Object | 
-  'end': null, // Object | 
-  'tenantId': null, // Object | 
-  'page': 1, // Object | 
-  'limit': 100 // Object | 
+let opts = {
+  'pools': ["null"], // [String] | 
+  'userIds': ["null"], // [String] | 
+  'txKinds': [new Dora.TransactionKind()], // [TransactionKind] | 
+  'start': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'end': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'tenantId': "tenantId_example", // String | 
+  'page': 1, // Number | 
+  'limit': 100 // Number | 
 };
 apiInstance.getTransactions(opts, (error, data, response) => {
   if (error) {
@@ -2379,20 +2532,21 @@ apiInstance.getTransactions(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pools** | [**Object**](.md)|  | [optional] 
- **userIds** | [**Object**](.md)|  | [optional] 
- **txKinds** | [**Object**](.md)|  | [optional] 
- **start** | [**Object**](.md)|  | [optional] 
- **end** | [**Object**](.md)|  | [optional] 
- **tenantId** | [**Object**](.md)|  | [optional] 
- **page** | [**Object**](.md)|  | [optional] [default to 1]
- **limit** | [**Object**](.md)|  | [optional] [default to 100]
+ **pools** | [**[String]**](String.md)|  | [optional] 
+ **userIds** | [**[String]**](String.md)|  | [optional] 
+ **txKinds** | [**[TransactionKind]**](TransactionKind.md)|  | [optional] 
+ **start** | **Date**|  | [optional] 
+ **end** | **Date**|  | [optional] 
+ **tenantId** | **String**|  | [optional] 
+ **page** | **Number**|  | [optional] [default to 1]
+ **limit** | **Number**|  | [optional] [default to 100]
 
 ### Return type
 
-[**ListTransactionsResponse**](ListTransactionsResponse.md)
+[**ListTransactionsResponseEnvelope**](ListTransactionsResponseEnvelope.md)
 
 ### Authorization
 
@@ -2400,30 +2554,98 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUserById"></a>
-# **getUserById**
-> GetUserResponse getUserById(userId)
 
-Get user by ID (admin only)
+## getTransactionsSettlements
+
+> TransactionsSettlementsResponseEnvelope getTransactionsSettlements(opts)
+
+Get transactions settlements with filters
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let userId = null; // Object | 
+let opts = {
+  'tenantId': "tenantId_example", // String | Tenant ID to filter settlements
+  'userId': "userId_example", // String | User ID to filter settlements
+  'positionId': "positionId_example", // String | Position ID to filter settlements
+  'txKind': "txKind_example", // String | Transaction kind to filter settlements
+  'createdAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | Filter settlements created after this time
+  'settledBefore': new Date("2013-10-20T19:20:30+01:00"), // Date | Filter settlements settled before this time
+  'isSettled': true // Boolean | Filter settlements by settlement status
+};
+apiInstance.getTransactionsSettlements(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
 
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **String**| Tenant ID to filter settlements | [optional] 
+ **userId** | **String**| User ID to filter settlements | [optional] 
+ **positionId** | **String**| Position ID to filter settlements | [optional] 
+ **txKind** | **String**| Transaction kind to filter settlements | [optional] 
+ **createdAfter** | **Date**| Filter settlements created after this time | [optional] 
+ **settledBefore** | **Date**| Filter settlements settled before this time | [optional] 
+ **isSettled** | **Boolean**| Filter settlements by settlement status | [optional] 
+
+### Return type
+
+[**TransactionsSettlementsResponseEnvelope**](TransactionsSettlementsResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getUserById
+
+> UserEnvelope getUserById(userId)
+
+Get user by ID (admin only)
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let userId = "userId_example"; // String | 
 apiInstance.getUserById(userId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -2435,13 +2657,14 @@ apiInstance.getUserById(userId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
 
 ### Return type
 
-[**GetUserResponse**](GetUserResponse.md)
+[**UserEnvelope**](UserEnvelope.md)
 
 ### Authorization
 
@@ -2449,20 +2672,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUserCouponPaymentsStream"></a>
-# **getUserCouponPaymentsStream**
+
+## getUserCouponPaymentsStream
+
 > StreamUserCouponPaymentsResponse getUserCouponPaymentsStream(userId)
 
-Stream user&#x27;s coupon payment accruals in real time
+Stream user&#39;s coupon payment accruals in real time
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthQuery
 let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
 apiKeyAuthQuery.apiKey = 'YOUR API KEY';
@@ -2470,8 +2694,7 @@ apiKeyAuthQuery.apiKey = 'YOUR API KEY';
 //apiKeyAuthQuery.apiKeyPrefix = 'Token';
 
 let apiInstance = new Dora.DefaultApi();
-let userId = null; // Object | 
-
+let userId = "userId_example"; // String | 
 apiInstance.getUserCouponPaymentsStream(userId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -2483,9 +2706,10 @@ apiInstance.getUserCouponPaymentsStream(userId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
 
 ### Return type
 
@@ -2497,20 +2721,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUserLedgerStream"></a>
-# **getUserLedgerStream**
+
+## getUserLedgerStream
+
 > StreamPositionsResponse getUserLedgerStream(userId)
 
-Get a snapshot of user&#x27;s ledger updates since a specific time, and opens a stream for further updates
+Get a snapshot of user&#39;s ledger updates since a specific time, and opens a stream for further updates
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthQuery
 let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
 apiKeyAuthQuery.apiKey = 'YOUR API KEY';
@@ -2518,8 +2743,7 @@ apiKeyAuthQuery.apiKey = 'YOUR API KEY';
 //apiKeyAuthQuery.apiKeyPrefix = 'Token';
 
 let apiInstance = new Dora.DefaultApi();
-let userId = null; // Object | 
-
+let userId = "userId_example"; // String | 
 apiInstance.getUserLedgerStream(userId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -2531,9 +2755,10 @@ apiInstance.getUserLedgerStream(userId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
 
 ### Return type
 
@@ -2545,20 +2770,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUserOrderUpdatesStream"></a>
-# **getUserOrderUpdatesStream**
+
+## getUserOrderUpdatesStream
+
 > StreamOrderUpdatesResponse getUserOrderUpdatesStream(userId, orderBookId, opts)
 
-Get a snapshot of user&#x27;s order updates for the given order book since a specific time, and opens a stream for further updates
+Get a snapshot of user&#39;s order updates for the given order book since a specific time, and opens a stream for further updates
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthQuery
 let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
 apiKeyAuthQuery.apiKey = 'YOUR API KEY';
@@ -2566,10 +2792,10 @@ apiKeyAuthQuery.apiKey = 'YOUR API KEY';
 //apiKeyAuthQuery.apiKeyPrefix = 'Token';
 
 let apiInstance = new Dora.DefaultApi();
-let userId = null; // Object | 
-let orderBookId = null; // Object | 
-let opts = { 
-  'since': null // Object | 
+let userId = "userId_example"; // String | 
+let orderBookId = "orderBookId_example"; // String | 
+let opts = {
+  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
 };
 apiInstance.getUserOrderUpdatesStream(userId, orderBookId, opts, (error, data, response) => {
   if (error) {
@@ -2582,11 +2808,12 @@ apiInstance.getUserOrderUpdatesStream(userId, orderBookId, opts, (error, data, r
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | 
- **orderBookId** | [**Object**](.md)|  | 
- **since** | [**Object**](.md)|  | [optional] 
+ **userId** | **String**|  | 
+ **orderBookId** | **String**|  | 
+ **since** | **Date**|  | [optional] 
 
 ### Return type
 
@@ -2598,20 +2825,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUserOrdersUpdatesStreamAll"></a>
-# **getUserOrdersUpdatesStreamAll**
+
+## getUserOrdersUpdatesStreamAll
+
 > StreamOrderUpdatesResponse getUserOrdersUpdatesStreamAll(userId, opts)
 
-Get a snapshot of user&#x27;s order updates across all order books since a specific time, and opens a stream for further updates
+Get a snapshot of user&#39;s order updates across all order books since a specific time, and opens a stream for further updates
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthQuery
 let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
 apiKeyAuthQuery.apiKey = 'YOUR API KEY';
@@ -2619,9 +2847,9 @@ apiKeyAuthQuery.apiKey = 'YOUR API KEY';
 //apiKeyAuthQuery.apiKeyPrefix = 'Token';
 
 let apiInstance = new Dora.DefaultApi();
-let userId = null; // Object | 
-let opts = { 
-  'since': null // Object | 
+let userId = "userId_example"; // String | 
+let opts = {
+  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
 };
 apiInstance.getUserOrdersUpdatesStreamAll(userId, opts, (error, data, response) => {
   if (error) {
@@ -2634,10 +2862,11 @@ apiInstance.getUserOrdersUpdatesStreamAll(userId, opts, (error, data, response) 
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | 
- **since** | [**Object**](.md)|  | [optional] 
+ **userId** | **String**|  | 
+ **since** | **Date**|  | [optional] 
 
 ### Return type
 
@@ -2649,26 +2878,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUserSelf"></a>
-# **getUserSelf**
-> GetUserResponse getUserSelf()
+
+## getUserSelf
+
+> UserEnvelope getUserSelf()
 
 Get user details for the authenticated user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getUserSelf((error, data, response) => {
@@ -2681,11 +2913,12 @@ apiInstance.getUserSelf((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetUserResponse**](GetUserResponse.md)
+[**UserEnvelope**](UserEnvelope.md)
 
 ### Authorization
 
@@ -2693,20 +2926,21 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUserTransactionsStream"></a>
-# **getUserTransactionsStream**
+
+## getUserTransactionsStream
+
 > StreamTransactionsResponse getUserTransactionsStream(userId, opts)
 
-Get a snapshot of user&#x27;s executed transactions since a specific time, and opens a stream for further updates
+Get a snapshot of user&#39;s executed transactions since a specific time, and opens a stream for further updates
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthQuery
 let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
 apiKeyAuthQuery.apiKey = 'YOUR API KEY';
@@ -2714,9 +2948,9 @@ apiKeyAuthQuery.apiKey = 'YOUR API KEY';
 //apiKeyAuthQuery.apiKeyPrefix = 'Token';
 
 let apiInstance = new Dora.DefaultApi();
-let userId = null; // Object | 
-let opts = { 
-  'since': null // Object | 
+let userId = "userId_example"; // String | 
+let opts = {
+  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
 };
 apiInstance.getUserTransactionsStream(userId, opts, (error, data, response) => {
   if (error) {
@@ -2729,10 +2963,11 @@ apiInstance.getUserTransactionsStream(userId, opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | 
- **since** | [**Object**](.md)|  | [optional] 
+ **userId** | **String**|  | 
+ **since** | **Date**|  | [optional] 
 
 ### Return type
 
@@ -2744,26 +2979,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUsersAPIKeys"></a>
-# **getUsersAPIKeys**
-> GetAPIKeyResponse getUsersAPIKeys()
 
-Get user&#x27;s api keys
+## getUsersAPIKeys
+
+> APIKeyResponseEnvelope getUsersAPIKeys()
+
+Get user&#39;s api keys
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.getUsersAPIKeys((error, data, response) => {
@@ -2776,11 +3014,12 @@ apiInstance.getUsersAPIKeys((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetAPIKeyResponse**](GetAPIKeyResponse.md)
+[**APIKeyResponseEnvelope**](APIKeyResponseEnvelope.md)
 
 ### Authorization
 
@@ -2788,34 +3027,36 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="ledgerDeposit"></a>
-# **ledgerDeposit**
-> FundUserResponse ledgerDeposit(body, userId)
 
-Deposit assets into this user&#x27;s account from the outside world
+## ledgerDeposit
 
-Deposit assets into this user&#x27;s account from the outside world. Note that this does not interact with any external systems; it simply adds the amount to the user&#x27;s available balance in the ledger. Actual transfer of assets must be handled separately.
+> FundUserResponseEnvelope ledgerDeposit(userId, fundUserRequest)
+
+Deposit assets into this user&#39;s account from the outside world
+
+Deposit assets into this user&#39;s account from the outside world. Note that this does not interact with any external systems; it simply adds the amount to the user&#39;s available balance in the ledger. Actual transfer of assets must be handled separately.
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.FundUserRequest(); // FundUserRequest | 
-let userId = null; // Object | 
-
-apiInstance.ledgerDeposit(body, userId, (error, data, response) => {
+let userId = "userId_example"; // String | 
+let fundUserRequest = new Dora.FundUserRequest(); // FundUserRequest | 
+apiInstance.ledgerDeposit(userId, fundUserRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -2826,14 +3067,15 @@ apiInstance.ledgerDeposit(body, userId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**FundUserRequest**](FundUserRequest.md)|  | 
- **userId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
+ **fundUserRequest** | [**FundUserRequest**](FundUserRequest.md)|  | 
 
 ### Return type
 
-[**FundUserResponse**](FundUserResponse.md)
+[**FundUserResponseEnvelope**](FundUserResponseEnvelope.md)
 
 ### Authorization
 
@@ -2841,36 +3083,39 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="ledgerWithdraw"></a>
-# **ledgerWithdraw**
-> FundUserResponse ledgerWithdraw(body, userId, opts)
+
+## ledgerWithdraw
+
+> FundUserResponseEnvelope ledgerWithdraw(userId, defundUserRequest, opts)
 
 Withdraw assets from this user to the outside world
 
-Withdraw assets from this user&#x27;s account to the outside world. Note that this does not interact with any external systems; it simply deducts the amount from the user&#x27;s available balance in the ledger. Actual transfer of assets must be handled separately.
+Withdraw assets from this user&#39;s account to the outside world. Note that this does not interact with any external systems; it simply deducts the amount from the user&#39;s available balance in the ledger. Actual transfer of assets must be handled separately.
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.DefundUserRequest(); // DefundUserRequest | 
-let userId = null; // Object | 
-let opts = { 
-  'status': null // Object | 
+let userId = "userId_example"; // String | 
+let defundUserRequest = new Dora.DefundUserRequest(); // DefundUserRequest | 
+let opts = {
+  'status': "status_example" // String | 
 };
-apiInstance.ledgerWithdraw(body, userId, opts, (error, data, response) => {
+apiInstance.ledgerWithdraw(userId, defundUserRequest, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -2881,15 +3126,16 @@ apiInstance.ledgerWithdraw(body, userId, opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DefundUserRequest**](DefundUserRequest.md)|  | 
- **userId** | [**Object**](.md)|  | 
- **status** | [**Object**](.md)|  | [optional] 
+ **userId** | **String**|  | 
+ **defundUserRequest** | [**DefundUserRequest**](DefundUserRequest.md)|  | 
+ **status** | **String**|  | [optional] 
 
 ### Return type
 
-[**FundUserResponse**](FundUserResponse.md)
+[**FundUserResponseEnvelope**](FundUserResponseEnvelope.md)
 
 ### Authorization
 
@@ -2897,34 +3143,36 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="ledgerWithdrawRequest"></a>
-# **ledgerWithdrawRequest**
-> WithdrawalInitiationResponse ledgerWithdrawRequest(body, userId)
+
+## ledgerWithdrawRequest
+
+> WithdrawalInitiationResponseEnvelope ledgerWithdrawRequest(userId, defundUserRequest)
 
 Initiate a withdrawal request for this user to the outside world
 
-Withdraw assets from this user&#x27;s account to the outside world. Note that this does not interact with any external systems; it simply deducts the amount from the user&#x27;s available balance in the ledger. Actual transfer of assets must be handled separately.
+Withdraw assets from this user&#39;s account to the outside world. Note that this does not interact with any external systems; it simply deducts the amount from the user&#39;s available balance in the ledger. Actual transfer of assets must be handled separately.
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.DefundUserRequest(); // DefundUserRequest | 
-let userId = null; // Object | 
-
-apiInstance.ledgerWithdrawRequest(body, userId, (error, data, response) => {
+let userId = "userId_example"; // String | 
+let defundUserRequest = new Dora.DefundUserRequest(); // DefundUserRequest | 
+apiInstance.ledgerWithdrawRequest(userId, defundUserRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -2935,14 +3183,15 @@ apiInstance.ledgerWithdrawRequest(body, userId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DefundUserRequest**](DefundUserRequest.md)|  | 
- **userId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
+ **defundUserRequest** | [**DefundUserRequest**](DefundUserRequest.md)|  | 
 
 ### Return type
 
-[**WithdrawalInitiationResponse**](WithdrawalInitiationResponse.md)
+[**WithdrawalInitiationResponseEnvelope**](WithdrawalInitiationResponseEnvelope.md)
 
 ### Authorization
 
@@ -2950,34 +3199,36 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="ledgerWithdrawRequestSelf"></a>
-# **ledgerWithdrawRequestSelf**
-> WithdrawalInitiationResponse ledgerWithdrawRequestSelf(body, userId)
+
+## ledgerWithdrawRequestSelf
+
+> WithdrawalInitiationResponseEnvelope ledgerWithdrawRequestSelf(userId, defundUserRequest)
 
 Initiate a withdrawal request for the logged in user to the outside world
 
-Withdraw assets from the logged in user&#x27;s account to the outside world. Note that this does not interact with any external systems; it simply deducts the amount from the user&#x27;s available balance in the ledger. Actual transfer of assets must be handled separately.
+Withdraw assets from the logged in user&#39;s account to the outside world. Note that this does not interact with any external systems; it simply deducts the amount from the user&#39;s available balance in the ledger. Actual transfer of assets must be handled separately.
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.DefundUserRequest(); // DefundUserRequest | 
-let userId = null; // Object | 
-
-apiInstance.ledgerWithdrawRequestSelf(body, userId, (error, data, response) => {
+let userId = "userId_example"; // String | 
+let defundUserRequest = new Dora.DefundUserRequest(); // DefundUserRequest | 
+apiInstance.ledgerWithdrawRequestSelf(userId, defundUserRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -2988,14 +3239,15 @@ apiInstance.ledgerWithdrawRequestSelf(body, userId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DefundUserRequest**](DefundUserRequest.md)|  | 
- **userId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
+ **defundUserRequest** | [**DefundUserRequest**](DefundUserRequest.md)|  | 
 
 ### Return type
 
-[**WithdrawalInitiationResponse**](WithdrawalInitiationResponse.md)
+[**WithdrawalInitiationResponseEnvelope**](WithdrawalInitiationResponseEnvelope.md)
 
 ### Authorization
 
@@ -3003,31 +3255,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="leverageGetAccruedInterestByUser"></a>
-# **leverageGetAccruedInterestByUser**
-> CurrentLeverageAccruedInterestResponse leverageGetAccruedInterestByUser(opts)
+
+## leverageGetAccruedInterestByUser
+
+> CurrentLeverageAccruedInterestResponseEnvelope leverageGetAccruedInterestByUser(opts)
 
 Get current accrued leverage interest for the user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
-  'positionId': null, // Object | 
-  'assetId': null // Object | 
+let opts = {
+  'positionId': "positionId_example", // String | 
+  'assetId': "assetId_example" // String | 
 };
 apiInstance.leverageGetAccruedInterestByUser(opts, (error, data, response) => {
   if (error) {
@@ -3040,14 +3295,15 @@ apiInstance.leverageGetAccruedInterestByUser(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **positionId** | [**Object**](.md)|  | [optional] 
- **assetId** | [**Object**](.md)|  | [optional] 
+ **positionId** | **String**|  | [optional] 
+ **assetId** | **String**|  | [optional] 
 
 ### Return type
 
-[**CurrentLeverageAccruedInterestResponse**](CurrentLeverageAccruedInterestResponse.md)
+[**CurrentLeverageAccruedInterestResponseEnvelope**](CurrentLeverageAccruedInterestResponseEnvelope.md)
 
 ### Authorization
 
@@ -3055,31 +3311,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="leverageIsolateCollateral"></a>
-# **leverageIsolateCollateral**
-> IsolateCollateralResponse leverageIsolateCollateral(body)
 
-Create an isolated position by transferring collateral to the position from the user&#x27;s global collateral
+## leverageIsolateCollateral
+
+> IsolateCollateralResponse leverageIsolateCollateral(isolateCollateralRequest)
+
+Create an isolated position by transferring collateral to the position from the user&#39;s global collateral
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.IsolateCollateralRequest(); // IsolateCollateralRequest | 
-
-apiInstance.leverageIsolateCollateral(body, (error, data, response) => {
+let isolateCollateralRequest = new Dora.IsolateCollateralRequest(); // IsolateCollateralRequest | 
+apiInstance.leverageIsolateCollateral(isolateCollateralRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -3090,9 +3348,10 @@ apiInstance.leverageIsolateCollateral(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**IsolateCollateralRequest**](IsolateCollateralRequest.md)|  | 
+ **isolateCollateralRequest** | [**IsolateCollateralRequest**](IsolateCollateralRequest.md)|  | 
 
 ### Return type
 
@@ -3104,31 +3363,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="leverageSupply"></a>
-# **leverageSupply**
-> SupplyResponse leverageSupply(body)
+
+## leverageSupply
+
+> SupplyResponseEnvelope leverageSupply(supplyRequest)
 
 Supply leverage for a specific asset
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.SupplyRequest(); // SupplyRequest | 
-
-apiInstance.leverageSupply(body, (error, data, response) => {
+let supplyRequest = new Dora.SupplyRequest(); // SupplyRequest | 
+apiInstance.leverageSupply(supplyRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -3139,13 +3400,14 @@ apiInstance.leverageSupply(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**SupplyRequest**](SupplyRequest.md)|  | 
+ **supplyRequest** | [**SupplyRequest**](SupplyRequest.md)|  | 
 
 ### Return type
 
-[**SupplyResponse**](SupplyResponse.md)
+[**SupplyResponseEnvelope**](SupplyResponseEnvelope.md)
 
 ### Authorization
 
@@ -3153,33 +3415,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="leverageUnite"></a>
-# **leverageUnite**
-> UnitePositionResponse leverageUnite(body)
+
+## leverageUnite
+
+> UnitePositionResponseEnvelope leverageUnite(unitePositionRequest)
 
 Combines all isolated positions into a single global position
 
 Combines all isolated positions into a single global position
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.UnitePositionRequest(); // UnitePositionRequest | 
-
-apiInstance.leverageUnite(body, (error, data, response) => {
+let unitePositionRequest = new Dora.UnitePositionRequest(); // UnitePositionRequest | 
+apiInstance.leverageUnite(unitePositionRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -3190,13 +3454,14 @@ apiInstance.leverageUnite(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UnitePositionRequest**](UnitePositionRequest.md)|  | 
+ **unitePositionRequest** | [**UnitePositionRequest**](UnitePositionRequest.md)|  | 
 
 ### Return type
 
-[**UnitePositionResponse**](UnitePositionResponse.md)
+[**UnitePositionResponseEnvelope**](UnitePositionResponseEnvelope.md)
 
 ### Authorization
 
@@ -3204,31 +3469,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="leverageWithdraw"></a>
-# **leverageWithdraw**
-> WithdrawResponse leverageWithdraw(body)
+
+## leverageWithdraw
+
+> WithdrawResponseEnvelope leverageWithdraw(withdrawRequest)
 
 Withdraw leverage for a specific asset
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.WithdrawRequest(); // WithdrawRequest | 
-
-apiInstance.leverageWithdraw(body, (error, data, response) => {
+let withdrawRequest = new Dora.WithdrawRequest(); // WithdrawRequest | 
+apiInstance.leverageWithdraw(withdrawRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -3239,13 +3506,14 @@ apiInstance.leverageWithdraw(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**WithdrawRequest**](WithdrawRequest.md)|  | 
+ **withdrawRequest** | [**WithdrawRequest**](WithdrawRequest.md)|  | 
 
 ### Return type
 
-[**WithdrawResponse**](WithdrawResponse.md)
+[**WithdrawResponseEnvelope**](WithdrawResponseEnvelope.md)
 
 ### Authorization
 
@@ -3253,32 +3521,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="liquidityAdd"></a>
-# **liquidityAdd**
-> LiquidityResponse liquidityAdd(body, poolId)
+
+## liquidityAdd
+
+> LiquidityResponseEnvelope liquidityAdd(poolId, liquidityRequest)
 
 Add liquidity to a pool
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.LiquidityRequest(); // LiquidityRequest | 
-let poolId = null; // Object | 
-
-apiInstance.liquidityAdd(body, poolId, (error, data, response) => {
+let poolId = "poolId_example"; // String | 
+let liquidityRequest = new Dora.LiquidityRequest(); // LiquidityRequest | 
+apiInstance.liquidityAdd(poolId, liquidityRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -3289,14 +3559,15 @@ apiInstance.liquidityAdd(body, poolId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LiquidityRequest**](LiquidityRequest.md)|  | 
- **poolId** | [**Object**](.md)|  | 
+ **poolId** | **String**|  | 
+ **liquidityRequest** | [**LiquidityRequest**](LiquidityRequest.md)|  | 
 
 ### Return type
 
-[**LiquidityResponse**](LiquidityResponse.md)
+[**LiquidityResponseEnvelope**](LiquidityResponseEnvelope.md)
 
 ### Authorization
 
@@ -3304,32 +3575,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="liquiditySubtract"></a>
-# **liquiditySubtract**
-> LiquidityResponse liquiditySubtract(body, poolId)
+
+## liquiditySubtract
+
+> LiquidityResponseEnvelope liquiditySubtract(poolId, liquidityRequest)
 
 Subtract liquidity from a pool
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.LiquidityRequest(); // LiquidityRequest | 
-let poolId = null; // Object | 
-
-apiInstance.liquiditySubtract(body, poolId, (error, data, response) => {
+let poolId = "poolId_example"; // String | 
+let liquidityRequest = new Dora.LiquidityRequest(); // LiquidityRequest | 
+apiInstance.liquiditySubtract(poolId, liquidityRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -3340,14 +3613,15 @@ apiInstance.liquiditySubtract(body, poolId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LiquidityRequest**](LiquidityRequest.md)|  | 
- **poolId** | [**Object**](.md)|  | 
+ **poolId** | **String**|  | 
+ **liquidityRequest** | [**LiquidityRequest**](LiquidityRequest.md)|  | 
 
 ### Return type
 
-[**LiquidityResponse**](LiquidityResponse.md)
+[**LiquidityResponseEnvelope**](LiquidityResponseEnvelope.md)
 
 ### Authorization
 
@@ -3355,31 +3629,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="listAssets"></a>
-# **listAssets**
-> ListAssetsResponse listAssets(opts)
+
+## listAssets
+
+> ResponseEnvelopeOfListAssets listAssets(opts)
 
 List assets
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
-  'createdAfter': null, // Object | 
-  'createdBefore': null, // Object | 
+let opts = {
+  'createdAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'createdBefore': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'assetKind': new Dora.AssetKind(), // AssetKind | Asset kind (BOND, CURRENCY, INTEREST, POOL_SHARE)
-  'canAddLiquidity': null, // Object | 
-  'canDirectBorrow': null, // Object | 
-  'canOnboard': null, // Object | 
-  'canTrade': null, // Object | 
-  'canVirtualBorrow': null, // Object | 
-  'page': 1, // Object | 
-  'limit': 100 // Object | 
+  'canAddLiquidity': true, // Boolean | 
+  'canDirectBorrow': true, // Boolean | 
+  'canOnboard': true, // Boolean | 
+  'canTrade': true, // Boolean | 
+  'canVirtualBorrow': true, // Boolean | 
+  'page': 1, // Number | 
+  'limit': 100 // Number | 
 };
 apiInstance.listAssets(opts, (error, data, response) => {
   if (error) {
@@ -3392,22 +3668,23 @@ apiInstance.listAssets(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createdAfter** | [**Object**](.md)|  | [optional] 
- **createdBefore** | [**Object**](.md)|  | [optional] 
+ **createdAfter** | **Date**|  | [optional] 
+ **createdBefore** | **Date**|  | [optional] 
  **assetKind** | [**AssetKind**](.md)| Asset kind (BOND, CURRENCY, INTEREST, POOL_SHARE) | [optional] 
- **canAddLiquidity** | [**Object**](.md)|  | [optional] 
- **canDirectBorrow** | [**Object**](.md)|  | [optional] 
- **canOnboard** | [**Object**](.md)|  | [optional] 
- **canTrade** | [**Object**](.md)|  | [optional] 
- **canVirtualBorrow** | [**Object**](.md)|  | [optional] 
- **page** | [**Object**](.md)|  | [optional] [default to 1]
- **limit** | [**Object**](.md)|  | [optional] [default to 100]
+ **canAddLiquidity** | **Boolean**|  | [optional] 
+ **canDirectBorrow** | **Boolean**|  | [optional] 
+ **canOnboard** | **Boolean**|  | [optional] 
+ **canTrade** | **Boolean**|  | [optional] 
+ **canVirtualBorrow** | **Boolean**|  | [optional] 
+ **page** | **Number**|  | [optional] [default to 1]
+ **limit** | **Number**|  | [optional] [default to 100]
 
 ### Return type
 
-[**ListAssetsResponse**](ListAssetsResponse.md)
+[**ResponseEnvelopeOfListAssets**](ResponseEnvelopeOfListAssets.md)
 
 ### Authorization
 
@@ -3415,34 +3692,37 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="listOrderBooks"></a>
-# **listOrderBooks**
-> ListOrderBooksResponse listOrderBooks(opts)
+
+## listOrderBooks
+
+> ListOrderbookResponseEnvelope listOrderBooks(opts)
 
 List order books
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
+let opts = {
   'status': new Dora.OrderBookStatus(), // OrderBookStatus | 
-  'baseAssetId': null, // Object | 
-  'quoteAssetId': null, // Object | 
-  'page': 1, // Object | 
-  'limit': 100 // Object | 
+  'baseAssetId': "baseAssetId_example", // String | 
+  'quoteAssetId': "quoteAssetId_example", // String | 
+  'page': 1, // Number | 
+  'limit': 100 // Number | 
 };
 apiInstance.listOrderBooks(opts, (error, data, response) => {
   if (error) {
@@ -3455,17 +3735,18 @@ apiInstance.listOrderBooks(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | [**OrderBookStatus**](.md)|  | [optional] 
- **baseAssetId** | [**Object**](.md)|  | [optional] 
- **quoteAssetId** | [**Object**](.md)|  | [optional] 
- **page** | [**Object**](.md)|  | [optional] [default to 1]
- **limit** | [**Object**](.md)|  | [optional] [default to 100]
+ **baseAssetId** | **String**|  | [optional] 
+ **quoteAssetId** | **String**|  | [optional] 
+ **page** | **Number**|  | [optional] [default to 1]
+ **limit** | **Number**|  | [optional] [default to 100]
 
 ### Return type
 
-[**ListOrderBooksResponse**](ListOrderBooksResponse.md)
+[**ListOrderbookResponseEnvelope**](ListOrderbookResponseEnvelope.md)
 
 ### Authorization
 
@@ -3473,37 +3754,40 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="listOrders"></a>
-# **listOrders**
-> ListOrdersResponse listOrders(opts)
+
+## listOrders
+
+> ListOrdersResponseEnvelope listOrders(opts)
 
 List all orders
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
-  'orderBookId': null, // Object | 
-  'kind': null, // Object | 
-  'status': null, // Object | 
+let opts = {
+  'orderBookId': ["null"], // [String] | 
+  'kind': [new Dora.OrderKind()], // [OrderKind] | 
+  'status': [new Dora.OrderStatus()], // [OrderStatus] | 
   'side': new Dora.Side(), // Side | 
-  'from': null, // Object | 
-  'to': null, // Object | 
-  'page': 1, // Object | 
-  'limit': 100 // Object | 
+  'from': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'to': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'page': 1, // Number | 
+  'limit': 100 // Number | 
 };
 apiInstance.listOrders(opts, (error, data, response) => {
   if (error) {
@@ -3516,20 +3800,21 @@ apiInstance.listOrders(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | [optional] 
- **kind** | [**Object**](.md)|  | [optional] 
- **status** | [**Object**](.md)|  | [optional] 
+ **orderBookId** | [**[String]**](String.md)|  | [optional] 
+ **kind** | [**[OrderKind]**](OrderKind.md)|  | [optional] 
+ **status** | [**[OrderStatus]**](OrderStatus.md)|  | [optional] 
  **side** | [**Side**](.md)|  | [optional] 
- **from** | [**Object**](.md)|  | [optional] 
- **to** | [**Object**](.md)|  | [optional] 
- **page** | [**Object**](.md)|  | [optional] [default to 1]
- **limit** | [**Object**](.md)|  | [optional] [default to 100]
+ **from** | **Date**|  | [optional] 
+ **to** | **Date**|  | [optional] 
+ **page** | **Number**|  | [optional] [default to 1]
+ **limit** | **Number**|  | [optional] [default to 100]
 
 ### Return type
 
-[**ListOrdersResponse**](ListOrdersResponse.md)
+[**ListOrdersResponseEnvelope**](ListOrdersResponseEnvelope.md)
 
 ### Authorization
 
@@ -3537,26 +3822,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="listPositionAccountsSelf"></a>
-# **listPositionAccountsSelf**
-> ListPositionAccountsResponse listPositionAccountsSelf()
+
+## listPositionAccountsSelf
+
+> ListPositionAccountsResponseEnvelope listPositionAccountsSelf()
 
 List all position accounts for the authenticated user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 apiInstance.listPositionAccountsSelf((error, data, response) => {
@@ -3569,11 +3857,12 @@ apiInstance.listPositionAccountsSelf((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**ListPositionAccountsResponse**](ListPositionAccountsResponse.md)
+[**ListPositionAccountsResponseEnvelope**](ListPositionAccountsResponseEnvelope.md)
 
 ### Authorization
 
@@ -3581,31 +3870,33 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="payLeverageGetAccruedInterest"></a>
-# **payLeverageGetAccruedInterest**
-> PayLeverageAccruedInterestResponse payLeverageGetAccruedInterest(body)
+
+## payLeverageGetAccruedInterest
+
+> PayLeverageAccruedInterestResponseEnvelope payLeverageGetAccruedInterest(payLeverageAccruedInterestRequest)
 
 Pay current accrued leverage interest for a specific user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.PayLeverageAccruedInterestRequest(); // PayLeverageAccruedInterestRequest | 
-
-apiInstance.payLeverageGetAccruedInterest(body, (error, data, response) => {
+let payLeverageAccruedInterestRequest = new Dora.PayLeverageAccruedInterestRequest(); // PayLeverageAccruedInterestRequest | 
+apiInstance.payLeverageGetAccruedInterest(payLeverageAccruedInterestRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -3616,13 +3907,14 @@ apiInstance.payLeverageGetAccruedInterest(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**PayLeverageAccruedInterestRequest**](PayLeverageAccruedInterestRequest.md)|  | 
+ **payLeverageAccruedInterestRequest** | [**PayLeverageAccruedInterestRequest**](PayLeverageAccruedInterestRequest.md)|  | 
 
 ### Return type
 
-[**PayLeverageAccruedInterestResponse**](PayLeverageAccruedInterestResponse.md)
+[**PayLeverageAccruedInterestResponseEnvelope**](PayLeverageAccruedInterestResponseEnvelope.md)
 
 ### Authorization
 
@@ -3630,34 +3922,36 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="rejectLedgerWithdrawRequest"></a>
-# **rejectLedgerWithdrawRequest**
-> WithdrawalInitiationResponse rejectLedgerWithdrawRequest(body, withdrawalId)
+
+## rejectLedgerWithdrawRequest
+
+> WithdrawalInitiationResponseEnvelope rejectLedgerWithdrawRequest(withdrawalId, withdrawalRequestReason)
 
 Reject a pending withdrawal request
 
 Reject a pending withdrawal request, providing a reason for the rejection. Note that this does not interact with any external systems; it simply updates the status of the withdrawal request in the ledger. Actual transfer of assets must be handled separately.
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.WithdrawalRequestReason(); // WithdrawalRequestReason | 
-let withdrawalId = null; // Object | 
-
-apiInstance.rejectLedgerWithdrawRequest(body, withdrawalId, (error, data, response) => {
+let withdrawalId = "withdrawalId_example"; // String | 
+let withdrawalRequestReason = new Dora.WithdrawalRequestReason(); // WithdrawalRequestReason | 
+apiInstance.rejectLedgerWithdrawRequest(withdrawalId, withdrawalRequestReason, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -3668,14 +3962,15 @@ apiInstance.rejectLedgerWithdrawRequest(body, withdrawalId, (error, data, respon
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**WithdrawalRequestReason**](WithdrawalRequestReason.md)|  | 
- **withdrawalId** | [**Object**](.md)|  | 
+ **withdrawalId** | **String**|  | 
+ **withdrawalRequestReason** | [**WithdrawalRequestReason**](WithdrawalRequestReason.md)|  | 
 
 ### Return type
 
-[**WithdrawalInitiationResponse**](WithdrawalInitiationResponse.md)
+[**WithdrawalInitiationResponseEnvelope**](WithdrawalInitiationResponseEnvelope.md)
 
 ### Authorization
 
@@ -3683,30 +3978,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="revokeAPIKeyForUser"></a>
-# **revokeAPIKeyForUser**
-> RevokeAPIKeyResponse revokeAPIKeyForUser(keyId)
+
+## revokeAPIKeyForUser
+
+> RevokeAPIKeyResponseEnvelope revokeAPIKeyForUser(keyId)
 
 Revoke apikey for a user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let keyId = null; // Object | 
-
+let keyId = "keyId_example"; // String | 
 apiInstance.revokeAPIKeyForUser(keyId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -3718,13 +4015,14 @@ apiInstance.revokeAPIKeyForUser(keyId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyId** | [**Object**](.md)|  | 
+ **keyId** | **String**|  | 
 
 ### Return type
 
-[**RevokeAPIKeyResponse**](RevokeAPIKeyResponse.md)
+[**RevokeAPIKeyResponseEnvelope**](RevokeAPIKeyResponseEnvelope.md)
 
 ### Authorization
 
@@ -3732,31 +4030,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="revokeAPIKeyForUserID"></a>
-# **revokeAPIKeyForUserID**
-> RevokeAPIKeyResponse revokeAPIKeyForUserID(userId, keyId)
+
+## revokeAPIKeyForUserID
+
+> RevokeAPIKeyResponseEnvelope revokeAPIKeyForUserID(userId, keyId)
 
 Revoke apikey for a user: admin or integrator only
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let userId = null; // Object | 
-let keyId = null; // Object | 
-
+let userId = "userId_example"; // String | 
+let keyId = "keyId_example"; // String | 
 apiInstance.revokeAPIKeyForUserID(userId, keyId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -3768,14 +4068,15 @@ apiInstance.revokeAPIKeyForUserID(userId, keyId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | 
- **keyId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
+ **keyId** | **String**|  | 
 
 ### Return type
 
-[**RevokeAPIKeyResponse**](RevokeAPIKeyResponse.md)
+[**RevokeAPIKeyResponseEnvelope**](RevokeAPIKeyResponseEnvelope.md)
 
 ### Authorization
 
@@ -3783,31 +4084,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="settleLeverageAccruedInterest"></a>
-# **settleLeverageAccruedInterest**
-> SettleLeverageAccruedInterestResponse settleLeverageAccruedInterest(body)
+
+## settleLeverageAccruedInterest
+
+> SettleLeverageAccruedInterestResponseEnvelope settleLeverageAccruedInterest(settleLeverageAccruedInterestRequest)
 
 Settle current accrued leverage interest for a specific user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.SettleLeverageAccruedInterestRequest(); // SettleLeverageAccruedInterestRequest | 
-
-apiInstance.settleLeverageAccruedInterest(body, (error, data, response) => {
+let settleLeverageAccruedInterestRequest = new Dora.SettleLeverageAccruedInterestRequest(); // SettleLeverageAccruedInterestRequest | 
+apiInstance.settleLeverageAccruedInterest(settleLeverageAccruedInterestRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -3818,13 +4121,14 @@ apiInstance.settleLeverageAccruedInterest(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**SettleLeverageAccruedInterestRequest**](SettleLeverageAccruedInterestRequest.md)|  | 
+ **settleLeverageAccruedInterestRequest** | [**SettleLeverageAccruedInterestRequest**](SettleLeverageAccruedInterestRequest.md)|  | 
 
 ### Return type
 
-[**SettleLeverageAccruedInterestResponse**](SettleLeverageAccruedInterestResponse.md)
+[**SettleLeverageAccruedInterestResponseEnvelope**](SettleLeverageAccruedInterestResponseEnvelope.md)
 
 ### Authorization
 
@@ -3832,30 +4136,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="settleRealizedPnlRecord"></a>
-# **settleRealizedPnlRecord**
-> SettleRealizedPnlRecordResponse settleRealizedPnlRecord(settlementId)
+
+## settleRealizedPnlRecord
+
+> SettleRealizedPnlRecordResponseEnvelope settleRealizedPnlRecord(settlementId)
 
 Mark a realized P&amp;L settlement as settled
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let settlementId = null; // Object | 
-
+let settlementId = "settlementId_example"; // String | 
 apiInstance.settleRealizedPnlRecord(settlementId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -3867,13 +4173,14 @@ apiInstance.settleRealizedPnlRecord(settlementId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settlementId** | [**Object**](.md)|  | 
+ **settlementId** | **String**|  | 
 
 ### Return type
 
-[**SettleRealizedPnlRecordResponse**](SettleRealizedPnlRecordResponse.md)
+[**SettleRealizedPnlRecordResponseEnvelope**](SettleRealizedPnlRecordResponseEnvelope.md)
 
 ### Authorization
 
@@ -3881,11 +4188,64 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="streamAssetPrices"></a>
-# **streamAssetPrices**
+
+## settleTransactionsSettlements
+
+> TransactionsSettlementsResponse settleTransactionsSettlements(transactionsSettlementRequest)
+
+Settle multiple transactions settlements in batch
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let transactionsSettlementRequest = new Dora.TransactionsSettlementRequest(); // TransactionsSettlementRequest | 
+apiInstance.settleTransactionsSettlements(transactionsSettlementRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transactionsSettlementRequest** | [**TransactionsSettlementRequest**](TransactionsSettlementRequest.md)|  | 
+
+### Return type
+
+[**TransactionsSettlementsResponse**](TransactionsSettlementsResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## streamAssetPrices
+
 > StreamAssetPricesResponse streamAssetPrices(opts)
 
 Stream real-time asset prices as map objects
@@ -3893,13 +4253,14 @@ Stream real-time asset prices as map objects
 Opens a WebSocket stream for real-time asset price updates. First message contains all current prices, subsequent messages contain only changed prices. Data is sent as JSON objects keyed by asset ID.
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let opts = { 
-  'since': null, // Object | 
-  'assetId': null // Object | 
+let opts = {
+  'since': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'assetId': "assetId_example" // String | 
 };
 apiInstance.streamAssetPrices(opts, (error, data, response) => {
   if (error) {
@@ -3912,10 +4273,11 @@ apiInstance.streamAssetPrices(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | [**Object**](.md)|  | [optional] 
- **assetId** | [**Object**](.md)|  | [optional] 
+ **since** | **Date**|  | [optional] 
+ **assetId** | **String**|  | [optional] 
 
 ### Return type
 
@@ -3927,23 +4289,25 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="streamCandleData"></a>
-# **streamCandleData**
+
+## streamCandleData
+
 > StreamCandlesResponse streamCandleData(orderBookId, opts)
 
 Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-let opts = { 
-  'since': null, // Object | 
+let orderBookId = "orderBookId_example"; // String | 
+let opts = {
+  'since': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'resolution': new Dora.CandleResolution() // CandleResolution | 
 };
 apiInstance.streamCandleData(orderBookId, opts, (error, data, response) => {
@@ -3957,10 +4321,11 @@ apiInstance.streamCandleData(orderBookId, opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
- **since** | [**Object**](.md)|  | [optional] 
+ **orderBookId** | **String**|  | 
+ **since** | **Date**|  | [optional] 
  **resolution** | [**CandleResolution**](.md)|  | [optional] 
 
 ### Return type
@@ -3973,23 +4338,25 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="streamOrderBookBalances"></a>
-# **streamOrderBookBalances**
+
+## streamOrderBookBalances
+
 > StreamOrderBookBalancesResponse streamOrderBookBalances(orderBookId, opts)
 
 Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-let opts = { 
-  'since': null // Object | 
+let orderBookId = "orderBookId_example"; // String | 
+let opts = {
+  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
 };
 apiInstance.streamOrderBookBalances(orderBookId, opts, (error, data, response) => {
   if (error) {
@@ -4002,10 +4369,11 @@ apiInstance.streamOrderBookBalances(orderBookId, opts, (error, data, response) =
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
- **since** | [**Object**](.md)|  | [optional] 
+ **orderBookId** | **String**|  | 
+ **since** | **Date**|  | [optional] 
 
 ### Return type
 
@@ -4017,23 +4385,25 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="streamOrderbookOpenOrders"></a>
-# **streamOrderbookOpenOrders**
+
+## streamOrderbookOpenOrders
+
 > LiveOrderbook streamOrderbookOpenOrders(orderBookId, opts)
 
 Get a snapshot of open orders in an order book and open a stream for real-time updates
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-let opts = { 
-  'since': null // Object | 
+let orderBookId = "orderBookId_example"; // String | 
+let opts = {
+  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
 };
 apiInstance.streamOrderbookOpenOrders(orderBookId, opts, (error, data, response) => {
   if (error) {
@@ -4046,10 +4416,11 @@ apiInstance.streamOrderbookOpenOrders(orderBookId, opts, (error, data, response)
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
- **since** | [**Object**](.md)|  | [optional] 
+ **orderBookId** | **String**|  | 
+ **since** | **Date**|  | [optional] 
 
 ### Return type
 
@@ -4061,23 +4432,25 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="streamTrades"></a>
-# **streamTrades**
+
+## streamTrades
+
 > StreamTradesResponse streamTrades(orderBookId, opts)
 
 Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
 
 ### Example
+
 ```javascript
-import {Dora} from 'dora';
+import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
-let orderBookId = null; // Object | 
-let opts = { 
-  'since': null // Object | 
+let orderBookId = "orderBookId_example"; // String | 
+let opts = {
+  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
 };
 apiInstance.streamTrades(orderBookId, opts, (error, data, response) => {
   if (error) {
@@ -4090,10 +4463,11 @@ apiInstance.streamTrades(orderBookId, opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBookId** | [**Object**](.md)|  | 
- **since** | [**Object**](.md)|  | [optional] 
+ **orderBookId** | **String**|  | 
+ **since** | **Date**|  | [optional] 
 
 ### Return type
 
@@ -4105,31 +4479,33 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="transferAvailableBalances"></a>
-# **transferAvailableBalances**
-> TransferBalancesResponse transferAvailableBalances(body)
 
-Transfer available balance between a user&#x27;s accounts (e.g. global to isolated position)
+## transferAvailableBalances
+
+> TransferBalancesResponseEnvelope transferAvailableBalances(transferBalancesRequest)
+
+Transfer available balance between a user&#39;s accounts (e.g. global to isolated position)
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.TransferBalancesRequest(); // TransferBalancesRequest | 
-
-apiInstance.transferAvailableBalances(body, (error, data, response) => {
+let transferBalancesRequest = new Dora.TransferBalancesRequest(); // TransferBalancesRequest | 
+apiInstance.transferAvailableBalances(transferBalancesRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -4140,13 +4516,14 @@ apiInstance.transferAvailableBalances(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**TransferBalancesRequest**](TransferBalancesRequest.md)|  | 
+ **transferBalancesRequest** | [**TransferBalancesRequest**](TransferBalancesRequest.md)|  | 
 
 ### Return type
 
-[**TransferBalancesResponse**](TransferBalancesResponse.md)
+[**TransferBalancesResponseEnvelope**](TransferBalancesResponseEnvelope.md)
 
 ### Authorization
 
@@ -4154,32 +4531,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="updateUserConfig"></a>
-# **updateUserConfig**
-> UserUpdatedResponse updateUserConfig(body, userId)
+
+## updateUserConfig
+
+> UserUpdatedResponseEnvelope updateUserConfig(userId, updateUserConfigRequest)
 
 Update user configuration by ID
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.UpdateUserConfigRequest(); // UpdateUserConfigRequest | 
-let userId = null; // Object | 
-
-apiInstance.updateUserConfig(body, userId, (error, data, response) => {
+let userId = "userId_example"; // String | 
+let updateUserConfigRequest = new Dora.UpdateUserConfigRequest(); // UpdateUserConfigRequest | 
+apiInstance.updateUserConfig(userId, updateUserConfigRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -4190,14 +4569,15 @@ apiInstance.updateUserConfig(body, userId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UpdateUserConfigRequest**](UpdateUserConfigRequest.md)|  | 
- **userId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
+ **updateUserConfigRequest** | [**UpdateUserConfigRequest**](UpdateUserConfigRequest.md)|  | 
 
 ### Return type
 
-[**UserUpdatedResponse**](UserUpdatedResponse.md)
+[**UserUpdatedResponseEnvelope**](UserUpdatedResponseEnvelope.md)
 
 ### Authorization
 
@@ -4205,31 +4585,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="updateUserConfigSelf"></a>
-# **updateUserConfigSelf**
-> UserUpdatedResponse updateUserConfigSelf(body)
+
+## updateUserConfigSelf
+
+> UserUpdatedResponseEnvelope updateUserConfigSelf(updateUserConfigRequest)
 
 Update user configuration for the authenticated user
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.UpdateUserConfigRequest(); // UpdateUserConfigRequest | 
-
-apiInstance.updateUserConfigSelf(body, (error, data, response) => {
+let updateUserConfigRequest = new Dora.UpdateUserConfigRequest(); // UpdateUserConfigRequest | 
+apiInstance.updateUserConfigSelf(updateUserConfigRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -4240,13 +4622,14 @@ apiInstance.updateUserConfigSelf(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UpdateUserConfigRequest**](UpdateUserConfigRequest.md)|  | 
+ **updateUserConfigRequest** | [**UpdateUserConfigRequest**](UpdateUserConfigRequest.md)|  | 
 
 ### Return type
 
-[**UserUpdatedResponse**](UserUpdatedResponse.md)
+[**UserUpdatedResponseEnvelope**](UserUpdatedResponseEnvelope.md)
 
 ### Authorization
 
@@ -4254,31 +4637,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="validateSubmitOrder"></a>
-# **validateSubmitOrder**
-> ValidateSubmitOrderResponse validateSubmitOrder(body)
+
+## validateSubmitOrder
+
+> ValidateSubmitOrderResponse validateSubmitOrder(validateSubmitOrderRequest)
 
 Validate submit order request data
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let body = new Dora.ValidateSubmitOrderRequest(); // ValidateSubmitOrderRequest | 
-
-apiInstance.validateSubmitOrder(body, (error, data, response) => {
+let validateSubmitOrderRequest = new Dora.ValidateSubmitOrderRequest(); // ValidateSubmitOrderRequest | 
+apiInstance.validateSubmitOrder(validateSubmitOrderRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -4289,9 +4674,10 @@ apiInstance.validateSubmitOrder(body, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ValidateSubmitOrderRequest**](ValidateSubmitOrderRequest.md)|  | 
+ **validateSubmitOrderRequest** | [**ValidateSubmitOrderRequest**](ValidateSubmitOrderRequest.md)|  | 
 
 ### Return type
 
@@ -4303,30 +4689,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="verifyUser"></a>
-# **verifyUser**
-> UserUpdatedResponse verifyUser(userId)
+
+## verifyUser
+
+> UserUpdatedResponseEnvelope verifyUser(userId)
 
 Verify a user by ID
 
 ### Example
-```javascript
-import {Dora} from 'dora';
-let defaultClient = Dora.ApiClient.instance;
 
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
 // Configure API key authorization: apiKeyAuthHeader
 let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
 apiKeyAuthHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyAuthHeader.apiKeyPrefix = 'Token';
-
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
-let userId = null; // Object | 
-
+let userId = "userId_example"; // String | 
 apiInstance.verifyUser(userId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -4338,13 +4726,14 @@ apiInstance.verifyUser(userId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**Object**](.md)|  | 
+ **userId** | **String**|  | 
 
 ### Return type
 
-[**UserUpdatedResponse**](UserUpdatedResponse.md)
+[**UserUpdatedResponseEnvelope**](UserUpdatedResponseEnvelope.md)
 
 ### Authorization
 
@@ -4352,6 +4741,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

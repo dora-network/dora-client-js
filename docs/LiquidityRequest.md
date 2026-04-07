@@ -1,7 +1,10 @@
 # Dora.LiquidityRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**positionId** | **Object** |  | 
-**quantity** | **Object** |  | 
+**positionId** | **String** |  | 
+**quantity** | **String** |  | 
+
+

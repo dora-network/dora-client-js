@@ -1,26 +1,29 @@
 # Dora.Asset
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Object** |  | 
-**collateralWeight** | **Object** |  | 
-**createdAt** | **Object** |  | 
-**decimals** | **Object** |  | 
-**fractionalizedUnits** | **Object** |  | 
-**description** | **Object** |  | 
-**liquidationWeight** | **Object** |  | 
-**maxSupply** | **Object** |  | 
-**maxUtilization** | **Object** |  | 
-**name** | **Object** |  | 
-**symbol** | **Object** |  | 
+**id** | **String** |  | 
+**collateralWeight** | **Number** |  | 
+**createdAt** | **Date** |  | 
+**decimals** | **Number** |  | 
+**fractionalizedUnits** | **Number** |  | 
+**description** | **String** |  | 
+**liquidationWeight** | **Number** |  | 
+**maxSupply** | **Number** |  | 
+**maxUtilization** | **Number** |  | 
+**name** | **String** |  | 
+**symbol** | **String** |  | 
 **kind** | [**AssetKind**](AssetKind.md) |  | 
-**_yield** | **Object** |  | [optional] 
-**canAddLiquidity** | **Object** |  | 
-**canDirectBorrow** | **Object** |  | 
-**canOnboard** | **Object** |  | 
-**canTrade** | **Object** |  | 
-**canVirtualBorrow** | **Object** |  | 
-**maxLeverage** | **Object** |  | 
-**leverageInterestRate** | **Object** |  | [optional] 
+**_yield** | **Number** |  | [optional] 
+**canAddLiquidity** | **Boolean** |  | 
+**canDirectBorrow** | **Boolean** |  | 
+**canOnboard** | **Boolean** |  | 
+**canTrade** | **Boolean** |  | 
+**canVirtualBorrow** | **Boolean** |  | 
+**maxLeverage** | **Number** |  | 
+**leverageInterestRate** | **Number** |  | [optional] [default to 0]
 **bond** | [**Bond**](Bond.md) |  | [optional] 
+
+

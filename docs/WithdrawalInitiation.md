@@ -1,16 +1,19 @@
 # Dora.WithdrawalInitiation
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**withdrawalId** | **Object** |  | 
-**userId** | **Object** |  | 
-**positionId** | **Object** |  | 
-**assetId** | **Object** |  | 
-**quantity** | **Object** |  | 
+**withdrawalId** | **String** |  | 
+**userId** | **String** |  | 
+**positionId** | **String** |  | 
+**assetId** | **String** |  | 
+**quantity** | **String** |  | 
 **status** | [**WithdrawalStatus**](WithdrawalStatus.md) |  | 
-**createdAt** | **Object** |  | 
-**createdBy** | **Object** |  | 
-**updatedAt** | **Object** |  | 
-**updatedBy** | **Object** |  | 
-**reason** | **Object** |  | 
+**createdAt** | **Date** |  | 
+**createdBy** | **String** |  | 
+**updatedAt** | **Date** |  | 
+**updatedBy** | **String** |  | 
+**reason** | **String** |  | 
+
+

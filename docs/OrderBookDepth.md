@@ -1,9 +1,12 @@
 # Dora.OrderBookDepth
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderBookId** | **Object** |  | 
-**bids** | **Object** |  | 
-**asks** | **Object** |  | 
-**timestamp** | **Object** |  | 
+**orderBookId** | **String** |  | 
+**bids** | [**[PriceLevel]**](PriceLevel.md) |  | 
+**asks** | [**[PriceLevel]**](PriceLevel.md) |  | 
+**timestamp** | **Date** |  | 
+
+

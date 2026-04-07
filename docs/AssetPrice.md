@@ -1,9 +1,12 @@
 # Dora.AssetPrice
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assetId** | **Object** |  | 
-**price** | **Object** |  | 
-**ytm** | **Object** |  | [optional] 
-**time** | **Object** |  | 
+**assetId** | **String** |  | 
+**price** | **String** |  | 
+**ytm** | **String** |  | [optional] 
+**time** | **Date** |  | 
+
+

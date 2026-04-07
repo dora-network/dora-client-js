@@ -1,11 +1,14 @@
 # Dora.CurrentLeverageAccruedInterest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **Object** |  | 
-**assetId** | **Object** |  | 
-**positionId** | **Object** |  | 
-**currentAccruedInterestUsd** | **Object** |  | 
-**assetName** | **Object** |  | [optional] 
-**assetSymbol** | **Object** |  | [optional] 
+**userId** | **String** |  | 
+**assetId** | **String** |  | 
+**positionId** | **String** |  | 
+**currentAccruedInterestUsd** | **String** |  | 
+**assetName** | **String** |  | [optional] 
+**assetSymbol** | **String** |  | [optional] 
+
+

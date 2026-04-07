@@ -1,7 +1,10 @@
 # Dora.UpdateFieldString
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**update** | **Object** | Whether to update the field. | 
-**value** | **Object** | The new value to set for the field. | [optional] 
+**update** | **Boolean** | Whether to update the field. | 
+**value** | **String** | The new value to set for the field. | [optional] 
+
+

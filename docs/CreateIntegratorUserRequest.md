@@ -1,12 +1,15 @@
 # Dora.CreateIntegratorUserRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **Object** |  | [optional] 
-**name** | **Object** |  | [optional] 
-**nativeAssetId** | **Object** |  | [optional] 
-**photoUrl** | **Object** |  | [optional] 
-**provider** | **Object** |  | [optional] 
-**providerId** | **Object** |  | [optional] 
-**timezone** | **Object** |  | [optional] 
+**email** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
+**nativeAssetId** | **String** |  | [optional] 
+**photoUrl** | **String** |  | [optional] 
+**provider** | **String** |  | [optional] 
+**providerId** | **String** |  | [optional] 
+**timezone** | **String** |  | [optional] 
+
+

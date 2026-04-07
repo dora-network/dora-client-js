@@ -1,11 +1,14 @@
 # Dora.Liquidity
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderBookId** | **Object** |  | 
-**positionId** | **Object** |  | 
-**transactionId** | **Object** |  | 
-**baseQuantity** | **Object** |  | 
-**quoteQuantity** | **Object** |  | 
-**sharesQuantity** | **Object** |  | 
+**orderBookId** | **String** |  | 
+**positionId** | **String** |  | 
+**transactionId** | **String** |  | 
+**baseQuantity** | **String** |  | 
+**quoteQuantity** | **String** |  | 
+**sharesQuantity** | **String** |  | 
+
+

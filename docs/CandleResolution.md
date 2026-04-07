@@ -2,9 +2,17 @@
 
 ## Enum
 
-* `_1m` (value: `"1m"`)
-* `_5m` (value: `"5m"`)
-* `_15m` (value: `"15m"`)
-* `_1h` (value: `"1h"`)
-* `_4h` (value: `"4h"`)
-* `_1d` (value: `"1d"`)
+
+* `1m` (value: `"1m"`)
+
+* `5m` (value: `"5m"`)
+
+* `15m` (value: `"15m"`)
+
+* `1h` (value: `"1h"`)
+
+* `4h` (value: `"4h"`)
+
+* `1d` (value: `"1d"`)
+
+

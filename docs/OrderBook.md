@@ -1,26 +1,29 @@
 # Dora.OrderBook
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderBookId** | **Object** |  | 
-**orderBookSeq** | **Object** |  | [optional] 
-**baseQuantity** | **Object** |  | 
-**baseAssetId** | **Object** |  | 
-**createdAt** | **Object** |  | 
-**displayName** | **Object** |  | 
-**baseAssetFractionalizedUnits** | **Object** |  | 
-**quoteAssetFractionalizedUnits** | **Object** |  | 
-**feeFactor** | **Object** |  | 
-**initialAssetsRatio** | **Object** |  | 
-**maturityAt** | **Object** |  | 
-**quoteQuantity** | **Object** |  | 
-**quoteAssetId** | **Object** |  | 
-**sharesQuantity** | **Object** |  | 
+**orderBookId** | **String** |  | 
+**orderBookSeq** | **Number** |  | [optional] 
+**baseQuantity** | **Number** |  | 
+**baseAssetId** | **String** |  | 
+**createdAt** | **Date** |  | 
+**displayName** | **String** |  | 
+**baseAssetFractionalizedUnits** | **Number** |  | 
+**quoteAssetFractionalizedUnits** | **Number** |  | 
+**feeFactor** | **Number** |  | 
+**initialAssetsRatio** | **Number** |  | 
+**maturityAt** | **Date** |  | 
+**quoteQuantity** | **Number** |  | 
+**quoteAssetId** | **String** |  | 
+**sharesQuantity** | **Number** |  | 
 **status** | [**OrderBookStatus**](OrderBookStatus.md) |  | 
-**tickSize** | **Object** |  | 
-**updatedAt** | **Object** |  | 
-**haltedAt** | **Object** |  | [optional] 
-**terminatedAt** | **Object** |  | [optional] 
-**poolUpdatedAt** | **Object** |  | [optional] 
-**sharesAssetId** | **Object** |  | 
+**tickSize** | **Number** |  | 
+**updatedAt** | **Date** |  | 
+**haltedAt** | **Date** |  | [optional] 
+**terminatedAt** | **Date** |  | [optional] 
+**poolUpdatedAt** | **Date** |  | [optional] 
+**sharesAssetId** | **String** |  | 
+
+

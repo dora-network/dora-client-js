@@ -1,9 +1,12 @@
 # Dora.TransferBalancesRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fromPositionId** | **Object** |  | 
-**toPositionId** | **Object** |  | 
-**assetId** | **Object** |  | 
-**quantity** | **Object** |  | 
+**fromPositionId** | **String** |  | 
+**toPositionId** | **String** |  | 
+**assetId** | **String** |  | 
+**quantity** | **String** |  | 
+
+

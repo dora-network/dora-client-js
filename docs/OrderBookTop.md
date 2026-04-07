@@ -1,9 +1,12 @@
 # Dora.OrderBookTop
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderBookId** | **Object** |  | 
-**bestBid** | **Object** |  | 
-**bestAsk** | **Object** |  | 
-**timestamp** | **Object** |  | 
+**orderBookId** | **String** |  | 
+**bestBid** | **String** |  | 
+**bestAsk** | **String** |  | 
+**timestamp** | **Date** |  | 
+
+

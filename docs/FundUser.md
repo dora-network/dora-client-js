@@ -1,10 +1,13 @@
 # Dora.FundUser
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **Object** |  | 
-**positionId** | **Object** |  | 
-**assetId** | **Object** |  | 
-**finalQuantity** | **Object** |  | 
-**amount** | **Object** |  | 
+**userId** | **String** |  | 
+**positionId** | **String** |  | 
+**assetId** | **String** |  | 
+**finalQuantity** | **String** |  | 
+**amount** | **String** |  | 
+
+

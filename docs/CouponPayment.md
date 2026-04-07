@@ -1,16 +1,19 @@
 # Dora.CouponPayment
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Object** |  | 
-**assetId** | **Object** |  | 
-**_yield** | **Object** |  | 
-**startAt** | **Object** |  | 
-**endAt** | **Object** |  | 
-**payAt** | **Object** |  | 
-**availableToPay** | **Object** |  | 
-**completedAt** | **Object** |  | 
-**createdAt** | **Object** |  | 
-**processEvery** | **Object** | Number of nanoseconds to wait between coupon payment processing, must be at least 1000 (1 microsecond) | 
-**lastProcessedAt** | **Object** |  | 
+**id** | **String** |  | 
+**assetId** | **String** |  | 
+**_yield** | **Number** |  | 
+**startAt** | **Date** |  | 
+**endAt** | **Date** |  | 
+**payAt** | **Date** |  | 
+**availableToPay** | **String** |  | 
+**completedAt** | **Date** |  | 
+**createdAt** | **Date** |  | 
+**processEvery** | **Number** | Number of nanoseconds to wait between coupon payment processing, must be at least 1000 (1 microsecond) | 
+**lastProcessedAt** | **Date** |  | 
+
+

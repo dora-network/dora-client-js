@@ -1,7 +1,10 @@
 # Dora.StreamUserCouponPaymentsResponse
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entries** | **Object** |  | [optional] 
-**summaryByAsset** | **Object** |  | [optional] 
+**entries** | [**[StreamUserCouponPaymentsEntry]**](StreamUserCouponPaymentsEntry.md) |  | [optional] 
+**summaryByAsset** | [**[UserCouponPaymentAssetSummary]**](UserCouponPaymentAssetSummary.md) |  | [optional] 
+
+

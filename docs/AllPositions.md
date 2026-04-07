@@ -1,6 +1,9 @@
 # Dora.AllPositions
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allPositions** | **Object** |  | 
+**allPositions** | **{String: {String: {String: Position}}}** |  | 
+
+

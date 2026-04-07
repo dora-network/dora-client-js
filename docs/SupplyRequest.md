@@ -1,8 +1,11 @@
 # Dora.SupplyRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**positionId** | **Object** |  | 
-**assetId** | **Object** |  | 
-**quantity** | **Object** |  | 
+**positionId** | **String** |  | 
+**assetId** | **String** |  | 
+**quantity** | **String** |  | 
+
+

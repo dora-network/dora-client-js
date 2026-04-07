@@ -1,9 +1,12 @@
 # Dora.AssetYTM
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assetId** | **Object** |  | 
-**currentTime** | **Object** |  | 
-**currentPrice** | **Object** |  | 
-**yieldToMaturity** | **Object** |  | 
+**assetId** | **String** |  | 
+**currentTime** | **Date** |  | 
+**currentPrice** | **String** |  | 
+**yieldToMaturity** | **String** |  | 
+
+

@@ -1,5 +1,0 @@
-# Dora.AllPositionsResponse
-
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------

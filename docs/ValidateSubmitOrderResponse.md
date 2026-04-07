@@ -1,6 +1,9 @@
 # Dora.ValidateSubmitOrderResponse
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **Object** |  | [optional] 
+**data** | **Boolean** |  | [optional] 
+
+

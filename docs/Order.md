@@ -1,31 +1,34 @@
 # Dora.Order
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orderId** | **Object** |  | 
-**orderBookId** | **Object** |  | 
+**orderId** | **String** |  | 
+**orderBookId** | **String** |  | 
 **kind** | [**OrderKind**](OrderKind.md) |  | 
-**originalPrice** | **Object** | If Kind is LIMIT, this is the original limit price. If Kind is MARKET, this may be 0 or omitted. | 
-**avgFillPrice** | **Object** |  | 
-**cancelledQuantity** | **Object** | Quantity that was cancelled, if any. | 
-**openQuantity** | **Object** | Quantity that is still open, i.e., not filled or cancelled. | 
-**originalQuantity** | **Object** | The original quantity of the order when it was created. | 
-**filledQuantity** | **Object** | Quantity that has been filled so far. | 
-**filledNotional** | **Object** | Quote quantity that has been filled so far. | 
-**lockedQuantity** | **Object** | Balance locked to ensure limit buy orders have sufficient balance to be fulfilled | 
-**impendingBorrowsQuantity** | **Object** | Borrows locked from the liquidity pool to ensure limit short sell orders have sufficient balance to be fulfilled | 
-**lastUpdateAt** | **Object** |  | 
-**openedAt** | **Object** |  | 
-**inverseLeverage** | **Object** |  | 
+**originalPrice** | **String** | If Kind is LIMIT, this is the original limit price. If Kind is MARKET, this may be 0 or omitted. | 
+**avgFillPrice** | **String** |  | 
+**cancelledQuantity** | **String** | Quantity that was cancelled, if any. | 
+**openQuantity** | **String** | Quantity that is still open, i.e., not filled or cancelled. | 
+**originalQuantity** | **String** | The original quantity of the order when it was created. | 
+**filledQuantity** | **String** | Quantity that has been filled so far. | 
+**filledNotional** | **String** | Quote quantity that has been filled so far. | 
+**lockedQuantity** | **Number** | Balance locked to ensure limit buy orders have sufficient balance to be fulfilled | 
+**impendingBorrowsQuantity** | **Number** | Borrows locked from the liquidity pool to ensure limit short sell orders have sufficient balance to be fulfilled | 
+**lastUpdateAt** | **Date** |  | 
+**openedAt** | **Date** |  | 
+**inverseLeverage** | **String** |  | 
 **side** | [**Side**](Side.md) |  | 
 **status** | [**OrderStatus**](OrderStatus.md) |  | 
-**userId** | **Object** |  | 
-**orderModifiers** | **Object** |  | [optional] 
-**positionId** | **Object** |  | 
-**orderInfo** | **Object** |  | [optional] 
-**goodTillDate** | **Object** |  | [optional] 
-**triggerPrice** | **Object** |  | [optional] 
+**userId** | **String** |  | 
+**orderModifiers** | [**[OrderModifierKind]**](OrderModifierKind.md) |  | [optional] 
+**positionId** | **String** |  | 
+**orderInfo** | **String** |  | [optional] 
+**goodTillDate** | **Date** |  | [optional] 
+**triggerPrice** | **String** |  | [optional] 
 **triggerType** | [**TriggerType**](TriggerType.md) |  | [optional] 
-**clientOrderId** | **Object** | An optional client-provided identifier for the order. | [optional] 
-**parentOrderId** | **Object** |  | [optional] 
+**clientOrderId** | **String** | An optional client-provided identifier for the order. | [optional] 
+**parentOrderId** | **String** |  | [optional] 
+
+

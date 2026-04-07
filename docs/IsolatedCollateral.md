@@ -1,10 +1,13 @@
 # Dora.IsolatedCollateral
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**globalPositionId** | **Object** |  | 
-**isolatedPositionId** | **Object** |  | 
-**transactionId** | **Object** |  | 
-**assetId** | **Object** |  | 
-**quantity** | **Object** |  | 
+**globalPositionId** | **String** |  | 
+**isolatedPositionId** | **String** |  | 
+**transactionId** | **String** |  | 
+**assetId** | **String** |  | 
+**quantity** | **String** |  | 
+
+

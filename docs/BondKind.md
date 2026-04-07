@@ -2,5 +2,9 @@
 
 ## Enum
 
-* `COUPON_PAYING` (value: `"COUPON-PAYING"`)
-* `PRINCIPAL_ONLY` (value: `"PRINCIPAL-ONLY"`)
+
+* `COUPON-PAYING` (value: `"COUPON-PAYING"`)
+
+* `PRINCIPAL-ONLY` (value: `"PRINCIPAL-ONLY"`)
+
+

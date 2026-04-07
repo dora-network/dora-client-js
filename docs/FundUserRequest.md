@@ -1,7 +1,10 @@
 # Dora.FundUserRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assetId** | **Object** |  | 
-**quantity** | **Object** |  | 
+**assetId** | **String** |  | 
+**quantity** | **String** |  | 
+
+

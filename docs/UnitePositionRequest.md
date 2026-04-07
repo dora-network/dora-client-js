@@ -1,6 +1,9 @@
 # Dora.UnitePositionRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**globalPositionId** | **Object** |  | 
+**globalPositionId** | **String** |  | 
+
+

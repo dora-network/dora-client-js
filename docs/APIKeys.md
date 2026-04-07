@@ -1,6 +1,9 @@
 # Dora.APIKeys
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**apiKeys** | **Object** |  | [optional] 
+**apiKeys** | [**[APIKeyResponse]**](APIKeyResponse.md) |  | [optional] 
+
+

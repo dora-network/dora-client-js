@@ -2,9 +2,17 @@
 
 ## Enum
 
-* `owned` (value: `"Owned"`)
-* `locked` (value: `"Locked"`)
-* `supplied` (value: `"Supplied"`)
-* `stablecoinEquivalents` (value: `"Stablecoin Equivalents"`)
-* `inactive` (value: `"Inactive"`)
-* `interestSources` (value: `"Interest Sources"`)
+
+* `Owned` (value: `"Owned"`)
+
+* `Locked` (value: `"Locked"`)
+
+* `Supplied` (value: `"Supplied"`)
+
+* `Stablecoin Equivalents` (value: `"Stablecoin Equivalents"`)
+
+* `Inactive` (value: `"Inactive"`)
+
+* `Interest Sources` (value: `"Interest Sources"`)
+
+

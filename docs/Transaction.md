@@ -1,15 +1,18 @@
 # Dora.Transaction
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Object** |  | 
-**createdAt** | **Object** |  | 
+**id** | **String** |  | 
+**createdAt** | **Date** |  | 
 **kind** | [**TransactionKind**](TransactionKind.md) |  | 
-**asset0** | **Object** |  | 
-**quantity0** | **Object** |  | 
-**quantity1** | **Object** |  | 
-**asset1** | **Object** |  | 
-**userId** | **Object** |  | 
-**adminUserId** | **Object** |  | 
+**asset0** | **String** |  | 
+**quantity0** | **String** |  | 
+**quantity1** | **String** |  | 
+**asset1** | **String** |  | 
+**userId** | **String** |  | 
+**adminUserId** | **String** |  | 
 **orderSide** | [**Side**](Side.md) |  | 
+
+

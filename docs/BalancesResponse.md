@@ -1,6 +1,9 @@
 # Dora.BalancesResponse
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**balances** | **Object** |  | [optional] 
+**balances** | [**[Position]**](Position.md) |  | [optional] 
+
+

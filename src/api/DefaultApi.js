@@ -17,6 +17,7 @@ import APIKeyResponseEnvelope from '../model/APIKeyResponseEnvelope';
 import AllPositionsResponseEnvelope from '../model/AllPositionsResponseEnvelope';
 import AllWithdrawalInitiationsResponseEnvelope from '../model/AllWithdrawalInitiationsResponseEnvelope';
 import AssetKind from '../model/AssetKind';
+import AssetPrice from '../model/AssetPrice';
 import AssetPriceResponseEnvelope from '../model/AssetPriceResponseEnvelope';
 import AssetRequestError from '../model/AssetRequestError';
 import CancelOrderResponseEnvelope from '../model/CancelOrderResponseEnvelope';
@@ -78,14 +79,13 @@ import SettleLeverageAccruedInterestRequest from '../model/SettleLeverageAccrued
 import SettleLeverageAccruedInterestResponseEnvelope from '../model/SettleLeverageAccruedInterestResponseEnvelope';
 import SettleRealizedPnlRecordResponseEnvelope from '../model/SettleRealizedPnlRecordResponseEnvelope';
 import Side from '../model/Side';
-import StreamAssetPricesResponse from '../model/StreamAssetPricesResponse';
-import StreamAssetsResponse from '../model/StreamAssetsResponse';
-import StreamCandlesResponse from '../model/StreamCandlesResponse';
-import StreamOrderBookBalancesResponse from '../model/StreamOrderBookBalancesResponse';
-import StreamOrderUpdatesResponse from '../model/StreamOrderUpdatesResponse';
-import StreamPositionsResponse from '../model/StreamPositionsResponse';
-import StreamTradesResponse from '../model/StreamTradesResponse';
-import StreamTransactionsResponse from '../model/StreamTransactionsResponse';
+import StreamAssetsEntry from '../model/StreamAssetsEntry';
+import StreamCandlesEntry from '../model/StreamCandlesEntry';
+import StreamOrderBookBalanceEntry from '../model/StreamOrderBookBalanceEntry';
+import StreamOrderUpdatesEntry from '../model/StreamOrderUpdatesEntry';
+import StreamPositionsEntry from '../model/StreamPositionsEntry';
+import StreamTradesEntry from '../model/StreamTradesEntry';
+import StreamTransactionsEntry from '../model/StreamTransactionsEntry';
 import StreamUserCouponPaymentsResponse from '../model/StreamUserCouponPaymentsResponse';
 import SupplyRequest from '../model/SupplyRequest';
 import SupplyResponseEnvelope from '../model/SupplyResponseEnvelope';
@@ -975,7 +975,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getAssetsStream operation.
      * @callback module:api/DefaultApi~getAssetsStreamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/StreamAssetsResponse} data The data returned by the service call.
+     * @param {Array.<module:model/StreamAssetsEntry>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -985,7 +985,7 @@ export default class DefaultApi {
      * @param {Date} [since] 
      * @param {Date} [until] 
      * @param {module:api/DefaultApi~getAssetsStreamCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/StreamAssetsResponse}
+     * data is of type: {@link Array.<module:model/StreamAssetsEntry>}
      */
     getAssetsStream(opts, callback) {
       opts = opts || {};
@@ -1005,7 +1005,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = StreamAssetsResponse;
+      let returnType = [StreamAssetsEntry];
       return this.apiClient.callApi(
         '/v1/assets/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -2339,7 +2339,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserLedgerStream operation.
      * @callback module:api/DefaultApi~getUserLedgerStreamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/StreamPositionsResponse} data The data returned by the service call.
+     * @param {Array.<module:model/StreamPositionsEntry>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2347,7 +2347,7 @@ export default class DefaultApi {
      * Get a snapshot of user's ledger updates since a specific time, and opens a stream for further updates
      * @param {String} userId 
      * @param {module:api/DefaultApi~getUserLedgerStreamCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/StreamPositionsResponse}
+     * data is of type: {@link Array.<module:model/StreamPositionsEntry>}
      */
     getUserLedgerStream(userId, callback) {
       let postBody = null;
@@ -2369,7 +2369,7 @@ export default class DefaultApi {
       let authNames = ['apiKeyAuthQuery'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = StreamPositionsResponse;
+      let returnType = [StreamPositionsEntry];
       return this.apiClient.callApi(
         '/v1/user/{user_id}/ledger/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -2381,7 +2381,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserOrderUpdatesStream operation.
      * @callback module:api/DefaultApi~getUserOrderUpdatesStreamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/StreamOrderUpdatesResponse} data The data returned by the service call.
+     * @param {Array.<module:model/StreamOrderUpdatesEntry>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2392,7 +2392,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Date} [since] 
      * @param {module:api/DefaultApi~getUserOrderUpdatesStreamCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/StreamOrderUpdatesResponse}
+     * data is of type: {@link Array.<module:model/StreamOrderUpdatesEntry>}
      */
     getUserOrderUpdatesStream(userId, orderBookId, opts, callback) {
       opts = opts || {};
@@ -2421,7 +2421,7 @@ export default class DefaultApi {
       let authNames = ['apiKeyAuthQuery'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = StreamOrderUpdatesResponse;
+      let returnType = [StreamOrderUpdatesEntry];
       return this.apiClient.callApi(
         '/v1/user/{user_id}/orders/{order_book_id}/updates/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -2433,7 +2433,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserOrdersUpdatesStreamAll operation.
      * @callback module:api/DefaultApi~getUserOrdersUpdatesStreamAllCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/StreamOrderUpdatesResponse} data The data returned by the service call.
+     * @param {Array.<module:model/StreamOrderUpdatesEntry>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2443,7 +2443,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Date} [since] 
      * @param {module:api/DefaultApi~getUserOrdersUpdatesStreamAllCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/StreamOrderUpdatesResponse}
+     * data is of type: {@link Array.<module:model/StreamOrderUpdatesEntry>}
      */
     getUserOrdersUpdatesStreamAll(userId, opts, callback) {
       opts = opts || {};
@@ -2467,7 +2467,7 @@ export default class DefaultApi {
       let authNames = ['apiKeyAuthQuery'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = StreamOrderUpdatesResponse;
+      let returnType = [StreamOrderUpdatesEntry];
       return this.apiClient.callApi(
         '/v1/user/{user_id}/orders/all/updates/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -2515,7 +2515,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getUserTransactionsStream operation.
      * @callback module:api/DefaultApi~getUserTransactionsStreamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/StreamTransactionsResponse} data The data returned by the service call.
+     * @param {Array.<module:model/StreamTransactionsEntry>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -2525,7 +2525,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Date} [since] 
      * @param {module:api/DefaultApi~getUserTransactionsStreamCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/StreamTransactionsResponse}
+     * data is of type: {@link Array.<module:model/StreamTransactionsEntry>}
      */
     getUserTransactionsStream(userId, opts, callback) {
       opts = opts || {};
@@ -2549,7 +2549,7 @@ export default class DefaultApi {
       let authNames = ['apiKeyAuthQuery'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = StreamTransactionsResponse;
+      let returnType = [StreamTransactionsEntry];
       return this.apiClient.callApi(
         '/v1/user/{user_id}/transactions/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -3593,7 +3593,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamAssetPrices operation.
      * @callback module:api/DefaultApi~streamAssetPricesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/StreamAssetPricesResponse} data The data returned by the service call.
+     * @param {Object.<String, module:model/{String: AssetPrice}>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -3604,7 +3604,7 @@ export default class DefaultApi {
      * @param {Date} [since] 
      * @param {String} [assetId] 
      * @param {module:api/DefaultApi~streamAssetPricesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/StreamAssetPricesResponse}
+     * data is of type: {@link Object.<String, module:model/{String: AssetPrice}>}
      */
     streamAssetPrices(opts, callback) {
       opts = opts || {};
@@ -3624,7 +3624,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = StreamAssetPricesResponse;
+      let returnType = {'String': AssetPrice};
       return this.apiClient.callApi(
         '/v1/prices/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -3636,7 +3636,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamCandleData operation.
      * @callback module:api/DefaultApi~streamCandleDataCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/StreamCandlesResponse} data The data returned by the service call.
+     * @param {Array.<module:model/StreamCandlesEntry>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -3647,7 +3647,7 @@ export default class DefaultApi {
      * @param {Date} [since] 
      * @param {module:model/CandleResolution} [resolution] 
      * @param {module:api/DefaultApi~streamCandleDataCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/StreamCandlesResponse}
+     * data is of type: {@link Array.<module:model/StreamCandlesEntry>}
      */
     streamCandleData(orderBookId, opts, callback) {
       opts = opts || {};
@@ -3672,7 +3672,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = StreamCandlesResponse;
+      let returnType = [StreamCandlesEntry];
       return this.apiClient.callApi(
         '/v1/charts/{order_book_id}/candle/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -3684,7 +3684,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamOrderBookBalances operation.
      * @callback module:api/DefaultApi~streamOrderBookBalancesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/StreamOrderBookBalancesResponse} data The data returned by the service call.
+     * @param {Array.<module:model/StreamOrderBookBalanceEntry>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -3694,7 +3694,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Date} [since] 
      * @param {module:api/DefaultApi~streamOrderBookBalancesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/StreamOrderBookBalancesResponse}
+     * data is of type: {@link Array.<module:model/StreamOrderBookBalanceEntry>}
      */
     streamOrderBookBalances(orderBookId, opts, callback) {
       opts = opts || {};
@@ -3718,7 +3718,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = StreamOrderBookBalancesResponse;
+      let returnType = [StreamOrderBookBalanceEntry];
       return this.apiClient.callApi(
         '/v1/orderbooks/{order_book_id}/balances/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -3776,7 +3776,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the streamTrades operation.
      * @callback module:api/DefaultApi~streamTradesCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/StreamTradesResponse} data The data returned by the service call.
+     * @param {Array.<module:model/StreamTradesEntry>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -3786,7 +3786,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Date} [since] 
      * @param {module:api/DefaultApi~streamTradesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/StreamTradesResponse}
+     * data is of type: {@link Array.<module:model/StreamTradesEntry>}
      */
     streamTrades(orderBookId, opts, callback) {
       opts = opts || {};
@@ -3810,7 +3810,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = StreamTradesResponse;
+      let returnType = [StreamTradesEntry];
       return this.apiClient.callApi(
         '/v1/trades/{order_book_id}/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

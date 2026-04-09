@@ -111,7 +111,6 @@ import OrderStatus from './model/OrderStatus';
 import OrderbookStats from './model/OrderbookStats';
 import OrderbookStatsResponseEnvelope from './model/OrderbookStatsResponseEnvelope';
 import PLAccount from './model/PLAccount';
-import PLAccounts from './model/PLAccounts';
 import PLAsset from './model/PLAsset';
 import PLResponseEnvelope from './model/PLResponseEnvelope';
 import PLSummary from './model/PLSummary';
@@ -124,7 +123,6 @@ import PoolRequestError from './model/PoolRequestError';
 import Portfolio from './model/Portfolio';
 import Position from './model/Position';
 import PositionAccount from './model/PositionAccount';
-import PositionAccounts from './model/PositionAccounts';
 import PositionAsset from './model/PositionAsset';
 import PositionResponse from './model/PositionResponse';
 import PositionSide from './model/PositionSide';
@@ -141,24 +139,15 @@ import SettleLeverageAccruedInterestRequest from './model/SettleLeverageAccruedI
 import SettleLeverageAccruedInterestResponseEnvelope from './model/SettleLeverageAccruedInterestResponseEnvelope';
 import SettleRealizedPnlRecordResponseEnvelope from './model/SettleRealizedPnlRecordResponseEnvelope';
 import Side from './model/Side';
-import StreamAssetPricesResponse from './model/StreamAssetPricesResponse';
 import StreamAssetsEntry from './model/StreamAssetsEntry';
-import StreamAssetsResponse from './model/StreamAssetsResponse';
 import StreamCandlesEntry from './model/StreamCandlesEntry';
-import StreamCandlesResponse from './model/StreamCandlesResponse';
 import StreamEntry from './model/StreamEntry';
 import StreamOrderBookBalanceEntry from './model/StreamOrderBookBalanceEntry';
-import StreamOrderBookBalancesResponse from './model/StreamOrderBookBalancesResponse';
 import StreamOrderUpdatesEntry from './model/StreamOrderUpdatesEntry';
-import StreamOrderUpdatesResponse from './model/StreamOrderUpdatesResponse';
 import StreamOrdersEntry from './model/StreamOrdersEntry';
-import StreamOrdersResponse from './model/StreamOrdersResponse';
 import StreamPositionsEntry from './model/StreamPositionsEntry';
-import StreamPositionsResponse from './model/StreamPositionsResponse';
 import StreamTradesEntry from './model/StreamTradesEntry';
-import StreamTradesResponse from './model/StreamTradesResponse';
 import StreamTransactionsEntry from './model/StreamTransactionsEntry';
-import StreamTransactionsResponse from './model/StreamTransactionsResponse';
 import StreamUserCouponPaymentsEntry from './model/StreamUserCouponPaymentsEntry';
 import StreamUserCouponPaymentsResponse from './model/StreamUserCouponPaymentsResponse';
 import Supply from './model/Supply';
@@ -844,12 +833,6 @@ export {
     PLAccount,
 
     /**
-     * The PLAccounts model constructor.
-     * @property {module:model/PLAccounts}
-     */
-    PLAccounts,
-
-    /**
      * The PLAsset model constructor.
      * @property {module:model/PLAsset}
      */
@@ -920,12 +903,6 @@ export {
      * @property {module:model/PositionAccount}
      */
     PositionAccount,
-
-    /**
-     * The PositionAccounts model constructor.
-     * @property {module:model/PositionAccounts}
-     */
-    PositionAccounts,
 
     /**
      * The PositionAsset model constructor.
@@ -1024,34 +1001,16 @@ export {
     Side,
 
     /**
-     * The StreamAssetPricesResponse model constructor.
-     * @property {module:model/StreamAssetPricesResponse}
-     */
-    StreamAssetPricesResponse,
-
-    /**
      * The StreamAssetsEntry model constructor.
      * @property {module:model/StreamAssetsEntry}
      */
     StreamAssetsEntry,
 
     /**
-     * The StreamAssetsResponse model constructor.
-     * @property {module:model/StreamAssetsResponse}
-     */
-    StreamAssetsResponse,
-
-    /**
      * The StreamCandlesEntry model constructor.
      * @property {module:model/StreamCandlesEntry}
      */
     StreamCandlesEntry,
-
-    /**
-     * The StreamCandlesResponse model constructor.
-     * @property {module:model/StreamCandlesResponse}
-     */
-    StreamCandlesResponse,
 
     /**
      * The StreamEntry model constructor.
@@ -1066,22 +1025,10 @@ export {
     StreamOrderBookBalanceEntry,
 
     /**
-     * The StreamOrderBookBalancesResponse model constructor.
-     * @property {module:model/StreamOrderBookBalancesResponse}
-     */
-    StreamOrderBookBalancesResponse,
-
-    /**
      * The StreamOrderUpdatesEntry model constructor.
      * @property {module:model/StreamOrderUpdatesEntry}
      */
     StreamOrderUpdatesEntry,
-
-    /**
-     * The StreamOrderUpdatesResponse model constructor.
-     * @property {module:model/StreamOrderUpdatesResponse}
-     */
-    StreamOrderUpdatesResponse,
 
     /**
      * The StreamOrdersEntry model constructor.
@@ -1090,22 +1037,10 @@ export {
     StreamOrdersEntry,
 
     /**
-     * The StreamOrdersResponse model constructor.
-     * @property {module:model/StreamOrdersResponse}
-     */
-    StreamOrdersResponse,
-
-    /**
      * The StreamPositionsEntry model constructor.
      * @property {module:model/StreamPositionsEntry}
      */
     StreamPositionsEntry,
-
-    /**
-     * The StreamPositionsResponse model constructor.
-     * @property {module:model/StreamPositionsResponse}
-     */
-    StreamPositionsResponse,
 
     /**
      * The StreamTradesEntry model constructor.
@@ -1114,22 +1049,10 @@ export {
     StreamTradesEntry,
 
     /**
-     * The StreamTradesResponse model constructor.
-     * @property {module:model/StreamTradesResponse}
-     */
-    StreamTradesResponse,
-
-    /**
      * The StreamTransactionsEntry model constructor.
      * @property {module:model/StreamTransactionsEntry}
      */
     StreamTransactionsEntry,
-
-    /**
-     * The StreamTransactionsResponse model constructor.
-     * @property {module:model/StreamTransactionsResponse}
-     */
-    StreamTransactionsResponse,
 
     /**
      * The StreamUserCouponPaymentsEntry model constructor.

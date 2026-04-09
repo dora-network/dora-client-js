@@ -1135,7 +1135,7 @@ No authorization required
 
 ## getAssetsStream
 
-> StreamAssetsResponse getAssetsStream(opts)
+> [StreamAssetsEntry] getAssetsStream(opts)
 
 Get all inserts or updates for assets
 
@@ -1168,7 +1168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StreamAssetsResponse**](StreamAssetsResponse.md)
+[**[StreamAssetsEntry]**](StreamAssetsEntry.md)
 
 ### Authorization
 
@@ -2727,7 +2727,7 @@ Name | Type | Description  | Notes
 
 ## getUserLedgerStream
 
-> StreamPositionsResponse getUserLedgerStream(userId)
+> [StreamPositionsEntry] getUserLedgerStream(userId)
 
 Get a snapshot of user&#39;s ledger updates since a specific time, and opens a stream for further updates
 
@@ -2762,7 +2762,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StreamPositionsResponse**](StreamPositionsResponse.md)
+[**[StreamPositionsEntry]**](StreamPositionsEntry.md)
 
 ### Authorization
 
@@ -2776,7 +2776,7 @@ Name | Type | Description  | Notes
 
 ## getUserOrderUpdatesStream
 
-> StreamOrderUpdatesResponse getUserOrderUpdatesStream(userId, orderBookId, opts)
+> [StreamOrderUpdatesEntry] getUserOrderUpdatesStream(userId, orderBookId, opts)
 
 Get a snapshot of user&#39;s order updates for the given order book since a specific time, and opens a stream for further updates
 
@@ -2817,7 +2817,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StreamOrderUpdatesResponse**](StreamOrderUpdatesResponse.md)
+[**[StreamOrderUpdatesEntry]**](StreamOrderUpdatesEntry.md)
 
 ### Authorization
 
@@ -2831,7 +2831,7 @@ Name | Type | Description  | Notes
 
 ## getUserOrdersUpdatesStreamAll
 
-> StreamOrderUpdatesResponse getUserOrdersUpdatesStreamAll(userId, opts)
+> [StreamOrderUpdatesEntry] getUserOrdersUpdatesStreamAll(userId, opts)
 
 Get a snapshot of user&#39;s order updates across all order books since a specific time, and opens a stream for further updates
 
@@ -2870,7 +2870,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StreamOrderUpdatesResponse**](StreamOrderUpdatesResponse.md)
+[**[StreamOrderUpdatesEntry]**](StreamOrderUpdatesEntry.md)
 
 ### Authorization
 
@@ -2932,7 +2932,7 @@ This endpoint does not need any parameter.
 
 ## getUserTransactionsStream
 
-> StreamTransactionsResponse getUserTransactionsStream(userId, opts)
+> [StreamTransactionsEntry] getUserTransactionsStream(userId, opts)
 
 Get a snapshot of user&#39;s executed transactions since a specific time, and opens a stream for further updates
 
@@ -2971,7 +2971,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StreamTransactionsResponse**](StreamTransactionsResponse.md)
+[**[StreamTransactionsEntry]**](StreamTransactionsEntry.md)
 
 ### Authorization
 
@@ -4246,7 +4246,7 @@ Name | Type | Description  | Notes
 
 ## streamAssetPrices
 
-> StreamAssetPricesResponse streamAssetPrices(opts)
+> {String: AssetPrice} streamAssetPrices(opts)
 
 Stream real-time asset prices as map objects
 
@@ -4281,7 +4281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StreamAssetPricesResponse**](StreamAssetPricesResponse.md)
+[**{String: AssetPrice}**](AssetPrice.md)
 
 ### Authorization
 
@@ -4295,7 +4295,7 @@ No authorization required
 
 ## streamCandleData
 
-> StreamCandlesResponse streamCandleData(orderBookId, opts)
+> [StreamCandlesEntry] streamCandleData(orderBookId, opts)
 
 Get a snapshot of candlestick data from date provided, and open a stream for real-time updates
 
@@ -4330,7 +4330,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StreamCandlesResponse**](StreamCandlesResponse.md)
+[**[StreamCandlesEntry]**](StreamCandlesEntry.md)
 
 ### Authorization
 
@@ -4344,7 +4344,7 @@ No authorization required
 
 ## streamOrderBookBalances
 
-> StreamOrderBookBalancesResponse streamOrderBookBalances(orderBookId, opts)
+> [StreamOrderBookBalanceEntry] streamOrderBookBalances(orderBookId, opts)
 
 Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
 
@@ -4377,7 +4377,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StreamOrderBookBalancesResponse**](StreamOrderBookBalancesResponse.md)
+[**[StreamOrderBookBalanceEntry]**](StreamOrderBookBalanceEntry.md)
 
 ### Authorization
 
@@ -4438,7 +4438,7 @@ No authorization required
 
 ## streamTrades
 
-> StreamTradesResponse streamTrades(orderBookId, opts)
+> [StreamTradesEntry] streamTrades(orderBookId, opts)
 
 Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
 
@@ -4471,7 +4471,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StreamTradesResponse**](StreamTradesResponse.md)
+[**[StreamTradesEntry]**](StreamTradesEntry.md)
 
 ### Authorization
 

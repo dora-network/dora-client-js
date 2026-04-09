@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Metadata from './Metadata';
-import PLAccounts from './PLAccounts';
+import PLAccount from './PLAccount';
 import ResponseEnvelope from './ResponseEnvelope';
 
 /**
@@ -55,7 +55,7 @@ class PLResponseEnvelope {
             ResponseEnvelope.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = PLAccounts.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [PLAccount]);
             }
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
@@ -79,6 +79,16 @@ class PLResponseEnvelope {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        if (data['data']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['data'])) {
+                throw new Error("Expected the field `data` to be an array in the JSON data but got " + data['data']);
+            }
+            // validate the optional field `data` (array)
+            for (const item of data['data']) {
+                PLAccount.validateJSON(item);
+            };
+        }
         // ensure the json data is a string
         if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
             throw new Error("Expected the field `error` to be a primitive type in the JSON string but got " + data['error']);
@@ -97,7 +107,7 @@ class PLResponseEnvelope {
 PLResponseEnvelope.RequiredProperties = ["metadata"];
 
 /**
- * @member {module:model/PLAccounts} data
+ * @member {Array.<module:model/PLAccount>} data
  */
 PLResponseEnvelope.prototype['data'] = undefined;
 

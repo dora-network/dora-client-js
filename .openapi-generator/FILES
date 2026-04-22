@@ -29,6 +29,7 @@ docs/ClosePositionRequest.md
 docs/ClosePositionResp.md
 docs/ClosePositionResponseEnvelope.md
 docs/Collateral.md
+docs/CountryCode.md
 docs/CouponPayment.md
 docs/CreateAPIKeyData.md
 docs/CreateAPIKeyRequest.md
@@ -226,6 +227,7 @@ src/model/ClosePositionRequest.js
 src/model/ClosePositionResp.js
 src/model/ClosePositionResponseEnvelope.js
 src/model/Collateral.js
+src/model/CountryCode.js
 src/model/CouponPayment.js
 src/model/CreateAPIKeyData.js
 src/model/CreateAPIKeyRequest.js
@@ -417,6 +419,7 @@ test/model/ClosePositionRequest.spec.js
 test/model/ClosePositionResp.spec.js
 test/model/ClosePositionResponseEnvelope.spec.js
 test/model/Collateral.spec.js
+test/model/CountryCode.spec.js
 test/model/CouponPayment.spec.js
 test/model/CreateAPIKeyData.spec.js
 test/model/CreateAPIKeyRequest.spec.js

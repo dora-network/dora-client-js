@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
+**firstName** | **String** |  | [optional] 
+**lastName** | **String** |  | [optional] 
+**countryOfDomicile** | [**CountryCode**](CountryCode.md) |  | [optional] 
 **nativeAssetId** | **String** |  | [optional] 
 **photoUrl** | **String** |  | [optional] 
 **provider** | **String** |  | [optional] 

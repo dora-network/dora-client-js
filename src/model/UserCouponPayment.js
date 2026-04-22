@@ -92,6 +92,9 @@ class UserCouponPayment {
             if (data.hasOwnProperty('ended_at')) {
                 obj['ended_at'] = ApiClient.convertToType(data['ended_at'], 'Date');
             }
+            if (data.hasOwnProperty('transaction_id')) {
+                obj['transaction_id'] = ApiClient.convertToType(data['transaction_id'], 'String');
+            }
         }
         return obj;
     }
@@ -131,6 +134,10 @@ class UserCouponPayment {
         // ensure the json data is a string
         if (data['completed'] && !(typeof data['completed'] === 'string' || data['completed'] instanceof String)) {
             throw new Error("Expected the field `completed` to be a primitive type in the JSON string but got " + data['completed']);
+        }
+        // ensure the json data is a string
+        if (data['transaction_id'] && !(typeof data['transaction_id'] === 'string' || data['transaction_id'] instanceof String)) {
+            throw new Error("Expected the field `transaction_id` to be a primitive type in the JSON string but got " + data['transaction_id']);
         }
 
         return true;
@@ -185,6 +192,11 @@ UserCouponPayment.prototype['started_at'] = undefined;
  * @member {Date} ended_at
  */
 UserCouponPayment.prototype['ended_at'] = undefined;
+
+/**
+ * @member {String} transaction_id
+ */
+UserCouponPayment.prototype['transaction_id'] = undefined;
 
 
 

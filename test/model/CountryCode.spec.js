@@ -28,7 +28,6 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.PayLeverageAccruedInterestRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,23 +46,11 @@
       object[property] = value;
   }
 
-  describe('PayLeverageAccruedInterestRequest', function() {
-    it('should create an instance of PayLeverageAccruedInterestRequest', function() {
-      // uncomment below and update the code to test PayLeverageAccruedInterestRequest
-      //var instance = new Dora.PayLeverageAccruedInterestRequest();
-      //expect(instance).to.be.a(Dora.PayLeverageAccruedInterestRequest);
-    });
-
-    it('should have the property assetId (base name: "asset_id")', function() {
-      // uncomment below and update the code to test the property assetId
-      //var instance = new Dora.PayLeverageAccruedInterestRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property positionId (base name: "position_id")', function() {
-      // uncomment below and update the code to test the property positionId
-      //var instance = new Dora.PayLeverageAccruedInterestRequest();
-      //expect(instance).to.be();
+  describe('CountryCode', function() {
+    it('should create an instance of CountryCode', function() {
+      // uncomment below and update the code to test CountryCode
+      //var instance = new Dora.CountryCode();
+      //expect(instance).to.be.a(Dora.CountryCode);
     });
 
   });

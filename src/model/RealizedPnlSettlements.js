@@ -57,6 +57,12 @@ class RealizedPnlSettlements {
             if (data.hasOwnProperty('tenant_totals')) {
                 obj['tenant_totals'] = ApiClient.convertToType(data['tenant_totals'], {'String': 'Number'});
             }
+            if (data.hasOwnProperty('user_totals_unsettled')) {
+                obj['user_totals_unsettled'] = ApiClient.convertToType(data['user_totals_unsettled'], {'String': 'Number'});
+            }
+            if (data.hasOwnProperty('tenant_totals_unsettled')) {
+                obj['tenant_totals_unsettled'] = ApiClient.convertToType(data['tenant_totals_unsettled'], {'String': 'Number'});
+            }
         }
         return obj;
     }
@@ -103,6 +109,18 @@ RealizedPnlSettlements.prototype['user_totals'] = undefined;
  * @member {Object.<String, Number>} tenant_totals
  */
 RealizedPnlSettlements.prototype['tenant_totals'] = undefined;
+
+/**
+ * A map of user IDs to their total realized PnL in USD across unsettled settlements (where settled_at is null) included in the response
+ * @member {Object.<String, Number>} user_totals_unsettled
+ */
+RealizedPnlSettlements.prototype['user_totals_unsettled'] = undefined;
+
+/**
+ * A map of tenant IDs to their total realized PnL in USD across unsettled settlements (where settled_at is null) included in the response
+ * @member {Object.<String, Number>} tenant_totals_unsettled
+ */
+RealizedPnlSettlements.prototype['tenant_totals_unsettled'] = undefined;
 
 
 

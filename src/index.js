@@ -40,6 +40,7 @@ import ClosePositionRequest from './model/ClosePositionRequest';
 import ClosePositionResp from './model/ClosePositionResp';
 import ClosePositionResponseEnvelope from './model/ClosePositionResponseEnvelope';
 import Collateral from './model/Collateral';
+import CountryCode from './model/CountryCode';
 import CouponPayment from './model/CouponPayment';
 import CreateAPIKeyData from './model/CreateAPIKeyData';
 import CreateAPIKeyRequest from './model/CreateAPIKeyRequest';
@@ -405,6 +406,12 @@ export {
      * @property {module:model/Collateral}
      */
     Collateral,
+
+    /**
+     * The CountryCode model constructor.
+     * @property {module:model/CountryCode}
+     */
+    CountryCode,
 
     /**
      * The CouponPayment model constructor.

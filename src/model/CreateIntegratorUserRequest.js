@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import CountryCode from './CountryCode';
 
 /**
  * The CreateIntegratorUserRequest model module.
@@ -50,8 +51,14 @@ class CreateIntegratorUserRequest {
             if (data.hasOwnProperty('email')) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('first_name')) {
+                obj['first_name'] = ApiClient.convertToType(data['first_name'], 'String');
+            }
+            if (data.hasOwnProperty('last_name')) {
+                obj['last_name'] = ApiClient.convertToType(data['last_name'], 'String');
+            }
+            if (data.hasOwnProperty('country_of_domicile')) {
+                obj['country_of_domicile'] = CountryCode.constructFromObject(data['country_of_domicile']);
             }
             if (data.hasOwnProperty('native_asset_id')) {
                 obj['native_asset_id'] = ApiClient.convertToType(data['native_asset_id'], 'String');
@@ -83,8 +90,12 @@ class CreateIntegratorUserRequest {
             throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
         }
         // ensure the json data is a string
-        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
-            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        if (data['first_name'] && !(typeof data['first_name'] === 'string' || data['first_name'] instanceof String)) {
+            throw new Error("Expected the field `first_name` to be a primitive type in the JSON string but got " + data['first_name']);
+        }
+        // ensure the json data is a string
+        if (data['last_name'] && !(typeof data['last_name'] === 'string' || data['last_name'] instanceof String)) {
+            throw new Error("Expected the field `last_name` to be a primitive type in the JSON string but got " + data['last_name']);
         }
         // ensure the json data is a string
         if (data['native_asset_id'] && !(typeof data['native_asset_id'] === 'string' || data['native_asset_id'] instanceof String)) {
@@ -121,9 +132,19 @@ class CreateIntegratorUserRequest {
 CreateIntegratorUserRequest.prototype['email'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} first_name
  */
-CreateIntegratorUserRequest.prototype['name'] = undefined;
+CreateIntegratorUserRequest.prototype['first_name'] = undefined;
+
+/**
+ * @member {String} last_name
+ */
+CreateIntegratorUserRequest.prototype['last_name'] = undefined;
+
+/**
+ * @member {module:model/CountryCode} country_of_domicile
+ */
+CreateIntegratorUserRequest.prototype['country_of_domicile'] = undefined;
 
 /**
  * @member {String} native_asset_id

@@ -72,6 +72,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property userTotalsUnsettled (base name: "user_totals_unsettled")', function() {
+      // uncomment below and update the code to test the property userTotalsUnsettled
+      //var instance = new Dora.RealizedPnlSettlements();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property tenantTotalsUnsettled (base name: "tenant_totals_unsettled")', function() {
+      // uncomment below and update the code to test the property tenantTotalsUnsettled
+      //var instance = new Dora.RealizedPnlSettlements();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

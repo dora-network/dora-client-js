@@ -1976,6 +1976,8 @@ export default class DefaultApi {
      * @param {String} [tenantId] 
      * @param {String} [positionId] 
      * @param {Date} [createdAfter] 
+     * @param {Date} [createdBefore] 
+     * @param {Date} [settledAfter] 
      * @param {Date} [settledBefore] 
      * @param {Boolean} [isSettled] 
      * @param {module:api/DefaultApi~getRealizedPnlSettlementsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -1992,6 +1994,8 @@ export default class DefaultApi {
         'tenant_id': opts['tenantId'],
         'position_id': opts['positionId'],
         'created_after': opts['createdAfter'],
+        'created_before': opts['createdBefore'],
+        'settled_after': opts['settledAfter'],
         'settled_before': opts['settledBefore'],
         'is_settled': opts['isSettled']
       };

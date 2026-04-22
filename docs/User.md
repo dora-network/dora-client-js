@@ -8,7 +8,9 @@ Name | Type | Description | Notes
 **closedAt** | **Date** |  | [optional] 
 **disabledAt** | **Date** |  | [optional] 
 **email** | **String** |  | 
-**name** | **String** |  | 
+**firstName** | **String** |  | 
+**lastName** | **String** |  | 
+**countryOfDomicile** | [**CountryCode**](CountryCode.md) |  | 
 **nativeAssetId** | **String** |  | 
 **photoUrl** | **String** |  | [optional] 
 **provider** | **String** |  | [optional] 

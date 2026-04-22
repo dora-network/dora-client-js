@@ -2311,6 +2311,8 @@ let opts = {
   'tenantId': "tenantId_example", // String | 
   'positionId': "positionId_example", // String | 
   'createdAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'createdBefore': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'settledAfter': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'settledBefore': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'isSettled': true // Boolean | 
 };
@@ -2332,6 +2334,8 @@ Name | Type | Description  | Notes
  **tenantId** | **String**|  | [optional] 
  **positionId** | **String**|  | [optional] 
  **createdAfter** | **Date**|  | [optional] 
+ **createdBefore** | **Date**|  | [optional] 
+ **settledAfter** | **Date**|  | [optional] 
  **settledBefore** | **Date**|  | [optional] 
  **isSettled** | **Boolean**|  | [optional] 
 

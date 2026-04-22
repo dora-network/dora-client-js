@@ -108,6 +108,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property transactionId (base name: "transaction_id")', function() {
+      // uncomment below and update the code to test the property transactionId
+      //var instance = new Dora.UserCouponPayment();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

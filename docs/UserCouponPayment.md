@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **completed** | **String** |  | 
 **startedAt** | **Date** |  | 
 **endedAt** | **Date** |  | 
+**transactionId** | **String** |  | [optional] 
 
 

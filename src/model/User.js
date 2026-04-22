@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import CountryCode from './CountryCode';
 import UserRole from './UserRole';
 
 /**
@@ -25,7 +26,9 @@ class User {
      * @alias module:model/User
      * @param id {String} 
      * @param email {String} 
-     * @param name {String} 
+     * @param firstName {String} 
+     * @param lastName {String} 
+     * @param countryOfDomicile {module:model/CountryCode} 
      * @param nativeAssetId {String} 
      * @param roles {Array.<module:model/UserRole>} 
      * @param showTutorialCards {Boolean} 
@@ -36,9 +39,9 @@ class User {
      * @param allowDepositWithdrawalNotifications {Boolean} 
      * @param allowOrdersNotifications {Boolean} 
      */
-    constructor(id, email, name, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications) { 
+    constructor(id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications) { 
         
-        User.initialize(this, id, email, name, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications);
+        User.initialize(this, id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications);
     }
 
     /**
@@ -46,10 +49,12 @@ class User {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, email, name, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications) { 
+    static initialize(obj, id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications) { 
         obj['id'] = id;
         obj['email'] = email;
-        obj['name'] = name;
+        obj['first_name'] = firstName;
+        obj['last_name'] = lastName;
+        obj['country_of_domicile'] = countryOfDomicile;
         obj['native_asset_id'] = nativeAssetId;
         obj['roles'] = roles;
         obj['show_tutorial_cards'] = showTutorialCards;
@@ -84,8 +89,14 @@ class User {
             if (data.hasOwnProperty('email')) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('first_name')) {
+                obj['first_name'] = ApiClient.convertToType(data['first_name'], 'String');
+            }
+            if (data.hasOwnProperty('last_name')) {
+                obj['last_name'] = ApiClient.convertToType(data['last_name'], 'String');
+            }
+            if (data.hasOwnProperty('country_of_domicile')) {
+                obj['country_of_domicile'] = CountryCode.constructFromObject(data['country_of_domicile']);
             }
             if (data.hasOwnProperty('native_asset_id')) {
                 obj['native_asset_id'] = ApiClient.convertToType(data['native_asset_id'], 'String');
@@ -157,8 +168,12 @@ class User {
             throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
         }
         // ensure the json data is a string
-        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
-            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        if (data['first_name'] && !(typeof data['first_name'] === 'string' || data['first_name'] instanceof String)) {
+            throw new Error("Expected the field `first_name` to be a primitive type in the JSON string but got " + data['first_name']);
+        }
+        // ensure the json data is a string
+        if (data['last_name'] && !(typeof data['last_name'] === 'string' || data['last_name'] instanceof String)) {
+            throw new Error("Expected the field `last_name` to be a primitive type in the JSON string but got " + data['last_name']);
         }
         // ensure the json data is a string
         if (data['native_asset_id'] && !(typeof data['native_asset_id'] === 'string' || data['native_asset_id'] instanceof String)) {
@@ -195,7 +210,7 @@ class User {
 
 }
 
-User.RequiredProperties = ["id", "email", "name", "native_asset_id", "roles", "show_tutorial_cards", "notifications_enabled", "tenant_id", "allow_email_notifications", "allow_liquidations_notifications", "allow_deposit_withdrawal_notifications", "allow_orders_notifications"];
+User.RequiredProperties = ["id", "email", "first_name", "last_name", "country_of_domicile", "native_asset_id", "roles", "show_tutorial_cards", "notifications_enabled", "tenant_id", "allow_email_notifications", "allow_liquidations_notifications", "allow_deposit_withdrawal_notifications", "allow_orders_notifications"];
 
 /**
  * @member {String} id
@@ -218,9 +233,19 @@ User.prototype['disabled_at'] = undefined;
 User.prototype['email'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} first_name
  */
-User.prototype['name'] = undefined;
+User.prototype['first_name'] = undefined;
+
+/**
+ * @member {String} last_name
+ */
+User.prototype['last_name'] = undefined;
+
+/**
+ * @member {module:model/CountryCode} country_of_domicile
+ */
+User.prototype['country_of_domicile'] = undefined;
 
 /**
  * @member {String} native_asset_id

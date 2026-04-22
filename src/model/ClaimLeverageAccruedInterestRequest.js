@@ -22,13 +22,12 @@ class ClaimLeverageAccruedInterestRequest {
     /**
      * Constructs a new <code>ClaimLeverageAccruedInterestRequest</code>.
      * @alias module:model/ClaimLeverageAccruedInterestRequest
-     * @param positionId {String} 
      * @param assetId {String} 
-     * @param quantity {String} 
+     * @param positionId {String} 
      */
-    constructor(positionId, assetId, quantity) { 
+    constructor(assetId, positionId) { 
         
-        ClaimLeverageAccruedInterestRequest.initialize(this, positionId, assetId, quantity);
+        ClaimLeverageAccruedInterestRequest.initialize(this, assetId, positionId);
     }
 
     /**
@@ -36,10 +35,9 @@ class ClaimLeverageAccruedInterestRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, positionId, assetId, quantity) { 
-        obj['position_id'] = positionId;
+    static initialize(obj, assetId, positionId) { 
         obj['asset_id'] = assetId;
-        obj['quantity'] = quantity;
+        obj['position_id'] = positionId;
     }
 
     /**
@@ -53,14 +51,11 @@ class ClaimLeverageAccruedInterestRequest {
         if (data) {
             obj = obj || new ClaimLeverageAccruedInterestRequest();
 
-            if (data.hasOwnProperty('position_id')) {
-                obj['position_id'] = ApiClient.convertToType(data['position_id'], 'String');
-            }
             if (data.hasOwnProperty('asset_id')) {
                 obj['asset_id'] = ApiClient.convertToType(data['asset_id'], 'String');
             }
-            if (data.hasOwnProperty('quantity')) {
-                obj['quantity'] = ApiClient.convertToType(data['quantity'], 'String');
+            if (data.hasOwnProperty('position_id')) {
+                obj['position_id'] = ApiClient.convertToType(data['position_id'], 'String');
             }
         }
         return obj;
@@ -79,16 +74,12 @@ class ClaimLeverageAccruedInterestRequest {
             }
         }
         // ensure the json data is a string
-        if (data['position_id'] && !(typeof data['position_id'] === 'string' || data['position_id'] instanceof String)) {
-            throw new Error("Expected the field `position_id` to be a primitive type in the JSON string but got " + data['position_id']);
-        }
-        // ensure the json data is a string
         if (data['asset_id'] && !(typeof data['asset_id'] === 'string' || data['asset_id'] instanceof String)) {
             throw new Error("Expected the field `asset_id` to be a primitive type in the JSON string but got " + data['asset_id']);
         }
         // ensure the json data is a string
-        if (data['quantity'] && !(typeof data['quantity'] === 'string' || data['quantity'] instanceof String)) {
-            throw new Error("Expected the field `quantity` to be a primitive type in the JSON string but got " + data['quantity']);
+        if (data['position_id'] && !(typeof data['position_id'] === 'string' || data['position_id'] instanceof String)) {
+            throw new Error("Expected the field `position_id` to be a primitive type in the JSON string but got " + data['position_id']);
         }
 
         return true;
@@ -97,12 +88,7 @@ class ClaimLeverageAccruedInterestRequest {
 
 }
 
-ClaimLeverageAccruedInterestRequest.RequiredProperties = ["position_id", "asset_id", "quantity"];
-
-/**
- * @member {String} position_id
- */
-ClaimLeverageAccruedInterestRequest.prototype['position_id'] = undefined;
+ClaimLeverageAccruedInterestRequest.RequiredProperties = ["asset_id", "position_id"];
 
 /**
  * @member {String} asset_id
@@ -110,9 +96,9 @@ ClaimLeverageAccruedInterestRequest.prototype['position_id'] = undefined;
 ClaimLeverageAccruedInterestRequest.prototype['asset_id'] = undefined;
 
 /**
- * @member {String} quantity
+ * @member {String} position_id
  */
-ClaimLeverageAccruedInterestRequest.prototype['quantity'] = undefined;
+ClaimLeverageAccruedInterestRequest.prototype['position_id'] = undefined;
 
 
 

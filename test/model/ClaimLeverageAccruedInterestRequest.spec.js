@@ -54,20 +54,14 @@
       //expect(instance).to.be.a(Dora.ClaimLeverageAccruedInterestRequest);
     });
 
-    it('should have the property positionId (base name: "position_id")', function() {
-      // uncomment below and update the code to test the property positionId
-      //var instance = new Dora.ClaimLeverageAccruedInterestRequest();
-      //expect(instance).to.be();
-    });
-
     it('should have the property assetId (base name: "asset_id")', function() {
       // uncomment below and update the code to test the property assetId
       //var instance = new Dora.ClaimLeverageAccruedInterestRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property quantity (base name: "quantity")', function() {
-      // uncomment below and update the code to test the property quantity
+    it('should have the property positionId (base name: "position_id")', function() {
+      // uncomment below and update the code to test the property positionId
       //var instance = new Dora.ClaimLeverageAccruedInterestRequest();
       //expect(instance).to.be();
     });

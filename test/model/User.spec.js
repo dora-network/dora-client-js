@@ -78,8 +78,20 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
+    it('should have the property firstName (base name: "first_name")', function() {
+      // uncomment below and update the code to test the property firstName
+      //var instance = new Dora.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastName (base name: "last_name")', function() {
+      // uncomment below and update the code to test the property lastName
+      //var instance = new Dora.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property countryOfDomicile (base name: "country_of_domicile")', function() {
+      // uncomment below and update the code to test the property countryOfDomicile
       //var instance = new Dora.User();
       //expect(instance).to.be();
     });

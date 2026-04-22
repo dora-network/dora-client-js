@@ -254,6 +254,7 @@ Class | Method | HTTP request | Description
  - [Dora.ClosePositionResp](docs/ClosePositionResp.md)
  - [Dora.ClosePositionResponseEnvelope](docs/ClosePositionResponseEnvelope.md)
  - [Dora.Collateral](docs/Collateral.md)
+ - [Dora.CountryCode](docs/CountryCode.md)
  - [Dora.CouponPayment](docs/CouponPayment.md)
  - [Dora.CreateAPIKeyData](docs/CreateAPIKeyData.md)
  - [Dora.CreateAPIKeyRequest](docs/CreateAPIKeyRequest.md)

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.EmailExistsResponseEnvelope();
+    instance = new Dora.StreamCurrentLeverageAccruedInterestResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,16 @@
       object[property] = value;
   }
 
-  describe('EmailExistsResponseEnvelope', function() {
-    it('should create an instance of EmailExistsResponseEnvelope', function() {
-      // uncomment below and update the code to test EmailExistsResponseEnvelope
-      //var instance = new Dora.EmailExistsResponseEnvelope();
-      //expect(instance).to.be.a(Dora.EmailExistsResponseEnvelope);
+  describe('StreamCurrentLeverageAccruedInterestResponse', function() {
+    it('should create an instance of StreamCurrentLeverageAccruedInterestResponse', function() {
+      // uncomment below and update the code to test StreamCurrentLeverageAccruedInterestResponse
+      //var instance = new Dora.StreamCurrentLeverageAccruedInterestResponse();
+      //expect(instance).to.be.a(Dora.StreamCurrentLeverageAccruedInterestResponse);
     });
 
-    it('should have the property data (base name: "data")', function() {
-      // uncomment below and update the code to test the property data
-      //var instance = new Dora.EmailExistsResponseEnvelope();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property error (base name: "error")', function() {
-      // uncomment below and update the code to test the property error
-      //var instance = new Dora.EmailExistsResponseEnvelope();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property metadata (base name: "metadata")', function() {
-      // uncomment below and update the code to test the property metadata
-      //var instance = new Dora.EmailExistsResponseEnvelope();
+    it('should have the property currentLeverageAccruedInterest (base name: "current_leverage_accrued_interest")', function() {
+      // uncomment below and update the code to test the property currentLeverageAccruedInterest
+      //var instance = new Dora.StreamCurrentLeverageAccruedInterestResponse();
       //expect(instance).to.be();
     });
 

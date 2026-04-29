@@ -26,6 +26,7 @@ import ClaimLeverageAccruedInterestRequest from '../model/ClaimLeverageAccruedIn
 import ClaimLeverageAccruedInterestResponseEnvelope from '../model/ClaimLeverageAccruedInterestResponseEnvelope';
 import ClosePositionRequest from '../model/ClosePositionRequest';
 import ClosePositionResponseEnvelope from '../model/ClosePositionResponseEnvelope';
+import CountryCode from '../model/CountryCode';
 import CreateAPIKeyRequest from '../model/CreateAPIKeyRequest';
 import CreateAPIKeyResponseEnvelope from '../model/CreateAPIKeyResponseEnvelope';
 import CreateConditionalOrderRequest from '../model/CreateConditionalOrderRequest';
@@ -35,7 +36,6 @@ import CreateOrderRequest from '../model/CreateOrderRequest';
 import CreateOrderResponseEnvelope from '../model/CreateOrderResponseEnvelope';
 import CurrentLeverageAccruedInterestResponseEnvelope from '../model/CurrentLeverageAccruedInterestResponseEnvelope';
 import DefundUserRequest from '../model/DefundUserRequest';
-import EmailExistsResponseEnvelope from '../model/EmailExistsResponseEnvelope';
 import FundUserRequest from '../model/FundUserRequest';
 import FundUserResponseEnvelope from '../model/FundUserResponseEnvelope';
 import GetAssetByIDResponseEnvelope from '../model/GetAssetByIDResponseEnvelope';
@@ -58,6 +58,7 @@ import ListOrdersResponseEnvelope from '../model/ListOrdersResponseEnvelope';
 import ListPositionAccountsResponseEnvelope from '../model/ListPositionAccountsResponseEnvelope';
 import ListTradeResponseEnvelope from '../model/ListTradeResponseEnvelope';
 import ListTransactionsResponseEnvelope from '../model/ListTransactionsResponseEnvelope';
+import ListUsersResponseEnvelope from '../model/ListUsersResponseEnvelope';
 import LiveOrderbook from '../model/LiveOrderbook';
 import OrderBookResponseEnvelope from '../model/OrderBookResponseEnvelope';
 import OrderBookStatus from '../model/OrderBookStatus';
@@ -81,6 +82,7 @@ import SettleRealizedPnlRecordResponseEnvelope from '../model/SettleRealizedPnlR
 import Side from '../model/Side';
 import StreamAssetsEntry from '../model/StreamAssetsEntry';
 import StreamCandlesEntry from '../model/StreamCandlesEntry';
+import StreamCurrentLeverageAccruedInterestResponse from '../model/StreamCurrentLeverageAccruedInterestResponse';
 import StreamOrderBookBalanceEntry from '../model/StreamOrderBookBalanceEntry';
 import StreamOrderUpdatesEntry from '../model/StreamOrderUpdatesEntry';
 import StreamPositionsEntry from '../model/StreamPositionsEntry';
@@ -191,10 +193,11 @@ export default class DefaultApi {
      */
 
     /**
-     * Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user's orders on specific orderbook
+     * Cancel all open orders, if user passes orderbook or account_id on query params it will cancel all orders on specific orderbook or account, admin can cancel user's orders on specific orderbook
      * @param {Object} opts Optional parameters
      * @param {String} [orderBookId] 
      * @param {String} [userId] 
+     * @param {String} [accountId] 
      * @param {module:model/OrderKind} [orderKind] 
      * @param {module:api/DefaultApi~cancelAllOpenOrdersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ListOrdersResponseEnvelope}
@@ -208,6 +211,7 @@ export default class DefaultApi {
       let queryParams = {
         'order_book_id': opts['orderBookId'],
         'user_id': opts['userId'],
+        'account_id': opts['accountId'],
         'order_kind': opts['orderKind']
       };
       let headerParams = {
@@ -309,48 +313,6 @@ export default class DefaultApi {
       let returnType = CancelOrderResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/orders/{order_id}', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the checkUserEmailExists operation.
-     * @callback module:api/DefaultApi~checkUserEmailExistsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/EmailExistsResponseEnvelope} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Check whether a user email exists
-     * @param {String} email 
-     * @param {module:api/DefaultApi~checkUserEmailExistsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/EmailExistsResponseEnvelope}
-     */
-    checkUserEmailExists(email, callback) {
-      let postBody = null;
-      // verify the required parameter 'email' is set
-      if (email === undefined || email === null) {
-        throw new Error("Missing the required parameter 'email' when calling checkUserEmailExists");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'email': email
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = EmailExistsResponseEnvelope;
-      return this.apiClient.callApi(
-        '/v1/user/exists', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2256,6 +2218,46 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the getTransactionsStream operation.
+     * @callback module:api/DefaultApi~getTransactionsStreamCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/StreamTransactionsEntry>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get transactions since a specific time, and open a stream for further updates
+     * @param {Object} opts Optional parameters
+     * @param {Date} [since] 
+     * @param {module:api/DefaultApi~getTransactionsStreamCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/StreamTransactionsEntry>}
+     */
+    getTransactionsStream(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'since': opts['since']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthQuery'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [StreamTransactionsEntry];
+      return this.apiClient.callApi(
+        '/v1/transactions/stream', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getUserById operation.
      * @callback module:api/DefaultApi~getUserByIdCallback
      * @param {String} error Error message, if any.
@@ -2376,6 +2378,48 @@ export default class DefaultApi {
       let returnType = [StreamPositionsEntry];
       return this.apiClient.callApi(
         '/v1/user/{user_id}/ledger/stream', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getUserLeverageAccruedInterestStream operation.
+     * @callback module:api/DefaultApi~getUserLeverageAccruedInterestStreamCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/StreamCurrentLeverageAccruedInterestResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Stream user's current leverage accrued interest in real time
+     * @param {String} userId 
+     * @param {module:api/DefaultApi~getUserLeverageAccruedInterestStreamCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/StreamCurrentLeverageAccruedInterestResponse}
+     */
+    getUserLeverageAccruedInterestStream(userId, callback) {
+      let postBody = null;
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling getUserLeverageAccruedInterestStream");
+      }
+
+      let pathParams = {
+        'user_id': userId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthQuery'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = StreamCurrentLeverageAccruedInterestResponse;
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/leverage/accrued_interest/stream', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2556,6 +2600,58 @@ export default class DefaultApi {
       let returnType = [StreamTransactionsEntry];
       return this.apiClient.callApi(
         '/v1/user/{user_id}/transactions/stream', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getUsers operation.
+     * @callback module:api/DefaultApi~getUsersCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ListUsersResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get all users (admin only)
+     * @param {Object} opts Optional parameters
+     * @param {String} [id] 
+     * @param {Number} [limit = 100)] 
+     * @param {Number} [offset = 0)] 
+     * @param {String} [email] 
+     * @param {String} [firstName] 
+     * @param {String} [lastName] 
+     * @param {module:model/CountryCode} [countryOfDomicile] 
+     * @param {module:api/DefaultApi~getUsersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ListUsersResponseEnvelope}
+     */
+    getUsers(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'id': opts['id'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'email': opts['email'],
+        'first_name': opts['firstName'],
+        'last_name': opts['lastName'],
+        'country_of_domicile': opts['countryOfDomicile']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListUsersResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/user', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

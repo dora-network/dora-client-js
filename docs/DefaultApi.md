@@ -5,10 +5,9 @@ All URIs are relative to *https://staging.dora.co*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**approveLedgerWithdrawRequest**](DefaultApi.md#approveLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/approve | Approve a pending withdrawal request
-[**cancelAllOpenOrders**](DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#39;s orders on specific orderbook
+[**cancelAllOpenOrders**](DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook or account_id on query params it will cancel all orders on specific orderbook or account, admin can cancel user&#39;s orders on specific orderbook
 [**cancelLedgerWithdrawRequest**](DefaultApi.md#cancelLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/cancel | Cancel a pending withdrawal request
 [**cancelOrderById**](DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
-[**checkUserEmailExists**](DefaultApi.md#checkUserEmailExists) | **GET** /v1/user/exists | Check whether a user email exists
 [**claimLeverageGetAccruedInterest**](DefaultApi.md#claimLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/claim | Claim current accrued leverage interest for a specific user
 [**closeIsolatedPosition**](DefaultApi.md#closeIsolatedPosition) | **POST** /v1/positions/close | Close isolated positions, repaying the borrowed
 [**createAPIKeyForUser**](DefaultApi.md#createAPIKeyForUser) | **POST** /v1/user/apikey | Create apikey for a user
@@ -54,13 +53,16 @@ Method | HTTP request | Description
 [**getTransactionById**](DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{transaction_id} | Get a transaction by ID
 [**getTransactions**](DefaultApi.md#getTransactions) | **GET** /v1/transactions | Get a filtered, paginated list of transactions
 [**getTransactionsSettlements**](DefaultApi.md#getTransactionsSettlements) | **GET** /v1/transactions/settlements | Get transactions settlements with filters
+[**getTransactionsStream**](DefaultApi.md#getTransactionsStream) | **GET** /v1/transactions/stream | Get transactions since a specific time, and open a stream for further updates
 [**getUserById**](DefaultApi.md#getUserById) | **GET** /v1/user/{user_id} | Get user by ID (admin only)
 [**getUserCouponPaymentsStream**](DefaultApi.md#getUserCouponPaymentsStream) | **GET** /v1/user/{user_id}/coupon_payments/stream | Stream user&#39;s coupon payment accruals in real time
 [**getUserLedgerStream**](DefaultApi.md#getUserLedgerStream) | **GET** /v1/user/{user_id}/ledger/stream | Get a snapshot of user&#39;s ledger updates since a specific time, and opens a stream for further updates
+[**getUserLeverageAccruedInterestStream**](DefaultApi.md#getUserLeverageAccruedInterestStream) | **GET** /v1/user/{user_id}/leverage/accrued_interest/stream | Stream user&#39;s current leverage accrued interest in real time
 [**getUserOrderUpdatesStream**](DefaultApi.md#getUserOrderUpdatesStream) | **GET** /v1/user/{user_id}/orders/{order_book_id}/updates/stream | Get a snapshot of user&#39;s order updates for the given order book since a specific time, and opens a stream for further updates
 [**getUserOrdersUpdatesStreamAll**](DefaultApi.md#getUserOrdersUpdatesStreamAll) | **GET** /v1/user/{user_id}/orders/all/updates/stream | Get a snapshot of user&#39;s order updates across all order books since a specific time, and opens a stream for further updates
 [**getUserSelf**](DefaultApi.md#getUserSelf) | **GET** /v1/user/self | Get user details for the authenticated user
 [**getUserTransactionsStream**](DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#39;s executed transactions since a specific time, and opens a stream for further updates
+[**getUsers**](DefaultApi.md#getUsers) | **GET** /v1/user | Get all users (admin only)
 [**getUsersAPIKeys**](DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#39;s api keys
 [**ledgerDeposit**](DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit/{user_id} | Deposit assets into this user&#39;s account from the outside world
 [**ledgerWithdraw**](DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw/{user_id} | Withdraw assets from this user to the outside world
@@ -159,7 +161,7 @@ Name | Type | Description  | Notes
 
 > ListOrdersResponseEnvelope cancelAllOpenOrders(opts)
 
-Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#39;s orders on specific orderbook
+Cancel all open orders, if user passes orderbook or account_id on query params it will cancel all orders on specific orderbook or account, admin can cancel user&#39;s orders on specific orderbook
 
 ### Example
 
@@ -179,6 +181,7 @@ let apiInstance = new Dora.DefaultApi();
 let opts = {
   'orderBookId': "orderBookId_example", // String | 
   'userId': "userId_example", // String | 
+  'accountId': "accountId_example", // String | 
   'orderKind': new Dora.OrderKind() // OrderKind | 
 };
 apiInstance.cancelAllOpenOrders(opts, (error, data, response) => {
@@ -197,6 +200,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderBookId** | **String**|  | [optional] 
  **userId** | **String**|  | [optional] 
+ **accountId** | **String**|  | [optional] 
  **orderKind** | [**OrderKind**](.md)|  | [optional] 
 
 ### Return type
@@ -312,58 +316,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CancelOrderResponseEnvelope**](CancelOrderResponseEnvelope.md)
-
-### Authorization
-
-[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## checkUserEmailExists
-
-> EmailExistsResponseEnvelope checkUserEmailExists(email)
-
-Check whether a user email exists
-
-### Example
-
-```javascript
-import Dora from 'dora';
-let defaultClient = Dora.ApiClient.instance;
-// Configure API key authorization: apiKeyAuthHeader
-let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
-apiKeyAuthHeader.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKeyAuthHeader.apiKeyPrefix = 'Token';
-// Configure Bearer (JWT) access token for authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
-bearerAuth.accessToken = "YOUR ACCESS TOKEN"
-
-let apiInstance = new Dora.DefaultApi();
-let email = "email_example"; // String | 
-apiInstance.checkUserEmailExists(email, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email** | **String**|  | 
-
-### Return type
-
-[**EmailExistsResponseEnvelope**](EmailExistsResponseEnvelope.md)
 
 ### Authorization
 
@@ -2628,6 +2580,57 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getTransactionsStream
+
+> [StreamTransactionsEntry] getTransactionsStream(opts)
+
+Get transactions since a specific time, and open a stream for further updates
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthQuery
+let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
+apiKeyAuthQuery.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthQuery.apiKeyPrefix = 'Token';
+
+let apiInstance = new Dora.DefaultApi();
+let opts = {
+  'since': new Date("2013-10-20T19:20:30+01:00") // Date | 
+};
+apiInstance.getTransactionsStream(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **since** | **Date**|  | [optional] 
+
+### Return type
+
+[**[StreamTransactionsEntry]**](StreamTransactionsEntry.md)
+
+### Authorization
+
+[apiKeyAuthQuery](../README.md#apiKeyAuthQuery)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getUserById
 
 > UserEnvelope getUserById(userId)
@@ -2767,6 +2770,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[StreamPositionsEntry]**](StreamPositionsEntry.md)
+
+### Authorization
+
+[apiKeyAuthQuery](../README.md#apiKeyAuthQuery)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getUserLeverageAccruedInterestStream
+
+> StreamCurrentLeverageAccruedInterestResponse getUserLeverageAccruedInterestStream(userId)
+
+Stream user&#39;s current leverage accrued interest in real time
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthQuery
+let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
+apiKeyAuthQuery.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthQuery.apiKeyPrefix = 'Token';
+
+let apiInstance = new Dora.DefaultApi();
+let userId = "userId_example"; // String | 
+apiInstance.getUserLeverageAccruedInterestStream(userId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**|  | 
+
+### Return type
+
+[**StreamCurrentLeverageAccruedInterestResponse**](StreamCurrentLeverageAccruedInterestResponse.md)
 
 ### Authorization
 
@@ -2980,6 +3032,72 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [apiKeyAuthQuery](../README.md#apiKeyAuthQuery)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getUsers
+
+> ListUsersResponseEnvelope getUsers(opts)
+
+Get all users (admin only)
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let opts = {
+  'id': "id_example", // String | 
+  'limit': 100, // Number | 
+  'offset': 0, // Number | 
+  'email': "email_example", // String | 
+  'firstName': "firstName_example", // String | 
+  'lastName': "lastName_example", // String | 
+  'countryOfDomicile': new Dora.CountryCode() // CountryCode | 
+};
+apiInstance.getUsers(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | [optional] 
+ **limit** | **Number**|  | [optional] [default to 100]
+ **offset** | **Number**|  | [optional] [default to 0]
+ **email** | **String**|  | [optional] 
+ **firstName** | **String**|  | [optional] 
+ **lastName** | **String**|  | [optional] 
+ **countryOfDomicile** | [**CountryCode**](.md)|  | [optional] 
+
+### Return type
+
+[**ListUsersResponseEnvelope**](ListUsersResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

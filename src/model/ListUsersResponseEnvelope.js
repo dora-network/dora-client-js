@@ -14,23 +14,23 @@
 import ApiClient from '../ApiClient';
 import Metadata from './Metadata';
 import ResponseEnvelope from './ResponseEnvelope';
-import UserExistsResponse from './UserExistsResponse';
+import User from './User';
 
 /**
- * The EmailExistsResponseEnvelope model module.
- * @module model/EmailExistsResponseEnvelope
+ * The ListUsersResponseEnvelope model module.
+ * @module model/ListUsersResponseEnvelope
  * @version 1.0.0
  */
-class EmailExistsResponseEnvelope {
+class ListUsersResponseEnvelope {
     /**
-     * Constructs a new <code>EmailExistsResponseEnvelope</code>.
-     * @alias module:model/EmailExistsResponseEnvelope
+     * Constructs a new <code>ListUsersResponseEnvelope</code>.
+     * @alias module:model/ListUsersResponseEnvelope
      * @implements module:model/ResponseEnvelope
      * @param metadata {module:model/Metadata} Metadata about the response, including status code and trace information.
      */
     constructor(metadata) { 
         ResponseEnvelope.initialize(this, metadata);
-        EmailExistsResponseEnvelope.initialize(this, metadata);
+        ListUsersResponseEnvelope.initialize(this, metadata);
     }
 
     /**
@@ -43,19 +43,19 @@ class EmailExistsResponseEnvelope {
     }
 
     /**
-     * Constructs a <code>EmailExistsResponseEnvelope</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ListUsersResponseEnvelope</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/EmailExistsResponseEnvelope} obj Optional instance to populate.
-     * @return {module:model/EmailExistsResponseEnvelope} The populated <code>EmailExistsResponseEnvelope</code> instance.
+     * @param {module:model/ListUsersResponseEnvelope} obj Optional instance to populate.
+     * @return {module:model/ListUsersResponseEnvelope} The populated <code>ListUsersResponseEnvelope</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new EmailExistsResponseEnvelope();
+            obj = obj || new ListUsersResponseEnvelope();
             ResponseEnvelope.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = UserExistsResponse.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [User]);
             }
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
@@ -68,20 +68,26 @@ class EmailExistsResponseEnvelope {
     }
 
     /**
-     * Validates the JSON data with respect to <code>EmailExistsResponseEnvelope</code>.
+     * Validates the JSON data with respect to <code>ListUsersResponseEnvelope</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>EmailExistsResponseEnvelope</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ListUsersResponseEnvelope</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of EmailExistsResponseEnvelope.RequiredProperties) {
+        for (const property of ListUsersResponseEnvelope.RequiredProperties) {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
-        // validate the optional field `data`
         if (data['data']) { // data not null
-          UserExistsResponse.validateJSON(data['data']);
+            // ensure the json data is an array
+            if (!Array.isArray(data['data'])) {
+                throw new Error("Expected the field `data` to be an array in the JSON data but got " + data['data']);
+            }
+            // validate the optional field `data` (array)
+            for (const item of data['data']) {
+                User.validateJSON(item);
+            };
         }
         // ensure the json data is a string
         if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
@@ -98,24 +104,24 @@ class EmailExistsResponseEnvelope {
 
 }
 
-EmailExistsResponseEnvelope.RequiredProperties = ["metadata"];
+ListUsersResponseEnvelope.RequiredProperties = ["metadata"];
 
 /**
- * @member {module:model/UserExistsResponse} data
+ * @member {Array.<module:model/User>} data
  */
-EmailExistsResponseEnvelope.prototype['data'] = undefined;
+ListUsersResponseEnvelope.prototype['data'] = undefined;
 
 /**
  * The error message. Present for error (non-2xx) responses.
  * @member {String} error
  */
-EmailExistsResponseEnvelope.prototype['error'] = undefined;
+ListUsersResponseEnvelope.prototype['error'] = undefined;
 
 /**
  * Metadata about the response, including status code and trace information.
  * @member {module:model/Metadata} metadata
  */
-EmailExistsResponseEnvelope.prototype['metadata'] = undefined;
+ListUsersResponseEnvelope.prototype['metadata'] = undefined;
 
 
 // Implement ResponseEnvelope interface:
@@ -138,5 +144,5 @@ ResponseEnvelope.prototype['metadata'] = undefined;
 
 
 
-export default EmailExistsResponseEnvelope;
+export default ListUsersResponseEnvelope;
 

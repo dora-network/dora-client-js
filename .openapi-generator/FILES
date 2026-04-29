@@ -45,7 +45,6 @@ docs/CurrentLeverageAccruedInterest.md
 docs/CurrentLeverageAccruedInterestResponseEnvelope.md
 docs/DefaultApi.md
 docs/DefundUserRequest.md
-docs/EmailExistsResponseEnvelope.md
 docs/FundUser.md
 docs/FundUserRequest.md
 docs/FundUserResponseEnvelope.md
@@ -78,6 +77,7 @@ docs/ListPositionsResponse.md
 docs/ListTradeResponseEnvelope.md
 docs/ListTransactionsResponseEnvelope.md
 docs/ListUserCouponPaymentsResponseEnvelope.md
+docs/ListUsersResponseEnvelope.md
 docs/LiveOrderbook.md
 docs/Margin.md
 docs/Metadata.md
@@ -132,6 +132,7 @@ docs/SettleRealizedPnlRecordResponseEnvelope.md
 docs/Side.md
 docs/StreamAssetsEntry.md
 docs/StreamCandlesEntry.md
+docs/StreamCurrentLeverageAccruedInterestResponse.md
 docs/StreamEntry.md
 docs/StreamOrderBookBalanceEntry.md
 docs/StreamOrderUpdatesEntry.md
@@ -242,7 +243,6 @@ src/model/CreateOrderResponseEnvelope.js
 src/model/CurrentLeverageAccruedInterest.js
 src/model/CurrentLeverageAccruedInterestResponseEnvelope.js
 src/model/DefundUserRequest.js
-src/model/EmailExistsResponseEnvelope.js
 src/model/FundUser.js
 src/model/FundUserRequest.js
 src/model/FundUserResponseEnvelope.js
@@ -275,6 +275,7 @@ src/model/ListPositionsResponse.js
 src/model/ListTradeResponseEnvelope.js
 src/model/ListTransactionsResponseEnvelope.js
 src/model/ListUserCouponPaymentsResponseEnvelope.js
+src/model/ListUsersResponseEnvelope.js
 src/model/LiveOrderbook.js
 src/model/Margin.js
 src/model/Metadata.js
@@ -329,6 +330,7 @@ src/model/SettleRealizedPnlRecordResponseEnvelope.js
 src/model/Side.js
 src/model/StreamAssetsEntry.js
 src/model/StreamCandlesEntry.js
+src/model/StreamCurrentLeverageAccruedInterestResponse.js
 src/model/StreamEntry.js
 src/model/StreamOrderBookBalanceEntry.js
 src/model/StreamOrderUpdatesEntry.js
@@ -434,7 +436,6 @@ test/model/CreateOrderResponseEnvelope.spec.js
 test/model/CurrentLeverageAccruedInterest.spec.js
 test/model/CurrentLeverageAccruedInterestResponseEnvelope.spec.js
 test/model/DefundUserRequest.spec.js
-test/model/EmailExistsResponseEnvelope.spec.js
 test/model/FundUser.spec.js
 test/model/FundUserRequest.spec.js
 test/model/FundUserResponseEnvelope.spec.js
@@ -467,6 +468,7 @@ test/model/ListPositionsResponse.spec.js
 test/model/ListTradeResponseEnvelope.spec.js
 test/model/ListTransactionsResponseEnvelope.spec.js
 test/model/ListUserCouponPaymentsResponseEnvelope.spec.js
+test/model/ListUsersResponseEnvelope.spec.js
 test/model/LiveOrderbook.spec.js
 test/model/Margin.spec.js
 test/model/Metadata.spec.js
@@ -521,6 +523,7 @@ test/model/SettleRealizedPnlRecordResponseEnvelope.spec.js
 test/model/Side.spec.js
 test/model/StreamAssetsEntry.spec.js
 test/model/StreamCandlesEntry.spec.js
+test/model/StreamCurrentLeverageAccruedInterestResponse.spec.js
 test/model/StreamEntry.spec.js
 test/model/StreamOrderBookBalanceEntry.spec.js
 test/model/StreamOrderUpdatesEntry.spec.js

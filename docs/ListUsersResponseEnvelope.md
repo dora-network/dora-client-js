@@ -1,10 +1,10 @@
-# Dora.EmailExistsResponseEnvelope
+# Dora.ListUsersResponseEnvelope
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**UserExistsResponse**](UserExistsResponse.md) |  | [optional] 
+**data** | [**[User]**](User.md) |  | [optional] 
 **error** | **String** | The error message. Present for error (non-2xx) responses. | [optional] 
 **metadata** | [**Metadata**](Metadata.md) | Metadata about the response, including status code and trace information. | 
 

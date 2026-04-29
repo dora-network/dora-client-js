@@ -55,7 +55,6 @@ import CreateOrderResponseEnvelope from './model/CreateOrderResponseEnvelope';
 import CurrentLeverageAccruedInterest from './model/CurrentLeverageAccruedInterest';
 import CurrentLeverageAccruedInterestResponseEnvelope from './model/CurrentLeverageAccruedInterestResponseEnvelope';
 import DefundUserRequest from './model/DefundUserRequest';
-import EmailExistsResponseEnvelope from './model/EmailExistsResponseEnvelope';
 import FundUser from './model/FundUser';
 import FundUserRequest from './model/FundUserRequest';
 import FundUserResponseEnvelope from './model/FundUserResponseEnvelope';
@@ -88,6 +87,7 @@ import ListPositionsResponse from './model/ListPositionsResponse';
 import ListTradeResponseEnvelope from './model/ListTradeResponseEnvelope';
 import ListTransactionsResponseEnvelope from './model/ListTransactionsResponseEnvelope';
 import ListUserCouponPaymentsResponseEnvelope from './model/ListUserCouponPaymentsResponseEnvelope';
+import ListUsersResponseEnvelope from './model/ListUsersResponseEnvelope';
 import LiveOrderbook from './model/LiveOrderbook';
 import Margin from './model/Margin';
 import Metadata from './model/Metadata';
@@ -142,6 +142,7 @@ import SettleRealizedPnlRecordResponseEnvelope from './model/SettleRealizedPnlRe
 import Side from './model/Side';
 import StreamAssetsEntry from './model/StreamAssetsEntry';
 import StreamCandlesEntry from './model/StreamCandlesEntry';
+import StreamCurrentLeverageAccruedInterestResponse from './model/StreamCurrentLeverageAccruedInterestResponse';
 import StreamEntry from './model/StreamEntry';
 import StreamOrderBookBalanceEntry from './model/StreamOrderBookBalanceEntry';
 import StreamOrderUpdatesEntry from './model/StreamOrderUpdatesEntry';
@@ -498,12 +499,6 @@ export {
     DefundUserRequest,
 
     /**
-     * The EmailExistsResponseEnvelope model constructor.
-     * @property {module:model/EmailExistsResponseEnvelope}
-     */
-    EmailExistsResponseEnvelope,
-
-    /**
      * The FundUser model constructor.
      * @property {module:model/FundUser}
      */
@@ -694,6 +689,12 @@ export {
      * @property {module:model/ListUserCouponPaymentsResponseEnvelope}
      */
     ListUserCouponPaymentsResponseEnvelope,
+
+    /**
+     * The ListUsersResponseEnvelope model constructor.
+     * @property {module:model/ListUsersResponseEnvelope}
+     */
+    ListUsersResponseEnvelope,
 
     /**
      * The LiveOrderbook model constructor.
@@ -1018,6 +1019,12 @@ export {
      * @property {module:model/StreamCandlesEntry}
      */
     StreamCandlesEntry,
+
+    /**
+     * The StreamCurrentLeverageAccruedInterestResponse model constructor.
+     * @property {module:model/StreamCurrentLeverageAccruedInterestResponse}
+     */
+    StreamCurrentLeverageAccruedInterestResponse,
 
     /**
      * The StreamEntry model constructor.

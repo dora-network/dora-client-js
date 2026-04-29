@@ -134,10 +134,9 @@ All URIs are relative to *https://staging.dora.co*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Dora.DefaultApi* | [**approveLedgerWithdrawRequest**](docs/DefaultApi.md#approveLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/approve | Approve a pending withdrawal request
-*Dora.DefaultApi* | [**cancelAllOpenOrders**](docs/DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook on query param it will cancel all orders on specific orderbook, admin can cancel user&#39;s orders on specific orderbook
+*Dora.DefaultApi* | [**cancelAllOpenOrders**](docs/DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook or account_id on query params it will cancel all orders on specific orderbook or account, admin can cancel user&#39;s orders on specific orderbook
 *Dora.DefaultApi* | [**cancelLedgerWithdrawRequest**](docs/DefaultApi.md#cancelLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/cancel | Cancel a pending withdrawal request
 *Dora.DefaultApi* | [**cancelOrderById**](docs/DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
-*Dora.DefaultApi* | [**checkUserEmailExists**](docs/DefaultApi.md#checkUserEmailExists) | **GET** /v1/user/exists | Check whether a user email exists
 *Dora.DefaultApi* | [**claimLeverageGetAccruedInterest**](docs/DefaultApi.md#claimLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/claim | Claim current accrued leverage interest for a specific user
 *Dora.DefaultApi* | [**closeIsolatedPosition**](docs/DefaultApi.md#closeIsolatedPosition) | **POST** /v1/positions/close | Close isolated positions, repaying the borrowed
 *Dora.DefaultApi* | [**createAPIKeyForUser**](docs/DefaultApi.md#createAPIKeyForUser) | **POST** /v1/user/apikey | Create apikey for a user
@@ -183,13 +182,16 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getTransactionById**](docs/DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{transaction_id} | Get a transaction by ID
 *Dora.DefaultApi* | [**getTransactions**](docs/DefaultApi.md#getTransactions) | **GET** /v1/transactions | Get a filtered, paginated list of transactions
 *Dora.DefaultApi* | [**getTransactionsSettlements**](docs/DefaultApi.md#getTransactionsSettlements) | **GET** /v1/transactions/settlements | Get transactions settlements with filters
+*Dora.DefaultApi* | [**getTransactionsStream**](docs/DefaultApi.md#getTransactionsStream) | **GET** /v1/transactions/stream | Get transactions since a specific time, and open a stream for further updates
 *Dora.DefaultApi* | [**getUserById**](docs/DefaultApi.md#getUserById) | **GET** /v1/user/{user_id} | Get user by ID (admin only)
 *Dora.DefaultApi* | [**getUserCouponPaymentsStream**](docs/DefaultApi.md#getUserCouponPaymentsStream) | **GET** /v1/user/{user_id}/coupon_payments/stream | Stream user&#39;s coupon payment accruals in real time
 *Dora.DefaultApi* | [**getUserLedgerStream**](docs/DefaultApi.md#getUserLedgerStream) | **GET** /v1/user/{user_id}/ledger/stream | Get a snapshot of user&#39;s ledger updates since a specific time, and opens a stream for further updates
+*Dora.DefaultApi* | [**getUserLeverageAccruedInterestStream**](docs/DefaultApi.md#getUserLeverageAccruedInterestStream) | **GET** /v1/user/{user_id}/leverage/accrued_interest/stream | Stream user&#39;s current leverage accrued interest in real time
 *Dora.DefaultApi* | [**getUserOrderUpdatesStream**](docs/DefaultApi.md#getUserOrderUpdatesStream) | **GET** /v1/user/{user_id}/orders/{order_book_id}/updates/stream | Get a snapshot of user&#39;s order updates for the given order book since a specific time, and opens a stream for further updates
 *Dora.DefaultApi* | [**getUserOrdersUpdatesStreamAll**](docs/DefaultApi.md#getUserOrdersUpdatesStreamAll) | **GET** /v1/user/{user_id}/orders/all/updates/stream | Get a snapshot of user&#39;s order updates across all order books since a specific time, and opens a stream for further updates
 *Dora.DefaultApi* | [**getUserSelf**](docs/DefaultApi.md#getUserSelf) | **GET** /v1/user/self | Get user details for the authenticated user
 *Dora.DefaultApi* | [**getUserTransactionsStream**](docs/DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#39;s executed transactions since a specific time, and opens a stream for further updates
+*Dora.DefaultApi* | [**getUsers**](docs/DefaultApi.md#getUsers) | **GET** /v1/user | Get all users (admin only)
 *Dora.DefaultApi* | [**getUsersAPIKeys**](docs/DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#39;s api keys
 *Dora.DefaultApi* | [**ledgerDeposit**](docs/DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit/{user_id} | Deposit assets into this user&#39;s account from the outside world
 *Dora.DefaultApi* | [**ledgerWithdraw**](docs/DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw/{user_id} | Withdraw assets from this user to the outside world
@@ -269,7 +271,6 @@ Class | Method | HTTP request | Description
  - [Dora.CurrentLeverageAccruedInterest](docs/CurrentLeverageAccruedInterest.md)
  - [Dora.CurrentLeverageAccruedInterestResponseEnvelope](docs/CurrentLeverageAccruedInterestResponseEnvelope.md)
  - [Dora.DefundUserRequest](docs/DefundUserRequest.md)
- - [Dora.EmailExistsResponseEnvelope](docs/EmailExistsResponseEnvelope.md)
  - [Dora.FundUser](docs/FundUser.md)
  - [Dora.FundUserRequest](docs/FundUserRequest.md)
  - [Dora.FundUserResponseEnvelope](docs/FundUserResponseEnvelope.md)
@@ -302,6 +303,7 @@ Class | Method | HTTP request | Description
  - [Dora.ListTradeResponseEnvelope](docs/ListTradeResponseEnvelope.md)
  - [Dora.ListTransactionsResponseEnvelope](docs/ListTransactionsResponseEnvelope.md)
  - [Dora.ListUserCouponPaymentsResponseEnvelope](docs/ListUserCouponPaymentsResponseEnvelope.md)
+ - [Dora.ListUsersResponseEnvelope](docs/ListUsersResponseEnvelope.md)
  - [Dora.LiveOrderbook](docs/LiveOrderbook.md)
  - [Dora.Margin](docs/Margin.md)
  - [Dora.Metadata](docs/Metadata.md)
@@ -356,6 +358,7 @@ Class | Method | HTTP request | Description
  - [Dora.Side](docs/Side.md)
  - [Dora.StreamAssetsEntry](docs/StreamAssetsEntry.md)
  - [Dora.StreamCandlesEntry](docs/StreamCandlesEntry.md)
+ - [Dora.StreamCurrentLeverageAccruedInterestResponse](docs/StreamCurrentLeverageAccruedInterestResponse.md)
  - [Dora.StreamEntry](docs/StreamEntry.md)
  - [Dora.StreamOrderBookBalanceEntry](docs/StreamOrderBookBalanceEntry.md)
  - [Dora.StreamOrderUpdatesEntry](docs/StreamOrderUpdatesEntry.md)

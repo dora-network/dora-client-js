@@ -88,16 +88,6 @@
         done();
       });
     });
-    describe('checkUserEmailExists', function() {
-      it('should call checkUserEmailExists successfully', function(done) {
-        //uncomment below and update the code to test checkUserEmailExists
-        //instance.checkUserEmailExists(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('claimLeverageGetAccruedInterest', function() {
       it('should call claimLeverageGetAccruedInterest successfully', function(done) {
         //uncomment below and update the code to test claimLeverageGetAccruedInterest
@@ -548,6 +538,16 @@
         done();
       });
     });
+    describe('getTransactionsStream', function() {
+      it('should call getTransactionsStream successfully', function(done) {
+        //uncomment below and update the code to test getTransactionsStream
+        //instance.getTransactionsStream(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getUserById', function() {
       it('should call getUserById successfully', function(done) {
         //uncomment below and update the code to test getUserById
@@ -572,6 +572,16 @@
       it('should call getUserLedgerStream successfully', function(done) {
         //uncomment below and update the code to test getUserLedgerStream
         //instance.getUserLedgerStream(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getUserLeverageAccruedInterestStream', function() {
+      it('should call getUserLeverageAccruedInterestStream successfully', function(done) {
+        //uncomment below and update the code to test getUserLeverageAccruedInterestStream
+        //instance.getUserLeverageAccruedInterestStream(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -612,6 +622,16 @@
       it('should call getUserTransactionsStream successfully', function(done) {
         //uncomment below and update the code to test getUserTransactionsStream
         //instance.getUserTransactionsStream(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getUsers', function() {
+      it('should call getUsers successfully', function(done) {
+        //uncomment below and update the code to test getUsers
+        //instance.getUsers(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

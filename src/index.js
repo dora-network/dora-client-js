@@ -16,6 +16,11 @@ import ApiClient from './ApiClient';
 import APIKeyResponse from './model/APIKeyResponse';
 import APIKeyResponseEnvelope from './model/APIKeyResponseEnvelope';
 import APIKeys from './model/APIKeys';
+import AccountBalanceTransfer from './model/AccountBalanceTransfer';
+import AccountPortfolioResponseV2 from './model/AccountPortfolioResponseV2';
+import AccountPortfolioV2 from './model/AccountPortfolioV2';
+import AccountSummaryV2 from './model/AccountSummaryV2';
+import AccountV2 from './model/AccountV2';
 import AllPositions from './model/AllPositions';
 import AllPositionsResponseEnvelope from './model/AllPositionsResponseEnvelope';
 import AllWithdrawalInitiationsResponseEnvelope from './model/AllWithdrawalInitiationsResponseEnvelope';
@@ -36,6 +41,7 @@ import CandleResolution from './model/CandleResolution';
 import ClaimLeverageAccruedInterest from './model/ClaimLeverageAccruedInterest';
 import ClaimLeverageAccruedInterestRequest from './model/ClaimLeverageAccruedInterestRequest';
 import ClaimLeverageAccruedInterestResponseEnvelope from './model/ClaimLeverageAccruedInterestResponseEnvelope';
+import CloseAccountRequest from './model/CloseAccountRequest';
 import ClosePositionRequest from './model/ClosePositionRequest';
 import ClosePositionResp from './model/ClosePositionResp';
 import ClosePositionResponseEnvelope from './model/ClosePositionResponseEnvelope';
@@ -62,13 +68,19 @@ import GetAssetByIDResponseEnvelope from './model/GetAssetByIDResponseEnvelope';
 import GetAssetYTMByIDResponseEnvelope from './model/GetAssetYTMByIDResponseEnvelope';
 import GetRealizedPnlSettlementsResponseEnvelope from './model/GetRealizedPnlSettlementsResponseEnvelope';
 import GetTopOfBookResponseEnvelope from './model/GetTopOfBookResponseEnvelope';
+import HistoricalLeverageInterestRate from './model/HistoricalLeverageInterestRate';
+import HistoricalLeverageInterestRates from './model/HistoricalLeverageInterestRates';
+import HistoricalLeverageInterestRatesResponseEnvelope from './model/HistoricalLeverageInterestRatesResponseEnvelope';
 import IsolateCollateralRequest from './model/IsolateCollateralRequest';
 import IsolateCollateralResponse from './model/IsolateCollateralResponse';
 import IsolatedCollateral from './model/IsolatedCollateral';
 import IsolatedPosition from './model/IsolatedPosition';
+import LedgerAccountsResponseV2Envelope from './model/LedgerAccountsResponseV2Envelope';
 import LedgerModuleByAssetResponseEnvelope from './model/LedgerModuleByAssetResponseEnvelope';
 import LedgerModuleResponseEnvelope from './model/LedgerModuleResponseEnvelope';
 import LeverageBalanceResponse from './model/LeverageBalanceResponse';
+import LeverageInterestRate from './model/LeverageInterestRate';
+import LeverageInterestRateResponseEnvelope from './model/LeverageInterestRateResponseEnvelope';
 import LeverageModuleResponse from './model/LeverageModuleResponse';
 import LeverageRequestError from './model/LeverageRequestError';
 import LeverageType from './model/LeverageType';
@@ -76,6 +88,7 @@ import LiquidationTargetsResponseEnvelope from './model/LiquidationTargetsRespon
 import Liquidity from './model/Liquidity';
 import LiquidityRequest from './model/LiquidityRequest';
 import LiquidityResponseEnvelope from './model/LiquidityResponseEnvelope';
+import ListAccountsResponseV2Envelope from './model/ListAccountsResponseV2Envelope';
 import ListAssetPriceResponseEnvelope from './model/ListAssetPriceResponseEnvelope';
 import ListCandlesResponseEnvelope from './model/ListCandlesResponseEnvelope';
 import ListCouponPaymentsResponseEnvelope from './model/ListCouponPaymentsResponseEnvelope';
@@ -92,6 +105,8 @@ import LiveOrderbook from './model/LiveOrderbook';
 import Margin from './model/Margin';
 import Metadata from './model/Metadata';
 import ModuleBalance from './model/ModuleBalance';
+import NewIsolatedAccountRequestV2 from './model/NewIsolatedAccountRequestV2';
+import NewIsolatedAccountResponseV2Envelope from './model/NewIsolatedAccountResponseV2Envelope';
 import Order from './model/Order';
 import OrderBook from './model/OrderBook';
 import OrderBookBalance from './model/OrderBookBalance';
@@ -167,6 +182,8 @@ import TransactionsSettlement from './model/TransactionsSettlement';
 import TransactionsSettlementRequest from './model/TransactionsSettlementRequest';
 import TransactionsSettlementsResponse from './model/TransactionsSettlementsResponse';
 import TransactionsSettlementsResponseEnvelope from './model/TransactionsSettlementsResponseEnvelope';
+import TransferAccountBalancesRequest from './model/TransferAccountBalancesRequest';
+import TransferAccountBalancesResponseEnvelope from './model/TransferAccountBalancesResponseEnvelope';
 import TransferBalancesRequest from './model/TransferBalancesRequest';
 import TransferBalancesResponseEnvelope from './model/TransferBalancesResponseEnvelope';
 import TransformedAssets from './model/TransformedAssets';
@@ -263,6 +280,36 @@ export {
      * @property {module:model/APIKeys}
      */
     APIKeys,
+
+    /**
+     * The AccountBalanceTransfer model constructor.
+     * @property {module:model/AccountBalanceTransfer}
+     */
+    AccountBalanceTransfer,
+
+    /**
+     * The AccountPortfolioResponseV2 model constructor.
+     * @property {module:model/AccountPortfolioResponseV2}
+     */
+    AccountPortfolioResponseV2,
+
+    /**
+     * The AccountPortfolioV2 model constructor.
+     * @property {module:model/AccountPortfolioV2}
+     */
+    AccountPortfolioV2,
+
+    /**
+     * The AccountSummaryV2 model constructor.
+     * @property {module:model/AccountSummaryV2}
+     */
+    AccountSummaryV2,
+
+    /**
+     * The AccountV2 model constructor.
+     * @property {module:model/AccountV2}
+     */
+    AccountV2,
 
     /**
      * The AllPositions model constructor.
@@ -383,6 +430,12 @@ export {
      * @property {module:model/ClaimLeverageAccruedInterestResponseEnvelope}
      */
     ClaimLeverageAccruedInterestResponseEnvelope,
+
+    /**
+     * The CloseAccountRequest model constructor.
+     * @property {module:model/CloseAccountRequest}
+     */
+    CloseAccountRequest,
 
     /**
      * The ClosePositionRequest model constructor.
@@ -541,6 +594,24 @@ export {
     GetTopOfBookResponseEnvelope,
 
     /**
+     * The HistoricalLeverageInterestRate model constructor.
+     * @property {module:model/HistoricalLeverageInterestRate}
+     */
+    HistoricalLeverageInterestRate,
+
+    /**
+     * The HistoricalLeverageInterestRates model constructor.
+     * @property {module:model/HistoricalLeverageInterestRates}
+     */
+    HistoricalLeverageInterestRates,
+
+    /**
+     * The HistoricalLeverageInterestRatesResponseEnvelope model constructor.
+     * @property {module:model/HistoricalLeverageInterestRatesResponseEnvelope}
+     */
+    HistoricalLeverageInterestRatesResponseEnvelope,
+
+    /**
      * The IsolateCollateralRequest model constructor.
      * @property {module:model/IsolateCollateralRequest}
      */
@@ -565,6 +636,12 @@ export {
     IsolatedPosition,
 
     /**
+     * The LedgerAccountsResponseV2Envelope model constructor.
+     * @property {module:model/LedgerAccountsResponseV2Envelope}
+     */
+    LedgerAccountsResponseV2Envelope,
+
+    /**
      * The LedgerModuleByAssetResponseEnvelope model constructor.
      * @property {module:model/LedgerModuleByAssetResponseEnvelope}
      */
@@ -581,6 +658,18 @@ export {
      * @property {module:model/LeverageBalanceResponse}
      */
     LeverageBalanceResponse,
+
+    /**
+     * The LeverageInterestRate model constructor.
+     * @property {module:model/LeverageInterestRate}
+     */
+    LeverageInterestRate,
+
+    /**
+     * The LeverageInterestRateResponseEnvelope model constructor.
+     * @property {module:model/LeverageInterestRateResponseEnvelope}
+     */
+    LeverageInterestRateResponseEnvelope,
 
     /**
      * The LeverageModuleResponse model constructor.
@@ -623,6 +712,12 @@ export {
      * @property {module:model/LiquidityResponseEnvelope}
      */
     LiquidityResponseEnvelope,
+
+    /**
+     * The ListAccountsResponseV2Envelope model constructor.
+     * @property {module:model/ListAccountsResponseV2Envelope}
+     */
+    ListAccountsResponseV2Envelope,
 
     /**
      * The ListAssetPriceResponseEnvelope model constructor.
@@ -719,6 +814,18 @@ export {
      * @property {module:model/ModuleBalance}
      */
     ModuleBalance,
+
+    /**
+     * The NewIsolatedAccountRequestV2 model constructor.
+     * @property {module:model/NewIsolatedAccountRequestV2}
+     */
+    NewIsolatedAccountRequestV2,
+
+    /**
+     * The NewIsolatedAccountResponseV2Envelope model constructor.
+     * @property {module:model/NewIsolatedAccountResponseV2Envelope}
+     */
+    NewIsolatedAccountResponseV2Envelope,
 
     /**
      * The Order model constructor.
@@ -1169,6 +1276,18 @@ export {
      * @property {module:model/TransactionsSettlementsResponseEnvelope}
      */
     TransactionsSettlementsResponseEnvelope,
+
+    /**
+     * The TransferAccountBalancesRequest model constructor.
+     * @property {module:model/TransferAccountBalancesRequest}
+     */
+    TransferAccountBalancesRequest,
+
+    /**
+     * The TransferAccountBalancesResponseEnvelope model constructor.
+     * @property {module:model/TransferAccountBalancesResponseEnvelope}
+     */
+    TransferAccountBalancesResponseEnvelope,
 
     /**
      * The TransferBalancesRequest model constructor.

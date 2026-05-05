@@ -1,10 +1,10 @@
-# Dora.UnitedPosition
+# Dora.CloseAccountRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**globalPositionId** | **String** |  | 
-**transactionIds** | **[String]** |  | 
+**accountId** | **String** |  | 
+**orderBookId** | **String** |  | 
 
 

@@ -33,6 +33,10 @@ class Asset {
      * @param liquidationWeight {Number} 
      * @param maxSupply {Number} 
      * @param maxUtilization {Number} 
+     * @param minimumRate {Number} 
+     * @param kinkRate {Number} 
+     * @param maximumRate {Number} 
+     * @param kinkUtilization {Number} 
      * @param name {String} 
      * @param symbol {String} 
      * @param kind {module:model/AssetKind} 
@@ -43,9 +47,9 @@ class Asset {
      * @param canVirtualBorrow {Boolean} 
      * @param maxLeverage {Number} 
      */
-    constructor(id, collateralWeight, createdAt, decimals, fractionalizedUnits, description, liquidationWeight, maxSupply, maxUtilization, name, symbol, kind, canAddLiquidity, canDirectBorrow, canOnboard, canTrade, canVirtualBorrow, maxLeverage) { 
+    constructor(id, collateralWeight, createdAt, decimals, fractionalizedUnits, description, liquidationWeight, maxSupply, maxUtilization, minimumRate, kinkRate, maximumRate, kinkUtilization, name, symbol, kind, canAddLiquidity, canDirectBorrow, canOnboard, canTrade, canVirtualBorrow, maxLeverage) { 
         
-        Asset.initialize(this, id, collateralWeight, createdAt, decimals, fractionalizedUnits, description, liquidationWeight, maxSupply, maxUtilization, name, symbol, kind, canAddLiquidity, canDirectBorrow, canOnboard, canTrade, canVirtualBorrow, maxLeverage);
+        Asset.initialize(this, id, collateralWeight, createdAt, decimals, fractionalizedUnits, description, liquidationWeight, maxSupply, maxUtilization, minimumRate, kinkRate, maximumRate, kinkUtilization, name, symbol, kind, canAddLiquidity, canDirectBorrow, canOnboard, canTrade, canVirtualBorrow, maxLeverage);
     }
 
     /**
@@ -53,7 +57,7 @@ class Asset {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, collateralWeight, createdAt, decimals, fractionalizedUnits, description, liquidationWeight, maxSupply, maxUtilization, name, symbol, kind, canAddLiquidity, canDirectBorrow, canOnboard, canTrade, canVirtualBorrow, maxLeverage) { 
+    static initialize(obj, id, collateralWeight, createdAt, decimals, fractionalizedUnits, description, liquidationWeight, maxSupply, maxUtilization, minimumRate, kinkRate, maximumRate, kinkUtilization, name, symbol, kind, canAddLiquidity, canDirectBorrow, canOnboard, canTrade, canVirtualBorrow, maxLeverage) { 
         obj['id'] = id;
         obj['collateral_weight'] = collateralWeight;
         obj['created_at'] = createdAt;
@@ -63,6 +67,10 @@ class Asset {
         obj['liquidation_weight'] = liquidationWeight;
         obj['max_supply'] = maxSupply;
         obj['max_utilization'] = maxUtilization;
+        obj['minimum_rate'] = minimumRate;
+        obj['kink_rate'] = kinkRate;
+        obj['maximum_rate'] = maximumRate;
+        obj['kink_utilization'] = kinkUtilization;
         obj['name'] = name;
         obj['symbol'] = symbol;
         obj['kind'] = kind;
@@ -112,6 +120,18 @@ class Asset {
             }
             if (data.hasOwnProperty('max_utilization')) {
                 obj['max_utilization'] = ApiClient.convertToType(data['max_utilization'], 'Number');
+            }
+            if (data.hasOwnProperty('minimum_rate')) {
+                obj['minimum_rate'] = ApiClient.convertToType(data['minimum_rate'], 'Number');
+            }
+            if (data.hasOwnProperty('kink_rate')) {
+                obj['kink_rate'] = ApiClient.convertToType(data['kink_rate'], 'Number');
+            }
+            if (data.hasOwnProperty('maximum_rate')) {
+                obj['maximum_rate'] = ApiClient.convertToType(data['maximum_rate'], 'Number');
+            }
+            if (data.hasOwnProperty('kink_utilization')) {
+                obj['kink_utilization'] = ApiClient.convertToType(data['kink_utilization'], 'Number');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -192,7 +212,7 @@ class Asset {
 
 }
 
-Asset.RequiredProperties = ["id", "collateral_weight", "created_at", "decimals", "fractionalized_units", "description", "liquidation_weight", "max_supply", "max_utilization", "name", "symbol", "kind", "can_add_liquidity", "can_direct_borrow", "can_onboard", "can_trade", "can_virtual_borrow", "max_leverage"];
+Asset.RequiredProperties = ["id", "collateral_weight", "created_at", "decimals", "fractionalized_units", "description", "liquidation_weight", "max_supply", "max_utilization", "minimum_rate", "kink_rate", "maximum_rate", "kink_utilization", "name", "symbol", "kind", "can_add_liquidity", "can_direct_borrow", "can_onboard", "can_trade", "can_virtual_borrow", "max_leverage"];
 
 /**
  * @member {String} id
@@ -238,6 +258,26 @@ Asset.prototype['max_supply'] = undefined;
  * @member {Number} max_utilization
  */
 Asset.prototype['max_utilization'] = undefined;
+
+/**
+ * @member {Number} minimum_rate
+ */
+Asset.prototype['minimum_rate'] = undefined;
+
+/**
+ * @member {Number} kink_rate
+ */
+Asset.prototype['kink_rate'] = undefined;
+
+/**
+ * @member {Number} maximum_rate
+ */
+Asset.prototype['maximum_rate'] = undefined;
+
+/**
+ * @member {Number} kink_utilization
+ */
+Asset.prototype['kink_utilization'] = undefined;
 
 /**
  * @member {String} name

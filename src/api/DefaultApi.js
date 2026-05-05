@@ -24,6 +24,7 @@ import CancelOrderResponseEnvelope from '../model/CancelOrderResponseEnvelope';
 import CandleResolution from '../model/CandleResolution';
 import ClaimLeverageAccruedInterestRequest from '../model/ClaimLeverageAccruedInterestRequest';
 import ClaimLeverageAccruedInterestResponseEnvelope from '../model/ClaimLeverageAccruedInterestResponseEnvelope';
+import CloseAccountRequest from '../model/CloseAccountRequest';
 import ClosePositionRequest from '../model/ClosePositionRequest';
 import ClosePositionResponseEnvelope from '../model/ClosePositionResponseEnvelope';
 import CountryCode from '../model/CountryCode';
@@ -42,13 +43,17 @@ import GetAssetByIDResponseEnvelope from '../model/GetAssetByIDResponseEnvelope'
 import GetAssetYTMByIDResponseEnvelope from '../model/GetAssetYTMByIDResponseEnvelope';
 import GetRealizedPnlSettlementsResponseEnvelope from '../model/GetRealizedPnlSettlementsResponseEnvelope';
 import GetTopOfBookResponseEnvelope from '../model/GetTopOfBookResponseEnvelope';
+import HistoricalLeverageInterestRatesResponseEnvelope from '../model/HistoricalLeverageInterestRatesResponseEnvelope';
 import IsolateCollateralRequest from '../model/IsolateCollateralRequest';
 import IsolateCollateralResponse from '../model/IsolateCollateralResponse';
+import LedgerAccountsResponseV2Envelope from '../model/LedgerAccountsResponseV2Envelope';
 import LedgerModuleByAssetResponseEnvelope from '../model/LedgerModuleByAssetResponseEnvelope';
 import LedgerModuleResponseEnvelope from '../model/LedgerModuleResponseEnvelope';
+import LeverageInterestRateResponseEnvelope from '../model/LeverageInterestRateResponseEnvelope';
 import LeverageRequestError from '../model/LeverageRequestError';
 import LiquidityRequest from '../model/LiquidityRequest';
 import LiquidityResponseEnvelope from '../model/LiquidityResponseEnvelope';
+import ListAccountsResponseV2Envelope from '../model/ListAccountsResponseV2Envelope';
 import ListAssetPriceResponseEnvelope from '../model/ListAssetPriceResponseEnvelope';
 import ListCandlesResponseEnvelope from '../model/ListCandlesResponseEnvelope';
 import ListCouponPaymentsResponseEnvelope from '../model/ListCouponPaymentsResponseEnvelope';
@@ -60,6 +65,8 @@ import ListTradeResponseEnvelope from '../model/ListTradeResponseEnvelope';
 import ListTransactionsResponseEnvelope from '../model/ListTransactionsResponseEnvelope';
 import ListUsersResponseEnvelope from '../model/ListUsersResponseEnvelope';
 import LiveOrderbook from '../model/LiveOrderbook';
+import NewIsolatedAccountRequestV2 from '../model/NewIsolatedAccountRequestV2';
+import NewIsolatedAccountResponseV2Envelope from '../model/NewIsolatedAccountResponseV2Envelope';
 import OrderBookResponseEnvelope from '../model/OrderBookResponseEnvelope';
 import OrderBookStatus from '../model/OrderBookStatus';
 import OrderBookSummaryResponseEnvelope from '../model/OrderBookSummaryResponseEnvelope';
@@ -99,6 +106,8 @@ import TransactionResponseEnvelope from '../model/TransactionResponseEnvelope';
 import TransactionsSettlementRequest from '../model/TransactionsSettlementRequest';
 import TransactionsSettlementsResponse from '../model/TransactionsSettlementsResponse';
 import TransactionsSettlementsResponseEnvelope from '../model/TransactionsSettlementsResponseEnvelope';
+import TransferAccountBalancesRequest from '../model/TransferAccountBalancesRequest';
+import TransferAccountBalancesResponseEnvelope from '../model/TransferAccountBalancesResponseEnvelope';
 import TransferBalancesRequest from '../model/TransferBalancesRequest';
 import TransferBalancesResponseEnvelope from '../model/TransferBalancesResponseEnvelope';
 import UnitePositionRequest from '../model/UnitePositionRequest';
@@ -360,6 +369,47 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the closeIsolatedAccountV2 operation.
+     * @callback module:api/DefaultApi~closeIsolatedAccountV2Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ClosePositionResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Close an isolated account, repaying the borrowed
+     * @param {module:model/CloseAccountRequest} closeAccountRequest 
+     * @param {module:api/DefaultApi~closeIsolatedAccountV2Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ClosePositionResponseEnvelope}
+     */
+    closeIsolatedAccountV2(closeAccountRequest, callback) {
+      let postBody = closeAccountRequest;
+      // verify the required parameter 'closeAccountRequest' is set
+      if (closeAccountRequest === undefined || closeAccountRequest === null) {
+        throw new Error("Missing the required parameter 'closeAccountRequest' when calling closeIsolatedAccountV2");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = ClosePositionResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v2/accounts/close', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the closeIsolatedPosition operation.
      * @callback module:api/DefaultApi~closeIsolatedPositionCallback
      * @param {String} error Error message, if any.
@@ -524,6 +574,47 @@ export default class DefaultApi {
       let returnType = CreateConditionalOrderResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/orders/conditional', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the createNewIsolatedAccountV2 operation.
+     * @callback module:api/DefaultApi~createNewIsolatedAccountV2Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/NewIsolatedAccountResponseV2Envelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a new isolated account for a user transferring available assets into the account
+     * @param {module:model/NewIsolatedAccountRequestV2} newIsolatedAccountRequestV2 
+     * @param {module:api/DefaultApi~createNewIsolatedAccountV2Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/NewIsolatedAccountResponseV2Envelope}
+     */
+    createNewIsolatedAccountV2(newIsolatedAccountRequestV2, callback) {
+      let postBody = newIsolatedAccountRequestV2;
+      // verify the required parameter 'newIsolatedAccountRequestV2' is set
+      if (newIsolatedAccountRequestV2 === undefined || newIsolatedAccountRequestV2 === null) {
+        throw new Error("Missing the required parameter 'newIsolatedAccountRequestV2' when calling createNewIsolatedAccountV2");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = NewIsolatedAccountResponseV2Envelope;
+      return this.apiClient.callApi(
+        '/v2/accounts/new_isolated', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1196,6 +1287,42 @@ export default class DefaultApi {
       let returnType = ListOrdersResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/orderbooks/{order_book_id}/L3', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getLedgerAccountsSelfV2 operation.
+     * @callback module:api/DefaultApi~getLedgerAccountsSelfV2Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/LedgerAccountsResponseV2Envelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get your own accounts
+     * @param {module:api/DefaultApi~getLedgerAccountsSelfV2Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/LedgerAccountsResponseV2Envelope}
+     */
+    getLedgerAccountsSelfV2(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = LedgerAccountsResponseV2Envelope;
+      return this.apiClient.callApi(
+        '/v2/ledger/accounts/self', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2181,6 +2308,8 @@ export default class DefaultApi {
      * @param {String} [positionId] Position ID to filter settlements
      * @param {String} [txKind] Transaction kind to filter settlements
      * @param {Date} [createdAfter] Filter settlements created after this time
+     * @param {Date} [createdBefore] Filter settlements created before this time
+     * @param {Date} [settledAfter] Filter settlements settled after this time
      * @param {Date} [settledBefore] Filter settlements settled before this time
      * @param {Boolean} [isSettled] Filter settlements by settlement status
      * @param {module:api/DefaultApi~getTransactionsSettlementsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -2198,6 +2327,8 @@ export default class DefaultApi {
         'position_id': opts['positionId'],
         'tx_kind': opts['txKind'],
         'created_after': opts['createdAfter'],
+        'created_before': opts['createdBefore'],
+        'settled_after': opts['settledAfter'],
         'settled_before': opts['settledBefore'],
         'is_settled': opts['isSettled']
       };
@@ -2932,6 +3063,102 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the leverageGetHistoricalInterestRates operation.
+     * @callback module:api/DefaultApi~leverageGetHistoricalInterestRatesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/HistoricalLeverageInterestRatesResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get historical leverage interest rates for a specific asset
+     * @param {String} assetId 
+     * @param {Object} opts Optional parameters
+     * @param {Date} [start] 
+     * @param {Date} [end] 
+     * @param {module:api/DefaultApi~leverageGetHistoricalInterestRatesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/HistoricalLeverageInterestRatesResponseEnvelope}
+     */
+    leverageGetHistoricalInterestRates(assetId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'assetId' is set
+      if (assetId === undefined || assetId === null) {
+        throw new Error("Missing the required parameter 'assetId' when calling leverageGetHistoricalInterestRates");
+      }
+
+      let pathParams = {
+        'asset_id': assetId
+      };
+      let queryParams = {
+        'start': opts['start'],
+        'end': opts['end']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = HistoricalLeverageInterestRatesResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/leverage/interest_rate/{asset_id}/historical', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the leverageGetInterestRate operation.
+     * @callback module:api/DefaultApi~leverageGetInterestRateCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/LeverageInterestRateResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get leverage interest rate for a specific asset
+     * @param {String} assetId 
+     * @param {Object} opts Optional parameters
+     * @param {Date} [start] 
+     * @param {Date} [end] 
+     * @param {module:api/DefaultApi~leverageGetInterestRateCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/LeverageInterestRateResponseEnvelope}
+     */
+    leverageGetInterestRate(assetId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'assetId' is set
+      if (assetId === undefined || assetId === null) {
+        throw new Error("Missing the required parameter 'assetId' when calling leverageGetInterestRate");
+      }
+
+      let pathParams = {
+        'asset_id': assetId
+      };
+      let queryParams = {
+        'start': opts['start'],
+        'end': opts['end']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = LeverageInterestRateResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/leverage/interest_rate/{asset_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the leverageIsolateCollateral operation.
      * @callback module:api/DefaultApi~leverageIsolateCollateralCallback
      * @param {String} error Error message, if any.
@@ -3185,6 +3412,42 @@ export default class DefaultApi {
       let returnType = LiquidityResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/liquidity/pool/{pool_id}/remove', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listAccountsSelfV2 operation.
+     * @callback module:api/DefaultApi~listAccountsSelfV2Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ListAccountsResponseV2Envelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List all accounts for the authenticated user
+     * @param {module:api/DefaultApi~listAccountsSelfV2Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ListAccountsResponseV2Envelope}
+     */
+    listAccountsSelfV2(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListAccountsResponseV2Envelope;
+      return this.apiClient.callApi(
+        '/v2/user/self/accounts', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3913,6 +4176,47 @@ export default class DefaultApi {
       let returnType = [StreamTradesEntry];
       return this.apiClient.callApi(
         '/v1/trades/{order_book_id}/stream', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the transferAccountBalancesV2 operation.
+     * @callback module:api/DefaultApi~transferAccountBalancesV2Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TransferAccountBalancesResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Transfer available balance between a user's accounts
+     * @param {module:model/TransferAccountBalancesRequest} transferAccountBalancesRequest 
+     * @param {module:api/DefaultApi~transferAccountBalancesV2Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TransferAccountBalancesResponseEnvelope}
+     */
+    transferAccountBalancesV2(transferAccountBalancesRequest, callback) {
+      let postBody = transferAccountBalancesRequest;
+      // verify the required parameter 'transferAccountBalancesRequest' is set
+      if (transferAccountBalancesRequest === undefined || transferAccountBalancesRequest === null) {
+        throw new Error("Missing the required parameter 'transferAccountBalancesRequest' when calling transferAccountBalancesV2");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TransferAccountBalancesResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v2/accounts/transfer_balances', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

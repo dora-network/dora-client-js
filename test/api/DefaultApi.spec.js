@@ -98,6 +98,16 @@
         done();
       });
     });
+    describe('closeIsolatedAccountV2', function() {
+      it('should call closeIsolatedAccountV2 successfully', function(done) {
+        //uncomment below and update the code to test closeIsolatedAccountV2
+        //instance.closeIsolatedAccountV2(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('closeIsolatedPosition', function() {
       it('should call closeIsolatedPosition successfully', function(done) {
         //uncomment below and update the code to test closeIsolatedPosition
@@ -132,6 +142,16 @@
       it('should call createConditionalOrder successfully', function(done) {
         //uncomment below and update the code to test createConditionalOrder
         //instance.createConditionalOrder(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('createNewIsolatedAccountV2', function() {
+      it('should call createNewIsolatedAccountV2 successfully', function(done) {
+        //uncomment below and update the code to test createNewIsolatedAccountV2
+        //instance.createNewIsolatedAccountV2(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -292,6 +312,16 @@
       it('should call getL3Depth successfully', function(done) {
         //uncomment below and update the code to test getL3Depth
         //instance.getL3Depth(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getLedgerAccountsSelfV2', function() {
+      it('should call getLedgerAccountsSelfV2 successfully', function(done) {
+        //uncomment below and update the code to test getLedgerAccountsSelfV2
+        //instance.getLedgerAccountsSelfV2(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -698,6 +728,26 @@
         done();
       });
     });
+    describe('leverageGetHistoricalInterestRates', function() {
+      it('should call leverageGetHistoricalInterestRates successfully', function(done) {
+        //uncomment below and update the code to test leverageGetHistoricalInterestRates
+        //instance.leverageGetHistoricalInterestRates(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('leverageGetInterestRate', function() {
+      it('should call leverageGetInterestRate successfully', function(done) {
+        //uncomment below and update the code to test leverageGetInterestRate
+        //instance.leverageGetInterestRate(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('leverageIsolateCollateral', function() {
       it('should call leverageIsolateCollateral successfully', function(done) {
         //uncomment below and update the code to test leverageIsolateCollateral
@@ -752,6 +802,16 @@
       it('should call liquiditySubtract successfully', function(done) {
         //uncomment below and update the code to test liquiditySubtract
         //instance.liquiditySubtract(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listAccountsSelfV2', function() {
+      it('should call listAccountsSelfV2 successfully', function(done) {
+        //uncomment below and update the code to test listAccountsSelfV2
+        //instance.listAccountsSelfV2(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -912,6 +972,16 @@
       it('should call streamTrades successfully', function(done) {
         //uncomment below and update the code to test streamTrades
         //instance.streamTrades(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('transferAccountBalancesV2', function() {
+      it('should call transferAccountBalancesV2 successfully', function(done) {
+        //uncomment below and update the code to test transferAccountBalancesV2
+        //instance.transferAccountBalancesV2(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

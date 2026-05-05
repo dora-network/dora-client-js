@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import AssetKind from './AssetKind';
 import Margin from './Margin';
 
 /**
@@ -23,6 +24,8 @@ class PLAsset {
     /**
      * Constructs a new <code>PLAsset</code>.
      * @alias module:model/PLAsset
+     * @param id {String} The ID of the asset
+     * @param kind {module:model/AssetKind} 
      * @param symbol {String} The symbol of the asset
      * @param side {module:model/PLAsset.SideEnum} The side of the position (LONG or SHORT)
      * @param avgEntryPrice {String} The average entry price of the position
@@ -37,9 +40,9 @@ class PLAsset {
      * @param locked {String} The locked amount of the position
      * @param unusedCollateral {String} The unused collateral of the position
      */
-    constructor(symbol, side, avgEntryPrice, markPrice, liquidationPrice, available, borrowed, margin, unrealizedPl, leverageLimit, initialCapital, locked, unusedCollateral) { 
+    constructor(id, kind, symbol, side, avgEntryPrice, markPrice, liquidationPrice, available, borrowed, margin, unrealizedPl, leverageLimit, initialCapital, locked, unusedCollateral) { 
         
-        PLAsset.initialize(this, symbol, side, avgEntryPrice, markPrice, liquidationPrice, available, borrowed, margin, unrealizedPl, leverageLimit, initialCapital, locked, unusedCollateral);
+        PLAsset.initialize(this, id, kind, symbol, side, avgEntryPrice, markPrice, liquidationPrice, available, borrowed, margin, unrealizedPl, leverageLimit, initialCapital, locked, unusedCollateral);
     }
 
     /**
@@ -47,7 +50,9 @@ class PLAsset {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, symbol, side, avgEntryPrice, markPrice, liquidationPrice, available, borrowed, margin, unrealizedPl, leverageLimit, initialCapital, locked, unusedCollateral) { 
+    static initialize(obj, id, kind, symbol, side, avgEntryPrice, markPrice, liquidationPrice, available, borrowed, margin, unrealizedPl, leverageLimit, initialCapital, locked, unusedCollateral) { 
+        obj['id'] = id;
+        obj['kind'] = kind;
         obj['symbol'] = symbol;
         obj['side'] = side;
         obj['avg_entry_price'] = avgEntryPrice;
@@ -74,6 +79,12 @@ class PLAsset {
         if (data) {
             obj = obj || new PLAsset();
 
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('kind')) {
+                obj['kind'] = AssetKind.constructFromObject(data['kind']);
+            }
             if (data.hasOwnProperty('symbol')) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
@@ -137,6 +148,10 @@ class PLAsset {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
         }
         // ensure the json data is a string
         if (data['symbol'] && !(typeof data['symbol'] === 'string' || data['symbol'] instanceof String)) {
@@ -209,7 +224,18 @@ class PLAsset {
 
 }
 
-PLAsset.RequiredProperties = ["symbol", "side", "avg_entry_price", "mark_price", "liquidation_price", "available", "borrowed", "margin", "unrealized_pl", "leverage_limit", "initial_capital", "locked", "unused_collateral"];
+PLAsset.RequiredProperties = ["id", "kind", "symbol", "side", "avg_entry_price", "mark_price", "liquidation_price", "available", "borrowed", "margin", "unrealized_pl", "leverage_limit", "initial_capital", "locked", "unused_collateral"];
+
+/**
+ * The ID of the asset
+ * @member {String} id
+ */
+PLAsset.prototype['id'] = undefined;
+
+/**
+ * @member {module:model/AssetKind} kind
+ */
+PLAsset.prototype['kind'] = undefined;
 
 /**
  * The symbol of the asset

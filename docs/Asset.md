@@ -13,6 +13,10 @@ Name | Type | Description | Notes
 **liquidationWeight** | **Number** |  | 
 **maxSupply** | **Number** |  | 
 **maxUtilization** | **Number** |  | 
+**minimumRate** | **Number** |  | 
+**kinkRate** | **Number** |  | 
+**maximumRate** | **Number** |  | 
+**kinkUtilization** | **Number** |  | 
 **name** | **String** |  | 
 **symbol** | **String** |  | 
 **kind** | [**AssetKind**](AssetKind.md) |  | 

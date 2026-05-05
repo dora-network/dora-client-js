@@ -23,10 +23,11 @@ class UnitedPosition {
      * Constructs a new <code>UnitedPosition</code>.
      * @alias module:model/UnitedPosition
      * @param globalPositionId {String} 
+     * @param transactionIds {Array.<String>} 
      */
-    constructor(globalPositionId) { 
+    constructor(globalPositionId, transactionIds) { 
         
-        UnitedPosition.initialize(this, globalPositionId);
+        UnitedPosition.initialize(this, globalPositionId, transactionIds);
     }
 
     /**
@@ -34,8 +35,9 @@ class UnitedPosition {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, globalPositionId) { 
+    static initialize(obj, globalPositionId, transactionIds) { 
         obj['global_position_id'] = globalPositionId;
+        obj['transaction_ids'] = transactionIds;
     }
 
     /**
@@ -86,7 +88,7 @@ class UnitedPosition {
 
 }
 
-UnitedPosition.RequiredProperties = ["global_position_id"];
+UnitedPosition.RequiredProperties = ["global_position_id", "transaction_ids"];
 
 /**
  * @member {String} global_position_id

@@ -108,6 +108,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property minimumRate (base name: "minimum_rate")', function() {
+      // uncomment below and update the code to test the property minimumRate
+      //var instance = new Dora.Asset();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property kinkRate (base name: "kink_rate")', function() {
+      // uncomment below and update the code to test the property kinkRate
+      //var instance = new Dora.Asset();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property maximumRate (base name: "maximum_rate")', function() {
+      // uncomment below and update the code to test the property maximumRate
+      //var instance = new Dora.Asset();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property kinkUtilization (base name: "kink_utilization")', function() {
+      // uncomment below and update the code to test the property kinkUtilization
+      //var instance = new Dora.Asset();
+      //expect(instance).to.be();
+    });
+
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
       //var instance = new Dora.Asset();

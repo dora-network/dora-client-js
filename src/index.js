@@ -31,6 +31,8 @@ import AssetPrice from './model/AssetPrice';
 import AssetPriceResponseEnvelope from './model/AssetPriceResponseEnvelope';
 import AssetRequestError from './model/AssetRequestError';
 import AssetYTM from './model/AssetYTM';
+import AssetYield from './model/AssetYield';
+import AssetYieldResolution from './model/AssetYieldResolution';
 import BalanceTransfer from './model/BalanceTransfer';
 import BalancesResponse from './model/BalancesResponse';
 import Bond from './model/Bond';
@@ -90,6 +92,7 @@ import LiquidityRequest from './model/LiquidityRequest';
 import LiquidityResponseEnvelope from './model/LiquidityResponseEnvelope';
 import ListAccountsResponseV2Envelope from './model/ListAccountsResponseV2Envelope';
 import ListAssetPriceResponseEnvelope from './model/ListAssetPriceResponseEnvelope';
+import ListAssetYieldResponseEnvelope from './model/ListAssetYieldResponseEnvelope';
 import ListCandlesResponseEnvelope from './model/ListCandlesResponseEnvelope';
 import ListCouponPaymentsResponseEnvelope from './model/ListCouponPaymentsResponseEnvelope';
 import ListOrderBookDepthResponseEnvelope from './model/ListOrderBookDepthResponseEnvelope';
@@ -370,6 +373,18 @@ export {
      * @property {module:model/AssetYTM}
      */
     AssetYTM,
+
+    /**
+     * The AssetYield model constructor.
+     * @property {module:model/AssetYield}
+     */
+    AssetYield,
+
+    /**
+     * The AssetYieldResolution model constructor.
+     * @property {module:model/AssetYieldResolution}
+     */
+    AssetYieldResolution,
 
     /**
      * The BalanceTransfer model constructor.
@@ -724,6 +739,12 @@ export {
      * @property {module:model/ListAssetPriceResponseEnvelope}
      */
     ListAssetPriceResponseEnvelope,
+
+    /**
+     * The ListAssetYieldResponseEnvelope model constructor.
+     * @property {module:model/ListAssetYieldResponseEnvelope}
+     */
+    ListAssetYieldResponseEnvelope,
 
     /**
      * The ListCandlesResponseEnvelope model constructor.

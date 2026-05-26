@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**getAssetById**](DefaultApi.md#getAssetById) | **GET** /v1/assets/{asset_id} | Get asset by ID
 [**getAssetPrice**](DefaultApi.md#getAssetPrice) | **GET** /v1/price/asset/{asset_id} | Get the current price of an asset
 [**getAssetYTMById**](DefaultApi.md#getAssetYTMById) | **GET** /v1/assets/{asset_id}/ytm | Get annualized yield to maturity for a bond asset
+[**getAssetYieldData**](DefaultApi.md#getAssetYieldData) | **GET** /v1/charts/{asset_id}/yield | Get yield chart data for an asset
 [**getAssetsStream**](DefaultApi.md#getAssetsStream) | **GET** /v1/assets/stream | Get all inserts or updates for assets
 [**getCandleData**](DefaultApi.md#getCandleData) | **GET** /v1/charts/{order_book_id}/candle | Get candlestick data for an orderbook
 [**getCouponPaymentsByAssetId**](DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{asset_id}/coupon_payments | Get coupon payments for a bond asset
@@ -1185,6 +1186,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetAssetYTMByIDResponseEnvelope**](GetAssetYTMByIDResponseEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getAssetYieldData
+
+> ListAssetYieldResponseEnvelope getAssetYieldData(assetId, start, end, resolution)
+
+Get yield chart data for an asset
+
+### Example
+
+```javascript
+import Dora from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+let assetId = "assetId_example"; // String | 
+let start = new Date("2013-10-20T19:20:30+01:00"); // Date | 
+let end = new Date("2013-10-20T19:20:30+01:00"); // Date | 
+let resolution = new Dora.AssetYieldResolution(); // AssetYieldResolution | 
+apiInstance.getAssetYieldData(assetId, start, end, resolution, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **assetId** | **String**|  | 
+ **start** | **Date**|  | 
+ **end** | **Date**|  | 
+ **resolution** | [**AssetYieldResolution**](.md)|  | 
+
+### Return type
+
+[**ListAssetYieldResponseEnvelope**](ListAssetYieldResponseEnvelope.md)
 
 ### Authorization
 
@@ -4167,7 +4217,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 let opts = {
-  'status': new Dora.OrderBookStatus(), // OrderBookStatus | 
+  'status': [new Dora.OrderBookStatus()], // [OrderBookStatus] | 
   'baseAssetId': "baseAssetId_example", // String | 
   'quoteAssetId': "quoteAssetId_example", // String | 
   'page': 1, // Number | 
@@ -4187,7 +4237,7 @@ apiInstance.listOrderBooks(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | [**OrderBookStatus**](.md)|  | [optional] 
+ **status** | [**[OrderBookStatus]**](OrderBookStatus.md)|  | [optional] 
  **baseAssetId** | **String**|  | [optional] 
  **quoteAssetId** | **String**|  | [optional] 
  **page** | **Number**|  | [optional] [default to 1]

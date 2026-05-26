@@ -258,6 +258,16 @@
         done();
       });
     });
+    describe('getAssetYieldData', function() {
+      it('should call getAssetYieldData successfully', function(done) {
+        //uncomment below and update the code to test getAssetYieldData
+        //instance.getAssetYieldData(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getAssetsStream', function() {
       it('should call getAssetsStream successfully', function(done) {
         //uncomment below and update the code to test getAssetsStream

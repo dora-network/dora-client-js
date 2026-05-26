@@ -13,45 +13,45 @@
 
 import ApiClient from '../ApiClient';
 /**
-* Enum class OrderBookStatus.
+* Enum class AssetYieldResolution.
 * @enum {}
 * @readonly
 */
-export default class OrderBookStatus {
+export default class AssetYieldResolution {
     
         /**
-         * value: "CLOSED"
+         * value: "1h"
          * @const
          */
-        "CLOSED" = "CLOSED";
+        "1h" = "1h";
 
     
         /**
-         * value: "OPEN"
+         * value: "1d"
          * @const
          */
-        "OPEN" = "OPEN";
+        "1d" = "1d";
 
     
         /**
-         * value: "SUSPENDED"
+         * value: "7d"
          * @const
          */
-        "SUSPENDED" = "SUSPENDED";
+        "7d" = "7d";
 
     
         /**
-         * value: "TESTING"
+         * value: "30d"
          * @const
          */
-        "TESTING" = "TESTING";
+        "30d" = "30d";
 
     
 
     /**
-    * Returns a <code>OrderBookStatus</code> enum value from a Javascript object name.
+    * Returns a <code>AssetYieldResolution</code> enum value from a Javascript object name.
     * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/OrderBookStatus} The enum <code>OrderBookStatus</code> value.
+    * @return {module:model/AssetYieldResolution} The enum <code>AssetYieldResolution</code> value.
     */
     static constructFromObject(object) {
         return object;

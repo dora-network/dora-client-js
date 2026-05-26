@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property ytm (base name: "ytm")', function() {
+      // uncomment below and update the code to test the property ytm
+      //var instance = new Dora.Candle();
+      //expect(instance).to.be();
+    });
+
     it('should have the property volume (base name: "volume")', function() {
       // uncomment below and update the code to test the property volume
       //var instance = new Dora.Candle();

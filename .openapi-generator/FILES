@@ -20,6 +20,8 @@ docs/AssetPrice.md
 docs/AssetPriceResponseEnvelope.md
 docs/AssetRequestError.md
 docs/AssetYTM.md
+docs/AssetYield.md
+docs/AssetYieldResolution.md
 docs/BalanceTransfer.md
 docs/BalancesResponse.md
 docs/Bond.md
@@ -80,6 +82,7 @@ docs/LiquidityRequest.md
 docs/LiquidityResponseEnvelope.md
 docs/ListAccountsResponseV2Envelope.md
 docs/ListAssetPriceResponseEnvelope.md
+docs/ListAssetYieldResponseEnvelope.md
 docs/ListCandlesResponseEnvelope.md
 docs/ListCouponPaymentsResponseEnvelope.md
 docs/ListOrderBookDepthResponseEnvelope.md
@@ -236,6 +239,8 @@ src/model/AssetPrice.js
 src/model/AssetPriceResponseEnvelope.js
 src/model/AssetRequestError.js
 src/model/AssetYTM.js
+src/model/AssetYield.js
+src/model/AssetYieldResolution.js
 src/model/BalanceTransfer.js
 src/model/BalancesResponse.js
 src/model/Bond.js
@@ -295,6 +300,7 @@ src/model/LiquidityRequest.js
 src/model/LiquidityResponseEnvelope.js
 src/model/ListAccountsResponseV2Envelope.js
 src/model/ListAssetPriceResponseEnvelope.js
+src/model/ListAssetYieldResponseEnvelope.js
 src/model/ListCandlesResponseEnvelope.js
 src/model/ListCouponPaymentsResponseEnvelope.js
 src/model/ListOrderBookDepthResponseEnvelope.js
@@ -446,6 +452,8 @@ test/model/AssetPrice.spec.js
 test/model/AssetPriceResponseEnvelope.spec.js
 test/model/AssetRequestError.spec.js
 test/model/AssetYTM.spec.js
+test/model/AssetYield.spec.js
+test/model/AssetYieldResolution.spec.js
 test/model/BalanceTransfer.spec.js
 test/model/BalancesResponse.spec.js
 test/model/Bond.spec.js
@@ -505,6 +513,7 @@ test/model/LiquidityRequest.spec.js
 test/model/LiquidityResponseEnvelope.spec.js
 test/model/ListAccountsResponseV2Envelope.spec.js
 test/model/ListAssetPriceResponseEnvelope.spec.js
+test/model/ListAssetYieldResponseEnvelope.spec.js
 test/model/ListCandlesResponseEnvelope.spec.js
 test/model/ListCouponPaymentsResponseEnvelope.spec.js
 test/model/ListOrderBookDepthResponseEnvelope.spec.js

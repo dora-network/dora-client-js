@@ -28,11 +28,12 @@ class Candle {
      * @param high {String} 
      * @param low {String} 
      * @param close {String} 
+     * @param ytm {String} 
      * @param volume {String} 
      */
-    constructor(orderBookId, startTimestamp, open, high, low, close, volume) { 
+    constructor(orderBookId, startTimestamp, open, high, low, close, ytm, volume) { 
         
-        Candle.initialize(this, orderBookId, startTimestamp, open, high, low, close, volume);
+        Candle.initialize(this, orderBookId, startTimestamp, open, high, low, close, ytm, volume);
     }
 
     /**
@@ -40,13 +41,14 @@ class Candle {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, orderBookId, startTimestamp, open, high, low, close, volume) { 
+    static initialize(obj, orderBookId, startTimestamp, open, high, low, close, ytm, volume) { 
         obj['order_book_id'] = orderBookId;
         obj['start_timestamp'] = startTimestamp;
         obj['open'] = open;
         obj['high'] = high;
         obj['low'] = low;
         obj['close'] = close;
+        obj['ytm'] = ytm;
         obj['volume'] = volume;
     }
 
@@ -78,6 +80,9 @@ class Candle {
             }
             if (data.hasOwnProperty('close')) {
                 obj['close'] = ApiClient.convertToType(data['close'], 'String');
+            }
+            if (data.hasOwnProperty('ytm')) {
+                obj['ytm'] = ApiClient.convertToType(data['ytm'], 'String');
             }
             if (data.hasOwnProperty('volume')) {
                 obj['volume'] = ApiClient.convertToType(data['volume'], 'String');
@@ -119,6 +124,10 @@ class Candle {
             throw new Error("Expected the field `close` to be a primitive type in the JSON string but got " + data['close']);
         }
         // ensure the json data is a string
+        if (data['ytm'] && !(typeof data['ytm'] === 'string' || data['ytm'] instanceof String)) {
+            throw new Error("Expected the field `ytm` to be a primitive type in the JSON string but got " + data['ytm']);
+        }
+        // ensure the json data is a string
         if (data['volume'] && !(typeof data['volume'] === 'string' || data['volume'] instanceof String)) {
             throw new Error("Expected the field `volume` to be a primitive type in the JSON string but got " + data['volume']);
         }
@@ -129,7 +138,7 @@ class Candle {
 
 }
 
-Candle.RequiredProperties = ["order_book_id", "start_timestamp", "open", "high", "low", "close", "volume"];
+Candle.RequiredProperties = ["order_book_id", "start_timestamp", "open", "high", "low", "close", "ytm", "volume"];
 
 /**
  * @member {String} order_book_id
@@ -160,6 +169,11 @@ Candle.prototype['low'] = undefined;
  * @member {String} close
  */
 Candle.prototype['close'] = undefined;
+
+/**
+ * @member {String} ytm
+ */
+Candle.prototype['ytm'] = undefined;
 
 /**
  * @member {String} volume

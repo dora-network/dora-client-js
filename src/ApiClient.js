@@ -605,11 +605,11 @@ class ApiClient {
               'description': "DORA staging Websocket API server",
             },
             {
-              'url': "https://prod.dora.co",
+              'url': "https://api.dora.co",
               'description': "DORA production API server",
             },
             {
-              'url': "wss://prod.dora.co",
+              'url': "wss://api.dora.co",
               'description': "DORA production Websocket API server",
             }
       ];

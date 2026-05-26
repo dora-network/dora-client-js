@@ -20,6 +20,7 @@ import AssetKind from '../model/AssetKind';
 import AssetPrice from '../model/AssetPrice';
 import AssetPriceResponseEnvelope from '../model/AssetPriceResponseEnvelope';
 import AssetRequestError from '../model/AssetRequestError';
+import AssetYieldResolution from '../model/AssetYieldResolution';
 import CancelOrderResponseEnvelope from '../model/CancelOrderResponseEnvelope';
 import CandleResolution from '../model/CandleResolution';
 import ClaimLeverageAccruedInterestRequest from '../model/ClaimLeverageAccruedInterestRequest';
@@ -55,6 +56,7 @@ import LiquidityRequest from '../model/LiquidityRequest';
 import LiquidityResponseEnvelope from '../model/LiquidityResponseEnvelope';
 import ListAccountsResponseV2Envelope from '../model/ListAccountsResponseV2Envelope';
 import ListAssetPriceResponseEnvelope from '../model/ListAssetPriceResponseEnvelope';
+import ListAssetYieldResponseEnvelope from '../model/ListAssetYieldResponseEnvelope';
 import ListCandlesResponseEnvelope from '../model/ListCandlesResponseEnvelope';
 import ListCouponPaymentsResponseEnvelope from '../model/ListCouponPaymentsResponseEnvelope';
 import ListOrderBookDepthResponseEnvelope from '../model/ListOrderBookDepthResponseEnvelope';
@@ -1019,6 +1021,66 @@ export default class DefaultApi {
       let returnType = GetAssetYTMByIDResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/assets/{asset_id}/ytm', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getAssetYieldData operation.
+     * @callback module:api/DefaultApi~getAssetYieldDataCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ListAssetYieldResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get yield chart data for an asset
+     * @param {String} assetId 
+     * @param {Date} start 
+     * @param {Date} end 
+     * @param {module:model/AssetYieldResolution} resolution 
+     * @param {module:api/DefaultApi~getAssetYieldDataCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ListAssetYieldResponseEnvelope}
+     */
+    getAssetYieldData(assetId, start, end, resolution, callback) {
+      let postBody = null;
+      // verify the required parameter 'assetId' is set
+      if (assetId === undefined || assetId === null) {
+        throw new Error("Missing the required parameter 'assetId' when calling getAssetYieldData");
+      }
+      // verify the required parameter 'start' is set
+      if (start === undefined || start === null) {
+        throw new Error("Missing the required parameter 'start' when calling getAssetYieldData");
+      }
+      // verify the required parameter 'end' is set
+      if (end === undefined || end === null) {
+        throw new Error("Missing the required parameter 'end' when calling getAssetYieldData");
+      }
+      // verify the required parameter 'resolution' is set
+      if (resolution === undefined || resolution === null) {
+        throw new Error("Missing the required parameter 'resolution' when calling getAssetYieldData");
+      }
+
+      let pathParams = {
+        'asset_id': assetId
+      };
+      let queryParams = {
+        'start': start,
+        'end': end,
+        'resolution': resolution
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListAssetYieldResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/charts/{asset_id}/yield', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3522,7 +3584,7 @@ export default class DefaultApi {
     /**
      * List order books
      * @param {Object} opts Optional parameters
-     * @param {module:model/OrderBookStatus} [status] 
+     * @param {Array.<module:model/OrderBookStatus>} [status] 
      * @param {String} [baseAssetId] 
      * @param {String} [quoteAssetId] 
      * @param {Number} [page = 1)] 
@@ -3537,7 +3599,7 @@ export default class DefaultApi {
       let pathParams = {
       };
       let queryParams = {
-        'status': opts['status'],
+        'status': this.apiClient.buildCollectionParam(opts['status'], 'multi'),
         'base_asset_id': opts['baseAssetId'],
         'quote_asset_id': opts['quoteAssetId'],
         'page': opts['page'],

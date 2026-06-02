@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Side from './Side';
+import TransactionInternalTransfer from './TransactionInternalTransfer';
 import TransactionKind from './TransactionKind';
 
 /**
@@ -99,6 +100,9 @@ class Transaction {
             if (data.hasOwnProperty('order_side')) {
                 obj['order_side'] = Side.constructFromObject(data['order_side']);
             }
+            if (data.hasOwnProperty('internal_transfer')) {
+                obj['internal_transfer'] = TransactionInternalTransfer.constructFromObject(data['internal_transfer']);
+            }
         }
         return obj;
     }
@@ -142,6 +146,10 @@ class Transaction {
         // ensure the json data is a string
         if (data['admin_user_id'] && !(typeof data['admin_user_id'] === 'string' || data['admin_user_id'] instanceof String)) {
             throw new Error("Expected the field `admin_user_id` to be a primitive type in the JSON string but got " + data['admin_user_id']);
+        }
+        // validate the optional field `internal_transfer`
+        if (data['internal_transfer']) { // data not null
+          TransactionInternalTransfer.validateJSON(data['internal_transfer']);
         }
 
         return true;
@@ -201,6 +209,11 @@ Transaction.prototype['admin_user_id'] = undefined;
  * @member {module:model/Side} order_side
  */
 Transaction.prototype['order_side'] = undefined;
+
+/**
+ * @member {module:model/TransactionInternalTransfer} internal_transfer
+ */
+Transaction.prototype['internal_transfer'] = undefined;
 
 
 

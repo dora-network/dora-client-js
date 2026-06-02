@@ -402,6 +402,7 @@ Class | Method | HTTP request | Description
  - [Dora.TradeRequestError](docs/TradeRequestError.md)
  - [Dora.TradeResponseEnvelope](docs/TradeResponseEnvelope.md)
  - [Dora.Transaction](docs/Transaction.md)
+ - [Dora.TransactionInternalTransfer](docs/TransactionInternalTransfer.md)
  - [Dora.TransactionKind](docs/TransactionKind.md)
  - [Dora.TransactionRequestError](docs/TransactionRequestError.md)
  - [Dora.TransactionResponseEnvelope](docs/TransactionResponseEnvelope.md)

@@ -168,6 +168,7 @@ docs/Trade.md
 docs/TradeRequestError.md
 docs/TradeResponseEnvelope.md
 docs/Transaction.md
+docs/TransactionInternalTransfer.md
 docs/TransactionKind.md
 docs/TransactionRequestError.md
 docs/TransactionResponseEnvelope.md
@@ -386,6 +387,7 @@ src/model/Trade.js
 src/model/TradeRequestError.js
 src/model/TradeResponseEnvelope.js
 src/model/Transaction.js
+src/model/TransactionInternalTransfer.js
 src/model/TransactionKind.js
 src/model/TransactionRequestError.js
 src/model/TransactionResponseEnvelope.js
@@ -599,6 +601,7 @@ test/model/Trade.spec.js
 test/model/TradeRequestError.spec.js
 test/model/TradeResponseEnvelope.spec.js
 test/model/Transaction.spec.js
+test/model/TransactionInternalTransfer.spec.js
 test/model/TransactionKind.spec.js
 test/model/TransactionRequestError.spec.js
 test/model/TransactionResponseEnvelope.spec.js

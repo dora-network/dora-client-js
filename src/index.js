@@ -178,6 +178,7 @@ import Trade from './model/Trade';
 import TradeRequestError from './model/TradeRequestError';
 import TradeResponseEnvelope from './model/TradeResponseEnvelope';
 import Transaction from './model/Transaction';
+import TransactionInternalTransfer from './model/TransactionInternalTransfer';
 import TransactionKind from './model/TransactionKind';
 import TransactionRequestError from './model/TransactionRequestError';
 import TransactionResponseEnvelope from './model/TransactionResponseEnvelope';
@@ -1255,6 +1256,12 @@ export {
      * @property {module:model/Transaction}
      */
     Transaction,
+
+    /**
+     * The TransactionInternalTransfer model constructor.
+     * @property {module:model/TransactionInternalTransfer}
+     */
+    TransactionInternalTransfer,
 
     /**
      * The TransactionKind model constructor.

@@ -114,6 +114,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property internalTransfer (base name: "internal_transfer")', function() {
+      // uncomment below and update the code to test the property internalTransfer
+      //var instance = new Dora.Transaction();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

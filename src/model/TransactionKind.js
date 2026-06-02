@@ -180,6 +180,13 @@ export default class TransactionKind {
         "COUPON_PAYMENT" = "COUPON_PAYMENT";
 
     
+        /**
+         * value: "INTERNAL_TRANSFER"
+         * @const
+         */
+        "INTERNAL_TRANSFER" = "INTERNAL_TRANSFER";
+
+    
 
     /**
     * Returns a <code>TransactionKind</code> enum value from a Javascript object name.

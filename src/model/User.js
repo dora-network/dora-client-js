@@ -38,10 +38,11 @@ class User {
      * @param allowLiquidationsNotifications {Boolean} 
      * @param allowDepositWithdrawalNotifications {Boolean} 
      * @param allowOrdersNotifications {Boolean} 
+     * @param allowCopyTrading {Boolean} 
      */
-    constructor(id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications) { 
+    constructor(id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading) { 
         
-        User.initialize(this, id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications);
+        User.initialize(this, id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading);
     }
 
     /**
@@ -49,7 +50,7 @@ class User {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications) { 
+    static initialize(obj, id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading) { 
         obj['id'] = id;
         obj['email'] = email;
         obj['first_name'] = firstName;
@@ -64,6 +65,7 @@ class User {
         obj['allow_liquidations_notifications'] = allowLiquidationsNotifications;
         obj['allow_deposit_withdrawal_notifications'] = allowDepositWithdrawalNotifications;
         obj['allow_orders_notifications'] = allowOrdersNotifications;
+        obj['allow_copy_trading'] = allowCopyTrading;
     }
 
     /**
@@ -143,6 +145,9 @@ class User {
             if (data.hasOwnProperty('allow_orders_notifications')) {
                 obj['allow_orders_notifications'] = ApiClient.convertToType(data['allow_orders_notifications'], 'Boolean');
             }
+            if (data.hasOwnProperty('allow_copy_trading')) {
+                obj['allow_copy_trading'] = ApiClient.convertToType(data['allow_copy_trading'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -210,7 +215,7 @@ class User {
 
 }
 
-User.RequiredProperties = ["id", "email", "first_name", "last_name", "country_of_domicile", "native_asset_id", "roles", "show_tutorial_cards", "notifications_enabled", "tenant_id", "allow_email_notifications", "allow_liquidations_notifications", "allow_deposit_withdrawal_notifications", "allow_orders_notifications"];
+User.RequiredProperties = ["id", "email", "first_name", "last_name", "country_of_domicile", "native_asset_id", "roles", "show_tutorial_cards", "notifications_enabled", "tenant_id", "allow_email_notifications", "allow_liquidations_notifications", "allow_deposit_withdrawal_notifications", "allow_orders_notifications", "allow_copy_trading"];
 
 /**
  * @member {String} id
@@ -323,6 +328,11 @@ User.prototype['allow_deposit_withdrawal_notifications'] = undefined;
  * @member {Boolean} allow_orders_notifications
  */
 User.prototype['allow_orders_notifications'] = undefined;
+
+/**
+ * @member {Boolean} allow_copy_trading
+ */
+User.prototype['allow_copy_trading'] = undefined;
 
 
 

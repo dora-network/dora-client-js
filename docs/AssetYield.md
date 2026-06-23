@@ -7,7 +7,9 @@ Name | Type | Description | Notes
 **assetId** | **String** |  | 
 **timestamp** | **Date** |  | 
 **ytm** | **String** |  | 
-**lendingYield** | **String** |  | 
+**borrowingYieldRate** | **String** |  | 
+**lendingYieldRate** | **String** |  | 
+**price** | **String** |  | 
 **tvl** | **String** |  | 
 **totalYield** | **String** |  | 
 

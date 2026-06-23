@@ -72,8 +72,20 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property lendingYield (base name: "lending_yield")', function() {
-      // uncomment below and update the code to test the property lendingYield
+    it('should have the property borrowingYieldRate (base name: "borrowing_yield_rate")', function() {
+      // uncomment below and update the code to test the property borrowingYieldRate
+      //var instance = new Dora.AssetYield();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lendingYieldRate (base name: "lending_yield_rate")', function() {
+      // uncomment below and update the code to test the property lendingYieldRate
+      //var instance = new Dora.AssetYield();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property price (base name: "price")', function() {
+      // uncomment below and update the code to test the property price
       //var instance = new Dora.AssetYield();
       //expect(instance).to.be();
     });

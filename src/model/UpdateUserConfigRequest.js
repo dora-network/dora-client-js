@@ -53,28 +53,31 @@ class UpdateUserConfigRequest {
             obj = obj || new UpdateUserConfigRequest();
 
             if (data.hasOwnProperty('photo_url')) {
-                obj['photo_url'] = UpdateFieldString.constructFromObject(data['photo_url']);
+                obj['photo_url'] = ApiClient.convertToType(data['photo_url'], UpdateFieldString);
             }
             if (data.hasOwnProperty('timezone')) {
-                obj['timezone'] = UpdateFieldString.constructFromObject(data['timezone']);
+                obj['timezone'] = ApiClient.convertToType(data['timezone'], UpdateFieldString);
             }
             if (data.hasOwnProperty('show_tutorial_cards')) {
-                obj['show_tutorial_cards'] = UpdateFieldBoolean.constructFromObject(data['show_tutorial_cards']);
+                obj['show_tutorial_cards'] = ApiClient.convertToType(data['show_tutorial_cards'], UpdateFieldBoolean);
             }
             if (data.hasOwnProperty('notifications_enabled')) {
-                obj['notifications_enabled'] = UpdateFieldBoolean.constructFromObject(data['notifications_enabled']);
+                obj['notifications_enabled'] = ApiClient.convertToType(data['notifications_enabled'], UpdateFieldBoolean);
             }
             if (data.hasOwnProperty('allow_email_notifications')) {
-                obj['allow_email_notifications'] = UpdateFieldBoolean.constructFromObject(data['allow_email_notifications']);
+                obj['allow_email_notifications'] = ApiClient.convertToType(data['allow_email_notifications'], UpdateFieldBoolean);
             }
             if (data.hasOwnProperty('allow_liquidations_notifications')) {
-                obj['allow_liquidations_notifications'] = UpdateFieldBoolean.constructFromObject(data['allow_liquidations_notifications']);
+                obj['allow_liquidations_notifications'] = ApiClient.convertToType(data['allow_liquidations_notifications'], UpdateFieldBoolean);
             }
             if (data.hasOwnProperty('allow_deposit_withdrawal_notifications')) {
-                obj['allow_deposit_withdrawal_notifications'] = UpdateFieldBoolean.constructFromObject(data['allow_deposit_withdrawal_notifications']);
+                obj['allow_deposit_withdrawal_notifications'] = ApiClient.convertToType(data['allow_deposit_withdrawal_notifications'], UpdateFieldBoolean);
             }
             if (data.hasOwnProperty('allow_orders_notifications')) {
-                obj['allow_orders_notifications'] = UpdateFieldBoolean.constructFromObject(data['allow_orders_notifications']);
+                obj['allow_orders_notifications'] = ApiClient.convertToType(data['allow_orders_notifications'], UpdateFieldBoolean);
+            }
+            if (data.hasOwnProperty('allow_copy_trading')) {
+                obj['allow_copy_trading'] = ApiClient.convertToType(data['allow_copy_trading'], UpdateFieldBoolean);
             }
         }
         return obj;
@@ -123,6 +126,10 @@ class UpdateUserConfigRequest {
         // validate the optional field `allow_orders_notifications`
         if (data['allow_orders_notifications']) { // data not null
           UpdateFieldBoolean.validateJSON(data['allow_orders_notifications']);
+        }
+        // validate the optional field `allow_copy_trading`
+        if (data['allow_copy_trading']) { // data not null
+          UpdateFieldBoolean.validateJSON(data['allow_copy_trading']);
         }
 
         return true;
@@ -180,6 +187,12 @@ UpdateUserConfigRequest.prototype['allow_deposit_withdrawal_notifications'] = un
  * @member {module:model/UpdateFieldBoolean} allow_orders_notifications
  */
 UpdateUserConfigRequest.prototype['allow_orders_notifications'] = undefined;
+
+/**
+ * Optional: Whether to allow copy trading.
+ * @member {module:model/UpdateFieldBoolean} allow_copy_trading
+ */
+UpdateUserConfigRequest.prototype['allow_copy_trading'] = undefined;
 
 
 

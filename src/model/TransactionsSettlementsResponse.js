@@ -52,10 +52,10 @@ class TransactionsSettlementsResponse {
                 obj['settlements'] = ApiClient.convertToType(data['settlements'], [TransactionsSettlement]);
             }
             if (data.hasOwnProperty('user_totals')) {
-                obj['user_totals'] = ApiClient.convertToType(data['user_totals'], {'String': 'Number'});
+                obj['user_totals'] = ApiClient.convertToType(data['user_totals'], {'String': 'String'});
             }
             if (data.hasOwnProperty('tenant_totals')) {
-                obj['tenant_totals'] = ApiClient.convertToType(data['tenant_totals'], {'String': 'Number'});
+                obj['tenant_totals'] = ApiClient.convertToType(data['tenant_totals'], {'String': 'String'});
             }
         }
         return obj;
@@ -92,12 +92,12 @@ class TransactionsSettlementsResponse {
 TransactionsSettlementsResponse.prototype['settlements'] = undefined;
 
 /**
- * @member {Object.<String, Number>} user_totals
+ * @member {Object.<String, String>} user_totals
  */
 TransactionsSettlementsResponse.prototype['user_totals'] = undefined;
 
 /**
- * @member {Object.<String, Number>} tenant_totals
+ * @member {Object.<String, String>} tenant_totals
  */
 TransactionsSettlementsResponse.prototype['tenant_totals'] = undefined;
 

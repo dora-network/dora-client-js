@@ -60,7 +60,7 @@ class LeverageRequestError {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
             }
             if (data.hasOwnProperty('metadata')) {
-                obj['metadata'] = Metadata.constructFromObject(data['metadata']);
+                obj['metadata'] = ApiClient.convertToType(data['metadata'], Metadata);
             }
         }
         return obj;

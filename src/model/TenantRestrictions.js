@@ -23,8 +23,8 @@ class TenantRestrictions {
      * Constructs a new <code>TenantRestrictions</code>.
      * @alias module:model/TenantRestrictions
      * @param tenantId {String} Tenant ID
-     * @param depositLimit {Number} Maximum allowed deposit for the tenant.
-     * @param tradeLimit {Number} Maximum allowed trade amount for the tenant.
+     * @param depositLimit {String} Maximum allowed deposit for the tenant.
+     * @param tradeLimit {String} Maximum allowed trade amount for the tenant.
      * @param updatedAt {Date} Last update timestamp for the restrictions.
      */
     constructor(tenantId, depositLimit, tradeLimit, updatedAt) { 
@@ -59,10 +59,10 @@ class TenantRestrictions {
                 obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
             }
             if (data.hasOwnProperty('deposit_limit')) {
-                obj['deposit_limit'] = ApiClient.convertToType(data['deposit_limit'], 'Number');
+                obj['deposit_limit'] = ApiClient.convertToType(data['deposit_limit'], 'String');
             }
             if (data.hasOwnProperty('trade_limit')) {
-                obj['trade_limit'] = ApiClient.convertToType(data['trade_limit'], 'Number');
+                obj['trade_limit'] = ApiClient.convertToType(data['trade_limit'], 'String');
             }
             if (data.hasOwnProperty('updated_at')) {
                 obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
@@ -112,13 +112,13 @@ TenantRestrictions.prototype['tenant_id'] = undefined;
 
 /**
  * Maximum allowed deposit for the tenant.
- * @member {Number} deposit_limit
+ * @member {String} deposit_limit
  */
 TenantRestrictions.prototype['deposit_limit'] = undefined;
 
 /**
  * Maximum allowed trade amount for the tenant.
- * @member {Number} trade_limit
+ * @member {String} trade_limit
  */
 TenantRestrictions.prototype['trade_limit'] = undefined;
 

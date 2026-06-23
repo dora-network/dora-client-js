@@ -22,7 +22,7 @@ class CreateConditionalOrderRequest {
     /**
      * Constructs a new <code>CreateConditionalOrderRequest</code>.
      * @alias module:model/CreateConditionalOrderRequest
-     * @param price {Number} 
+     * @param price {String} 
      * @param orderBookId {String} Required: the order book to submit the order to
      * @param positionId {String} Required: the position to submit the order to
      * @param assetId {String} Required: the asset to submit the order to
@@ -56,7 +56,7 @@ class CreateConditionalOrderRequest {
             obj = obj || new CreateConditionalOrderRequest();
 
             if (data.hasOwnProperty('price')) {
-                obj['price'] = ApiClient.convertToType(data['price'], 'Number');
+                obj['price'] = ApiClient.convertToType(data['price'], 'String');
             }
             if (data.hasOwnProperty('order_book_id')) {
                 obj['order_book_id'] = ApiClient.convertToType(data['order_book_id'], 'String');
@@ -68,10 +68,10 @@ class CreateConditionalOrderRequest {
                 obj['asset_id'] = ApiClient.convertToType(data['asset_id'], 'String');
             }
             if (data.hasOwnProperty('stop_loss_price')) {
-                obj['stop_loss_price'] = ApiClient.convertToType(data['stop_loss_price'], 'Number');
+                obj['stop_loss_price'] = ApiClient.convertToType(data['stop_loss_price'], 'String');
             }
             if (data.hasOwnProperty('take_profit_price')) {
-                obj['take_profit_price'] = ApiClient.convertToType(data['take_profit_price'], 'Number');
+                obj['take_profit_price'] = ApiClient.convertToType(data['take_profit_price'], 'String');
             }
         }
         return obj;
@@ -123,7 +123,7 @@ class CreateConditionalOrderRequest {
 CreateConditionalOrderRequest.RequiredProperties = ["price", "order_book_id", "position_id", "asset_id"];
 
 /**
- * @member {Number} price
+ * @member {String} price
  */
 CreateConditionalOrderRequest.prototype['price'] = undefined;
 
@@ -147,13 +147,13 @@ CreateConditionalOrderRequest.prototype['asset_id'] = undefined;
 
 /**
  * Stop loss price
- * @member {Number} stop_loss_price
+ * @member {String} stop_loss_price
  */
 CreateConditionalOrderRequest.prototype['stop_loss_price'] = undefined;
 
 /**
  * Take profit price
- * @member {Number} take_profit_price
+ * @member {String} take_profit_price
  */
 CreateConditionalOrderRequest.prototype['take_profit_price'] = undefined;
 

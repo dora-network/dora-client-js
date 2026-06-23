@@ -24,7 +24,7 @@ class NewIsolatedAccountRequestV2 {
      * @alias module:model/NewIsolatedAccountRequestV2
      * @param globalAccountId {String} 
      * @param assetId {String} 
-     * @param quantity {Number} 
+     * @param quantity {String} 
      */
     constructor(globalAccountId, assetId, quantity) { 
         
@@ -60,7 +60,7 @@ class NewIsolatedAccountRequestV2 {
                 obj['asset_id'] = ApiClient.convertToType(data['asset_id'], 'String');
             }
             if (data.hasOwnProperty('quantity')) {
-                obj['quantity'] = ApiClient.convertToType(data['quantity'], 'Number');
+                obj['quantity'] = ApiClient.convertToType(data['quantity'], 'String');
             }
             if (data.hasOwnProperty('account_name')) {
                 obj['account_name'] = ApiClient.convertToType(data['account_name'], 'String');
@@ -117,7 +117,7 @@ NewIsolatedAccountRequestV2.prototype['global_account_id'] = undefined;
 NewIsolatedAccountRequestV2.prototype['asset_id'] = undefined;
 
 /**
- * @member {Number} quantity
+ * @member {String} quantity
  */
 NewIsolatedAccountRequestV2.prototype['quantity'] = undefined;
 

@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **allowLiquidationsNotifications** | **Boolean** |  | 
 **allowDepositWithdrawalNotifications** | **Boolean** |  | 
 **allowOrdersNotifications** | **Boolean** |  | 
+**allowCopyTrading** | **Boolean** |  | 
 
 

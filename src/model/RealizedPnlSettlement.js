@@ -27,7 +27,7 @@ class RealizedPnlSettlement {
      * @param tenantId {String} The ID of the tenant associated with the realized PnL settlement
      * @param positionId {String} The ID of the position associated with the realized PnL settlement
      * @param orderId {String} The ID of the position-closing order associated with the realized PnL settlement
-     * @param realizedUsd {Number} The amount of realized PnL in USD
+     * @param realizedUsd {String} The amount of realized PnL in USD
      * @param createdAt {Date} The timestamp when the realized PnL settlement was created
      */
     constructor(id, userId, tenantId, positionId, orderId, realizedUsd, createdAt) { 
@@ -77,7 +77,7 @@ class RealizedPnlSettlement {
                 obj['order_id'] = ApiClient.convertToType(data['order_id'], 'String');
             }
             if (data.hasOwnProperty('realized_usd')) {
-                obj['realized_usd'] = ApiClient.convertToType(data['realized_usd'], 'Number');
+                obj['realized_usd'] = ApiClient.convertToType(data['realized_usd'], 'String');
             }
             if (data.hasOwnProperty('settled_at')) {
                 obj['settled_at'] = ApiClient.convertToType(data['settled_at'], 'Date');
@@ -166,7 +166,7 @@ RealizedPnlSettlement.prototype['order_id'] = undefined;
 
 /**
  * The amount of realized PnL in USD
- * @member {Number} realized_usd
+ * @member {String} realized_usd
  */
 RealizedPnlSettlement.prototype['realized_usd'] = undefined;
 

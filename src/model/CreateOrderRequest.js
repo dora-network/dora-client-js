@@ -75,7 +75,7 @@ class CreateOrderRequest {
                 obj['kind'] = OrderKind.constructFromObject(data['kind']);
             }
             if (data.hasOwnProperty('side')) {
-                obj['side'] = Side.constructFromObject(data['side']);
+                obj['side'] = ApiClient.convertToType(data['side'], Side);
             }
             if (data.hasOwnProperty('from_global_position')) {
                 obj['from_global_position'] = ApiClient.convertToType(data['from_global_position'], 'Boolean');

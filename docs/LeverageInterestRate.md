@@ -5,10 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assetId** | **String** |  | 
-**utilization** | **Number** |  | 
-**avgUtilization** | **Number** |  | 
-**avgInterestRate** | **Number** |  | 
-**interestRate** | **Number** |  | 
+**utilization** | **String** |  | 
+**avgUtilization** | **String** |  | 
+**avgBorrowingYieldRate** | **String** |  | 
+**avgLendingYieldRate** | **String** |  | 
+**borrowingYieldRate** | **String** |  | 
+**lendingYieldRate** | **String** |  | 
+**yieldToMaturity** | **String** |  | 
 **startTime** | **Date** |  | 
 **endTime** | **Date** |  | 
 

@@ -71,10 +71,10 @@ class ValidateSubmitOrderRequest {
                 obj['tick'] = ApiClient.convertToType(data['tick'], 'String');
             }
             if (data.hasOwnProperty('kind')) {
-                obj['kind'] = OrderKind.constructFromObject(data['kind']);
+                obj['kind'] = ApiClient.convertToType(data['kind'], OrderKind);
             }
             if (data.hasOwnProperty('side')) {
-                obj['side'] = Side.constructFromObject(data['side']);
+                obj['side'] = ApiClient.convertToType(data['side'], Side);
             }
             if (data.hasOwnProperty('price')) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'String');

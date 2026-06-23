@@ -25,7 +25,7 @@ class TransferAccountBalancesRequest {
      * @param fromAccountId {String} 
      * @param toAccountId {String} 
      * @param assetId {String} 
-     * @param quantity {Number} 
+     * @param quantity {String} 
      */
     constructor(fromAccountId, toAccountId, assetId, quantity) { 
         
@@ -65,7 +65,7 @@ class TransferAccountBalancesRequest {
                 obj['asset_id'] = ApiClient.convertToType(data['asset_id'], 'String');
             }
             if (data.hasOwnProperty('quantity')) {
-                obj['quantity'] = ApiClient.convertToType(data['quantity'], 'Number');
+                obj['quantity'] = ApiClient.convertToType(data['quantity'], 'String');
             }
         }
         return obj;
@@ -124,7 +124,7 @@ TransferAccountBalancesRequest.prototype['to_account_id'] = undefined;
 TransferAccountBalancesRequest.prototype['asset_id'] = undefined;
 
 /**
- * @member {Number} quantity
+ * @member {String} quantity
  */
 TransferAccountBalancesRequest.prototype['quantity'] = undefined;
 

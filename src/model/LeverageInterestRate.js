@@ -23,16 +23,19 @@ class LeverageInterestRate {
      * Constructs a new <code>LeverageInterestRate</code>.
      * @alias module:model/LeverageInterestRate
      * @param assetId {String} 
-     * @param utilization {Number} 
-     * @param avgUtilization {Number} 
-     * @param avgInterestRate {Number} 
-     * @param interestRate {Number} 
+     * @param utilization {String} 
+     * @param avgUtilization {String} 
+     * @param avgBorrowingYieldRate {String} 
+     * @param avgLendingYieldRate {String} 
+     * @param borrowingYieldRate {String} 
+     * @param lendingYieldRate {String} 
+     * @param yieldToMaturity {String} 
      * @param startTime {Date} 
      * @param endTime {Date} 
      */
-    constructor(assetId, utilization, avgUtilization, avgInterestRate, interestRate, startTime, endTime) { 
+    constructor(assetId, utilization, avgUtilization, avgBorrowingYieldRate, avgLendingYieldRate, borrowingYieldRate, lendingYieldRate, yieldToMaturity, startTime, endTime) { 
         
-        LeverageInterestRate.initialize(this, assetId, utilization, avgUtilization, avgInterestRate, interestRate, startTime, endTime);
+        LeverageInterestRate.initialize(this, assetId, utilization, avgUtilization, avgBorrowingYieldRate, avgLendingYieldRate, borrowingYieldRate, lendingYieldRate, yieldToMaturity, startTime, endTime);
     }
 
     /**
@@ -40,12 +43,15 @@ class LeverageInterestRate {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, assetId, utilization, avgUtilization, avgInterestRate, interestRate, startTime, endTime) { 
+    static initialize(obj, assetId, utilization, avgUtilization, avgBorrowingYieldRate, avgLendingYieldRate, borrowingYieldRate, lendingYieldRate, yieldToMaturity, startTime, endTime) { 
         obj['asset_id'] = assetId;
         obj['utilization'] = utilization;
         obj['avg_utilization'] = avgUtilization;
-        obj['avg_interest_rate'] = avgInterestRate;
-        obj['interest_rate'] = interestRate;
+        obj['avg_borrowing_yield_rate'] = avgBorrowingYieldRate;
+        obj['avg_lending_yield_rate'] = avgLendingYieldRate;
+        obj['borrowing_yield_rate'] = borrowingYieldRate;
+        obj['lending_yield_rate'] = lendingYieldRate;
+        obj['yield_to_maturity'] = yieldToMaturity;
         obj['start_time'] = startTime;
         obj['end_time'] = endTime;
     }
@@ -65,16 +71,25 @@ class LeverageInterestRate {
                 obj['asset_id'] = ApiClient.convertToType(data['asset_id'], 'String');
             }
             if (data.hasOwnProperty('utilization')) {
-                obj['utilization'] = ApiClient.convertToType(data['utilization'], 'Number');
+                obj['utilization'] = ApiClient.convertToType(data['utilization'], 'String');
             }
             if (data.hasOwnProperty('avg_utilization')) {
-                obj['avg_utilization'] = ApiClient.convertToType(data['avg_utilization'], 'Number');
+                obj['avg_utilization'] = ApiClient.convertToType(data['avg_utilization'], 'String');
             }
-            if (data.hasOwnProperty('avg_interest_rate')) {
-                obj['avg_interest_rate'] = ApiClient.convertToType(data['avg_interest_rate'], 'Number');
+            if (data.hasOwnProperty('avg_borrowing_yield_rate')) {
+                obj['avg_borrowing_yield_rate'] = ApiClient.convertToType(data['avg_borrowing_yield_rate'], 'String');
             }
-            if (data.hasOwnProperty('interest_rate')) {
-                obj['interest_rate'] = ApiClient.convertToType(data['interest_rate'], 'Number');
+            if (data.hasOwnProperty('avg_lending_yield_rate')) {
+                obj['avg_lending_yield_rate'] = ApiClient.convertToType(data['avg_lending_yield_rate'], 'String');
+            }
+            if (data.hasOwnProperty('borrowing_yield_rate')) {
+                obj['borrowing_yield_rate'] = ApiClient.convertToType(data['borrowing_yield_rate'], 'String');
+            }
+            if (data.hasOwnProperty('lending_yield_rate')) {
+                obj['lending_yield_rate'] = ApiClient.convertToType(data['lending_yield_rate'], 'String');
+            }
+            if (data.hasOwnProperty('yield_to_maturity')) {
+                obj['yield_to_maturity'] = ApiClient.convertToType(data['yield_to_maturity'], 'String');
             }
             if (data.hasOwnProperty('start_time')) {
                 obj['start_time'] = ApiClient.convertToType(data['start_time'], 'Date');
@@ -111,12 +126,24 @@ class LeverageInterestRate {
             throw new Error("Expected the field `avg_utilization` to be a primitive type in the JSON string but got " + data['avg_utilization']);
         }
         // ensure the json data is a string
-        if (data['avg_interest_rate'] && !(typeof data['avg_interest_rate'] === 'string' || data['avg_interest_rate'] instanceof String)) {
-            throw new Error("Expected the field `avg_interest_rate` to be a primitive type in the JSON string but got " + data['avg_interest_rate']);
+        if (data['avg_borrowing_yield_rate'] && !(typeof data['avg_borrowing_yield_rate'] === 'string' || data['avg_borrowing_yield_rate'] instanceof String)) {
+            throw new Error("Expected the field `avg_borrowing_yield_rate` to be a primitive type in the JSON string but got " + data['avg_borrowing_yield_rate']);
         }
         // ensure the json data is a string
-        if (data['interest_rate'] && !(typeof data['interest_rate'] === 'string' || data['interest_rate'] instanceof String)) {
-            throw new Error("Expected the field `interest_rate` to be a primitive type in the JSON string but got " + data['interest_rate']);
+        if (data['avg_lending_yield_rate'] && !(typeof data['avg_lending_yield_rate'] === 'string' || data['avg_lending_yield_rate'] instanceof String)) {
+            throw new Error("Expected the field `avg_lending_yield_rate` to be a primitive type in the JSON string but got " + data['avg_lending_yield_rate']);
+        }
+        // ensure the json data is a string
+        if (data['borrowing_yield_rate'] && !(typeof data['borrowing_yield_rate'] === 'string' || data['borrowing_yield_rate'] instanceof String)) {
+            throw new Error("Expected the field `borrowing_yield_rate` to be a primitive type in the JSON string but got " + data['borrowing_yield_rate']);
+        }
+        // ensure the json data is a string
+        if (data['lending_yield_rate'] && !(typeof data['lending_yield_rate'] === 'string' || data['lending_yield_rate'] instanceof String)) {
+            throw new Error("Expected the field `lending_yield_rate` to be a primitive type in the JSON string but got " + data['lending_yield_rate']);
+        }
+        // ensure the json data is a string
+        if (data['yield_to_maturity'] && !(typeof data['yield_to_maturity'] === 'string' || data['yield_to_maturity'] instanceof String)) {
+            throw new Error("Expected the field `yield_to_maturity` to be a primitive type in the JSON string but got " + data['yield_to_maturity']);
         }
 
         return true;
@@ -125,7 +152,7 @@ class LeverageInterestRate {
 
 }
 
-LeverageInterestRate.RequiredProperties = ["asset_id", "utilization", "avg_utilization", "avg_interest_rate", "interest_rate", "start_time", "end_time"];
+LeverageInterestRate.RequiredProperties = ["asset_id", "utilization", "avg_utilization", "avg_borrowing_yield_rate", "avg_lending_yield_rate", "borrowing_yield_rate", "lending_yield_rate", "yield_to_maturity", "start_time", "end_time"];
 
 /**
  * @member {String} asset_id
@@ -133,24 +160,39 @@ LeverageInterestRate.RequiredProperties = ["asset_id", "utilization", "avg_utili
 LeverageInterestRate.prototype['asset_id'] = undefined;
 
 /**
- * @member {Number} utilization
+ * @member {String} utilization
  */
 LeverageInterestRate.prototype['utilization'] = undefined;
 
 /**
- * @member {Number} avg_utilization
+ * @member {String} avg_utilization
  */
 LeverageInterestRate.prototype['avg_utilization'] = undefined;
 
 /**
- * @member {Number} avg_interest_rate
+ * @member {String} avg_borrowing_yield_rate
  */
-LeverageInterestRate.prototype['avg_interest_rate'] = undefined;
+LeverageInterestRate.prototype['avg_borrowing_yield_rate'] = undefined;
 
 /**
- * @member {Number} interest_rate
+ * @member {String} avg_lending_yield_rate
  */
-LeverageInterestRate.prototype['interest_rate'] = undefined;
+LeverageInterestRate.prototype['avg_lending_yield_rate'] = undefined;
+
+/**
+ * @member {String} borrowing_yield_rate
+ */
+LeverageInterestRate.prototype['borrowing_yield_rate'] = undefined;
+
+/**
+ * @member {String} lending_yield_rate
+ */
+LeverageInterestRate.prototype['lending_yield_rate'] = undefined;
+
+/**
+ * @member {String} yield_to_maturity
+ */
+LeverageInterestRate.prototype['yield_to_maturity'] = undefined;
 
 /**
  * @member {Date} start_time

@@ -37,8 +37,8 @@ class Order {
      * @param originalQuantity {String} The original quantity of the order when it was created.
      * @param filledQuantity {String} Quantity that has been filled so far.
      * @param filledNotional {String} Quote quantity that has been filled so far.
-     * @param lockedQuantity {Number} Balance locked to ensure limit buy orders have sufficient balance to be fulfilled
-     * @param impendingBorrowsQuantity {Number} Borrows locked from the liquidity pool to ensure limit short sell orders have sufficient balance to be fulfilled
+     * @param lockedQuantity {String} Balance locked to ensure limit buy orders have sufficient balance to be fulfilled
+     * @param impendingBorrowsQuantity {String} Borrows locked from the liquidity pool to ensure limit short sell orders have sufficient balance to be fulfilled
      * @param lastUpdateAt {Date} 
      * @param openedAt {Date} 
      * @param inverseLeverage {String} 
@@ -121,10 +121,10 @@ class Order {
                 obj['filled_notional'] = ApiClient.convertToType(data['filled_notional'], 'String');
             }
             if (data.hasOwnProperty('locked_quantity')) {
-                obj['locked_quantity'] = ApiClient.convertToType(data['locked_quantity'], 'Number');
+                obj['locked_quantity'] = ApiClient.convertToType(data['locked_quantity'], 'String');
             }
             if (data.hasOwnProperty('impending_borrows_quantity')) {
-                obj['impending_borrows_quantity'] = ApiClient.convertToType(data['impending_borrows_quantity'], 'Number');
+                obj['impending_borrows_quantity'] = ApiClient.convertToType(data['impending_borrows_quantity'], 'String');
             }
             if (data.hasOwnProperty('last_update_at')) {
                 obj['last_update_at'] = ApiClient.convertToType(data['last_update_at'], 'Date');
@@ -327,13 +327,13 @@ Order.prototype['filled_notional'] = undefined;
 
 /**
  * Balance locked to ensure limit buy orders have sufficient balance to be fulfilled
- * @member {Number} locked_quantity
+ * @member {String} locked_quantity
  */
 Order.prototype['locked_quantity'] = undefined;
 
 /**
  * Borrows locked from the liquidity pool to ensure limit short sell orders have sufficient balance to be fulfilled
- * @member {Number} impending_borrows_quantity
+ * @member {String} impending_borrows_quantity
  */
 Order.prototype['impending_borrows_quantity'] = undefined;
 

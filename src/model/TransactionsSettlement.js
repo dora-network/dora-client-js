@@ -27,7 +27,7 @@ class TransactionsSettlement {
      * @param tenantId {String} 
      * @param positionId {String} 
      * @param txKind {String} 
-     * @param quantityUsd {Number} 
+     * @param quantityUsd {String} 
      * @param createdAt {Date} 
      */
     constructor(txId, userId, tenantId, positionId, txKind, quantityUsd, createdAt) { 
@@ -77,7 +77,7 @@ class TransactionsSettlement {
                 obj['tx_kind'] = ApiClient.convertToType(data['tx_kind'], 'String');
             }
             if (data.hasOwnProperty('quantity_usd')) {
-                obj['quantity_usd'] = ApiClient.convertToType(data['quantity_usd'], 'Number');
+                obj['quantity_usd'] = ApiClient.convertToType(data['quantity_usd'], 'String');
             }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
@@ -167,7 +167,7 @@ TransactionsSettlement.prototype['position_id'] = undefined;
 TransactionsSettlement.prototype['tx_kind'] = undefined;
 
 /**
- * @member {Number} quantity_usd
+ * @member {String} quantity_usd
  */
 TransactionsSettlement.prototype['quantity_usd'] = undefined;
 

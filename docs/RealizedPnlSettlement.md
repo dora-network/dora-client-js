@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **tenantId** | **String** | The ID of the tenant associated with the realized PnL settlement | 
 **positionId** | **String** | The ID of the position associated with the realized PnL settlement | 
 **orderId** | **String** | The ID of the position-closing order associated with the realized PnL settlement | 
-**realizedUsd** | **Number** | The amount of realized PnL in USD | 
+**realizedUsd** | **String** | The amount of realized PnL in USD | 
 **settledAt** | **Date** | The timestamp when the realized PnL settlement was settled | [optional] 
 **createdAt** | **Date** | The timestamp when the realized PnL settlement was created | 
 

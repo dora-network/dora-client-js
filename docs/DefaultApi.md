@@ -73,8 +73,8 @@ Method | HTTP request | Description
 [**ledgerWithdrawRequest**](DefaultApi.md#ledgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{user_id} | Initiate a withdrawal request for this user to the outside world
 [**ledgerWithdrawRequestSelf**](DefaultApi.md#ledgerWithdrawRequestSelf) | **POST** /v1/ledger/withdraw/requests/self | Initiate a withdrawal request for the logged in user to the outside world
 [**leverageGetAccruedInterestByUser**](DefaultApi.md#leverageGetAccruedInterestByUser) | **GET** /v1/leverage/accrued_interest/self | Get current accrued leverage interest for the user
-[**leverageGetHistoricalInterestRates**](DefaultApi.md#leverageGetHistoricalInterestRates) | **GET** /v1/leverage/interest_rate/{asset_id}/historical | Get historical leverage interest rates for a specific asset
-[**leverageGetInterestRate**](DefaultApi.md#leverageGetInterestRate) | **GET** /v1/leverage/interest_rate/{asset_id} | Get leverage interest rate for a specific asset
+[**leverageGetHistoricalInterestRates**](DefaultApi.md#leverageGetHistoricalInterestRates) | **GET** /v1/leverage/interest_rate/{asset_id}/historical | Get historical leverage borrowing and lending yields for a specific asset
+[**leverageGetInterestRate**](DefaultApi.md#leverageGetInterestRate) | **GET** /v1/leverage/interest_rate/{asset_id} | Get leverage borrowing and lending yields for a specific asset
 [**leverageIsolateCollateral**](DefaultApi.md#leverageIsolateCollateral) | **POST** /v1/leverage/isolate_collateral | Create an isolated position by transferring collateral to the position from the user&#39;s global collateral
 [**leverageSupply**](DefaultApi.md#leverageSupply) | **POST** /v1/leverage/supply | Supply leverage for a specific asset
 [**leverageUnite**](DefaultApi.md#leverageUnite) | **POST** /v1/leverage/unite | Combines all isolated positions into a single global position
@@ -2803,12 +2803,6 @@ Get transactions since a specific time, and open a stream for further updates
 
 ```javascript
 import Dora from 'dora';
-let defaultClient = Dora.ApiClient.instance;
-// Configure API key authorization: apiKeyAuthQuery
-let apiKeyAuthQuery = defaultClient.authentications['apiKeyAuthQuery'];
-apiKeyAuthQuery.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKeyAuthQuery.apiKeyPrefix = 'Token';
 
 let apiInstance = new Dora.DefaultApi();
 let opts = {
@@ -2836,7 +2830,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuthQuery](../README.md#apiKeyAuthQuery)
+No authorization required
 
 ### HTTP request headers
 
@@ -3654,7 +3648,7 @@ Name | Type | Description  | Notes
 
 > HistoricalLeverageInterestRatesResponseEnvelope leverageGetHistoricalInterestRates(assetId, opts)
 
-Get historical leverage interest rates for a specific asset
+Get historical leverage borrowing and lending yields for a specific asset
 
 ### Example
 
@@ -3712,7 +3706,7 @@ Name | Type | Description  | Notes
 
 > LeverageInterestRateResponseEnvelope leverageGetInterestRate(assetId, opts)
 
-Get leverage interest rate for a specific asset
+Get leverage borrowing and lending yields for a specific asset
 
 ### Example
 
@@ -4758,7 +4752,6 @@ import Dora from 'dora';
 
 let apiInstance = new Dora.DefaultApi();
 let opts = {
-  'since': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'assetId': "assetId_example" // String | 
 };
 apiInstance.streamAssetPrices(opts, (error, data, response) => {
@@ -4775,7 +4768,6 @@ apiInstance.streamAssetPrices(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | **Date**|  | [optional] 
  **assetId** | **String**|  | [optional] 
 
 ### Return type

@@ -52,16 +52,16 @@ class RealizedPnlSettlements {
                 obj['settlements'] = ApiClient.convertToType(data['settlements'], [RealizedPnlSettlement]);
             }
             if (data.hasOwnProperty('user_totals')) {
-                obj['user_totals'] = ApiClient.convertToType(data['user_totals'], {'String': 'Number'});
+                obj['user_totals'] = ApiClient.convertToType(data['user_totals'], {'String': 'String'});
             }
             if (data.hasOwnProperty('tenant_totals')) {
-                obj['tenant_totals'] = ApiClient.convertToType(data['tenant_totals'], {'String': 'Number'});
+                obj['tenant_totals'] = ApiClient.convertToType(data['tenant_totals'], {'String': 'String'});
             }
             if (data.hasOwnProperty('user_totals_unsettled')) {
-                obj['user_totals_unsettled'] = ApiClient.convertToType(data['user_totals_unsettled'], {'String': 'Number'});
+                obj['user_totals_unsettled'] = ApiClient.convertToType(data['user_totals_unsettled'], {'String': 'String'});
             }
             if (data.hasOwnProperty('tenant_totals_unsettled')) {
-                obj['tenant_totals_unsettled'] = ApiClient.convertToType(data['tenant_totals_unsettled'], {'String': 'Number'});
+                obj['tenant_totals_unsettled'] = ApiClient.convertToType(data['tenant_totals_unsettled'], {'String': 'String'});
             }
         }
         return obj;
@@ -100,25 +100,25 @@ RealizedPnlSettlements.prototype['settlements'] = undefined;
 
 /**
  * A map of user IDs to their total realized PnL in USD across all settlements included in the response
- * @member {Object.<String, Number>} user_totals
+ * @member {Object.<String, String>} user_totals
  */
 RealizedPnlSettlements.prototype['user_totals'] = undefined;
 
 /**
  * A map of tenant IDs to their total realized PnL in USD across all settlements included in the response
- * @member {Object.<String, Number>} tenant_totals
+ * @member {Object.<String, String>} tenant_totals
  */
 RealizedPnlSettlements.prototype['tenant_totals'] = undefined;
 
 /**
  * A map of user IDs to their total realized PnL in USD across unsettled settlements (where settled_at is null) included in the response
- * @member {Object.<String, Number>} user_totals_unsettled
+ * @member {Object.<String, String>} user_totals_unsettled
  */
 RealizedPnlSettlements.prototype['user_totals_unsettled'] = undefined;
 
 /**
  * A map of tenant IDs to their total realized PnL in USD across unsettled settlements (where settled_at is null) included in the response
- * @member {Object.<String, Number>} tenant_totals_unsettled
+ * @member {Object.<String, String>} tenant_totals_unsettled
  */
 RealizedPnlSettlements.prototype['tenant_totals_unsettled'] = undefined;
 

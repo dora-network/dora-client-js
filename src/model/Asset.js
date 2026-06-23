@@ -167,7 +167,7 @@ class Asset {
                 obj['leverage_interest_rate'] = ApiClient.convertToType(data['leverage_interest_rate'], 'Number');
             }
             if (data.hasOwnProperty('bond')) {
-                obj['bond'] = Bond.constructFromObject(data['bond']);
+                obj['bond'] = ApiClient.convertToType(data['bond'], Bond);
             }
         }
         return obj;

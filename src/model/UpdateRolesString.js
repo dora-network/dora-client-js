@@ -55,7 +55,7 @@ class UpdateRolesString {
                 obj['update'] = ApiClient.convertToType(data['update'], 'Boolean');
             }
             if (data.hasOwnProperty('value')) {
-                obj['value'] = UserRole.constructFromObject(data['value']);
+                obj['value'] = ApiClient.convertToType(data['value'], UserRole);
             }
         }
         return obj;

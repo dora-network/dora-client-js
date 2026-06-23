@@ -96,6 +96,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property openYtm (base name: "open_ytm")', function() {
+      // uncomment below and update the code to test the property openYtm
+      //var instance = new Dora.Candle();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property closeYtm (base name: "close_ytm")', function() {
+      // uncomment below and update the code to test the property closeYtm
+      //var instance = new Dora.Candle();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property highYtm (base name: "high_ytm")', function() {
+      // uncomment below and update the code to test the property highYtm
+      //var instance = new Dora.Candle();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lowYtm (base name: "low_ytm")', function() {
+      // uncomment below and update the code to test the property lowYtm
+      //var instance = new Dora.Candle();
+      //expect(instance).to.be();
+    });
+
     it('should have the property volume (base name: "volume")', function() {
       // uncomment below and update the code to test the property volume
       //var instance = new Dora.Candle();

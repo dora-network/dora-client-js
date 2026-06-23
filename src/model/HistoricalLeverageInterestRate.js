@@ -24,17 +24,19 @@ class HistoricalLeverageInterestRate {
      * @alias module:model/HistoricalLeverageInterestRate
      * @param assetId {String} 
      * @param updatedAt {Date} 
-     * @param utilization {Number} 
-     * @param maximumUtilization {Number} 
-     * @param minimumRate {Number} 
-     * @param kinkRate {Number} 
-     * @param maximumRate {Number} 
-     * @param kinkUtilization {Number} 
-     * @param interestRate {Number} 
+     * @param utilization {String} 
+     * @param maximumUtilization {String} 
+     * @param minimumRate {String} 
+     * @param kinkRate {String} 
+     * @param maximumRate {String} 
+     * @param kinkUtilization {String} 
+     * @param borrowingYieldRate {String} 
+     * @param lendingYieldRate {String} 
+     * @param yieldToMaturity {String} 
      */
-    constructor(assetId, updatedAt, utilization, maximumUtilization, minimumRate, kinkRate, maximumRate, kinkUtilization, interestRate) { 
+    constructor(assetId, updatedAt, utilization, maximumUtilization, minimumRate, kinkRate, maximumRate, kinkUtilization, borrowingYieldRate, lendingYieldRate, yieldToMaturity) { 
         
-        HistoricalLeverageInterestRate.initialize(this, assetId, updatedAt, utilization, maximumUtilization, minimumRate, kinkRate, maximumRate, kinkUtilization, interestRate);
+        HistoricalLeverageInterestRate.initialize(this, assetId, updatedAt, utilization, maximumUtilization, minimumRate, kinkRate, maximumRate, kinkUtilization, borrowingYieldRate, lendingYieldRate, yieldToMaturity);
     }
 
     /**
@@ -42,7 +44,7 @@ class HistoricalLeverageInterestRate {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, assetId, updatedAt, utilization, maximumUtilization, minimumRate, kinkRate, maximumRate, kinkUtilization, interestRate) { 
+    static initialize(obj, assetId, updatedAt, utilization, maximumUtilization, minimumRate, kinkRate, maximumRate, kinkUtilization, borrowingYieldRate, lendingYieldRate, yieldToMaturity) { 
         obj['asset_id'] = assetId;
         obj['updated_at'] = updatedAt;
         obj['utilization'] = utilization;
@@ -51,7 +53,9 @@ class HistoricalLeverageInterestRate {
         obj['kink_rate'] = kinkRate;
         obj['maximum_rate'] = maximumRate;
         obj['kink_utilization'] = kinkUtilization;
-        obj['interest_rate'] = interestRate;
+        obj['borrowing_yield_rate'] = borrowingYieldRate;
+        obj['lending_yield_rate'] = lendingYieldRate;
+        obj['yield_to_maturity'] = yieldToMaturity;
     }
 
     /**
@@ -72,25 +76,31 @@ class HistoricalLeverageInterestRate {
                 obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
             if (data.hasOwnProperty('utilization')) {
-                obj['utilization'] = ApiClient.convertToType(data['utilization'], 'Number');
+                obj['utilization'] = ApiClient.convertToType(data['utilization'], 'String');
             }
             if (data.hasOwnProperty('maximum_utilization')) {
-                obj['maximum_utilization'] = ApiClient.convertToType(data['maximum_utilization'], 'Number');
+                obj['maximum_utilization'] = ApiClient.convertToType(data['maximum_utilization'], 'String');
             }
             if (data.hasOwnProperty('minimum_rate')) {
-                obj['minimum_rate'] = ApiClient.convertToType(data['minimum_rate'], 'Number');
+                obj['minimum_rate'] = ApiClient.convertToType(data['minimum_rate'], 'String');
             }
             if (data.hasOwnProperty('kink_rate')) {
-                obj['kink_rate'] = ApiClient.convertToType(data['kink_rate'], 'Number');
+                obj['kink_rate'] = ApiClient.convertToType(data['kink_rate'], 'String');
             }
             if (data.hasOwnProperty('maximum_rate')) {
-                obj['maximum_rate'] = ApiClient.convertToType(data['maximum_rate'], 'Number');
+                obj['maximum_rate'] = ApiClient.convertToType(data['maximum_rate'], 'String');
             }
             if (data.hasOwnProperty('kink_utilization')) {
-                obj['kink_utilization'] = ApiClient.convertToType(data['kink_utilization'], 'Number');
+                obj['kink_utilization'] = ApiClient.convertToType(data['kink_utilization'], 'String');
             }
-            if (data.hasOwnProperty('interest_rate')) {
-                obj['interest_rate'] = ApiClient.convertToType(data['interest_rate'], 'Number');
+            if (data.hasOwnProperty('borrowing_yield_rate')) {
+                obj['borrowing_yield_rate'] = ApiClient.convertToType(data['borrowing_yield_rate'], 'String');
+            }
+            if (data.hasOwnProperty('lending_yield_rate')) {
+                obj['lending_yield_rate'] = ApiClient.convertToType(data['lending_yield_rate'], 'String');
+            }
+            if (data.hasOwnProperty('yield_to_maturity')) {
+                obj['yield_to_maturity'] = ApiClient.convertToType(data['yield_to_maturity'], 'String');
             }
         }
         return obj;
@@ -137,8 +147,16 @@ class HistoricalLeverageInterestRate {
             throw new Error("Expected the field `kink_utilization` to be a primitive type in the JSON string but got " + data['kink_utilization']);
         }
         // ensure the json data is a string
-        if (data['interest_rate'] && !(typeof data['interest_rate'] === 'string' || data['interest_rate'] instanceof String)) {
-            throw new Error("Expected the field `interest_rate` to be a primitive type in the JSON string but got " + data['interest_rate']);
+        if (data['borrowing_yield_rate'] && !(typeof data['borrowing_yield_rate'] === 'string' || data['borrowing_yield_rate'] instanceof String)) {
+            throw new Error("Expected the field `borrowing_yield_rate` to be a primitive type in the JSON string but got " + data['borrowing_yield_rate']);
+        }
+        // ensure the json data is a string
+        if (data['lending_yield_rate'] && !(typeof data['lending_yield_rate'] === 'string' || data['lending_yield_rate'] instanceof String)) {
+            throw new Error("Expected the field `lending_yield_rate` to be a primitive type in the JSON string but got " + data['lending_yield_rate']);
+        }
+        // ensure the json data is a string
+        if (data['yield_to_maturity'] && !(typeof data['yield_to_maturity'] === 'string' || data['yield_to_maturity'] instanceof String)) {
+            throw new Error("Expected the field `yield_to_maturity` to be a primitive type in the JSON string but got " + data['yield_to_maturity']);
         }
 
         return true;
@@ -147,7 +165,7 @@ class HistoricalLeverageInterestRate {
 
 }
 
-HistoricalLeverageInterestRate.RequiredProperties = ["asset_id", "updated_at", "utilization", "maximum_utilization", "minimum_rate", "kink_rate", "maximum_rate", "kink_utilization", "interest_rate"];
+HistoricalLeverageInterestRate.RequiredProperties = ["asset_id", "updated_at", "utilization", "maximum_utilization", "minimum_rate", "kink_rate", "maximum_rate", "kink_utilization", "borrowing_yield_rate", "lending_yield_rate", "yield_to_maturity"];
 
 /**
  * @member {String} asset_id
@@ -160,39 +178,49 @@ HistoricalLeverageInterestRate.prototype['asset_id'] = undefined;
 HistoricalLeverageInterestRate.prototype['updated_at'] = undefined;
 
 /**
- * @member {Number} utilization
+ * @member {String} utilization
  */
 HistoricalLeverageInterestRate.prototype['utilization'] = undefined;
 
 /**
- * @member {Number} maximum_utilization
+ * @member {String} maximum_utilization
  */
 HistoricalLeverageInterestRate.prototype['maximum_utilization'] = undefined;
 
 /**
- * @member {Number} minimum_rate
+ * @member {String} minimum_rate
  */
 HistoricalLeverageInterestRate.prototype['minimum_rate'] = undefined;
 
 /**
- * @member {Number} kink_rate
+ * @member {String} kink_rate
  */
 HistoricalLeverageInterestRate.prototype['kink_rate'] = undefined;
 
 /**
- * @member {Number} maximum_rate
+ * @member {String} maximum_rate
  */
 HistoricalLeverageInterestRate.prototype['maximum_rate'] = undefined;
 
 /**
- * @member {Number} kink_utilization
+ * @member {String} kink_utilization
  */
 HistoricalLeverageInterestRate.prototype['kink_utilization'] = undefined;
 
 /**
- * @member {Number} interest_rate
+ * @member {String} borrowing_yield_rate
  */
-HistoricalLeverageInterestRate.prototype['interest_rate'] = undefined;
+HistoricalLeverageInterestRate.prototype['borrowing_yield_rate'] = undefined;
+
+/**
+ * @member {String} lending_yield_rate
+ */
+HistoricalLeverageInterestRate.prototype['lending_yield_rate'] = undefined;
+
+/**
+ * @member {String} yield_to_maturity
+ */
+HistoricalLeverageInterestRate.prototype['yield_to_maturity'] = undefined;
 
 
 

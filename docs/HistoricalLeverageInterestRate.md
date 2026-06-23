@@ -6,12 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assetId** | **String** |  | 
 **updatedAt** | **Date** |  | 
-**utilization** | **Number** |  | 
-**maximumUtilization** | **Number** |  | 
-**minimumRate** | **Number** |  | 
-**kinkRate** | **Number** |  | 
-**maximumRate** | **Number** |  | 
-**kinkUtilization** | **Number** |  | 
-**interestRate** | **Number** |  | 
+**utilization** | **String** |  | 
+**maximumUtilization** | **String** |  | 
+**minimumRate** | **String** |  | 
+**kinkRate** | **String** |  | 
+**maximumRate** | **String** |  | 
+**kinkUtilization** | **String** |  | 
+**borrowingYieldRate** | **String** |  | 
+**lendingYieldRate** | **String** |  | 
+**yieldToMaturity** | **String** |  | 
 
 

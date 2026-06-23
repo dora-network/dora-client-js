@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **fromAccountId** | **String** |  | 
 **toAccountId** | **String** |  | 
 **assetId** | **String** |  | 
-**quantity** | **Number** |  | 
+**quantity** | **String** |  | 
 
 

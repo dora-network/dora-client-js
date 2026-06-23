@@ -120,6 +120,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property allowCopyTrading (base name: "allow_copy_trading")', function() {
+      // uncomment below and update the code to test the property allowCopyTrading
+      //var instance = new Dora.UserConfig();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

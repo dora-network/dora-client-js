@@ -25,13 +25,15 @@ class AssetYield {
      * @param assetId {String} 
      * @param timestamp {Date} 
      * @param ytm {String} 
-     * @param lendingYield {String} 
+     * @param borrowingYieldRate {String} 
+     * @param lendingYieldRate {String} 
+     * @param price {String} 
      * @param tvl {String} 
      * @param totalYield {String} 
      */
-    constructor(assetId, timestamp, ytm, lendingYield, tvl, totalYield) { 
+    constructor(assetId, timestamp, ytm, borrowingYieldRate, lendingYieldRate, price, tvl, totalYield) { 
         
-        AssetYield.initialize(this, assetId, timestamp, ytm, lendingYield, tvl, totalYield);
+        AssetYield.initialize(this, assetId, timestamp, ytm, borrowingYieldRate, lendingYieldRate, price, tvl, totalYield);
     }
 
     /**
@@ -39,11 +41,13 @@ class AssetYield {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, assetId, timestamp, ytm, lendingYield, tvl, totalYield) { 
+    static initialize(obj, assetId, timestamp, ytm, borrowingYieldRate, lendingYieldRate, price, tvl, totalYield) { 
         obj['asset_id'] = assetId;
         obj['timestamp'] = timestamp;
         obj['ytm'] = ytm;
-        obj['lending_yield'] = lendingYield;
+        obj['borrowing_yield_rate'] = borrowingYieldRate;
+        obj['lending_yield_rate'] = lendingYieldRate;
+        obj['price'] = price;
         obj['tvl'] = tvl;
         obj['total_yield'] = totalYield;
     }
@@ -68,8 +72,14 @@ class AssetYield {
             if (data.hasOwnProperty('ytm')) {
                 obj['ytm'] = ApiClient.convertToType(data['ytm'], 'String');
             }
-            if (data.hasOwnProperty('lending_yield')) {
-                obj['lending_yield'] = ApiClient.convertToType(data['lending_yield'], 'String');
+            if (data.hasOwnProperty('borrowing_yield_rate')) {
+                obj['borrowing_yield_rate'] = ApiClient.convertToType(data['borrowing_yield_rate'], 'String');
+            }
+            if (data.hasOwnProperty('lending_yield_rate')) {
+                obj['lending_yield_rate'] = ApiClient.convertToType(data['lending_yield_rate'], 'String');
+            }
+            if (data.hasOwnProperty('price')) {
+                obj['price'] = ApiClient.convertToType(data['price'], 'String');
             }
             if (data.hasOwnProperty('tvl')) {
                 obj['tvl'] = ApiClient.convertToType(data['tvl'], 'String');
@@ -102,8 +112,16 @@ class AssetYield {
             throw new Error("Expected the field `ytm` to be a primitive type in the JSON string but got " + data['ytm']);
         }
         // ensure the json data is a string
-        if (data['lending_yield'] && !(typeof data['lending_yield'] === 'string' || data['lending_yield'] instanceof String)) {
-            throw new Error("Expected the field `lending_yield` to be a primitive type in the JSON string but got " + data['lending_yield']);
+        if (data['borrowing_yield_rate'] && !(typeof data['borrowing_yield_rate'] === 'string' || data['borrowing_yield_rate'] instanceof String)) {
+            throw new Error("Expected the field `borrowing_yield_rate` to be a primitive type in the JSON string but got " + data['borrowing_yield_rate']);
+        }
+        // ensure the json data is a string
+        if (data['lending_yield_rate'] && !(typeof data['lending_yield_rate'] === 'string' || data['lending_yield_rate'] instanceof String)) {
+            throw new Error("Expected the field `lending_yield_rate` to be a primitive type in the JSON string but got " + data['lending_yield_rate']);
+        }
+        // ensure the json data is a string
+        if (data['price'] && !(typeof data['price'] === 'string' || data['price'] instanceof String)) {
+            throw new Error("Expected the field `price` to be a primitive type in the JSON string but got " + data['price']);
         }
         // ensure the json data is a string
         if (data['tvl'] && !(typeof data['tvl'] === 'string' || data['tvl'] instanceof String)) {
@@ -120,7 +138,7 @@ class AssetYield {
 
 }
 
-AssetYield.RequiredProperties = ["asset_id", "timestamp", "ytm", "lending_yield", "tvl", "total_yield"];
+AssetYield.RequiredProperties = ["asset_id", "timestamp", "ytm", "borrowing_yield_rate", "lending_yield_rate", "price", "tvl", "total_yield"];
 
 /**
  * @member {String} asset_id
@@ -138,9 +156,19 @@ AssetYield.prototype['timestamp'] = undefined;
 AssetYield.prototype['ytm'] = undefined;
 
 /**
- * @member {String} lending_yield
+ * @member {String} borrowing_yield_rate
  */
-AssetYield.prototype['lending_yield'] = undefined;
+AssetYield.prototype['borrowing_yield_rate'] = undefined;
+
+/**
+ * @member {String} lending_yield_rate
+ */
+AssetYield.prototype['lending_yield_rate'] = undefined;
+
+/**
+ * @member {String} price
+ */
+AssetYield.prototype['price'] = undefined;
 
 /**
  * @member {String} tvl

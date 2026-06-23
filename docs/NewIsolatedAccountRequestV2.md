@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **globalAccountId** | **String** |  | 
 **assetId** | **String** |  | 
-**quantity** | **Number** |  | 
+**quantity** | **String** |  | 
 **accountName** | **String** |  | [optional] 
 
 

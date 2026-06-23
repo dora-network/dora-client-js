@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **tenantId** | **String** |  | 
 **positionId** | **String** |  | 
 **txKind** | **String** |  | 
-**quantityUsd** | **Number** |  | 
+**quantityUsd** | **String** |  | 
 **createdAt** | **Date** |  | 
 **settledAt** | **Date** |  | [optional] 
 **settledBy** | **String** |  | [optional] 

@@ -2439,7 +2439,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = ['apiKeyAuthQuery'];
+      let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [StreamTransactionsEntry];
@@ -3133,7 +3133,7 @@ export default class DefaultApi {
      */
 
     /**
-     * Get historical leverage interest rates for a specific asset
+     * Get historical leverage borrowing and lending yields for a specific asset
      * @param {String} assetId 
      * @param {Object} opts Optional parameters
      * @param {Date} [start] 
@@ -3181,7 +3181,7 @@ export default class DefaultApi {
      */
 
     /**
-     * Get leverage interest rate for a specific asset
+     * Get leverage borrowing and lending yields for a specific asset
      * @param {String} assetId 
      * @param {Object} opts Optional parameters
      * @param {Date} [start] 
@@ -4026,7 +4026,6 @@ export default class DefaultApi {
      * Stream real-time asset prices as map objects
      * Opens a WebSocket stream for real-time asset price updates. First message contains all current prices, subsequent messages contain only changed prices. Data is sent as JSON objects keyed by asset ID.
      * @param {Object} opts Optional parameters
-     * @param {Date} [since] 
      * @param {String} [assetId] 
      * @param {module:api/DefaultApi~streamAssetPricesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object.<String, module:model/{String: AssetPrice}>}
@@ -4038,7 +4037,6 @@ export default class DefaultApi {
       let pathParams = {
       };
       let queryParams = {
-        'since': opts['since'],
         'asset_id': opts['assetId']
       };
       let headerParams = {

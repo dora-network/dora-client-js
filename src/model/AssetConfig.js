@@ -57,6 +57,15 @@ class AssetConfig {
             if (data.hasOwnProperty('price')) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'String');
             }
+            if (data.hasOwnProperty('module_available')) {
+                obj['module_available'] = ApiClient.convertToType(data['module_available'], 'String');
+            }
+            if (data.hasOwnProperty('module_supplied')) {
+                obj['module_supplied'] = ApiClient.convertToType(data['module_supplied'], 'String');
+            }
+            if (data.hasOwnProperty('module_borrowed')) {
+                obj['module_borrowed'] = ApiClient.convertToType(data['module_borrowed'], 'String');
+            }
         }
         return obj;
     }
@@ -81,6 +90,18 @@ class AssetConfig {
         if (data['price'] && !(typeof data['price'] === 'string' || data['price'] instanceof String)) {
             throw new Error("Expected the field `price` to be a primitive type in the JSON string but got " + data['price']);
         }
+        // ensure the json data is a string
+        if (data['module_available'] && !(typeof data['module_available'] === 'string' || data['module_available'] instanceof String)) {
+            throw new Error("Expected the field `module_available` to be a primitive type in the JSON string but got " + data['module_available']);
+        }
+        // ensure the json data is a string
+        if (data['module_supplied'] && !(typeof data['module_supplied'] === 'string' || data['module_supplied'] instanceof String)) {
+            throw new Error("Expected the field `module_supplied` to be a primitive type in the JSON string but got " + data['module_supplied']);
+        }
+        // ensure the json data is a string
+        if (data['module_borrowed'] && !(typeof data['module_borrowed'] === 'string' || data['module_borrowed'] instanceof String)) {
+            throw new Error("Expected the field `module_borrowed` to be a primitive type in the JSON string but got " + data['module_borrowed']);
+        }
 
         return true;
     }
@@ -100,6 +121,24 @@ AssetConfig.prototype['asset_id'] = undefined;
  * @member {String} price
  */
 AssetConfig.prototype['price'] = undefined;
+
+/**
+ * Optional leverage module available balance for this asset, from /v1/ledger/module/{asset_id}. If provided, validation rejects orders that need to borrow more than the module can supply.
+ * @member {String} module_available
+ */
+AssetConfig.prototype['module_available'] = undefined;
+
+/**
+ * Optional leverage module total supplied balance for this asset, from /v1/ledger/module/{asset_id}. Required with module_available when the asset has max_utilization.
+ * @member {String} module_supplied
+ */
+AssetConfig.prototype['module_supplied'] = undefined;
+
+/**
+ * Optional leverage module borrowed balance for this asset, from /v1/ledger/module/{asset_id}. Required with module_available when the asset has max_utilization.
+ * @member {String} module_borrowed
+ */
+AssetConfig.prototype['module_borrowed'] = undefined;
 
 
 

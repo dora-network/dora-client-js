@@ -13,31 +13,31 @@
 
 import ApiClient from '../ApiClient';
 /**
-* Enum class BondKind.
+* Enum class CouponKind.
 * @enum {}
 * @readonly
 */
-export default class BondKind {
+export default class CouponKind {
     
         /**
-         * value: "CORPORATE"
+         * value: "COUPON-PAYING"
          * @const
          */
-        "CORPORATE" = "CORPORATE";
+        "COUPON-PAYING" = "COUPON-PAYING";
 
     
         /**
-         * value: "TREASURY"
+         * value: "PRINCIPAL-ONLY"
          * @const
          */
-        "TREASURY" = "TREASURY";
+        "PRINCIPAL-ONLY" = "PRINCIPAL-ONLY";
 
     
 
     /**
-    * Returns a <code>BondKind</code> enum value from a Javascript object name.
+    * Returns a <code>CouponKind</code> enum value from a Javascript object name.
     * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/BondKind} The enum <code>BondKind</code> value.
+    * @return {module:model/CouponKind} The enum <code>CouponKind</code> value.
     */
     static constructFromObject(object) {
         return object;

@@ -38,6 +38,7 @@ docs/ClosePositionResp.md
 docs/ClosePositionResponseEnvelope.md
 docs/Collateral.md
 docs/CountryCode.md
+docs/CouponKind.md
 docs/CouponPayment.md
 docs/CreateAPIKeyData.md
 docs/CreateAPIKeyRequest.md
@@ -58,6 +59,7 @@ docs/FundUserRequest.md
 docs/FundUserResponseEnvelope.md
 docs/GetAssetByIDResponseEnvelope.md
 docs/GetAssetYTMByIDResponseEnvelope.md
+docs/GetPnLRankingResponse.md
 docs/GetRealizedPnlSettlementsResponseEnvelope.md
 docs/GetTopOfBookResponseEnvelope.md
 docs/HistoricalLeverageInterestRate.md
@@ -126,6 +128,7 @@ docs/PLSummary.md
 docs/PayLeverageAccruedInterest.md
 docs/PayLeverageAccruedInterestRequest.md
 docs/PayLeverageAccruedInterestResponseEnvelope.md
+docs/PnLRankingResponse.md
 docs/PoolPrice.md
 docs/PoolPriceResponseEnvelope.md
 docs/PoolRequestError.md
@@ -258,6 +261,7 @@ src/model/ClosePositionResp.js
 src/model/ClosePositionResponseEnvelope.js
 src/model/Collateral.js
 src/model/CountryCode.js
+src/model/CouponKind.js
 src/model/CouponPayment.js
 src/model/CreateAPIKeyData.js
 src/model/CreateAPIKeyRequest.js
@@ -277,6 +281,7 @@ src/model/FundUserRequest.js
 src/model/FundUserResponseEnvelope.js
 src/model/GetAssetByIDResponseEnvelope.js
 src/model/GetAssetYTMByIDResponseEnvelope.js
+src/model/GetPnLRankingResponse.js
 src/model/GetRealizedPnlSettlementsResponseEnvelope.js
 src/model/GetTopOfBookResponseEnvelope.js
 src/model/HistoricalLeverageInterestRate.js
@@ -345,6 +350,7 @@ src/model/PLSummary.js
 src/model/PayLeverageAccruedInterest.js
 src/model/PayLeverageAccruedInterestRequest.js
 src/model/PayLeverageAccruedInterestResponseEnvelope.js
+src/model/PnLRankingResponse.js
 src/model/PoolPrice.js
 src/model/PoolPriceResponseEnvelope.js
 src/model/PoolRequestError.js
@@ -472,6 +478,7 @@ test/model/ClosePositionResp.spec.js
 test/model/ClosePositionResponseEnvelope.spec.js
 test/model/Collateral.spec.js
 test/model/CountryCode.spec.js
+test/model/CouponKind.spec.js
 test/model/CouponPayment.spec.js
 test/model/CreateAPIKeyData.spec.js
 test/model/CreateAPIKeyRequest.spec.js
@@ -491,6 +498,7 @@ test/model/FundUserRequest.spec.js
 test/model/FundUserResponseEnvelope.spec.js
 test/model/GetAssetByIDResponseEnvelope.spec.js
 test/model/GetAssetYTMByIDResponseEnvelope.spec.js
+test/model/GetPnLRankingResponse.spec.js
 test/model/GetRealizedPnlSettlementsResponseEnvelope.spec.js
 test/model/GetTopOfBookResponseEnvelope.spec.js
 test/model/HistoricalLeverageInterestRate.spec.js
@@ -559,6 +567,7 @@ test/model/PLSummary.spec.js
 test/model/PayLeverageAccruedInterest.spec.js
 test/model/PayLeverageAccruedInterestRequest.spec.js
 test/model/PayLeverageAccruedInterestResponseEnvelope.spec.js
+test/model/PnLRankingResponse.spec.js
 test/model/PoolPrice.spec.js
 test/model/PoolPriceResponseEnvelope.spec.js
 test/model/PoolRequestError.spec.js

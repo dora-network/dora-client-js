@@ -52,6 +52,7 @@ Method | HTTP request | Description
 [**getPLForSelfByAccount**](DefaultApi.md#getPLForSelfByAccount) | **GET** /v1/pl/self | Get account-by-account PL breakdown for the logged in user
 [**getPoolPrice**](DefaultApi.md#getPoolPrice) | **GET** /v1/price/pool/{pool_id} | Get the current price of a pool
 [**getRealizedPnlSettlements**](DefaultApi.md#getRealizedPnlSettlements) | **GET** /v1/realized_pnl_settlements | Get realized P&amp;L settlements with filters
+[**getTopTradersByPnL**](DefaultApi.md#getTopTradersByPnL) | **GET** /v1/user/ranking | Get top traders by PnL
 [**getTradeById**](DefaultApi.md#getTradeById) | **GET** /v1/trades/{trade_id} | Get a trade by ID
 [**getTrades**](DefaultApi.md#getTrades) | **GET** /v1/trades | Get a filtered, paginated list of trades
 [**getTransactionById**](DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{transaction_id} | Get a transaction by ID
@@ -2514,6 +2515,64 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getTopTradersByPnL
+
+> GetPnLRankingResponse getTopTradersByPnL(start, end, opts)
+
+Get top traders by PnL
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let start = new Date("2013-10-20T19:20:30+01:00"); // Date | 
+let end = new Date("2013-10-20T19:20:30+01:00"); // Date | 
+let opts = {
+  'limit': 56 // Number | 
+};
+apiInstance.getTopTradersByPnL(start, end, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start** | **Date**|  | 
+ **end** | **Date**|  | 
+ **limit** | **Number**|  | [optional] 
+
+### Return type
+
+[**GetPnLRankingResponse**](GetPnLRankingResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getTradeById
 
 > TradeResponseEnvelope getTradeById(tradeId)
@@ -4273,6 +4332,7 @@ bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 let opts = {
+  'userId': "userId_example", // String | Filter by user ID (only allowed if the user has copy trading enabled)
   'orderBookId': ["null"], // [String] | 
   'kind': [new Dora.OrderKind()], // [OrderKind] | 
   'status': [new Dora.OrderStatus()], // [OrderStatus] | 
@@ -4296,6 +4356,7 @@ apiInstance.listOrders(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userId** | **String**| Filter by user ID (only allowed if the user has copy trading enabled) | [optional] 
  **orderBookId** | [**[String]**](String.md)|  | [optional] 
  **kind** | [**[OrderKind]**](OrderKind.md)|  | [optional] 
  **status** | [**[OrderStatus]**](OrderStatus.md)|  | [optional] 

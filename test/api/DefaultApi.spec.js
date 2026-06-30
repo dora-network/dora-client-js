@@ -528,6 +528,16 @@
         done();
       });
     });
+    describe('getTopTradersByPnL', function() {
+      it('should call getTopTradersByPnL successfully', function(done) {
+        //uncomment below and update the code to test getTopTradersByPnL
+        //instance.getTopTradersByPnL(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getTradeById', function() {
       it('should call getTradeById successfully', function(done) {
         //uncomment below and update the code to test getTradeById

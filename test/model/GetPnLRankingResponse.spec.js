@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.AssetConfig();
+    instance = new Dora.GetPnLRankingResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,40 +47,28 @@
       object[property] = value;
   }
 
-  describe('AssetConfig', function() {
-    it('should create an instance of AssetConfig', function() {
-      // uncomment below and update the code to test AssetConfig
-      //var instance = new Dora.AssetConfig();
-      //expect(instance).to.be.a(Dora.AssetConfig);
+  describe('GetPnLRankingResponse', function() {
+    it('should create an instance of GetPnLRankingResponse', function() {
+      // uncomment below and update the code to test GetPnLRankingResponse
+      //var instance = new Dora.GetPnLRankingResponse();
+      //expect(instance).to.be.a(Dora.GetPnLRankingResponse);
     });
 
-    it('should have the property assetId (base name: "asset_id")', function() {
-      // uncomment below and update the code to test the property assetId
-      //var instance = new Dora.AssetConfig();
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
+      //var instance = new Dora.GetPnLRankingResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property price (base name: "price")', function() {
-      // uncomment below and update the code to test the property price
-      //var instance = new Dora.AssetConfig();
+    it('should have the property error (base name: "error")', function() {
+      // uncomment below and update the code to test the property error
+      //var instance = new Dora.GetPnLRankingResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property moduleAvailable (base name: "module_available")', function() {
-      // uncomment below and update the code to test the property moduleAvailable
-      //var instance = new Dora.AssetConfig();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property moduleSupplied (base name: "module_supplied")', function() {
-      // uncomment below and update the code to test the property moduleSupplied
-      //var instance = new Dora.AssetConfig();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property moduleBorrowed (base name: "module_borrowed")', function() {
-      // uncomment below and update the code to test the property moduleBorrowed
-      //var instance = new Dora.AssetConfig();
+    it('should have the property metadata (base name: "metadata")', function() {
+      // uncomment below and update the code to test the property metadata
+      //var instance = new Dora.GetPnLRankingResponse();
       //expect(instance).to.be();
     });
 

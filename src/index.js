@@ -49,6 +49,7 @@ import ClosePositionResp from './model/ClosePositionResp';
 import ClosePositionResponseEnvelope from './model/ClosePositionResponseEnvelope';
 import Collateral from './model/Collateral';
 import CountryCode from './model/CountryCode';
+import CouponKind from './model/CouponKind';
 import CouponPayment from './model/CouponPayment';
 import CreateAPIKeyData from './model/CreateAPIKeyData';
 import CreateAPIKeyRequest from './model/CreateAPIKeyRequest';
@@ -68,6 +69,7 @@ import FundUserRequest from './model/FundUserRequest';
 import FundUserResponseEnvelope from './model/FundUserResponseEnvelope';
 import GetAssetByIDResponseEnvelope from './model/GetAssetByIDResponseEnvelope';
 import GetAssetYTMByIDResponseEnvelope from './model/GetAssetYTMByIDResponseEnvelope';
+import GetPnLRankingResponse from './model/GetPnLRankingResponse';
 import GetRealizedPnlSettlementsResponseEnvelope from './model/GetRealizedPnlSettlementsResponseEnvelope';
 import GetTopOfBookResponseEnvelope from './model/GetTopOfBookResponseEnvelope';
 import HistoricalLeverageInterestRate from './model/HistoricalLeverageInterestRate';
@@ -136,6 +138,7 @@ import PLSummary from './model/PLSummary';
 import PayLeverageAccruedInterest from './model/PayLeverageAccruedInterest';
 import PayLeverageAccruedInterestRequest from './model/PayLeverageAccruedInterestRequest';
 import PayLeverageAccruedInterestResponseEnvelope from './model/PayLeverageAccruedInterestResponseEnvelope';
+import PnLRankingResponse from './model/PnLRankingResponse';
 import PoolPrice from './model/PoolPrice';
 import PoolPriceResponseEnvelope from './model/PoolPriceResponseEnvelope';
 import PoolRequestError from './model/PoolRequestError';
@@ -484,6 +487,12 @@ export {
     CountryCode,
 
     /**
+     * The CouponKind model constructor.
+     * @property {module:model/CouponKind}
+     */
+    CouponKind,
+
+    /**
      * The CouponPayment model constructor.
      * @property {module:model/CouponPayment}
      */
@@ -596,6 +605,12 @@ export {
      * @property {module:model/GetAssetYTMByIDResponseEnvelope}
      */
     GetAssetYTMByIDResponseEnvelope,
+
+    /**
+     * The GetPnLRankingResponse model constructor.
+     * @property {module:model/GetPnLRankingResponse}
+     */
+    GetPnLRankingResponse,
 
     /**
      * The GetRealizedPnlSettlementsResponseEnvelope model constructor.
@@ -1004,6 +1019,12 @@ export {
      * @property {module:model/PayLeverageAccruedInterestResponseEnvelope}
      */
     PayLeverageAccruedInterestResponseEnvelope,
+
+    /**
+     * The PnLRankingResponse model constructor.
+     * @property {module:model/PnLRankingResponse}
+     */
+    PnLRankingResponse,
 
     /**
      * The PoolPrice model constructor.

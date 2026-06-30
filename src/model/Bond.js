@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import BondKind from './BondKind';
+import CouponKind from './CouponKind';
 
 /**
  * The Bond model module.
@@ -24,7 +25,7 @@ class Bond {
      * Constructs a new <code>Bond</code>.
      * @alias module:model/Bond
      * @param id {String} 
-     * @param kind {module:model/BondKind} 
+     * @param kind {module:model/CouponKind} 
      * @param createdAt {Date} 
      * @param isin {String} 
      * @param issuedAt {Date} 
@@ -70,7 +71,13 @@ class Bond {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('kind')) {
-                obj['kind'] = BondKind.constructFromObject(data['kind']);
+                obj['kind'] = CouponKind.constructFromObject(data['kind']);
+            }
+            if (data.hasOwnProperty('coupon_kind')) {
+                obj['coupon_kind'] = CouponKind.constructFromObject(data['coupon_kind']);
+            }
+            if (data.hasOwnProperty('bond_kind')) {
+                obj['bond_kind'] = BondKind.constructFromObject(data['bond_kind']);
             }
             if (data.hasOwnProperty('coupon_start_at')) {
                 obj['coupon_start_at'] = ApiClient.convertToType(data['coupon_start_at'], 'Date');
@@ -152,9 +159,19 @@ Bond.RequiredProperties = ["id", "kind", "created_at", "isin", "issued_at", "iss
 Bond.prototype['id'] = undefined;
 
 /**
- * @member {module:model/BondKind} kind
+ * @member {module:model/CouponKind} kind
  */
 Bond.prototype['kind'] = undefined;
+
+/**
+ * @member {module:model/CouponKind} coupon_kind
+ */
+Bond.prototype['coupon_kind'] = undefined;
+
+/**
+ * @member {module:model/BondKind} bond_kind
+ */
+Bond.prototype['bond_kind'] = undefined;
 
 /**
  * @member {Date} coupon_start_at

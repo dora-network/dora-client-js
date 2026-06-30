@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**kind** | [**BondKind**](BondKind.md) |  | 
+**kind** | [**CouponKind**](CouponKind.md) |  | 
+**couponKind** | [**CouponKind**](CouponKind.md) |  | [optional] 
+**bondKind** | [**BondKind**](BondKind.md) |  | [optional] 
 **couponStartAt** | **Date** |  | [optional] 
 **createdAt** | **Date** |  | 
 **finalCouponAt** | **Date** |  | [optional] 

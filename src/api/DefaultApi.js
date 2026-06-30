@@ -42,6 +42,7 @@ import FundUserRequest from '../model/FundUserRequest';
 import FundUserResponseEnvelope from '../model/FundUserResponseEnvelope';
 import GetAssetByIDResponseEnvelope from '../model/GetAssetByIDResponseEnvelope';
 import GetAssetYTMByIDResponseEnvelope from '../model/GetAssetYTMByIDResponseEnvelope';
+import GetPnLRankingResponse from '../model/GetPnLRankingResponse';
 import GetRealizedPnlSettlementsResponseEnvelope from '../model/GetRealizedPnlSettlementsResponseEnvelope';
 import GetTopOfBookResponseEnvelope from '../model/GetTopOfBookResponseEnvelope';
 import HistoricalLeverageInterestRatesResponseEnvelope from '../model/HistoricalLeverageInterestRatesResponseEnvelope';
@@ -2167,6 +2168,58 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the getTopTradersByPnL operation.
+     * @callback module:api/DefaultApi~getTopTradersByPnLCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetPnLRankingResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get top traders by PnL
+     * @param {Date} start 
+     * @param {Date} end 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit] 
+     * @param {module:api/DefaultApi~getTopTradersByPnLCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetPnLRankingResponse}
+     */
+    getTopTradersByPnL(start, end, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'start' is set
+      if (start === undefined || start === null) {
+        throw new Error("Missing the required parameter 'start' when calling getTopTradersByPnL");
+      }
+      // verify the required parameter 'end' is set
+      if (end === undefined || end === null) {
+        throw new Error("Missing the required parameter 'end' when calling getTopTradersByPnL");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'start': start,
+        'end': end,
+        'limit': opts['limit']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetPnLRankingResponse;
+      return this.apiClient.callApi(
+        '/v1/user/ranking', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getTradeById operation.
      * @callback module:api/DefaultApi~getTradeByIdCallback
      * @param {String} error Error message, if any.
@@ -3632,6 +3685,7 @@ export default class DefaultApi {
     /**
      * List all orders
      * @param {Object} opts Optional parameters
+     * @param {String} [userId] Filter by user ID (only allowed if the user has copy trading enabled)
      * @param {Array.<String>} [orderBookId] 
      * @param {Array.<module:model/OrderKind>} [kind] 
      * @param {Array.<module:model/OrderStatus>} [status] 
@@ -3650,6 +3704,7 @@ export default class DefaultApi {
       let pathParams = {
       };
       let queryParams = {
+        'user_id': opts['userId'],
         'order_book_id': this.apiClient.buildCollectionParam(opts['orderBookId'], 'multi'),
         'kind': this.apiClient.buildCollectionParam(opts['kind'], 'multi'),
         'status': this.apiClient.buildCollectionParam(opts['status'], 'multi'),

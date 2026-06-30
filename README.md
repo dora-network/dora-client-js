@@ -181,6 +181,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getPLForSelfByAccount**](docs/DefaultApi.md#getPLForSelfByAccount) | **GET** /v1/pl/self | Get account-by-account PL breakdown for the logged in user
 *Dora.DefaultApi* | [**getPoolPrice**](docs/DefaultApi.md#getPoolPrice) | **GET** /v1/price/pool/{pool_id} | Get the current price of a pool
 *Dora.DefaultApi* | [**getRealizedPnlSettlements**](docs/DefaultApi.md#getRealizedPnlSettlements) | **GET** /v1/realized_pnl_settlements | Get realized P&amp;L settlements with filters
+*Dora.DefaultApi* | [**getTopTradersByPnL**](docs/DefaultApi.md#getTopTradersByPnL) | **GET** /v1/user/ranking | Get top traders by PnL
 *Dora.DefaultApi* | [**getTradeById**](docs/DefaultApi.md#getTradeById) | **GET** /v1/trades/{trade_id} | Get a trade by ID
 *Dora.DefaultApi* | [**getTrades**](docs/DefaultApi.md#getTrades) | **GET** /v1/trades | Get a filtered, paginated list of trades
 *Dora.DefaultApi* | [**getTransactionById**](docs/DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{transaction_id} | Get a transaction by ID
@@ -273,6 +274,7 @@ Class | Method | HTTP request | Description
  - [Dora.ClosePositionResponseEnvelope](docs/ClosePositionResponseEnvelope.md)
  - [Dora.Collateral](docs/Collateral.md)
  - [Dora.CountryCode](docs/CountryCode.md)
+ - [Dora.CouponKind](docs/CouponKind.md)
  - [Dora.CouponPayment](docs/CouponPayment.md)
  - [Dora.CreateAPIKeyData](docs/CreateAPIKeyData.md)
  - [Dora.CreateAPIKeyRequest](docs/CreateAPIKeyRequest.md)
@@ -292,6 +294,7 @@ Class | Method | HTTP request | Description
  - [Dora.FundUserResponseEnvelope](docs/FundUserResponseEnvelope.md)
  - [Dora.GetAssetByIDResponseEnvelope](docs/GetAssetByIDResponseEnvelope.md)
  - [Dora.GetAssetYTMByIDResponseEnvelope](docs/GetAssetYTMByIDResponseEnvelope.md)
+ - [Dora.GetPnLRankingResponse](docs/GetPnLRankingResponse.md)
  - [Dora.GetRealizedPnlSettlementsResponseEnvelope](docs/GetRealizedPnlSettlementsResponseEnvelope.md)
  - [Dora.GetTopOfBookResponseEnvelope](docs/GetTopOfBookResponseEnvelope.md)
  - [Dora.HistoricalLeverageInterestRate](docs/HistoricalLeverageInterestRate.md)
@@ -360,6 +363,7 @@ Class | Method | HTTP request | Description
  - [Dora.PayLeverageAccruedInterest](docs/PayLeverageAccruedInterest.md)
  - [Dora.PayLeverageAccruedInterestRequest](docs/PayLeverageAccruedInterestRequest.md)
  - [Dora.PayLeverageAccruedInterestResponseEnvelope](docs/PayLeverageAccruedInterestResponseEnvelope.md)
+ - [Dora.PnLRankingResponse](docs/PnLRankingResponse.md)
  - [Dora.PoolPrice](docs/PoolPrice.md)
  - [Dora.PoolPriceResponseEnvelope](docs/PoolPriceResponseEnvelope.md)
  - [Dora.PoolRequestError](docs/PoolRequestError.md)

@@ -38,6 +38,7 @@ import CreateOrderRequest from '../model/CreateOrderRequest';
 import CreateOrderResponseEnvelope from '../model/CreateOrderResponseEnvelope';
 import CurrentLeverageAccruedInterestResponseEnvelope from '../model/CurrentLeverageAccruedInterestResponseEnvelope';
 import DefundUserRequest from '../model/DefundUserRequest';
+import DepositInstructionsResponseEnvelope from '../model/DepositInstructionsResponseEnvelope';
 import FundUserRequest from '../model/FundUserRequest';
 import FundUserResponseEnvelope from '../model/FundUserResponseEnvelope';
 import GetAssetByIDResponseEnvelope from '../model/GetAssetByIDResponseEnvelope';
@@ -60,6 +61,7 @@ import ListAssetPriceResponseEnvelope from '../model/ListAssetPriceResponseEnvel
 import ListAssetYieldResponseEnvelope from '../model/ListAssetYieldResponseEnvelope';
 import ListCandlesResponseEnvelope from '../model/ListCandlesResponseEnvelope';
 import ListCouponPaymentsResponseEnvelope from '../model/ListCouponPaymentsResponseEnvelope';
+import ListDepositsResponseEnvelope from '../model/ListDepositsResponseEnvelope';
 import ListOrderBookDepthResponseEnvelope from '../model/ListOrderBookDepthResponseEnvelope';
 import ListOrderbookResponseEnvelope from '../model/ListOrderbookResponseEnvelope';
 import ListOrdersResponseEnvelope from '../model/ListOrdersResponseEnvelope';
@@ -68,8 +70,6 @@ import ListTradeResponseEnvelope from '../model/ListTradeResponseEnvelope';
 import ListTransactionsResponseEnvelope from '../model/ListTransactionsResponseEnvelope';
 import ListUsersResponseEnvelope from '../model/ListUsersResponseEnvelope';
 import LiveOrderbook from '../model/LiveOrderbook';
-import NewIsolatedAccountRequestV2 from '../model/NewIsolatedAccountRequestV2';
-import NewIsolatedAccountResponseV2Envelope from '../model/NewIsolatedAccountResponseV2Envelope';
 import OrderBookResponseEnvelope from '../model/OrderBookResponseEnvelope';
 import OrderBookStatus from '../model/OrderBookStatus';
 import OrderBookSummaryResponseEnvelope from '../model/OrderBookSummaryResponseEnvelope';
@@ -577,47 +577,6 @@ export default class DefaultApi {
       let returnType = CreateConditionalOrderResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/orders/conditional', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the createNewIsolatedAccountV2 operation.
-     * @callback module:api/DefaultApi~createNewIsolatedAccountV2Callback
-     * @param {String} error Error message, if any.
-     * @param {module:model/NewIsolatedAccountResponseV2Envelope} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Create a new isolated account for a user transferring available assets into the account
-     * @param {module:model/NewIsolatedAccountRequestV2} newIsolatedAccountRequestV2 
-     * @param {module:api/DefaultApi~createNewIsolatedAccountV2Callback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/NewIsolatedAccountResponseV2Envelope}
-     */
-    createNewIsolatedAccountV2(newIsolatedAccountRequestV2, callback) {
-      let postBody = newIsolatedAccountRequestV2;
-      // verify the required parameter 'newIsolatedAccountRequestV2' is set
-      if (newIsolatedAccountRequestV2 === undefined || newIsolatedAccountRequestV2 === null) {
-        throw new Error("Missing the required parameter 'newIsolatedAccountRequestV2' when calling createNewIsolatedAccountV2");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = NewIsolatedAccountResponseV2Envelope;
-      return this.apiClient.callApi(
-        '/v2/accounts/new_isolated', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1224,6 +1183,65 @@ export default class DefaultApi {
       let returnType = ListCouponPaymentsResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/assets/{asset_id}/coupon_payments', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getDepositInstructions operation.
+     * @callback module:api/DefaultApi~getDepositInstructionsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/DepositInstructionsResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get per-chain instructions for depositing USDC into the Dora vault
+     * Returns everything the caller needs to deposit USDC into the Dora vault with a single signature and a single transaction: an EIP-712 (EIP-2612 permit) typed-data payload to sign with eth_signTypedData_v4, and the descriptor of the vault deposit() call. The client splits the permit signature into v/r/s and ABI-encodes the deposit function with the returned args plus (v, r, s); no separate approve transaction is needed. Only a single chain is currently supported: the provided nonce belongs to it, and the chains array holds at most one entry.
+     * @param {String} quantity Human-decimal USDC quantity to deposit, e.g. '100.50'. Must be positive, with at most 6 decimal places.
+     * @param {String} ownerAddress The user's wallet address as a 0x-prefixed 20-byte hex string. Used as the permit owner.
+     * @param {String} nonce The owner's current USDC permit nonce (read client-side), as a non-negative decimal string. It belongs to the single supported chain.
+     * @param {Object} opts Optional parameters
+     * @param {String} [clientReferenceId] Optional client-supplied reference as a hex string (0x prefix optional), at most 32 bytes. Left-aligned into the deposit call's bytes32 argument.
+     * @param {module:api/DefaultApi~getDepositInstructionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/DepositInstructionsResponseEnvelope}
+     */
+    getDepositInstructions(quantity, ownerAddress, nonce, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'quantity' is set
+      if (quantity === undefined || quantity === null) {
+        throw new Error("Missing the required parameter 'quantity' when calling getDepositInstructions");
+      }
+      // verify the required parameter 'ownerAddress' is set
+      if (ownerAddress === undefined || ownerAddress === null) {
+        throw new Error("Missing the required parameter 'ownerAddress' when calling getDepositInstructions");
+      }
+      // verify the required parameter 'nonce' is set
+      if (nonce === undefined || nonce === null) {
+        throw new Error("Missing the required parameter 'nonce' when calling getDepositInstructions");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'quantity': quantity,
+        'owner_address': ownerAddress,
+        'nonce': nonce,
+        'client_reference_id': opts['clientReferenceId']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = DepositInstructionsResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/web3/deposit-instructions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3627,6 +3645,51 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the listDeposits operation.
+     * @callback module:api/DefaultApi~listDepositsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ListDepositsResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List USDC deposits
+     * Lists USDC deposits ordered by observed_at descending. Admin users may list deposits for any user (or all users); non-admin users may only list their own deposits.
+     * @param {Object} opts Optional parameters
+     * @param {String} [userId] Filter by user ID. Non-admin callers may only specify their own user ID.
+     * @param {Number} [page = 1)] 
+     * @param {Number} [limit = 50)] 
+     * @param {module:api/DefaultApi~listDepositsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ListDepositsResponseEnvelope}
+     */
+    listDeposits(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'user_id': opts['userId'],
+        'page': opts['page'],
+        'limit': opts['limit']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListDepositsResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/web3/deposits', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listOrderBooks operation.
      * @callback module:api/DefaultApi~listOrderBooksCallback
      * @param {String} error Error message, if any.
@@ -3685,7 +3748,7 @@ export default class DefaultApi {
     /**
      * List all orders
      * @param {Object} opts Optional parameters
-     * @param {String} [userId] Filter by user ID (only allowed if the user has copy trading enabled)
+     * @param {String} [userId] Filter by user ID (only allowed if the user has copy trading enabled, or if the requester is an Admin or Integrator within the same tenant)
      * @param {Array.<String>} [orderBookId] 
      * @param {Array.<module:model/OrderKind>} [kind] 
      * @param {Array.<module:model/OrderStatus>} [status] 

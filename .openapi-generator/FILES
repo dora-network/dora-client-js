@@ -54,6 +54,12 @@ docs/CurrentLeverageAccruedInterest.md
 docs/CurrentLeverageAccruedInterestResponseEnvelope.md
 docs/DefaultApi.md
 docs/DefundUserRequest.md
+docs/DepositArgs.md
+docs/DepositCall.md
+docs/DepositInstructionForChain.md
+docs/DepositInstructionsResponse.md
+docs/DepositInstructionsResponseEnvelope.md
+docs/DepositResponse.md
 docs/FundUser.md
 docs/FundUserRequest.md
 docs/FundUserResponseEnvelope.md
@@ -87,6 +93,7 @@ docs/ListAssetPriceResponseEnvelope.md
 docs/ListAssetYieldResponseEnvelope.md
 docs/ListCandlesResponseEnvelope.md
 docs/ListCouponPaymentsResponseEnvelope.md
+docs/ListDepositsResponseEnvelope.md
 docs/ListOrderBookDepthResponseEnvelope.md
 docs/ListOrderbookResponseEnvelope.md
 docs/ListOrdersResponseEnvelope.md
@@ -128,6 +135,9 @@ docs/PLSummary.md
 docs/PayLeverageAccruedInterest.md
 docs/PayLeverageAccruedInterestRequest.md
 docs/PayLeverageAccruedInterestResponseEnvelope.md
+docs/PermitDomain.md
+docs/PermitMessage.md
+docs/PermitTypedData.md
 docs/PnLRankingResponse.md
 docs/PoolPrice.md
 docs/PoolPriceResponseEnvelope.md
@@ -185,6 +195,7 @@ docs/TransferBalancesRequest.md
 docs/TransferBalancesResponseEnvelope.md
 docs/TransformedAssets.md
 docs/TriggerType.md
+docs/TypedDataField.md
 docs/UnitePositionRequest.md
 docs/UnitePositionResponseEnvelope.md
 docs/UnitedPosition.md
@@ -212,6 +223,7 @@ docs/UserValue.md
 docs/UserValueResponseEnvelope.md
 docs/ValidateSubmitOrderRequest.md
 docs/ValidateSubmitOrderResponse.md
+docs/Web3EventStatus.md
 docs/Withdraw.md
 docs/WithdrawRequest.md
 docs/WithdrawResponseEnvelope.md
@@ -276,6 +288,12 @@ src/model/CreateOrderResponseEnvelope.js
 src/model/CurrentLeverageAccruedInterest.js
 src/model/CurrentLeverageAccruedInterestResponseEnvelope.js
 src/model/DefundUserRequest.js
+src/model/DepositArgs.js
+src/model/DepositCall.js
+src/model/DepositInstructionForChain.js
+src/model/DepositInstructionsResponse.js
+src/model/DepositInstructionsResponseEnvelope.js
+src/model/DepositResponse.js
 src/model/FundUser.js
 src/model/FundUserRequest.js
 src/model/FundUserResponseEnvelope.js
@@ -309,6 +327,7 @@ src/model/ListAssetPriceResponseEnvelope.js
 src/model/ListAssetYieldResponseEnvelope.js
 src/model/ListCandlesResponseEnvelope.js
 src/model/ListCouponPaymentsResponseEnvelope.js
+src/model/ListDepositsResponseEnvelope.js
 src/model/ListOrderBookDepthResponseEnvelope.js
 src/model/ListOrderbookResponseEnvelope.js
 src/model/ListOrdersResponseEnvelope.js
@@ -350,6 +369,9 @@ src/model/PLSummary.js
 src/model/PayLeverageAccruedInterest.js
 src/model/PayLeverageAccruedInterestRequest.js
 src/model/PayLeverageAccruedInterestResponseEnvelope.js
+src/model/PermitDomain.js
+src/model/PermitMessage.js
+src/model/PermitTypedData.js
 src/model/PnLRankingResponse.js
 src/model/PoolPrice.js
 src/model/PoolPriceResponseEnvelope.js
@@ -407,6 +429,7 @@ src/model/TransferBalancesRequest.js
 src/model/TransferBalancesResponseEnvelope.js
 src/model/TransformedAssets.js
 src/model/TriggerType.js
+src/model/TypedDataField.js
 src/model/UnitePositionRequest.js
 src/model/UnitePositionResponseEnvelope.js
 src/model/UnitedPosition.js
@@ -434,6 +457,7 @@ src/model/UserValue.js
 src/model/UserValueResponseEnvelope.js
 src/model/ValidateSubmitOrderRequest.js
 src/model/ValidateSubmitOrderResponse.js
+src/model/Web3EventStatus.js
 src/model/Withdraw.js
 src/model/WithdrawRequest.js
 src/model/WithdrawResponseEnvelope.js
@@ -493,6 +517,12 @@ test/model/CreateOrderResponseEnvelope.spec.js
 test/model/CurrentLeverageAccruedInterest.spec.js
 test/model/CurrentLeverageAccruedInterestResponseEnvelope.spec.js
 test/model/DefundUserRequest.spec.js
+test/model/DepositArgs.spec.js
+test/model/DepositCall.spec.js
+test/model/DepositInstructionForChain.spec.js
+test/model/DepositInstructionsResponse.spec.js
+test/model/DepositInstructionsResponseEnvelope.spec.js
+test/model/DepositResponse.spec.js
 test/model/FundUser.spec.js
 test/model/FundUserRequest.spec.js
 test/model/FundUserResponseEnvelope.spec.js
@@ -526,6 +556,7 @@ test/model/ListAssetPriceResponseEnvelope.spec.js
 test/model/ListAssetYieldResponseEnvelope.spec.js
 test/model/ListCandlesResponseEnvelope.spec.js
 test/model/ListCouponPaymentsResponseEnvelope.spec.js
+test/model/ListDepositsResponseEnvelope.spec.js
 test/model/ListOrderBookDepthResponseEnvelope.spec.js
 test/model/ListOrderbookResponseEnvelope.spec.js
 test/model/ListOrdersResponseEnvelope.spec.js
@@ -567,6 +598,9 @@ test/model/PLSummary.spec.js
 test/model/PayLeverageAccruedInterest.spec.js
 test/model/PayLeverageAccruedInterestRequest.spec.js
 test/model/PayLeverageAccruedInterestResponseEnvelope.spec.js
+test/model/PermitDomain.spec.js
+test/model/PermitMessage.spec.js
+test/model/PermitTypedData.spec.js
 test/model/PnLRankingResponse.spec.js
 test/model/PoolPrice.spec.js
 test/model/PoolPriceResponseEnvelope.spec.js
@@ -624,6 +658,7 @@ test/model/TransferBalancesRequest.spec.js
 test/model/TransferBalancesResponseEnvelope.spec.js
 test/model/TransformedAssets.spec.js
 test/model/TriggerType.spec.js
+test/model/TypedDataField.spec.js
 test/model/UnitePositionRequest.spec.js
 test/model/UnitePositionResponseEnvelope.spec.js
 test/model/UnitedPosition.spec.js
@@ -651,6 +686,7 @@ test/model/UserValue.spec.js
 test/model/UserValueResponseEnvelope.spec.js
 test/model/ValidateSubmitOrderRequest.spec.js
 test/model/ValidateSubmitOrderResponse.spec.js
+test/model/Web3EventStatus.spec.js
 test/model/Withdraw.spec.js
 test/model/WithdrawRequest.spec.js
 test/model/WithdrawResponseEnvelope.spec.js

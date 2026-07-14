@@ -148,16 +148,6 @@
         done();
       });
     });
-    describe('createNewIsolatedAccountV2', function() {
-      it('should call createNewIsolatedAccountV2 successfully', function(done) {
-        //uncomment below and update the code to test createNewIsolatedAccountV2
-        //instance.createNewIsolatedAccountV2(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('createOrder', function() {
       it('should call createOrder successfully', function(done) {
         //uncomment below and update the code to test createOrder
@@ -292,6 +282,16 @@
       it('should call getCouponPaymentsByAssetId successfully', function(done) {
         //uncomment below and update the code to test getCouponPaymentsByAssetId
         //instance.getCouponPaymentsByAssetId(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getDepositInstructions', function() {
+      it('should call getDepositInstructions successfully', function(done) {
+        //uncomment below and update the code to test getDepositInstructions
+        //instance.getDepositInstructions(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -842,6 +842,16 @@
       it('should call listAssets successfully', function(done) {
         //uncomment below and update the code to test listAssets
         //instance.listAssets(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listDeposits', function() {
+      it('should call listDeposits successfully', function(done) {
+        //uncomment below and update the code to test listDeposits
+        //instance.listDeposits(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

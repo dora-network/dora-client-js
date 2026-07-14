@@ -143,7 +143,6 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**createAPIKeyForUser**](docs/DefaultApi.md#createAPIKeyForUser) | **POST** /v1/user/apikey | Create apikey for a user
 *Dora.DefaultApi* | [**createAPIKeyForUserID**](docs/DefaultApi.md#createAPIKeyForUserID) | **POST** /v1/user/{user_id}/apikey | Create apikey for a user
 *Dora.DefaultApi* | [**createConditionalOrder**](docs/DefaultApi.md#createConditionalOrder) | **POST** /v1/orders/conditional | Create a new conditional orders
-*Dora.DefaultApi* | [**createNewIsolatedAccountV2**](docs/DefaultApi.md#createNewIsolatedAccountV2) | **POST** /v2/accounts/new_isolated | Create a new isolated account for a user transferring available assets into the account
 *Dora.DefaultApi* | [**createOrder**](docs/DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 *Dora.DefaultApi* | [**createUser**](docs/DefaultApi.md#createUser) | **POST** /v1/integrators/user | Create a new user
 *Dora.DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
@@ -158,6 +157,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getAssetsStream**](docs/DefaultApi.md#getAssetsStream) | **GET** /v1/assets/stream | Get all inserts or updates for assets
 *Dora.DefaultApi* | [**getCandleData**](docs/DefaultApi.md#getCandleData) | **GET** /v1/charts/{order_book_id}/candle | Get candlestick data for an orderbook
 *Dora.DefaultApi* | [**getCouponPaymentsByAssetId**](docs/DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{asset_id}/coupon_payments | Get coupon payments for a bond asset
+*Dora.DefaultApi* | [**getDepositInstructions**](docs/DefaultApi.md#getDepositInstructions) | **GET** /v1/web3/deposit-instructions | Get per-chain instructions for depositing USDC into the Dora vault
 *Dora.DefaultApi* | [**getL1Depth**](docs/DefaultApi.md#getL1Depth) | **GET** /v1/orderbooks/{order_book_id}/L1 | Get the top price levels for a specific orderbook (L1 market depth)
 *Dora.DefaultApi* | [**getL2Depth**](docs/DefaultApi.md#getL2Depth) | **GET** /v1/orderbooks/{order_book_id}/L2 | Get the aggregated price levels for a specific orderbook (L2 market depth)
 *Dora.DefaultApi* | [**getL3Depth**](docs/DefaultApi.md#getL3Depth) | **GET** /v1/orderbooks/{order_book_id}/L3 | Get all open orders for a specific orderbook (L3 market depth)
@@ -213,6 +213,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**liquiditySubtract**](docs/DefaultApi.md#liquiditySubtract) | **POST** /v1/liquidity/pool/{pool_id}/remove | Subtract liquidity from a pool
 *Dora.DefaultApi* | [**listAccountsSelfV2**](docs/DefaultApi.md#listAccountsSelfV2) | **GET** /v2/user/self/accounts | List all accounts for the authenticated user
 *Dora.DefaultApi* | [**listAssets**](docs/DefaultApi.md#listAssets) | **GET** /v1/assets | List assets
+*Dora.DefaultApi* | [**listDeposits**](docs/DefaultApi.md#listDeposits) | **GET** /v1/web3/deposits | List USDC deposits
 *Dora.DefaultApi* | [**listOrderBooks**](docs/DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 *Dora.DefaultApi* | [**listOrders**](docs/DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
 *Dora.DefaultApi* | [**listPositionAccountsSelf**](docs/DefaultApi.md#listPositionAccountsSelf) | **GET** /v1/user/self/position_accounts | List all position accounts for the authenticated user
@@ -289,6 +290,12 @@ Class | Method | HTTP request | Description
  - [Dora.CurrentLeverageAccruedInterest](docs/CurrentLeverageAccruedInterest.md)
  - [Dora.CurrentLeverageAccruedInterestResponseEnvelope](docs/CurrentLeverageAccruedInterestResponseEnvelope.md)
  - [Dora.DefundUserRequest](docs/DefundUserRequest.md)
+ - [Dora.DepositArgs](docs/DepositArgs.md)
+ - [Dora.DepositCall](docs/DepositCall.md)
+ - [Dora.DepositInstructionForChain](docs/DepositInstructionForChain.md)
+ - [Dora.DepositInstructionsResponse](docs/DepositInstructionsResponse.md)
+ - [Dora.DepositInstructionsResponseEnvelope](docs/DepositInstructionsResponseEnvelope.md)
+ - [Dora.DepositResponse](docs/DepositResponse.md)
  - [Dora.FundUser](docs/FundUser.md)
  - [Dora.FundUserRequest](docs/FundUserRequest.md)
  - [Dora.FundUserResponseEnvelope](docs/FundUserResponseEnvelope.md)
@@ -322,6 +329,7 @@ Class | Method | HTTP request | Description
  - [Dora.ListAssetYieldResponseEnvelope](docs/ListAssetYieldResponseEnvelope.md)
  - [Dora.ListCandlesResponseEnvelope](docs/ListCandlesResponseEnvelope.md)
  - [Dora.ListCouponPaymentsResponseEnvelope](docs/ListCouponPaymentsResponseEnvelope.md)
+ - [Dora.ListDepositsResponseEnvelope](docs/ListDepositsResponseEnvelope.md)
  - [Dora.ListOrderBookDepthResponseEnvelope](docs/ListOrderBookDepthResponseEnvelope.md)
  - [Dora.ListOrderbookResponseEnvelope](docs/ListOrderbookResponseEnvelope.md)
  - [Dora.ListOrdersResponseEnvelope](docs/ListOrdersResponseEnvelope.md)
@@ -363,6 +371,9 @@ Class | Method | HTTP request | Description
  - [Dora.PayLeverageAccruedInterest](docs/PayLeverageAccruedInterest.md)
  - [Dora.PayLeverageAccruedInterestRequest](docs/PayLeverageAccruedInterestRequest.md)
  - [Dora.PayLeverageAccruedInterestResponseEnvelope](docs/PayLeverageAccruedInterestResponseEnvelope.md)
+ - [Dora.PermitDomain](docs/PermitDomain.md)
+ - [Dora.PermitMessage](docs/PermitMessage.md)
+ - [Dora.PermitTypedData](docs/PermitTypedData.md)
  - [Dora.PnLRankingResponse](docs/PnLRankingResponse.md)
  - [Dora.PoolPrice](docs/PoolPrice.md)
  - [Dora.PoolPriceResponseEnvelope](docs/PoolPriceResponseEnvelope.md)
@@ -420,6 +431,7 @@ Class | Method | HTTP request | Description
  - [Dora.TransferBalancesResponseEnvelope](docs/TransferBalancesResponseEnvelope.md)
  - [Dora.TransformedAssets](docs/TransformedAssets.md)
  - [Dora.TriggerType](docs/TriggerType.md)
+ - [Dora.TypedDataField](docs/TypedDataField.md)
  - [Dora.UnitePositionRequest](docs/UnitePositionRequest.md)
  - [Dora.UnitePositionResponseEnvelope](docs/UnitePositionResponseEnvelope.md)
  - [Dora.UnitedPosition](docs/UnitedPosition.md)
@@ -447,6 +459,7 @@ Class | Method | HTTP request | Description
  - [Dora.UserValueResponseEnvelope](docs/UserValueResponseEnvelope.md)
  - [Dora.ValidateSubmitOrderRequest](docs/ValidateSubmitOrderRequest.md)
  - [Dora.ValidateSubmitOrderResponse](docs/ValidateSubmitOrderResponse.md)
+ - [Dora.Web3EventStatus](docs/Web3EventStatus.md)
  - [Dora.Withdraw](docs/Withdraw.md)
  - [Dora.WithdrawRequest](docs/WithdrawRequest.md)
  - [Dora.WithdrawResponseEnvelope](docs/WithdrawResponseEnvelope.md)

@@ -64,6 +64,12 @@ import CreateOrderResponseEnvelope from './model/CreateOrderResponseEnvelope';
 import CurrentLeverageAccruedInterest from './model/CurrentLeverageAccruedInterest';
 import CurrentLeverageAccruedInterestResponseEnvelope from './model/CurrentLeverageAccruedInterestResponseEnvelope';
 import DefundUserRequest from './model/DefundUserRequest';
+import DepositArgs from './model/DepositArgs';
+import DepositCall from './model/DepositCall';
+import DepositInstructionForChain from './model/DepositInstructionForChain';
+import DepositInstructionsResponse from './model/DepositInstructionsResponse';
+import DepositInstructionsResponseEnvelope from './model/DepositInstructionsResponseEnvelope';
+import DepositResponse from './model/DepositResponse';
 import FundUser from './model/FundUser';
 import FundUserRequest from './model/FundUserRequest';
 import FundUserResponseEnvelope from './model/FundUserResponseEnvelope';
@@ -97,6 +103,7 @@ import ListAssetPriceResponseEnvelope from './model/ListAssetPriceResponseEnvelo
 import ListAssetYieldResponseEnvelope from './model/ListAssetYieldResponseEnvelope';
 import ListCandlesResponseEnvelope from './model/ListCandlesResponseEnvelope';
 import ListCouponPaymentsResponseEnvelope from './model/ListCouponPaymentsResponseEnvelope';
+import ListDepositsResponseEnvelope from './model/ListDepositsResponseEnvelope';
 import ListOrderBookDepthResponseEnvelope from './model/ListOrderBookDepthResponseEnvelope';
 import ListOrderbookResponseEnvelope from './model/ListOrderbookResponseEnvelope';
 import ListOrdersResponseEnvelope from './model/ListOrdersResponseEnvelope';
@@ -138,6 +145,9 @@ import PLSummary from './model/PLSummary';
 import PayLeverageAccruedInterest from './model/PayLeverageAccruedInterest';
 import PayLeverageAccruedInterestRequest from './model/PayLeverageAccruedInterestRequest';
 import PayLeverageAccruedInterestResponseEnvelope from './model/PayLeverageAccruedInterestResponseEnvelope';
+import PermitDomain from './model/PermitDomain';
+import PermitMessage from './model/PermitMessage';
+import PermitTypedData from './model/PermitTypedData';
 import PnLRankingResponse from './model/PnLRankingResponse';
 import PoolPrice from './model/PoolPrice';
 import PoolPriceResponseEnvelope from './model/PoolPriceResponseEnvelope';
@@ -195,6 +205,7 @@ import TransferBalancesRequest from './model/TransferBalancesRequest';
 import TransferBalancesResponseEnvelope from './model/TransferBalancesResponseEnvelope';
 import TransformedAssets from './model/TransformedAssets';
 import TriggerType from './model/TriggerType';
+import TypedDataField from './model/TypedDataField';
 import UnitePositionRequest from './model/UnitePositionRequest';
 import UnitePositionResponseEnvelope from './model/UnitePositionResponseEnvelope';
 import UnitedPosition from './model/UnitedPosition';
@@ -222,6 +233,7 @@ import UserValue from './model/UserValue';
 import UserValueResponseEnvelope from './model/UserValueResponseEnvelope';
 import ValidateSubmitOrderRequest from './model/ValidateSubmitOrderRequest';
 import ValidateSubmitOrderResponse from './model/ValidateSubmitOrderResponse';
+import Web3EventStatus from './model/Web3EventStatus';
 import Withdraw from './model/Withdraw';
 import WithdrawRequest from './model/WithdrawRequest';
 import WithdrawResponseEnvelope from './model/WithdrawResponseEnvelope';
@@ -577,6 +589,42 @@ export {
     DefundUserRequest,
 
     /**
+     * The DepositArgs model constructor.
+     * @property {module:model/DepositArgs}
+     */
+    DepositArgs,
+
+    /**
+     * The DepositCall model constructor.
+     * @property {module:model/DepositCall}
+     */
+    DepositCall,
+
+    /**
+     * The DepositInstructionForChain model constructor.
+     * @property {module:model/DepositInstructionForChain}
+     */
+    DepositInstructionForChain,
+
+    /**
+     * The DepositInstructionsResponse model constructor.
+     * @property {module:model/DepositInstructionsResponse}
+     */
+    DepositInstructionsResponse,
+
+    /**
+     * The DepositInstructionsResponseEnvelope model constructor.
+     * @property {module:model/DepositInstructionsResponseEnvelope}
+     */
+    DepositInstructionsResponseEnvelope,
+
+    /**
+     * The DepositResponse model constructor.
+     * @property {module:model/DepositResponse}
+     */
+    DepositResponse,
+
+    /**
      * The FundUser model constructor.
      * @property {module:model/FundUser}
      */
@@ -773,6 +821,12 @@ export {
      * @property {module:model/ListCouponPaymentsResponseEnvelope}
      */
     ListCouponPaymentsResponseEnvelope,
+
+    /**
+     * The ListDepositsResponseEnvelope model constructor.
+     * @property {module:model/ListDepositsResponseEnvelope}
+     */
+    ListDepositsResponseEnvelope,
 
     /**
      * The ListOrderBookDepthResponseEnvelope model constructor.
@@ -1019,6 +1073,24 @@ export {
      * @property {module:model/PayLeverageAccruedInterestResponseEnvelope}
      */
     PayLeverageAccruedInterestResponseEnvelope,
+
+    /**
+     * The PermitDomain model constructor.
+     * @property {module:model/PermitDomain}
+     */
+    PermitDomain,
+
+    /**
+     * The PermitMessage model constructor.
+     * @property {module:model/PermitMessage}
+     */
+    PermitMessage,
+
+    /**
+     * The PermitTypedData model constructor.
+     * @property {module:model/PermitTypedData}
+     */
+    PermitTypedData,
 
     /**
      * The PnLRankingResponse model constructor.
@@ -1363,6 +1435,12 @@ export {
     TriggerType,
 
     /**
+     * The TypedDataField model constructor.
+     * @property {module:model/TypedDataField}
+     */
+    TypedDataField,
+
+    /**
      * The UnitePositionRequest model constructor.
      * @property {module:model/UnitePositionRequest}
      */
@@ -1523,6 +1601,12 @@ export {
      * @property {module:model/ValidateSubmitOrderResponse}
      */
     ValidateSubmitOrderResponse,
+
+    /**
+     * The Web3EventStatus model constructor.
+     * @property {module:model/Web3EventStatus}
+     */
+    Web3EventStatus,
 
     /**
      * The Withdraw model constructor.

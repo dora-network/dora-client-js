@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.PoolPrice();
+    instance = new Dora.RepayUSDResponseEnvelope();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,28 @@
       object[property] = value;
   }
 
-  describe('PoolPrice', function() {
-    it('should create an instance of PoolPrice', function() {
-      // uncomment below and update the code to test PoolPrice
-      //var instance = new Dora.PoolPrice();
-      //expect(instance).to.be.a(Dora.PoolPrice);
+  describe('RepayUSDResponseEnvelope', function() {
+    it('should create an instance of RepayUSDResponseEnvelope', function() {
+      // uncomment below and update the code to test RepayUSDResponseEnvelope
+      //var instance = new Dora.RepayUSDResponseEnvelope();
+      //expect(instance).to.be.a(Dora.RepayUSDResponseEnvelope);
     });
 
-    it('should have the property poolId (base name: "pool_id")', function() {
-      // uncomment below and update the code to test the property poolId
-      //var instance = new Dora.PoolPrice();
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
+      //var instance = new Dora.RepayUSDResponseEnvelope();
       //expect(instance).to.be();
     });
 
-    it('should have the property price (base name: "price")', function() {
-      // uncomment below and update the code to test the property price
-      //var instance = new Dora.PoolPrice();
+    it('should have the property error (base name: "error")', function() {
+      // uncomment below and update the code to test the property error
+      //var instance = new Dora.RepayUSDResponseEnvelope();
       //expect(instance).to.be();
     });
 
-    it('should have the property time (base name: "time")', function() {
-      // uncomment below and update the code to test the property time
-      //var instance = new Dora.PoolPrice();
+    it('should have the property metadata (base name: "metadata")', function() {
+      // uncomment below and update the code to test the property metadata
+      //var instance = new Dora.RepayUSDResponseEnvelope();
       //expect(instance).to.be();
     });
 

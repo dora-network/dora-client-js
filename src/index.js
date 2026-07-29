@@ -75,6 +75,7 @@ import FundUserRequest from './model/FundUserRequest';
 import FundUserResponseEnvelope from './model/FundUserResponseEnvelope';
 import GetAssetByIDResponseEnvelope from './model/GetAssetByIDResponseEnvelope';
 import GetAssetYTMByIDResponseEnvelope from './model/GetAssetYTMByIDResponseEnvelope';
+import GetCopyTradersResponse from './model/GetCopyTradersResponse';
 import GetPnLRankingResponse from './model/GetPnLRankingResponse';
 import GetRealizedPnlSettlementsResponseEnvelope from './model/GetRealizedPnlSettlementsResponseEnvelope';
 import GetTopOfBookResponseEnvelope from './model/GetTopOfBookResponseEnvelope';
@@ -162,6 +163,9 @@ import PositionType from './model/PositionType';
 import PriceLevel from './model/PriceLevel';
 import RealizedPnlSettlement from './model/RealizedPnlSettlement';
 import RealizedPnlSettlements from './model/RealizedPnlSettlements';
+import RepayUSDRequest from './model/RepayUSDRequest';
+import RepayUSDResponseEnvelope from './model/RepayUSDResponseEnvelope';
+import RepayUSDResult from './model/RepayUSDResult';
 import ResponseEnvelope from './model/ResponseEnvelope';
 import ResponseEnvelopeOfListAssets from './model/ResponseEnvelopeOfListAssets';
 import RevokeAPIKeyData from './model/RevokeAPIKeyData';
@@ -653,6 +657,12 @@ export {
      * @property {module:model/GetAssetYTMByIDResponseEnvelope}
      */
     GetAssetYTMByIDResponseEnvelope,
+
+    /**
+     * The GetCopyTradersResponse model constructor.
+     * @property {module:model/GetCopyTradersResponse}
+     */
+    GetCopyTradersResponse,
 
     /**
      * The GetPnLRankingResponse model constructor.
@@ -1175,6 +1185,24 @@ export {
      * @property {module:model/RealizedPnlSettlements}
      */
     RealizedPnlSettlements,
+
+    /**
+     * The RepayUSDRequest model constructor.
+     * @property {module:model/RepayUSDRequest}
+     */
+    RepayUSDRequest,
+
+    /**
+     * The RepayUSDResponseEnvelope model constructor.
+     * @property {module:model/RepayUSDResponseEnvelope}
+     */
+    RepayUSDResponseEnvelope,
+
+    /**
+     * The RepayUSDResult model constructor.
+     * @property {module:model/RepayUSDResult}
+     */
+    RepayUSDResult,
 
     /**
      * The ResponseEnvelope model constructor.

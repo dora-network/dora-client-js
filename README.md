@@ -156,6 +156,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getAssetYieldData**](docs/DefaultApi.md#getAssetYieldData) | **GET** /v1/charts/{asset_id}/yield | Get yield chart data for an asset
 *Dora.DefaultApi* | [**getAssetsStream**](docs/DefaultApi.md#getAssetsStream) | **GET** /v1/assets/stream | Get all inserts or updates for assets
 *Dora.DefaultApi* | [**getCandleData**](docs/DefaultApi.md#getCandleData) | **GET** /v1/charts/{order_book_id}/candle | Get candlestick data for an orderbook
+*Dora.DefaultApi* | [**getCopyTraders**](docs/DefaultApi.md#getCopyTraders) | **GET** /v1/user/copy_traders | Get list of user IDs with copy trading enabled
 *Dora.DefaultApi* | [**getCouponPaymentsByAssetId**](docs/DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{asset_id}/coupon_payments | Get coupon payments for a bond asset
 *Dora.DefaultApi* | [**getDepositInstructions**](docs/DefaultApi.md#getDepositInstructions) | **GET** /v1/web3/deposit-instructions | Get per-chain instructions for depositing USDC into the Dora vault
 *Dora.DefaultApi* | [**getL1Depth**](docs/DefaultApi.md#getL1Depth) | **GET** /v1/orderbooks/{order_book_id}/L1 | Get the top price levels for a specific orderbook (L1 market depth)
@@ -219,6 +220,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**listPositionAccountsSelf**](docs/DefaultApi.md#listPositionAccountsSelf) | **GET** /v1/user/self/position_accounts | List all position accounts for the authenticated user
 *Dora.DefaultApi* | [**payLeverageGetAccruedInterest**](docs/DefaultApi.md#payLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/pay | Pay current accrued leverage interest for a specific user
 *Dora.DefaultApi* | [**rejectLedgerWithdrawRequest**](docs/DefaultApi.md#rejectLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/reject | Reject a pending withdrawal request
+*Dora.DefaultApi* | [**repayUSD**](docs/DefaultApi.md#repayUSD) | **POST** /v1/positions/repay_usd | Repay borrowed USD, then accrue and pay leverage interest
 *Dora.DefaultApi* | [**revokeAPIKeyForUser**](docs/DefaultApi.md#revokeAPIKeyForUser) | **PUT** /v1/user/apikey/{key_id}/revoke | Revoke apikey for a user
 *Dora.DefaultApi* | [**revokeAPIKeyForUserID**](docs/DefaultApi.md#revokeAPIKeyForUserID) | **PUT** /v1/user/{user_id}/apikey/{key_id}/revoke | Revoke apikey for a user: admin or integrator only
 *Dora.DefaultApi* | [**settleLeverageAccruedInterest**](docs/DefaultApi.md#settleLeverageAccruedInterest) | **POST** /v1/leverage/accrued_interest/settle | Settle current accrued leverage interest for a specific user
@@ -301,6 +303,7 @@ Class | Method | HTTP request | Description
  - [Dora.FundUserResponseEnvelope](docs/FundUserResponseEnvelope.md)
  - [Dora.GetAssetByIDResponseEnvelope](docs/GetAssetByIDResponseEnvelope.md)
  - [Dora.GetAssetYTMByIDResponseEnvelope](docs/GetAssetYTMByIDResponseEnvelope.md)
+ - [Dora.GetCopyTradersResponse](docs/GetCopyTradersResponse.md)
  - [Dora.GetPnLRankingResponse](docs/GetPnLRankingResponse.md)
  - [Dora.GetRealizedPnlSettlementsResponseEnvelope](docs/GetRealizedPnlSettlementsResponseEnvelope.md)
  - [Dora.GetTopOfBookResponseEnvelope](docs/GetTopOfBookResponseEnvelope.md)
@@ -388,6 +391,9 @@ Class | Method | HTTP request | Description
  - [Dora.PriceLevel](docs/PriceLevel.md)
  - [Dora.RealizedPnlSettlement](docs/RealizedPnlSettlement.md)
  - [Dora.RealizedPnlSettlements](docs/RealizedPnlSettlements.md)
+ - [Dora.RepayUSDRequest](docs/RepayUSDRequest.md)
+ - [Dora.RepayUSDResponseEnvelope](docs/RepayUSDResponseEnvelope.md)
+ - [Dora.RepayUSDResult](docs/RepayUSDResult.md)
  - [Dora.ResponseEnvelope](docs/ResponseEnvelope.md)
  - [Dora.ResponseEnvelopeOfListAssets](docs/ResponseEnvelopeOfListAssets.md)
  - [Dora.RevokeAPIKeyData](docs/RevokeAPIKeyData.md)

@@ -24,11 +24,11 @@ class PoolPrice {
      * @alias module:model/PoolPrice
      * @param poolId {String} 
      * @param price {String} 
-     * @param timestamp {Date} 
+     * @param time {Date} 
      */
-    constructor(poolId, price, timestamp) { 
+    constructor(poolId, price, time) { 
         
-        PoolPrice.initialize(this, poolId, price, timestamp);
+        PoolPrice.initialize(this, poolId, price, time);
     }
 
     /**
@@ -36,10 +36,10 @@ class PoolPrice {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, poolId, price, timestamp) { 
+    static initialize(obj, poolId, price, time) { 
         obj['pool_id'] = poolId;
         obj['price'] = price;
-        obj['timestamp'] = timestamp;
+        obj['time'] = time;
     }
 
     /**
@@ -59,8 +59,8 @@ class PoolPrice {
             if (data.hasOwnProperty('price')) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'String');
             }
-            if (data.hasOwnProperty('timestamp')) {
-                obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Date');
+            if (data.hasOwnProperty('time')) {
+                obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
         }
         return obj;
@@ -93,7 +93,7 @@ class PoolPrice {
 
 }
 
-PoolPrice.RequiredProperties = ["pool_id", "price", "timestamp"];
+PoolPrice.RequiredProperties = ["pool_id", "price", "time"];
 
 /**
  * @member {String} pool_id
@@ -106,9 +106,9 @@ PoolPrice.prototype['pool_id'] = undefined;
 PoolPrice.prototype['price'] = undefined;
 
 /**
- * @member {Date} timestamp
+ * @member {Date} time
  */
-PoolPrice.prototype['timestamp'] = undefined;
+PoolPrice.prototype['time'] = undefined;
 
 
 

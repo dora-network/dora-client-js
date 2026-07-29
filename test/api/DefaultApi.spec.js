@@ -278,6 +278,16 @@
         done();
       });
     });
+    describe('getCopyTraders', function() {
+      it('should call getCopyTraders successfully', function(done) {
+        //uncomment below and update the code to test getCopyTraders
+        //instance.getCopyTraders(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getCouponPaymentsByAssetId', function() {
       it('should call getCouponPaymentsByAssetId successfully', function(done) {
         //uncomment below and update the code to test getCouponPaymentsByAssetId
@@ -902,6 +912,16 @@
       it('should call rejectLedgerWithdrawRequest successfully', function(done) {
         //uncomment below and update the code to test rejectLedgerWithdrawRequest
         //instance.rejectLedgerWithdrawRequest(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('repayUSD', function() {
+      it('should call repayUSD successfully', function(done) {
+        //uncomment below and update the code to test repayUSD
+        //instance.repayUSD(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

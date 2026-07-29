@@ -1,11 +1,9 @@
-# Dora.PoolPrice
+# Dora.RepayUSDRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**poolId** | **String** |  | 
-**price** | **String** |  | 
-**time** | **Date** |  | 
+**positionId** | **String** |  | 
 
 

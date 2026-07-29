@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.PoolPrice();
+    instance = new Dora.RepayUSDResult();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,34 @@
       object[property] = value;
   }
 
-  describe('PoolPrice', function() {
-    it('should create an instance of PoolPrice', function() {
-      // uncomment below and update the code to test PoolPrice
-      //var instance = new Dora.PoolPrice();
-      //expect(instance).to.be.a(Dora.PoolPrice);
+  describe('RepayUSDResult', function() {
+    it('should create an instance of RepayUSDResult', function() {
+      // uncomment below and update the code to test RepayUSDResult
+      //var instance = new Dora.RepayUSDResult();
+      //expect(instance).to.be.a(Dora.RepayUSDResult);
     });
 
-    it('should have the property poolId (base name: "pool_id")', function() {
-      // uncomment below and update the code to test the property poolId
-      //var instance = new Dora.PoolPrice();
+    it('should have the property positionId (base name: "position_id")', function() {
+      // uncomment below and update the code to test the property positionId
+      //var instance = new Dora.RepayUSDResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property price (base name: "price")', function() {
-      // uncomment below and update the code to test the property price
-      //var instance = new Dora.PoolPrice();
+    it('should have the property assetId (base name: "asset_id")', function() {
+      // uncomment below and update the code to test the property assetId
+      //var instance = new Dora.RepayUSDResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property time (base name: "time")', function() {
-      // uncomment below and update the code to test the property time
-      //var instance = new Dora.PoolPrice();
+    it('should have the property repaid (base name: "repaid")', function() {
+      // uncomment below and update the code to test the property repaid
+      //var instance = new Dora.RepayUSDResult();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property transactionId (base name: "transaction_id")', function() {
+      // uncomment below and update the code to test the property transactionId
+      //var instance = new Dora.RepayUSDResult();
       //expect(instance).to.be();
     });
 

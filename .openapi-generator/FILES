@@ -65,6 +65,7 @@ docs/FundUserRequest.md
 docs/FundUserResponseEnvelope.md
 docs/GetAssetByIDResponseEnvelope.md
 docs/GetAssetYTMByIDResponseEnvelope.md
+docs/GetCopyTradersResponse.md
 docs/GetPnLRankingResponse.md
 docs/GetRealizedPnlSettlementsResponseEnvelope.md
 docs/GetTopOfBookResponseEnvelope.md
@@ -152,6 +153,9 @@ docs/PositionType.md
 docs/PriceLevel.md
 docs/RealizedPnlSettlement.md
 docs/RealizedPnlSettlements.md
+docs/RepayUSDRequest.md
+docs/RepayUSDResponseEnvelope.md
+docs/RepayUSDResult.md
 docs/ResponseEnvelope.md
 docs/ResponseEnvelopeOfListAssets.md
 docs/RevokeAPIKeyData.md
@@ -299,6 +303,7 @@ src/model/FundUserRequest.js
 src/model/FundUserResponseEnvelope.js
 src/model/GetAssetByIDResponseEnvelope.js
 src/model/GetAssetYTMByIDResponseEnvelope.js
+src/model/GetCopyTradersResponse.js
 src/model/GetPnLRankingResponse.js
 src/model/GetRealizedPnlSettlementsResponseEnvelope.js
 src/model/GetTopOfBookResponseEnvelope.js
@@ -386,6 +391,9 @@ src/model/PositionType.js
 src/model/PriceLevel.js
 src/model/RealizedPnlSettlement.js
 src/model/RealizedPnlSettlements.js
+src/model/RepayUSDRequest.js
+src/model/RepayUSDResponseEnvelope.js
+src/model/RepayUSDResult.js
 src/model/ResponseEnvelope.js
 src/model/ResponseEnvelopeOfListAssets.js
 src/model/RevokeAPIKeyData.js
@@ -528,6 +536,7 @@ test/model/FundUserRequest.spec.js
 test/model/FundUserResponseEnvelope.spec.js
 test/model/GetAssetByIDResponseEnvelope.spec.js
 test/model/GetAssetYTMByIDResponseEnvelope.spec.js
+test/model/GetCopyTradersResponse.spec.js
 test/model/GetPnLRankingResponse.spec.js
 test/model/GetRealizedPnlSettlementsResponseEnvelope.spec.js
 test/model/GetTopOfBookResponseEnvelope.spec.js
@@ -615,6 +624,9 @@ test/model/PositionType.spec.js
 test/model/PriceLevel.spec.js
 test/model/RealizedPnlSettlement.spec.js
 test/model/RealizedPnlSettlements.spec.js
+test/model/RepayUSDRequest.spec.js
+test/model/RepayUSDResponseEnvelope.spec.js
+test/model/RepayUSDResult.spec.js
 test/model/ResponseEnvelope.spec.js
 test/model/ResponseEnvelopeOfListAssets.spec.js
 test/model/RevokeAPIKeyData.spec.js

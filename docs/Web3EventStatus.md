@@ -9,4 +9,8 @@
 
 * `ORPHANED` (value: `"ORPHANED"`)
 
+* `USER_NOT_EXIST` (value: `"USER_NOT_EXIST"`)
+
+* `DUST` (value: `"DUST"`)
+
 

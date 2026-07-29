@@ -43,6 +43,7 @@ import FundUserRequest from '../model/FundUserRequest';
 import FundUserResponseEnvelope from '../model/FundUserResponseEnvelope';
 import GetAssetByIDResponseEnvelope from '../model/GetAssetByIDResponseEnvelope';
 import GetAssetYTMByIDResponseEnvelope from '../model/GetAssetYTMByIDResponseEnvelope';
+import GetCopyTradersResponse from '../model/GetCopyTradersResponse';
 import GetPnLRankingResponse from '../model/GetPnLRankingResponse';
 import GetRealizedPnlSettlementsResponseEnvelope from '../model/GetRealizedPnlSettlementsResponseEnvelope';
 import GetTopOfBookResponseEnvelope from '../model/GetTopOfBookResponseEnvelope';
@@ -83,6 +84,8 @@ import PayLeverageAccruedInterestRequest from '../model/PayLeverageAccruedIntere
 import PayLeverageAccruedInterestResponseEnvelope from '../model/PayLeverageAccruedInterestResponseEnvelope';
 import PoolPriceResponseEnvelope from '../model/PoolPriceResponseEnvelope';
 import PoolRequestError from '../model/PoolRequestError';
+import RepayUSDRequest from '../model/RepayUSDRequest';
+import RepayUSDResponseEnvelope from '../model/RepayUSDResponseEnvelope';
 import ResponseEnvelope from '../model/ResponseEnvelope';
 import ResponseEnvelopeOfListAssets from '../model/ResponseEnvelopeOfListAssets';
 import RevokeAPIKeyResponseEnvelope from '../model/RevokeAPIKeyResponseEnvelope';
@@ -996,6 +999,7 @@ export default class DefaultApi {
 
     /**
      * Get yield chart data for an asset
+     * Returns complete yield buckets starting at `start`; `end` is exclusive and a trailing partial bucket is omitted. Requests are limited to 10,000 complete buckets.
      * @param {String} assetId 
      * @param {Date} start 
      * @param {Date} end 
@@ -1141,6 +1145,48 @@ export default class DefaultApi {
       let returnType = ListCandlesResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/charts/{order_book_id}/candle', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getCopyTraders operation.
+     * @callback module:api/DefaultApi~getCopyTradersCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetCopyTradersResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get list of user IDs with copy trading enabled
+     * @param {Object} opts Optional parameters
+     * @param {Number} [page = 1)] 
+     * @param {Number} [limit = 100)] 
+     * @param {module:api/DefaultApi~getCopyTradersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetCopyTradersResponse}
+     */
+    getCopyTraders(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'page': opts['page'],
+        'limit': opts['limit']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetCopyTradersResponse;
+      return this.apiClient.callApi(
+        '/v1/user/copy_traders', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1727,6 +1773,7 @@ export default class DefaultApi {
 
     /**
      * Get order by ID
+     * Get details of a specific order. Traders can only view their own orders. Admins can view any order. Integrators can view orders for users within their tenant.
      * @param {String} orderId 
      * @param {module:api/DefaultApi~getOrderByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrderResponseEnvelope}
@@ -2195,10 +2242,13 @@ export default class DefaultApi {
 
     /**
      * Get top traders by PnL
-     * @param {Date} start 
-     * @param {Date} end 
+     * Returns user PnL ranking for the provided time range. By default only users with allow_copy_trading=true are included. Set all=true to include all users; this requires an admin role.
+     * @param {Date} start Start timestamp (inclusive) in RFC3339 format.
+     * @param {Date} end End timestamp (exclusive) in RFC3339 format.
      * @param {Object} opts Optional parameters
-     * @param {Number} [limit] 
+     * @param {Number} [page = 1)] 1-based page number for pagination.
+     * @param {Number} [limit = 100)] Number of records per page (max 100). Defaults to 100.
+     * @param {Boolean} [all = false)] When true, includes users with allow_copy_trading=false. Requires admin role.
      * @param {module:api/DefaultApi~getTopTradersByPnLCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetPnLRankingResponse}
      */
@@ -2219,7 +2269,9 @@ export default class DefaultApi {
       let queryParams = {
         'start': start,
         'end': end,
-        'limit': opts['limit']
+        'page': opts['page'],
+        'limit': opts['limit'],
+        'all': opts['all']
       };
       let headerParams = {
       };
@@ -3913,6 +3965,47 @@ export default class DefaultApi {
       let returnType = WithdrawalInitiationResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/ledger/withdraw/requests/{withdrawal_id}/reject', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the repayUSD operation.
+     * @callback module:api/DefaultApi~repayUSDCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/RepayUSDResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Repay borrowed USD, then accrue and pay leverage interest
+     * @param {module:model/RepayUSDRequest} repayUSDRequest 
+     * @param {module:api/DefaultApi~repayUSDCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/RepayUSDResponseEnvelope}
+     */
+    repayUSD(repayUSDRequest, callback) {
+      let postBody = repayUSDRequest;
+      // verify the required parameter 'repayUSDRequest' is set
+      if (repayUSDRequest === undefined || repayUSDRequest === null) {
+        throw new Error("Missing the required parameter 'repayUSDRequest' when calling repayUSD");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = RepayUSDResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/positions/repay_usd', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -40,6 +40,20 @@ export default class Web3EventStatus {
         "ORPHANED" = "ORPHANED";
 
     
+        /**
+         * value: "USER_NOT_EXIST"
+         * @const
+         */
+        "USER_NOT_EXIST" = "USER_NOT_EXIST";
+
+    
+        /**
+         * value: "DUST"
+         * @const
+         */
+        "DUST" = "DUST";
+
+    
 
     /**
     * Returns a <code>Web3EventStatus</code> enum value from a Javascript object name.

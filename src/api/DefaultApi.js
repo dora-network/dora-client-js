@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import APIKeyResponseEnvelope from '../model/APIKeyResponseEnvelope';
+import AddTradingChallengeUsersRequest from '../model/AddTradingChallengeUsersRequest';
 import AllPositionsResponseEnvelope from '../model/AllPositionsResponseEnvelope';
 import AllWithdrawalInitiationsResponseEnvelope from '../model/AllWithdrawalInitiationsResponseEnvelope';
 import AssetKind from '../model/AssetKind';
@@ -23,8 +24,10 @@ import AssetRequestError from '../model/AssetRequestError';
 import AssetYieldResolution from '../model/AssetYieldResolution';
 import CancelOrderResponseEnvelope from '../model/CancelOrderResponseEnvelope';
 import CandleResolution from '../model/CandleResolution';
+import CashReserveResponseEnvelope from '../model/CashReserveResponseEnvelope';
 import ClaimLeverageAccruedInterestRequest from '../model/ClaimLeverageAccruedInterestRequest';
 import ClaimLeverageAccruedInterestResponseEnvelope from '../model/ClaimLeverageAccruedInterestResponseEnvelope';
+import ClaimTradingChallengeResponseEnvelope from '../model/ClaimTradingChallengeResponseEnvelope';
 import CloseAccountRequest from '../model/CloseAccountRequest';
 import ClosePositionRequest from '../model/ClosePositionRequest';
 import ClosePositionResponseEnvelope from '../model/ClosePositionResponseEnvelope';
@@ -36,6 +39,7 @@ import CreateConditionalOrderResponseEnvelope from '../model/CreateConditionalOr
 import CreateIntegratorUserRequest from '../model/CreateIntegratorUserRequest';
 import CreateOrderRequest from '../model/CreateOrderRequest';
 import CreateOrderResponseEnvelope from '../model/CreateOrderResponseEnvelope';
+import CreateTradingChallengeRequest from '../model/CreateTradingChallengeRequest';
 import CurrentLeverageAccruedInterestResponseEnvelope from '../model/CurrentLeverageAccruedInterestResponseEnvelope';
 import DefundUserRequest from '../model/DefundUserRequest';
 import DepositInstructionsResponseEnvelope from '../model/DepositInstructionsResponseEnvelope';
@@ -84,6 +88,7 @@ import PayLeverageAccruedInterestRequest from '../model/PayLeverageAccruedIntere
 import PayLeverageAccruedInterestResponseEnvelope from '../model/PayLeverageAccruedInterestResponseEnvelope';
 import PoolPriceResponseEnvelope from '../model/PoolPriceResponseEnvelope';
 import PoolRequestError from '../model/PoolRequestError';
+import RemoveTradingChallengeUsersRequest from '../model/RemoveTradingChallengeUsersRequest';
 import RepayUSDRequest from '../model/RepayUSDRequest';
 import RepayUSDResponseEnvelope from '../model/RepayUSDResponseEnvelope';
 import ResponseEnvelope from '../model/ResponseEnvelope';
@@ -106,6 +111,12 @@ import SupplyRequest from '../model/SupplyRequest';
 import SupplyResponseEnvelope from '../model/SupplyResponseEnvelope';
 import TradeRequestError from '../model/TradeRequestError';
 import TradeResponseEnvelope from '../model/TradeResponseEnvelope';
+import TradingChallengeDailySnapshotsResponseEnvelope from '../model/TradingChallengeDailySnapshotsResponseEnvelope';
+import TradingChallengeListResponseEnvelope from '../model/TradingChallengeListResponseEnvelope';
+import TradingChallengeResponseEnvelope from '../model/TradingChallengeResponseEnvelope';
+import TradingChallengeResultsResponseEnvelope from '../model/TradingChallengeResultsResponseEnvelope';
+import TradingChallengeStatus from '../model/TradingChallengeStatus';
+import TradingChallengeType from '../model/TradingChallengeType';
 import TransactionKind from '../model/TransactionKind';
 import TransactionRequestError from '../model/TransactionRequestError';
 import TransactionResponseEnvelope from '../model/TransactionResponseEnvelope';
@@ -152,6 +163,47 @@ export default class DefaultApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the addTradingChallengeUsers operation.
+     * @callback module:api/DefaultApi~addTradingChallengeUsersCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add users to a trading challenge
+     * @param {module:model/AddTradingChallengeUsersRequest} addTradingChallengeUsersRequest 
+     * @param {module:api/DefaultApi~addTradingChallengeUsersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeResponseEnvelope}
+     */
+    addTradingChallengeUsers(addTradingChallengeUsersRequest, callback) {
+      let postBody = addTradingChallengeUsersRequest;
+      // verify the required parameter 'addTradingChallengeUsersRequest' is set
+      if (addTradingChallengeUsersRequest === undefined || addTradingChallengeUsersRequest === null) {
+        throw new Error("Missing the required parameter 'addTradingChallengeUsersRequest' when calling addTradingChallengeUsers");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/add_users', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the approveLedgerWithdrawRequest operation.
@@ -369,6 +421,48 @@ export default class DefaultApi {
       let returnType = ClaimLeverageAccruedInterestResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/leverage/accrued_interest/claim', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the claimTradingChallengePrize operation.
+     * @callback module:api/DefaultApi~claimTradingChallengePrizeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ClaimTradingChallengeResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Claim challenge prize
+     * @param {String} tradingChallengeId 
+     * @param {module:api/DefaultApi~claimTradingChallengePrizeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ClaimTradingChallengeResponseEnvelope}
+     */
+    claimTradingChallengePrize(tradingChallengeId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling claimTradingChallengePrize");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ClaimTradingChallengeResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/{trading_challenge_id}/claim', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -621,6 +715,47 @@ export default class DefaultApi {
       let returnType = CreateOrderResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/orders', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the createTradingChallenge operation.
+     * @callback module:api/DefaultApi~createTradingChallengeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a trading challenge
+     * @param {module:model/CreateTradingChallengeRequest} createTradingChallengeRequest 
+     * @param {module:api/DefaultApi~createTradingChallengeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeResponseEnvelope}
+     */
+    createTradingChallenge(createTradingChallengeRequest, callback) {
+      let postBody = createTradingChallengeRequest;
+      // verify the required parameter 'createTradingChallengeRequest' is set
+      if (createTradingChallengeRequest === undefined || createTradingChallengeRequest === null) {
+        throw new Error("Missing the required parameter 'createTradingChallengeRequest' when calling createTradingChallenge");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1151,6 +1286,86 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the getCashReserveByUserID operation.
+     * @callback module:api/DefaultApi~getCashReserveByUserIDCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CashReserveResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the minimum USD cash reserve requirement for the given user
+     * Returns the user's available Global Account USD balance alongside their minimum cash reserve requirement and its breakdown. While available_usd is below required_usd the user may not open new leveraged positions, submit buy orders, transfer assets out of their Global Account or withdraw.
+     * @param {String} userId 
+     * @param {module:api/DefaultApi~getCashReserveByUserIDCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/CashReserveResponseEnvelope}
+     */
+    getCashReserveByUserID(userId, callback) {
+      let postBody = null;
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling getCashReserveByUserID");
+      }
+
+      let pathParams = {
+        'user_id': userId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = CashReserveResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/accounts/{user_id}/cash_reserve', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getCashReserveSelf operation.
+     * @callback module:api/DefaultApi~getCashReserveSelfCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CashReserveResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the minimum USD cash reserve requirement for the logged in user
+     * Returns the user's available Global Account USD balance alongside their minimum cash reserve requirement and its breakdown. While available_usd is below required_usd the user may not open new leveraged positions, submit buy orders, transfer assets out of their Global Account or withdraw.
+     * @param {module:api/DefaultApi~getCashReserveSelfCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/CashReserveResponseEnvelope}
+     */
+    getCashReserveSelf(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = CashReserveResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/accounts/self/cash_reserve', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getCopyTraders operation.
      * @callback module:api/DefaultApi~getCopyTradersCallback
      * @param {String} error Error message, if any.
@@ -1159,7 +1374,7 @@ export default class DefaultApi {
      */
 
     /**
-     * Get list of user IDs with copy trading enabled
+     * Get list of users with copy trading enabled
      * @param {Object} opts Optional parameters
      * @param {Number} [page = 1)] 
      * @param {Number} [limit = 100)] 
@@ -1244,7 +1459,7 @@ export default class DefaultApi {
 
     /**
      * Get per-chain instructions for depositing USDC into the Dora vault
-     * Returns everything the caller needs to deposit USDC into the Dora vault with a single signature and a single transaction: an EIP-712 (EIP-2612 permit) typed-data payload to sign with eth_signTypedData_v4, and the descriptor of the vault deposit() call. The client splits the permit signature into v/r/s and ABI-encodes the deposit function with the returned args plus (v, r, s); no separate approve transaction is needed. Only a single chain is currently supported: the provided nonce belongs to it, and the chains array holds at most one entry.
+     * Returns everything the caller needs to deposit USDC into the Dora vault with a single signature and a single transaction: an EIP-712 (EIP-2612 permit) typed-data payload to sign with eth_signTypedData_v4, and the descriptor of the vault deposit() call. The client splits the permit signature into v/r/s and ABI-encodes the deposit function with the returned args plus (v, r, s); no separate approve transaction is needed. Only a single chain is currently supported: the provided nonce belongs to it, and the chains array holds at most one entry. Restricted to DORA tenant users whose native asset is USDC.
      * @param {String} quantity Human-decimal USDC quantity to deposit, e.g. '100.50'. Must be positive, with at most 6 decimal places.
      * @param {String} ownerAddress The user's wallet address as a 0x-prefixed 20-byte hex string. Used as the permit owner.
      * @param {String} nonce The owner's current USDC permit nonce (read client-side), as a non-negative decimal string. It belongs to the single supported chain.
@@ -2376,6 +2591,136 @@ export default class DefaultApi {
       let returnType = ListTradeResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/trades', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTradingChallengeByID operation.
+     * @callback module:api/DefaultApi~getTradingChallengeByIDCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get trading challenge by ID
+     * @param {String} tradingChallengeId 
+     * @param {module:api/DefaultApi~getTradingChallengeByIDCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeResponseEnvelope}
+     */
+    getTradingChallengeByID(tradingChallengeId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling getTradingChallengeByID");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/{trading_challenge_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTradingChallengeDailySnapshots operation.
+     * @callback module:api/DefaultApi~getTradingChallengeDailySnapshotsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeDailySnapshotsResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get trading challenge daily snapshots
+     * @param {String} tradingChallengeId 
+     * @param {module:api/DefaultApi~getTradingChallengeDailySnapshotsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeDailySnapshotsResponseEnvelope}
+     */
+    getTradingChallengeDailySnapshots(tradingChallengeId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling getTradingChallengeDailySnapshots");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeDailySnapshotsResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/{trading_challenge_id}/daily_snapshots', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTradingChallengeResults operation.
+     * @callback module:api/DefaultApi~getTradingChallengeResultsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeResultsResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get trading challenge results
+     * @param {String} tradingChallengeId 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} [board = 'TOP_PNL')] Leaderboard board selector. Defaults to TOP_PNL.
+     * @param {module:api/DefaultApi~getTradingChallengeResultsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeResultsResponseEnvelope}
+     */
+    getTradingChallengeResults(tradingChallengeId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling getTradingChallengeResults");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId
+      };
+      let queryParams = {
+        'board': opts['board']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeResultsResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/{trading_challenge_id}/results', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3882,6 +4227,54 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the listTradingChallenges operation.
+     * @callback module:api/DefaultApi~listTradingChallengesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeListResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List trading challenges
+     * @param {Object} opts Optional parameters
+     * @param {String} [tenantId] 
+     * @param {module:model/TradingChallengeType} [type] 
+     * @param {module:model/TradingChallengeStatus} [status] 
+     * @param {Date} [start] 
+     * @param {Date} [end] 
+     * @param {module:api/DefaultApi~listTradingChallengesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeListResponseEnvelope}
+     */
+    listTradingChallenges(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'tenant_id': opts['tenantId'],
+        'type': opts['type'],
+        'status': opts['status'],
+        'start': opts['start'],
+        'end': opts['end']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeListResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the payLeverageGetAccruedInterest operation.
      * @callback module:api/DefaultApi~payLeverageGetAccruedInterestCallback
      * @param {String} error Error message, if any.
@@ -3965,6 +4358,47 @@ export default class DefaultApi {
       let returnType = WithdrawalInitiationResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/ledger/withdraw/requests/{withdrawal_id}/reject', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the removeTradingChallengeUsers operation.
+     * @callback module:api/DefaultApi~removeTradingChallengeUsersCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Remove users from a trading challenge
+     * @param {module:model/RemoveTradingChallengeUsersRequest} removeTradingChallengeUsersRequest 
+     * @param {module:api/DefaultApi~removeTradingChallengeUsersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeResponseEnvelope}
+     */
+    removeTradingChallengeUsers(removeTradingChallengeUsersRequest, callback) {
+      let postBody = removeTradingChallengeUsersRequest;
+      // verify the required parameter 'removeTradingChallengeUsersRequest' is set
+      if (removeTradingChallengeUsersRequest === undefined || removeTradingChallengeUsersRequest === null) {
+        throw new Error("Missing the required parameter 'removeTradingChallengeUsersRequest' when calling removeTradingChallengeUsers");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/remove_users', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

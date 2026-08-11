@@ -27,10 +27,12 @@ class PLSummary {
      * @param available {String} 
      * @param health {String} 
      * @param ltv {String} 
+     * @param realizedPl {String} The realized profit or loss since account inception
+     * @param unrealizedPl {String} The unrealized profit or loss for the account's current open positions
      */
-    constructor(leverage, accountEquity, available, health, ltv) { 
+    constructor(leverage, accountEquity, available, health, ltv, realizedPl, unrealizedPl) { 
         
-        PLSummary.initialize(this, leverage, accountEquity, available, health, ltv);
+        PLSummary.initialize(this, leverage, accountEquity, available, health, ltv, realizedPl, unrealizedPl);
     }
 
     /**
@@ -38,12 +40,14 @@ class PLSummary {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, leverage, accountEquity, available, health, ltv) { 
+    static initialize(obj, leverage, accountEquity, available, health, ltv, realizedPl, unrealizedPl) { 
         obj['leverage'] = leverage;
         obj['account_equity'] = accountEquity;
         obj['available'] = available;
         obj['health'] = health;
         obj['ltv'] = ltv;
+        obj['realized_pl'] = realizedPl;
+        obj['unrealized_pl'] = unrealizedPl;
     }
 
     /**
@@ -71,6 +75,12 @@ class PLSummary {
             }
             if (data.hasOwnProperty('ltv')) {
                 obj['ltv'] = ApiClient.convertToType(data['ltv'], 'String');
+            }
+            if (data.hasOwnProperty('realized_pl')) {
+                obj['realized_pl'] = ApiClient.convertToType(data['realized_pl'], 'String');
+            }
+            if (data.hasOwnProperty('unrealized_pl')) {
+                obj['unrealized_pl'] = ApiClient.convertToType(data['unrealized_pl'], 'String');
             }
         }
         return obj;
@@ -108,6 +118,14 @@ class PLSummary {
         if (data['ltv'] && !(typeof data['ltv'] === 'string' || data['ltv'] instanceof String)) {
             throw new Error("Expected the field `ltv` to be a primitive type in the JSON string but got " + data['ltv']);
         }
+        // ensure the json data is a string
+        if (data['realized_pl'] && !(typeof data['realized_pl'] === 'string' || data['realized_pl'] instanceof String)) {
+            throw new Error("Expected the field `realized_pl` to be a primitive type in the JSON string but got " + data['realized_pl']);
+        }
+        // ensure the json data is a string
+        if (data['unrealized_pl'] && !(typeof data['unrealized_pl'] === 'string' || data['unrealized_pl'] instanceof String)) {
+            throw new Error("Expected the field `unrealized_pl` to be a primitive type in the JSON string but got " + data['unrealized_pl']);
+        }
 
         return true;
     }
@@ -115,7 +133,7 @@ class PLSummary {
 
 }
 
-PLSummary.RequiredProperties = ["leverage", "account_equity", "available", "health", "ltv"];
+PLSummary.RequiredProperties = ["leverage", "account_equity", "available", "health", "ltv", "realized_pl", "unrealized_pl"];
 
 /**
  * The leverage used to obtain the position on the isolated account
@@ -142,6 +160,18 @@ PLSummary.prototype['health'] = undefined;
  * @member {String} ltv
  */
 PLSummary.prototype['ltv'] = undefined;
+
+/**
+ * The realized profit or loss since account inception
+ * @member {String} realized_pl
+ */
+PLSummary.prototype['realized_pl'] = undefined;
+
+/**
+ * The unrealized profit or loss for the account's current open positions
+ * @member {String} unrealized_pl
+ */
+PLSummary.prototype['unrealized_pl'] = undefined;
 
 
 

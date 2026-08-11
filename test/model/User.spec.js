@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property userName (base name: "user_name")', function() {
+      // uncomment below and update the code to test the property userName
+      //var instance = new Dora.User();
+      //expect(instance).to.be();
+    });
+
     it('should have the property countryOfDomicile (base name: "country_of_domicile")', function() {
       // uncomment below and update the code to test the property countryOfDomicile
       //var instance = new Dora.User();

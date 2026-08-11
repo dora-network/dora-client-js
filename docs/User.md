@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **email** | **String** |  | 
 **firstName** | **String** |  | 
 **lastName** | **String** |  | 
+**userName** | **String** |  | 
 **countryOfDomicile** | [**CountryCode**](CountryCode.md) |  | 
 **nativeAssetId** | **String** |  | 
 **photoUrl** | **String** |  | [optional] 

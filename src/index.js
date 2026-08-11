@@ -21,6 +21,7 @@ import AccountPortfolioResponseV2 from './model/AccountPortfolioResponseV2';
 import AccountPortfolioV2 from './model/AccountPortfolioV2';
 import AccountSummaryV2 from './model/AccountSummaryV2';
 import AccountV2 from './model/AccountV2';
+import AddTradingChallengeUsersRequest from './model/AddTradingChallengeUsersRequest';
 import AllPositions from './model/AllPositions';
 import AllPositionsResponseEnvelope from './model/AllPositionsResponseEnvelope';
 import AllWithdrawalInitiationsResponseEnvelope from './model/AllWithdrawalInitiationsResponseEnvelope';
@@ -40,14 +41,20 @@ import BondKind from './model/BondKind';
 import CancelOrderResponseEnvelope from './model/CancelOrderResponseEnvelope';
 import Candle from './model/Candle';
 import CandleResolution from './model/CandleResolution';
+import CashReserveBreakdown from './model/CashReserveBreakdown';
+import CashReserveResponse from './model/CashReserveResponse';
+import CashReserveResponseEnvelope from './model/CashReserveResponseEnvelope';
 import ClaimLeverageAccruedInterest from './model/ClaimLeverageAccruedInterest';
 import ClaimLeverageAccruedInterestRequest from './model/ClaimLeverageAccruedInterestRequest';
 import ClaimLeverageAccruedInterestResponseEnvelope from './model/ClaimLeverageAccruedInterestResponseEnvelope';
+import ClaimTradingChallengeResponse from './model/ClaimTradingChallengeResponse';
+import ClaimTradingChallengeResponseEnvelope from './model/ClaimTradingChallengeResponseEnvelope';
 import CloseAccountRequest from './model/CloseAccountRequest';
 import ClosePositionRequest from './model/ClosePositionRequest';
 import ClosePositionResp from './model/ClosePositionResp';
 import ClosePositionResponseEnvelope from './model/ClosePositionResponseEnvelope';
 import Collateral from './model/Collateral';
+import CopyTrader from './model/CopyTrader';
 import CountryCode from './model/CountryCode';
 import CouponKind from './model/CouponKind';
 import CouponPayment from './model/CouponPayment';
@@ -61,6 +68,7 @@ import CreateIntegratorUserRequest from './model/CreateIntegratorUserRequest';
 import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
 import CreateOrderResponseEnvelope from './model/CreateOrderResponseEnvelope';
+import CreateTradingChallengeRequest from './model/CreateTradingChallengeRequest';
 import CurrentLeverageAccruedInterest from './model/CurrentLeverageAccruedInterest';
 import CurrentLeverageAccruedInterestResponseEnvelope from './model/CurrentLeverageAccruedInterestResponseEnvelope';
 import DefundUserRequest from './model/DefundUserRequest';
@@ -163,6 +171,7 @@ import PositionType from './model/PositionType';
 import PriceLevel from './model/PriceLevel';
 import RealizedPnlSettlement from './model/RealizedPnlSettlement';
 import RealizedPnlSettlements from './model/RealizedPnlSettlements';
+import RemoveTradingChallengeUsersRequest from './model/RemoveTradingChallengeUsersRequest';
 import RepayUSDRequest from './model/RepayUSDRequest';
 import RepayUSDResponseEnvelope from './model/RepayUSDResponseEnvelope';
 import RepayUSDResult from './model/RepayUSDResult';
@@ -194,6 +203,15 @@ import TenantRestrictions from './model/TenantRestrictions';
 import Trade from './model/Trade';
 import TradeRequestError from './model/TradeRequestError';
 import TradeResponseEnvelope from './model/TradeResponseEnvelope';
+import TradingChallenge from './model/TradingChallenge';
+import TradingChallengeDailySnapshot from './model/TradingChallengeDailySnapshot';
+import TradingChallengeDailySnapshotsResponseEnvelope from './model/TradingChallengeDailySnapshotsResponseEnvelope';
+import TradingChallengeListResponseEnvelope from './model/TradingChallengeListResponseEnvelope';
+import TradingChallengeResponseEnvelope from './model/TradingChallengeResponseEnvelope';
+import TradingChallengeResult from './model/TradingChallengeResult';
+import TradingChallengeResultsResponseEnvelope from './model/TradingChallengeResultsResponseEnvelope';
+import TradingChallengeStatus from './model/TradingChallengeStatus';
+import TradingChallengeType from './model/TradingChallengeType';
 import Transaction from './model/Transaction';
 import TransactionInternalTransfer from './model/TransactionInternalTransfer';
 import TransactionKind from './model/TransactionKind';
@@ -335,6 +353,12 @@ export {
     AccountV2,
 
     /**
+     * The AddTradingChallengeUsersRequest model constructor.
+     * @property {module:model/AddTradingChallengeUsersRequest}
+     */
+    AddTradingChallengeUsersRequest,
+
+    /**
      * The AllPositions model constructor.
      * @property {module:model/AllPositions}
      */
@@ -449,6 +473,24 @@ export {
     CandleResolution,
 
     /**
+     * The CashReserveBreakdown model constructor.
+     * @property {module:model/CashReserveBreakdown}
+     */
+    CashReserveBreakdown,
+
+    /**
+     * The CashReserveResponse model constructor.
+     * @property {module:model/CashReserveResponse}
+     */
+    CashReserveResponse,
+
+    /**
+     * The CashReserveResponseEnvelope model constructor.
+     * @property {module:model/CashReserveResponseEnvelope}
+     */
+    CashReserveResponseEnvelope,
+
+    /**
      * The ClaimLeverageAccruedInterest model constructor.
      * @property {module:model/ClaimLeverageAccruedInterest}
      */
@@ -465,6 +507,18 @@ export {
      * @property {module:model/ClaimLeverageAccruedInterestResponseEnvelope}
      */
     ClaimLeverageAccruedInterestResponseEnvelope,
+
+    /**
+     * The ClaimTradingChallengeResponse model constructor.
+     * @property {module:model/ClaimTradingChallengeResponse}
+     */
+    ClaimTradingChallengeResponse,
+
+    /**
+     * The ClaimTradingChallengeResponseEnvelope model constructor.
+     * @property {module:model/ClaimTradingChallengeResponseEnvelope}
+     */
+    ClaimTradingChallengeResponseEnvelope,
 
     /**
      * The CloseAccountRequest model constructor.
@@ -495,6 +549,12 @@ export {
      * @property {module:model/Collateral}
      */
     Collateral,
+
+    /**
+     * The CopyTrader model constructor.
+     * @property {module:model/CopyTrader}
+     */
+    CopyTrader,
 
     /**
      * The CountryCode model constructor.
@@ -573,6 +633,12 @@ export {
      * @property {module:model/CreateOrderResponseEnvelope}
      */
     CreateOrderResponseEnvelope,
+
+    /**
+     * The CreateTradingChallengeRequest model constructor.
+     * @property {module:model/CreateTradingChallengeRequest}
+     */
+    CreateTradingChallengeRequest,
 
     /**
      * The CurrentLeverageAccruedInterest model constructor.
@@ -1187,6 +1253,12 @@ export {
     RealizedPnlSettlements,
 
     /**
+     * The RemoveTradingChallengeUsersRequest model constructor.
+     * @property {module:model/RemoveTradingChallengeUsersRequest}
+     */
+    RemoveTradingChallengeUsersRequest,
+
+    /**
      * The RepayUSDRequest model constructor.
      * @property {module:model/RepayUSDRequest}
      */
@@ -1371,6 +1443,60 @@ export {
      * @property {module:model/TradeResponseEnvelope}
      */
     TradeResponseEnvelope,
+
+    /**
+     * The TradingChallenge model constructor.
+     * @property {module:model/TradingChallenge}
+     */
+    TradingChallenge,
+
+    /**
+     * The TradingChallengeDailySnapshot model constructor.
+     * @property {module:model/TradingChallengeDailySnapshot}
+     */
+    TradingChallengeDailySnapshot,
+
+    /**
+     * The TradingChallengeDailySnapshotsResponseEnvelope model constructor.
+     * @property {module:model/TradingChallengeDailySnapshotsResponseEnvelope}
+     */
+    TradingChallengeDailySnapshotsResponseEnvelope,
+
+    /**
+     * The TradingChallengeListResponseEnvelope model constructor.
+     * @property {module:model/TradingChallengeListResponseEnvelope}
+     */
+    TradingChallengeListResponseEnvelope,
+
+    /**
+     * The TradingChallengeResponseEnvelope model constructor.
+     * @property {module:model/TradingChallengeResponseEnvelope}
+     */
+    TradingChallengeResponseEnvelope,
+
+    /**
+     * The TradingChallengeResult model constructor.
+     * @property {module:model/TradingChallengeResult}
+     */
+    TradingChallengeResult,
+
+    /**
+     * The TradingChallengeResultsResponseEnvelope model constructor.
+     * @property {module:model/TradingChallengeResultsResponseEnvelope}
+     */
+    TradingChallengeResultsResponseEnvelope,
+
+    /**
+     * The TradingChallengeStatus model constructor.
+     * @property {module:model/TradingChallengeStatus}
+     */
+    TradingChallengeStatus,
+
+    /**
+     * The TradingChallengeType model constructor.
+     * @property {module:model/TradingChallengeType}
+     */
+    TradingChallengeType,
 
     /**
      * The Transaction model constructor.

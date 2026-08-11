@@ -1,10 +1,10 @@
-# Dora.GetCopyTradersResponse
+# Dora.TradingChallengeResultsResponseEnvelope
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[CopyTrader]**](CopyTrader.md) |  | [optional] 
+**data** | [**[TradingChallengeResult]**](TradingChallengeResult.md) |  | [optional] 
 **error** | **String** | The error message. Present for error (non-2xx) responses. | [optional] 
 **metadata** | [**Metadata**](Metadata.md) | Metadata about the response, including status code and trace information. | 
 

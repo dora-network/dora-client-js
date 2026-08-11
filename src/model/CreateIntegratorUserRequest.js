@@ -57,6 +57,9 @@ class CreateIntegratorUserRequest {
             if (data.hasOwnProperty('last_name')) {
                 obj['last_name'] = ApiClient.convertToType(data['last_name'], 'String');
             }
+            if (data.hasOwnProperty('user_name')) {
+                obj['user_name'] = ApiClient.convertToType(data['user_name'], 'String');
+            }
             if (data.hasOwnProperty('country_of_domicile')) {
                 obj['country_of_domicile'] = CountryCode.constructFromObject(data['country_of_domicile']);
             }
@@ -96,6 +99,10 @@ class CreateIntegratorUserRequest {
         // ensure the json data is a string
         if (data['last_name'] && !(typeof data['last_name'] === 'string' || data['last_name'] instanceof String)) {
             throw new Error("Expected the field `last_name` to be a primitive type in the JSON string but got " + data['last_name']);
+        }
+        // ensure the json data is a string
+        if (data['user_name'] && !(typeof data['user_name'] === 'string' || data['user_name'] instanceof String)) {
+            throw new Error("Expected the field `user_name` to be a primitive type in the JSON string but got " + data['user_name']);
         }
         // ensure the json data is a string
         if (data['native_asset_id'] && !(typeof data['native_asset_id'] === 'string' || data['native_asset_id'] instanceof String)) {
@@ -142,11 +149,17 @@ CreateIntegratorUserRequest.prototype['first_name'] = undefined;
 CreateIntegratorUserRequest.prototype['last_name'] = undefined;
 
 /**
+ * @member {String} user_name
+ */
+CreateIntegratorUserRequest.prototype['user_name'] = undefined;
+
+/**
  * @member {module:model/CountryCode} country_of_domicile
  */
 CreateIntegratorUserRequest.prototype['country_of_domicile'] = undefined;
 
 /**
+ * Optional: the user's native asset ID. Must be a CURRENCY asset; defaults to USD. The USDC asset is never allowed for integrator-created users.
  * @member {String} native_asset_id
  */
 CreateIntegratorUserRequest.prototype['native_asset_id'] = undefined;

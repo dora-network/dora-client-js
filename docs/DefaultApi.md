@@ -4,17 +4,20 @@ All URIs are relative to *https://staging.dora.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addTradingChallengeUsers**](DefaultApi.md#addTradingChallengeUsers) | **PUT** /v1/trading_challenges/add_users | Add users to a trading challenge
 [**approveLedgerWithdrawRequest**](DefaultApi.md#approveLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/approve | Approve a pending withdrawal request
 [**cancelAllOpenOrders**](DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook or account_id on query params it will cancel all orders on specific orderbook or account, admin can cancel user&#39;s orders on specific orderbook
 [**cancelLedgerWithdrawRequest**](DefaultApi.md#cancelLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/cancel | Cancel a pending withdrawal request
 [**cancelOrderById**](DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
 [**claimLeverageGetAccruedInterest**](DefaultApi.md#claimLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/claim | Claim current accrued leverage interest for a specific user
+[**claimTradingChallengePrize**](DefaultApi.md#claimTradingChallengePrize) | **POST** /v1/trading_challenges/{trading_challenge_id}/claim | Claim challenge prize
 [**closeIsolatedAccountV2**](DefaultApi.md#closeIsolatedAccountV2) | **POST** /v2/accounts/close | Close an isolated account, repaying the borrowed
 [**closeIsolatedPosition**](DefaultApi.md#closeIsolatedPosition) | **POST** /v1/positions/close | Close isolated positions, repaying the borrowed
 [**createAPIKeyForUser**](DefaultApi.md#createAPIKeyForUser) | **POST** /v1/user/apikey | Create apikey for a user
 [**createAPIKeyForUserID**](DefaultApi.md#createAPIKeyForUserID) | **POST** /v1/user/{user_id}/apikey | Create apikey for a user
 [**createConditionalOrder**](DefaultApi.md#createConditionalOrder) | **POST** /v1/orders/conditional | Create a new conditional orders
 [**createOrder**](DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
+[**createTradingChallenge**](DefaultApi.md#createTradingChallenge) | **POST** /v1/trading_challenges | Create a trading challenge
 [**createUser**](DefaultApi.md#createUser) | **POST** /v1/integrators/user | Create a new user
 [**deleteUser**](DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
 [**getAPIKeysForUserID**](DefaultApi.md#getAPIKeysForUserID) | **GET** /v1/user/{user_id}/apikey | Get user&#39;s api keys: admin or integrator only
@@ -27,7 +30,9 @@ Method | HTTP request | Description
 [**getAssetYieldData**](DefaultApi.md#getAssetYieldData) | **GET** /v1/charts/{asset_id}/yield | Get yield chart data for an asset
 [**getAssetsStream**](DefaultApi.md#getAssetsStream) | **GET** /v1/assets/stream | Get all inserts or updates for assets
 [**getCandleData**](DefaultApi.md#getCandleData) | **GET** /v1/charts/{order_book_id}/candle | Get candlestick data for an orderbook
-[**getCopyTraders**](DefaultApi.md#getCopyTraders) | **GET** /v1/user/copy_traders | Get list of user IDs with copy trading enabled
+[**getCashReserveByUserID**](DefaultApi.md#getCashReserveByUserID) | **GET** /v1/accounts/{user_id}/cash_reserve | Get the minimum USD cash reserve requirement for the given user
+[**getCashReserveSelf**](DefaultApi.md#getCashReserveSelf) | **GET** /v1/accounts/self/cash_reserve | Get the minimum USD cash reserve requirement for the logged in user
+[**getCopyTraders**](DefaultApi.md#getCopyTraders) | **GET** /v1/user/copy_traders | Get list of users with copy trading enabled
 [**getCouponPaymentsByAssetId**](DefaultApi.md#getCouponPaymentsByAssetId) | **GET** /v1/assets/{asset_id}/coupon_payments | Get coupon payments for a bond asset
 [**getDepositInstructions**](DefaultApi.md#getDepositInstructions) | **GET** /v1/web3/deposit-instructions | Get per-chain instructions for depositing USDC into the Dora vault
 [**getL1Depth**](DefaultApi.md#getL1Depth) | **GET** /v1/orderbooks/{order_book_id}/L1 | Get the top price levels for a specific orderbook (L1 market depth)
@@ -56,6 +61,9 @@ Method | HTTP request | Description
 [**getTopTradersByPnL**](DefaultApi.md#getTopTradersByPnL) | **GET** /v1/user/ranking | Get top traders by PnL
 [**getTradeById**](DefaultApi.md#getTradeById) | **GET** /v1/trades/{trade_id} | Get a trade by ID
 [**getTrades**](DefaultApi.md#getTrades) | **GET** /v1/trades | Get a filtered, paginated list of trades
+[**getTradingChallengeByID**](DefaultApi.md#getTradingChallengeByID) | **GET** /v1/trading_challenges/{trading_challenge_id} | Get trading challenge by ID
+[**getTradingChallengeDailySnapshots**](DefaultApi.md#getTradingChallengeDailySnapshots) | **GET** /v1/trading_challenges/{trading_challenge_id}/daily_snapshots | Get trading challenge daily snapshots
+[**getTradingChallengeResults**](DefaultApi.md#getTradingChallengeResults) | **GET** /v1/trading_challenges/{trading_challenge_id}/results | Get trading challenge results
 [**getTransactionById**](DefaultApi.md#getTransactionById) | **GET** /v1/transactions/{transaction_id} | Get a transaction by ID
 [**getTransactions**](DefaultApi.md#getTransactions) | **GET** /v1/transactions | Get a filtered, paginated list of transactions
 [**getTransactionsSettlements**](DefaultApi.md#getTransactionsSettlements) | **GET** /v1/transactions/settlements | Get transactions settlements with filters
@@ -89,8 +97,10 @@ Method | HTTP request | Description
 [**listOrderBooks**](DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 [**listOrders**](DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
 [**listPositionAccountsSelf**](DefaultApi.md#listPositionAccountsSelf) | **GET** /v1/user/self/position_accounts | List all position accounts for the authenticated user
+[**listTradingChallenges**](DefaultApi.md#listTradingChallenges) | **GET** /v1/trading_challenges | List trading challenges
 [**payLeverageGetAccruedInterest**](DefaultApi.md#payLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/pay | Pay current accrued leverage interest for a specific user
 [**rejectLedgerWithdrawRequest**](DefaultApi.md#rejectLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/reject | Reject a pending withdrawal request
+[**removeTradingChallengeUsers**](DefaultApi.md#removeTradingChallengeUsers) | **PUT** /v1/trading_challenges/remove_users | Remove users from a trading challenge
 [**repayUSD**](DefaultApi.md#repayUSD) | **POST** /v1/positions/repay_usd | Repay borrowed USD, then accrue and pay leverage interest
 [**revokeAPIKeyForUser**](DefaultApi.md#revokeAPIKeyForUser) | **PUT** /v1/user/apikey/{key_id}/revoke | Revoke apikey for a user
 [**revokeAPIKeyForUserID**](DefaultApi.md#revokeAPIKeyForUserID) | **PUT** /v1/user/{user_id}/apikey/{key_id}/revoke | Revoke apikey for a user: admin or integrator only
@@ -109,6 +119,58 @@ Method | HTTP request | Description
 [**validateSubmitOrder**](DefaultApi.md#validateSubmitOrder) | **POST** /v1/orders/validate | Validate submit order request data
 [**verifyUser**](DefaultApi.md#verifyUser) | **PUT** /v1/user/{user_id}/verify | Verify a user by ID
 
+
+
+## addTradingChallengeUsers
+
+> TradingChallengeResponseEnvelope addTradingChallengeUsers(addTradingChallengeUsersRequest)
+
+Add users to a trading challenge
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let addTradingChallengeUsersRequest = new Dora.AddTradingChallengeUsersRequest(); // AddTradingChallengeUsersRequest | 
+apiInstance.addTradingChallengeUsers(addTradingChallengeUsersRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **addTradingChallengeUsersRequest** | [**AddTradingChallengeUsersRequest**](AddTradingChallengeUsersRequest.md)|  | 
+
+### Return type
+
+[**TradingChallengeResponseEnvelope**](TradingChallengeResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## approveLedgerWithdrawRequest
@@ -388,6 +450,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## claimTradingChallengePrize
+
+> ClaimTradingChallengeResponseEnvelope claimTradingChallengePrize(tradingChallengeId)
+
+Claim challenge prize
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let tradingChallengeId = "tradingChallengeId_example"; // String | 
+apiInstance.claimTradingChallengePrize(tradingChallengeId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tradingChallengeId** | **String**|  | 
+
+### Return type
+
+[**ClaimTradingChallengeResponseEnvelope**](ClaimTradingChallengeResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -694,6 +808,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateOrderResponseEnvelope**](CreateOrderResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## createTradingChallenge
+
+> TradingChallengeResponseEnvelope createTradingChallenge(createTradingChallengeRequest)
+
+Create a trading challenge
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let createTradingChallengeRequest = new Dora.CreateTradingChallengeRequest(); // CreateTradingChallengeRequest | 
+apiInstance.createTradingChallenge(createTradingChallengeRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createTradingChallengeRequest** | [**CreateTradingChallengeRequest**](CreateTradingChallengeRequest.md)|  | 
+
+### Return type
+
+[**TradingChallengeResponseEnvelope**](TradingChallengeResponseEnvelope.md)
 
 ### Authorization
 
@@ -1298,11 +1464,115 @@ No authorization required
 - **Accept**: application/json
 
 
+## getCashReserveByUserID
+
+> CashReserveResponseEnvelope getCashReserveByUserID(userId)
+
+Get the minimum USD cash reserve requirement for the given user
+
+Returns the user&#39;s available Global Account USD balance alongside their minimum cash reserve requirement and its breakdown. While available_usd is below required_usd the user may not open new leveraged positions, submit buy orders, transfer assets out of their Global Account or withdraw.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let userId = "userId_example"; // String | 
+apiInstance.getCashReserveByUserID(userId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**|  | 
+
+### Return type
+
+[**CashReserveResponseEnvelope**](CashReserveResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getCashReserveSelf
+
+> CashReserveResponseEnvelope getCashReserveSelf()
+
+Get the minimum USD cash reserve requirement for the logged in user
+
+Returns the user&#39;s available Global Account USD balance alongside their minimum cash reserve requirement and its breakdown. While available_usd is below required_usd the user may not open new leveraged positions, submit buy orders, transfer assets out of their Global Account or withdraw.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+apiInstance.getCashReserveSelf((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CashReserveResponseEnvelope**](CashReserveResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getCopyTraders
 
 > GetCopyTradersResponse getCopyTraders(opts)
 
-Get list of user IDs with copy trading enabled
+Get list of users with copy trading enabled
 
 ### Example
 
@@ -1403,7 +1673,7 @@ No authorization required
 
 Get per-chain instructions for depositing USDC into the Dora vault
 
-Returns everything the caller needs to deposit USDC into the Dora vault with a single signature and a single transaction: an EIP-712 (EIP-2612 permit) typed-data payload to sign with eth_signTypedData_v4, and the descriptor of the vault deposit() call. The client splits the permit signature into v/r/s and ABI-encodes the deposit function with the returned args plus (v, r, s); no separate approve transaction is needed. Only a single chain is currently supported: the provided nonce belongs to it, and the chains array holds at most one entry.
+Returns everything the caller needs to deposit USDC into the Dora vault with a single signature and a single transaction: an EIP-712 (EIP-2612 permit) typed-data payload to sign with eth_signTypedData_v4, and the descriptor of the vault deposit() call. The client splits the permit signature into v/r/s and ABI-encodes the deposit function with the returned args plus (v, r, s); no separate approve transaction is needed. Only a single chain is currently supported: the provided nonce belongs to it, and the chains array holds at most one entry. Restricted to DORA tenant users whose native asset is USDC.
 
 ### Example
 
@@ -2748,6 +3018,166 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListTradeResponseEnvelope**](ListTradeResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getTradingChallengeByID
+
+> TradingChallengeResponseEnvelope getTradingChallengeByID(tradingChallengeId)
+
+Get trading challenge by ID
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let tradingChallengeId = "tradingChallengeId_example"; // String | 
+apiInstance.getTradingChallengeByID(tradingChallengeId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tradingChallengeId** | **String**|  | 
+
+### Return type
+
+[**TradingChallengeResponseEnvelope**](TradingChallengeResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getTradingChallengeDailySnapshots
+
+> TradingChallengeDailySnapshotsResponseEnvelope getTradingChallengeDailySnapshots(tradingChallengeId)
+
+Get trading challenge daily snapshots
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let tradingChallengeId = "tradingChallengeId_example"; // String | 
+apiInstance.getTradingChallengeDailySnapshots(tradingChallengeId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tradingChallengeId** | **String**|  | 
+
+### Return type
+
+[**TradingChallengeDailySnapshotsResponseEnvelope**](TradingChallengeDailySnapshotsResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getTradingChallengeResults
+
+> TradingChallengeResultsResponseEnvelope getTradingChallengeResults(tradingChallengeId, opts)
+
+Get trading challenge results
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let tradingChallengeId = "tradingChallengeId_example"; // String | 
+let opts = {
+  'board': "'TOP_PNL'" // String | Leaderboard board selector. Defaults to TOP_PNL.
+};
+apiInstance.getTradingChallengeResults(tradingChallengeId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tradingChallengeId** | **String**|  | 
+ **board** | **String**| Leaderboard board selector. Defaults to TOP_PNL. | [optional] [default to &#39;TOP_PNL&#39;]
+
+### Return type
+
+[**TradingChallengeResultsResponseEnvelope**](TradingChallengeResultsResponseEnvelope.md)
 
 ### Authorization
 
@@ -4567,6 +4997,68 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
+## listTradingChallenges
+
+> TradingChallengeListResponseEnvelope listTradingChallenges(opts)
+
+List trading challenges
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let opts = {
+  'tenantId': "tenantId_example", // String | 
+  'type': new Dora.TradingChallengeType(), // TradingChallengeType | 
+  'status': new Dora.TradingChallengeStatus(), // TradingChallengeStatus | 
+  'start': new Date("2013-10-20T19:20:30+01:00"), // Date | 
+  'end': new Date("2013-10-20T19:20:30+01:00") // Date | 
+};
+apiInstance.listTradingChallenges(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenantId** | **String**|  | [optional] 
+ **type** | [**TradingChallengeType**](.md)|  | [optional] 
+ **status** | [**TradingChallengeStatus**](.md)|  | [optional] 
+ **start** | **Date**|  | [optional] 
+ **end** | **Date**|  | [optional] 
+
+### Return type
+
+[**TradingChallengeListResponseEnvelope**](TradingChallengeListResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## payLeverageGetAccruedInterest
 
 > PayLeverageAccruedInterestResponseEnvelope payLeverageGetAccruedInterest(payLeverageAccruedInterestRequest)
@@ -4664,6 +5156,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WithdrawalInitiationResponseEnvelope**](WithdrawalInitiationResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## removeTradingChallengeUsers
+
+> TradingChallengeResponseEnvelope removeTradingChallengeUsers(removeTradingChallengeUsersRequest)
+
+Remove users from a trading challenge
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let removeTradingChallengeUsersRequest = new Dora.RemoveTradingChallengeUsersRequest(); // RemoveTradingChallengeUsersRequest | 
+apiInstance.removeTradingChallengeUsers(removeTradingChallengeUsersRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **removeTradingChallengeUsersRequest** | [**RemoveTradingChallengeUsersRequest**](RemoveTradingChallengeUsersRequest.md)|  | 
+
+### Return type
+
+[**TradingChallengeResponseEnvelope**](TradingChallengeResponseEnvelope.md)
 
 ### Authorization
 

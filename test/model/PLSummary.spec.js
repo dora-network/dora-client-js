@@ -84,6 +84,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property realizedPl (base name: "realized_pl")', function() {
+      // uncomment below and update the code to test the property realizedPl
+      //var instance = new Dora.PLSummary();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property unrealizedPl (base name: "unrealized_pl")', function() {
+      // uncomment below and update the code to test the property unrealizedPl
+      //var instance = new Dora.PLSummary();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

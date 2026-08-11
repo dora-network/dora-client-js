@@ -12,25 +12,25 @@
  */
 
 import ApiClient from '../ApiClient';
-import CopyTrader from './CopyTrader';
 import Metadata from './Metadata';
 import ResponseEnvelope from './ResponseEnvelope';
+import TradingChallengeResult from './TradingChallengeResult';
 
 /**
- * The GetCopyTradersResponse model module.
- * @module model/GetCopyTradersResponse
+ * The TradingChallengeResultsResponseEnvelope model module.
+ * @module model/TradingChallengeResultsResponseEnvelope
  * @version 1.0.0
  */
-class GetCopyTradersResponse {
+class TradingChallengeResultsResponseEnvelope {
     /**
-     * Constructs a new <code>GetCopyTradersResponse</code>.
-     * @alias module:model/GetCopyTradersResponse
+     * Constructs a new <code>TradingChallengeResultsResponseEnvelope</code>.
+     * @alias module:model/TradingChallengeResultsResponseEnvelope
      * @implements module:model/ResponseEnvelope
      * @param metadata {module:model/Metadata} Metadata about the response, including status code and trace information.
      */
     constructor(metadata) { 
         ResponseEnvelope.initialize(this, metadata);
-        GetCopyTradersResponse.initialize(this, metadata);
+        TradingChallengeResultsResponseEnvelope.initialize(this, metadata);
     }
 
     /**
@@ -43,19 +43,19 @@ class GetCopyTradersResponse {
     }
 
     /**
-     * Constructs a <code>GetCopyTradersResponse</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>TradingChallengeResultsResponseEnvelope</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/GetCopyTradersResponse} obj Optional instance to populate.
-     * @return {module:model/GetCopyTradersResponse} The populated <code>GetCopyTradersResponse</code> instance.
+     * @param {module:model/TradingChallengeResultsResponseEnvelope} obj Optional instance to populate.
+     * @return {module:model/TradingChallengeResultsResponseEnvelope} The populated <code>TradingChallengeResultsResponseEnvelope</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new GetCopyTradersResponse();
+            obj = obj || new TradingChallengeResultsResponseEnvelope();
             ResponseEnvelope.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [CopyTrader]);
+                obj['data'] = ApiClient.convertToType(data['data'], [TradingChallengeResult]);
             }
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
@@ -68,13 +68,13 @@ class GetCopyTradersResponse {
     }
 
     /**
-     * Validates the JSON data with respect to <code>GetCopyTradersResponse</code>.
+     * Validates the JSON data with respect to <code>TradingChallengeResultsResponseEnvelope</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>GetCopyTradersResponse</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TradingChallengeResultsResponseEnvelope</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of GetCopyTradersResponse.RequiredProperties) {
+        for (const property of TradingChallengeResultsResponseEnvelope.RequiredProperties) {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
@@ -86,7 +86,7 @@ class GetCopyTradersResponse {
             }
             // validate the optional field `data` (array)
             for (const item of data['data']) {
-                CopyTrader.validateJSON(item);
+                TradingChallengeResult.validateJSON(item);
             };
         }
         // ensure the json data is a string
@@ -104,24 +104,24 @@ class GetCopyTradersResponse {
 
 }
 
-GetCopyTradersResponse.RequiredProperties = ["metadata"];
+TradingChallengeResultsResponseEnvelope.RequiredProperties = ["metadata"];
 
 /**
- * @member {Array.<module:model/CopyTrader>} data
+ * @member {Array.<module:model/TradingChallengeResult>} data
  */
-GetCopyTradersResponse.prototype['data'] = undefined;
+TradingChallengeResultsResponseEnvelope.prototype['data'] = undefined;
 
 /**
  * The error message. Present for error (non-2xx) responses.
  * @member {String} error
  */
-GetCopyTradersResponse.prototype['error'] = undefined;
+TradingChallengeResultsResponseEnvelope.prototype['error'] = undefined;
 
 /**
  * Metadata about the response, including status code and trace information.
  * @member {module:model/Metadata} metadata
  */
-GetCopyTradersResponse.prototype['metadata'] = undefined;
+TradingChallengeResultsResponseEnvelope.prototype['metadata'] = undefined;
 
 
 // Implement ResponseEnvelope interface:
@@ -144,5 +144,5 @@ ResponseEnvelope.prototype['metadata'] = undefined;
 
 
 
-export default GetCopyTradersResponse;
+export default TradingChallengeResultsResponseEnvelope;
 

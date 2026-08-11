@@ -28,6 +28,7 @@ class User {
      * @param email {String} 
      * @param firstName {String} 
      * @param lastName {String} 
+     * @param userName {String} 
      * @param countryOfDomicile {module:model/CountryCode} 
      * @param nativeAssetId {String} 
      * @param roles {Array.<module:model/UserRole>} 
@@ -40,9 +41,9 @@ class User {
      * @param allowOrdersNotifications {Boolean} 
      * @param allowCopyTrading {Boolean} 
      */
-    constructor(id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading) { 
+    constructor(id, email, firstName, lastName, userName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading) { 
         
-        User.initialize(this, id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading);
+        User.initialize(this, id, email, firstName, lastName, userName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading);
     }
 
     /**
@@ -50,11 +51,12 @@ class User {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, email, firstName, lastName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading) { 
+    static initialize(obj, id, email, firstName, lastName, userName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading) { 
         obj['id'] = id;
         obj['email'] = email;
         obj['first_name'] = firstName;
         obj['last_name'] = lastName;
+        obj['user_name'] = userName;
         obj['country_of_domicile'] = countryOfDomicile;
         obj['native_asset_id'] = nativeAssetId;
         obj['roles'] = roles;
@@ -96,6 +98,9 @@ class User {
             }
             if (data.hasOwnProperty('last_name')) {
                 obj['last_name'] = ApiClient.convertToType(data['last_name'], 'String');
+            }
+            if (data.hasOwnProperty('user_name')) {
+                obj['user_name'] = ApiClient.convertToType(data['user_name'], 'String');
             }
             if (data.hasOwnProperty('country_of_domicile')) {
                 obj['country_of_domicile'] = CountryCode.constructFromObject(data['country_of_domicile']);
@@ -181,6 +186,10 @@ class User {
             throw new Error("Expected the field `last_name` to be a primitive type in the JSON string but got " + data['last_name']);
         }
         // ensure the json data is a string
+        if (data['user_name'] && !(typeof data['user_name'] === 'string' || data['user_name'] instanceof String)) {
+            throw new Error("Expected the field `user_name` to be a primitive type in the JSON string but got " + data['user_name']);
+        }
+        // ensure the json data is a string
         if (data['native_asset_id'] && !(typeof data['native_asset_id'] === 'string' || data['native_asset_id'] instanceof String)) {
             throw new Error("Expected the field `native_asset_id` to be a primitive type in the JSON string but got " + data['native_asset_id']);
         }
@@ -215,7 +224,7 @@ class User {
 
 }
 
-User.RequiredProperties = ["id", "email", "first_name", "last_name", "country_of_domicile", "native_asset_id", "roles", "show_tutorial_cards", "notifications_enabled", "tenant_id", "allow_email_notifications", "allow_liquidations_notifications", "allow_deposit_withdrawal_notifications", "allow_orders_notifications", "allow_copy_trading"];
+User.RequiredProperties = ["id", "email", "first_name", "last_name", "user_name", "country_of_domicile", "native_asset_id", "roles", "show_tutorial_cards", "notifications_enabled", "tenant_id", "allow_email_notifications", "allow_liquidations_notifications", "allow_deposit_withdrawal_notifications", "allow_orders_notifications", "allow_copy_trading"];
 
 /**
  * @member {String} id
@@ -246,6 +255,11 @@ User.prototype['first_name'] = undefined;
  * @member {String} last_name
  */
 User.prototype['last_name'] = undefined;
+
+/**
+ * @member {String} user_name
+ */
+User.prototype['user_name'] = undefined;
 
 /**
  * @member {module:model/CountryCode} country_of_domicile

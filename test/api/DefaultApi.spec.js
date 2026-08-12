@@ -1168,6 +1168,16 @@
         done();
       });
     });
+    describe('updateUserKYC', function() {
+      it('should call updateUserKYC successfully', function(done) {
+        //uncomment below and update the code to test updateUserKYC
+        //instance.updateUserKYC(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('validateSubmitOrder', function() {
       it('should call validateSubmitOrder successfully', function(done) {
         //uncomment below and update the code to test validateSubmitOrder

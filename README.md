@@ -242,6 +242,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**transferAvailableBalances**](docs/DefaultApi.md#transferAvailableBalances) | **POST** /v1/positions/transfer_balances | Transfer available balance between a user&#39;s accounts (e.g. global to isolated position)
 *Dora.DefaultApi* | [**updateUserConfig**](docs/DefaultApi.md#updateUserConfig) | **PUT** /v1/user/{user_id}/config | Update user configuration by ID
 *Dora.DefaultApi* | [**updateUserConfigSelf**](docs/DefaultApi.md#updateUserConfigSelf) | **PUT** /v1/user/config/self | Update user configuration for the authenticated user
+*Dora.DefaultApi* | [**updateUserKYC**](docs/DefaultApi.md#updateUserKYC) | **POST** /v1/integrators/user/{user_id}/kyc | Set or clear a user&#39;s KYC completion timestamp
 *Dora.DefaultApi* | [**validateSubmitOrder**](docs/DefaultApi.md#validateSubmitOrder) | **POST** /v1/orders/validate | Validate submit order request data
 *Dora.DefaultApi* | [**verifyUser**](docs/DefaultApi.md#verifyUser) | **PUT** /v1/user/{user_id}/verify | Verify a user by ID
 
@@ -470,6 +471,9 @@ Class | Method | HTTP request | Description
  - [Dora.UpdateFieldString](docs/UpdateFieldString.md)
  - [Dora.UpdateRolesString](docs/UpdateRolesString.md)
  - [Dora.UpdateUserConfigRequest](docs/UpdateUserConfigRequest.md)
+ - [Dora.UpdateUserKYCRequest](docs/UpdateUserKYCRequest.md)
+ - [Dora.UpdateUserKYCResponse](docs/UpdateUserKYCResponse.md)
+ - [Dora.UpdateUserKYCResponseEnvelope](docs/UpdateUserKYCResponseEnvelope.md)
  - [Dora.User](docs/User.md)
  - [Dora.UserBalanceResponseEnvelope](docs/UserBalanceResponseEnvelope.md)
  - [Dora.UserConfig](docs/UserConfig.md)

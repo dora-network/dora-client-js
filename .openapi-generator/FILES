@@ -225,6 +225,9 @@ docs/UpdateFieldBoolean.md
 docs/UpdateFieldString.md
 docs/UpdateRolesString.md
 docs/UpdateUserConfigRequest.md
+docs/UpdateUserKYCRequest.md
+docs/UpdateUserKYCResponse.md
+docs/UpdateUserKYCResponseEnvelope.md
 docs/User.md
 docs/UserBalanceResponseEnvelope.md
 docs/UserConfig.md
@@ -481,6 +484,9 @@ src/model/UpdateFieldBoolean.js
 src/model/UpdateFieldString.js
 src/model/UpdateRolesString.js
 src/model/UpdateUserConfigRequest.js
+src/model/UpdateUserKYCRequest.js
+src/model/UpdateUserKYCResponse.js
+src/model/UpdateUserKYCResponseEnvelope.js
 src/model/User.js
 src/model/UserBalanceResponseEnvelope.js
 src/model/UserConfig.js
@@ -732,6 +738,9 @@ test/model/UpdateFieldBoolean.spec.js
 test/model/UpdateFieldString.spec.js
 test/model/UpdateRolesString.spec.js
 test/model/UpdateUserConfigRequest.spec.js
+test/model/UpdateUserKYCRequest.spec.js
+test/model/UpdateUserKYCResponse.spec.js
+test/model/UpdateUserKYCResponseEnvelope.spec.js
 test/model/User.spec.js
 test/model/UserBalanceResponseEnvelope.spec.js
 test/model/UserConfig.spec.js

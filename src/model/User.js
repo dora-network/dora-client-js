@@ -153,6 +153,9 @@ class User {
             if (data.hasOwnProperty('allow_copy_trading')) {
                 obj['allow_copy_trading'] = ApiClient.convertToType(data['allow_copy_trading'], 'Boolean');
             }
+            if (data.hasOwnProperty('kyc_completed_at')) {
+                obj['kyc_completed_at'] = ApiClient.convertToType(data['kyc_completed_at'], 'Date');
+            }
         }
         return obj;
     }
@@ -347,6 +350,12 @@ User.prototype['allow_orders_notifications'] = undefined;
  * @member {Boolean} allow_copy_trading
  */
 User.prototype['allow_copy_trading'] = undefined;
+
+/**
+ * When the user completed KYC. Omitted/null if KYC has not been completed. Set via POST /v1/integrators/user/{user_id}/kyc.
+ * @member {Date} kyc_completed_at
+ */
+User.prototype['kyc_completed_at'] = undefined;
 
 
 

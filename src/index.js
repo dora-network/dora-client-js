@@ -235,6 +235,9 @@ import UpdateFieldBoolean from './model/UpdateFieldBoolean';
 import UpdateFieldString from './model/UpdateFieldString';
 import UpdateRolesString from './model/UpdateRolesString';
 import UpdateUserConfigRequest from './model/UpdateUserConfigRequest';
+import UpdateUserKYCRequest from './model/UpdateUserKYCRequest';
+import UpdateUserKYCResponse from './model/UpdateUserKYCResponse';
+import UpdateUserKYCResponseEnvelope from './model/UpdateUserKYCResponseEnvelope';
 import User from './model/User';
 import UserBalanceResponseEnvelope from './model/UserBalanceResponseEnvelope';
 import UserConfig from './model/UserConfig';
@@ -1635,6 +1638,24 @@ export {
      * @property {module:model/UpdateUserConfigRequest}
      */
     UpdateUserConfigRequest,
+
+    /**
+     * The UpdateUserKYCRequest model constructor.
+     * @property {module:model/UpdateUserKYCRequest}
+     */
+    UpdateUserKYCRequest,
+
+    /**
+     * The UpdateUserKYCResponse model constructor.
+     * @property {module:model/UpdateUserKYCResponse}
+     */
+    UpdateUserKYCResponse,
+
+    /**
+     * The UpdateUserKYCResponseEnvelope model constructor.
+     * @property {module:model/UpdateUserKYCResponseEnvelope}
+     */
+    UpdateUserKYCResponseEnvelope,
 
     /**
      * The User model constructor.

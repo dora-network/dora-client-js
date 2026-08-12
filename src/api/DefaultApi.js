@@ -130,6 +130,8 @@ import TransferBalancesResponseEnvelope from '../model/TransferBalancesResponseE
 import UnitePositionRequest from '../model/UnitePositionRequest';
 import UnitePositionResponseEnvelope from '../model/UnitePositionResponseEnvelope';
 import UpdateUserConfigRequest from '../model/UpdateUserConfigRequest';
+import UpdateUserKYCRequest from '../model/UpdateUserKYCRequest';
+import UpdateUserKYCResponseEnvelope from '../model/UpdateUserKYCResponseEnvelope';
 import UserBalanceResponseEnvelope from '../model/UserBalanceResponseEnvelope';
 import UserCreatedResponseEnvelope from '../model/UserCreatedResponseEnvelope';
 import UserDeletedResponseEnvelope from '../model/UserDeletedResponseEnvelope';
@@ -4154,6 +4156,7 @@ export default class DefaultApi {
      * @param {Date} [to] 
      * @param {Number} [page = 1)] 
      * @param {Number} [limit = 100)] 
+     * @param {String} [clientOrderId] Filter by client order ID prefix (max 256 characters)
      * @param {module:api/DefaultApi~listOrdersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ListOrdersResponseEnvelope}
      */
@@ -4172,7 +4175,8 @@ export default class DefaultApi {
         'from': opts['from'],
         'to': opts['to'],
         'page': opts['page'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
+        'client_order_id': opts['clientOrderId']
       };
       let headerParams = {
       };
@@ -5051,6 +5055,53 @@ export default class DefaultApi {
       let returnType = UserUpdatedResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/user/config/self', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateUserKYC operation.
+     * @callback module:api/DefaultApi~updateUserKYCCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UpdateUserKYCResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Set or clear a user's KYC completion timestamp
+     * @param {String} userId 
+     * @param {module:model/UpdateUserKYCRequest} updateUserKYCRequest 
+     * @param {module:api/DefaultApi~updateUserKYCCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UpdateUserKYCResponseEnvelope}
+     */
+    updateUserKYC(userId, updateUserKYCRequest, callback) {
+      let postBody = updateUserKYCRequest;
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling updateUserKYC");
+      }
+      // verify the required parameter 'updateUserKYCRequest' is set
+      if (updateUserKYCRequest === undefined || updateUserKYCRequest === null) {
+        throw new Error("Missing the required parameter 'updateUserKYCRequest' when calling updateUserKYC");
+      }
+
+      let pathParams = {
+        'user_id': userId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = UpdateUserKYCResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/integrators/user/{user_id}/kyc', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

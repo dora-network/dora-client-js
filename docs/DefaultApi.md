@@ -116,6 +116,7 @@ Method | HTTP request | Description
 [**transferAvailableBalances**](DefaultApi.md#transferAvailableBalances) | **POST** /v1/positions/transfer_balances | Transfer available balance between a user&#39;s accounts (e.g. global to isolated position)
 [**updateUserConfig**](DefaultApi.md#updateUserConfig) | **PUT** /v1/user/{user_id}/config | Update user configuration by ID
 [**updateUserConfigSelf**](DefaultApi.md#updateUserConfigSelf) | **PUT** /v1/user/config/self | Update user configuration for the authenticated user
+[**updateUserKYC**](DefaultApi.md#updateUserKYC) | **POST** /v1/integrators/user/{user_id}/kyc | Set or clear a user&#39;s KYC completion timestamp
 [**validateSubmitOrder**](DefaultApi.md#validateSubmitOrder) | **POST** /v1/orders/validate | Validate submit order request data
 [**verifyUser**](DefaultApi.md#verifyUser) | **PUT** /v1/user/{user_id}/verify | Verify a user by ID
 
@@ -4909,7 +4910,8 @@ let opts = {
   'from': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'to': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'page': 1, // Number | 
-  'limit': 100 // Number | 
+  'limit': 100, // Number | 
+  'clientOrderId': "clientOrderId_example" // String | Filter by client order ID prefix (max 256 characters)
 };
 apiInstance.listOrders(opts, (error, data, response) => {
   if (error) {
@@ -4934,6 +4936,7 @@ Name | Type | Description  | Notes
  **to** | **Date**|  | [optional] 
  **page** | **Number**|  | [optional] [default to 1]
  **limit** | **Number**|  | [optional] [default to 100]
+ **clientOrderId** | **String**| Filter by client order ID prefix (max 256 characters) | [optional] 
 
 ### Return type
 
@@ -5969,6 +5972,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserUpdatedResponseEnvelope**](UserUpdatedResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## updateUserKYC
+
+> UpdateUserKYCResponseEnvelope updateUserKYC(userId, updateUserKYCRequest)
+
+Set or clear a user&#39;s KYC completion timestamp
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let userId = "userId_example"; // String | 
+let updateUserKYCRequest = new Dora.UpdateUserKYCRequest(); // UpdateUserKYCRequest | 
+apiInstance.updateUserKYC(userId, updateUserKYCRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**|  | 
+ **updateUserKYCRequest** | [**UpdateUserKYCRequest**](UpdateUserKYCRequest.md)|  | 
+
+### Return type
+
+[**UpdateUserKYCResponseEnvelope**](UpdateUserKYCResponseEnvelope.md)
 
 ### Authorization
 

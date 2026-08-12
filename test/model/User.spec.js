@@ -198,6 +198,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property kycCompletedAt (base name: "kyc_completed_at")', function() {
+      // uncomment below and update the code to test the property kycCompletedAt
+      //var instance = new Dora.User();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

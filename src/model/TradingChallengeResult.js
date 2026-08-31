@@ -89,6 +89,9 @@ class TradingChallengeResult {
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
+            if (data.hasOwnProperty('deactivation_status')) {
+                obj['deactivation_status'] = ApiClient.convertToType(data['deactivation_status'], 'String');
+            }
             if (data.hasOwnProperty('current_day_daily_volume')) {
                 obj['current_day_daily_volume'] = ApiClient.convertToType(data['current_day_daily_volume'], 'String');
             }
@@ -142,6 +145,10 @@ class TradingChallengeResult {
         // ensure the json data is a string
         if (data['crown'] && !(typeof data['crown'] === 'string' || data['crown'] instanceof String)) {
             throw new Error("Expected the field `crown` to be a primitive type in the JSON string but got " + data['crown']);
+        }
+        // ensure the json data is a string
+        if (data['deactivation_status'] && !(typeof data['deactivation_status'] === 'string' || data['deactivation_status'] instanceof String)) {
+            throw new Error("Expected the field `deactivation_status` to be a primitive type in the JSON string but got " + data['deactivation_status']);
         }
         // ensure the json data is a string
         if (data['current_day_daily_volume'] && !(typeof data['current_day_daily_volume'] === 'string' || data['current_day_daily_volume'] instanceof String)) {
@@ -231,6 +238,11 @@ TradingChallengeResult.prototype['crown'] = undefined;
 TradingChallengeResult.prototype['created_at'] = undefined;
 
 /**
+ * @member {module:model/TradingChallengeResult.DeactivationStatusEnum} deactivation_status
+ */
+TradingChallengeResult.prototype['deactivation_status'] = undefined;
+
+/**
  * @member {String} current_day_daily_volume
  */
 TradingChallengeResult.prototype['current_day_daily_volume'] = undefined;
@@ -295,7 +307,13 @@ TradingChallengeResult['StatusEnum'] = {
      * value: "PRIZE_CLAIMED"
      * @const
      */
-    "PRIZE_CLAIMED": "PRIZE_CLAIMED"
+    "PRIZE_CLAIMED": "PRIZE_CLAIMED",
+
+    /**
+     * value: "TERMINATED"
+     * @const
+     */
+    "TERMINATED": "TERMINATED"
 };
 
 
@@ -364,7 +382,34 @@ TradingChallengeResult['CrownEnum'] = {
      * value: "IRON_BRONZE"
      * @const
      */
-    "IRON_BRONZE": "IRON_BRONZE"
+    "IRON_BRONZE": "IRON_BRONZE",
+
+    /**
+     * value: "CASH_CROWN"
+     * @const
+     */
+    "CASH_CROWN": "CASH_CROWN"
+};
+
+
+/**
+ * Allowed values for the <code>deactivation_status</code> property.
+ * @enum {String}
+ * @readonly
+ */
+TradingChallengeResult['DeactivationStatusEnum'] = {
+
+    /**
+     * value: "ACTIVE"
+     * @const
+     */
+    "ACTIVE": "ACTIVE",
+
+    /**
+     * value: "DEACTIVATED"
+     * @const
+     */
+    "DEACTIVATED": "DEACTIVATED"
 };
 
 

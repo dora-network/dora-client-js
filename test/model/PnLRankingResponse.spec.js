@@ -72,6 +72,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property realizedPnl (base name: "realized_pnl")', function() {
+      // uncomment below and update the code to test the property realizedPnl
+      //var instance = new Dora.PnLRankingResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property totalTrades (base name: "total_trades")', function() {
       // uncomment below and update the code to test the property totalTrades
       //var instance = new Dora.PnLRankingResponse();
@@ -92,6 +98,36 @@
 
     it('should have the property winRate (base name: "win_rate")', function() {
       // uncomment below and update the code to test the property winRate
+      //var instance = new Dora.PnLRankingResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property dailyTradingVolume (base name: "daily_trading_volume")', function() {
+      // uncomment below and update the code to test the property dailyTradingVolume
+      //var instance = new Dora.PnLRankingResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property totalTradingVolume (base name: "total_trading_volume")', function() {
+      // uncomment below and update the code to test the property totalTradingVolume
+      //var instance = new Dora.PnLRankingResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property activeTradingDays (base name: "active_trading_days")', function() {
+      // uncomment below and update the code to test the property activeTradingDays
+      //var instance = new Dora.PnLRankingResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property activated (base name: "activated")', function() {
+      // uncomment below and update the code to test the property activated
+      //var instance = new Dora.PnLRankingResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property kycApproved (base name: "kyc_approved")', function() {
+      // uncomment below and update the code to test the property kycApproved
       //var instance = new Dora.PnLRankingResponse();
       //expect(instance).to.be();
     });

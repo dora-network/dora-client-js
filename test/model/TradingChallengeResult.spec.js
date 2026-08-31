@@ -138,6 +138,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property deactivationStatus (base name: "deactivation_status")', function() {
+      // uncomment below and update the code to test the property deactivationStatus
+      //var instance = new Dora.TradingChallengeResult();
+      //expect(instance).to.be();
+    });
+
     it('should have the property currentDayDailyVolume (base name: "current_day_daily_volume")', function() {
       // uncomment below and update the code to test the property currentDayDailyVolume
       //var instance = new Dora.TradingChallengeResult();

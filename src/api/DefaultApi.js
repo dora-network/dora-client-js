@@ -93,6 +93,7 @@ import RepayUSDRequest from '../model/RepayUSDRequest';
 import RepayUSDResponseEnvelope from '../model/RepayUSDResponseEnvelope';
 import ResponseEnvelope from '../model/ResponseEnvelope';
 import ResponseEnvelopeOfListAssets from '../model/ResponseEnvelopeOfListAssets';
+import ReviewTradingChallengeRegistrationRequest from '../model/ReviewTradingChallengeRegistrationRequest';
 import RevokeAPIKeyResponseEnvelope from '../model/RevokeAPIKeyResponseEnvelope';
 import SettleLeverageAccruedInterestRequest from '../model/SettleLeverageAccruedInterestRequest';
 import SettleLeverageAccruedInterestResponseEnvelope from '../model/SettleLeverageAccruedInterestResponseEnvelope';
@@ -109,10 +110,13 @@ import StreamTransactionsEntry from '../model/StreamTransactionsEntry';
 import StreamUserCouponPaymentsResponse from '../model/StreamUserCouponPaymentsResponse';
 import SupplyRequest from '../model/SupplyRequest';
 import SupplyResponseEnvelope from '../model/SupplyResponseEnvelope';
+import TerminateTradingChallengeResponseEnvelope from '../model/TerminateTradingChallengeResponseEnvelope';
 import TradeRequestError from '../model/TradeRequestError';
 import TradeResponseEnvelope from '../model/TradeResponseEnvelope';
 import TradingChallengeDailySnapshotsResponseEnvelope from '../model/TradingChallengeDailySnapshotsResponseEnvelope';
 import TradingChallengeListResponseEnvelope from '../model/TradingChallengeListResponseEnvelope';
+import TradingChallengeRegistrationRequestListResponseEnvelope from '../model/TradingChallengeRegistrationRequestListResponseEnvelope';
+import TradingChallengeRegistrationRequestResponseEnvelope from '../model/TradingChallengeRegistrationRequestResponseEnvelope';
 import TradingChallengeResponseEnvelope from '../model/TradingChallengeResponseEnvelope';
 import TradingChallengeResultsResponseEnvelope from '../model/TradingChallengeResultsResponseEnvelope';
 import TradingChallengeStatus from '../model/TradingChallengeStatus';
@@ -129,11 +133,14 @@ import TransferBalancesRequest from '../model/TransferBalancesRequest';
 import TransferBalancesResponseEnvelope from '../model/TransferBalancesResponseEnvelope';
 import UnitePositionRequest from '../model/UnitePositionRequest';
 import UnitePositionResponseEnvelope from '../model/UnitePositionResponseEnvelope';
+import UpdateTradingChallengeRequest from '../model/UpdateTradingChallengeRequest';
 import UpdateUserConfigRequest from '../model/UpdateUserConfigRequest';
 import UpdateUserKYCRequest from '../model/UpdateUserKYCRequest';
 import UpdateUserKYCResponseEnvelope from '../model/UpdateUserKYCResponseEnvelope';
 import UserBalanceResponseEnvelope from '../model/UserBalanceResponseEnvelope';
 import UserCreatedResponseEnvelope from '../model/UserCreatedResponseEnvelope';
+import UserDeactivationListResponseEnvelope from '../model/UserDeactivationListResponseEnvelope';
+import UserDeactivationResponseEnvelope from '../model/UserDeactivationResponseEnvelope';
 import UserDeletedResponseEnvelope from '../model/UserDeletedResponseEnvelope';
 import UserEnvelope from '../model/UserEnvelope';
 import UserInterestResponseEnvelope from '../model/UserInterestResponseEnvelope';
@@ -176,6 +183,7 @@ export default class DefaultApi {
 
     /**
      * Add users to a trading challenge
+     * Add existing users to a trading challenge. For COMPETITION_MANAGER, the challenge must be assigned in managed_competition_ids. A user must have an empty ledger to join: deposits and withdrawals are barred from enrolment until the challenge is over, so that challenge credits are the only thing a participant holds and the teardown sweep cannot destroy funds of their own.
      * @param {module:model/AddTradingChallengeUsersRequest} addTradingChallengeUsersRequest 
      * @param {module:api/DefaultApi~addTradingChallengeUsersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TradingChallengeResponseEnvelope}
@@ -248,6 +256,52 @@ export default class DefaultApi {
       let returnType = WithdrawalInitiationResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/ledger/withdraw/requests/{withdrawal_id}/approve', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the approveTradingChallengeRegistrationRequest operation.
+     * @callback module:api/DefaultApi~approveTradingChallengeRegistrationRequestCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeRegistrationRequestResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Approve a trading challenge registration request
+     * Accessible to admins (any challenge), integrators (their own tenant only) and competition managers (their assigned challenges only). Enrolment runs the same checks as add_users, so a challenge that filled up, now overlaps another of the user's challenges, or whose applicant no longer has an empty ledger is rejected with a 409 and the request stays open.
+     * @param {String} requestId 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/ReviewTradingChallengeRegistrationRequest} [reviewTradingChallengeRegistrationRequest] 
+     * @param {module:api/DefaultApi~approveTradingChallengeRegistrationRequestCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeRegistrationRequestResponseEnvelope}
+     */
+    approveTradingChallengeRegistrationRequest(requestId, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['reviewTradingChallengeRegistrationRequest'];
+      // verify the required parameter 'requestId' is set
+      if (requestId === undefined || requestId === null) {
+        throw new Error("Missing the required parameter 'requestId' when calling approveTradingChallengeRegistrationRequest");
+      }
+
+      let pathParams = {
+        'request_id': requestId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeRegistrationRequestResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/registration_requests/{request_id}/approve', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -438,6 +492,7 @@ export default class DefaultApi {
 
     /**
      * Claim challenge prize
+     * Claim the prize of a challenge the caller is eligible for. A TOURNAMENT claim credits the prize matching the crown and reactivates the account. A CASH claim winds the account down, sweeps every remaining challenge credit and awards the CASH_CROWN: the account is left deactivated with a zero balance, and the reward is redeemed out of band. Both mark the participation PRIZE_CLAIMED.
      * @param {String} tradingChallengeId 
      * @param {module:api/DefaultApi~claimTradingChallengePrizeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ClaimTradingChallengeResponseEnvelope}
@@ -732,6 +787,7 @@ export default class DefaultApi {
 
     /**
      * Create a trading challenge
+     * Create a new trading challenge. Allowed for ADMIN and INTEGRATOR only.
      * @param {module:model/CreateTradingChallengeRequest} createTradingChallengeRequest 
      * @param {module:api/DefaultApi~createTradingChallengeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TradingChallengeResponseEnvelope}
@@ -2608,6 +2664,7 @@ export default class DefaultApi {
 
     /**
      * Get trading challenge by ID
+     * Fetch one trading challenge. COMPETITION_MANAGER can access only assigned challenge IDs.
      * @param {String} tradingChallengeId 
      * @param {module:api/DefaultApi~getTradingChallengeByIDCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TradingChallengeResponseEnvelope}
@@ -2650,6 +2707,7 @@ export default class DefaultApi {
 
     /**
      * Get trading challenge daily snapshots
+     * List participant daily snapshots for a challenge. COMPETITION_MANAGER can access only assigned challenge IDs.
      * @param {String} tradingChallengeId 
      * @param {module:api/DefaultApi~getTradingChallengeDailySnapshotsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TradingChallengeDailySnapshotsResponseEnvelope}
@@ -2692,6 +2750,7 @@ export default class DefaultApi {
 
     /**
      * Get trading challenge results
+     * List challenge leaderboard/results. COMPETITION_MANAGER can access only assigned challenge IDs.
      * @param {String} tradingChallengeId 
      * @param {Object} opts Optional parameters
      * @param {module:model/String} [board = 'TOP_PNL')] Leaderboard board selector. Defaults to TOP_PNL.
@@ -2999,6 +3058,49 @@ export default class DefaultApi {
       let returnType = StreamUserCouponPaymentsResponse;
       return this.apiClient.callApi(
         '/v1/user/{user_id}/coupon_payments/stream', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getUserDeactivation operation.
+     * @callback module:api/DefaultApi~getUserDeactivationCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UserDeactivationResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the latest account deactivation request for a user
+     * Returns the user's latest deactivation request, i.e. their current deactivation status. Integrators may only request users belonging to their own tenant.
+     * @param {String} userId 
+     * @param {module:api/DefaultApi~getUserDeactivationCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UserDeactivationResponseEnvelope}
+     */
+    getUserDeactivation(userId, callback) {
+      let postBody = null;
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling getUserDeactivation");
+      }
+
+      let pathParams = {
+        'user_id': userId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = UserDeactivationResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/user/{user_id}/deactivation', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -4231,6 +4333,57 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the listTradingChallengeRegistrationRequests operation.
+     * @callback module:api/DefaultApi~listTradingChallengeRegistrationRequestsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeRegistrationRequestListResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List trading challenge registration requests
+     * The review queue. Admins see every tenant and may filter to one, an integrator is pinned to their own tenant, and a competition manager only sees the requests of the challenges assigned to them.
+     * @param {Object} opts Optional parameters
+     * @param {String} [tradingChallengeId] Only requests for this challenge.
+     * @param {String} [userId] Only requests from this user.
+     * @param {module:model/String} [status] Only requests in this state.
+     * @param {String} [tenantId] Admins only; an integrator may only name their own tenant.
+     * @param {Number} [limit = 100)] Page size, capped at 1000.
+     * @param {Number} [offset = 0)] Rows to skip.
+     * @param {module:api/DefaultApi~listTradingChallengeRegistrationRequestsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeRegistrationRequestListResponseEnvelope}
+     */
+    listTradingChallengeRegistrationRequests(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'trading_challenge_id': opts['tradingChallengeId'],
+        'user_id': opts['userId'],
+        'status': opts['status'],
+        'tenant_id': opts['tenantId'],
+        'limit': opts['limit'],
+        'offset': opts['offset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeRegistrationRequestListResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/registration_requests', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listTradingChallenges operation.
      * @callback module:api/DefaultApi~listTradingChallengesCallback
      * @param {String} error Error message, if any.
@@ -4240,6 +4393,7 @@ export default class DefaultApi {
 
     /**
      * List trading challenges
+     * List trading challenges. COMPETITION_MANAGER callers only receive challenges present in their managed_competition_ids.
      * @param {Object} opts Optional parameters
      * @param {String} [tenantId] 
      * @param {module:model/TradingChallengeType} [type] 
@@ -4273,6 +4427,53 @@ export default class DefaultApi {
       let returnType = TradingChallengeListResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/trading_challenges', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listUserDeactivations operation.
+     * @callback module:api/DefaultApi~listUserDeactivationsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UserDeactivationListResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the current deactivation status across all users
+     * Returns each user's latest deactivation request, i.e. their current status. Users with no deactivation history are absent. Ordered by request creation time, newest first. Integrators only see users of their own tenant, unless that tenant is global.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} [status] Only return users whose latest request has this status.
+     * @param {String} [tenantId] Only return users belonging to this tenant. At most one of tenant_id, trading_challenge_id and user_ids may be passed; combining them is rejected. An integrator whose tenant is not global may only pass their own tenant.
+     * @param {String} [tradingChallengeId] Only return participants of this trading challenge. Mutually exclusive with tenant_id and user_ids.
+     * @param {String} [userIds] Comma-separated user IDs to return. Mutually exclusive with tenant_id and trading_challenge_id.
+     * @param {module:api/DefaultApi~listUserDeactivationsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UserDeactivationListResponseEnvelope}
+     */
+    listUserDeactivations(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'status': opts['status'],
+        'tenant_id': opts['tenantId'],
+        'trading_challenge_id': opts['tradingChallengeId'],
+        'user_ids': opts['userIds']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = UserDeactivationListResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/user/deactivations', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -4368,6 +4569,52 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the rejectTradingChallengeRegistrationRequest operation.
+     * @callback module:api/DefaultApi~rejectTradingChallengeRegistrationRequestCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeRegistrationRequestResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Reject a trading challenge registration request
+     * Accessible to admins (any challenge), integrators (their own tenant only) and competition managers (their assigned challenges only).
+     * @param {String} requestId 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/ReviewTradingChallengeRegistrationRequest} [reviewTradingChallengeRegistrationRequest] 
+     * @param {module:api/DefaultApi~rejectTradingChallengeRegistrationRequestCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeRegistrationRequestResponseEnvelope}
+     */
+    rejectTradingChallengeRegistrationRequest(requestId, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['reviewTradingChallengeRegistrationRequest'];
+      // verify the required parameter 'requestId' is set
+      if (requestId === undefined || requestId === null) {
+        throw new Error("Missing the required parameter 'requestId' when calling rejectTradingChallengeRegistrationRequest");
+      }
+
+      let pathParams = {
+        'request_id': requestId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeRegistrationRequestResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/registration_requests/{request_id}/reject', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the removeTradingChallengeUsers operation.
      * @callback module:api/DefaultApi~removeTradingChallengeUsersCallback
      * @param {String} error Error message, if any.
@@ -4377,6 +4624,7 @@ export default class DefaultApi {
 
     /**
      * Remove users from a trading challenge
+     * Remove users from a trading challenge. For COMPETITION_MANAGER, the challenge must be assigned in managed_competition_ids.
      * @param {module:model/RemoveTradingChallengeUsersRequest} removeTradingChallengeUsersRequest 
      * @param {module:api/DefaultApi~removeTradingChallengeUsersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TradingChallengeResponseEnvelope}
@@ -4891,6 +5139,98 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the terminateOwnTradingChallengeParticipation operation.
+     * @callback module:api/DefaultApi~terminateOwnTradingChallengeParticipationCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TerminateTradingChallengeResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Leave a trading challenge
+     * Convenience alias that terminates the caller's own participation; redirects to /v1/trading_challenges/{trading_challenge_id}/participants/{user_id}/terminate. End a participant's run in a challenge before its own rules would: the participant leaves, or an operator removes them. No prize is paid, even to a participant who could have claimed one -- claim the prize first if that is what you want. The account is wound down, every remaining challenge credit is swept, and the participation is marked TERMINATED and frozen: from then on it takes no further daily snapshots and never appears in the results ranking again. The user is left deactivated with no challenge balance, and is free to register for another challenge. Participants may only terminate their own run; terminating someone else's requires admin, integrator (same tenant) or challenge manager (assigned challenge) rights.
+     * @param {String} tradingChallengeId 
+     * @param {module:api/DefaultApi~terminateOwnTradingChallengeParticipationCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TerminateTradingChallengeResponseEnvelope}
+     */
+    terminateOwnTradingChallengeParticipation(tradingChallengeId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling terminateOwnTradingChallengeParticipation");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TerminateTradingChallengeResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/{trading_challenge_id}/participants/self/terminate', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the terminateTradingChallengeParticipation operation.
+     * @callback module:api/DefaultApi~terminateTradingChallengeParticipationCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TerminateTradingChallengeResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Terminate a participation in a trading challenge
+     * End a participant's run in a challenge before its own rules would: the participant leaves, or an operator removes them. No prize is paid, even to a participant who could have claimed one -- claim the prize first if that is what you want. The account is wound down, every remaining challenge credit is swept, and the participation is marked TERMINATED and frozen: from then on it takes no further daily snapshots and never appears in the results ranking again. The user is left deactivated with no challenge balance, and is free to register for another challenge. Participants may only terminate their own run; terminating someone else's requires admin, integrator (same tenant) or challenge manager (assigned challenge) rights.
+     * @param {String} tradingChallengeId 
+     * @param {String} userId 
+     * @param {module:api/DefaultApi~terminateTradingChallengeParticipationCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TerminateTradingChallengeResponseEnvelope}
+     */
+    terminateTradingChallengeParticipation(tradingChallengeId, userId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling terminateTradingChallengeParticipation");
+      }
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling terminateTradingChallengeParticipation");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId,
+        'user_id': userId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TerminateTradingChallengeResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/{trading_challenge_id}/participants/{user_id}/terminate', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the transferAccountBalancesV2 operation.
      * @callback module:api/DefaultApi~transferAccountBalancesV2Callback
      * @param {String} error Error message, if any.
@@ -4967,6 +5307,54 @@ export default class DefaultApi {
       let returnType = TransferBalancesResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/positions/transfer_balances', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateTradingChallenge operation.
+     * @callback module:api/DefaultApi~updateTradingChallengeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Update a trading challenge
+     * Partially update a trading challenge: a field that is absent from the body is left unchanged. Which fields may be updated depends on the challenge status. PENDING accepts every field. ACTIVE accepts only name, max_users, end and the three prize quantities, because participants are already funded and being measured. COMPLETED accepts none. A request that touches a field the current status does not allow is rejected as a whole with 409. ADMIN may update any challenge, INTEGRATOR only challenges of its own tenant, and COMPETITION_MANAGER only assigned challenge IDs.
+     * @param {String} tradingChallengeId 
+     * @param {module:model/UpdateTradingChallengeRequest} updateTradingChallengeRequest 
+     * @param {module:api/DefaultApi~updateTradingChallengeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeResponseEnvelope}
+     */
+    updateTradingChallenge(tradingChallengeId, updateTradingChallengeRequest, callback) {
+      let postBody = updateTradingChallengeRequest;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling updateTradingChallenge");
+      }
+      // verify the required parameter 'updateTradingChallengeRequest' is set
+      if (updateTradingChallengeRequest === undefined || updateTradingChallengeRequest === null) {
+        throw new Error("Missing the required parameter 'updateTradingChallengeRequest' when calling updateTradingChallenge");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/{trading_challenge_id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

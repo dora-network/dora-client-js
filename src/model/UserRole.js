@@ -68,6 +68,20 @@ export default class UserRole {
         "INTEGRATOR" = "INTEGRATOR";
 
     
+        /**
+         * value: "INDEXER"
+         * @const
+         */
+        "INDEXER" = "INDEXER";
+
+    
+        /**
+         * value: "COMPETITION_MANAGER"
+         * @const
+         */
+        "COMPETITION_MANAGER" = "COMPETITION_MANAGER";
+
+    
 
     /**
     * Returns a <code>UserRole</code> enum value from a Javascript object name.

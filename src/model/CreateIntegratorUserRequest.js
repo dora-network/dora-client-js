@@ -78,6 +78,9 @@ class CreateIntegratorUserRequest {
             if (data.hasOwnProperty('timezone')) {
                 obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
             }
+            if (data.hasOwnProperty('challenge_id')) {
+                obj['challenge_id'] = ApiClient.convertToType(data['challenge_id'], 'String');
+            }
         }
         return obj;
     }
@@ -123,6 +126,10 @@ class CreateIntegratorUserRequest {
         // ensure the json data is a string
         if (data['timezone'] && !(typeof data['timezone'] === 'string' || data['timezone'] instanceof String)) {
             throw new Error("Expected the field `timezone` to be a primitive type in the JSON string but got " + data['timezone']);
+        }
+        // ensure the json data is a string
+        if (data['challenge_id'] && !(typeof data['challenge_id'] === 'string' || data['challenge_id'] instanceof String)) {
+            throw new Error("Expected the field `challenge_id` to be a primitive type in the JSON string but got " + data['challenge_id']);
         }
 
         return true;
@@ -183,6 +190,12 @@ CreateIntegratorUserRequest.prototype['provider_id'] = undefined;
  * @member {String} timezone
  */
 CreateIntegratorUserRequest.prototype['timezone'] = undefined;
+
+/**
+ * Optional: sign the new user up for this trading challenge. This creates a PENDING registration request that an admin, the tenant's integrator or one of the challenge's managers must approve before the user is actually enrolled. The challenge must belong to the new user's tenant and still be open for entries, otherwise the whole sign-up fails.
+ * @member {String} challenge_id
+ */
+CreateIntegratorUserRequest.prototype['challenge_id'] = undefined;
 
 
 

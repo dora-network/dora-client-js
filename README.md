@@ -132,6 +132,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *Dora.DefaultApi* | [**addTradingChallengeUsers**](docs/DefaultApi.md#addTradingChallengeUsers) | **PUT** /v1/trading_challenges/add_users | Add users to a trading challenge
 *Dora.DefaultApi* | [**approveLedgerWithdrawRequest**](docs/DefaultApi.md#approveLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/approve | Approve a pending withdrawal request
+*Dora.DefaultApi* | [**approveTradingChallengeRegistrationRequest**](docs/DefaultApi.md#approveTradingChallengeRegistrationRequest) | **POST** /v1/trading_challenges/registration_requests/{request_id}/approve | Approve a trading challenge registration request
 *Dora.DefaultApi* | [**cancelAllOpenOrders**](docs/DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook or account_id on query params it will cancel all orders on specific orderbook or account, admin can cancel user&#39;s orders on specific orderbook
 *Dora.DefaultApi* | [**cancelLedgerWithdrawRequest**](docs/DefaultApi.md#cancelLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/cancel | Cancel a pending withdrawal request
 *Dora.DefaultApi* | [**cancelOrderById**](docs/DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
@@ -196,6 +197,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getTransactionsStream**](docs/DefaultApi.md#getTransactionsStream) | **GET** /v1/transactions/stream | Get transactions since a specific time, and open a stream for further updates
 *Dora.DefaultApi* | [**getUserById**](docs/DefaultApi.md#getUserById) | **GET** /v1/user/{user_id} | Get user by ID (admin only)
 *Dora.DefaultApi* | [**getUserCouponPaymentsStream**](docs/DefaultApi.md#getUserCouponPaymentsStream) | **GET** /v1/user/{user_id}/coupon_payments/stream | Stream user&#39;s coupon payment accruals in real time
+*Dora.DefaultApi* | [**getUserDeactivation**](docs/DefaultApi.md#getUserDeactivation) | **GET** /v1/user/{user_id}/deactivation | Get the latest account deactivation request for a user
 *Dora.DefaultApi* | [**getUserLedgerStream**](docs/DefaultApi.md#getUserLedgerStream) | **GET** /v1/user/{user_id}/ledger/stream | Get a snapshot of user&#39;s ledger updates since a specific time, and opens a stream for further updates
 *Dora.DefaultApi* | [**getUserLeverageAccruedInterestStream**](docs/DefaultApi.md#getUserLeverageAccruedInterestStream) | **GET** /v1/user/{user_id}/leverage/accrued_interest/stream | Stream user&#39;s current leverage accrued interest in real time
 *Dora.DefaultApi* | [**getUserOrderUpdatesStream**](docs/DefaultApi.md#getUserOrderUpdatesStream) | **GET** /v1/user/{user_id}/orders/{order_book_id}/updates/stream | Get a snapshot of user&#39;s order updates for the given order book since a specific time, and opens a stream for further updates
@@ -223,9 +225,12 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**listOrderBooks**](docs/DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 *Dora.DefaultApi* | [**listOrders**](docs/DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
 *Dora.DefaultApi* | [**listPositionAccountsSelf**](docs/DefaultApi.md#listPositionAccountsSelf) | **GET** /v1/user/self/position_accounts | List all position accounts for the authenticated user
+*Dora.DefaultApi* | [**listTradingChallengeRegistrationRequests**](docs/DefaultApi.md#listTradingChallengeRegistrationRequests) | **GET** /v1/trading_challenges/registration_requests | List trading challenge registration requests
 *Dora.DefaultApi* | [**listTradingChallenges**](docs/DefaultApi.md#listTradingChallenges) | **GET** /v1/trading_challenges | List trading challenges
+*Dora.DefaultApi* | [**listUserDeactivations**](docs/DefaultApi.md#listUserDeactivations) | **GET** /v1/user/deactivations | Get the current deactivation status across all users
 *Dora.DefaultApi* | [**payLeverageGetAccruedInterest**](docs/DefaultApi.md#payLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/pay | Pay current accrued leverage interest for a specific user
 *Dora.DefaultApi* | [**rejectLedgerWithdrawRequest**](docs/DefaultApi.md#rejectLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/reject | Reject a pending withdrawal request
+*Dora.DefaultApi* | [**rejectTradingChallengeRegistrationRequest**](docs/DefaultApi.md#rejectTradingChallengeRegistrationRequest) | **POST** /v1/trading_challenges/registration_requests/{request_id}/reject | Reject a trading challenge registration request
 *Dora.DefaultApi* | [**removeTradingChallengeUsers**](docs/DefaultApi.md#removeTradingChallengeUsers) | **PUT** /v1/trading_challenges/remove_users | Remove users from a trading challenge
 *Dora.DefaultApi* | [**repayUSD**](docs/DefaultApi.md#repayUSD) | **POST** /v1/positions/repay_usd | Repay borrowed USD, then accrue and pay leverage interest
 *Dora.DefaultApi* | [**revokeAPIKeyForUser**](docs/DefaultApi.md#revokeAPIKeyForUser) | **PUT** /v1/user/apikey/{key_id}/revoke | Revoke apikey for a user
@@ -238,8 +243,11 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**streamOrderBookBalances**](docs/DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamOrderbookOpenOrders**](docs/DefaultApi.md#streamOrderbookOpenOrders) | **GET** /v1/orderbooks/{order_book_id}/open/stream | Get a snapshot of open orders in an order book and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamTrades**](docs/DefaultApi.md#streamTrades) | **GET** /v1/trades/{order_book_id}/stream | Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
+*Dora.DefaultApi* | [**terminateOwnTradingChallengeParticipation**](docs/DefaultApi.md#terminateOwnTradingChallengeParticipation) | **POST** /v1/trading_challenges/{trading_challenge_id}/participants/self/terminate | Leave a trading challenge
+*Dora.DefaultApi* | [**terminateTradingChallengeParticipation**](docs/DefaultApi.md#terminateTradingChallengeParticipation) | **POST** /v1/trading_challenges/{trading_challenge_id}/participants/{user_id}/terminate | Terminate a participation in a trading challenge
 *Dora.DefaultApi* | [**transferAccountBalancesV2**](docs/DefaultApi.md#transferAccountBalancesV2) | **POST** /v2/accounts/transfer_balances | Transfer available balance between a user&#39;s accounts
 *Dora.DefaultApi* | [**transferAvailableBalances**](docs/DefaultApi.md#transferAvailableBalances) | **POST** /v1/positions/transfer_balances | Transfer available balance between a user&#39;s accounts (e.g. global to isolated position)
+*Dora.DefaultApi* | [**updateTradingChallenge**](docs/DefaultApi.md#updateTradingChallenge) | **PUT** /v1/trading_challenges/{trading_challenge_id} | Update a trading challenge
 *Dora.DefaultApi* | [**updateUserConfig**](docs/DefaultApi.md#updateUserConfig) | **PUT** /v1/user/{user_id}/config | Update user configuration by ID
 *Dora.DefaultApi* | [**updateUserConfigSelf**](docs/DefaultApi.md#updateUserConfigSelf) | **PUT** /v1/user/config/self | Update user configuration for the authenticated user
 *Dora.DefaultApi* | [**updateUserKYC**](docs/DefaultApi.md#updateUserKYC) | **POST** /v1/integrators/user/{user_id}/kyc | Set or clear a user&#39;s KYC completion timestamp
@@ -274,6 +282,7 @@ Class | Method | HTTP request | Description
  - [Dora.BalancesResponse](docs/BalancesResponse.md)
  - [Dora.Bond](docs/Bond.md)
  - [Dora.BondKind](docs/BondKind.md)
+ - [Dora.BondRunStatus](docs/BondRunStatus.md)
  - [Dora.CancelOrderResponseEnvelope](docs/CancelOrderResponseEnvelope.md)
  - [Dora.Candle](docs/Candle.md)
  - [Dora.CandleResolution](docs/CandleResolution.md)
@@ -305,6 +314,7 @@ Class | Method | HTTP request | Description
  - [Dora.CreateOrderRequest](docs/CreateOrderRequest.md)
  - [Dora.CreateOrderResponseEnvelope](docs/CreateOrderResponseEnvelope.md)
  - [Dora.CreateTradingChallengeRequest](docs/CreateTradingChallengeRequest.md)
+ - [Dora.CreditRating](docs/CreditRating.md)
  - [Dora.CurrentLeverageAccruedInterest](docs/CurrentLeverageAccruedInterest.md)
  - [Dora.CurrentLeverageAccruedInterestResponseEnvelope](docs/CurrentLeverageAccruedInterestResponseEnvelope.md)
  - [Dora.DefundUserRequest](docs/DefundUserRequest.md)
@@ -413,6 +423,7 @@ Class | Method | HTTP request | Description
  - [Dora.RepayUSDResult](docs/RepayUSDResult.md)
  - [Dora.ResponseEnvelope](docs/ResponseEnvelope.md)
  - [Dora.ResponseEnvelopeOfListAssets](docs/ResponseEnvelopeOfListAssets.md)
+ - [Dora.ReviewTradingChallengeRegistrationRequest](docs/ReviewTradingChallengeRegistrationRequest.md)
  - [Dora.RevokeAPIKeyData](docs/RevokeAPIKeyData.md)
  - [Dora.RevokeAPIKeyResponseEnvelope](docs/RevokeAPIKeyResponseEnvelope.md)
  - [Dora.SettleLeverageAccruedInterest](docs/SettleLeverageAccruedInterest.md)
@@ -436,6 +447,8 @@ Class | Method | HTTP request | Description
  - [Dora.SupplyRequest](docs/SupplyRequest.md)
  - [Dora.SupplyResponseEnvelope](docs/SupplyResponseEnvelope.md)
  - [Dora.TenantRestrictions](docs/TenantRestrictions.md)
+ - [Dora.TerminateTradingChallengeResponse](docs/TerminateTradingChallengeResponse.md)
+ - [Dora.TerminateTradingChallengeResponseEnvelope](docs/TerminateTradingChallengeResponseEnvelope.md)
  - [Dora.Trade](docs/Trade.md)
  - [Dora.TradeRequestError](docs/TradeRequestError.md)
  - [Dora.TradeResponseEnvelope](docs/TradeResponseEnvelope.md)
@@ -443,6 +456,9 @@ Class | Method | HTTP request | Description
  - [Dora.TradingChallengeDailySnapshot](docs/TradingChallengeDailySnapshot.md)
  - [Dora.TradingChallengeDailySnapshotsResponseEnvelope](docs/TradingChallengeDailySnapshotsResponseEnvelope.md)
  - [Dora.TradingChallengeListResponseEnvelope](docs/TradingChallengeListResponseEnvelope.md)
+ - [Dora.TradingChallengeRegistrationRequest](docs/TradingChallengeRegistrationRequest.md)
+ - [Dora.TradingChallengeRegistrationRequestListResponseEnvelope](docs/TradingChallengeRegistrationRequestListResponseEnvelope.md)
+ - [Dora.TradingChallengeRegistrationRequestResponseEnvelope](docs/TradingChallengeRegistrationRequestResponseEnvelope.md)
  - [Dora.TradingChallengeResponseEnvelope](docs/TradingChallengeResponseEnvelope.md)
  - [Dora.TradingChallengeResult](docs/TradingChallengeResult.md)
  - [Dora.TradingChallengeResultsResponseEnvelope](docs/TradingChallengeResultsResponseEnvelope.md)
@@ -468,8 +484,12 @@ Class | Method | HTTP request | Description
  - [Dora.UnitePositionResponseEnvelope](docs/UnitePositionResponseEnvelope.md)
  - [Dora.UnitedPosition](docs/UnitedPosition.md)
  - [Dora.UpdateFieldBoolean](docs/UpdateFieldBoolean.md)
+ - [Dora.UpdateFieldDateTime](docs/UpdateFieldDateTime.md)
+ - [Dora.UpdateFieldDecimal](docs/UpdateFieldDecimal.md)
+ - [Dora.UpdateFieldInteger](docs/UpdateFieldInteger.md)
  - [Dora.UpdateFieldString](docs/UpdateFieldString.md)
  - [Dora.UpdateRolesString](docs/UpdateRolesString.md)
+ - [Dora.UpdateTradingChallengeRequest](docs/UpdateTradingChallengeRequest.md)
  - [Dora.UpdateUserConfigRequest](docs/UpdateUserConfigRequest.md)
  - [Dora.UpdateUserKYCRequest](docs/UpdateUserKYCRequest.md)
  - [Dora.UpdateUserKYCResponse](docs/UpdateUserKYCResponse.md)
@@ -482,6 +502,9 @@ Class | Method | HTTP request | Description
  - [Dora.UserCouponPaymentAssetSummary](docs/UserCouponPaymentAssetSummary.md)
  - [Dora.UserCouponPaymentsResponseData](docs/UserCouponPaymentsResponseData.md)
  - [Dora.UserCreatedResponseEnvelope](docs/UserCreatedResponseEnvelope.md)
+ - [Dora.UserDeactivation](docs/UserDeactivation.md)
+ - [Dora.UserDeactivationListResponseEnvelope](docs/UserDeactivationListResponseEnvelope.md)
+ - [Dora.UserDeactivationResponseEnvelope](docs/UserDeactivationResponseEnvelope.md)
  - [Dora.UserDeletedResponseEnvelope](docs/UserDeletedResponseEnvelope.md)
  - [Dora.UserEnvelope](docs/UserEnvelope.md)
  - [Dora.UserExistsResponse](docs/UserExistsResponse.md)

@@ -27,6 +27,7 @@ docs/BalanceTransfer.md
 docs/BalancesResponse.md
 docs/Bond.md
 docs/BondKind.md
+docs/BondRunStatus.md
 docs/CancelOrderResponseEnvelope.md
 docs/Candle.md
 docs/CandleResolution.md
@@ -58,6 +59,7 @@ docs/CreateOrUpdateUserResponse.md
 docs/CreateOrderRequest.md
 docs/CreateOrderResponseEnvelope.md
 docs/CreateTradingChallengeRequest.md
+docs/CreditRating.md
 docs/CurrentLeverageAccruedInterest.md
 docs/CurrentLeverageAccruedInterestResponseEnvelope.md
 docs/DefaultApi.md
@@ -167,6 +169,7 @@ docs/RepayUSDResponseEnvelope.md
 docs/RepayUSDResult.md
 docs/ResponseEnvelope.md
 docs/ResponseEnvelopeOfListAssets.md
+docs/ReviewTradingChallengeRegistrationRequest.md
 docs/RevokeAPIKeyData.md
 docs/RevokeAPIKeyResponseEnvelope.md
 docs/SettleLeverageAccruedInterest.md
@@ -190,6 +193,8 @@ docs/Supply.md
 docs/SupplyRequest.md
 docs/SupplyResponseEnvelope.md
 docs/TenantRestrictions.md
+docs/TerminateTradingChallengeResponse.md
+docs/TerminateTradingChallengeResponseEnvelope.md
 docs/Trade.md
 docs/TradeRequestError.md
 docs/TradeResponseEnvelope.md
@@ -197,6 +202,9 @@ docs/TradingChallenge.md
 docs/TradingChallengeDailySnapshot.md
 docs/TradingChallengeDailySnapshotsResponseEnvelope.md
 docs/TradingChallengeListResponseEnvelope.md
+docs/TradingChallengeRegistrationRequest.md
+docs/TradingChallengeRegistrationRequestListResponseEnvelope.md
+docs/TradingChallengeRegistrationRequestResponseEnvelope.md
 docs/TradingChallengeResponseEnvelope.md
 docs/TradingChallengeResult.md
 docs/TradingChallengeResultsResponseEnvelope.md
@@ -222,8 +230,12 @@ docs/UnitePositionRequest.md
 docs/UnitePositionResponseEnvelope.md
 docs/UnitedPosition.md
 docs/UpdateFieldBoolean.md
+docs/UpdateFieldDateTime.md
+docs/UpdateFieldDecimal.md
+docs/UpdateFieldInteger.md
 docs/UpdateFieldString.md
 docs/UpdateRolesString.md
+docs/UpdateTradingChallengeRequest.md
 docs/UpdateUserConfigRequest.md
 docs/UpdateUserKYCRequest.md
 docs/UpdateUserKYCResponse.md
@@ -236,6 +248,9 @@ docs/UserCouponPayment.md
 docs/UserCouponPaymentAssetSummary.md
 docs/UserCouponPaymentsResponseData.md
 docs/UserCreatedResponseEnvelope.md
+docs/UserDeactivation.md
+docs/UserDeactivationListResponseEnvelope.md
+docs/UserDeactivationResponseEnvelope.md
 docs/UserDeletedResponseEnvelope.md
 docs/UserEnvelope.md
 docs/UserExistsResponse.md
@@ -287,6 +302,7 @@ src/model/BalanceTransfer.js
 src/model/BalancesResponse.js
 src/model/Bond.js
 src/model/BondKind.js
+src/model/BondRunStatus.js
 src/model/CancelOrderResponseEnvelope.js
 src/model/Candle.js
 src/model/CandleResolution.js
@@ -318,6 +334,7 @@ src/model/CreateOrUpdateUserResponse.js
 src/model/CreateOrderRequest.js
 src/model/CreateOrderResponseEnvelope.js
 src/model/CreateTradingChallengeRequest.js
+src/model/CreditRating.js
 src/model/CurrentLeverageAccruedInterest.js
 src/model/CurrentLeverageAccruedInterestResponseEnvelope.js
 src/model/DefundUserRequest.js
@@ -426,6 +443,7 @@ src/model/RepayUSDResponseEnvelope.js
 src/model/RepayUSDResult.js
 src/model/ResponseEnvelope.js
 src/model/ResponseEnvelopeOfListAssets.js
+src/model/ReviewTradingChallengeRegistrationRequest.js
 src/model/RevokeAPIKeyData.js
 src/model/RevokeAPIKeyResponseEnvelope.js
 src/model/SettleLeverageAccruedInterest.js
@@ -449,6 +467,8 @@ src/model/Supply.js
 src/model/SupplyRequest.js
 src/model/SupplyResponseEnvelope.js
 src/model/TenantRestrictions.js
+src/model/TerminateTradingChallengeResponse.js
+src/model/TerminateTradingChallengeResponseEnvelope.js
 src/model/Trade.js
 src/model/TradeRequestError.js
 src/model/TradeResponseEnvelope.js
@@ -456,6 +476,9 @@ src/model/TradingChallenge.js
 src/model/TradingChallengeDailySnapshot.js
 src/model/TradingChallengeDailySnapshotsResponseEnvelope.js
 src/model/TradingChallengeListResponseEnvelope.js
+src/model/TradingChallengeRegistrationRequest.js
+src/model/TradingChallengeRegistrationRequestListResponseEnvelope.js
+src/model/TradingChallengeRegistrationRequestResponseEnvelope.js
 src/model/TradingChallengeResponseEnvelope.js
 src/model/TradingChallengeResult.js
 src/model/TradingChallengeResultsResponseEnvelope.js
@@ -481,8 +504,12 @@ src/model/UnitePositionRequest.js
 src/model/UnitePositionResponseEnvelope.js
 src/model/UnitedPosition.js
 src/model/UpdateFieldBoolean.js
+src/model/UpdateFieldDateTime.js
+src/model/UpdateFieldDecimal.js
+src/model/UpdateFieldInteger.js
 src/model/UpdateFieldString.js
 src/model/UpdateRolesString.js
+src/model/UpdateTradingChallengeRequest.js
 src/model/UpdateUserConfigRequest.js
 src/model/UpdateUserKYCRequest.js
 src/model/UpdateUserKYCResponse.js
@@ -495,6 +522,9 @@ src/model/UserCouponPayment.js
 src/model/UserCouponPaymentAssetSummary.js
 src/model/UserCouponPaymentsResponseData.js
 src/model/UserCreatedResponseEnvelope.js
+src/model/UserDeactivation.js
+src/model/UserDeactivationListResponseEnvelope.js
+src/model/UserDeactivationResponseEnvelope.js
 src/model/UserDeletedResponseEnvelope.js
 src/model/UserEnvelope.js
 src/model/UserExistsResponse.js
@@ -541,6 +571,7 @@ test/model/BalanceTransfer.spec.js
 test/model/BalancesResponse.spec.js
 test/model/Bond.spec.js
 test/model/BondKind.spec.js
+test/model/BondRunStatus.spec.js
 test/model/CancelOrderResponseEnvelope.spec.js
 test/model/Candle.spec.js
 test/model/CandleResolution.spec.js
@@ -572,6 +603,7 @@ test/model/CreateOrUpdateUserResponse.spec.js
 test/model/CreateOrderRequest.spec.js
 test/model/CreateOrderResponseEnvelope.spec.js
 test/model/CreateTradingChallengeRequest.spec.js
+test/model/CreditRating.spec.js
 test/model/CurrentLeverageAccruedInterest.spec.js
 test/model/CurrentLeverageAccruedInterestResponseEnvelope.spec.js
 test/model/DefundUserRequest.spec.js
@@ -680,6 +712,7 @@ test/model/RepayUSDResponseEnvelope.spec.js
 test/model/RepayUSDResult.spec.js
 test/model/ResponseEnvelope.spec.js
 test/model/ResponseEnvelopeOfListAssets.spec.js
+test/model/ReviewTradingChallengeRegistrationRequest.spec.js
 test/model/RevokeAPIKeyData.spec.js
 test/model/RevokeAPIKeyResponseEnvelope.spec.js
 test/model/SettleLeverageAccruedInterest.spec.js
@@ -703,6 +736,8 @@ test/model/Supply.spec.js
 test/model/SupplyRequest.spec.js
 test/model/SupplyResponseEnvelope.spec.js
 test/model/TenantRestrictions.spec.js
+test/model/TerminateTradingChallengeResponse.spec.js
+test/model/TerminateTradingChallengeResponseEnvelope.spec.js
 test/model/Trade.spec.js
 test/model/TradeRequestError.spec.js
 test/model/TradeResponseEnvelope.spec.js
@@ -710,6 +745,9 @@ test/model/TradingChallenge.spec.js
 test/model/TradingChallengeDailySnapshot.spec.js
 test/model/TradingChallengeDailySnapshotsResponseEnvelope.spec.js
 test/model/TradingChallengeListResponseEnvelope.spec.js
+test/model/TradingChallengeRegistrationRequest.spec.js
+test/model/TradingChallengeRegistrationRequestListResponseEnvelope.spec.js
+test/model/TradingChallengeRegistrationRequestResponseEnvelope.spec.js
 test/model/TradingChallengeResponseEnvelope.spec.js
 test/model/TradingChallengeResult.spec.js
 test/model/TradingChallengeResultsResponseEnvelope.spec.js
@@ -735,8 +773,12 @@ test/model/UnitePositionRequest.spec.js
 test/model/UnitePositionResponseEnvelope.spec.js
 test/model/UnitedPosition.spec.js
 test/model/UpdateFieldBoolean.spec.js
+test/model/UpdateFieldDateTime.spec.js
+test/model/UpdateFieldDecimal.spec.js
+test/model/UpdateFieldInteger.spec.js
 test/model/UpdateFieldString.spec.js
 test/model/UpdateRolesString.spec.js
+test/model/UpdateTradingChallengeRequest.spec.js
 test/model/UpdateUserConfigRequest.spec.js
 test/model/UpdateUserKYCRequest.spec.js
 test/model/UpdateUserKYCResponse.spec.js
@@ -749,6 +791,9 @@ test/model/UserCouponPayment.spec.js
 test/model/UserCouponPaymentAssetSummary.spec.js
 test/model/UserCouponPaymentsResponseData.spec.js
 test/model/UserCreatedResponseEnvelope.spec.js
+test/model/UserDeactivation.spec.js
+test/model/UserDeactivationListResponseEnvelope.spec.js
+test/model/UserDeactivationResponseEnvelope.spec.js
 test/model/UserDeletedResponseEnvelope.spec.js
 test/model/UserEnvelope.spec.js
 test/model/UserExistsResponse.spec.js

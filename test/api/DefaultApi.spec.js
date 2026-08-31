@@ -68,6 +68,16 @@
         done();
       });
     });
+    describe('approveTradingChallengeRegistrationRequest', function() {
+      it('should call approveTradingChallengeRegistrationRequest successfully', function(done) {
+        //uncomment below and update the code to test approveTradingChallengeRegistrationRequest
+        //instance.approveTradingChallengeRegistrationRequest(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('cancelAllOpenOrders', function() {
       it('should call cancelAllOpenOrders successfully', function(done) {
         //uncomment below and update the code to test cancelAllOpenOrders
@@ -708,6 +718,16 @@
         done();
       });
     });
+    describe('getUserDeactivation', function() {
+      it('should call getUserDeactivation successfully', function(done) {
+        //uncomment below and update the code to test getUserDeactivation
+        //instance.getUserDeactivation(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getUserLedgerStream', function() {
       it('should call getUserLedgerStream successfully', function(done) {
         //uncomment below and update the code to test getUserLedgerStream
@@ -978,10 +998,30 @@
         done();
       });
     });
+    describe('listTradingChallengeRegistrationRequests', function() {
+      it('should call listTradingChallengeRegistrationRequests successfully', function(done) {
+        //uncomment below and update the code to test listTradingChallengeRegistrationRequests
+        //instance.listTradingChallengeRegistrationRequests(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listTradingChallenges', function() {
       it('should call listTradingChallenges successfully', function(done) {
         //uncomment below and update the code to test listTradingChallenges
         //instance.listTradingChallenges(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listUserDeactivations', function() {
+      it('should call listUserDeactivations successfully', function(done) {
+        //uncomment below and update the code to test listUserDeactivations
+        //instance.listUserDeactivations(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -1002,6 +1042,16 @@
       it('should call rejectLedgerWithdrawRequest successfully', function(done) {
         //uncomment below and update the code to test rejectLedgerWithdrawRequest
         //instance.rejectLedgerWithdrawRequest(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('rejectTradingChallengeRegistrationRequest', function() {
+      it('should call rejectTradingChallengeRegistrationRequest successfully', function(done) {
+        //uncomment below and update the code to test rejectTradingChallengeRegistrationRequest
+        //instance.rejectTradingChallengeRegistrationRequest(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -1128,6 +1178,26 @@
         done();
       });
     });
+    describe('terminateOwnTradingChallengeParticipation', function() {
+      it('should call terminateOwnTradingChallengeParticipation successfully', function(done) {
+        //uncomment below and update the code to test terminateOwnTradingChallengeParticipation
+        //instance.terminateOwnTradingChallengeParticipation(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('terminateTradingChallengeParticipation', function() {
+      it('should call terminateTradingChallengeParticipation successfully', function(done) {
+        //uncomment below and update the code to test terminateTradingChallengeParticipation
+        //instance.terminateTradingChallengeParticipation(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('transferAccountBalancesV2', function() {
       it('should call transferAccountBalancesV2 successfully', function(done) {
         //uncomment below and update the code to test transferAccountBalancesV2
@@ -1142,6 +1212,16 @@
       it('should call transferAvailableBalances successfully', function(done) {
         //uncomment below and update the code to test transferAvailableBalances
         //instance.transferAvailableBalances(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateTradingChallenge', function() {
+      it('should call updateTradingChallenge successfully', function(done) {
+        //uncomment below and update the code to test updateTradingChallenge
+        //instance.updateTradingChallenge(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

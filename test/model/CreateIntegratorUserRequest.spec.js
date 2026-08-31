@@ -114,6 +114,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property challengeId (base name: "challenge_id")', function() {
+      // uncomment below and update the code to test the property challengeId
+      //var instance = new Dora.CreateIntegratorUserRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -17,4 +17,8 @@
 
 * `INTEGRATOR` (value: `"INTEGRATOR"`)
 
+* `INDEXER` (value: `"INDEXER"`)
+
+* `COMPETITION_MANAGER` (value: `"COMPETITION_MANAGER"`)
+
 

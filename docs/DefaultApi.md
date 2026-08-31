@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addTradingChallengeUsers**](DefaultApi.md#addTradingChallengeUsers) | **PUT** /v1/trading_challenges/add_users | Add users to a trading challenge
 [**approveLedgerWithdrawRequest**](DefaultApi.md#approveLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/approve | Approve a pending withdrawal request
+[**approveTradingChallengeRegistrationRequest**](DefaultApi.md#approveTradingChallengeRegistrationRequest) | **POST** /v1/trading_challenges/registration_requests/{request_id}/approve | Approve a trading challenge registration request
 [**cancelAllOpenOrders**](DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook or account_id on query params it will cancel all orders on specific orderbook or account, admin can cancel user&#39;s orders on specific orderbook
 [**cancelLedgerWithdrawRequest**](DefaultApi.md#cancelLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/cancel | Cancel a pending withdrawal request
 [**cancelOrderById**](DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
@@ -70,6 +71,7 @@ Method | HTTP request | Description
 [**getTransactionsStream**](DefaultApi.md#getTransactionsStream) | **GET** /v1/transactions/stream | Get transactions since a specific time, and open a stream for further updates
 [**getUserById**](DefaultApi.md#getUserById) | **GET** /v1/user/{user_id} | Get user by ID (admin only)
 [**getUserCouponPaymentsStream**](DefaultApi.md#getUserCouponPaymentsStream) | **GET** /v1/user/{user_id}/coupon_payments/stream | Stream user&#39;s coupon payment accruals in real time
+[**getUserDeactivation**](DefaultApi.md#getUserDeactivation) | **GET** /v1/user/{user_id}/deactivation | Get the latest account deactivation request for a user
 [**getUserLedgerStream**](DefaultApi.md#getUserLedgerStream) | **GET** /v1/user/{user_id}/ledger/stream | Get a snapshot of user&#39;s ledger updates since a specific time, and opens a stream for further updates
 [**getUserLeverageAccruedInterestStream**](DefaultApi.md#getUserLeverageAccruedInterestStream) | **GET** /v1/user/{user_id}/leverage/accrued_interest/stream | Stream user&#39;s current leverage accrued interest in real time
 [**getUserOrderUpdatesStream**](DefaultApi.md#getUserOrderUpdatesStream) | **GET** /v1/user/{user_id}/orders/{order_book_id}/updates/stream | Get a snapshot of user&#39;s order updates for the given order book since a specific time, and opens a stream for further updates
@@ -97,9 +99,12 @@ Method | HTTP request | Description
 [**listOrderBooks**](DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 [**listOrders**](DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
 [**listPositionAccountsSelf**](DefaultApi.md#listPositionAccountsSelf) | **GET** /v1/user/self/position_accounts | List all position accounts for the authenticated user
+[**listTradingChallengeRegistrationRequests**](DefaultApi.md#listTradingChallengeRegistrationRequests) | **GET** /v1/trading_challenges/registration_requests | List trading challenge registration requests
 [**listTradingChallenges**](DefaultApi.md#listTradingChallenges) | **GET** /v1/trading_challenges | List trading challenges
+[**listUserDeactivations**](DefaultApi.md#listUserDeactivations) | **GET** /v1/user/deactivations | Get the current deactivation status across all users
 [**payLeverageGetAccruedInterest**](DefaultApi.md#payLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/pay | Pay current accrued leverage interest for a specific user
 [**rejectLedgerWithdrawRequest**](DefaultApi.md#rejectLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/reject | Reject a pending withdrawal request
+[**rejectTradingChallengeRegistrationRequest**](DefaultApi.md#rejectTradingChallengeRegistrationRequest) | **POST** /v1/trading_challenges/registration_requests/{request_id}/reject | Reject a trading challenge registration request
 [**removeTradingChallengeUsers**](DefaultApi.md#removeTradingChallengeUsers) | **PUT** /v1/trading_challenges/remove_users | Remove users from a trading challenge
 [**repayUSD**](DefaultApi.md#repayUSD) | **POST** /v1/positions/repay_usd | Repay borrowed USD, then accrue and pay leverage interest
 [**revokeAPIKeyForUser**](DefaultApi.md#revokeAPIKeyForUser) | **PUT** /v1/user/apikey/{key_id}/revoke | Revoke apikey for a user
@@ -112,8 +117,11 @@ Method | HTTP request | Description
 [**streamOrderBookBalances**](DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
 [**streamOrderbookOpenOrders**](DefaultApi.md#streamOrderbookOpenOrders) | **GET** /v1/orderbooks/{order_book_id}/open/stream | Get a snapshot of open orders in an order book and open a stream for real-time updates
 [**streamTrades**](DefaultApi.md#streamTrades) | **GET** /v1/trades/{order_book_id}/stream | Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
+[**terminateOwnTradingChallengeParticipation**](DefaultApi.md#terminateOwnTradingChallengeParticipation) | **POST** /v1/trading_challenges/{trading_challenge_id}/participants/self/terminate | Leave a trading challenge
+[**terminateTradingChallengeParticipation**](DefaultApi.md#terminateTradingChallengeParticipation) | **POST** /v1/trading_challenges/{trading_challenge_id}/participants/{user_id}/terminate | Terminate a participation in a trading challenge
 [**transferAccountBalancesV2**](DefaultApi.md#transferAccountBalancesV2) | **POST** /v2/accounts/transfer_balances | Transfer available balance between a user&#39;s accounts
 [**transferAvailableBalances**](DefaultApi.md#transferAvailableBalances) | **POST** /v1/positions/transfer_balances | Transfer available balance between a user&#39;s accounts (e.g. global to isolated position)
+[**updateTradingChallenge**](DefaultApi.md#updateTradingChallenge) | **PUT** /v1/trading_challenges/{trading_challenge_id} | Update a trading challenge
 [**updateUserConfig**](DefaultApi.md#updateUserConfig) | **PUT** /v1/user/{user_id}/config | Update user configuration by ID
 [**updateUserConfigSelf**](DefaultApi.md#updateUserConfigSelf) | **PUT** /v1/user/config/self | Update user configuration for the authenticated user
 [**updateUserKYC**](DefaultApi.md#updateUserKYC) | **POST** /v1/integrators/user/{user_id}/kyc | Set or clear a user&#39;s KYC completion timestamp
@@ -127,6 +135,8 @@ Method | HTTP request | Description
 > TradingChallengeResponseEnvelope addTradingChallengeUsers(addTradingChallengeUsersRequest)
 
 Add users to a trading challenge
+
+Add existing users to a trading challenge. For COMPETITION_MANAGER, the challenge must be assigned in managed_competition_ids. A user must have an empty ledger to join: deposits and withdrawals are barred from enrolment until the challenge is over, so that challenge credits are the only thing a participant holds and the teardown sweep cannot destroy funds of their own.
 
 ### Example
 
@@ -221,6 +231,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WithdrawalInitiationResponseEnvelope**](WithdrawalInitiationResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## approveTradingChallengeRegistrationRequest
+
+> TradingChallengeRegistrationRequestResponseEnvelope approveTradingChallengeRegistrationRequest(requestId, opts)
+
+Approve a trading challenge registration request
+
+Accessible to admins (any challenge), integrators (their own tenant only) and competition managers (their assigned challenges only). Enrolment runs the same checks as add_users, so a challenge that filled up, now overlaps another of the user&#39;s challenges, or whose applicant no longer has an empty ledger is rejected with a 409 and the request stays open.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let requestId = "requestId_example"; // String | 
+let opts = {
+  'reviewTradingChallengeRegistrationRequest': new Dora.ReviewTradingChallengeRegistrationRequest() // ReviewTradingChallengeRegistrationRequest | 
+};
+apiInstance.approveTradingChallengeRegistrationRequest(requestId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestId** | **String**|  | 
+ **reviewTradingChallengeRegistrationRequest** | [**ReviewTradingChallengeRegistrationRequest**](ReviewTradingChallengeRegistrationRequest.md)|  | [optional] 
+
+### Return type
+
+[**TradingChallengeRegistrationRequestResponseEnvelope**](TradingChallengeRegistrationRequestResponseEnvelope.md)
 
 ### Authorization
 
@@ -459,6 +527,8 @@ Name | Type | Description  | Notes
 > ClaimTradingChallengeResponseEnvelope claimTradingChallengePrize(tradingChallengeId)
 
 Claim challenge prize
+
+Claim the prize of a challenge the caller is eligible for. A TOURNAMENT claim credits the prize matching the crown and reactivates the account. A CASH claim winds the account down, sweeps every remaining challenge credit and awards the CASH_CROWN: the account is left deactivated with a zero balance, and the reward is redeemed out of band. Both mark the participation PRIZE_CLAIMED.
 
 ### Example
 
@@ -825,6 +895,8 @@ Name | Type | Description  | Notes
 > TradingChallengeResponseEnvelope createTradingChallenge(createTradingChallengeRequest)
 
 Create a trading challenge
+
+Create a new trading challenge. Allowed for ADMIN and INTEGRATOR only.
 
 ### Example
 
@@ -3036,6 +3108,8 @@ Name | Type | Description  | Notes
 
 Get trading challenge by ID
 
+Fetch one trading challenge. COMPETITION_MANAGER can access only assigned challenge IDs.
+
 ### Example
 
 ```javascript
@@ -3088,6 +3162,8 @@ Name | Type | Description  | Notes
 
 Get trading challenge daily snapshots
 
+List participant daily snapshots for a challenge. COMPETITION_MANAGER can access only assigned challenge IDs.
+
 ### Example
 
 ```javascript
@@ -3139,6 +3215,8 @@ Name | Type | Description  | Notes
 > TradingChallengeResultsResponseEnvelope getTradingChallengeResults(tradingChallengeId, opts)
 
 Get trading challenge results
+
+List challenge leaderboard/results. COMPETITION_MANAGER can access only assigned challenge IDs.
 
 ### Example
 
@@ -3501,6 +3579,60 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [apiKeyAuthQuery](../README.md#apiKeyAuthQuery)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getUserDeactivation
+
+> UserDeactivationResponseEnvelope getUserDeactivation(userId)
+
+Get the latest account deactivation request for a user
+
+Returns the user&#39;s latest deactivation request, i.e. their current deactivation status. Integrators may only request users belonging to their own tenant.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let userId = "userId_example"; // String | 
+apiInstance.getUserDeactivation(userId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**|  | 
+
+### Return type
+
+[**UserDeactivationResponseEnvelope**](UserDeactivationResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -5000,11 +5132,79 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
+## listTradingChallengeRegistrationRequests
+
+> TradingChallengeRegistrationRequestListResponseEnvelope listTradingChallengeRegistrationRequests(opts)
+
+List trading challenge registration requests
+
+The review queue. Admins see every tenant and may filter to one, an integrator is pinned to their own tenant, and a competition manager only sees the requests of the challenges assigned to them.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let opts = {
+  'tradingChallengeId': "tradingChallengeId_example", // String | Only requests for this challenge.
+  'userId': "userId_example", // String | Only requests from this user.
+  'status': "status_example", // String | Only requests in this state.
+  'tenantId': "tenantId_example", // String | Admins only; an integrator may only name their own tenant.
+  'limit': 100, // Number | Page size, capped at 1000.
+  'offset': 0 // Number | Rows to skip.
+};
+apiInstance.listTradingChallengeRegistrationRequests(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tradingChallengeId** | **String**| Only requests for this challenge. | [optional] 
+ **userId** | **String**| Only requests from this user. | [optional] 
+ **status** | **String**| Only requests in this state. | [optional] 
+ **tenantId** | **String**| Admins only; an integrator may only name their own tenant. | [optional] 
+ **limit** | **Number**| Page size, capped at 1000. | [optional] [default to 100]
+ **offset** | **Number**| Rows to skip. | [optional] [default to 0]
+
+### Return type
+
+[**TradingChallengeRegistrationRequestListResponseEnvelope**](TradingChallengeRegistrationRequestListResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## listTradingChallenges
 
 > TradingChallengeListResponseEnvelope listTradingChallenges(opts)
 
 List trading challenges
+
+List trading challenges. COMPETITION_MANAGER callers only receive challenges present in their managed_competition_ids.
 
 ### Example
 
@@ -5051,6 +5251,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TradingChallengeListResponseEnvelope**](TradingChallengeListResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## listUserDeactivations
+
+> UserDeactivationListResponseEnvelope listUserDeactivations(opts)
+
+Get the current deactivation status across all users
+
+Returns each user&#39;s latest deactivation request, i.e. their current status. Users with no deactivation history are absent. Ordered by request creation time, newest first. Integrators only see users of their own tenant, unless that tenant is global.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let opts = {
+  'status': "status_example", // String | Only return users whose latest request has this status.
+  'tenantId': "tenantId_example", // String | Only return users belonging to this tenant. At most one of tenant_id, trading_challenge_id and user_ids may be passed; combining them is rejected. An integrator whose tenant is not global may only pass their own tenant.
+  'tradingChallengeId': "tradingChallengeId_example", // String | Only return participants of this trading challenge. Mutually exclusive with tenant_id and user_ids.
+  'userIds': "userIds_example" // String | Comma-separated user IDs to return. Mutually exclusive with tenant_id and trading_challenge_id.
+};
+apiInstance.listUserDeactivations(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | **String**| Only return users whose latest request has this status. | [optional] 
+ **tenantId** | **String**| Only return users belonging to this tenant. At most one of tenant_id, trading_challenge_id and user_ids may be passed; combining them is rejected. An integrator whose tenant is not global may only pass their own tenant. | [optional] 
+ **tradingChallengeId** | **String**| Only return participants of this trading challenge. Mutually exclusive with tenant_id and user_ids. | [optional] 
+ **userIds** | **String**| Comma-separated user IDs to return. Mutually exclusive with tenant_id and trading_challenge_id. | [optional] 
+
+### Return type
+
+[**UserDeactivationListResponseEnvelope**](UserDeactivationListResponseEnvelope.md)
 
 ### Authorization
 
@@ -5170,11 +5432,71 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## rejectTradingChallengeRegistrationRequest
+
+> TradingChallengeRegistrationRequestResponseEnvelope rejectTradingChallengeRegistrationRequest(requestId, opts)
+
+Reject a trading challenge registration request
+
+Accessible to admins (any challenge), integrators (their own tenant only) and competition managers (their assigned challenges only).
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let requestId = "requestId_example"; // String | 
+let opts = {
+  'reviewTradingChallengeRegistrationRequest': new Dora.ReviewTradingChallengeRegistrationRequest() // ReviewTradingChallengeRegistrationRequest | 
+};
+apiInstance.rejectTradingChallengeRegistrationRequest(requestId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestId** | **String**|  | 
+ **reviewTradingChallengeRegistrationRequest** | [**ReviewTradingChallengeRegistrationRequest**](ReviewTradingChallengeRegistrationRequest.md)|  | [optional] 
+
+### Return type
+
+[**TradingChallengeRegistrationRequestResponseEnvelope**](TradingChallengeRegistrationRequestResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## removeTradingChallengeUsers
 
 > TradingChallengeResponseEnvelope removeTradingChallengeUsers(removeTradingChallengeUsersRequest)
 
 Remove users from a trading challenge
+
+Remove users from a trading challenge. For COMPETITION_MANAGER, the challenge must be assigned in managed_competition_ids.
 
 ### Example
 
@@ -5773,6 +6095,116 @@ No authorization required
 - **Accept**: application/json
 
 
+## terminateOwnTradingChallengeParticipation
+
+> TerminateTradingChallengeResponseEnvelope terminateOwnTradingChallengeParticipation(tradingChallengeId)
+
+Leave a trading challenge
+
+Convenience alias that terminates the caller&#39;s own participation; redirects to /v1/trading_challenges/{trading_challenge_id}/participants/{user_id}/terminate. End a participant&#39;s run in a challenge before its own rules would: the participant leaves, or an operator removes them. No prize is paid, even to a participant who could have claimed one -- claim the prize first if that is what you want. The account is wound down, every remaining challenge credit is swept, and the participation is marked TERMINATED and frozen: from then on it takes no further daily snapshots and never appears in the results ranking again. The user is left deactivated with no challenge balance, and is free to register for another challenge. Participants may only terminate their own run; terminating someone else&#39;s requires admin, integrator (same tenant) or challenge manager (assigned challenge) rights.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let tradingChallengeId = "tradingChallengeId_example"; // String | 
+apiInstance.terminateOwnTradingChallengeParticipation(tradingChallengeId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tradingChallengeId** | **String**|  | 
+
+### Return type
+
+[**TerminateTradingChallengeResponseEnvelope**](TerminateTradingChallengeResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## terminateTradingChallengeParticipation
+
+> TerminateTradingChallengeResponseEnvelope terminateTradingChallengeParticipation(tradingChallengeId, userId)
+
+Terminate a participation in a trading challenge
+
+End a participant&#39;s run in a challenge before its own rules would: the participant leaves, or an operator removes them. No prize is paid, even to a participant who could have claimed one -- claim the prize first if that is what you want. The account is wound down, every remaining challenge credit is swept, and the participation is marked TERMINATED and frozen: from then on it takes no further daily snapshots and never appears in the results ranking again. The user is left deactivated with no challenge balance, and is free to register for another challenge. Participants may only terminate their own run; terminating someone else&#39;s requires admin, integrator (same tenant) or challenge manager (assigned challenge) rights.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let tradingChallengeId = "tradingChallengeId_example"; // String | 
+let userId = "userId_example"; // String | 
+apiInstance.terminateTradingChallengeParticipation(tradingChallengeId, userId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tradingChallengeId** | **String**|  | 
+ **userId** | **String**|  | 
+
+### Return type
+
+[**TerminateTradingChallengeResponseEnvelope**](TerminateTradingChallengeResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## transferAccountBalancesV2
 
 > TransferAccountBalancesResponseEnvelope transferAccountBalancesV2(transferAccountBalancesRequest)
@@ -5866,6 +6298,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TransferBalancesResponseEnvelope**](TransferBalancesResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## updateTradingChallenge
+
+> TradingChallengeResponseEnvelope updateTradingChallenge(tradingChallengeId, updateTradingChallengeRequest)
+
+Update a trading challenge
+
+Partially update a trading challenge: a field that is absent from the body is left unchanged. Which fields may be updated depends on the challenge status. PENDING accepts every field. ACTIVE accepts only name, max_users, end and the three prize quantities, because participants are already funded and being measured. COMPLETED accepts none. A request that touches a field the current status does not allow is rejected as a whole with 409. ADMIN may update any challenge, INTEGRATOR only challenges of its own tenant, and COMPETITION_MANAGER only assigned challenge IDs.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let tradingChallengeId = "tradingChallengeId_example"; // String | 
+let updateTradingChallengeRequest = new Dora.UpdateTradingChallengeRequest(); // UpdateTradingChallengeRequest | 
+apiInstance.updateTradingChallenge(tradingChallengeId, updateTradingChallengeRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tradingChallengeId** | **String**|  | 
+ **updateTradingChallengeRequest** | [**UpdateTradingChallengeRequest**](UpdateTradingChallengeRequest.md)|  | 
+
+### Return type
+
+[**TradingChallengeResponseEnvelope**](TradingChallengeResponseEnvelope.md)
 
 ### Authorization
 

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **status** | **String** |  | [optional] 
 **crown** | **String** |  | [optional] 
 **createdAt** | **Date** |  | [optional] 
+**deactivationStatus** | **String** |  | [optional] 
 **currentDayDailyVolume** | **String** |  | [optional] 
 **currentDayDailyPnl** | **String** |  | [optional] 
 **currentDayTradingDate** | **Date** |  | [optional] 
@@ -39,6 +40,8 @@ Name | Type | Description | Notes
 * `COMPLETED` (value: `"COMPLETED"`)
 
 * `PRIZE_CLAIMED` (value: `"PRIZE_CLAIMED"`)
+
+* `TERMINATED` (value: `"TERMINATED"`)
 
 
 
@@ -66,6 +69,19 @@ Name | Type | Description | Notes
 * `IRON_SILVER` (value: `"IRON_SILVER"`)
 
 * `IRON_BRONZE` (value: `"IRON_BRONZE"`)
+
+* `CASH_CROWN` (value: `"CASH_CROWN"`)
+
+
+
+
+
+## Enum: DeactivationStatusEnum
+
+
+* `ACTIVE` (value: `"ACTIVE"`)
+
+* `DEACTIVATED` (value: `"DEACTIVATED"`)
 
 
 

@@ -78,6 +78,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property bondRunStatus (base name: "bond_run_status")', function() {
+      // uncomment below and update the code to test the property bondRunStatus
+      //var instance = new Dora.Bond();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property creditRating (base name: "credit_rating")', function() {
+      // uncomment below and update the code to test the property creditRating
+      //var instance = new Dora.Bond();
+      //expect(instance).to.be();
+    });
+
     it('should have the property couponStartAt (base name: "coupon_start_at")', function() {
       // uncomment below and update the code to test the property couponStartAt
       //var instance = new Dora.Bond();

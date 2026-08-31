@@ -38,6 +38,7 @@ import BalanceTransfer from './model/BalanceTransfer';
 import BalancesResponse from './model/BalancesResponse';
 import Bond from './model/Bond';
 import BondKind from './model/BondKind';
+import BondRunStatus from './model/BondRunStatus';
 import CancelOrderResponseEnvelope from './model/CancelOrderResponseEnvelope';
 import Candle from './model/Candle';
 import CandleResolution from './model/CandleResolution';
@@ -69,6 +70,7 @@ import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
 import CreateOrderResponseEnvelope from './model/CreateOrderResponseEnvelope';
 import CreateTradingChallengeRequest from './model/CreateTradingChallengeRequest';
+import CreditRating from './model/CreditRating';
 import CurrentLeverageAccruedInterest from './model/CurrentLeverageAccruedInterest';
 import CurrentLeverageAccruedInterestResponseEnvelope from './model/CurrentLeverageAccruedInterestResponseEnvelope';
 import DefundUserRequest from './model/DefundUserRequest';
@@ -177,6 +179,7 @@ import RepayUSDResponseEnvelope from './model/RepayUSDResponseEnvelope';
 import RepayUSDResult from './model/RepayUSDResult';
 import ResponseEnvelope from './model/ResponseEnvelope';
 import ResponseEnvelopeOfListAssets from './model/ResponseEnvelopeOfListAssets';
+import ReviewTradingChallengeRegistrationRequest from './model/ReviewTradingChallengeRegistrationRequest';
 import RevokeAPIKeyData from './model/RevokeAPIKeyData';
 import RevokeAPIKeyResponseEnvelope from './model/RevokeAPIKeyResponseEnvelope';
 import SettleLeverageAccruedInterest from './model/SettleLeverageAccruedInterest';
@@ -200,6 +203,8 @@ import Supply from './model/Supply';
 import SupplyRequest from './model/SupplyRequest';
 import SupplyResponseEnvelope from './model/SupplyResponseEnvelope';
 import TenantRestrictions from './model/TenantRestrictions';
+import TerminateTradingChallengeResponse from './model/TerminateTradingChallengeResponse';
+import TerminateTradingChallengeResponseEnvelope from './model/TerminateTradingChallengeResponseEnvelope';
 import Trade from './model/Trade';
 import TradeRequestError from './model/TradeRequestError';
 import TradeResponseEnvelope from './model/TradeResponseEnvelope';
@@ -207,6 +212,9 @@ import TradingChallenge from './model/TradingChallenge';
 import TradingChallengeDailySnapshot from './model/TradingChallengeDailySnapshot';
 import TradingChallengeDailySnapshotsResponseEnvelope from './model/TradingChallengeDailySnapshotsResponseEnvelope';
 import TradingChallengeListResponseEnvelope from './model/TradingChallengeListResponseEnvelope';
+import TradingChallengeRegistrationRequest from './model/TradingChallengeRegistrationRequest';
+import TradingChallengeRegistrationRequestListResponseEnvelope from './model/TradingChallengeRegistrationRequestListResponseEnvelope';
+import TradingChallengeRegistrationRequestResponseEnvelope from './model/TradingChallengeRegistrationRequestResponseEnvelope';
 import TradingChallengeResponseEnvelope from './model/TradingChallengeResponseEnvelope';
 import TradingChallengeResult from './model/TradingChallengeResult';
 import TradingChallengeResultsResponseEnvelope from './model/TradingChallengeResultsResponseEnvelope';
@@ -232,8 +240,12 @@ import UnitePositionRequest from './model/UnitePositionRequest';
 import UnitePositionResponseEnvelope from './model/UnitePositionResponseEnvelope';
 import UnitedPosition from './model/UnitedPosition';
 import UpdateFieldBoolean from './model/UpdateFieldBoolean';
+import UpdateFieldDateTime from './model/UpdateFieldDateTime';
+import UpdateFieldDecimal from './model/UpdateFieldDecimal';
+import UpdateFieldInteger from './model/UpdateFieldInteger';
 import UpdateFieldString from './model/UpdateFieldString';
 import UpdateRolesString from './model/UpdateRolesString';
+import UpdateTradingChallengeRequest from './model/UpdateTradingChallengeRequest';
 import UpdateUserConfigRequest from './model/UpdateUserConfigRequest';
 import UpdateUserKYCRequest from './model/UpdateUserKYCRequest';
 import UpdateUserKYCResponse from './model/UpdateUserKYCResponse';
@@ -246,6 +258,9 @@ import UserCouponPayment from './model/UserCouponPayment';
 import UserCouponPaymentAssetSummary from './model/UserCouponPaymentAssetSummary';
 import UserCouponPaymentsResponseData from './model/UserCouponPaymentsResponseData';
 import UserCreatedResponseEnvelope from './model/UserCreatedResponseEnvelope';
+import UserDeactivation from './model/UserDeactivation';
+import UserDeactivationListResponseEnvelope from './model/UserDeactivationListResponseEnvelope';
+import UserDeactivationResponseEnvelope from './model/UserDeactivationResponseEnvelope';
 import UserDeletedResponseEnvelope from './model/UserDeletedResponseEnvelope';
 import UserEnvelope from './model/UserEnvelope';
 import UserExistsResponse from './model/UserExistsResponse';
@@ -458,6 +473,12 @@ export {
     BondKind,
 
     /**
+     * The BondRunStatus model constructor.
+     * @property {module:model/BondRunStatus}
+     */
+    BondRunStatus,
+
+    /**
      * The CancelOrderResponseEnvelope model constructor.
      * @property {module:model/CancelOrderResponseEnvelope}
      */
@@ -642,6 +663,12 @@ export {
      * @property {module:model/CreateTradingChallengeRequest}
      */
     CreateTradingChallengeRequest,
+
+    /**
+     * The CreditRating model constructor.
+     * @property {module:model/CreditRating}
+     */
+    CreditRating,
 
     /**
      * The CurrentLeverageAccruedInterest model constructor.
@@ -1292,6 +1319,12 @@ export {
     ResponseEnvelopeOfListAssets,
 
     /**
+     * The ReviewTradingChallengeRegistrationRequest model constructor.
+     * @property {module:model/ReviewTradingChallengeRegistrationRequest}
+     */
+    ReviewTradingChallengeRegistrationRequest,
+
+    /**
      * The RevokeAPIKeyData model constructor.
      * @property {module:model/RevokeAPIKeyData}
      */
@@ -1430,6 +1463,18 @@ export {
     TenantRestrictions,
 
     /**
+     * The TerminateTradingChallengeResponse model constructor.
+     * @property {module:model/TerminateTradingChallengeResponse}
+     */
+    TerminateTradingChallengeResponse,
+
+    /**
+     * The TerminateTradingChallengeResponseEnvelope model constructor.
+     * @property {module:model/TerminateTradingChallengeResponseEnvelope}
+     */
+    TerminateTradingChallengeResponseEnvelope,
+
+    /**
      * The Trade model constructor.
      * @property {module:model/Trade}
      */
@@ -1470,6 +1515,24 @@ export {
      * @property {module:model/TradingChallengeListResponseEnvelope}
      */
     TradingChallengeListResponseEnvelope,
+
+    /**
+     * The TradingChallengeRegistrationRequest model constructor.
+     * @property {module:model/TradingChallengeRegistrationRequest}
+     */
+    TradingChallengeRegistrationRequest,
+
+    /**
+     * The TradingChallengeRegistrationRequestListResponseEnvelope model constructor.
+     * @property {module:model/TradingChallengeRegistrationRequestListResponseEnvelope}
+     */
+    TradingChallengeRegistrationRequestListResponseEnvelope,
+
+    /**
+     * The TradingChallengeRegistrationRequestResponseEnvelope model constructor.
+     * @property {module:model/TradingChallengeRegistrationRequestResponseEnvelope}
+     */
+    TradingChallengeRegistrationRequestResponseEnvelope,
 
     /**
      * The TradingChallengeResponseEnvelope model constructor.
@@ -1622,6 +1685,24 @@ export {
     UpdateFieldBoolean,
 
     /**
+     * The UpdateFieldDateTime model constructor.
+     * @property {module:model/UpdateFieldDateTime}
+     */
+    UpdateFieldDateTime,
+
+    /**
+     * The UpdateFieldDecimal model constructor.
+     * @property {module:model/UpdateFieldDecimal}
+     */
+    UpdateFieldDecimal,
+
+    /**
+     * The UpdateFieldInteger model constructor.
+     * @property {module:model/UpdateFieldInteger}
+     */
+    UpdateFieldInteger,
+
+    /**
      * The UpdateFieldString model constructor.
      * @property {module:model/UpdateFieldString}
      */
@@ -1632,6 +1713,12 @@ export {
      * @property {module:model/UpdateRolesString}
      */
     UpdateRolesString,
+
+    /**
+     * The UpdateTradingChallengeRequest model constructor.
+     * @property {module:model/UpdateTradingChallengeRequest}
+     */
+    UpdateTradingChallengeRequest,
 
     /**
      * The UpdateUserConfigRequest model constructor.
@@ -1704,6 +1791,24 @@ export {
      * @property {module:model/UserCreatedResponseEnvelope}
      */
     UserCreatedResponseEnvelope,
+
+    /**
+     * The UserDeactivation model constructor.
+     * @property {module:model/UserDeactivation}
+     */
+    UserDeactivation,
+
+    /**
+     * The UserDeactivationListResponseEnvelope model constructor.
+     * @property {module:model/UserDeactivationListResponseEnvelope}
+     */
+    UserDeactivationListResponseEnvelope,
+
+    /**
+     * The UserDeactivationResponseEnvelope model constructor.
+     * @property {module:model/UserDeactivationResponseEnvelope}
+     */
+    UserDeactivationResponseEnvelope,
 
     /**
      * The UserDeletedResponseEnvelope model constructor.

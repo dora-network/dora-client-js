@@ -13,7 +13,9 @@
 
 import ApiClient from '../ApiClient';
 import BondKind from './BondKind';
+import BondRunStatus from './BondRunStatus';
 import CouponKind from './CouponKind';
+import CreditRating from './CreditRating';
 
 /**
  * The Bond model module.
@@ -78,6 +80,12 @@ class Bond {
             }
             if (data.hasOwnProperty('bond_kind')) {
                 obj['bond_kind'] = BondKind.constructFromObject(data['bond_kind']);
+            }
+            if (data.hasOwnProperty('bond_run_status')) {
+                obj['bond_run_status'] = ApiClient.convertToType(data['bond_run_status'], BondRunStatus);
+            }
+            if (data.hasOwnProperty('credit_rating')) {
+                obj['credit_rating'] = ApiClient.convertToType(data['credit_rating'], CreditRating);
             }
             if (data.hasOwnProperty('coupon_start_at')) {
                 obj['coupon_start_at'] = ApiClient.convertToType(data['coupon_start_at'], 'Date');
@@ -172,6 +180,16 @@ Bond.prototype['coupon_kind'] = undefined;
  * @member {module:model/BondKind} bond_kind
  */
 Bond.prototype['bond_kind'] = undefined;
+
+/**
+ * @member {module:model/BondRunStatus} bond_run_status
+ */
+Bond.prototype['bond_run_status'] = undefined;
+
+/**
+ * @member {module:model/CreditRating} credit_rating
+ */
+Bond.prototype['credit_rating'] = undefined;
 
 /**
  * @member {Date} coupon_start_at

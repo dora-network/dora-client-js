@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **kind** | [**CouponKind**](CouponKind.md) |  | 
 **couponKind** | [**CouponKind**](CouponKind.md) |  | [optional] 
 **bondKind** | [**BondKind**](BondKind.md) |  | [optional] 
+**bondRunStatus** | [**BondRunStatus**](BondRunStatus.md) |  | [optional] 
+**creditRating** | [**CreditRating**](CreditRating.md) |  | [optional] 
 **couponStartAt** | **Date** |  | [optional] 
 **createdAt** | **Date** |  | 
 **finalCouponAt** | **Date** |  | [optional] 

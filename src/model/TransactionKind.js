@@ -187,6 +187,41 @@ export default class TransactionKind {
         "INTERNAL_TRANSFER" = "INTERNAL_TRANSFER";
 
     
+        /**
+         * value: "ISOLATE_AVAILABLE"
+         * @const
+         */
+        "ISOLATE_AVAILABLE" = "ISOLATE_AVAILABLE";
+
+    
+        /**
+         * value: "BORROW"
+         * @const
+         */
+        "BORROW" = "BORROW";
+
+    
+        /**
+         * value: "TRADING_CHALLENGE_DEPOSIT"
+         * @const
+         */
+        "TRADING_CHALLENGE_DEPOSIT" = "TRADING_CHALLENGE_DEPOSIT";
+
+    
+        /**
+         * value: "TRADING_CHALLENGE_WITHDRAW"
+         * @const
+         */
+        "TRADING_CHALLENGE_WITHDRAW" = "TRADING_CHALLENGE_WITHDRAW";
+
+    
+        /**
+         * value: "TRADING_FEE"
+         * @const
+         */
+        "TRADING_FEE" = "TRADING_FEE";
+
+    
 
     /**
     * Returns a <code>TransactionKind</code> enum value from a Javascript object name.

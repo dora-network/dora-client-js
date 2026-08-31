@@ -25,14 +25,20 @@ class PnLRankingResponse {
      * @param userId {String} 
      * @param firstName {String} 
      * @param totalPnl {String} 
+     * @param realizedPnl {String} Cumulative realized PnL across the user's full trading lifetime.
      * @param totalTrades {Number} 
      * @param winningTrades {Number} 
      * @param losingTrades {Number} 
      * @param winRate {String} 
+     * @param dailyTradingVolume {String} Executed trading volume for the current UTC day.
+     * @param totalTradingVolume {String} Cumulative executed trading volume across all UTC trading days.
+     * @param activeTradingDays {Number} Number of distinct UTC days on which the user has at least one executed fill.
+     * @param activated {Boolean} True once the user has traded on at least 5 distinct UTC days.
+     * @param kycApproved {Boolean} Whether the user is currently considered KYC/verification approved.
      */
-    constructor(userId, firstName, totalPnl, totalTrades, winningTrades, losingTrades, winRate) { 
+    constructor(userId, firstName, totalPnl, realizedPnl, totalTrades, winningTrades, losingTrades, winRate, dailyTradingVolume, totalTradingVolume, activeTradingDays, activated, kycApproved) { 
         
-        PnLRankingResponse.initialize(this, userId, firstName, totalPnl, totalTrades, winningTrades, losingTrades, winRate);
+        PnLRankingResponse.initialize(this, userId, firstName, totalPnl, realizedPnl, totalTrades, winningTrades, losingTrades, winRate, dailyTradingVolume, totalTradingVolume, activeTradingDays, activated, kycApproved);
     }
 
     /**
@@ -40,14 +46,20 @@ class PnLRankingResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, userId, firstName, totalPnl, totalTrades, winningTrades, losingTrades, winRate) { 
+    static initialize(obj, userId, firstName, totalPnl, realizedPnl, totalTrades, winningTrades, losingTrades, winRate, dailyTradingVolume, totalTradingVolume, activeTradingDays, activated, kycApproved) { 
         obj['user_id'] = userId;
         obj['first_name'] = firstName;
         obj['total_pnl'] = totalPnl;
+        obj['realized_pnl'] = realizedPnl;
         obj['total_trades'] = totalTrades;
         obj['winning_trades'] = winningTrades;
         obj['losing_trades'] = losingTrades;
         obj['win_rate'] = winRate;
+        obj['daily_trading_volume'] = dailyTradingVolume;
+        obj['total_trading_volume'] = totalTradingVolume;
+        obj['active_trading_days'] = activeTradingDays;
+        obj['activated'] = activated;
+        obj['kyc_approved'] = kycApproved;
     }
 
     /**
@@ -70,6 +82,9 @@ class PnLRankingResponse {
             if (data.hasOwnProperty('total_pnl')) {
                 obj['total_pnl'] = ApiClient.convertToType(data['total_pnl'], 'String');
             }
+            if (data.hasOwnProperty('realized_pnl')) {
+                obj['realized_pnl'] = ApiClient.convertToType(data['realized_pnl'], 'String');
+            }
             if (data.hasOwnProperty('total_trades')) {
                 obj['total_trades'] = ApiClient.convertToType(data['total_trades'], 'Number');
             }
@@ -81,6 +96,21 @@ class PnLRankingResponse {
             }
             if (data.hasOwnProperty('win_rate')) {
                 obj['win_rate'] = ApiClient.convertToType(data['win_rate'], 'String');
+            }
+            if (data.hasOwnProperty('daily_trading_volume')) {
+                obj['daily_trading_volume'] = ApiClient.convertToType(data['daily_trading_volume'], 'String');
+            }
+            if (data.hasOwnProperty('total_trading_volume')) {
+                obj['total_trading_volume'] = ApiClient.convertToType(data['total_trading_volume'], 'String');
+            }
+            if (data.hasOwnProperty('active_trading_days')) {
+                obj['active_trading_days'] = ApiClient.convertToType(data['active_trading_days'], 'Number');
+            }
+            if (data.hasOwnProperty('activated')) {
+                obj['activated'] = ApiClient.convertToType(data['activated'], 'Boolean');
+            }
+            if (data.hasOwnProperty('kyc_approved')) {
+                obj['kyc_approved'] = ApiClient.convertToType(data['kyc_approved'], 'Boolean');
             }
         }
         return obj;
@@ -111,8 +141,20 @@ class PnLRankingResponse {
             throw new Error("Expected the field `total_pnl` to be a primitive type in the JSON string but got " + data['total_pnl']);
         }
         // ensure the json data is a string
+        if (data['realized_pnl'] && !(typeof data['realized_pnl'] === 'string' || data['realized_pnl'] instanceof String)) {
+            throw new Error("Expected the field `realized_pnl` to be a primitive type in the JSON string but got " + data['realized_pnl']);
+        }
+        // ensure the json data is a string
         if (data['win_rate'] && !(typeof data['win_rate'] === 'string' || data['win_rate'] instanceof String)) {
             throw new Error("Expected the field `win_rate` to be a primitive type in the JSON string but got " + data['win_rate']);
+        }
+        // ensure the json data is a string
+        if (data['daily_trading_volume'] && !(typeof data['daily_trading_volume'] === 'string' || data['daily_trading_volume'] instanceof String)) {
+            throw new Error("Expected the field `daily_trading_volume` to be a primitive type in the JSON string but got " + data['daily_trading_volume']);
+        }
+        // ensure the json data is a string
+        if (data['total_trading_volume'] && !(typeof data['total_trading_volume'] === 'string' || data['total_trading_volume'] instanceof String)) {
+            throw new Error("Expected the field `total_trading_volume` to be a primitive type in the JSON string but got " + data['total_trading_volume']);
         }
 
         return true;
@@ -121,7 +163,7 @@ class PnLRankingResponse {
 
 }
 
-PnLRankingResponse.RequiredProperties = ["user_id", "first_name", "total_pnl", "total_trades", "winning_trades", "losing_trades", "win_rate"];
+PnLRankingResponse.RequiredProperties = ["user_id", "first_name", "total_pnl", "realized_pnl", "total_trades", "winning_trades", "losing_trades", "win_rate", "daily_trading_volume", "total_trading_volume", "active_trading_days", "activated", "kyc_approved"];
 
 /**
  * @member {String} user_id
@@ -137,6 +179,12 @@ PnLRankingResponse.prototype['first_name'] = undefined;
  * @member {String} total_pnl
  */
 PnLRankingResponse.prototype['total_pnl'] = undefined;
+
+/**
+ * Cumulative realized PnL across the user's full trading lifetime.
+ * @member {String} realized_pnl
+ */
+PnLRankingResponse.prototype['realized_pnl'] = undefined;
 
 /**
  * @member {Number} total_trades
@@ -157,6 +205,36 @@ PnLRankingResponse.prototype['losing_trades'] = undefined;
  * @member {String} win_rate
  */
 PnLRankingResponse.prototype['win_rate'] = undefined;
+
+/**
+ * Executed trading volume for the current UTC day.
+ * @member {String} daily_trading_volume
+ */
+PnLRankingResponse.prototype['daily_trading_volume'] = undefined;
+
+/**
+ * Cumulative executed trading volume across all UTC trading days.
+ * @member {String} total_trading_volume
+ */
+PnLRankingResponse.prototype['total_trading_volume'] = undefined;
+
+/**
+ * Number of distinct UTC days on which the user has at least one executed fill.
+ * @member {Number} active_trading_days
+ */
+PnLRankingResponse.prototype['active_trading_days'] = undefined;
+
+/**
+ * True once the user has traded on at least 5 distinct UTC days.
+ * @member {Boolean} activated
+ */
+PnLRankingResponse.prototype['activated'] = undefined;
+
+/**
+ * Whether the user is currently considered KYC/verification approved.
+ * @member {Boolean} kyc_approved
+ */
+PnLRankingResponse.prototype['kyc_approved'] = undefined;
 
 
 

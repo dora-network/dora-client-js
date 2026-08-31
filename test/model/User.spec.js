@@ -132,6 +132,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property managedCompetitionIds (base name: "managed_competition_ids")', function() {
+      // uncomment below and update the code to test the property managedCompetitionIds
+      //var instance = new Dora.User();
+      //expect(instance).to.be();
+    });
+
     it('should have the property timezone (base name: "timezone")', function() {
       // uncomment below and update the code to test the property timezone
       //var instance = new Dora.User();

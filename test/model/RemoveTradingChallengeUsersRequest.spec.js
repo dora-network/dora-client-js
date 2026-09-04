@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property emails (base name: "emails")', function() {
+      // uncomment below and update the code to test the property emails
+      //var instance = new Dora.RemoveTradingChallengeUsersRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

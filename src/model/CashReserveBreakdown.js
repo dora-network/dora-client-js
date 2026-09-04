@@ -25,7 +25,7 @@ class CashReserveBreakdown {
      * @alias module:model/CashReserveBreakdown
      * @param completedPac {String} Completed PAC (partially accrued coupon) obligations the user owes, in USD.
      * @param outstandingLai {String} Outstanding LAI (leverage accrued interest) the user owes, in USD.
-     * @param estimatedFees {String} Estimated trading fees for the current settlement period, capped at a configured fraction (1% by default) of the user's traded USD volume since 00:00:00 UTC.
+     * @param estimatedFees {String} Estimated trading fees for the current settlement period, capped at a configured fraction (1% by default) of the user's traded USD volume since 00:00:00 UTC plus the USD notional their open orders are still going to trade.
      * @param borrowedPortion {String} Configured fraction (10% by default) of the user's total outstanding borrowed value, in USD.
      * @param floor {String} Configured absolute minimum requirement, in USD.
      * @param total {String} The amount of USD the user must keep available in their Global Account.
@@ -140,7 +140,7 @@ CashReserveBreakdown.prototype['completed_pac'] = undefined;
 CashReserveBreakdown.prototype['outstanding_lai'] = undefined;
 
 /**
- * Estimated trading fees for the current settlement period, capped at a configured fraction (1% by default) of the user's traded USD volume since 00:00:00 UTC.
+ * Estimated trading fees for the current settlement period, capped at a configured fraction (1% by default) of the user's traded USD volume since 00:00:00 UTC plus the USD notional their open orders are still going to trade.
  * @member {String} estimated_fees
  */
 CashReserveBreakdown.prototype['estimated_fees'] = undefined;

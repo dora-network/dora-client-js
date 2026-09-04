@@ -22,12 +22,10 @@ class RemoveTradingChallengeUsersRequest {
     /**
      * Constructs a new <code>RemoveTradingChallengeUsersRequest</code>.
      * @alias module:model/RemoveTradingChallengeUsersRequest
-     * @param tradingChallengeId {String} 
-     * @param users {Array.<String>} 
      */
-    constructor(tradingChallengeId, users) { 
+    constructor() { 
         
-        RemoveTradingChallengeUsersRequest.initialize(this, tradingChallengeId, users);
+        RemoveTradingChallengeUsersRequest.initialize(this);
     }
 
     /**
@@ -35,9 +33,8 @@ class RemoveTradingChallengeUsersRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, tradingChallengeId, users) { 
+    static initialize(obj) { 
         obj['trading_challenge_id'] = tradingChallengeId;
-        obj['users'] = users;
     }
 
     /**
@@ -56,6 +53,9 @@ class RemoveTradingChallengeUsersRequest {
             }
             if (data.hasOwnProperty('users')) {
                 obj['users'] = ApiClient.convertToType(data['users'], ['String']);
+            }
+            if (data.hasOwnProperty('emails')) {
+                obj['emails'] = ApiClient.convertToType(data['emails'], ['String']);
             }
         }
         return obj;
@@ -81,6 +81,10 @@ class RemoveTradingChallengeUsersRequest {
         if (!Array.isArray(data['users'])) {
             throw new Error("Expected the field `users` to be an array in the JSON data but got " + data['users']);
         }
+        // ensure the json data is an array
+        if (!Array.isArray(data['emails'])) {
+            throw new Error("Expected the field `emails` to be an array in the JSON data but got " + data['emails']);
+        }
 
         return true;
     }
@@ -88,7 +92,7 @@ class RemoveTradingChallengeUsersRequest {
 
 }
 
-RemoveTradingChallengeUsersRequest.RequiredProperties = ["trading_challenge_id", "users"];
+RemoveTradingChallengeUsersRequest.RequiredProperties = ["trading_challenge_id"];
 
 /**
  * @member {String} trading_challenge_id
@@ -96,9 +100,16 @@ RemoveTradingChallengeUsersRequest.RequiredProperties = ["trading_challenge_id",
 RemoveTradingChallengeUsersRequest.prototype['trading_challenge_id'] = undefined;
 
 /**
+ * List of user IDs to remove. Provide exactly one of users or emails.
  * @member {Array.<String>} users
  */
 RemoveTradingChallengeUsersRequest.prototype['users'] = undefined;
+
+/**
+ * List of user emails to remove. Provide exactly one of users or emails.
+ * @member {Array.<String>} emails
+ */
+RemoveTradingChallengeUsersRequest.prototype['emails'] = undefined;
 
 
 

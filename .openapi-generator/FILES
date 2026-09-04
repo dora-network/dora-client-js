@@ -70,6 +70,8 @@ docs/DepositInstructionForChain.md
 docs/DepositInstructionsResponse.md
 docs/DepositInstructionsResponseEnvelope.md
 docs/DepositResponse.md
+docs/FeeQuoteResponse.md
+docs/FeeQuoteResponseEnvelope.md
 docs/FundUser.md
 docs/FundUserRequest.md
 docs/FundUserResponseEnvelope.md
@@ -344,6 +346,8 @@ src/model/DepositInstructionForChain.js
 src/model/DepositInstructionsResponse.js
 src/model/DepositInstructionsResponseEnvelope.js
 src/model/DepositResponse.js
+src/model/FeeQuoteResponse.js
+src/model/FeeQuoteResponseEnvelope.js
 src/model/FundUser.js
 src/model/FundUserRequest.js
 src/model/FundUserResponseEnvelope.js
@@ -613,6 +617,8 @@ test/model/DepositInstructionForChain.spec.js
 test/model/DepositInstructionsResponse.spec.js
 test/model/DepositInstructionsResponseEnvelope.spec.js
 test/model/DepositResponse.spec.js
+test/model/FeeQuoteResponse.spec.js
+test/model/FeeQuoteResponseEnvelope.spec.js
 test/model/FundUser.spec.js
 test/model/FundUserRequest.spec.js
 test/model/FundUserResponseEnvelope.spec.js

@@ -206,6 +206,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getUserTransactionsStream**](docs/DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#39;s executed transactions since a specific time, and opens a stream for further updates
 *Dora.DefaultApi* | [**getUsers**](docs/DefaultApi.md#getUsers) | **GET** /v1/user | Get all users (admin only)
 *Dora.DefaultApi* | [**getUsersAPIKeys**](docs/DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#39;s api keys
+*Dora.DefaultApi* | [**getWithdrawalFeeQuote**](docs/DefaultApi.md#getWithdrawalFeeQuote) | **GET** /v1/web3/withdrawals/fee-quote | Estimate the network fee to withdraw USDC via web3
 *Dora.DefaultApi* | [**ledgerDeposit**](docs/DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit/{user_id} | Deposit assets into this user&#39;s account from the outside world
 *Dora.DefaultApi* | [**ledgerWithdraw**](docs/DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw/{user_id} | Withdraw assets from this user to the outside world
 *Dora.DefaultApi* | [**ledgerWithdrawRequest**](docs/DefaultApi.md#ledgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{user_id} | Initiate a withdrawal request for this user to the outside world
@@ -324,6 +325,8 @@ Class | Method | HTTP request | Description
  - [Dora.DepositInstructionsResponse](docs/DepositInstructionsResponse.md)
  - [Dora.DepositInstructionsResponseEnvelope](docs/DepositInstructionsResponseEnvelope.md)
  - [Dora.DepositResponse](docs/DepositResponse.md)
+ - [Dora.FeeQuoteResponse](docs/FeeQuoteResponse.md)
+ - [Dora.FeeQuoteResponseEnvelope](docs/FeeQuoteResponseEnvelope.md)
  - [Dora.FundUser](docs/FundUser.md)
  - [Dora.FundUserRequest](docs/FundUserRequest.md)
  - [Dora.FundUserResponseEnvelope](docs/FundUserResponseEnvelope.md)

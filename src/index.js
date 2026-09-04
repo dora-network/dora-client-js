@@ -80,6 +80,8 @@ import DepositInstructionForChain from './model/DepositInstructionForChain';
 import DepositInstructionsResponse from './model/DepositInstructionsResponse';
 import DepositInstructionsResponseEnvelope from './model/DepositInstructionsResponseEnvelope';
 import DepositResponse from './model/DepositResponse';
+import FeeQuoteResponse from './model/FeeQuoteResponse';
+import FeeQuoteResponseEnvelope from './model/FeeQuoteResponseEnvelope';
 import FundUser from './model/FundUser';
 import FundUserRequest from './model/FundUserRequest';
 import FundUserResponseEnvelope from './model/FundUserResponseEnvelope';
@@ -723,6 +725,18 @@ export {
      * @property {module:model/DepositResponse}
      */
     DepositResponse,
+
+    /**
+     * The FeeQuoteResponse model constructor.
+     * @property {module:model/FeeQuoteResponse}
+     */
+    FeeQuoteResponse,
+
+    /**
+     * The FeeQuoteResponseEnvelope model constructor.
+     * @property {module:model/FeeQuoteResponseEnvelope}
+     */
+    FeeQuoteResponseEnvelope,
 
     /**
      * The FundUser model constructor.

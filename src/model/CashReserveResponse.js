@@ -28,11 +28,13 @@ class CashReserveResponse {
      * @param committedUsd {String} USD still counted in available_usd but already claimed by the user's open market buy orders on the Global Account, which reserve no funds at submission time. The reserve is evaluated against available_usd minus committed_usd.
      * @param requiredUsd {String} The user's minimum USD cash reserve requirement.
      * @param satisfied {Boolean} Whether available_usd minus committed_usd is at least required_usd.
+     * @param maxVolumeUsd {String} How much more traded USD notional the user can add to the current settlement period before the reserve stops being covered, for an order that borrows nothing. Null means the fee leg does not constrain the user, because the guard is disabled or the trading fee volume cap is zero.
+     * @param maxBorrowUsd {String} How much more the user can borrow before the reserve stops being covered, for an order that adds no traded volume. Null means the borrow leg does not constrain the user, because the guard is disabled or the borrowed fraction is zero. The two caps are single axis: a leveraged order consumes both at once and is admissible when notional/max_volume_usd + borrowed/max_borrow_usd <= 1.
      * @param breakdown {module:model/CashReserveBreakdown} 
      */
-    constructor(enforced, availableUsd, committedUsd, requiredUsd, satisfied, breakdown) { 
+    constructor(enforced, availableUsd, committedUsd, requiredUsd, satisfied, maxVolumeUsd, maxBorrowUsd, breakdown) { 
         
-        CashReserveResponse.initialize(this, enforced, availableUsd, committedUsd, requiredUsd, satisfied, breakdown);
+        CashReserveResponse.initialize(this, enforced, availableUsd, committedUsd, requiredUsd, satisfied, maxVolumeUsd, maxBorrowUsd, breakdown);
     }
 
     /**
@@ -40,12 +42,14 @@ class CashReserveResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, enforced, availableUsd, committedUsd, requiredUsd, satisfied, breakdown) { 
+    static initialize(obj, enforced, availableUsd, committedUsd, requiredUsd, satisfied, maxVolumeUsd, maxBorrowUsd, breakdown) { 
         obj['enforced'] = enforced;
         obj['available_usd'] = availableUsd;
         obj['committed_usd'] = committedUsd;
         obj['required_usd'] = requiredUsd;
         obj['satisfied'] = satisfied;
+        obj['max_volume_usd'] = maxVolumeUsd;
+        obj['max_borrow_usd'] = maxBorrowUsd;
         obj['breakdown'] = breakdown;
     }
 
@@ -74,6 +78,12 @@ class CashReserveResponse {
             }
             if (data.hasOwnProperty('satisfied')) {
                 obj['satisfied'] = ApiClient.convertToType(data['satisfied'], 'Boolean');
+            }
+            if (data.hasOwnProperty('max_volume_usd')) {
+                obj['max_volume_usd'] = ApiClient.convertToType(data['max_volume_usd'], 'String');
+            }
+            if (data.hasOwnProperty('max_borrow_usd')) {
+                obj['max_borrow_usd'] = ApiClient.convertToType(data['max_borrow_usd'], 'String');
             }
             if (data.hasOwnProperty('breakdown')) {
                 obj['breakdown'] = CashReserveBreakdown.constructFromObject(data['breakdown']);
@@ -106,6 +116,14 @@ class CashReserveResponse {
         if (data['required_usd'] && !(typeof data['required_usd'] === 'string' || data['required_usd'] instanceof String)) {
             throw new Error("Expected the field `required_usd` to be a primitive type in the JSON string but got " + data['required_usd']);
         }
+        // ensure the json data is a string
+        if (data['max_volume_usd'] && !(typeof data['max_volume_usd'] === 'string' || data['max_volume_usd'] instanceof String)) {
+            throw new Error("Expected the field `max_volume_usd` to be a primitive type in the JSON string but got " + data['max_volume_usd']);
+        }
+        // ensure the json data is a string
+        if (data['max_borrow_usd'] && !(typeof data['max_borrow_usd'] === 'string' || data['max_borrow_usd'] instanceof String)) {
+            throw new Error("Expected the field `max_borrow_usd` to be a primitive type in the JSON string but got " + data['max_borrow_usd']);
+        }
         // validate the optional field `breakdown`
         if (data['breakdown']) { // data not null
           CashReserveBreakdown.validateJSON(data['breakdown']);
@@ -117,7 +135,7 @@ class CashReserveResponse {
 
 }
 
-CashReserveResponse.RequiredProperties = ["enforced", "available_usd", "committed_usd", "required_usd", "satisfied", "breakdown"];
+CashReserveResponse.RequiredProperties = ["enforced", "available_usd", "committed_usd", "required_usd", "satisfied", "max_volume_usd", "max_borrow_usd", "breakdown"];
 
 /**
  * Whether the minimum cash reserve guard is active in this environment.
@@ -148,6 +166,18 @@ CashReserveResponse.prototype['required_usd'] = undefined;
  * @member {Boolean} satisfied
  */
 CashReserveResponse.prototype['satisfied'] = undefined;
+
+/**
+ * How much more traded USD notional the user can add to the current settlement period before the reserve stops being covered, for an order that borrows nothing. Null means the fee leg does not constrain the user, because the guard is disabled or the trading fee volume cap is zero.
+ * @member {String} max_volume_usd
+ */
+CashReserveResponse.prototype['max_volume_usd'] = undefined;
+
+/**
+ * How much more the user can borrow before the reserve stops being covered, for an order that adds no traded volume. Null means the borrow leg does not constrain the user, because the guard is disabled or the borrowed fraction is zero. The two caps are single axis: a leveraged order consumes both at once and is admissible when notional/max_volume_usd + borrowed/max_borrow_usd <= 1.
+ * @member {String} max_borrow_usd
+ */
+CashReserveResponse.prototype['max_borrow_usd'] = undefined;
 
 /**
  * @member {module:model/CashReserveBreakdown} breakdown

@@ -80,6 +80,7 @@ Method | HTTP request | Description
 [**getUserTransactionsStream**](DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#39;s executed transactions since a specific time, and opens a stream for further updates
 [**getUsers**](DefaultApi.md#getUsers) | **GET** /v1/user | Get all users (admin only)
 [**getUsersAPIKeys**](DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#39;s api keys
+[**getWithdrawalFeeQuote**](DefaultApi.md#getWithdrawalFeeQuote) | **GET** /v1/web3/withdrawals/fee-quote | Estimate the network fee to withdraw USDC via web3
 [**ledgerDeposit**](DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit/{user_id} | Deposit assets into this user&#39;s account from the outside world
 [**ledgerWithdraw**](DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw/{user_id} | Withdraw assets from this user to the outside world
 [**ledgerWithdrawRequest**](DefaultApi.md#ledgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{user_id} | Initiate a withdrawal request for this user to the outside world
@@ -4050,6 +4051,62 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**APIKeyResponseEnvelope**](APIKeyResponseEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getWithdrawalFeeQuote
+
+> FeeQuoteResponseEnvelope getWithdrawalFeeQuote(to, quantity)
+
+Estimate the network fee to withdraw USDC via web3
+
+Examines on-chain conditions and simulates a withdrawal transaction to estimate the fee a user needs to pay when they make their withdrawal request. Restricted to DORA tenant users whose native asset is USDC.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let to = "to_example"; // String | The destination wallet address as a 0x-prefixed 20-byte hex string. Must not be the zero address.
+let quantity = "quantity_example"; // String | Human-decimal USDC quantity to withdraw, e.g. '100.50'. Must be positive.
+apiInstance.getWithdrawalFeeQuote(to, quantity, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **to** | **String**| The destination wallet address as a 0x-prefixed 20-byte hex string. Must not be the zero address. | 
+ **quantity** | **String**| Human-decimal USDC quantity to withdraw, e.g. &#39;100.50&#39;. Must be positive. | 
+
+### Return type
+
+[**FeeQuoteResponseEnvelope**](FeeQuoteResponseEnvelope.md)
 
 ### Authorization
 

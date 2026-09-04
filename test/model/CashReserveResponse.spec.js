@@ -84,6 +84,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property maxVolumeUsd (base name: "max_volume_usd")', function() {
+      // uncomment below and update the code to test the property maxVolumeUsd
+      //var instance = new Dora.CashReserveResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property maxBorrowUsd (base name: "max_borrow_usd")', function() {
+      // uncomment below and update the code to test the property maxBorrowUsd
+      //var instance = new Dora.CashReserveResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property breakdown (base name: "breakdown")', function() {
       // uncomment below and update the code to test the property breakdown
       //var instance = new Dora.CashReserveResponse();

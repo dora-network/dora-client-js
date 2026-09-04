@@ -808,6 +808,16 @@
         done();
       });
     });
+    describe('getWithdrawalFeeQuote', function() {
+      it('should call getWithdrawalFeeQuote successfully', function(done) {
+        //uncomment below and update the code to test getWithdrawalFeeQuote
+        //instance.getWithdrawalFeeQuote(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('ledgerDeposit', function() {
       it('should call ledgerDeposit successfully', function(done) {
         //uncomment below and update the code to test ledgerDeposit

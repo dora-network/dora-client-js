@@ -43,6 +43,7 @@ import CreateTradingChallengeRequest from '../model/CreateTradingChallengeReques
 import CurrentLeverageAccruedInterestResponseEnvelope from '../model/CurrentLeverageAccruedInterestResponseEnvelope';
 import DefundUserRequest from '../model/DefundUserRequest';
 import DepositInstructionsResponseEnvelope from '../model/DepositInstructionsResponseEnvelope';
+import FeeQuoteResponseEnvelope from '../model/FeeQuoteResponseEnvelope';
 import FundUserRequest from '../model/FundUserRequest';
 import FundUserResponseEnvelope from '../model/FundUserResponseEnvelope';
 import GetAssetByIDResponseEnvelope from '../model/GetAssetByIDResponseEnvelope';
@@ -3453,6 +3454,55 @@ export default class DefaultApi {
       let returnType = APIKeyResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/user/apikey', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getWithdrawalFeeQuote operation.
+     * @callback module:api/DefaultApi~getWithdrawalFeeQuoteCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/FeeQuoteResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Estimate the network fee to withdraw USDC via web3
+     * Examines on-chain conditions and simulates a withdrawal transaction to estimate the fee a user needs to pay when they make their withdrawal request. Restricted to DORA tenant users whose native asset is USDC.
+     * @param {String} to The destination wallet address as a 0x-prefixed 20-byte hex string. Must not be the zero address.
+     * @param {String} quantity Human-decimal USDC quantity to withdraw, e.g. '100.50'. Must be positive.
+     * @param {module:api/DefaultApi~getWithdrawalFeeQuoteCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/FeeQuoteResponseEnvelope}
+     */
+    getWithdrawalFeeQuote(to, quantity, callback) {
+      let postBody = null;
+      // verify the required parameter 'to' is set
+      if (to === undefined || to === null) {
+        throw new Error("Missing the required parameter 'to' when calling getWithdrawalFeeQuote");
+      }
+      // verify the required parameter 'quantity' is set
+      if (quantity === undefined || quantity === null) {
+        throw new Error("Missing the required parameter 'quantity' when calling getWithdrawalFeeQuote");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'to': to,
+        'quantity': quantity
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = FeeQuoteResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/web3/withdrawals/fee-quote', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.AddTradingChallengeUsersRequest();
+    instance = new Dora.FeeQuoteResponseEnvelope();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,28 @@
       object[property] = value;
   }
 
-  describe('AddTradingChallengeUsersRequest', function() {
-    it('should create an instance of AddTradingChallengeUsersRequest', function() {
-      // uncomment below and update the code to test AddTradingChallengeUsersRequest
-      //var instance = new Dora.AddTradingChallengeUsersRequest();
-      //expect(instance).to.be.a(Dora.AddTradingChallengeUsersRequest);
+  describe('FeeQuoteResponseEnvelope', function() {
+    it('should create an instance of FeeQuoteResponseEnvelope', function() {
+      // uncomment below and update the code to test FeeQuoteResponseEnvelope
+      //var instance = new Dora.FeeQuoteResponseEnvelope();
+      //expect(instance).to.be.a(Dora.FeeQuoteResponseEnvelope);
     });
 
-    it('should have the property tradingChallengeId (base name: "trading_challenge_id")', function() {
-      // uncomment below and update the code to test the property tradingChallengeId
-      //var instance = new Dora.AddTradingChallengeUsersRequest();
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
+      //var instance = new Dora.FeeQuoteResponseEnvelope();
       //expect(instance).to.be();
     });
 
-    it('should have the property users (base name: "users")', function() {
-      // uncomment below and update the code to test the property users
-      //var instance = new Dora.AddTradingChallengeUsersRequest();
+    it('should have the property error (base name: "error")', function() {
+      // uncomment below and update the code to test the property error
+      //var instance = new Dora.FeeQuoteResponseEnvelope();
       //expect(instance).to.be();
     });
 
-    it('should have the property emails (base name: "emails")', function() {
-      // uncomment below and update the code to test the property emails
-      //var instance = new Dora.AddTradingChallengeUsersRequest();
+    it('should have the property metadata (base name: "metadata")', function() {
+      // uncomment below and update the code to test the property metadata
+      //var instance = new Dora.FeeQuoteResponseEnvelope();
       //expect(instance).to.be();
     });
 

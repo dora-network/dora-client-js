@@ -23,13 +23,13 @@ class TenantRestrictions {
      * Constructs a new <code>TenantRestrictions</code>.
      * @alias module:model/TenantRestrictions
      * @param tenantId {String} Tenant ID
-     * @param depositLimit {String} Maximum allowed deposit for the tenant.
+     * @param dailyDepositLimit {String} Maximum allowed deposit for the tenant per day.
      * @param tradeLimit {String} Maximum allowed trade amount for the tenant.
      * @param updatedAt {Date} Last update timestamp for the restrictions.
      */
-    constructor(tenantId, depositLimit, tradeLimit, updatedAt) { 
+    constructor(tenantId, dailyDepositLimit, tradeLimit, updatedAt) { 
         
-        TenantRestrictions.initialize(this, tenantId, depositLimit, tradeLimit, updatedAt);
+        TenantRestrictions.initialize(this, tenantId, dailyDepositLimit, tradeLimit, updatedAt);
     }
 
     /**
@@ -37,9 +37,9 @@ class TenantRestrictions {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, tenantId, depositLimit, tradeLimit, updatedAt) { 
+    static initialize(obj, tenantId, dailyDepositLimit, tradeLimit, updatedAt) { 
         obj['tenant_id'] = tenantId;
-        obj['deposit_limit'] = depositLimit;
+        obj['daily_deposit_limit'] = dailyDepositLimit;
         obj['trade_limit'] = tradeLimit;
         obj['updated_at'] = updatedAt;
     }
@@ -58,8 +58,8 @@ class TenantRestrictions {
             if (data.hasOwnProperty('tenant_id')) {
                 obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
             }
-            if (data.hasOwnProperty('deposit_limit')) {
-                obj['deposit_limit'] = ApiClient.convertToType(data['deposit_limit'], 'String');
+            if (data.hasOwnProperty('daily_deposit_limit')) {
+                obj['daily_deposit_limit'] = ApiClient.convertToType(data['daily_deposit_limit'], 'String');
             }
             if (data.hasOwnProperty('trade_limit')) {
                 obj['trade_limit'] = ApiClient.convertToType(data['trade_limit'], 'String');
@@ -88,8 +88,8 @@ class TenantRestrictions {
             throw new Error("Expected the field `tenant_id` to be a primitive type in the JSON string but got " + data['tenant_id']);
         }
         // ensure the json data is a string
-        if (data['deposit_limit'] && !(typeof data['deposit_limit'] === 'string' || data['deposit_limit'] instanceof String)) {
-            throw new Error("Expected the field `deposit_limit` to be a primitive type in the JSON string but got " + data['deposit_limit']);
+        if (data['daily_deposit_limit'] && !(typeof data['daily_deposit_limit'] === 'string' || data['daily_deposit_limit'] instanceof String)) {
+            throw new Error("Expected the field `daily_deposit_limit` to be a primitive type in the JSON string but got " + data['daily_deposit_limit']);
         }
         // ensure the json data is a string
         if (data['trade_limit'] && !(typeof data['trade_limit'] === 'string' || data['trade_limit'] instanceof String)) {
@@ -102,7 +102,7 @@ class TenantRestrictions {
 
 }
 
-TenantRestrictions.RequiredProperties = ["tenant_id", "deposit_limit", "trade_limit", "updated_at"];
+TenantRestrictions.RequiredProperties = ["tenant_id", "daily_deposit_limit", "trade_limit", "updated_at"];
 
 /**
  * Tenant ID
@@ -111,10 +111,10 @@ TenantRestrictions.RequiredProperties = ["tenant_id", "deposit_limit", "trade_li
 TenantRestrictions.prototype['tenant_id'] = undefined;
 
 /**
- * Maximum allowed deposit for the tenant.
- * @member {String} deposit_limit
+ * Maximum allowed deposit for the tenant per day.
+ * @member {String} daily_deposit_limit
  */
-TenantRestrictions.prototype['deposit_limit'] = undefined;
+TenantRestrictions.prototype['daily_deposit_limit'] = undefined;
 
 /**
  * Maximum allowed trade amount for the tenant.

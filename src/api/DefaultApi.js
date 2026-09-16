@@ -15,6 +15,15 @@
 import ApiClient from "../ApiClient";
 import APIKeyResponseEnvelope from '../model/APIKeyResponseEnvelope';
 import AddTradingChallengeUsersRequest from '../model/AddTradingChallengeUsersRequest';
+import AffiliateAttributionEnvelope from '../model/AffiliateAttributionEnvelope';
+import AffiliateCashFlowReportEnvelope from '../model/AffiliateCashFlowReportEnvelope';
+import AffiliateError from '../model/AffiliateError';
+import AffiliateMembershipListEnvelope from '../model/AffiliateMembershipListEnvelope';
+import AffiliateProgramEnvelope from '../model/AffiliateProgramEnvelope';
+import AffiliateProgramListEnvelope from '../model/AffiliateProgramListEnvelope';
+import AffiliateReferralReportEnvelope from '../model/AffiliateReferralReportEnvelope';
+import AffiliateReferrerEnvelope from '../model/AffiliateReferrerEnvelope';
+import AffiliateReferrerListEnvelope from '../model/AffiliateReferrerListEnvelope';
 import AllPositionsResponseEnvelope from '../model/AllPositionsResponseEnvelope';
 import AllWithdrawalInitiationsResponseEnvelope from '../model/AllWithdrawalInitiationsResponseEnvelope';
 import AssetKind from '../model/AssetKind';
@@ -22,11 +31,13 @@ import AssetPrice from '../model/AssetPrice';
 import AssetPriceResponseEnvelope from '../model/AssetPriceResponseEnvelope';
 import AssetRequestError from '../model/AssetRequestError';
 import AssetYieldResolution from '../model/AssetYieldResolution';
+import AssignAffiliateReferralRequest from '../model/AssignAffiliateReferralRequest';
 import CancelOrderResponseEnvelope from '../model/CancelOrderResponseEnvelope';
 import CandleResolution from '../model/CandleResolution';
 import CashReserveResponseEnvelope from '../model/CashReserveResponseEnvelope';
 import ClaimLeverageAccruedInterestRequest from '../model/ClaimLeverageAccruedInterestRequest';
 import ClaimLeverageAccruedInterestResponseEnvelope from '../model/ClaimLeverageAccruedInterestResponseEnvelope';
+import ClaimPromoLinkRequest from '../model/ClaimPromoLinkRequest';
 import ClaimTradingChallengeResponseEnvelope from '../model/ClaimTradingChallengeResponseEnvelope';
 import CloseAccountRequest from '../model/CloseAccountRequest';
 import ClosePositionRequest from '../model/ClosePositionRequest';
@@ -34,12 +45,14 @@ import ClosePositionResponseEnvelope from '../model/ClosePositionResponseEnvelop
 import CountryCode from '../model/CountryCode';
 import CreateAPIKeyRequest from '../model/CreateAPIKeyRequest';
 import CreateAPIKeyResponseEnvelope from '../model/CreateAPIKeyResponseEnvelope';
+import CreateAffiliateProgramRequest from '../model/CreateAffiliateProgramRequest';
 import CreateConditionalOrderRequest from '../model/CreateConditionalOrderRequest';
 import CreateConditionalOrderResponseEnvelope from '../model/CreateConditionalOrderResponseEnvelope';
 import CreateIntegratorUserRequest from '../model/CreateIntegratorUserRequest';
 import CreateOrderRequest from '../model/CreateOrderRequest';
 import CreateOrderResponseEnvelope from '../model/CreateOrderResponseEnvelope';
 import CreateTradingChallengeRequest from '../model/CreateTradingChallengeRequest';
+import CreateWithdrawalRequest from '../model/CreateWithdrawalRequest';
 import CurrentLeverageAccruedInterestResponseEnvelope from '../model/CurrentLeverageAccruedInterestResponseEnvelope';
 import DefundUserRequest from '../model/DefundUserRequest';
 import DepositInstructionsResponseEnvelope from '../model/DepositInstructionsResponseEnvelope';
@@ -55,6 +68,8 @@ import GetTopOfBookResponseEnvelope from '../model/GetTopOfBookResponseEnvelope'
 import HistoricalLeverageInterestRatesResponseEnvelope from '../model/HistoricalLeverageInterestRatesResponseEnvelope';
 import IsolateCollateralRequest from '../model/IsolateCollateralRequest';
 import IsolateCollateralResponse from '../model/IsolateCollateralResponse';
+import IssuePromoLinkBatchRequest from '../model/IssuePromoLinkBatchRequest';
+import IssuePromoLinkBatchResponse from '../model/IssuePromoLinkBatchResponse';
 import LedgerAccountsResponseV2Envelope from '../model/LedgerAccountsResponseV2Envelope';
 import LedgerModuleByAssetResponseEnvelope from '../model/LedgerModuleByAssetResponseEnvelope';
 import LedgerModuleResponseEnvelope from '../model/LedgerModuleResponseEnvelope';
@@ -75,6 +90,7 @@ import ListPositionAccountsResponseEnvelope from '../model/ListPositionAccountsR
 import ListTradeResponseEnvelope from '../model/ListTradeResponseEnvelope';
 import ListTransactionsResponseEnvelope from '../model/ListTransactionsResponseEnvelope';
 import ListUsersResponseEnvelope from '../model/ListUsersResponseEnvelope';
+import ListWithdrawalsResponseEnvelope from '../model/ListWithdrawalsResponseEnvelope';
 import LiveOrderbook from '../model/LiveOrderbook';
 import OrderBookResponseEnvelope from '../model/OrderBookResponseEnvelope';
 import OrderBookStatus from '../model/OrderBookStatus';
@@ -89,6 +105,12 @@ import PayLeverageAccruedInterestRequest from '../model/PayLeverageAccruedIntere
 import PayLeverageAccruedInterestResponseEnvelope from '../model/PayLeverageAccruedInterestResponseEnvelope';
 import PoolPriceResponseEnvelope from '../model/PoolPriceResponseEnvelope';
 import PoolRequestError from '../model/PoolRequestError';
+import PromoAttributionResponse from '../model/PromoAttributionResponse';
+import PromoClaimResponseEnvelope from '../model/PromoClaimResponseEnvelope';
+import PromoLinkBatchListResponse from '../model/PromoLinkBatchListResponse';
+import PromoLinkListResponse from '../model/PromoLinkListResponse';
+import PromoLinkStatus from '../model/PromoLinkStatus';
+import RegisterAffiliateReferrerRequest from '../model/RegisterAffiliateReferrerRequest';
 import RemoveTradingChallengeUsersRequest from '../model/RemoveTradingChallengeUsersRequest';
 import RepayUSDRequest from '../model/RepayUSDRequest';
 import RepayUSDResponseEnvelope from '../model/RepayUSDResponseEnvelope';
@@ -96,6 +118,8 @@ import ResponseEnvelope from '../model/ResponseEnvelope';
 import ResponseEnvelopeOfListAssets from '../model/ResponseEnvelopeOfListAssets';
 import ReviewTradingChallengeRegistrationRequest from '../model/ReviewTradingChallengeRegistrationRequest';
 import RevokeAPIKeyResponseEnvelope from '../model/RevokeAPIKeyResponseEnvelope';
+import RevokePromoLinkRequest from '../model/RevokePromoLinkRequest';
+import RevokePromoLinkResponse from '../model/RevokePromoLinkResponse';
 import SettleLeverageAccruedInterestRequest from '../model/SettleLeverageAccruedInterestRequest';
 import SettleLeverageAccruedInterestResponseEnvelope from '../model/SettleLeverageAccruedInterestResponseEnvelope';
 import SettleRealizedPnlRecordResponseEnvelope from '../model/SettleRealizedPnlRecordResponseEnvelope';
@@ -134,6 +158,7 @@ import TransferBalancesRequest from '../model/TransferBalancesRequest';
 import TransferBalancesResponseEnvelope from '../model/TransferBalancesResponseEnvelope';
 import UnitePositionRequest from '../model/UnitePositionRequest';
 import UnitePositionResponseEnvelope from '../model/UnitePositionResponseEnvelope';
+import UpdateAffiliateProgramRequest from '../model/UpdateAffiliateProgramRequest';
 import UpdateTradingChallengeRequest from '../model/UpdateTradingChallengeRequest';
 import UpdateUserConfigRequest from '../model/UpdateUserConfigRequest';
 import UpdateUserKYCRequest from '../model/UpdateUserKYCRequest';
@@ -150,10 +175,12 @@ import UserUpdatedResponseEnvelope from '../model/UserUpdatedResponseEnvelope';
 import UserValueResponseEnvelope from '../model/UserValueResponseEnvelope';
 import ValidateSubmitOrderRequest from '../model/ValidateSubmitOrderRequest';
 import ValidateSubmitOrderResponse from '../model/ValidateSubmitOrderResponse';
+import Web3WithdrawalStatus from '../model/Web3WithdrawalStatus';
 import WithdrawRequest from '../model/WithdrawRequest';
 import WithdrawResponseEnvelope from '../model/WithdrawResponseEnvelope';
 import WithdrawalInitiationResponseEnvelope from '../model/WithdrawalInitiationResponseEnvelope';
 import WithdrawalRequestReason from '../model/WithdrawalRequestReason';
+import WithdrawalResponseEnvelope from '../model/WithdrawalResponseEnvelope';
 
 /**
 * Default service.
@@ -303,6 +330,48 @@ export default class DefaultApi {
       let returnType = TradingChallengeRegistrationRequestResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/trading_challenges/registration_requests/{request_id}/approve', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the assignAffiliateReferral operation.
+     * @callback module:api/DefaultApi~assignAffiliateReferralCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateAttributionEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Assign your affiliate referrer
+     * Authenticated existing users may assign a referral code once, within their own tenant. No user_id or tenant_id override is accepted. New assignments reject self-referral and require an active program. Repeating the same code returns the original assignment without changing its timestamp; changing the code returns 409. Only activity from assignment onward counts. This does not change signup_source.
+     * @param {module:model/AssignAffiliateReferralRequest} assignAffiliateReferralRequest 
+     * @param {module:api/DefaultApi~assignAffiliateReferralCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateAttributionEnvelope}
+     */
+    assignAffiliateReferral(assignAffiliateReferralRequest, callback) {
+      let postBody = assignAffiliateReferralRequest;
+      // verify the required parameter 'assignAffiliateReferralRequest' is set
+      if (assignAffiliateReferralRequest === undefined || assignAffiliateReferralRequest === null) {
+        throw new Error("Missing the required parameter 'assignAffiliateReferralRequest' when calling assignAffiliateReferral");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = AffiliateAttributionEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_referrals/self', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -478,6 +547,53 @@ export default class DefaultApi {
       let returnType = ClaimLeverageAccruedInterestResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/leverage/accrued_interest/claim', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the claimPromoLink operation.
+     * @callback module:api/DefaultApi~claimPromoLinkCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PromoClaimResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Claim a public QR promotion link
+     * @param {String} token Opaque bearer claim token
+     * @param {module:model/ClaimPromoLinkRequest} claimPromoLinkRequest 
+     * @param {module:api/DefaultApi~claimPromoLinkCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PromoClaimResponseEnvelope}
+     */
+    claimPromoLink(token, claimPromoLinkRequest, callback) {
+      let postBody = claimPromoLinkRequest;
+      // verify the required parameter 'token' is set
+      if (token === undefined || token === null) {
+        throw new Error("Missing the required parameter 'token' when calling claimPromoLink");
+      }
+      // verify the required parameter 'claimPromoLinkRequest' is set
+      if (claimPromoLinkRequest === undefined || claimPromoLinkRequest === null) {
+        throw new Error("Missing the required parameter 'claimPromoLinkRequest' when calling claimPromoLink");
+      }
+
+      let pathParams = {
+        'token': token
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = PromoClaimResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/promo/claim/{token}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -697,6 +813,48 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the createAffiliateProgram operation.
+     * @callback module:api/DefaultApi~createAffiliateProgramCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateProgramEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create an affiliate program
+     * ADMIN or INTEGRATOR required. Integrators are restricted to their own tenant; ADMIN overrides other roles. tenant_id is required. Set is_active to true to create an active program.
+     * @param {module:model/CreateAffiliateProgramRequest} createAffiliateProgramRequest 
+     * @param {module:api/DefaultApi~createAffiliateProgramCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateProgramEnvelope}
+     */
+    createAffiliateProgram(createAffiliateProgramRequest, callback) {
+      let postBody = createAffiliateProgramRequest;
+      // verify the required parameter 'createAffiliateProgramRequest' is set
+      if (createAffiliateProgramRequest === undefined || createAffiliateProgramRequest === null) {
+        throw new Error("Missing the required parameter 'createAffiliateProgramRequest' when calling createAffiliateProgram");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = AffiliateProgramEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_programs', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the createConditionalOrder operation.
      * @callback module:api/DefaultApi~createConditionalOrderCallback
      * @param {String} error Error message, if any.
@@ -862,6 +1020,48 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the createWithdrawal operation.
+     * @callback module:api/DefaultApi~createWithdrawalCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/WithdrawalResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a USDC withdrawal request
+     * Reserves the requested quantity against the caller's available balance (moving it to pending_withdrawal) and creates a PENDING withdrawal. No fee quote is required and no fee is reserved: the withdrawal's fee is quoted and locked later, as part of approval. Idempotent on withdrawal_id: a repeat request carrying the same to_address and quantity reserves nothing further and returns the existing withdrawal with 200. Reusing a withdrawal_id with a different to_address or quantity is a conflict (409), not a replay, and reserves nothing. Restricted to DORA tenant users whose native asset is USDC.
+     * @param {module:model/CreateWithdrawalRequest} createWithdrawalRequest 
+     * @param {module:api/DefaultApi~createWithdrawalCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/WithdrawalResponseEnvelope}
+     */
+    createWithdrawal(createWithdrawalRequest, callback) {
+      let postBody = createWithdrawalRequest;
+      // verify the required parameter 'createWithdrawalRequest' is set
+      if (createWithdrawalRequest === undefined || createWithdrawalRequest === null) {
+        throw new Error("Missing the required parameter 'createWithdrawalRequest' when calling createWithdrawal");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = WithdrawalResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/web3/withdrawals', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the deleteUser operation.
      * @callback module:api/DefaultApi~deleteUserCallback
      * @param {String} error Error message, if any.
@@ -904,6 +1104,49 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the exportPromoLinksCSV operation.
+     * @callback module:api/DefaultApi~exportPromoLinksCSVCallback
+     * @param {String} error Error message, if any.
+     * @param {String} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Export promotional links as CSV
+     * Stream private claim URLs with Cache-Control private, no-store. ADMIN and same-tenant INTEGRATOR only.
+     * @param {String} batchId 
+     * @param {module:api/DefaultApi~exportPromoLinksCSVCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link String}
+     */
+    exportPromoLinksCSV(batchId, callback) {
+      let postBody = null;
+      // verify the required parameter 'batchId' is set
+      if (batchId === undefined || batchId === null) {
+        throw new Error("Missing the required parameter 'batchId' when calling exportPromoLinksCSV");
+      }
+
+      let pathParams = {
+        'batch_id': batchId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['text/csv'];
+      let returnType = 'String';
+      return this.apiClient.callApi(
+        '/v1/link_batches/{batch_id}/links.csv', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getAPIKeysForUserID operation.
      * @callback module:api/DefaultApi~getAPIKeysForUserIDCallback
      * @param {String} error Error message, if any.
@@ -940,6 +1183,49 @@ export default class DefaultApi {
       let returnType = APIKeyResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/user/{user_id}/apikey', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getAffiliateProgram operation.
+     * @callback module:api/DefaultApi~getAffiliateProgramCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateProgramEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get an affiliate program
+     * ADMIN or INTEGRATOR required. Integrators are restricted to their own tenant; ADMIN overrides other roles. 
+     * @param {String} programId 
+     * @param {module:api/DefaultApi~getAffiliateProgramCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateProgramEnvelope}
+     */
+    getAffiliateProgram(programId, callback) {
+      let postBody = null;
+      // verify the required parameter 'programId' is set
+      if (programId === undefined || programId === null) {
+        throw new Error("Missing the required parameter 'programId' when calling getAffiliateProgram");
+      }
+
+      let pathParams = {
+        'program_id': programId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AffiliateProgramEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_programs/{program_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1296,6 +1582,7 @@ export default class DefaultApi {
 
     /**
      * Get candlestick data for an orderbook
+     * Returns candle data in the requested [start, end) range for the selected resolution. Responses are capped to the most recent 5,000 candles per request.
      * @param {String} orderBookId 
      * @param {Date} start 
      * @param {Date} end 
@@ -2453,6 +2740,49 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the getPromoAttribution operation.
+     * @callback module:api/DefaultApi~getPromoAttributionCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PromoAttributionResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get promotional source attribution
+     * Return the QR source funnel and decimal totals in one bounded aggregate query. ADMIN and same-tenant INTEGRATOR only.
+     * @param {String} tradingChallengeId 
+     * @param {module:api/DefaultApi~getPromoAttributionCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PromoAttributionResponse}
+     */
+    getPromoAttribution(tradingChallengeId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling getPromoAttribution");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = PromoAttributionResponse;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/{trading_challenge_id}/attribution', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getRealizedPnlSettlements operation.
      * @callback module:api/DefaultApi~getRealizedPnlSettlementsCallback
      * @param {String} error Error message, if any.
@@ -3460,6 +3790,49 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the getWithdrawal operation.
+     * @callback module:api/DefaultApi~getWithdrawalCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/WithdrawalResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get a USDC withdrawal by ID
+     * Returns a single USDC withdrawal. A caller may read its own withdrawals; admins may read any user's.
+     * @param {String} withdrawalId The withdrawal ID.
+     * @param {module:api/DefaultApi~getWithdrawalCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/WithdrawalResponseEnvelope}
+     */
+    getWithdrawal(withdrawalId, callback) {
+      let postBody = null;
+      // verify the required parameter 'withdrawalId' is set
+      if (withdrawalId === undefined || withdrawalId === null) {
+        throw new Error("Missing the required parameter 'withdrawalId' when calling getWithdrawal");
+      }
+
+      let pathParams = {
+        'withdrawal_id': withdrawalId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = WithdrawalResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/web3/withdrawals/{withdrawal_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getWithdrawalFeeQuote operation.
      * @callback module:api/DefaultApi~getWithdrawalFeeQuoteCallback
      * @param {String} error Error message, if any.
@@ -3469,7 +3842,7 @@ export default class DefaultApi {
 
     /**
      * Estimate the network fee to withdraw USDC via web3
-     * Examines on-chain conditions and simulates a withdrawal transaction to estimate the fee a user needs to pay when they make their withdrawal request. Restricted to DORA tenant users whose native asset is USDC.
+     * Examines on-chain conditions and simulates a withdrawal transaction to estimate the fee a user needs to pay for a withdrawal. The fee is not charged when the withdrawal is requested; the quote is redeemed later, when the fee is locked as part of approval. Restricted to DORA tenant users whose native asset is USDC.
      * @param {String} to The destination wallet address as a 0x-prefixed 20-byte hex string. Must not be the zero address.
      * @param {String} quantity Human-decimal USDC quantity to withdraw, e.g. '100.50'. Must be positive.
      * @param {module:api/DefaultApi~getWithdrawalFeeQuoteCallback} callback The callback function, accepting three arguments: error, data, response
@@ -3503,6 +3876,60 @@ export default class DefaultApi {
       let returnType = FeeQuoteResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/web3/withdrawals/fee-quote', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the issuePromoLinkBatch operation.
+     * @callback module:api/DefaultApi~issuePromoLinkBatchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/IssuePromoLinkBatchResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Issue a promotional link batch
+     * Atomically reserve QR campaign capacity and create opaque, encrypted promotional links. ADMIN and same-tenant INTEGRATOR only. Exact idempotent replays return 200; first creation returns 201; key reuse with another payload returns 409.
+     * @param {String} tradingChallengeId 
+     * @param {String} idempotencyKey 
+     * @param {module:model/IssuePromoLinkBatchRequest} issuePromoLinkBatchRequest 
+     * @param {module:api/DefaultApi~issuePromoLinkBatchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/IssuePromoLinkBatchResponse}
+     */
+    issuePromoLinkBatch(tradingChallengeId, idempotencyKey, issuePromoLinkBatchRequest, callback) {
+      let postBody = issuePromoLinkBatchRequest;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling issuePromoLinkBatch");
+      }
+      // verify the required parameter 'idempotencyKey' is set
+      if (idempotencyKey === undefined || idempotencyKey === null) {
+        throw new Error("Missing the required parameter 'idempotencyKey' when calling issuePromoLinkBatch");
+      }
+      // verify the required parameter 'issuePromoLinkBatchRequest' is set
+      if (issuePromoLinkBatchRequest === undefined || issuePromoLinkBatchRequest === null) {
+        throw new Error("Missing the required parameter 'issuePromoLinkBatchRequest' when calling issuePromoLinkBatch");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'Idempotency-Key': idempotencyKey
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = IssuePromoLinkBatchResponse;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/{trading_challenge_id}/link_batches', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -4138,6 +4565,208 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the listAffiliateCashFlows operation.
+     * @callback module:api/DefaultApi~listAffiliateCashFlowsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateCashFlowReportEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List a referred user's customer cash flows
+     * Authenticated access. ADMIN can inspect all programs. INTEGRATOR is limited to its own tenant. Other users must be registered referrers and see only their own referrals. Deactivation retains historical reports. Currency EXTERNAL_DEPOSIT and EXTERNAL_WITHDRAW ledger events only. Pending withdrawals and promotional credits are excluded. Amounts are positive native asset units identified by asset_symbol. The date is when the completed movement was recorded in the ledger. Only events at or after the user's referral assignment are included.
+     * @param {String} programId 
+     * @param {String} userId 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 100)] 
+     * @param {Number} [page = 1)] One-based page; the resulting offset must not exceed 2147483647. Results sort by created_at then id descending.
+     * @param {module:api/DefaultApi~listAffiliateCashFlowsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateCashFlowReportEnvelope}
+     */
+    listAffiliateCashFlows(programId, userId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'programId' is set
+      if (programId === undefined || programId === null) {
+        throw new Error("Missing the required parameter 'programId' when calling listAffiliateCashFlows");
+      }
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling listAffiliateCashFlows");
+      }
+
+      let pathParams = {
+        'program_id': programId,
+        'user_id': userId
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'page': opts['page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AffiliateCashFlowReportEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_programs/{program_id}/referrals/{user_id}/cash_flows', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listAffiliatePrograms operation.
+     * @callback module:api/DefaultApi~listAffiliateProgramsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateProgramListEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List affiliate programs
+     * ADMIN or INTEGRATOR required. Integrators are restricted to their own tenant; ADMIN overrides other roles. Admins without a tenant filter list all tenants. Inactive programs are included.
+     * @param {Object} opts Optional parameters
+     * @param {String} [tenantId] Integrators default to their own tenant and cannot select another. Admins may select any tenant.
+     * @param {Number} [limit = 100)] 
+     * @param {Number} [page = 1)] One-based page; the resulting offset must not exceed 2147483647. Results sort by created_at then id descending.
+     * @param {module:api/DefaultApi~listAffiliateProgramsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateProgramListEnvelope}
+     */
+    listAffiliatePrograms(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'tenant_id': opts['tenantId'],
+        'limit': opts['limit'],
+        'page': opts['page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AffiliateProgramListEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_programs', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listAffiliateReferrals operation.
+     * @callback module:api/DefaultApi~listAffiliateReferralsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateReferralReportEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List referred users and activity
+     * Authenticated access. ADMIN can inspect all programs. INTEGRATOR is limited to its own tenant. Other users must be registered referrers and see only their own referrals. Deactivation retains historical reports. date defaults to the current UTC day. Daily volume and realized PnL use the selected UTC day; monthly volume and realized PnL use its UTC calendar month. Trade activity, PnL and currency cash-flow counts/dates include only events at or after attributed_at. Signup and KYC fields describe the user profile. Promotional and trading-challenge credits, non-currency assets, pending and rejected withdrawals are excluded from customer cash flows. Discord status is unknown until an integration exists.
+     * @param {String} programId 
+     * @param {Object} opts Optional parameters
+     * @param {Date} [date] 
+     * @param {String} [referrerId] 
+     * @param {Number} [limit = 100)] 
+     * @param {Number} [page = 1)] One-based page; the resulting offset must not exceed 2147483647. Results sort by attribution created_at then user_id descending.
+     * @param {module:api/DefaultApi~listAffiliateReferralsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateReferralReportEnvelope}
+     */
+    listAffiliateReferrals(programId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'programId' is set
+      if (programId === undefined || programId === null) {
+        throw new Error("Missing the required parameter 'programId' when calling listAffiliateReferrals");
+      }
+
+      let pathParams = {
+        'program_id': programId
+      };
+      let queryParams = {
+        'date': opts['date'],
+        'referrer_id': opts['referrerId'],
+        'limit': opts['limit'],
+        'page': opts['page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AffiliateReferralReportEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_programs/{program_id}/referrals', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listAffiliateReferrers operation.
+     * @callback module:api/DefaultApi~listAffiliateReferrersCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateReferrerListEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List program referrers
+     * ADMIN or INTEGRATOR required. Integrators are restricted to their own tenant; ADMIN overrides other roles. Includes registrations in inactive programs.
+     * @param {String} programId 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 100)] 
+     * @param {Number} [page = 1)] One-based page; the resulting offset must not exceed 2147483647. Results sort by created_at then id descending.
+     * @param {module:api/DefaultApi~listAffiliateReferrersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateReferrerListEnvelope}
+     */
+    listAffiliateReferrers(programId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'programId' is set
+      if (programId === undefined || programId === null) {
+        throw new Error("Missing the required parameter 'programId' when calling listAffiliateReferrers");
+      }
+
+      let pathParams = {
+        'program_id': programId
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'page': opts['page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AffiliateReferrerListEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_programs/{program_id}/referrers', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listAssets operation.
      * @callback module:api/DefaultApi~listAssetsCallback
      * @param {String} error Error message, if any.
@@ -4347,6 +4976,49 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the listOwnAffiliateMemberships operation.
+     * @callback module:api/DefaultApi~listOwnAffiliateMembershipsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateMembershipListEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List your affiliate memberships
+     * Returns only the authenticated user's memberships and reusable codes, including inactive programs.
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 100)] 
+     * @param {Number} [page = 1)] One-based page; the resulting offset must not exceed 2147483647. Results sort by created_at then id descending.
+     * @param {module:api/DefaultApi~listOwnAffiliateMembershipsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateMembershipListEnvelope}
+     */
+    listOwnAffiliateMemberships(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'page': opts['page']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AffiliateMembershipListEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_referrers/self', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listPositionAccountsSelf operation.
      * @callback module:api/DefaultApi~listPositionAccountsSelfCallback
      * @param {String} error Error message, if any.
@@ -4377,6 +5049,102 @@ export default class DefaultApi {
       let returnType = ListPositionAccountsResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/user/self/position_accounts', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listPromoLinkBatches operation.
+     * @callback module:api/DefaultApi~listPromoLinkBatchesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PromoLinkBatchListResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List promotional link batches
+     * Return source metadata and ISSUED, CLAIMED, and REVOKED counts for each batch. ADMIN and same-tenant INTEGRATOR only.
+     * @param {String} tradingChallengeId 
+     * @param {module:api/DefaultApi~listPromoLinkBatchesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PromoLinkBatchListResponse}
+     */
+    listPromoLinkBatches(tradingChallengeId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling listPromoLinkBatches");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = PromoLinkBatchListResponse;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/{trading_challenge_id}/link_batches', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listPromoLinks operation.
+     * @callback module:api/DefaultApi~listPromoLinksCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PromoLinkListResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List promotional links
+     * Keyset-paginated batch links. URLs are omitted by default and decrypted only when reveal=true. ADMIN and same-tenant INTEGRATOR only.
+     * @param {String} batchId 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 100)] 
+     * @param {String} [cursor] 
+     * @param {module:model/PromoLinkStatus} [status] 
+     * @param {Boolean} [reveal = false)] 
+     * @param {module:api/DefaultApi~listPromoLinksCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PromoLinkListResponse}
+     */
+    listPromoLinks(batchId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'batchId' is set
+      if (batchId === undefined || batchId === null) {
+        throw new Error("Missing the required parameter 'batchId' when calling listPromoLinks");
+      }
+
+      let pathParams = {
+        'batch_id': batchId
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'cursor': opts['cursor'],
+        'status': opts['status'],
+        'reveal': opts['reveal']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = PromoLinkListResponse;
+      return this.apiClient.callApi(
+        '/v1/link_batches/{batch_id}/links', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -4530,6 +5298,100 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the listWithdrawals operation.
+     * @callback module:api/DefaultApi~listWithdrawalsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ListWithdrawalsResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List USDC withdrawals
+     * Lists USDC withdrawals ordered by created_at descending. Non-admin callers are always scoped to their own withdrawals. Admin callers get every user's withdrawals by default, and may narrow to one user with `user_id`.
+     * @param {Object} opts Optional parameters
+     * @param {String} [userId] Filter by user ID. Non-admin callers may only specify their own user ID.
+     * @param {module:model/Web3WithdrawalStatus} [status] Filter by withdrawal status.
+     * @param {Number} [page = 1)] 
+     * @param {Number} [limit = 50)] 
+     * @param {module:api/DefaultApi~listWithdrawalsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ListWithdrawalsResponseEnvelope}
+     */
+    listWithdrawals(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'user_id': opts['userId'],
+        'status': opts['status'],
+        'page': opts['page'],
+        'limit': opts['limit']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListWithdrawalsResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/web3/withdrawals', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the lookupAffiliateCode operation.
+     * @callback module:api/DefaultApi~lookupAffiliateCodeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateReferrerEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Look up a reusable referral code
+     * ADMIN or INTEGRATOR required, within tenant permissions. Admins must supply tenant_id. Case-insensitive lookup requires an active program and never consumes the code. Attribution happens separately at signup or through POST /v1/affiliate_referrals/self.
+     * @param {String} code 
+     * @param {Object} opts Optional parameters
+     * @param {String} [tenantId] Integrators default to their own tenant and cannot select another. Admins may select any tenant.
+     * @param {module:api/DefaultApi~lookupAffiliateCodeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateReferrerEnvelope}
+     */
+    lookupAffiliateCode(code, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'code' is set
+      if (code === undefined || code === null) {
+        throw new Error("Missing the required parameter 'code' when calling lookupAffiliateCode");
+      }
+
+      let pathParams = {
+        'code': code
+      };
+      let queryParams = {
+        'tenant_id': opts['tenantId']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AffiliateReferrerEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_codes/{code}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the payLeverageGetAccruedInterest operation.
      * @callback module:api/DefaultApi~payLeverageGetAccruedInterestCallback
      * @param {String} error Error message, if any.
@@ -4565,6 +5427,54 @@ export default class DefaultApi {
       let returnType = PayLeverageAccruedInterestResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/leverage/accrued_interest/pay', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the registerAffiliateReferrer operation.
+     * @callback module:api/DefaultApi~registerAffiliateReferrerCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateReferrerEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Register an existing user as a referrer
+     * ADMIN or INTEGRATOR required, within tenant permissions. Accepts an optional custom referral_code and generates one when omitted or empty. Codes are stored uppercase and globally unique. Duplicate membership or code returns 409. Users may supply the code at signup or assign it later through POST /v1/affiliate_referrals/self.
+     * @param {String} programId 
+     * @param {module:model/RegisterAffiliateReferrerRequest} registerAffiliateReferrerRequest 
+     * @param {module:api/DefaultApi~registerAffiliateReferrerCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateReferrerEnvelope}
+     */
+    registerAffiliateReferrer(programId, registerAffiliateReferrerRequest, callback) {
+      let postBody = registerAffiliateReferrerRequest;
+      // verify the required parameter 'programId' is set
+      if (programId === undefined || programId === null) {
+        throw new Error("Missing the required parameter 'programId' when calling registerAffiliateReferrer");
+      }
+      // verify the required parameter 'registerAffiliateReferrerRequest' is set
+      if (registerAffiliateReferrerRequest === undefined || registerAffiliateReferrerRequest === null) {
+        throw new Error("Missing the required parameter 'registerAffiliateReferrerRequest' when calling registerAffiliateReferrer");
+      }
+
+      let pathParams = {
+        'program_id': programId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = AffiliateReferrerEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_programs/{program_id}/referrers', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -4707,6 +5617,57 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the renderPromoLinkQR operation.
+     * @callback module:api/DefaultApi~renderPromoLinkQRCallback
+     * @param {String} error Error message, if any.
+     * @param {String} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Render a promotional link QR code
+     * Render the exact private claim URL as PNG with Cache-Control private, no-store. ADMIN and same-tenant INTEGRATOR only.
+     * @param {String} linkId 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [size = 512)] 
+     * @param {module:model/String} [format = 'png')] 
+     * @param {module:model/String} [ec = 'M')] 
+     * @param {module:api/DefaultApi~renderPromoLinkQRCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link String}
+     */
+    renderPromoLinkQR(linkId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'linkId' is set
+      if (linkId === undefined || linkId === null) {
+        throw new Error("Missing the required parameter 'linkId' when calling renderPromoLinkQR");
+      }
+
+      let pathParams = {
+        'link_id': linkId
+      };
+      let queryParams = {
+        'size': opts['size'],
+        'format': opts['format'],
+        'ec': opts['ec']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['image/png'];
+      let returnType = 'String';
+      return this.apiClient.callApi(
+        '/v1/promo_links/{link_id}/qr', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the repayUSD operation.
      * @callback module:api/DefaultApi~repayUSDCallback
      * @param {String} error Error message, if any.
@@ -4742,6 +5703,48 @@ export default class DefaultApi {
       let returnType = RepayUSDResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/positions/repay_usd', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the resolvePromoClaim operation.
+     * @callback module:api/DefaultApi~resolvePromoClaimCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PromoClaimResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Resolve a public QR promotion claim link
+     * @param {String} token Opaque bearer claim token
+     * @param {module:api/DefaultApi~resolvePromoClaimCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PromoClaimResponseEnvelope}
+     */
+    resolvePromoClaim(token, callback) {
+      let postBody = null;
+      // verify the required parameter 'token' is set
+      if (token === undefined || token === null) {
+        throw new Error("Missing the required parameter 'token' when calling resolvePromoClaim");
+      }
+
+      let pathParams = {
+        'token': token
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = PromoClaimResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/promo/claim/{token}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -4832,6 +5835,54 @@ export default class DefaultApi {
       let returnType = RevokeAPIKeyResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/user/{user_id}/apikey/{key_id}/revoke', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the revokePromoLink operation.
+     * @callback module:api/DefaultApi~revokePromoLinkCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/RevokePromoLinkResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Revoke a promotional link
+     * Revoke an unclaimed link and return one unit of QR campaign capacity. Repeating an already-revoked request is idempotent; claimed links return 409.
+     * @param {String} linkId 
+     * @param {module:model/RevokePromoLinkRequest} revokePromoLinkRequest 
+     * @param {module:api/DefaultApi~revokePromoLinkCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/RevokePromoLinkResponse}
+     */
+    revokePromoLink(linkId, revokePromoLinkRequest, callback) {
+      let postBody = revokePromoLinkRequest;
+      // verify the required parameter 'linkId' is set
+      if (linkId === undefined || linkId === null) {
+        throw new Error("Missing the required parameter 'linkId' when calling revokePromoLink");
+      }
+      // verify the required parameter 'revokePromoLinkRequest' is set
+      if (revokePromoLinkRequest === undefined || revokePromoLinkRequest === null) {
+        throw new Error("Missing the required parameter 'revokePromoLinkRequest' when calling revokePromoLink");
+      }
+
+      let pathParams = {
+        'link_id': linkId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = RevokePromoLinkResponse;
+      return this.apiClient.callApi(
+        '/v1/promo_links/{link_id}/revoke', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -5357,6 +6408,54 @@ export default class DefaultApi {
       let returnType = TransferBalancesResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/positions/transfer_balances', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateAffiliateProgram operation.
+     * @callback module:api/DefaultApi~updateAffiliateProgramCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateProgramEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Update an affiliate program
+     * ADMIN or INTEGRATOR required. Integrators are restricted to their own tenant; ADMIN overrides other roles. Omitted and null fields are preserved. Fields accept direct values or {update, value} objects. Tenant ownership cannot be changed. Deactivation preserves codes and registrations.
+     * @param {String} programId 
+     * @param {module:model/UpdateAffiliateProgramRequest} updateAffiliateProgramRequest 
+     * @param {module:api/DefaultApi~updateAffiliateProgramCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateProgramEnvelope}
+     */
+    updateAffiliateProgram(programId, updateAffiliateProgramRequest, callback) {
+      let postBody = updateAffiliateProgramRequest;
+      // verify the required parameter 'programId' is set
+      if (programId === undefined || programId === null) {
+        throw new Error("Missing the required parameter 'programId' when calling updateAffiliateProgram");
+      }
+      // verify the required parameter 'updateAffiliateProgramRequest' is set
+      if (updateAffiliateProgramRequest === undefined || updateAffiliateProgramRequest === null) {
+        throw new Error("Missing the required parameter 'updateAffiliateProgramRequest' when calling updateAffiliateProgram");
+      }
+
+      let pathParams = {
+        'program_id': programId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = AffiliateProgramEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_programs/{program_id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

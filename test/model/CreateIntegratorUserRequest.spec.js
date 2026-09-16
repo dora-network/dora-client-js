@@ -54,6 +54,18 @@
       //expect(instance).to.be.a(Dora.CreateIntegratorUserRequest);
     });
 
+    it('should have the property referralCode (base name: "referral_code")', function() {
+      // uncomment below and update the code to test the property referralCode
+      //var instance = new Dora.CreateIntegratorUserRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property signupSource (base name: "signup_source")', function() {
+      // uncomment below and update the code to test the property signupSource
+      //var instance = new Dora.CreateIntegratorUserRequest();
+      //expect(instance).to.be();
+    });
+
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
       //var instance = new Dora.CreateIntegratorUserRequest();

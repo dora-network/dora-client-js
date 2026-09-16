@@ -174,6 +174,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property qr (base name: "qr")', function() {
+      // uncomment below and update the code to test the property qr
+      //var instance = new Dora.TradingChallenge();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property worstCaseExposure (base name: "worst_case_exposure")', function() {
+      // uncomment below and update the code to test the property worstCaseExposure
+      //var instance = new Dora.TradingChallenge();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

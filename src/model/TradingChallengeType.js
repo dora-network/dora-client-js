@@ -33,6 +33,13 @@ export default class TradingChallengeType {
         "CASH" = "CASH";
 
     
+        /**
+         * value: "QR_PROMO"
+         * @const
+         */
+        "QR_PROMO" = "QR_PROMO";
+
+    
 
     /**
     * Returns a <code>TradingChallengeType</code> enum value from a Javascript object name.

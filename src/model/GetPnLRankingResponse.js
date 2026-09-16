@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Metadata from './Metadata';
-import PnLRankingResponse from './PnLRankingResponse';
+import PnLRankingResponses from './PnLRankingResponses';
 import ResponseEnvelope from './ResponseEnvelope';
 
 /**
@@ -55,7 +55,7 @@ class GetPnLRankingResponse {
             ResponseEnvelope.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [PnLRankingResponse]);
+                obj['data'] = PnLRankingResponses.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
@@ -79,15 +79,9 @@ class GetPnLRankingResponse {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // validate the optional field `data`
         if (data['data']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['data'])) {
-                throw new Error("Expected the field `data` to be an array in the JSON data but got " + data['data']);
-            }
-            // validate the optional field `data` (array)
-            for (const item of data['data']) {
-                PnLRankingResponse.validateJSON(item);
-            };
+          PnLRankingResponses.validateJSON(data['data']);
         }
         // ensure the json data is a string
         if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
@@ -107,7 +101,7 @@ class GetPnLRankingResponse {
 GetPnLRankingResponse.RequiredProperties = ["metadata"];
 
 /**
- * @member {Array.<module:model/PnLRankingResponse>} data
+ * @member {module:model/PnLRankingResponses} data
  */
 GetPnLRankingResponse.prototype['data'] = undefined;
 

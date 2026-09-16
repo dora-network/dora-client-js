@@ -24,5 +24,7 @@ Name | Type | Description | Notes
 **lastProcessedAt** | **Date** |  | [optional] 
 **users** | **[String]** |  | [optional] 
 **usersCount** | **Number** |  | 
+**qr** | [**TradingChallengeQR**](TradingChallengeQR.md) |  | [optional] 
+**worstCaseExposure** | **String** | For QR_PROMO, max_users multiplied by initial_user_balance plus max_reward_amount. | [optional] 
 
 

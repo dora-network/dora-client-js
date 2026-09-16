@@ -133,21 +133,27 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**addTradingChallengeUsers**](docs/DefaultApi.md#addTradingChallengeUsers) | **PUT** /v1/trading_challenges/add_users | Add users to a trading challenge
 *Dora.DefaultApi* | [**approveLedgerWithdrawRequest**](docs/DefaultApi.md#approveLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/approve | Approve a pending withdrawal request
 *Dora.DefaultApi* | [**approveTradingChallengeRegistrationRequest**](docs/DefaultApi.md#approveTradingChallengeRegistrationRequest) | **POST** /v1/trading_challenges/registration_requests/{request_id}/approve | Approve a trading challenge registration request
+*Dora.DefaultApi* | [**assignAffiliateReferral**](docs/DefaultApi.md#assignAffiliateReferral) | **POST** /v1/affiliate_referrals/self | Assign your affiliate referrer
 *Dora.DefaultApi* | [**cancelAllOpenOrders**](docs/DefaultApi.md#cancelAllOpenOrders) | **DELETE** /v1/orders | Cancel all open orders, if user passes orderbook or account_id on query params it will cancel all orders on specific orderbook or account, admin can cancel user&#39;s orders on specific orderbook
 *Dora.DefaultApi* | [**cancelLedgerWithdrawRequest**](docs/DefaultApi.md#cancelLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/cancel | Cancel a pending withdrawal request
 *Dora.DefaultApi* | [**cancelOrderById**](docs/DefaultApi.md#cancelOrderById) | **DELETE** /v1/orders/{order_id} | Cancel an order by ID
 *Dora.DefaultApi* | [**claimLeverageGetAccruedInterest**](docs/DefaultApi.md#claimLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/claim | Claim current accrued leverage interest for a specific user
+*Dora.DefaultApi* | [**claimPromoLink**](docs/DefaultApi.md#claimPromoLink) | **POST** /v1/promo/claim/{token} | Claim a public QR promotion link
 *Dora.DefaultApi* | [**claimTradingChallengePrize**](docs/DefaultApi.md#claimTradingChallengePrize) | **POST** /v1/trading_challenges/{trading_challenge_id}/claim | Claim challenge prize
 *Dora.DefaultApi* | [**closeIsolatedAccountV2**](docs/DefaultApi.md#closeIsolatedAccountV2) | **POST** /v2/accounts/close | Close an isolated account, repaying the borrowed
 *Dora.DefaultApi* | [**closeIsolatedPosition**](docs/DefaultApi.md#closeIsolatedPosition) | **POST** /v1/positions/close | Close isolated positions, repaying the borrowed
 *Dora.DefaultApi* | [**createAPIKeyForUser**](docs/DefaultApi.md#createAPIKeyForUser) | **POST** /v1/user/apikey | Create apikey for a user
 *Dora.DefaultApi* | [**createAPIKeyForUserID**](docs/DefaultApi.md#createAPIKeyForUserID) | **POST** /v1/user/{user_id}/apikey | Create apikey for a user
+*Dora.DefaultApi* | [**createAffiliateProgram**](docs/DefaultApi.md#createAffiliateProgram) | **POST** /v1/affiliate_programs | Create an affiliate program
 *Dora.DefaultApi* | [**createConditionalOrder**](docs/DefaultApi.md#createConditionalOrder) | **POST** /v1/orders/conditional | Create a new conditional orders
 *Dora.DefaultApi* | [**createOrder**](docs/DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
 *Dora.DefaultApi* | [**createTradingChallenge**](docs/DefaultApi.md#createTradingChallenge) | **POST** /v1/trading_challenges | Create a trading challenge
 *Dora.DefaultApi* | [**createUser**](docs/DefaultApi.md#createUser) | **POST** /v1/integrators/user | Create a new user
+*Dora.DefaultApi* | [**createWithdrawal**](docs/DefaultApi.md#createWithdrawal) | **POST** /v1/web3/withdrawals | Create a USDC withdrawal request
 *Dora.DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
+*Dora.DefaultApi* | [**exportPromoLinksCSV**](docs/DefaultApi.md#exportPromoLinksCSV) | **GET** /v1/link_batches/{batch_id}/links.csv | Export promotional links as CSV
 *Dora.DefaultApi* | [**getAPIKeysForUserID**](docs/DefaultApi.md#getAPIKeysForUserID) | **GET** /v1/user/{user_id}/apikey | Get user&#39;s api keys: admin or integrator only
+*Dora.DefaultApi* | [**getAffiliateProgram**](docs/DefaultApi.md#getAffiliateProgram) | **GET** /v1/affiliate_programs/{program_id} | Get an affiliate program
 *Dora.DefaultApi* | [**getAllAssetPrices**](docs/DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
 *Dora.DefaultApi* | [**getAllPositions**](docs/DefaultApi.md#getAllPositions) | **GET** /v1/ledger/positions | Get all users&#39; positions
 *Dora.DefaultApi* | [**getAllWithdrawalRequests**](docs/DefaultApi.md#getAllWithdrawalRequests) | **GET** /v1/ledger/withdraw/requests | Get all withdrawal requests
@@ -184,6 +190,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getOrderbookTop**](docs/DefaultApi.md#getOrderbookTop) | **GET** /v1/orderbooks/{order_book_id}/top | Get the top price levels for a specific orderbook (L1 market depth)
 *Dora.DefaultApi* | [**getPLForSelfByAccount**](docs/DefaultApi.md#getPLForSelfByAccount) | **GET** /v1/pl/self | Get account-by-account PL breakdown for the logged in user
 *Dora.DefaultApi* | [**getPoolPrice**](docs/DefaultApi.md#getPoolPrice) | **GET** /v1/price/pool/{pool_id} | Get the current price of a pool
+*Dora.DefaultApi* | [**getPromoAttribution**](docs/DefaultApi.md#getPromoAttribution) | **GET** /v1/trading_challenges/{trading_challenge_id}/attribution | Get promotional source attribution
 *Dora.DefaultApi* | [**getRealizedPnlSettlements**](docs/DefaultApi.md#getRealizedPnlSettlements) | **GET** /v1/realized_pnl_settlements | Get realized P&amp;L settlements with filters
 *Dora.DefaultApi* | [**getTopTradersByPnL**](docs/DefaultApi.md#getTopTradersByPnL) | **GET** /v1/user/ranking | Get top traders by PnL
 *Dora.DefaultApi* | [**getTradeById**](docs/DefaultApi.md#getTradeById) | **GET** /v1/trades/{trade_id} | Get a trade by ID
@@ -206,7 +213,9 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getUserTransactionsStream**](docs/DefaultApi.md#getUserTransactionsStream) | **GET** /v1/user/{user_id}/transactions/stream | Get a snapshot of user&#39;s executed transactions since a specific time, and opens a stream for further updates
 *Dora.DefaultApi* | [**getUsers**](docs/DefaultApi.md#getUsers) | **GET** /v1/user | Get all users (admin only)
 *Dora.DefaultApi* | [**getUsersAPIKeys**](docs/DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#39;s api keys
+*Dora.DefaultApi* | [**getWithdrawal**](docs/DefaultApi.md#getWithdrawal) | **GET** /v1/web3/withdrawals/{withdrawal_id} | Get a USDC withdrawal by ID
 *Dora.DefaultApi* | [**getWithdrawalFeeQuote**](docs/DefaultApi.md#getWithdrawalFeeQuote) | **GET** /v1/web3/withdrawals/fee-quote | Estimate the network fee to withdraw USDC via web3
+*Dora.DefaultApi* | [**issuePromoLinkBatch**](docs/DefaultApi.md#issuePromoLinkBatch) | **POST** /v1/trading_challenges/{trading_challenge_id}/link_batches | Issue a promotional link batch
 *Dora.DefaultApi* | [**ledgerDeposit**](docs/DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit/{user_id} | Deposit assets into this user&#39;s account from the outside world
 *Dora.DefaultApi* | [**ledgerWithdraw**](docs/DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw/{user_id} | Withdraw assets from this user to the outside world
 *Dora.DefaultApi* | [**ledgerWithdrawRequest**](docs/DefaultApi.md#ledgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{user_id} | Initiate a withdrawal request for this user to the outside world
@@ -221,21 +230,34 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**liquidityAdd**](docs/DefaultApi.md#liquidityAdd) | **POST** /v1/liquidity/pool/{pool_id}/add | Add liquidity to a pool
 *Dora.DefaultApi* | [**liquiditySubtract**](docs/DefaultApi.md#liquiditySubtract) | **POST** /v1/liquidity/pool/{pool_id}/remove | Subtract liquidity from a pool
 *Dora.DefaultApi* | [**listAccountsSelfV2**](docs/DefaultApi.md#listAccountsSelfV2) | **GET** /v2/user/self/accounts | List all accounts for the authenticated user
+*Dora.DefaultApi* | [**listAffiliateCashFlows**](docs/DefaultApi.md#listAffiliateCashFlows) | **GET** /v1/affiliate_programs/{program_id}/referrals/{user_id}/cash_flows | List a referred user&#39;s customer cash flows
+*Dora.DefaultApi* | [**listAffiliatePrograms**](docs/DefaultApi.md#listAffiliatePrograms) | **GET** /v1/affiliate_programs | List affiliate programs
+*Dora.DefaultApi* | [**listAffiliateReferrals**](docs/DefaultApi.md#listAffiliateReferrals) | **GET** /v1/affiliate_programs/{program_id}/referrals | List referred users and activity
+*Dora.DefaultApi* | [**listAffiliateReferrers**](docs/DefaultApi.md#listAffiliateReferrers) | **GET** /v1/affiliate_programs/{program_id}/referrers | List program referrers
 *Dora.DefaultApi* | [**listAssets**](docs/DefaultApi.md#listAssets) | **GET** /v1/assets | List assets
 *Dora.DefaultApi* | [**listDeposits**](docs/DefaultApi.md#listDeposits) | **GET** /v1/web3/deposits | List USDC deposits
 *Dora.DefaultApi* | [**listOrderBooks**](docs/DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 *Dora.DefaultApi* | [**listOrders**](docs/DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
+*Dora.DefaultApi* | [**listOwnAffiliateMemberships**](docs/DefaultApi.md#listOwnAffiliateMemberships) | **GET** /v1/affiliate_referrers/self | List your affiliate memberships
 *Dora.DefaultApi* | [**listPositionAccountsSelf**](docs/DefaultApi.md#listPositionAccountsSelf) | **GET** /v1/user/self/position_accounts | List all position accounts for the authenticated user
+*Dora.DefaultApi* | [**listPromoLinkBatches**](docs/DefaultApi.md#listPromoLinkBatches) | **GET** /v1/trading_challenges/{trading_challenge_id}/link_batches | List promotional link batches
+*Dora.DefaultApi* | [**listPromoLinks**](docs/DefaultApi.md#listPromoLinks) | **GET** /v1/link_batches/{batch_id}/links | List promotional links
 *Dora.DefaultApi* | [**listTradingChallengeRegistrationRequests**](docs/DefaultApi.md#listTradingChallengeRegistrationRequests) | **GET** /v1/trading_challenges/registration_requests | List trading challenge registration requests
 *Dora.DefaultApi* | [**listTradingChallenges**](docs/DefaultApi.md#listTradingChallenges) | **GET** /v1/trading_challenges | List trading challenges
 *Dora.DefaultApi* | [**listUserDeactivations**](docs/DefaultApi.md#listUserDeactivations) | **GET** /v1/user/deactivations | Get the current deactivation status across all users
+*Dora.DefaultApi* | [**listWithdrawals**](docs/DefaultApi.md#listWithdrawals) | **GET** /v1/web3/withdrawals | List USDC withdrawals
+*Dora.DefaultApi* | [**lookupAffiliateCode**](docs/DefaultApi.md#lookupAffiliateCode) | **GET** /v1/affiliate_codes/{code} | Look up a reusable referral code
 *Dora.DefaultApi* | [**payLeverageGetAccruedInterest**](docs/DefaultApi.md#payLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/pay | Pay current accrued leverage interest for a specific user
+*Dora.DefaultApi* | [**registerAffiliateReferrer**](docs/DefaultApi.md#registerAffiliateReferrer) | **POST** /v1/affiliate_programs/{program_id}/referrers | Register an existing user as a referrer
 *Dora.DefaultApi* | [**rejectLedgerWithdrawRequest**](docs/DefaultApi.md#rejectLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/reject | Reject a pending withdrawal request
 *Dora.DefaultApi* | [**rejectTradingChallengeRegistrationRequest**](docs/DefaultApi.md#rejectTradingChallengeRegistrationRequest) | **POST** /v1/trading_challenges/registration_requests/{request_id}/reject | Reject a trading challenge registration request
 *Dora.DefaultApi* | [**removeTradingChallengeUsers**](docs/DefaultApi.md#removeTradingChallengeUsers) | **PUT** /v1/trading_challenges/remove_users | Remove users from a trading challenge
+*Dora.DefaultApi* | [**renderPromoLinkQR**](docs/DefaultApi.md#renderPromoLinkQR) | **GET** /v1/promo_links/{link_id}/qr | Render a promotional link QR code
 *Dora.DefaultApi* | [**repayUSD**](docs/DefaultApi.md#repayUSD) | **POST** /v1/positions/repay_usd | Repay borrowed USD, then accrue and pay leverage interest
+*Dora.DefaultApi* | [**resolvePromoClaim**](docs/DefaultApi.md#resolvePromoClaim) | **GET** /v1/promo/claim/{token} | Resolve a public QR promotion claim link
 *Dora.DefaultApi* | [**revokeAPIKeyForUser**](docs/DefaultApi.md#revokeAPIKeyForUser) | **PUT** /v1/user/apikey/{key_id}/revoke | Revoke apikey for a user
 *Dora.DefaultApi* | [**revokeAPIKeyForUserID**](docs/DefaultApi.md#revokeAPIKeyForUserID) | **PUT** /v1/user/{user_id}/apikey/{key_id}/revoke | Revoke apikey for a user: admin or integrator only
+*Dora.DefaultApi* | [**revokePromoLink**](docs/DefaultApi.md#revokePromoLink) | **POST** /v1/promo_links/{link_id}/revoke | Revoke a promotional link
 *Dora.DefaultApi* | [**settleLeverageAccruedInterest**](docs/DefaultApi.md#settleLeverageAccruedInterest) | **POST** /v1/leverage/accrued_interest/settle | Settle current accrued leverage interest for a specific user
 *Dora.DefaultApi* | [**settleRealizedPnlRecord**](docs/DefaultApi.md#settleRealizedPnlRecord) | **PUT** /v1/realized_pnl_settlements/{settlement_id} | Mark a realized P&amp;L settlement as settled
 *Dora.DefaultApi* | [**settleTransactionsSettlements**](docs/DefaultApi.md#settleTransactionsSettlements) | **PUT** /v1/transactions/settlements | Settle multiple transactions settlements in batch
@@ -248,6 +270,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**terminateTradingChallengeParticipation**](docs/DefaultApi.md#terminateTradingChallengeParticipation) | **POST** /v1/trading_challenges/{trading_challenge_id}/participants/{user_id}/terminate | Terminate a participation in a trading challenge
 *Dora.DefaultApi* | [**transferAccountBalancesV2**](docs/DefaultApi.md#transferAccountBalancesV2) | **POST** /v2/accounts/transfer_balances | Transfer available balance between a user&#39;s accounts
 *Dora.DefaultApi* | [**transferAvailableBalances**](docs/DefaultApi.md#transferAvailableBalances) | **POST** /v1/positions/transfer_balances | Transfer available balance between a user&#39;s accounts (e.g. global to isolated position)
+*Dora.DefaultApi* | [**updateAffiliateProgram**](docs/DefaultApi.md#updateAffiliateProgram) | **PUT** /v1/affiliate_programs/{program_id} | Update an affiliate program
 *Dora.DefaultApi* | [**updateTradingChallenge**](docs/DefaultApi.md#updateTradingChallenge) | **PUT** /v1/trading_challenges/{trading_challenge_id} | Update a trading challenge
 *Dora.DefaultApi* | [**updateUserConfig**](docs/DefaultApi.md#updateUserConfig) | **PUT** /v1/user/{user_id}/config | Update user configuration by ID
 *Dora.DefaultApi* | [**updateUserConfigSelf**](docs/DefaultApi.md#updateUserConfigSelf) | **PUT** /v1/user/config/self | Update user configuration for the authenticated user
@@ -267,6 +290,23 @@ Class | Method | HTTP request | Description
  - [Dora.AccountSummaryV2](docs/AccountSummaryV2.md)
  - [Dora.AccountV2](docs/AccountV2.md)
  - [Dora.AddTradingChallengeUsersRequest](docs/AddTradingChallengeUsersRequest.md)
+ - [Dora.AffiliateAttribution](docs/AffiliateAttribution.md)
+ - [Dora.AffiliateAttributionEnvelope](docs/AffiliateAttributionEnvelope.md)
+ - [Dora.AffiliateCashFlow](docs/AffiliateCashFlow.md)
+ - [Dora.AffiliateCashFlowReport](docs/AffiliateCashFlowReport.md)
+ - [Dora.AffiliateCashFlowReportEnvelope](docs/AffiliateCashFlowReportEnvelope.md)
+ - [Dora.AffiliateError](docs/AffiliateError.md)
+ - [Dora.AffiliateMembership](docs/AffiliateMembership.md)
+ - [Dora.AffiliateMembershipListEnvelope](docs/AffiliateMembershipListEnvelope.md)
+ - [Dora.AffiliateProgram](docs/AffiliateProgram.md)
+ - [Dora.AffiliateProgramEnvelope](docs/AffiliateProgramEnvelope.md)
+ - [Dora.AffiliateProgramListEnvelope](docs/AffiliateProgramListEnvelope.md)
+ - [Dora.AffiliateReferral](docs/AffiliateReferral.md)
+ - [Dora.AffiliateReferralReport](docs/AffiliateReferralReport.md)
+ - [Dora.AffiliateReferralReportEnvelope](docs/AffiliateReferralReportEnvelope.md)
+ - [Dora.AffiliateReferrer](docs/AffiliateReferrer.md)
+ - [Dora.AffiliateReferrerEnvelope](docs/AffiliateReferrerEnvelope.md)
+ - [Dora.AffiliateReferrerListEnvelope](docs/AffiliateReferrerListEnvelope.md)
  - [Dora.AllPositions](docs/AllPositions.md)
  - [Dora.AllPositionsResponseEnvelope](docs/AllPositionsResponseEnvelope.md)
  - [Dora.AllWithdrawalInitiationsResponseEnvelope](docs/AllWithdrawalInitiationsResponseEnvelope.md)
@@ -279,6 +319,7 @@ Class | Method | HTTP request | Description
  - [Dora.AssetYTM](docs/AssetYTM.md)
  - [Dora.AssetYield](docs/AssetYield.md)
  - [Dora.AssetYieldResolution](docs/AssetYieldResolution.md)
+ - [Dora.AssignAffiliateReferralRequest](docs/AssignAffiliateReferralRequest.md)
  - [Dora.BalanceTransfer](docs/BalanceTransfer.md)
  - [Dora.BalancesResponse](docs/BalancesResponse.md)
  - [Dora.Bond](docs/Bond.md)
@@ -293,6 +334,7 @@ Class | Method | HTTP request | Description
  - [Dora.ClaimLeverageAccruedInterest](docs/ClaimLeverageAccruedInterest.md)
  - [Dora.ClaimLeverageAccruedInterestRequest](docs/ClaimLeverageAccruedInterestRequest.md)
  - [Dora.ClaimLeverageAccruedInterestResponseEnvelope](docs/ClaimLeverageAccruedInterestResponseEnvelope.md)
+ - [Dora.ClaimPromoLinkRequest](docs/ClaimPromoLinkRequest.md)
  - [Dora.ClaimTradingChallengeResponse](docs/ClaimTradingChallengeResponse.md)
  - [Dora.ClaimTradingChallengeResponseEnvelope](docs/ClaimTradingChallengeResponseEnvelope.md)
  - [Dora.CloseAccountRequest](docs/CloseAccountRequest.md)
@@ -307,6 +349,7 @@ Class | Method | HTTP request | Description
  - [Dora.CreateAPIKeyData](docs/CreateAPIKeyData.md)
  - [Dora.CreateAPIKeyRequest](docs/CreateAPIKeyRequest.md)
  - [Dora.CreateAPIKeyResponseEnvelope](docs/CreateAPIKeyResponseEnvelope.md)
+ - [Dora.CreateAffiliateProgramRequest](docs/CreateAffiliateProgramRequest.md)
  - [Dora.CreateConditionalOrderRequest](docs/CreateConditionalOrderRequest.md)
  - [Dora.CreateConditionalOrderResponseData](docs/CreateConditionalOrderResponseData.md)
  - [Dora.CreateConditionalOrderResponseEnvelope](docs/CreateConditionalOrderResponseEnvelope.md)
@@ -314,7 +357,9 @@ Class | Method | HTTP request | Description
  - [Dora.CreateOrUpdateUserResponse](docs/CreateOrUpdateUserResponse.md)
  - [Dora.CreateOrderRequest](docs/CreateOrderRequest.md)
  - [Dora.CreateOrderResponseEnvelope](docs/CreateOrderResponseEnvelope.md)
+ - [Dora.CreateTradingChallengeQRRequest](docs/CreateTradingChallengeQRRequest.md)
  - [Dora.CreateTradingChallengeRequest](docs/CreateTradingChallengeRequest.md)
+ - [Dora.CreateWithdrawalRequest](docs/CreateWithdrawalRequest.md)
  - [Dora.CreditRating](docs/CreditRating.md)
  - [Dora.CurrentLeverageAccruedInterest](docs/CurrentLeverageAccruedInterest.md)
  - [Dora.CurrentLeverageAccruedInterestResponseEnvelope](docs/CurrentLeverageAccruedInterestResponseEnvelope.md)
@@ -343,6 +388,10 @@ Class | Method | HTTP request | Description
  - [Dora.IsolateCollateralResponse](docs/IsolateCollateralResponse.md)
  - [Dora.IsolatedCollateral](docs/IsolatedCollateral.md)
  - [Dora.IsolatedPosition](docs/IsolatedPosition.md)
+ - [Dora.IssuePromoLinkBatchRequest](docs/IssuePromoLinkBatchRequest.md)
+ - [Dora.IssuePromoLinkBatchResponse](docs/IssuePromoLinkBatchResponse.md)
+ - [Dora.IssuePromoLinkBatchResponseAllOfData](docs/IssuePromoLinkBatchResponseAllOfData.md)
+ - [Dora.IssuedPromoLink](docs/IssuedPromoLink.md)
  - [Dora.LedgerAccountsResponseV2Envelope](docs/LedgerAccountsResponseV2Envelope.md)
  - [Dora.LedgerModuleByAssetResponseEnvelope](docs/LedgerModuleByAssetResponseEnvelope.md)
  - [Dora.LedgerModuleResponseEnvelope](docs/LedgerModuleResponseEnvelope.md)
@@ -371,6 +420,7 @@ Class | Method | HTTP request | Description
  - [Dora.ListTransactionsResponseEnvelope](docs/ListTransactionsResponseEnvelope.md)
  - [Dora.ListUserCouponPaymentsResponseEnvelope](docs/ListUserCouponPaymentsResponseEnvelope.md)
  - [Dora.ListUsersResponseEnvelope](docs/ListUsersResponseEnvelope.md)
+ - [Dora.ListWithdrawalsResponseEnvelope](docs/ListWithdrawalsResponseEnvelope.md)
  - [Dora.LiveOrderbook](docs/LiveOrderbook.md)
  - [Dora.Margin](docs/Margin.md)
  - [Dora.Metadata](docs/Metadata.md)
@@ -407,6 +457,8 @@ Class | Method | HTTP request | Description
  - [Dora.PermitMessage](docs/PermitMessage.md)
  - [Dora.PermitTypedData](docs/PermitTypedData.md)
  - [Dora.PnLRankingResponse](docs/PnLRankingResponse.md)
+ - [Dora.PnLRankingResponses](docs/PnLRankingResponses.md)
+ - [Dora.PnLRankingSummary](docs/PnLRankingSummary.md)
  - [Dora.PoolPrice](docs/PoolPrice.md)
  - [Dora.PoolPriceResponseEnvelope](docs/PoolPriceResponseEnvelope.md)
  - [Dora.PoolRequestError](docs/PoolRequestError.md)
@@ -418,8 +470,23 @@ Class | Method | HTTP request | Description
  - [Dora.PositionSide](docs/PositionSide.md)
  - [Dora.PositionType](docs/PositionType.md)
  - [Dora.PriceLevel](docs/PriceLevel.md)
+ - [Dora.PromoAttributionResponse](docs/PromoAttributionResponse.md)
+ - [Dora.PromoAttributionResponseAllOfData](docs/PromoAttributionResponseAllOfData.md)
+ - [Dora.PromoAttributionSource](docs/PromoAttributionSource.md)
+ - [Dora.PromoClaimResponseEnvelope](docs/PromoClaimResponseEnvelope.md)
+ - [Dora.PromoClaimResponseEnvelopeAllOfData](docs/PromoClaimResponseEnvelopeAllOfData.md)
+ - [Dora.PromoClaimState](docs/PromoClaimState.md)
+ - [Dora.PromoLinkAdmin](docs/PromoLinkAdmin.md)
+ - [Dora.PromoLinkBatchListResponse](docs/PromoLinkBatchListResponse.md)
+ - [Dora.PromoLinkBatchListResponseAllOfData](docs/PromoLinkBatchListResponseAllOfData.md)
+ - [Dora.PromoLinkBatchSummary](docs/PromoLinkBatchSummary.md)
+ - [Dora.PromoLinkListResponse](docs/PromoLinkListResponse.md)
+ - [Dora.PromoLinkListResponseAllOfData](docs/PromoLinkListResponseAllOfData.md)
+ - [Dora.PromoLinkStatus](docs/PromoLinkStatus.md)
+ - [Dora.PromoSourceType](docs/PromoSourceType.md)
  - [Dora.RealizedPnlSettlement](docs/RealizedPnlSettlement.md)
  - [Dora.RealizedPnlSettlements](docs/RealizedPnlSettlements.md)
+ - [Dora.RegisterAffiliateReferrerRequest](docs/RegisterAffiliateReferrerRequest.md)
  - [Dora.RemoveTradingChallengeUsersRequest](docs/RemoveTradingChallengeUsersRequest.md)
  - [Dora.RepayUSDRequest](docs/RepayUSDRequest.md)
  - [Dora.RepayUSDResponseEnvelope](docs/RepayUSDResponseEnvelope.md)
@@ -429,6 +496,9 @@ Class | Method | HTTP request | Description
  - [Dora.ReviewTradingChallengeRegistrationRequest](docs/ReviewTradingChallengeRegistrationRequest.md)
  - [Dora.RevokeAPIKeyData](docs/RevokeAPIKeyData.md)
  - [Dora.RevokeAPIKeyResponseEnvelope](docs/RevokeAPIKeyResponseEnvelope.md)
+ - [Dora.RevokePromoLinkRequest](docs/RevokePromoLinkRequest.md)
+ - [Dora.RevokePromoLinkResponse](docs/RevokePromoLinkResponse.md)
+ - [Dora.RevokePromoLinkResponseAllOfData](docs/RevokePromoLinkResponseAllOfData.md)
  - [Dora.SettleLeverageAccruedInterest](docs/SettleLeverageAccruedInterest.md)
  - [Dora.SettleLeverageAccruedInterestRequest](docs/SettleLeverageAccruedInterestRequest.md)
  - [Dora.SettleLeverageAccruedInterestResponseEnvelope](docs/SettleLeverageAccruedInterestResponseEnvelope.md)
@@ -459,6 +529,7 @@ Class | Method | HTTP request | Description
  - [Dora.TradingChallengeDailySnapshot](docs/TradingChallengeDailySnapshot.md)
  - [Dora.TradingChallengeDailySnapshotsResponseEnvelope](docs/TradingChallengeDailySnapshotsResponseEnvelope.md)
  - [Dora.TradingChallengeListResponseEnvelope](docs/TradingChallengeListResponseEnvelope.md)
+ - [Dora.TradingChallengeQR](docs/TradingChallengeQR.md)
  - [Dora.TradingChallengeRegistrationRequest](docs/TradingChallengeRegistrationRequest.md)
  - [Dora.TradingChallengeRegistrationRequestListResponseEnvelope](docs/TradingChallengeRegistrationRequestListResponseEnvelope.md)
  - [Dora.TradingChallengeRegistrationRequestResponseEnvelope](docs/TradingChallengeRegistrationRequestResponseEnvelope.md)
@@ -486,6 +557,10 @@ Class | Method | HTTP request | Description
  - [Dora.UnitePositionRequest](docs/UnitePositionRequest.md)
  - [Dora.UnitePositionResponseEnvelope](docs/UnitePositionResponseEnvelope.md)
  - [Dora.UnitedPosition](docs/UnitedPosition.md)
+ - [Dora.UpdateAffiliateProgramRequest](docs/UpdateAffiliateProgramRequest.md)
+ - [Dora.UpdateAffiliateProgramRequestDescription](docs/UpdateAffiliateProgramRequestDescription.md)
+ - [Dora.UpdateAffiliateProgramRequestIsActive](docs/UpdateAffiliateProgramRequestIsActive.md)
+ - [Dora.UpdateAffiliateProgramRequestName](docs/UpdateAffiliateProgramRequestName.md)
  - [Dora.UpdateFieldBoolean](docs/UpdateFieldBoolean.md)
  - [Dora.UpdateFieldDateTime](docs/UpdateFieldDateTime.md)
  - [Dora.UpdateFieldDecimal](docs/UpdateFieldDecimal.md)
@@ -521,12 +596,15 @@ Class | Method | HTTP request | Description
  - [Dora.ValidateSubmitOrderRequest](docs/ValidateSubmitOrderRequest.md)
  - [Dora.ValidateSubmitOrderResponse](docs/ValidateSubmitOrderResponse.md)
  - [Dora.Web3EventStatus](docs/Web3EventStatus.md)
+ - [Dora.Web3WithdrawalStatus](docs/Web3WithdrawalStatus.md)
  - [Dora.Withdraw](docs/Withdraw.md)
  - [Dora.WithdrawRequest](docs/WithdrawRequest.md)
  - [Dora.WithdrawResponseEnvelope](docs/WithdrawResponseEnvelope.md)
  - [Dora.WithdrawalInitiation](docs/WithdrawalInitiation.md)
  - [Dora.WithdrawalInitiationResponseEnvelope](docs/WithdrawalInitiationResponseEnvelope.md)
  - [Dora.WithdrawalRequestReason](docs/WithdrawalRequestReason.md)
+ - [Dora.WithdrawalResponse](docs/WithdrawalResponse.md)
+ - [Dora.WithdrawalResponseEnvelope](docs/WithdrawalResponseEnvelope.md)
  - [Dora.WithdrawalStatus](docs/WithdrawalStatus.md)
 
 

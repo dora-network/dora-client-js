@@ -48,6 +48,12 @@ class CreateIntegratorUserRequest {
         if (data) {
             obj = obj || new CreateIntegratorUserRequest();
 
+            if (data.hasOwnProperty('referral_code')) {
+                obj['referral_code'] = ApiClient.convertToType(data['referral_code'], 'String');
+            }
+            if (data.hasOwnProperty('signup_source')) {
+                obj['signup_source'] = ApiClient.convertToType(data['signup_source'], 'String');
+            }
             if (data.hasOwnProperty('email')) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
@@ -91,6 +97,14 @@ class CreateIntegratorUserRequest {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateIntegratorUserRequest</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['referral_code'] && !(typeof data['referral_code'] === 'string' || data['referral_code'] instanceof String)) {
+            throw new Error("Expected the field `referral_code` to be a primitive type in the JSON string but got " + data['referral_code']);
+        }
+        // ensure the json data is a string
+        if (data['signup_source'] && !(typeof data['signup_source'] === 'string' || data['signup_source'] instanceof String)) {
+            throw new Error("Expected the field `signup_source` to be a primitive type in the JSON string but got " + data['signup_source']);
+        }
         // ensure the json data is a string
         if (data['email'] && !(typeof data['email'] === 'string' || data['email'] instanceof String)) {
             throw new Error("Expected the field `email` to be a primitive type in the JSON string but got " + data['email']);
@@ -139,6 +153,18 @@ class CreateIntegratorUserRequest {
 }
 
 
+
+/**
+ * Optional affiliate code, normalized to uppercase. Accepted only when creating a new account in the program owning tenant. One immutable attribution per user account; a later signup/linking call cannot add or replace it. Invalid or inactive codes fail signup atomically. Independent of QR acquisition attribution. Existing unassigned users can instead use POST /v1/affiliate_referrals/self; earlier activity is excluded.
+ * @member {String} referral_code
+ */
+CreateIntegratorUserRequest.prototype['referral_code'] = undefined;
+
+/**
+ * Optional client-reported HTTP(S) signup site URL, used only with referral_code. When omitted, a valid HTTP(S) Origin header is used; other origins are ignored. Only the hostname is stored, without path, query, credentials or fragment. Unknown if neither supplies a usable hostname. Ignored when referral_code is empty. It does not select or authenticate the tenant.
+ * @member {String} signup_source
+ */
+CreateIntegratorUserRequest.prototype['signup_source'] = undefined;
 
 /**
  * @member {String} email

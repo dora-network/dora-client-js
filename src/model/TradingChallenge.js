@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import TradingChallengeQR from './TradingChallengeQR';
 import TradingChallengeStatus from './TradingChallengeStatus';
 import TradingChallengeType from './TradingChallengeType';
 
@@ -143,6 +144,12 @@ class TradingChallenge {
             if (data.hasOwnProperty('users_count')) {
                 obj['users_count'] = ApiClient.convertToType(data['users_count'], 'Number');
             }
+            if (data.hasOwnProperty('qr')) {
+                obj['qr'] = TradingChallengeQR.constructFromObject(data['qr']);
+            }
+            if (data.hasOwnProperty('worst_case_exposure')) {
+                obj['worst_case_exposure'] = ApiClient.convertToType(data['worst_case_exposure'], 'String');
+            }
         }
         return obj;
     }
@@ -202,6 +209,14 @@ class TradingChallenge {
         // ensure the json data is an array
         if (!Array.isArray(data['users'])) {
             throw new Error("Expected the field `users` to be an array in the JSON data but got " + data['users']);
+        }
+        // validate the optional field `qr`
+        if (data['qr']) { // data not null
+          TradingChallengeQR.validateJSON(data['qr']);
+        }
+        // ensure the json data is a string
+        if (data['worst_case_exposure'] && !(typeof data['worst_case_exposure'] === 'string' || data['worst_case_exposure'] instanceof String)) {
+            throw new Error("Expected the field `worst_case_exposure` to be a primitive type in the JSON string but got " + data['worst_case_exposure']);
         }
 
         return true;
@@ -312,6 +327,17 @@ TradingChallenge.prototype['users'] = undefined;
  * @member {Number} users_count
  */
 TradingChallenge.prototype['users_count'] = undefined;
+
+/**
+ * @member {module:model/TradingChallengeQR} qr
+ */
+TradingChallenge.prototype['qr'] = undefined;
+
+/**
+ * For QR_PROMO, max_users multiplied by initial_user_balance plus max_reward_amount.
+ * @member {String} worst_case_exposure
+ */
+TradingChallenge.prototype['worst_case_exposure'] = undefined;
 
 
 

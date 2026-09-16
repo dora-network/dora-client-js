@@ -60,8 +60,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property depositLimit (base name: "deposit_limit")', function() {
-      // uncomment below and update the code to test the property depositLimit
+    it('should have the property dailyDepositLimit (base name: "daily_deposit_limit")', function() {
+      // uncomment below and update the code to test the property dailyDepositLimit
       //var instance = new Dora.TenantRestrictions();
       //expect(instance).to.be();
     });

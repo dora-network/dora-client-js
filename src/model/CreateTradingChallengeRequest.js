@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import CreateTradingChallengeQRRequest from './CreateTradingChallengeQRRequest';
 import TradingChallengeType from './TradingChallengeType';
 
 /**
@@ -107,6 +108,9 @@ class CreateTradingChallengeRequest {
             if (data.hasOwnProperty('users')) {
                 obj['users'] = ApiClient.convertToType(data['users'], ['String']);
             }
+            if (data.hasOwnProperty('qr')) {
+                obj['qr'] = ApiClient.convertToType(data['qr'], CreateTradingChallengeQRRequest);
+            }
         }
         return obj;
     }
@@ -162,6 +166,10 @@ class CreateTradingChallengeRequest {
         // ensure the json data is an array
         if (!Array.isArray(data['users'])) {
             throw new Error("Expected the field `users` to be an array in the JSON data but got " + data['users']);
+        }
+        // validate the optional field `qr`
+        if (data['qr']) { // data not null
+          CreateTradingChallengeQRRequest.validateJSON(data['qr']);
         }
 
         return true;
@@ -247,6 +255,12 @@ CreateTradingChallengeRequest.prototype['minimum_equity_percentage_condition'] =
  * @member {Array.<String>} users
  */
 CreateTradingChallengeRequest.prototype['users'] = undefined;
+
+/**
+ * Required for QR_PROMO and rejected for other challenge types. QR_PROMO requests must omit users.
+ * @member {module:model/CreateTradingChallengeQRRequest} qr
+ */
+CreateTradingChallengeRequest.prototype['qr'] = undefined;
 
 
 

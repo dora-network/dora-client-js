@@ -22,6 +22,23 @@ import AccountPortfolioV2 from './model/AccountPortfolioV2';
 import AccountSummaryV2 from './model/AccountSummaryV2';
 import AccountV2 from './model/AccountV2';
 import AddTradingChallengeUsersRequest from './model/AddTradingChallengeUsersRequest';
+import AffiliateAttribution from './model/AffiliateAttribution';
+import AffiliateAttributionEnvelope from './model/AffiliateAttributionEnvelope';
+import AffiliateCashFlow from './model/AffiliateCashFlow';
+import AffiliateCashFlowReport from './model/AffiliateCashFlowReport';
+import AffiliateCashFlowReportEnvelope from './model/AffiliateCashFlowReportEnvelope';
+import AffiliateError from './model/AffiliateError';
+import AffiliateMembership from './model/AffiliateMembership';
+import AffiliateMembershipListEnvelope from './model/AffiliateMembershipListEnvelope';
+import AffiliateProgram from './model/AffiliateProgram';
+import AffiliateProgramEnvelope from './model/AffiliateProgramEnvelope';
+import AffiliateProgramListEnvelope from './model/AffiliateProgramListEnvelope';
+import AffiliateReferral from './model/AffiliateReferral';
+import AffiliateReferralReport from './model/AffiliateReferralReport';
+import AffiliateReferralReportEnvelope from './model/AffiliateReferralReportEnvelope';
+import AffiliateReferrer from './model/AffiliateReferrer';
+import AffiliateReferrerEnvelope from './model/AffiliateReferrerEnvelope';
+import AffiliateReferrerListEnvelope from './model/AffiliateReferrerListEnvelope';
 import AllPositions from './model/AllPositions';
 import AllPositionsResponseEnvelope from './model/AllPositionsResponseEnvelope';
 import AllWithdrawalInitiationsResponseEnvelope from './model/AllWithdrawalInitiationsResponseEnvelope';
@@ -34,6 +51,7 @@ import AssetRequestError from './model/AssetRequestError';
 import AssetYTM from './model/AssetYTM';
 import AssetYield from './model/AssetYield';
 import AssetYieldResolution from './model/AssetYieldResolution';
+import AssignAffiliateReferralRequest from './model/AssignAffiliateReferralRequest';
 import BalanceTransfer from './model/BalanceTransfer';
 import BalancesResponse from './model/BalancesResponse';
 import Bond from './model/Bond';
@@ -48,6 +66,7 @@ import CashReserveResponseEnvelope from './model/CashReserveResponseEnvelope';
 import ClaimLeverageAccruedInterest from './model/ClaimLeverageAccruedInterest';
 import ClaimLeverageAccruedInterestRequest from './model/ClaimLeverageAccruedInterestRequest';
 import ClaimLeverageAccruedInterestResponseEnvelope from './model/ClaimLeverageAccruedInterestResponseEnvelope';
+import ClaimPromoLinkRequest from './model/ClaimPromoLinkRequest';
 import ClaimTradingChallengeResponse from './model/ClaimTradingChallengeResponse';
 import ClaimTradingChallengeResponseEnvelope from './model/ClaimTradingChallengeResponseEnvelope';
 import CloseAccountRequest from './model/CloseAccountRequest';
@@ -62,6 +81,7 @@ import CouponPayment from './model/CouponPayment';
 import CreateAPIKeyData from './model/CreateAPIKeyData';
 import CreateAPIKeyRequest from './model/CreateAPIKeyRequest';
 import CreateAPIKeyResponseEnvelope from './model/CreateAPIKeyResponseEnvelope';
+import CreateAffiliateProgramRequest from './model/CreateAffiliateProgramRequest';
 import CreateConditionalOrderRequest from './model/CreateConditionalOrderRequest';
 import CreateConditionalOrderResponseData from './model/CreateConditionalOrderResponseData';
 import CreateConditionalOrderResponseEnvelope from './model/CreateConditionalOrderResponseEnvelope';
@@ -69,7 +89,9 @@ import CreateIntegratorUserRequest from './model/CreateIntegratorUserRequest';
 import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
 import CreateOrderResponseEnvelope from './model/CreateOrderResponseEnvelope';
+import CreateTradingChallengeQRRequest from './model/CreateTradingChallengeQRRequest';
 import CreateTradingChallengeRequest from './model/CreateTradingChallengeRequest';
+import CreateWithdrawalRequest from './model/CreateWithdrawalRequest';
 import CreditRating from './model/CreditRating';
 import CurrentLeverageAccruedInterest from './model/CurrentLeverageAccruedInterest';
 import CurrentLeverageAccruedInterestResponseEnvelope from './model/CurrentLeverageAccruedInterestResponseEnvelope';
@@ -98,6 +120,10 @@ import IsolateCollateralRequest from './model/IsolateCollateralRequest';
 import IsolateCollateralResponse from './model/IsolateCollateralResponse';
 import IsolatedCollateral from './model/IsolatedCollateral';
 import IsolatedPosition from './model/IsolatedPosition';
+import IssuePromoLinkBatchRequest from './model/IssuePromoLinkBatchRequest';
+import IssuePromoLinkBatchResponse from './model/IssuePromoLinkBatchResponse';
+import IssuePromoLinkBatchResponseAllOfData from './model/IssuePromoLinkBatchResponseAllOfData';
+import IssuedPromoLink from './model/IssuedPromoLink';
 import LedgerAccountsResponseV2Envelope from './model/LedgerAccountsResponseV2Envelope';
 import LedgerModuleByAssetResponseEnvelope from './model/LedgerModuleByAssetResponseEnvelope';
 import LedgerModuleResponseEnvelope from './model/LedgerModuleResponseEnvelope';
@@ -126,6 +152,7 @@ import ListTradeResponseEnvelope from './model/ListTradeResponseEnvelope';
 import ListTransactionsResponseEnvelope from './model/ListTransactionsResponseEnvelope';
 import ListUserCouponPaymentsResponseEnvelope from './model/ListUserCouponPaymentsResponseEnvelope';
 import ListUsersResponseEnvelope from './model/ListUsersResponseEnvelope';
+import ListWithdrawalsResponseEnvelope from './model/ListWithdrawalsResponseEnvelope';
 import LiveOrderbook from './model/LiveOrderbook';
 import Margin from './model/Margin';
 import Metadata from './model/Metadata';
@@ -162,6 +189,8 @@ import PermitDomain from './model/PermitDomain';
 import PermitMessage from './model/PermitMessage';
 import PermitTypedData from './model/PermitTypedData';
 import PnLRankingResponse from './model/PnLRankingResponse';
+import PnLRankingResponses from './model/PnLRankingResponses';
+import PnLRankingSummary from './model/PnLRankingSummary';
 import PoolPrice from './model/PoolPrice';
 import PoolPriceResponseEnvelope from './model/PoolPriceResponseEnvelope';
 import PoolRequestError from './model/PoolRequestError';
@@ -173,8 +202,23 @@ import PositionResponse from './model/PositionResponse';
 import PositionSide from './model/PositionSide';
 import PositionType from './model/PositionType';
 import PriceLevel from './model/PriceLevel';
+import PromoAttributionResponse from './model/PromoAttributionResponse';
+import PromoAttributionResponseAllOfData from './model/PromoAttributionResponseAllOfData';
+import PromoAttributionSource from './model/PromoAttributionSource';
+import PromoClaimResponseEnvelope from './model/PromoClaimResponseEnvelope';
+import PromoClaimResponseEnvelopeAllOfData from './model/PromoClaimResponseEnvelopeAllOfData';
+import PromoClaimState from './model/PromoClaimState';
+import PromoLinkAdmin from './model/PromoLinkAdmin';
+import PromoLinkBatchListResponse from './model/PromoLinkBatchListResponse';
+import PromoLinkBatchListResponseAllOfData from './model/PromoLinkBatchListResponseAllOfData';
+import PromoLinkBatchSummary from './model/PromoLinkBatchSummary';
+import PromoLinkListResponse from './model/PromoLinkListResponse';
+import PromoLinkListResponseAllOfData from './model/PromoLinkListResponseAllOfData';
+import PromoLinkStatus from './model/PromoLinkStatus';
+import PromoSourceType from './model/PromoSourceType';
 import RealizedPnlSettlement from './model/RealizedPnlSettlement';
 import RealizedPnlSettlements from './model/RealizedPnlSettlements';
+import RegisterAffiliateReferrerRequest from './model/RegisterAffiliateReferrerRequest';
 import RemoveTradingChallengeUsersRequest from './model/RemoveTradingChallengeUsersRequest';
 import RepayUSDRequest from './model/RepayUSDRequest';
 import RepayUSDResponseEnvelope from './model/RepayUSDResponseEnvelope';
@@ -184,6 +228,9 @@ import ResponseEnvelopeOfListAssets from './model/ResponseEnvelopeOfListAssets';
 import ReviewTradingChallengeRegistrationRequest from './model/ReviewTradingChallengeRegistrationRequest';
 import RevokeAPIKeyData from './model/RevokeAPIKeyData';
 import RevokeAPIKeyResponseEnvelope from './model/RevokeAPIKeyResponseEnvelope';
+import RevokePromoLinkRequest from './model/RevokePromoLinkRequest';
+import RevokePromoLinkResponse from './model/RevokePromoLinkResponse';
+import RevokePromoLinkResponseAllOfData from './model/RevokePromoLinkResponseAllOfData';
 import SettleLeverageAccruedInterest from './model/SettleLeverageAccruedInterest';
 import SettleLeverageAccruedInterestRequest from './model/SettleLeverageAccruedInterestRequest';
 import SettleLeverageAccruedInterestResponseEnvelope from './model/SettleLeverageAccruedInterestResponseEnvelope';
@@ -214,6 +261,7 @@ import TradingChallenge from './model/TradingChallenge';
 import TradingChallengeDailySnapshot from './model/TradingChallengeDailySnapshot';
 import TradingChallengeDailySnapshotsResponseEnvelope from './model/TradingChallengeDailySnapshotsResponseEnvelope';
 import TradingChallengeListResponseEnvelope from './model/TradingChallengeListResponseEnvelope';
+import TradingChallengeQR from './model/TradingChallengeQR';
 import TradingChallengeRegistrationRequest from './model/TradingChallengeRegistrationRequest';
 import TradingChallengeRegistrationRequestListResponseEnvelope from './model/TradingChallengeRegistrationRequestListResponseEnvelope';
 import TradingChallengeRegistrationRequestResponseEnvelope from './model/TradingChallengeRegistrationRequestResponseEnvelope';
@@ -241,6 +289,10 @@ import TypedDataField from './model/TypedDataField';
 import UnitePositionRequest from './model/UnitePositionRequest';
 import UnitePositionResponseEnvelope from './model/UnitePositionResponseEnvelope';
 import UnitedPosition from './model/UnitedPosition';
+import UpdateAffiliateProgramRequest from './model/UpdateAffiliateProgramRequest';
+import UpdateAffiliateProgramRequestDescription from './model/UpdateAffiliateProgramRequestDescription';
+import UpdateAffiliateProgramRequestIsActive from './model/UpdateAffiliateProgramRequestIsActive';
+import UpdateAffiliateProgramRequestName from './model/UpdateAffiliateProgramRequestName';
 import UpdateFieldBoolean from './model/UpdateFieldBoolean';
 import UpdateFieldDateTime from './model/UpdateFieldDateTime';
 import UpdateFieldDecimal from './model/UpdateFieldDecimal';
@@ -276,12 +328,15 @@ import UserValueResponseEnvelope from './model/UserValueResponseEnvelope';
 import ValidateSubmitOrderRequest from './model/ValidateSubmitOrderRequest';
 import ValidateSubmitOrderResponse from './model/ValidateSubmitOrderResponse';
 import Web3EventStatus from './model/Web3EventStatus';
+import Web3WithdrawalStatus from './model/Web3WithdrawalStatus';
 import Withdraw from './model/Withdraw';
 import WithdrawRequest from './model/WithdrawRequest';
 import WithdrawResponseEnvelope from './model/WithdrawResponseEnvelope';
 import WithdrawalInitiation from './model/WithdrawalInitiation';
 import WithdrawalInitiationResponseEnvelope from './model/WithdrawalInitiationResponseEnvelope';
 import WithdrawalRequestReason from './model/WithdrawalRequestReason';
+import WithdrawalResponse from './model/WithdrawalResponse';
+import WithdrawalResponseEnvelope from './model/WithdrawalResponseEnvelope';
 import WithdrawalStatus from './model/WithdrawalStatus';
 import DefaultApi from './api/DefaultApi';
 
@@ -379,6 +434,108 @@ export {
     AddTradingChallengeUsersRequest,
 
     /**
+     * The AffiliateAttribution model constructor.
+     * @property {module:model/AffiliateAttribution}
+     */
+    AffiliateAttribution,
+
+    /**
+     * The AffiliateAttributionEnvelope model constructor.
+     * @property {module:model/AffiliateAttributionEnvelope}
+     */
+    AffiliateAttributionEnvelope,
+
+    /**
+     * The AffiliateCashFlow model constructor.
+     * @property {module:model/AffiliateCashFlow}
+     */
+    AffiliateCashFlow,
+
+    /**
+     * The AffiliateCashFlowReport model constructor.
+     * @property {module:model/AffiliateCashFlowReport}
+     */
+    AffiliateCashFlowReport,
+
+    /**
+     * The AffiliateCashFlowReportEnvelope model constructor.
+     * @property {module:model/AffiliateCashFlowReportEnvelope}
+     */
+    AffiliateCashFlowReportEnvelope,
+
+    /**
+     * The AffiliateError model constructor.
+     * @property {module:model/AffiliateError}
+     */
+    AffiliateError,
+
+    /**
+     * The AffiliateMembership model constructor.
+     * @property {module:model/AffiliateMembership}
+     */
+    AffiliateMembership,
+
+    /**
+     * The AffiliateMembershipListEnvelope model constructor.
+     * @property {module:model/AffiliateMembershipListEnvelope}
+     */
+    AffiliateMembershipListEnvelope,
+
+    /**
+     * The AffiliateProgram model constructor.
+     * @property {module:model/AffiliateProgram}
+     */
+    AffiliateProgram,
+
+    /**
+     * The AffiliateProgramEnvelope model constructor.
+     * @property {module:model/AffiliateProgramEnvelope}
+     */
+    AffiliateProgramEnvelope,
+
+    /**
+     * The AffiliateProgramListEnvelope model constructor.
+     * @property {module:model/AffiliateProgramListEnvelope}
+     */
+    AffiliateProgramListEnvelope,
+
+    /**
+     * The AffiliateReferral model constructor.
+     * @property {module:model/AffiliateReferral}
+     */
+    AffiliateReferral,
+
+    /**
+     * The AffiliateReferralReport model constructor.
+     * @property {module:model/AffiliateReferralReport}
+     */
+    AffiliateReferralReport,
+
+    /**
+     * The AffiliateReferralReportEnvelope model constructor.
+     * @property {module:model/AffiliateReferralReportEnvelope}
+     */
+    AffiliateReferralReportEnvelope,
+
+    /**
+     * The AffiliateReferrer model constructor.
+     * @property {module:model/AffiliateReferrer}
+     */
+    AffiliateReferrer,
+
+    /**
+     * The AffiliateReferrerEnvelope model constructor.
+     * @property {module:model/AffiliateReferrerEnvelope}
+     */
+    AffiliateReferrerEnvelope,
+
+    /**
+     * The AffiliateReferrerListEnvelope model constructor.
+     * @property {module:model/AffiliateReferrerListEnvelope}
+     */
+    AffiliateReferrerListEnvelope,
+
+    /**
      * The AllPositions model constructor.
      * @property {module:model/AllPositions}
      */
@@ -449,6 +606,12 @@ export {
      * @property {module:model/AssetYieldResolution}
      */
     AssetYieldResolution,
+
+    /**
+     * The AssignAffiliateReferralRequest model constructor.
+     * @property {module:model/AssignAffiliateReferralRequest}
+     */
+    AssignAffiliateReferralRequest,
 
     /**
      * The BalanceTransfer model constructor.
@@ -535,6 +698,12 @@ export {
     ClaimLeverageAccruedInterestResponseEnvelope,
 
     /**
+     * The ClaimPromoLinkRequest model constructor.
+     * @property {module:model/ClaimPromoLinkRequest}
+     */
+    ClaimPromoLinkRequest,
+
+    /**
      * The ClaimTradingChallengeResponse model constructor.
      * @property {module:model/ClaimTradingChallengeResponse}
      */
@@ -619,6 +788,12 @@ export {
     CreateAPIKeyResponseEnvelope,
 
     /**
+     * The CreateAffiliateProgramRequest model constructor.
+     * @property {module:model/CreateAffiliateProgramRequest}
+     */
+    CreateAffiliateProgramRequest,
+
+    /**
      * The CreateConditionalOrderRequest model constructor.
      * @property {module:model/CreateConditionalOrderRequest}
      */
@@ -661,10 +836,22 @@ export {
     CreateOrderResponseEnvelope,
 
     /**
+     * The CreateTradingChallengeQRRequest model constructor.
+     * @property {module:model/CreateTradingChallengeQRRequest}
+     */
+    CreateTradingChallengeQRRequest,
+
+    /**
      * The CreateTradingChallengeRequest model constructor.
      * @property {module:model/CreateTradingChallengeRequest}
      */
     CreateTradingChallengeRequest,
+
+    /**
+     * The CreateWithdrawalRequest model constructor.
+     * @property {module:model/CreateWithdrawalRequest}
+     */
+    CreateWithdrawalRequest,
 
     /**
      * The CreditRating model constructor.
@@ -835,6 +1022,30 @@ export {
     IsolatedPosition,
 
     /**
+     * The IssuePromoLinkBatchRequest model constructor.
+     * @property {module:model/IssuePromoLinkBatchRequest}
+     */
+    IssuePromoLinkBatchRequest,
+
+    /**
+     * The IssuePromoLinkBatchResponse model constructor.
+     * @property {module:model/IssuePromoLinkBatchResponse}
+     */
+    IssuePromoLinkBatchResponse,
+
+    /**
+     * The IssuePromoLinkBatchResponseAllOfData model constructor.
+     * @property {module:model/IssuePromoLinkBatchResponseAllOfData}
+     */
+    IssuePromoLinkBatchResponseAllOfData,
+
+    /**
+     * The IssuedPromoLink model constructor.
+     * @property {module:model/IssuedPromoLink}
+     */
+    IssuedPromoLink,
+
+    /**
      * The LedgerAccountsResponseV2Envelope model constructor.
      * @property {module:model/LedgerAccountsResponseV2Envelope}
      */
@@ -1001,6 +1212,12 @@ export {
      * @property {module:model/ListUsersResponseEnvelope}
      */
     ListUsersResponseEnvelope,
+
+    /**
+     * The ListWithdrawalsResponseEnvelope model constructor.
+     * @property {module:model/ListWithdrawalsResponseEnvelope}
+     */
+    ListWithdrawalsResponseEnvelope,
 
     /**
      * The LiveOrderbook model constructor.
@@ -1219,6 +1436,18 @@ export {
     PnLRankingResponse,
 
     /**
+     * The PnLRankingResponses model constructor.
+     * @property {module:model/PnLRankingResponses}
+     */
+    PnLRankingResponses,
+
+    /**
+     * The PnLRankingSummary model constructor.
+     * @property {module:model/PnLRankingSummary}
+     */
+    PnLRankingSummary,
+
+    /**
      * The PoolPrice model constructor.
      * @property {module:model/PoolPrice}
      */
@@ -1285,6 +1514,90 @@ export {
     PriceLevel,
 
     /**
+     * The PromoAttributionResponse model constructor.
+     * @property {module:model/PromoAttributionResponse}
+     */
+    PromoAttributionResponse,
+
+    /**
+     * The PromoAttributionResponseAllOfData model constructor.
+     * @property {module:model/PromoAttributionResponseAllOfData}
+     */
+    PromoAttributionResponseAllOfData,
+
+    /**
+     * The PromoAttributionSource model constructor.
+     * @property {module:model/PromoAttributionSource}
+     */
+    PromoAttributionSource,
+
+    /**
+     * The PromoClaimResponseEnvelope model constructor.
+     * @property {module:model/PromoClaimResponseEnvelope}
+     */
+    PromoClaimResponseEnvelope,
+
+    /**
+     * The PromoClaimResponseEnvelopeAllOfData model constructor.
+     * @property {module:model/PromoClaimResponseEnvelopeAllOfData}
+     */
+    PromoClaimResponseEnvelopeAllOfData,
+
+    /**
+     * The PromoClaimState model constructor.
+     * @property {module:model/PromoClaimState}
+     */
+    PromoClaimState,
+
+    /**
+     * The PromoLinkAdmin model constructor.
+     * @property {module:model/PromoLinkAdmin}
+     */
+    PromoLinkAdmin,
+
+    /**
+     * The PromoLinkBatchListResponse model constructor.
+     * @property {module:model/PromoLinkBatchListResponse}
+     */
+    PromoLinkBatchListResponse,
+
+    /**
+     * The PromoLinkBatchListResponseAllOfData model constructor.
+     * @property {module:model/PromoLinkBatchListResponseAllOfData}
+     */
+    PromoLinkBatchListResponseAllOfData,
+
+    /**
+     * The PromoLinkBatchSummary model constructor.
+     * @property {module:model/PromoLinkBatchSummary}
+     */
+    PromoLinkBatchSummary,
+
+    /**
+     * The PromoLinkListResponse model constructor.
+     * @property {module:model/PromoLinkListResponse}
+     */
+    PromoLinkListResponse,
+
+    /**
+     * The PromoLinkListResponseAllOfData model constructor.
+     * @property {module:model/PromoLinkListResponseAllOfData}
+     */
+    PromoLinkListResponseAllOfData,
+
+    /**
+     * The PromoLinkStatus model constructor.
+     * @property {module:model/PromoLinkStatus}
+     */
+    PromoLinkStatus,
+
+    /**
+     * The PromoSourceType model constructor.
+     * @property {module:model/PromoSourceType}
+     */
+    PromoSourceType,
+
+    /**
      * The RealizedPnlSettlement model constructor.
      * @property {module:model/RealizedPnlSettlement}
      */
@@ -1295,6 +1608,12 @@ export {
      * @property {module:model/RealizedPnlSettlements}
      */
     RealizedPnlSettlements,
+
+    /**
+     * The RegisterAffiliateReferrerRequest model constructor.
+     * @property {module:model/RegisterAffiliateReferrerRequest}
+     */
+    RegisterAffiliateReferrerRequest,
 
     /**
      * The RemoveTradingChallengeUsersRequest model constructor.
@@ -1349,6 +1668,24 @@ export {
      * @property {module:model/RevokeAPIKeyResponseEnvelope}
      */
     RevokeAPIKeyResponseEnvelope,
+
+    /**
+     * The RevokePromoLinkRequest model constructor.
+     * @property {module:model/RevokePromoLinkRequest}
+     */
+    RevokePromoLinkRequest,
+
+    /**
+     * The RevokePromoLinkResponse model constructor.
+     * @property {module:model/RevokePromoLinkResponse}
+     */
+    RevokePromoLinkResponse,
+
+    /**
+     * The RevokePromoLinkResponseAllOfData model constructor.
+     * @property {module:model/RevokePromoLinkResponseAllOfData}
+     */
+    RevokePromoLinkResponseAllOfData,
 
     /**
      * The SettleLeverageAccruedInterest model constructor.
@@ -1531,6 +1868,12 @@ export {
     TradingChallengeListResponseEnvelope,
 
     /**
+     * The TradingChallengeQR model constructor.
+     * @property {module:model/TradingChallengeQR}
+     */
+    TradingChallengeQR,
+
+    /**
      * The TradingChallengeRegistrationRequest model constructor.
      * @property {module:model/TradingChallengeRegistrationRequest}
      */
@@ -1691,6 +2034,30 @@ export {
      * @property {module:model/UnitedPosition}
      */
     UnitedPosition,
+
+    /**
+     * The UpdateAffiliateProgramRequest model constructor.
+     * @property {module:model/UpdateAffiliateProgramRequest}
+     */
+    UpdateAffiliateProgramRequest,
+
+    /**
+     * The UpdateAffiliateProgramRequestDescription model constructor.
+     * @property {module:model/UpdateAffiliateProgramRequestDescription}
+     */
+    UpdateAffiliateProgramRequestDescription,
+
+    /**
+     * The UpdateAffiliateProgramRequestIsActive model constructor.
+     * @property {module:model/UpdateAffiliateProgramRequestIsActive}
+     */
+    UpdateAffiliateProgramRequestIsActive,
+
+    /**
+     * The UpdateAffiliateProgramRequestName model constructor.
+     * @property {module:model/UpdateAffiliateProgramRequestName}
+     */
+    UpdateAffiliateProgramRequestName,
 
     /**
      * The UpdateFieldBoolean model constructor.
@@ -1903,6 +2270,12 @@ export {
     Web3EventStatus,
 
     /**
+     * The Web3WithdrawalStatus model constructor.
+     * @property {module:model/Web3WithdrawalStatus}
+     */
+    Web3WithdrawalStatus,
+
+    /**
      * The Withdraw model constructor.
      * @property {module:model/Withdraw}
      */
@@ -1937,6 +2310,18 @@ export {
      * @property {module:model/WithdrawalRequestReason}
      */
     WithdrawalRequestReason,
+
+    /**
+     * The WithdrawalResponse model constructor.
+     * @property {module:model/WithdrawalResponse}
+     */
+    WithdrawalResponse,
+
+    /**
+     * The WithdrawalResponseEnvelope model constructor.
+     * @property {module:model/WithdrawalResponseEnvelope}
+     */
+    WithdrawalResponseEnvelope,
 
     /**
      * The WithdrawalStatus model constructor.

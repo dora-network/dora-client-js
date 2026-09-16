@@ -78,6 +78,16 @@
         done();
       });
     });
+    describe('assignAffiliateReferral', function() {
+      it('should call assignAffiliateReferral successfully', function(done) {
+        //uncomment below and update the code to test assignAffiliateReferral
+        //instance.assignAffiliateReferral(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('cancelAllOpenOrders', function() {
       it('should call cancelAllOpenOrders successfully', function(done) {
         //uncomment below and update the code to test cancelAllOpenOrders
@@ -112,6 +122,16 @@
       it('should call claimLeverageGetAccruedInterest successfully', function(done) {
         //uncomment below and update the code to test claimLeverageGetAccruedInterest
         //instance.claimLeverageGetAccruedInterest(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('claimPromoLink', function() {
+      it('should call claimPromoLink successfully', function(done) {
+        //uncomment below and update the code to test claimPromoLink
+        //instance.claimPromoLink(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -168,6 +188,16 @@
         done();
       });
     });
+    describe('createAffiliateProgram', function() {
+      it('should call createAffiliateProgram successfully', function(done) {
+        //uncomment below and update the code to test createAffiliateProgram
+        //instance.createAffiliateProgram(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createConditionalOrder', function() {
       it('should call createConditionalOrder successfully', function(done) {
         //uncomment below and update the code to test createConditionalOrder
@@ -208,6 +238,16 @@
         done();
       });
     });
+    describe('createWithdrawal', function() {
+      it('should call createWithdrawal successfully', function(done) {
+        //uncomment below and update the code to test createWithdrawal
+        //instance.createWithdrawal(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('deleteUser', function() {
       it('should call deleteUser successfully', function(done) {
         //uncomment below and update the code to test deleteUser
@@ -218,10 +258,30 @@
         done();
       });
     });
+    describe('exportPromoLinksCSV', function() {
+      it('should call exportPromoLinksCSV successfully', function(done) {
+        //uncomment below and update the code to test exportPromoLinksCSV
+        //instance.exportPromoLinksCSV(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getAPIKeysForUserID', function() {
       it('should call getAPIKeysForUserID successfully', function(done) {
         //uncomment below and update the code to test getAPIKeysForUserID
         //instance.getAPIKeysForUserID(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getAffiliateProgram', function() {
+      it('should call getAffiliateProgram successfully', function(done) {
+        //uncomment below and update the code to test getAffiliateProgram
+        //instance.getAffiliateProgram(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -588,6 +648,16 @@
         done();
       });
     });
+    describe('getPromoAttribution', function() {
+      it('should call getPromoAttribution successfully', function(done) {
+        //uncomment below and update the code to test getPromoAttribution
+        //instance.getPromoAttribution(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getRealizedPnlSettlements', function() {
       it('should call getRealizedPnlSettlements successfully', function(done) {
         //uncomment below and update the code to test getRealizedPnlSettlements
@@ -808,10 +878,30 @@
         done();
       });
     });
+    describe('getWithdrawal', function() {
+      it('should call getWithdrawal successfully', function(done) {
+        //uncomment below and update the code to test getWithdrawal
+        //instance.getWithdrawal(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getWithdrawalFeeQuote', function() {
       it('should call getWithdrawalFeeQuote successfully', function(done) {
         //uncomment below and update the code to test getWithdrawalFeeQuote
         //instance.getWithdrawalFeeQuote(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('issuePromoLinkBatch', function() {
+      it('should call issuePromoLinkBatch successfully', function(done) {
+        //uncomment below and update the code to test issuePromoLinkBatch
+        //instance.issuePromoLinkBatch(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -958,6 +1048,46 @@
         done();
       });
     });
+    describe('listAffiliateCashFlows', function() {
+      it('should call listAffiliateCashFlows successfully', function(done) {
+        //uncomment below and update the code to test listAffiliateCashFlows
+        //instance.listAffiliateCashFlows(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listAffiliatePrograms', function() {
+      it('should call listAffiliatePrograms successfully', function(done) {
+        //uncomment below and update the code to test listAffiliatePrograms
+        //instance.listAffiliatePrograms(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listAffiliateReferrals', function() {
+      it('should call listAffiliateReferrals successfully', function(done) {
+        //uncomment below and update the code to test listAffiliateReferrals
+        //instance.listAffiliateReferrals(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listAffiliateReferrers', function() {
+      it('should call listAffiliateReferrers successfully', function(done) {
+        //uncomment below and update the code to test listAffiliateReferrers
+        //instance.listAffiliateReferrers(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listAssets', function() {
       it('should call listAssets successfully', function(done) {
         //uncomment below and update the code to test listAssets
@@ -998,10 +1128,40 @@
         done();
       });
     });
+    describe('listOwnAffiliateMemberships', function() {
+      it('should call listOwnAffiliateMemberships successfully', function(done) {
+        //uncomment below and update the code to test listOwnAffiliateMemberships
+        //instance.listOwnAffiliateMemberships(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listPositionAccountsSelf', function() {
       it('should call listPositionAccountsSelf successfully', function(done) {
         //uncomment below and update the code to test listPositionAccountsSelf
         //instance.listPositionAccountsSelf(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listPromoLinkBatches', function() {
+      it('should call listPromoLinkBatches successfully', function(done) {
+        //uncomment below and update the code to test listPromoLinkBatches
+        //instance.listPromoLinkBatches(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listPromoLinks', function() {
+      it('should call listPromoLinks successfully', function(done) {
+        //uncomment below and update the code to test listPromoLinks
+        //instance.listPromoLinks(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -1038,10 +1198,40 @@
         done();
       });
     });
+    describe('listWithdrawals', function() {
+      it('should call listWithdrawals successfully', function(done) {
+        //uncomment below and update the code to test listWithdrawals
+        //instance.listWithdrawals(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('lookupAffiliateCode', function() {
+      it('should call lookupAffiliateCode successfully', function(done) {
+        //uncomment below and update the code to test lookupAffiliateCode
+        //instance.lookupAffiliateCode(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('payLeverageGetAccruedInterest', function() {
       it('should call payLeverageGetAccruedInterest successfully', function(done) {
         //uncomment below and update the code to test payLeverageGetAccruedInterest
         //instance.payLeverageGetAccruedInterest(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('registerAffiliateReferrer', function() {
+      it('should call registerAffiliateReferrer successfully', function(done) {
+        //uncomment below and update the code to test registerAffiliateReferrer
+        //instance.registerAffiliateReferrer(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -1078,10 +1268,30 @@
         done();
       });
     });
+    describe('renderPromoLinkQR', function() {
+      it('should call renderPromoLinkQR successfully', function(done) {
+        //uncomment below and update the code to test renderPromoLinkQR
+        //instance.renderPromoLinkQR(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('repayUSD', function() {
       it('should call repayUSD successfully', function(done) {
         //uncomment below and update the code to test repayUSD
         //instance.repayUSD(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('resolvePromoClaim', function() {
+      it('should call resolvePromoClaim successfully', function(done) {
+        //uncomment below and update the code to test resolvePromoClaim
+        //instance.resolvePromoClaim(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -1102,6 +1312,16 @@
       it('should call revokeAPIKeyForUserID successfully', function(done) {
         //uncomment below and update the code to test revokeAPIKeyForUserID
         //instance.revokeAPIKeyForUserID(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('revokePromoLink', function() {
+      it('should call revokePromoLink successfully', function(done) {
+        //uncomment below and update the code to test revokePromoLink
+        //instance.revokePromoLink(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -1222,6 +1442,16 @@
       it('should call transferAvailableBalances successfully', function(done) {
         //uncomment below and update the code to test transferAvailableBalances
         //instance.transferAvailableBalances(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateAffiliateProgram', function() {
+      it('should call updateAffiliateProgram successfully', function(done) {
+        //uncomment below and update the code to test updateAffiliateProgram
+        //instance.updateAffiliateProgram(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

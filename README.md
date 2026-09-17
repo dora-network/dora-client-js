@@ -195,6 +195,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getTopTradersByPnL**](docs/DefaultApi.md#getTopTradersByPnL) | **GET** /v1/user/ranking | Get top traders by PnL
 *Dora.DefaultApi* | [**getTradeById**](docs/DefaultApi.md#getTradeById) | **GET** /v1/trades/{trade_id} | Get a trade by ID
 *Dora.DefaultApi* | [**getTrades**](docs/DefaultApi.md#getTrades) | **GET** /v1/trades | Get a filtered, paginated list of trades
+*Dora.DefaultApi* | [**getTradingChallengeAllResults**](docs/DefaultApi.md#getTradingChallengeAllResults) | **GET** /v1/trading_challenges/all/results | Get combined results across all trading challenge
 *Dora.DefaultApi* | [**getTradingChallengeByID**](docs/DefaultApi.md#getTradingChallengeByID) | **GET** /v1/trading_challenges/{trading_challenge_id} | Get trading challenge by ID
 *Dora.DefaultApi* | [**getTradingChallengeDailySnapshots**](docs/DefaultApi.md#getTradingChallengeDailySnapshots) | **GET** /v1/trading_challenges/{trading_challenge_id}/daily_snapshots | Get trading challenge daily snapshots
 *Dora.DefaultApi* | [**getTradingChallengeResults**](docs/DefaultApi.md#getTradingChallengeResults) | **GET** /v1/trading_challenges/{trading_challenge_id}/results | Get trading challenge results
@@ -526,6 +527,8 @@ Class | Method | HTTP request | Description
  - [Dora.TradeRequestError](docs/TradeRequestError.md)
  - [Dora.TradeResponseEnvelope](docs/TradeResponseEnvelope.md)
  - [Dora.TradingChallenge](docs/TradingChallenge.md)
+ - [Dora.TradingChallengeAllResult](docs/TradingChallengeAllResult.md)
+ - [Dora.TradingChallengeAllResultsResponseEnvelope](docs/TradingChallengeAllResultsResponseEnvelope.md)
  - [Dora.TradingChallengeDailySnapshot](docs/TradingChallengeDailySnapshot.md)
  - [Dora.TradingChallengeDailySnapshotsResponseEnvelope](docs/TradingChallengeDailySnapshotsResponseEnvelope.md)
  - [Dora.TradingChallengeListResponseEnvelope](docs/TradingChallengeListResponseEnvelope.md)

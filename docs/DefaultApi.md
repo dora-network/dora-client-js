@@ -69,6 +69,7 @@ Method | HTTP request | Description
 [**getTopTradersByPnL**](DefaultApi.md#getTopTradersByPnL) | **GET** /v1/user/ranking | Get top traders by PnL
 [**getTradeById**](DefaultApi.md#getTradeById) | **GET** /v1/trades/{trade_id} | Get a trade by ID
 [**getTrades**](DefaultApi.md#getTrades) | **GET** /v1/trades | Get a filtered, paginated list of trades
+[**getTradingChallengeAllResults**](DefaultApi.md#getTradingChallengeAllResults) | **GET** /v1/trading_challenges/all/results | Get combined results across all trading challenge
 [**getTradingChallengeByID**](DefaultApi.md#getTradingChallengeByID) | **GET** /v1/trading_challenges/{trading_challenge_id} | Get trading challenge by ID
 [**getTradingChallengeDailySnapshots**](DefaultApi.md#getTradingChallengeDailySnapshots) | **GET** /v1/trading_challenges/{trading_challenge_id}/daily_snapshots | Get trading challenge daily snapshots
 [**getTradingChallengeResults**](DefaultApi.md#getTradingChallengeResults) | **GET** /v1/trading_challenges/{trading_challenge_id}/results | Get trading challenge results
@@ -3497,6 +3498,57 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getTradingChallengeAllResults
+
+> TradingChallengeAllResultsResponseEnvelope getTradingChallengeAllResults(board, start, end, tradingChallengeType)
+
+Get combined results across all trading challenge
+
+List trading challenge leaderboard/results filtered by board, trading_challenge_type, start date and end date across all challenges.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+
+let apiInstance = new Dora.DefaultApi();
+let board = "board_example"; // String | Leaderboard board selector.
+let start = new Date("2013-10-20"); // Date | Inclusive start date in YYYY-MM-DD format.
+let end = new Date("2013-10-20"); // Date | Inclusive end date in YYYY-MM-DD format.
+let tradingChallengeType = new Dora.TradingChallengeType(); // TradingChallengeType | Challenge type to include in aggregation.
+apiInstance.getTradingChallengeAllResults(board, start, end, tradingChallengeType, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **board** | **String**| Leaderboard board selector. | 
+ **start** | **Date**| Inclusive start date in YYYY-MM-DD format. | 
+ **end** | **Date**| Inclusive end date in YYYY-MM-DD format. | 
+ **tradingChallengeType** | [**TradingChallengeType**](.md)| Challenge type to include in aggregation. | 
+
+### Return type
+
+[**TradingChallengeAllResultsResponseEnvelope**](TradingChallengeAllResultsResponseEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getTradingChallengeByID
 
 > TradingChallengeResponseEnvelope getTradingChallengeByID(tradingChallengeId)
@@ -3611,21 +3663,12 @@ Name | Type | Description  | Notes
 
 Get trading challenge results
 
-List challenge leaderboard/results. COMPETITION_MANAGER can access only assigned challenge IDs.
+List challenge leaderboard/results. Public endpoint.
 
 ### Example
 
 ```javascript
 import Dora from 'dora';
-let defaultClient = Dora.ApiClient.instance;
-// Configure API key authorization: apiKeyAuthHeader
-let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
-apiKeyAuthHeader.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKeyAuthHeader.apiKeyPrefix = 'Token';
-// Configure Bearer (JWT) access token for authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
-bearerAuth.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Dora.DefaultApi();
 let tradingChallengeId = "tradingChallengeId_example"; // String | 
@@ -3655,7 +3698,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+No authorization required
 
 ### HTTP request headers
 

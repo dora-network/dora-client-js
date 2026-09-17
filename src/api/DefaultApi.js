@@ -138,6 +138,7 @@ import SupplyResponseEnvelope from '../model/SupplyResponseEnvelope';
 import TerminateTradingChallengeResponseEnvelope from '../model/TerminateTradingChallengeResponseEnvelope';
 import TradeRequestError from '../model/TradeRequestError';
 import TradeResponseEnvelope from '../model/TradeResponseEnvelope';
+import TradingChallengeAllResultsResponseEnvelope from '../model/TradingChallengeAllResultsResponseEnvelope';
 import TradingChallengeDailySnapshotsResponseEnvelope from '../model/TradingChallengeDailySnapshotsResponseEnvelope';
 import TradingChallengeListResponseEnvelope from '../model/TradingChallengeListResponseEnvelope';
 import TradingChallengeRegistrationRequestListResponseEnvelope from '../model/TradingChallengeRegistrationRequestListResponseEnvelope';
@@ -2986,6 +2987,67 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the getTradingChallengeAllResults operation.
+     * @callback module:api/DefaultApi~getTradingChallengeAllResultsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TradingChallengeAllResultsResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get combined results across all trading challenge
+     * List trading challenge leaderboard/results filtered by board, trading_challenge_type, start date and end date across all challenges.
+     * @param {module:model/String} board Leaderboard board selector.
+     * @param {Date} start Inclusive start date in YYYY-MM-DD format.
+     * @param {Date} end Inclusive end date in YYYY-MM-DD format.
+     * @param {module:model/TradingChallengeType} tradingChallengeType Challenge type to include in aggregation.
+     * @param {module:api/DefaultApi~getTradingChallengeAllResultsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TradingChallengeAllResultsResponseEnvelope}
+     */
+    getTradingChallengeAllResults(board, start, end, tradingChallengeType, callback) {
+      let postBody = null;
+      // verify the required parameter 'board' is set
+      if (board === undefined || board === null) {
+        throw new Error("Missing the required parameter 'board' when calling getTradingChallengeAllResults");
+      }
+      // verify the required parameter 'start' is set
+      if (start === undefined || start === null) {
+        throw new Error("Missing the required parameter 'start' when calling getTradingChallengeAllResults");
+      }
+      // verify the required parameter 'end' is set
+      if (end === undefined || end === null) {
+        throw new Error("Missing the required parameter 'end' when calling getTradingChallengeAllResults");
+      }
+      // verify the required parameter 'tradingChallengeType' is set
+      if (tradingChallengeType === undefined || tradingChallengeType === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeType' when calling getTradingChallengeAllResults");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'board': board,
+        'start': start,
+        'end': end,
+        'trading_challenge_type': tradingChallengeType
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TradingChallengeAllResultsResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/all/results', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getTradingChallengeByID operation.
      * @callback module:api/DefaultApi~getTradingChallengeByIDCallback
      * @param {String} error Error message, if any.
@@ -3081,7 +3143,7 @@ export default class DefaultApi {
 
     /**
      * Get trading challenge results
-     * List challenge leaderboard/results. COMPETITION_MANAGER can access only assigned challenge IDs.
+     * List challenge leaderboard/results. Public endpoint.
      * @param {String} tradingChallengeId 
      * @param {Object} opts Optional parameters
      * @param {module:model/String} [board = 'TOP_PNL')] Leaderboard board selector. Defaults to TOP_PNL.
@@ -3107,7 +3169,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = TradingChallengeResultsResponseEnvelope;

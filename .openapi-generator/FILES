@@ -248,6 +248,8 @@ docs/Trade.md
 docs/TradeRequestError.md
 docs/TradeResponseEnvelope.md
 docs/TradingChallenge.md
+docs/TradingChallengeAllResult.md
+docs/TradingChallengeAllResultsResponseEnvelope.md
 docs/TradingChallengeDailySnapshot.md
 docs/TradingChallengeDailySnapshotsResponseEnvelope.md
 docs/TradingChallengeListResponseEnvelope.md
@@ -579,6 +581,8 @@ src/model/Trade.js
 src/model/TradeRequestError.js
 src/model/TradeResponseEnvelope.js
 src/model/TradingChallenge.js
+src/model/TradingChallengeAllResult.js
+src/model/TradingChallengeAllResultsResponseEnvelope.js
 src/model/TradingChallengeDailySnapshot.js
 src/model/TradingChallengeDailySnapshotsResponseEnvelope.js
 src/model/TradingChallengeListResponseEnvelope.js
@@ -905,6 +909,8 @@ test/model/Trade.spec.js
 test/model/TradeRequestError.spec.js
 test/model/TradeResponseEnvelope.spec.js
 test/model/TradingChallenge.spec.js
+test/model/TradingChallengeAllResult.spec.js
+test/model/TradingChallengeAllResultsResponseEnvelope.spec.js
 test/model/TradingChallengeDailySnapshot.spec.js
 test/model/TradingChallengeDailySnapshotsResponseEnvelope.spec.js
 test/model/TradingChallengeListResponseEnvelope.spec.js

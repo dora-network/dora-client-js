@@ -698,6 +698,16 @@
         done();
       });
     });
+    describe('getTradingChallengeAllResults', function() {
+      it('should call getTradingChallengeAllResults successfully', function(done) {
+        //uncomment below and update the code to test getTradingChallengeAllResults
+        //instance.getTradingChallengeAllResults(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getTradingChallengeByID', function() {
       it('should call getTradingChallengeByID successfully', function(done) {
         //uncomment below and update the code to test getTradingChallengeByID

@@ -258,6 +258,8 @@ import Trade from './model/Trade';
 import TradeRequestError from './model/TradeRequestError';
 import TradeResponseEnvelope from './model/TradeResponseEnvelope';
 import TradingChallenge from './model/TradingChallenge';
+import TradingChallengeAllResult from './model/TradingChallengeAllResult';
+import TradingChallengeAllResultsResponseEnvelope from './model/TradingChallengeAllResultsResponseEnvelope';
 import TradingChallengeDailySnapshot from './model/TradingChallengeDailySnapshot';
 import TradingChallengeDailySnapshotsResponseEnvelope from './model/TradingChallengeDailySnapshotsResponseEnvelope';
 import TradingChallengeListResponseEnvelope from './model/TradingChallengeListResponseEnvelope';
@@ -1848,6 +1850,18 @@ export {
      * @property {module:model/TradingChallenge}
      */
     TradingChallenge,
+
+    /**
+     * The TradingChallengeAllResult model constructor.
+     * @property {module:model/TradingChallengeAllResult}
+     */
+    TradingChallengeAllResult,
+
+    /**
+     * The TradingChallengeAllResultsResponseEnvelope model constructor.
+     * @property {module:model/TradingChallengeAllResultsResponseEnvelope}
+     */
+    TradingChallengeAllResultsResponseEnvelope,
 
     /**
      * The TradingChallengeDailySnapshot model constructor.

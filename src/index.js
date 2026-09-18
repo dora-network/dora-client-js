@@ -154,6 +154,7 @@ import ListUserCouponPaymentsResponseEnvelope from './model/ListUserCouponPaymen
 import ListUsersResponseEnvelope from './model/ListUsersResponseEnvelope';
 import ListWithdrawalsResponseEnvelope from './model/ListWithdrawalsResponseEnvelope';
 import LiveOrderbook from './model/LiveOrderbook';
+import LockWithdrawalFeeRequest from './model/LockWithdrawalFeeRequest';
 import Margin from './model/Margin';
 import Metadata from './model/Metadata';
 import ModuleBalance from './model/ModuleBalance';
@@ -251,6 +252,10 @@ import StreamUserCouponPaymentsResponse from './model/StreamUserCouponPaymentsRe
 import Supply from './model/Supply';
 import SupplyRequest from './model/SupplyRequest';
 import SupplyResponseEnvelope from './model/SupplyResponseEnvelope';
+import TenantGuaranteeFundHistory from './model/TenantGuaranteeFundHistory';
+import TenantGuaranteeFundHistoryResponseEnvelope from './model/TenantGuaranteeFundHistoryResponseEnvelope';
+import TenantGuaranteeFundRow from './model/TenantGuaranteeFundRow';
+import TenantGuaranteeFundSummary from './model/TenantGuaranteeFundSummary';
 import TenantRestrictions from './model/TenantRestrictions';
 import TerminateTradingChallengeResponse from './model/TerminateTradingChallengeResponse';
 import TerminateTradingChallengeResponseEnvelope from './model/TerminateTradingChallengeResponseEnvelope';
@@ -1228,6 +1233,12 @@ export {
     LiveOrderbook,
 
     /**
+     * The LockWithdrawalFeeRequest model constructor.
+     * @property {module:model/LockWithdrawalFeeRequest}
+     */
+    LockWithdrawalFeeRequest,
+
+    /**
      * The Margin model constructor.
      * @property {module:model/Margin}
      */
@@ -1808,6 +1819,30 @@ export {
      * @property {module:model/SupplyResponseEnvelope}
      */
     SupplyResponseEnvelope,
+
+    /**
+     * The TenantGuaranteeFundHistory model constructor.
+     * @property {module:model/TenantGuaranteeFundHistory}
+     */
+    TenantGuaranteeFundHistory,
+
+    /**
+     * The TenantGuaranteeFundHistoryResponseEnvelope model constructor.
+     * @property {module:model/TenantGuaranteeFundHistoryResponseEnvelope}
+     */
+    TenantGuaranteeFundHistoryResponseEnvelope,
+
+    /**
+     * The TenantGuaranteeFundRow model constructor.
+     * @property {module:model/TenantGuaranteeFundRow}
+     */
+    TenantGuaranteeFundRow,
+
+    /**
+     * The TenantGuaranteeFundSummary model constructor.
+     * @property {module:model/TenantGuaranteeFundSummary}
+     */
+    TenantGuaranteeFundSummary,
 
     /**
      * The TenantRestrictions model constructor.

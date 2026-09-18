@@ -144,6 +144,7 @@ docs/ListUserCouponPaymentsResponseEnvelope.md
 docs/ListUsersResponseEnvelope.md
 docs/ListWithdrawalsResponseEnvelope.md
 docs/LiveOrderbook.md
+docs/LockWithdrawalFeeRequest.md
 docs/Margin.md
 docs/Metadata.md
 docs/ModuleBalance.md
@@ -241,6 +242,10 @@ docs/StreamUserCouponPaymentsResponse.md
 docs/Supply.md
 docs/SupplyRequest.md
 docs/SupplyResponseEnvelope.md
+docs/TenantGuaranteeFundHistory.md
+docs/TenantGuaranteeFundHistoryResponseEnvelope.md
+docs/TenantGuaranteeFundRow.md
+docs/TenantGuaranteeFundSummary.md
 docs/TenantRestrictions.md
 docs/TerminateTradingChallengeResponse.md
 docs/TerminateTradingChallengeResponseEnvelope.md
@@ -477,6 +482,7 @@ src/model/ListUserCouponPaymentsResponseEnvelope.js
 src/model/ListUsersResponseEnvelope.js
 src/model/ListWithdrawalsResponseEnvelope.js
 src/model/LiveOrderbook.js
+src/model/LockWithdrawalFeeRequest.js
 src/model/Margin.js
 src/model/Metadata.js
 src/model/ModuleBalance.js
@@ -574,6 +580,10 @@ src/model/StreamUserCouponPaymentsResponse.js
 src/model/Supply.js
 src/model/SupplyRequest.js
 src/model/SupplyResponseEnvelope.js
+src/model/TenantGuaranteeFundHistory.js
+src/model/TenantGuaranteeFundHistoryResponseEnvelope.js
+src/model/TenantGuaranteeFundRow.js
+src/model/TenantGuaranteeFundSummary.js
 src/model/TenantRestrictions.js
 src/model/TerminateTradingChallengeResponse.js
 src/model/TerminateTradingChallengeResponseEnvelope.js
@@ -805,6 +815,7 @@ test/model/ListUserCouponPaymentsResponseEnvelope.spec.js
 test/model/ListUsersResponseEnvelope.spec.js
 test/model/ListWithdrawalsResponseEnvelope.spec.js
 test/model/LiveOrderbook.spec.js
+test/model/LockWithdrawalFeeRequest.spec.js
 test/model/Margin.spec.js
 test/model/Metadata.spec.js
 test/model/ModuleBalance.spec.js
@@ -902,6 +913,10 @@ test/model/StreamUserCouponPaymentsResponse.spec.js
 test/model/Supply.spec.js
 test/model/SupplyRequest.spec.js
 test/model/SupplyResponseEnvelope.spec.js
+test/model/TenantGuaranteeFundHistory.spec.js
+test/model/TenantGuaranteeFundHistoryResponseEnvelope.spec.js
+test/model/TenantGuaranteeFundRow.spec.js
+test/model/TenantGuaranteeFundSummary.spec.js
 test/model/TenantRestrictions.spec.js
 test/model/TerminateTradingChallengeResponse.spec.js
 test/model/TerminateTradingChallengeResponseEnvelope.spec.js

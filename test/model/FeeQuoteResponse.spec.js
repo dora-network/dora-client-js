@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(Dora.FeeQuoteResponse);
     });
 
+    it('should have the property withdrawalId (base name: "withdrawal_id")', function() {
+      // uncomment below and update the code to test the property withdrawalId
+      //var instance = new Dora.FeeQuoteResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property to (base name: "to")', function() {
       // uncomment below and update the code to test the property to
       //var instance = new Dora.FeeQuoteResponse();

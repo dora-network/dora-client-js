@@ -21,19 +21,20 @@ import ApiClient from '../ApiClient';
 class FeeQuoteResponse {
     /**
      * Constructs a new <code>FeeQuoteResponse</code>.
-     * The estimated network fee to withdraw USDC via web3, alongside a signed, TTL-bound quote token the client submits with a later withdrawal so the server can validate the fee it was quoted.
+     * The estimated network fee for one approved USDC withdrawal, alongside a signed, TTL-bound quote token bound to that withdrawal. Submit the token to PUT /v1/web3/withdrawals/{withdrawal_id} to reserve the quoted fee.
      * @alias module:model/FeeQuoteResponse
-     * @param to {String} The withdrawal destination address, echoed from the request.
-     * @param quantity {String} Human-decimal USDC withdrawal quantity, echoed from the request.
+     * @param withdrawalId {String} The withdrawal this quote was issued for. The quote token is bound to it and cannot be redeemed against any other withdrawal.
+     * @param to {String} The withdrawal destination address, read from the withdrawal row.
+     * @param quantity {String} Human-decimal USDC withdrawal quantity, read from the withdrawal row.
      * @param fee {String} The estimated network fee, in human USDC.
      * @param feeBaseUnits {String} The estimated network fee, in micro-USDC base units.
      * @param chainId {String} EVM chain ID the quote was computed for.
-     * @param quoteToken {String} Signed, TTL-bound quote token to submit with a later withdrawal so the server can validate the fee it was quoted.
+     * @param quoteToken {String} Signed, TTL-bound quote token to submit to PUT /v1/web3/withdrawals/{withdrawal_id} so the server can validate the fee it quoted. It names the withdrawal it was issued for.
      * @param expiresAt {Date} When the quote token expires.
      */
-    constructor(to, quantity, fee, feeBaseUnits, chainId, quoteToken, expiresAt) { 
+    constructor(withdrawalId, to, quantity, fee, feeBaseUnits, chainId, quoteToken, expiresAt) { 
         
-        FeeQuoteResponse.initialize(this, to, quantity, fee, feeBaseUnits, chainId, quoteToken, expiresAt);
+        FeeQuoteResponse.initialize(this, withdrawalId, to, quantity, fee, feeBaseUnits, chainId, quoteToken, expiresAt);
     }
 
     /**
@@ -41,7 +42,8 @@ class FeeQuoteResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, to, quantity, fee, feeBaseUnits, chainId, quoteToken, expiresAt) { 
+    static initialize(obj, withdrawalId, to, quantity, fee, feeBaseUnits, chainId, quoteToken, expiresAt) { 
+        obj['withdrawal_id'] = withdrawalId;
         obj['to'] = to;
         obj['quantity'] = quantity;
         obj['fee'] = fee;
@@ -62,6 +64,9 @@ class FeeQuoteResponse {
         if (data) {
             obj = obj || new FeeQuoteResponse();
 
+            if (data.hasOwnProperty('withdrawal_id')) {
+                obj['withdrawal_id'] = ApiClient.convertToType(data['withdrawal_id'], 'String');
+            }
             if (data.hasOwnProperty('to')) {
                 obj['to'] = ApiClient.convertToType(data['to'], 'String');
             }
@@ -100,6 +105,10 @@ class FeeQuoteResponse {
             }
         }
         // ensure the json data is a string
+        if (data['withdrawal_id'] && !(typeof data['withdrawal_id'] === 'string' || data['withdrawal_id'] instanceof String)) {
+            throw new Error("Expected the field `withdrawal_id` to be a primitive type in the JSON string but got " + data['withdrawal_id']);
+        }
+        // ensure the json data is a string
         if (data['to'] && !(typeof data['to'] === 'string' || data['to'] instanceof String)) {
             throw new Error("Expected the field `to` to be a primitive type in the JSON string but got " + data['to']);
         }
@@ -130,16 +139,22 @@ class FeeQuoteResponse {
 
 }
 
-FeeQuoteResponse.RequiredProperties = ["to", "quantity", "fee", "fee_base_units", "chain_id", "quote_token", "expires_at"];
+FeeQuoteResponse.RequiredProperties = ["withdrawal_id", "to", "quantity", "fee", "fee_base_units", "chain_id", "quote_token", "expires_at"];
 
 /**
- * The withdrawal destination address, echoed from the request.
+ * The withdrawal this quote was issued for. The quote token is bound to it and cannot be redeemed against any other withdrawal.
+ * @member {String} withdrawal_id
+ */
+FeeQuoteResponse.prototype['withdrawal_id'] = undefined;
+
+/**
+ * The withdrawal destination address, read from the withdrawal row.
  * @member {String} to
  */
 FeeQuoteResponse.prototype['to'] = undefined;
 
 /**
- * Human-decimal USDC withdrawal quantity, echoed from the request.
+ * Human-decimal USDC withdrawal quantity, read from the withdrawal row.
  * @member {String} quantity
  */
 FeeQuoteResponse.prototype['quantity'] = undefined;
@@ -163,7 +178,7 @@ FeeQuoteResponse.prototype['fee_base_units'] = undefined;
 FeeQuoteResponse.prototype['chain_id'] = undefined;
 
 /**
- * Signed, TTL-bound quote token to submit with a later withdrawal so the server can validate the fee it was quoted.
+ * Signed, TTL-bound quote token to submit to PUT /v1/web3/withdrawals/{withdrawal_id} so the server can validate the fee it quoted. It names the withdrawal it was issued for.
  * @member {String} quote_token
  */
 FeeQuoteResponse.prototype['quote_token'] = undefined;

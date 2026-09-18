@@ -139,10 +139,10 @@ export default class TransactionKind {
 
     
         /**
-         * value: "ISOLATE_COLLATERAL"
+         * value: "ISOLATE_AVAILABLE"
          * @const
          */
-        "ISOLATE_COLLATERAL" = "ISOLATE_COLLATERAL";
+        "ISOLATE_AVAILABLE" = "ISOLATE_AVAILABLE";
 
     
         /**
@@ -185,13 +185,6 @@ export default class TransactionKind {
          * @const
          */
         "INTERNAL_TRANSFER" = "INTERNAL_TRANSFER";
-
-    
-        /**
-         * value: "ISOLATE_AVAILABLE"
-         * @const
-         */
-        "ISOLATE_AVAILABLE" = "ISOLATE_AVAILABLE";
 
     
         /**

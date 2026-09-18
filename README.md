@@ -247,6 +247,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**listTradingChallenges**](docs/DefaultApi.md#listTradingChallenges) | **GET** /v1/trading_challenges | List trading challenges
 *Dora.DefaultApi* | [**listUserDeactivations**](docs/DefaultApi.md#listUserDeactivations) | **GET** /v1/user/deactivations | Get the current deactivation status across all users
 *Dora.DefaultApi* | [**listWithdrawals**](docs/DefaultApi.md#listWithdrawals) | **GET** /v1/web3/withdrawals | List USDC withdrawals
+*Dora.DefaultApi* | [**lockWithdrawalFee**](docs/DefaultApi.md#lockWithdrawalFee) | **PUT** /v1/web3/withdrawals/{withdrawal_id} | Lock the network fee for an approved USDC withdrawal
 *Dora.DefaultApi* | [**lookupAffiliateCode**](docs/DefaultApi.md#lookupAffiliateCode) | **GET** /v1/affiliate_codes/{code} | Look up a reusable referral code
 *Dora.DefaultApi* | [**payLeverageGetAccruedInterest**](docs/DefaultApi.md#payLeverageGetAccruedInterest) | **POST** /v1/leverage/accrued_interest/pay | Pay current accrued leverage interest for a specific user
 *Dora.DefaultApi* | [**registerAffiliateReferrer**](docs/DefaultApi.md#registerAffiliateReferrer) | **POST** /v1/affiliate_programs/{program_id}/referrers | Register an existing user as a referrer
@@ -267,6 +268,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**streamOrderBookBalances**](docs/DefaultApi.md#streamOrderBookBalances) | **GET** /v1/orderbooks/{order_book_id}/balances/stream | Get a snapshot of base and quote balances for an order book and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamOrderbookOpenOrders**](docs/DefaultApi.md#streamOrderbookOpenOrders) | **GET** /v1/orderbooks/{order_book_id}/open/stream | Get a snapshot of open orders in an order book and open a stream for real-time updates
 *Dora.DefaultApi* | [**streamTrades**](docs/DefaultApi.md#streamTrades) | **GET** /v1/trades/{order_book_id}/stream | Get a snapshot of trades executed on the given order book from a specific date and open a stream for real-time updates
+*Dora.DefaultApi* | [**tenantGuaranteeFundHistory**](docs/DefaultApi.md#tenantGuaranteeFundHistory) | **GET** /v1/tenants/{tenant_id}/guarantee_fund | List guarantee fund ledger rows and totals by transaction kind for a tenant.
 *Dora.DefaultApi* | [**terminateOwnTradingChallengeParticipation**](docs/DefaultApi.md#terminateOwnTradingChallengeParticipation) | **POST** /v1/trading_challenges/{trading_challenge_id}/participants/self/terminate | Leave a trading challenge
 *Dora.DefaultApi* | [**terminateTradingChallengeParticipation**](docs/DefaultApi.md#terminateTradingChallengeParticipation) | **POST** /v1/trading_challenges/{trading_challenge_id}/participants/{user_id}/terminate | Terminate a participation in a trading challenge
 *Dora.DefaultApi* | [**transferAccountBalancesV2**](docs/DefaultApi.md#transferAccountBalancesV2) | **POST** /v2/accounts/transfer_balances | Transfer available balance between a user&#39;s accounts
@@ -423,6 +425,7 @@ Class | Method | HTTP request | Description
  - [Dora.ListUsersResponseEnvelope](docs/ListUsersResponseEnvelope.md)
  - [Dora.ListWithdrawalsResponseEnvelope](docs/ListWithdrawalsResponseEnvelope.md)
  - [Dora.LiveOrderbook](docs/LiveOrderbook.md)
+ - [Dora.LockWithdrawalFeeRequest](docs/LockWithdrawalFeeRequest.md)
  - [Dora.Margin](docs/Margin.md)
  - [Dora.Metadata](docs/Metadata.md)
  - [Dora.ModuleBalance](docs/ModuleBalance.md)
@@ -520,6 +523,10 @@ Class | Method | HTTP request | Description
  - [Dora.Supply](docs/Supply.md)
  - [Dora.SupplyRequest](docs/SupplyRequest.md)
  - [Dora.SupplyResponseEnvelope](docs/SupplyResponseEnvelope.md)
+ - [Dora.TenantGuaranteeFundHistory](docs/TenantGuaranteeFundHistory.md)
+ - [Dora.TenantGuaranteeFundHistoryResponseEnvelope](docs/TenantGuaranteeFundHistoryResponseEnvelope.md)
+ - [Dora.TenantGuaranteeFundRow](docs/TenantGuaranteeFundRow.md)
+ - [Dora.TenantGuaranteeFundSummary](docs/TenantGuaranteeFundSummary.md)
  - [Dora.TenantRestrictions](docs/TenantRestrictions.md)
  - [Dora.TerminateTradingChallengeResponse](docs/TerminateTradingChallengeResponse.md)
  - [Dora.TerminateTradingChallengeResponseEnvelope](docs/TerminateTradingChallengeResponseEnvelope.md)

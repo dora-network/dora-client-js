@@ -1218,6 +1218,16 @@
         done();
       });
     });
+    describe('lockWithdrawalFee', function() {
+      it('should call lockWithdrawalFee successfully', function(done) {
+        //uncomment below and update the code to test lockWithdrawalFee
+        //instance.lockWithdrawalFee(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('lookupAffiliateCode', function() {
       it('should call lookupAffiliateCode successfully', function(done) {
         //uncomment below and update the code to test lookupAffiliateCode
@@ -1412,6 +1422,16 @@
       it('should call streamTrades successfully', function(done) {
         //uncomment below and update the code to test streamTrades
         //instance.streamTrades(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('tenantGuaranteeFundHistory', function() {
+      it('should call tenantGuaranteeFundHistory successfully', function(done) {
+        //uncomment below and update the code to test tenantGuaranteeFundHistory
+        //instance.tenantGuaranteeFundHistory(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

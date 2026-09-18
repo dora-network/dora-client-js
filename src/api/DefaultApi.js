@@ -92,6 +92,7 @@ import ListTransactionsResponseEnvelope from '../model/ListTransactionsResponseE
 import ListUsersResponseEnvelope from '../model/ListUsersResponseEnvelope';
 import ListWithdrawalsResponseEnvelope from '../model/ListWithdrawalsResponseEnvelope';
 import LiveOrderbook from '../model/LiveOrderbook';
+import LockWithdrawalFeeRequest from '../model/LockWithdrawalFeeRequest';
 import OrderBookResponseEnvelope from '../model/OrderBookResponseEnvelope';
 import OrderBookStatus from '../model/OrderBookStatus';
 import OrderBookSummaryResponseEnvelope from '../model/OrderBookSummaryResponseEnvelope';
@@ -135,6 +136,7 @@ import StreamTransactionsEntry from '../model/StreamTransactionsEntry';
 import StreamUserCouponPaymentsResponse from '../model/StreamUserCouponPaymentsResponse';
 import SupplyRequest from '../model/SupplyRequest';
 import SupplyResponseEnvelope from '../model/SupplyResponseEnvelope';
+import TenantGuaranteeFundHistoryResponseEnvelope from '../model/TenantGuaranteeFundHistoryResponseEnvelope';
 import TerminateTradingChallengeResponseEnvelope from '../model/TerminateTradingChallengeResponseEnvelope';
 import TradeRequestError from '../model/TradeRequestError';
 import TradeResponseEnvelope from '../model/TradeResponseEnvelope';
@@ -1480,7 +1482,7 @@ export default class DefaultApi {
 
     /**
      * Get yield chart data for an asset
-     * Returns complete yield buckets starting at `start`; `end` is exclusive and a trailing partial bucket is omitted. Requests are limited to 10,000 complete buckets.
+     * Returns complete yield buckets starting at `start`; `end` is exclusive and a trailing partial bucket is omitted. Requests are limited to 10,000 complete buckets. Public callers may query only the last month. Authenticated callers may query up to the last six months. If credentials are supplied but invalid, the request is rejected as unauthorized.
      * @param {String} assetId 
      * @param {Date} start 
      * @param {Date} end 
@@ -1520,7 +1522,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListAssetYieldResponseEnvelope;
@@ -1583,7 +1585,7 @@ export default class DefaultApi {
 
     /**
      * Get candlestick data for an orderbook
-     * Returns candle data in the requested [start, end) range for the selected resolution. Responses are capped to the most recent 5,000 candles per request.
+     * Returns candle data in the requested [start, end) range for the selected resolution, capped to the most recent 5,000 candles per request. Public callers may query data from up to the last month, while authenticated callers may query up to the last six months (requests with invalid credentials will be rejected as unauthorized).
      * @param {String} orderBookId 
      * @param {Date} start 
      * @param {Date} end 
@@ -1621,7 +1623,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListCandlesResponseEnvelope;
@@ -2946,6 +2948,7 @@ export default class DefaultApi {
 
     /**
      * Get a filtered, paginated list of trades
+     * Role-based date window: public callers are limited to the last month; authenticated callers may query up to the last six months. If `start` is omitted it defaults to the role-based minimum. If credentials are supplied but invalid, the request is rejected as unauthorized.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} [orderBookIds] 
      * @param {Array.<String>} [userIds] 
@@ -3232,6 +3235,7 @@ export default class DefaultApi {
 
     /**
      * Get a filtered, paginated list of transactions
+     * Role-based date window: public callers are limited to the last month; authenticated callers may query up to the last six months. If `start` is omitted it defaults to the role-based minimum. If credentials are supplied but invalid, the request is rejected as unauthorized.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} [pools] 
      * @param {Array.<String>} [userIds] 
@@ -3265,7 +3269,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ListTransactionsResponseEnvelope;
@@ -3904,28 +3908,22 @@ export default class DefaultApi {
 
     /**
      * Estimate the network fee to withdraw USDC via web3
-     * Examines on-chain conditions and simulates a withdrawal transaction to estimate the fee a user needs to pay for a withdrawal. The fee is not charged when the withdrawal is requested; the quote is redeemed later, when the fee is locked as part of approval. Restricted to DORA tenant users whose native asset is USDC.
-     * @param {String} to The destination wallet address as a 0x-prefixed 20-byte hex string. Must not be the zero address.
-     * @param {String} quantity Human-decimal USDC quantity to withdraw, e.g. '100.50'. Must be positive.
+     * Examines on-chain conditions and simulates the named withdrawal to estimate the network fee the user must reserve before it can be submitted on-chain. The withdrawal must already exist, belong to the caller, and have been approved by an admin (status APPROVED_WITHOUT_FEE); its destination and quantity are read from the row, not taken from the request. The returned quote token is bound to that one withdrawal and is redeemed at PUT /v1/web3/withdrawals/{withdrawal_id}, which reserves the fee and moves the withdrawal to APPROVED. Restricted to DORA tenant users whose native asset is USDC.
+     * @param {String} withdrawalId The withdrawal to quote a fee for. It must belong to the caller and be in status APPROVED_WITHOUT_FEE; the destination and quantity are read from it rather than supplied here.
      * @param {module:api/DefaultApi~getWithdrawalFeeQuoteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FeeQuoteResponseEnvelope}
      */
-    getWithdrawalFeeQuote(to, quantity, callback) {
+    getWithdrawalFeeQuote(withdrawalId, callback) {
       let postBody = null;
-      // verify the required parameter 'to' is set
-      if (to === undefined || to === null) {
-        throw new Error("Missing the required parameter 'to' when calling getWithdrawalFeeQuote");
-      }
-      // verify the required parameter 'quantity' is set
-      if (quantity === undefined || quantity === null) {
-        throw new Error("Missing the required parameter 'quantity' when calling getWithdrawalFeeQuote");
+      // verify the required parameter 'withdrawalId' is set
+      if (withdrawalId === undefined || withdrawalId === null) {
+        throw new Error("Missing the required parameter 'withdrawalId' when calling getWithdrawalFeeQuote");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'to': to,
-        'quantity': quantity
+        'withdrawal_id': withdrawalId
       };
       let headerParams = {
       };
@@ -5407,6 +5405,54 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the lockWithdrawalFee operation.
+     * @callback module:api/DefaultApi~lockWithdrawalFeeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/WithdrawalResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Lock the network fee for an approved USDC withdrawal
+     * Redeems a fee quote against a withdrawal an admin has approved. The quoted fee is reserved on top of the quantity reserved when the request was created, so the same risk checks the request cleared are run again for it: an active trading challenge, a deactivated account, account health, the minimum cash reserve, and overdue coupon payments. A fee that would take the caller below the minimum cash reserve is refused and nothing is reserved.
+     * @param {String} withdrawalId The withdrawal to redeem the quote against. It must be owned by the caller and be in status APPROVED_WITHOUT_FEE.
+     * @param {module:model/LockWithdrawalFeeRequest} lockWithdrawalFeeRequest 
+     * @param {module:api/DefaultApi~lockWithdrawalFeeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/WithdrawalResponseEnvelope}
+     */
+    lockWithdrawalFee(withdrawalId, lockWithdrawalFeeRequest, callback) {
+      let postBody = lockWithdrawalFeeRequest;
+      // verify the required parameter 'withdrawalId' is set
+      if (withdrawalId === undefined || withdrawalId === null) {
+        throw new Error("Missing the required parameter 'withdrawalId' when calling lockWithdrawalFee");
+      }
+      // verify the required parameter 'lockWithdrawalFeeRequest' is set
+      if (lockWithdrawalFeeRequest === undefined || lockWithdrawalFeeRequest === null) {
+        throw new Error("Missing the required parameter 'lockWithdrawalFeeRequest' when calling lockWithdrawalFee");
+      }
+
+      let pathParams = {
+        'withdrawal_id': withdrawalId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = WithdrawalResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/web3/withdrawals/{withdrawal_id}', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the lookupAffiliateCode operation.
      * @callback module:api/DefaultApi~lookupAffiliateCodeCallback
      * @param {String} error Error message, if any.
@@ -6296,6 +6342,57 @@ export default class DefaultApi {
       let returnType = [StreamTradesEntry];
       return this.apiClient.callApi(
         '/v1/trades/{order_book_id}/stream', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the tenantGuaranteeFundHistory operation.
+     * @callback module:api/DefaultApi~tenantGuaranteeFundHistoryCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TenantGuaranteeFundHistoryResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List guarantee fund ledger rows and totals by transaction kind for a tenant.
+     * Returns guarantee fund ledger rows for a tenant filtered by updated_at range and tx_kind, with totals_by_tx_kind summary.
+     * @param {String} tenantId 
+     * @param {Object} opts Optional parameters
+     * @param {Date} [startDate] Optional inclusive lower bound for updated_at (RFC3339).
+     * @param {Date} [endDate] Optional inclusive upper bound for updated_at (RFC3339).
+     * @param {module:model/String} [txKind] Optional transaction kind filter.
+     * @param {module:api/DefaultApi~tenantGuaranteeFundHistoryCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TenantGuaranteeFundHistoryResponseEnvelope}
+     */
+    tenantGuaranteeFundHistory(tenantId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'tenantId' is set
+      if (tenantId === undefined || tenantId === null) {
+        throw new Error("Missing the required parameter 'tenantId' when calling tenantGuaranteeFundHistory");
+      }
+
+      let pathParams = {
+        'tenant_id': tenantId
+      };
+      let queryParams = {
+        'start_date': opts['startDate'],
+        'end_date': opts['endDate'],
+        'tx_kind': opts['txKind']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TenantGuaranteeFundHistoryResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/tenants/{tenant_id}/guarantee_fund', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

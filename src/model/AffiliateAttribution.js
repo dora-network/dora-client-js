@@ -29,7 +29,7 @@ class AffiliateAttribution {
      * @param tenantId {String} 
      * @param signupSource {String} Signup hostname when assigned at signup; empty for an assignment made later.
      * @param createdAt {Date} Immutable assignment time; activity begins counting from this timestamp.
-     * @param referralCode {String} 
+     * @param referralCode {String} Exact code the user entered, retained when the referrer changes their primary code.
      */
     constructor(referredUserId, programId, referrerId, referrerUserId, tenantId, signupSource, createdAt, referralCode) { 
         
@@ -178,6 +178,7 @@ AffiliateAttribution.prototype['signup_source'] = undefined;
 AffiliateAttribution.prototype['created_at'] = undefined;
 
 /**
+ * Exact code the user entered, retained when the referrer changes their primary code.
  * @member {String} referral_code
  */
 AffiliateAttribution.prototype['referral_code'] = undefined;

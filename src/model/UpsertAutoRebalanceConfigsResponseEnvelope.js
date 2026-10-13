@@ -12,25 +12,25 @@
  */
 
 import ApiClient from '../ApiClient';
+import AutoRebalanceConfigsData from './AutoRebalanceConfigsData';
 import Metadata from './Metadata';
 import ResponseEnvelope from './ResponseEnvelope';
-import TradingChallengeAllResult from './TradingChallengeAllResult';
 
 /**
- * The TradingChallengeAllResultsResponseEnvelope model module.
- * @module model/TradingChallengeAllResultsResponseEnvelope
+ * The UpsertAutoRebalanceConfigsResponseEnvelope model module.
+ * @module model/UpsertAutoRebalanceConfigsResponseEnvelope
  * @version 1.0.0
  */
-class TradingChallengeAllResultsResponseEnvelope {
+class UpsertAutoRebalanceConfigsResponseEnvelope {
     /**
-     * Constructs a new <code>TradingChallengeAllResultsResponseEnvelope</code>.
-     * @alias module:model/TradingChallengeAllResultsResponseEnvelope
+     * Constructs a new <code>UpsertAutoRebalanceConfigsResponseEnvelope</code>.
+     * @alias module:model/UpsertAutoRebalanceConfigsResponseEnvelope
      * @implements module:model/ResponseEnvelope
      * @param metadata {module:model/Metadata} Metadata about the response, including status code and trace information.
      */
     constructor(metadata) { 
         ResponseEnvelope.initialize(this, metadata);
-        TradingChallengeAllResultsResponseEnvelope.initialize(this, metadata);
+        UpsertAutoRebalanceConfigsResponseEnvelope.initialize(this, metadata);
     }
 
     /**
@@ -43,19 +43,19 @@ class TradingChallengeAllResultsResponseEnvelope {
     }
 
     /**
-     * Constructs a <code>TradingChallengeAllResultsResponseEnvelope</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UpsertAutoRebalanceConfigsResponseEnvelope</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/TradingChallengeAllResultsResponseEnvelope} obj Optional instance to populate.
-     * @return {module:model/TradingChallengeAllResultsResponseEnvelope} The populated <code>TradingChallengeAllResultsResponseEnvelope</code> instance.
+     * @param {module:model/UpsertAutoRebalanceConfigsResponseEnvelope} obj Optional instance to populate.
+     * @return {module:model/UpsertAutoRebalanceConfigsResponseEnvelope} The populated <code>UpsertAutoRebalanceConfigsResponseEnvelope</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new TradingChallengeAllResultsResponseEnvelope();
+            obj = obj || new UpsertAutoRebalanceConfigsResponseEnvelope();
             ResponseEnvelope.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [TradingChallengeAllResult]);
+                obj['data'] = AutoRebalanceConfigsData.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
@@ -68,26 +68,20 @@ class TradingChallengeAllResultsResponseEnvelope {
     }
 
     /**
-     * Validates the JSON data with respect to <code>TradingChallengeAllResultsResponseEnvelope</code>.
+     * Validates the JSON data with respect to <code>UpsertAutoRebalanceConfigsResponseEnvelope</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TradingChallengeAllResultsResponseEnvelope</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>UpsertAutoRebalanceConfigsResponseEnvelope</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of TradingChallengeAllResultsResponseEnvelope.RequiredProperties) {
+        for (const property of UpsertAutoRebalanceConfigsResponseEnvelope.RequiredProperties) {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // validate the optional field `data`
         if (data['data']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['data'])) {
-                throw new Error("Expected the field `data` to be an array in the JSON data but got " + data['data']);
-            }
-            // validate the optional field `data` (array)
-            for (const item of data['data']) {
-                TradingChallengeAllResult.validateJSON(item);
-            };
+          AutoRebalanceConfigsData.validateJSON(data['data']);
         }
         // ensure the json data is a string
         if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
@@ -104,24 +98,24 @@ class TradingChallengeAllResultsResponseEnvelope {
 
 }
 
-TradingChallengeAllResultsResponseEnvelope.RequiredProperties = ["metadata"];
+UpsertAutoRebalanceConfigsResponseEnvelope.RequiredProperties = ["metadata"];
 
 /**
- * @member {Array.<module:model/TradingChallengeAllResult>} data
+ * @member {module:model/AutoRebalanceConfigsData} data
  */
-TradingChallengeAllResultsResponseEnvelope.prototype['data'] = undefined;
+UpsertAutoRebalanceConfigsResponseEnvelope.prototype['data'] = undefined;
 
 /**
  * The error message. Present for error (non-2xx) responses.
  * @member {String} error
  */
-TradingChallengeAllResultsResponseEnvelope.prototype['error'] = undefined;
+UpsertAutoRebalanceConfigsResponseEnvelope.prototype['error'] = undefined;
 
 /**
  * Metadata about the response, including status code and trace information.
  * @member {module:model/Metadata} metadata
  */
-TradingChallengeAllResultsResponseEnvelope.prototype['metadata'] = undefined;
+UpsertAutoRebalanceConfigsResponseEnvelope.prototype['metadata'] = undefined;
 
 
 // Implement ResponseEnvelope interface:
@@ -144,5 +138,5 @@ ResponseEnvelope.prototype['metadata'] = undefined;
 
 
 
-export default TradingChallengeAllResultsResponseEnvelope;
+export default UpsertAutoRebalanceConfigsResponseEnvelope;
 

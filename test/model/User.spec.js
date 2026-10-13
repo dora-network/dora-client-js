@@ -174,6 +174,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property usedReferralCode (base name: "used_referral_code")', function() {
+      // uncomment below and update the code to test the property usedReferralCode
+      //var instance = new Dora.User();
+      //expect(instance).to.be();
+    });
+
     it('should have the property allowEmailNotifications (base name: "allow_email_notifications")', function() {
       // uncomment below and update the code to test the property allowEmailNotifications
       //var instance = new Dora.User();
@@ -206,6 +212,12 @@
 
     it('should have the property kycCompletedAt (base name: "kyc_completed_at")', function() {
       // uncomment below and update the code to test the property kycCompletedAt
+      //var instance = new Dora.User();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property tag (base name: "tag")', function() {
+      // uncomment below and update the code to test the property tag
       //var instance = new Dora.User();
       //expect(instance).to.be();
     });

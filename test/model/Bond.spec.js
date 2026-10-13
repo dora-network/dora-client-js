@@ -132,6 +132,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property tenor (base name: "tenor")', function() {
+      // uncomment below and update the code to test the property tenor
+      //var instance = new Dora.Bond();
+      //expect(instance).to.be();
+    });
+
     it('should have the property principalValue (base name: "principal_value")', function() {
       // uncomment below and update the code to test the property principalValue
       //var instance = new Dora.Bond();

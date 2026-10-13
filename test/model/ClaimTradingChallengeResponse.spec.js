@@ -72,6 +72,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property rewardAmount (base name: "reward_amount")', function() {
+      // uncomment below and update the code to test the property rewardAmount
+      //var instance = new Dora.ClaimTradingChallengeResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property kycUrl (base name: "kyc_url")', function() {
+      // uncomment below and update the code to test the property kycUrl
+      //var instance = new Dora.ClaimTradingChallengeResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property rewardDeadlineAt (base name: "reward_deadline_at")', function() {
+      // uncomment below and update the code to test the property rewardDeadlineAt
+      //var instance = new Dora.ClaimTradingChallengeResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

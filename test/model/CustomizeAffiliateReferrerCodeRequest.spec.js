@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.TradingChallengeAllResultsResponseEnvelope();
+    instance = new Dora.CustomizeAffiliateReferrerCodeRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,16 @@
       object[property] = value;
   }
 
-  describe('TradingChallengeAllResultsResponseEnvelope', function() {
-    it('should create an instance of TradingChallengeAllResultsResponseEnvelope', function() {
-      // uncomment below and update the code to test TradingChallengeAllResultsResponseEnvelope
-      //var instance = new Dora.TradingChallengeAllResultsResponseEnvelope();
-      //expect(instance).to.be.a(Dora.TradingChallengeAllResultsResponseEnvelope);
+  describe('CustomizeAffiliateReferrerCodeRequest', function() {
+    it('should create an instance of CustomizeAffiliateReferrerCodeRequest', function() {
+      // uncomment below and update the code to test CustomizeAffiliateReferrerCodeRequest
+      //var instance = new Dora.CustomizeAffiliateReferrerCodeRequest();
+      //expect(instance).to.be.a(Dora.CustomizeAffiliateReferrerCodeRequest);
     });
 
-    it('should have the property data (base name: "data")', function() {
-      // uncomment below and update the code to test the property data
-      //var instance = new Dora.TradingChallengeAllResultsResponseEnvelope();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property error (base name: "error")', function() {
-      // uncomment below and update the code to test the property error
-      //var instance = new Dora.TradingChallengeAllResultsResponseEnvelope();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property metadata (base name: "metadata")', function() {
-      // uncomment below and update the code to test the property metadata
-      //var instance = new Dora.TradingChallengeAllResultsResponseEnvelope();
+    it('should have the property referralCode (base name: "referral_code")', function() {
+      // uncomment below and update the code to test the property referralCode
+      //var instance = new Dora.CustomizeAffiliateReferrerCodeRequest();
       //expect(instance).to.be();
     });
 

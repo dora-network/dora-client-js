@@ -41,6 +41,9 @@ docs/AssetYTM.md
 docs/AssetYield.md
 docs/AssetYieldResolution.md
 docs/AssignAffiliateReferralRequest.md
+docs/AutoRebalanceConfigStatus.md
+docs/AutoRebalanceConfigUpsert.md
+docs/AutoRebalanceConfigsData.md
 docs/BalanceTransfer.md
 docs/BalancesResponse.md
 docs/Bond.md
@@ -59,6 +62,8 @@ docs/ClaimPromoLinkRequest.md
 docs/ClaimTradingChallengeResponse.md
 docs/ClaimTradingChallengeResponseEnvelope.md
 docs/CloseAccountRequest.md
+docs/CloseAllPositionsItem.md
+docs/CloseAllPositionsResponseEnvelope.md
 docs/ClosePositionRequest.md
 docs/ClosePositionResp.md
 docs/ClosePositionResponseEnvelope.md
@@ -84,6 +89,7 @@ docs/CreateWithdrawalRequest.md
 docs/CreditRating.md
 docs/CurrentLeverageAccruedInterest.md
 docs/CurrentLeverageAccruedInterestResponseEnvelope.md
+docs/CustomizeAffiliateReferrerCodeRequest.md
 docs/DefaultApi.md
 docs/DefundUserRequest.md
 docs/DepositArgs.md
@@ -99,10 +105,13 @@ docs/FundUserRequest.md
 docs/FundUserResponseEnvelope.md
 docs/GetAssetByIDResponseEnvelope.md
 docs/GetAssetYTMByIDResponseEnvelope.md
+docs/GetAutoRebalanceAccountStatusResponseEnvelope.md
 docs/GetCopyTradersResponse.md
 docs/GetPnLRankingResponse.md
 docs/GetRealizedPnlSettlementsResponseEnvelope.md
 docs/GetTopOfBookResponseEnvelope.md
+docs/GlobalLeaderboardResponseEnvelope.md
+docs/GlobalLeaderboardResult.md
 docs/HistoricalLeverageInterestRate.md
 docs/HistoricalLeverageInterestRates.md
 docs/HistoricalLeverageInterestRatesResponseEnvelope.md
@@ -130,6 +139,7 @@ docs/LiquidityResponseEnvelope.md
 docs/ListAccountsResponseV2Envelope.md
 docs/ListAssetPriceResponseEnvelope.md
 docs/ListAssetYieldResponseEnvelope.md
+docs/ListAutoRebalanceConfigsResponseEnvelope.md
 docs/ListCandlesResponseEnvelope.md
 docs/ListCouponPaymentsResponseEnvelope.md
 docs/ListDepositsResponseEnvelope.md
@@ -207,6 +217,8 @@ docs/PromoLinkListResponse.md
 docs/PromoLinkListResponseAllOfData.md
 docs/PromoLinkStatus.md
 docs/PromoSourceType.md
+docs/QRRewardPreview.md
+docs/QRRewardPreviewEnvelope.md
 docs/RealizedPnlSettlement.md
 docs/RealizedPnlSettlements.md
 docs/RegisterAffiliateReferrerRequest.md
@@ -253,8 +265,6 @@ docs/Trade.md
 docs/TradeRequestError.md
 docs/TradeResponseEnvelope.md
 docs/TradingChallenge.md
-docs/TradingChallengeAllResult.md
-docs/TradingChallengeAllResultsResponseEnvelope.md
 docs/TradingChallengeDailySnapshot.md
 docs/TradingChallengeDailySnapshotsResponseEnvelope.md
 docs/TradingChallengeListResponseEnvelope.md
@@ -301,6 +311,8 @@ docs/UpdateUserConfigRequest.md
 docs/UpdateUserKYCRequest.md
 docs/UpdateUserKYCResponse.md
 docs/UpdateUserKYCResponseEnvelope.md
+docs/UpsertAutoRebalanceConfigsRequest.md
+docs/UpsertAutoRebalanceConfigsResponseEnvelope.md
 docs/User.md
 docs/UserBalanceResponseEnvelope.md
 docs/UserConfig.md
@@ -322,6 +334,7 @@ docs/UserRole.md
 docs/UserUpdatedResponseEnvelope.md
 docs/UserValue.md
 docs/UserValueResponseEnvelope.md
+docs/UsersTag.md
 docs/ValidateSubmitOrderRequest.md
 docs/ValidateSubmitOrderResponse.md
 docs/Web3EventStatus.md
@@ -380,6 +393,9 @@ src/model/AssetYTM.js
 src/model/AssetYield.js
 src/model/AssetYieldResolution.js
 src/model/AssignAffiliateReferralRequest.js
+src/model/AutoRebalanceConfigStatus.js
+src/model/AutoRebalanceConfigUpsert.js
+src/model/AutoRebalanceConfigsData.js
 src/model/BalanceTransfer.js
 src/model/BalancesResponse.js
 src/model/Bond.js
@@ -398,6 +414,8 @@ src/model/ClaimPromoLinkRequest.js
 src/model/ClaimTradingChallengeResponse.js
 src/model/ClaimTradingChallengeResponseEnvelope.js
 src/model/CloseAccountRequest.js
+src/model/CloseAllPositionsItem.js
+src/model/CloseAllPositionsResponseEnvelope.js
 src/model/ClosePositionRequest.js
 src/model/ClosePositionResp.js
 src/model/ClosePositionResponseEnvelope.js
@@ -423,6 +441,7 @@ src/model/CreateWithdrawalRequest.js
 src/model/CreditRating.js
 src/model/CurrentLeverageAccruedInterest.js
 src/model/CurrentLeverageAccruedInterestResponseEnvelope.js
+src/model/CustomizeAffiliateReferrerCodeRequest.js
 src/model/DefundUserRequest.js
 src/model/DepositArgs.js
 src/model/DepositCall.js
@@ -437,10 +456,13 @@ src/model/FundUserRequest.js
 src/model/FundUserResponseEnvelope.js
 src/model/GetAssetByIDResponseEnvelope.js
 src/model/GetAssetYTMByIDResponseEnvelope.js
+src/model/GetAutoRebalanceAccountStatusResponseEnvelope.js
 src/model/GetCopyTradersResponse.js
 src/model/GetPnLRankingResponse.js
 src/model/GetRealizedPnlSettlementsResponseEnvelope.js
 src/model/GetTopOfBookResponseEnvelope.js
+src/model/GlobalLeaderboardResponseEnvelope.js
+src/model/GlobalLeaderboardResult.js
 src/model/HistoricalLeverageInterestRate.js
 src/model/HistoricalLeverageInterestRates.js
 src/model/HistoricalLeverageInterestRatesResponseEnvelope.js
@@ -468,6 +490,7 @@ src/model/LiquidityResponseEnvelope.js
 src/model/ListAccountsResponseV2Envelope.js
 src/model/ListAssetPriceResponseEnvelope.js
 src/model/ListAssetYieldResponseEnvelope.js
+src/model/ListAutoRebalanceConfigsResponseEnvelope.js
 src/model/ListCandlesResponseEnvelope.js
 src/model/ListCouponPaymentsResponseEnvelope.js
 src/model/ListDepositsResponseEnvelope.js
@@ -545,6 +568,8 @@ src/model/PromoLinkListResponse.js
 src/model/PromoLinkListResponseAllOfData.js
 src/model/PromoLinkStatus.js
 src/model/PromoSourceType.js
+src/model/QRRewardPreview.js
+src/model/QRRewardPreviewEnvelope.js
 src/model/RealizedPnlSettlement.js
 src/model/RealizedPnlSettlements.js
 src/model/RegisterAffiliateReferrerRequest.js
@@ -591,8 +616,6 @@ src/model/Trade.js
 src/model/TradeRequestError.js
 src/model/TradeResponseEnvelope.js
 src/model/TradingChallenge.js
-src/model/TradingChallengeAllResult.js
-src/model/TradingChallengeAllResultsResponseEnvelope.js
 src/model/TradingChallengeDailySnapshot.js
 src/model/TradingChallengeDailySnapshotsResponseEnvelope.js
 src/model/TradingChallengeListResponseEnvelope.js
@@ -639,6 +662,8 @@ src/model/UpdateUserConfigRequest.js
 src/model/UpdateUserKYCRequest.js
 src/model/UpdateUserKYCResponse.js
 src/model/UpdateUserKYCResponseEnvelope.js
+src/model/UpsertAutoRebalanceConfigsRequest.js
+src/model/UpsertAutoRebalanceConfigsResponseEnvelope.js
 src/model/User.js
 src/model/UserBalanceResponseEnvelope.js
 src/model/UserConfig.js
@@ -660,6 +685,7 @@ src/model/UserRole.js
 src/model/UserUpdatedResponseEnvelope.js
 src/model/UserValue.js
 src/model/UserValueResponseEnvelope.js
+src/model/UsersTag.js
 src/model/ValidateSubmitOrderRequest.js
 src/model/ValidateSubmitOrderResponse.js
 src/model/Web3EventStatus.js
@@ -713,6 +739,9 @@ test/model/AssetYTM.spec.js
 test/model/AssetYield.spec.js
 test/model/AssetYieldResolution.spec.js
 test/model/AssignAffiliateReferralRequest.spec.js
+test/model/AutoRebalanceConfigStatus.spec.js
+test/model/AutoRebalanceConfigUpsert.spec.js
+test/model/AutoRebalanceConfigsData.spec.js
 test/model/BalanceTransfer.spec.js
 test/model/BalancesResponse.spec.js
 test/model/Bond.spec.js
@@ -731,6 +760,8 @@ test/model/ClaimPromoLinkRequest.spec.js
 test/model/ClaimTradingChallengeResponse.spec.js
 test/model/ClaimTradingChallengeResponseEnvelope.spec.js
 test/model/CloseAccountRequest.spec.js
+test/model/CloseAllPositionsItem.spec.js
+test/model/CloseAllPositionsResponseEnvelope.spec.js
 test/model/ClosePositionRequest.spec.js
 test/model/ClosePositionResp.spec.js
 test/model/ClosePositionResponseEnvelope.spec.js
@@ -756,6 +787,7 @@ test/model/CreateWithdrawalRequest.spec.js
 test/model/CreditRating.spec.js
 test/model/CurrentLeverageAccruedInterest.spec.js
 test/model/CurrentLeverageAccruedInterestResponseEnvelope.spec.js
+test/model/CustomizeAffiliateReferrerCodeRequest.spec.js
 test/model/DefundUserRequest.spec.js
 test/model/DepositArgs.spec.js
 test/model/DepositCall.spec.js
@@ -770,10 +802,13 @@ test/model/FundUserRequest.spec.js
 test/model/FundUserResponseEnvelope.spec.js
 test/model/GetAssetByIDResponseEnvelope.spec.js
 test/model/GetAssetYTMByIDResponseEnvelope.spec.js
+test/model/GetAutoRebalanceAccountStatusResponseEnvelope.spec.js
 test/model/GetCopyTradersResponse.spec.js
 test/model/GetPnLRankingResponse.spec.js
 test/model/GetRealizedPnlSettlementsResponseEnvelope.spec.js
 test/model/GetTopOfBookResponseEnvelope.spec.js
+test/model/GlobalLeaderboardResponseEnvelope.spec.js
+test/model/GlobalLeaderboardResult.spec.js
 test/model/HistoricalLeverageInterestRate.spec.js
 test/model/HistoricalLeverageInterestRates.spec.js
 test/model/HistoricalLeverageInterestRatesResponseEnvelope.spec.js
@@ -801,6 +836,7 @@ test/model/LiquidityResponseEnvelope.spec.js
 test/model/ListAccountsResponseV2Envelope.spec.js
 test/model/ListAssetPriceResponseEnvelope.spec.js
 test/model/ListAssetYieldResponseEnvelope.spec.js
+test/model/ListAutoRebalanceConfigsResponseEnvelope.spec.js
 test/model/ListCandlesResponseEnvelope.spec.js
 test/model/ListCouponPaymentsResponseEnvelope.spec.js
 test/model/ListDepositsResponseEnvelope.spec.js
@@ -878,6 +914,8 @@ test/model/PromoLinkListResponse.spec.js
 test/model/PromoLinkListResponseAllOfData.spec.js
 test/model/PromoLinkStatus.spec.js
 test/model/PromoSourceType.spec.js
+test/model/QRRewardPreview.spec.js
+test/model/QRRewardPreviewEnvelope.spec.js
 test/model/RealizedPnlSettlement.spec.js
 test/model/RealizedPnlSettlements.spec.js
 test/model/RegisterAffiliateReferrerRequest.spec.js
@@ -924,8 +962,6 @@ test/model/Trade.spec.js
 test/model/TradeRequestError.spec.js
 test/model/TradeResponseEnvelope.spec.js
 test/model/TradingChallenge.spec.js
-test/model/TradingChallengeAllResult.spec.js
-test/model/TradingChallengeAllResultsResponseEnvelope.spec.js
 test/model/TradingChallengeDailySnapshot.spec.js
 test/model/TradingChallengeDailySnapshotsResponseEnvelope.spec.js
 test/model/TradingChallengeListResponseEnvelope.spec.js
@@ -972,6 +1008,8 @@ test/model/UpdateUserConfigRequest.spec.js
 test/model/UpdateUserKYCRequest.spec.js
 test/model/UpdateUserKYCResponse.spec.js
 test/model/UpdateUserKYCResponseEnvelope.spec.js
+test/model/UpsertAutoRebalanceConfigsRequest.spec.js
+test/model/UpsertAutoRebalanceConfigsResponseEnvelope.spec.js
 test/model/User.spec.js
 test/model/UserBalanceResponseEnvelope.spec.js
 test/model/UserConfig.spec.js
@@ -993,6 +1031,7 @@ test/model/UserRole.spec.js
 test/model/UserUpdatedResponseEnvelope.spec.js
 test/model/UserValue.spec.js
 test/model/UserValueResponseEnvelope.spec.js
+test/model/UsersTag.spec.js
 test/model/ValidateSubmitOrderRequest.spec.js
 test/model/ValidateSubmitOrderResponse.spec.js
 test/model/Web3EventStatus.spec.js

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.TradingChallengeAllResult();
+    instance = new Dora.GlobalLeaderboardResult();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,58 +47,58 @@
       object[property] = value;
   }
 
-  describe('TradingChallengeAllResult', function() {
-    it('should create an instance of TradingChallengeAllResult', function() {
-      // uncomment below and update the code to test TradingChallengeAllResult
-      //var instance = new Dora.TradingChallengeAllResult();
-      //expect(instance).to.be.a(Dora.TradingChallengeAllResult);
+  describe('GlobalLeaderboardResult', function() {
+    it('should create an instance of GlobalLeaderboardResult', function() {
+      // uncomment below and update the code to test GlobalLeaderboardResult
+      //var instance = new Dora.GlobalLeaderboardResult();
+      //expect(instance).to.be.a(Dora.GlobalLeaderboardResult);
     });
 
     it('should have the property userId (base name: "user_id")', function() {
       // uncomment below and update the code to test the property userId
-      //var instance = new Dora.TradingChallengeAllResult();
+      //var instance = new Dora.GlobalLeaderboardResult();
       //expect(instance).to.be();
     });
 
     it('should have the property userName (base name: "user_name")', function() {
       // uncomment below and update the code to test the property userName
-      //var instance = new Dora.TradingChallengeAllResult();
+      //var instance = new Dora.GlobalLeaderboardResult();
       //expect(instance).to.be();
     });
 
     it('should have the property cumVolume (base name: "cum_volume")', function() {
       // uncomment below and update the code to test the property cumVolume
-      //var instance = new Dora.TradingChallengeAllResult();
+      //var instance = new Dora.GlobalLeaderboardResult();
       //expect(instance).to.be();
     });
 
     it('should have the property cumPnl (base name: "cum_pnl")', function() {
       // uncomment below and update the code to test the property cumPnl
-      //var instance = new Dora.TradingChallengeAllResult();
+      //var instance = new Dora.GlobalLeaderboardResult();
       //expect(instance).to.be();
     });
 
     it('should have the property activeDays (base name: "active_days")', function() {
       // uncomment below and update the code to test the property activeDays
-      //var instance = new Dora.TradingChallengeAllResult();
+      //var instance = new Dora.GlobalLeaderboardResult();
       //expect(instance).to.be();
     });
 
     it('should have the property cumTrades (base name: "cum_trades")', function() {
       // uncomment below and update the code to test the property cumTrades
-      //var instance = new Dora.TradingChallengeAllResult();
+      //var instance = new Dora.GlobalLeaderboardResult();
       //expect(instance).to.be();
     });
 
     it('should have the property accountValue (base name: "account_value")', function() {
       // uncomment below and update the code to test the property accountValue
-      //var instance = new Dora.TradingChallengeAllResult();
+      //var instance = new Dora.GlobalLeaderboardResult();
       //expect(instance).to.be();
     });
 
     it('should have the property pnlPct (base name: "pnl_pct")', function() {
       // uncomment below and update the code to test the property pnlPct
-      //var instance = new Dora.TradingChallengeAllResult();
+      //var instance = new Dora.GlobalLeaderboardResult();
       //expect(instance).to.be();
     });
 

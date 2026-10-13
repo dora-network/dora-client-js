@@ -102,6 +102,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property customizedAt (base name: "customized_at")', function() {
+      // uncomment below and update the code to test the property customizedAt
+      //var instance = new Dora.AffiliateMembership();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property canCustomize (base name: "can_customize")', function() {
+      // uncomment below and update the code to test the property canCustomize
+      //var instance = new Dora.AffiliateMembership();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

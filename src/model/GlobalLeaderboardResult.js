@@ -14,18 +14,18 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The TradingChallengeAllResult model module.
- * @module model/TradingChallengeAllResult
+ * The GlobalLeaderboardResult model module.
+ * @module model/GlobalLeaderboardResult
  * @version 1.0.0
  */
-class TradingChallengeAllResult {
+class GlobalLeaderboardResult {
     /**
-     * Constructs a new <code>TradingChallengeAllResult</code>.
-     * @alias module:model/TradingChallengeAllResult
+     * Constructs a new <code>GlobalLeaderboardResult</code>.
+     * @alias module:model/GlobalLeaderboardResult
      */
     constructor() { 
         
-        TradingChallengeAllResult.initialize(this);
+        GlobalLeaderboardResult.initialize(this);
     }
 
     /**
@@ -37,15 +37,15 @@ class TradingChallengeAllResult {
     }
 
     /**
-     * Constructs a <code>TradingChallengeAllResult</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>GlobalLeaderboardResult</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/TradingChallengeAllResult} obj Optional instance to populate.
-     * @return {module:model/TradingChallengeAllResult} The populated <code>TradingChallengeAllResult</code> instance.
+     * @param {module:model/GlobalLeaderboardResult} obj Optional instance to populate.
+     * @return {module:model/GlobalLeaderboardResult} The populated <code>GlobalLeaderboardResult</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new TradingChallengeAllResult();
+            obj = obj || new GlobalLeaderboardResult();
 
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'String');
@@ -76,9 +76,9 @@ class TradingChallengeAllResult {
     }
 
     /**
-     * Validates the JSON data with respect to <code>TradingChallengeAllResult</code>.
+     * Validates the JSON data with respect to <code>GlobalLeaderboardResult</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TradingChallengeAllResult</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>GlobalLeaderboardResult</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
@@ -117,47 +117,48 @@ class TradingChallengeAllResult {
 /**
  * @member {String} user_id
  */
-TradingChallengeAllResult.prototype['user_id'] = undefined;
+GlobalLeaderboardResult.prototype['user_id'] = undefined;
 
 /**
  * @member {String} user_name
  */
-TradingChallengeAllResult.prototype['user_name'] = undefined;
+GlobalLeaderboardResult.prototype['user_name'] = undefined;
 
 /**
  * @member {String} cum_volume
  */
-TradingChallengeAllResult.prototype['cum_volume'] = undefined;
+GlobalLeaderboardResult.prototype['cum_volume'] = undefined;
 
 /**
  * @member {String} cum_pnl
  */
-TradingChallengeAllResult.prototype['cum_pnl'] = undefined;
+GlobalLeaderboardResult.prototype['cum_pnl'] = undefined;
 
 /**
  * @member {Number} active_days
  */
-TradingChallengeAllResult.prototype['active_days'] = undefined;
+GlobalLeaderboardResult.prototype['active_days'] = undefined;
 
 /**
  * @member {Number} cum_trades
  */
-TradingChallengeAllResult.prototype['cum_trades'] = undefined;
+GlobalLeaderboardResult.prototype['cum_trades'] = undefined;
 
 /**
  * @member {String} account_value
  */
-TradingChallengeAllResult.prototype['account_value'] = undefined;
+GlobalLeaderboardResult.prototype['account_value'] = undefined;
 
 /**
+ * Cumulative pnl as a percentage of total TRADING_CHALLENGE_DEPOSIT and EXTERNAL_DEPOSIT quantities.
  * @member {String} pnl_pct
  */
-TradingChallengeAllResult.prototype['pnl_pct'] = undefined;
+GlobalLeaderboardResult.prototype['pnl_pct'] = undefined;
 
 
 
 
 
 
-export default TradingChallengeAllResult;
+export default GlobalLeaderboardResult;
 

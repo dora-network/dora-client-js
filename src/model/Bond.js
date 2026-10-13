@@ -33,12 +33,13 @@ class Bond {
      * @param issuedAt {Date} 
      * @param issuer {String} 
      * @param maturityAt {Date} 
+     * @param tenor {Number} Years until maturity from the current date (negative for matured bonds)
      * @param principalValue {String} 
      * @param paymentsPerYear {Number} 
      */
-    constructor(id, kind, createdAt, isin, issuedAt, issuer, maturityAt, principalValue, paymentsPerYear) { 
+    constructor(id, kind, createdAt, isin, issuedAt, issuer, maturityAt, tenor, principalValue, paymentsPerYear) { 
         
-        Bond.initialize(this, id, kind, createdAt, isin, issuedAt, issuer, maturityAt, principalValue, paymentsPerYear);
+        Bond.initialize(this, id, kind, createdAt, isin, issuedAt, issuer, maturityAt, tenor, principalValue, paymentsPerYear);
     }
 
     /**
@@ -46,7 +47,7 @@ class Bond {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, kind, createdAt, isin, issuedAt, issuer, maturityAt, principalValue, paymentsPerYear) { 
+    static initialize(obj, id, kind, createdAt, isin, issuedAt, issuer, maturityAt, tenor, principalValue, paymentsPerYear) { 
         obj['id'] = id;
         obj['kind'] = kind;
         obj['created_at'] = createdAt;
@@ -54,6 +55,7 @@ class Bond {
         obj['issued_at'] = issuedAt;
         obj['issuer'] = issuer;
         obj['maturity_at'] = maturityAt;
+        obj['tenor'] = tenor;
         obj['principal_value'] = principalValue;
         obj['payments_per_year'] = paymentsPerYear;
     }
@@ -108,6 +110,9 @@ class Bond {
             if (data.hasOwnProperty('maturity_at')) {
                 obj['maturity_at'] = ApiClient.convertToType(data['maturity_at'], 'Date');
             }
+            if (data.hasOwnProperty('tenor')) {
+                obj['tenor'] = ApiClient.convertToType(data['tenor'], 'Number');
+            }
             if (data.hasOwnProperty('principal_value')) {
                 obj['principal_value'] = ApiClient.convertToType(data['principal_value'], 'String');
             }
@@ -159,7 +164,7 @@ class Bond {
 
 }
 
-Bond.RequiredProperties = ["id", "kind", "created_at", "isin", "issued_at", "issuer", "maturity_at", "principal_value", "payments_per_year"];
+Bond.RequiredProperties = ["id", "kind", "created_at", "isin", "issued_at", "issuer", "maturity_at", "tenor", "principal_value", "payments_per_year"];
 
 /**
  * @member {String} id
@@ -225,6 +230,12 @@ Bond.prototype['issuer'] = undefined;
  * @member {Date} maturity_at
  */
 Bond.prototype['maturity_at'] = undefined;
+
+/**
+ * Years until maturity from the current date (negative for matured bonds)
+ * @member {Number} tenor
+ */
+Bond.prototype['tenor'] = undefined;
 
 /**
  * @member {String} principal_value

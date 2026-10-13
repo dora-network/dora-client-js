@@ -8,9 +8,11 @@ Name | Type | Description | Notes
 **programId** | **String** |  | 
 **tenantId** | **String** | Owning tenant for administration. This does not define a referral destination. | 
 **userId** | **String** |  | 
-**referralCode** | **String** | Reusable referral code, stored uppercase. Letters, digits, hyphens and underscores are accepted; the first character must be a letter or digit. Matching is case-insensitive. Separate from QR claim tokens. | 
+**referralCode** | **String** | Current code to share; previously issued codes remain valid. | 
 **createdAt** | **Date** |  | 
 **programName** | **String** |  | 
 **isActive** | **Boolean** |  | 
+**customizedAt** | **Date** |  | 
+**canCustomize** | **Boolean** | True when this membership has not used its one-time code change, including while the program is inactive. | 
 
 

@@ -95,7 +95,7 @@ RegisterAffiliateReferrerRequest.RequiredProperties = ["user_id"];
 RegisterAffiliateReferrerRequest.prototype['user_id'] = undefined;
 
 /**
- * Optional custom code: 3 to 64 letters, digits, hyphens or underscores after trimming, starting with a letter or digit. Stored uppercase and unique across all programs and tenants. Omitted, null or empty generates a random code.
+ * Optional custom code: 3 to 64 letters, digits, hyphens or underscores after trimming, starting with a letter or digit. Stored uppercase and unique across all programs and tenants. Omitted, null or empty generates a random 12-character code.
  * @member {String} referral_code
  */
 RegisterAffiliateReferrerRequest.prototype['referral_code'] = undefined;

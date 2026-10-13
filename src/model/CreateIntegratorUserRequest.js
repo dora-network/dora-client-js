@@ -192,7 +192,7 @@ CreateIntegratorUserRequest.prototype['user_name'] = undefined;
 CreateIntegratorUserRequest.prototype['country_of_domicile'] = undefined;
 
 /**
- * Optional: the user's native asset ID. Must be a CURRENCY asset; defaults to USD. The USDC asset is never allowed for integrator-created users.
+ * Optional: the user's native asset ID. Must be a CURRENCY asset; defaults to USD. The USDC asset is only allowed for users created under a tenant with is_web3_enabled set, and their accounts and positions still use the USD asset.
  * @member {String} native_asset_id
  */
 CreateIntegratorUserRequest.prototype['native_asset_id'] = undefined;

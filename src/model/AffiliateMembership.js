@@ -26,14 +26,16 @@ class AffiliateMembership {
      * @param programId {String} 
      * @param tenantId {String} Owning tenant for administration. This does not define a referral destination.
      * @param userId {String} 
-     * @param referralCode {String} Reusable referral code, stored uppercase. Letters, digits, hyphens and underscores are accepted; the first character must be a letter or digit. Matching is case-insensitive. Separate from QR claim tokens.
+     * @param referralCode {String} Current code to share; previously issued codes remain valid.
      * @param createdAt {Date} 
      * @param programName {String} 
      * @param isActive {Boolean} 
+     * @param customizedAt {Date} 
+     * @param canCustomize {Boolean} True when this membership has not used its one-time code change, including while the program is inactive.
      */
-    constructor(id, programId, tenantId, userId, referralCode, createdAt, programName, isActive) { 
+    constructor(id, programId, tenantId, userId, referralCode, createdAt, programName, isActive, customizedAt, canCustomize) { 
         
-        AffiliateMembership.initialize(this, id, programId, tenantId, userId, referralCode, createdAt, programName, isActive);
+        AffiliateMembership.initialize(this, id, programId, tenantId, userId, referralCode, createdAt, programName, isActive, customizedAt, canCustomize);
     }
 
     /**
@@ -41,7 +43,7 @@ class AffiliateMembership {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, programId, tenantId, userId, referralCode, createdAt, programName, isActive) { 
+    static initialize(obj, id, programId, tenantId, userId, referralCode, createdAt, programName, isActive, customizedAt, canCustomize) { 
         obj['id'] = id;
         obj['program_id'] = programId;
         obj['tenant_id'] = tenantId;
@@ -50,6 +52,8 @@ class AffiliateMembership {
         obj['created_at'] = createdAt;
         obj['program_name'] = programName;
         obj['is_active'] = isActive;
+        obj['customized_at'] = customizedAt;
+        obj['can_customize'] = canCustomize;
     }
 
     /**
@@ -86,6 +90,12 @@ class AffiliateMembership {
             }
             if (data.hasOwnProperty('is_active')) {
                 obj['is_active'] = ApiClient.convertToType(data['is_active'], 'Boolean');
+            }
+            if (data.hasOwnProperty('customized_at')) {
+                obj['customized_at'] = ApiClient.convertToType(data['customized_at'], 'Date');
+            }
+            if (data.hasOwnProperty('can_customize')) {
+                obj['can_customize'] = ApiClient.convertToType(data['can_customize'], 'Boolean');
             }
         }
         return obj;
@@ -134,7 +144,7 @@ class AffiliateMembership {
 
 }
 
-AffiliateMembership.RequiredProperties = ["id", "program_id", "tenant_id", "user_id", "referral_code", "created_at", "program_name", "is_active"];
+AffiliateMembership.RequiredProperties = ["id", "program_id", "tenant_id", "user_id", "referral_code", "created_at", "program_name", "is_active", "customized_at", "can_customize"];
 
 /**
  * @member {String} id
@@ -158,7 +168,7 @@ AffiliateMembership.prototype['tenant_id'] = undefined;
 AffiliateMembership.prototype['user_id'] = undefined;
 
 /**
- * Reusable referral code, stored uppercase. Letters, digits, hyphens and underscores are accepted; the first character must be a letter or digit. Matching is case-insensitive. Separate from QR claim tokens.
+ * Current code to share; previously issued codes remain valid.
  * @member {String} referral_code
  */
 AffiliateMembership.prototype['referral_code'] = undefined;
@@ -177,6 +187,17 @@ AffiliateMembership.prototype['program_name'] = undefined;
  * @member {Boolean} is_active
  */
 AffiliateMembership.prototype['is_active'] = undefined;
+
+/**
+ * @member {Date} customized_at
+ */
+AffiliateMembership.prototype['customized_at'] = undefined;
+
+/**
+ * True when this membership has not used its one-time code change, including while the program is inactive.
+ * @member {Boolean} can_customize
+ */
+AffiliateMembership.prototype['can_customize'] = undefined;
 
 
 

@@ -62,6 +62,15 @@ class ClaimTradingChallengeResponse {
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
+            if (data.hasOwnProperty('reward_amount')) {
+                obj['reward_amount'] = ApiClient.convertToType(data['reward_amount'], 'String');
+            }
+            if (data.hasOwnProperty('kyc_url')) {
+                obj['kyc_url'] = ApiClient.convertToType(data['kyc_url'], 'String');
+            }
+            if (data.hasOwnProperty('reward_deadline_at')) {
+                obj['reward_deadline_at'] = ApiClient.convertToType(data['reward_deadline_at'], 'Date');
+            }
         }
         return obj;
     }
@@ -90,6 +99,14 @@ class ClaimTradingChallengeResponse {
         if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
             throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
         }
+        // ensure the json data is a string
+        if (data['reward_amount'] && !(typeof data['reward_amount'] === 'string' || data['reward_amount'] instanceof String)) {
+            throw new Error("Expected the field `reward_amount` to be a primitive type in the JSON string but got " + data['reward_amount']);
+        }
+        // ensure the json data is a string
+        if (data['kyc_url'] && !(typeof data['kyc_url'] === 'string' || data['kyc_url'] instanceof String)) {
+            throw new Error("Expected the field `kyc_url` to be a primitive type in the JSON string but got " + data['kyc_url']);
+        }
 
         return true;
     }
@@ -113,6 +130,22 @@ ClaimTradingChallengeResponse.prototype['user_id'] = undefined;
  * @member {String} status
  */
 ClaimTradingChallengeResponse.prototype['status'] = undefined;
+
+/**
+ * Fixed QR reward, present for REWARD_PENDING_KYC.
+ * @member {String} reward_amount
+ */
+ClaimTradingChallengeResponse.prototype['reward_amount'] = undefined;
+
+/**
+ * @member {String} kyc_url
+ */
+ClaimTradingChallengeResponse.prototype['kyc_url'] = undefined;
+
+/**
+ * @member {Date} reward_deadline_at
+ */
+ClaimTradingChallengeResponse.prototype['reward_deadline_at'] = undefined;
 
 
 

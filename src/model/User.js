@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import CountryCode from './CountryCode';
 import UserRole from './UserRole';
+import UsersTag from './UsersTag';
 
 /**
  * The User model module.
@@ -35,15 +36,16 @@ class User {
      * @param showTutorialCards {Boolean} 
      * @param notificationsEnabled {Boolean} 
      * @param tenantId {String} 
+     * @param usedReferralCode {String} Exact affiliate code this user applied at signup or later. Empty when no code has been applied; distinct from codes the user owns.
      * @param allowEmailNotifications {Boolean} 
      * @param allowLiquidationsNotifications {Boolean} 
      * @param allowDepositWithdrawalNotifications {Boolean} 
      * @param allowOrdersNotifications {Boolean} 
      * @param allowCopyTrading {Boolean} 
      */
-    constructor(id, email, firstName, lastName, userName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading) { 
+    constructor(id, email, firstName, lastName, userName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, usedReferralCode, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading) { 
         
-        User.initialize(this, id, email, firstName, lastName, userName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading);
+        User.initialize(this, id, email, firstName, lastName, userName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, usedReferralCode, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading);
     }
 
     /**
@@ -51,7 +53,7 @@ class User {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, email, firstName, lastName, userName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading) { 
+    static initialize(obj, id, email, firstName, lastName, userName, countryOfDomicile, nativeAssetId, roles, showTutorialCards, notificationsEnabled, tenantId, usedReferralCode, allowEmailNotifications, allowLiquidationsNotifications, allowDepositWithdrawalNotifications, allowOrdersNotifications, allowCopyTrading) { 
         obj['id'] = id;
         obj['email'] = email;
         obj['first_name'] = firstName;
@@ -63,6 +65,7 @@ class User {
         obj['show_tutorial_cards'] = showTutorialCards;
         obj['notifications_enabled'] = notificationsEnabled;
         obj['tenant_id'] = tenantId;
+        obj['used_referral_code'] = usedReferralCode;
         obj['allow_email_notifications'] = allowEmailNotifications;
         obj['allow_liquidations_notifications'] = allowLiquidationsNotifications;
         obj['allow_deposit_withdrawal_notifications'] = allowDepositWithdrawalNotifications;
@@ -141,6 +144,9 @@ class User {
             if (data.hasOwnProperty('tenant_id')) {
                 obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
             }
+            if (data.hasOwnProperty('used_referral_code')) {
+                obj['used_referral_code'] = ApiClient.convertToType(data['used_referral_code'], 'String');
+            }
             if (data.hasOwnProperty('allow_email_notifications')) {
                 obj['allow_email_notifications'] = ApiClient.convertToType(data['allow_email_notifications'], 'Boolean');
             }
@@ -158,6 +164,9 @@ class User {
             }
             if (data.hasOwnProperty('kyc_completed_at')) {
                 obj['kyc_completed_at'] = ApiClient.convertToType(data['kyc_completed_at'], 'Date');
+            }
+            if (data.hasOwnProperty('tag')) {
+                obj['tag'] = ApiClient.convertToType(data['tag'], [UsersTag]);
             }
         }
         return obj;
@@ -227,6 +236,14 @@ class User {
         if (data['tenant_id'] && !(typeof data['tenant_id'] === 'string' || data['tenant_id'] instanceof String)) {
             throw new Error("Expected the field `tenant_id` to be a primitive type in the JSON string but got " + data['tenant_id']);
         }
+        // ensure the json data is a string
+        if (data['used_referral_code'] && !(typeof data['used_referral_code'] === 'string' || data['used_referral_code'] instanceof String)) {
+            throw new Error("Expected the field `used_referral_code` to be a primitive type in the JSON string but got " + data['used_referral_code']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['tag'])) {
+            throw new Error("Expected the field `tag` to be an array in the JSON data but got " + data['tag']);
+        }
 
         return true;
     }
@@ -234,7 +251,7 @@ class User {
 
 }
 
-User.RequiredProperties = ["id", "email", "first_name", "last_name", "user_name", "country_of_domicile", "native_asset_id", "roles", "show_tutorial_cards", "notifications_enabled", "tenant_id", "allow_email_notifications", "allow_liquidations_notifications", "allow_deposit_withdrawal_notifications", "allow_orders_notifications", "allow_copy_trading"];
+User.RequiredProperties = ["id", "email", "first_name", "last_name", "user_name", "country_of_domicile", "native_asset_id", "roles", "show_tutorial_cards", "notifications_enabled", "tenant_id", "used_referral_code", "allow_email_notifications", "allow_liquidations_notifications", "allow_deposit_withdrawal_notifications", "allow_orders_notifications", "allow_copy_trading"];
 
 /**
  * @member {String} id
@@ -340,6 +357,12 @@ User.prototype['notifications_enabled'] = undefined;
 User.prototype['tenant_id'] = undefined;
 
 /**
+ * Exact affiliate code this user applied at signup or later. Empty when no code has been applied; distinct from codes the user owns.
+ * @member {String} used_referral_code
+ */
+User.prototype['used_referral_code'] = undefined;
+
+/**
  * @member {Boolean} allow_email_notifications
  */
 User.prototype['allow_email_notifications'] = undefined;
@@ -369,6 +392,12 @@ User.prototype['allow_copy_trading'] = undefined;
  * @member {Date} kyc_completed_at
  */
 User.prototype['kyc_completed_at'] = undefined;
+
+/**
+ * Tags assigned to the user by an admin. Set via PUT /v1/users/{user_id}/tag.
+ * @member {Array.<module:model/UsersTag>} tag
+ */
+User.prototype['tag'] = undefined;
 
 
 

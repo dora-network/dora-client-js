@@ -40,6 +40,7 @@ import ClaimLeverageAccruedInterestResponseEnvelope from '../model/ClaimLeverage
 import ClaimPromoLinkRequest from '../model/ClaimPromoLinkRequest';
 import ClaimTradingChallengeResponseEnvelope from '../model/ClaimTradingChallengeResponseEnvelope';
 import CloseAccountRequest from '../model/CloseAccountRequest';
+import CloseAllPositionsResponseEnvelope from '../model/CloseAllPositionsResponseEnvelope';
 import ClosePositionRequest from '../model/ClosePositionRequest';
 import ClosePositionResponseEnvelope from '../model/ClosePositionResponseEnvelope';
 import CountryCode from '../model/CountryCode';
@@ -54,6 +55,7 @@ import CreateOrderResponseEnvelope from '../model/CreateOrderResponseEnvelope';
 import CreateTradingChallengeRequest from '../model/CreateTradingChallengeRequest';
 import CreateWithdrawalRequest from '../model/CreateWithdrawalRequest';
 import CurrentLeverageAccruedInterestResponseEnvelope from '../model/CurrentLeverageAccruedInterestResponseEnvelope';
+import CustomizeAffiliateReferrerCodeRequest from '../model/CustomizeAffiliateReferrerCodeRequest';
 import DefundUserRequest from '../model/DefundUserRequest';
 import DepositInstructionsResponseEnvelope from '../model/DepositInstructionsResponseEnvelope';
 import FeeQuoteResponseEnvelope from '../model/FeeQuoteResponseEnvelope';
@@ -61,10 +63,12 @@ import FundUserRequest from '../model/FundUserRequest';
 import FundUserResponseEnvelope from '../model/FundUserResponseEnvelope';
 import GetAssetByIDResponseEnvelope from '../model/GetAssetByIDResponseEnvelope';
 import GetAssetYTMByIDResponseEnvelope from '../model/GetAssetYTMByIDResponseEnvelope';
+import GetAutoRebalanceAccountStatusResponseEnvelope from '../model/GetAutoRebalanceAccountStatusResponseEnvelope';
 import GetCopyTradersResponse from '../model/GetCopyTradersResponse';
 import GetPnLRankingResponse from '../model/GetPnLRankingResponse';
 import GetRealizedPnlSettlementsResponseEnvelope from '../model/GetRealizedPnlSettlementsResponseEnvelope';
 import GetTopOfBookResponseEnvelope from '../model/GetTopOfBookResponseEnvelope';
+import GlobalLeaderboardResponseEnvelope from '../model/GlobalLeaderboardResponseEnvelope';
 import HistoricalLeverageInterestRatesResponseEnvelope from '../model/HistoricalLeverageInterestRatesResponseEnvelope';
 import IsolateCollateralRequest from '../model/IsolateCollateralRequest';
 import IsolateCollateralResponse from '../model/IsolateCollateralResponse';
@@ -80,6 +84,7 @@ import LiquidityResponseEnvelope from '../model/LiquidityResponseEnvelope';
 import ListAccountsResponseV2Envelope from '../model/ListAccountsResponseV2Envelope';
 import ListAssetPriceResponseEnvelope from '../model/ListAssetPriceResponseEnvelope';
 import ListAssetYieldResponseEnvelope from '../model/ListAssetYieldResponseEnvelope';
+import ListAutoRebalanceConfigsResponseEnvelope from '../model/ListAutoRebalanceConfigsResponseEnvelope';
 import ListCandlesResponseEnvelope from '../model/ListCandlesResponseEnvelope';
 import ListCouponPaymentsResponseEnvelope from '../model/ListCouponPaymentsResponseEnvelope';
 import ListDepositsResponseEnvelope from '../model/ListDepositsResponseEnvelope';
@@ -111,6 +116,7 @@ import PromoClaimResponseEnvelope from '../model/PromoClaimResponseEnvelope';
 import PromoLinkBatchListResponse from '../model/PromoLinkBatchListResponse';
 import PromoLinkListResponse from '../model/PromoLinkListResponse';
 import PromoLinkStatus from '../model/PromoLinkStatus';
+import QRRewardPreviewEnvelope from '../model/QRRewardPreviewEnvelope';
 import RegisterAffiliateReferrerRequest from '../model/RegisterAffiliateReferrerRequest';
 import RemoveTradingChallengeUsersRequest from '../model/RemoveTradingChallengeUsersRequest';
 import RepayUSDRequest from '../model/RepayUSDRequest';
@@ -140,7 +146,6 @@ import TenantGuaranteeFundHistoryResponseEnvelope from '../model/TenantGuarantee
 import TerminateTradingChallengeResponseEnvelope from '../model/TerminateTradingChallengeResponseEnvelope';
 import TradeRequestError from '../model/TradeRequestError';
 import TradeResponseEnvelope from '../model/TradeResponseEnvelope';
-import TradingChallengeAllResultsResponseEnvelope from '../model/TradingChallengeAllResultsResponseEnvelope';
 import TradingChallengeDailySnapshotsResponseEnvelope from '../model/TradingChallengeDailySnapshotsResponseEnvelope';
 import TradingChallengeListResponseEnvelope from '../model/TradingChallengeListResponseEnvelope';
 import TradingChallengeRegistrationRequestListResponseEnvelope from '../model/TradingChallengeRegistrationRequestListResponseEnvelope';
@@ -166,6 +171,8 @@ import UpdateTradingChallengeRequest from '../model/UpdateTradingChallengeReques
 import UpdateUserConfigRequest from '../model/UpdateUserConfigRequest';
 import UpdateUserKYCRequest from '../model/UpdateUserKYCRequest';
 import UpdateUserKYCResponseEnvelope from '../model/UpdateUserKYCResponseEnvelope';
+import UpsertAutoRebalanceConfigsRequest from '../model/UpsertAutoRebalanceConfigsRequest';
+import UpsertAutoRebalanceConfigsResponseEnvelope from '../model/UpsertAutoRebalanceConfigsResponseEnvelope';
 import UserBalanceResponseEnvelope from '../model/UserBalanceResponseEnvelope';
 import UserCreatedResponseEnvelope from '../model/UserCreatedResponseEnvelope';
 import UserDeactivationListResponseEnvelope from '../model/UserDeactivationListResponseEnvelope';
@@ -515,6 +522,49 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the cancelWithdrawal operation.
+     * @callback module:api/DefaultApi~cancelWithdrawalCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/WithdrawalResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Cancel the caller's own USDC withdrawal
+     * Cancels the caller's own withdrawal and returns its held quantity to their available balance. Only PENDING or APPROVED_WITHOUT_FEE withdrawals can be cancelled. Restricted to users whose native asset is USDC.
+     * @param {String} withdrawalId The withdrawal to cancel. It must be owned by the caller and be in status PENDING or APPROVED_WITHOUT_FEE.
+     * @param {module:api/DefaultApi~cancelWithdrawalCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/WithdrawalResponseEnvelope}
+     */
+    cancelWithdrawal(withdrawalId, callback) {
+      let postBody = null;
+      // verify the required parameter 'withdrawalId' is set
+      if (withdrawalId === undefined || withdrawalId === null) {
+        throw new Error("Missing the required parameter 'withdrawalId' when calling cancelWithdrawal");
+      }
+
+      let pathParams = {
+        'withdrawal_id': withdrawalId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = WithdrawalResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/web3/withdrawals/{withdrawal_id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the claimLeverageGetAccruedInterest operation.
      * @callback module:api/DefaultApi~claimLeverageGetAccruedInterestCallback
      * @param {String} error Error message, if any.
@@ -612,7 +662,7 @@ export default class DefaultApi {
 
     /**
      * Claim challenge prize
-     * Claim the prize of a challenge the caller is eligible for. A TOURNAMENT claim credits the prize matching the crown and reactivates the account. A CASH claim winds the account down, sweeps every remaining challenge credit and awards the CASH_CROWN: the account is left deactivated with a zero balance, and the reward is redeemed out of band. Both mark the participation PRIZE_CLAIMED.
+     * Claim an eligible trading challenge prize. TOURNAMENT requires completed KYC, credits the crown prize, reactivates the account, and marks the result PRIZE_CLAIMED. CASH requires completed KYC, winds down the account, sweeps remaining challenge credit, awards CASH_CROWN, and marks the result PRIZE_CLAIMED; the account stays deactivated with a zero balance. QR_PROMO accepts an eligible reward request before KYC, winds down the account, fixes the capped reward, queues a KYC email, and records REWARD_PENDING_KYC without paying the reward or reactivating the account.
      * @param {String} tradingChallengeId 
      * @param {module:api/DefaultApi~claimTradingChallengePrizeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ClaimTradingChallengeResponseEnvelope}
@@ -640,6 +690,42 @@ export default class DefaultApi {
       let returnType = ClaimTradingChallengeResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/trading_challenges/{trading_challenge_id}/claim', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the closeAllIsolatedPositions operation.
+     * @callback module:api/DefaultApi~closeAllIsolatedPositionsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CloseAllPositionsResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Close all open isolated positions in one request
+     * @param {module:api/DefaultApi~closeAllIsolatedPositionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/CloseAllPositionsResponseEnvelope}
+     */
+    closeAllIsolatedPositions(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = CloseAllPositionsResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/positions/close/all', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1032,7 +1118,7 @@ export default class DefaultApi {
 
     /**
      * Create a USDC withdrawal request
-     * Reserves the requested quantity against the caller's available balance (moving it to pending_withdrawal) and creates a PENDING withdrawal. No fee quote is required and no fee is reserved: the withdrawal's fee is quoted and locked later, as part of approval. Idempotent on withdrawal_id: a repeat request carrying the same to_address and quantity reserves nothing further and returns the existing withdrawal with 200. Reusing a withdrawal_id with a different to_address or quantity is a conflict (409), not a replay, and reserves nothing. Restricted to DORA tenant users whose native asset is USDC.
+     * Requests a USDC withdrawal, holding the quantity from the caller's available balance until it completes or is cancelled. The fee is quoted and locked after admin approval. Idempotent on withdrawal_id; only one withdrawal may be in progress at a time. Restricted to users whose native asset is USDC.
      * @param {module:model/CreateWithdrawalRequest} createWithdrawalRequest 
      * @param {module:api/DefaultApi~createWithdrawalCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/WithdrawalResponseEnvelope}
@@ -1059,6 +1145,54 @@ export default class DefaultApi {
       let returnType = WithdrawalResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/web3/withdrawals', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the customizeAffiliateReferrerCode operation.
+     * @callback module:api/DefaultApi~customizeAffiliateReferrerCodeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateReferrerEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Change an affiliate referral code
+     * The owner of this affiliate membership may change its primary code once. ADMIN callers may change any membership's code repeatedly across tenants. Admin changes preserve the owner's remaining one-time change. Changes are allowed while the program is inactive. Its initial code, whether generated or chosen by an admin, does not count as the change. Previous codes remain aliases and cannot be reused; codes resolve only while the program is active. Codes are unique across all programs and tenants, including for admins.
+     * @param {String} referrerId 
+     * @param {module:model/CustomizeAffiliateReferrerCodeRequest} customizeAffiliateReferrerCodeRequest 
+     * @param {module:api/DefaultApi~customizeAffiliateReferrerCodeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateReferrerEnvelope}
+     */
+    customizeAffiliateReferrerCode(referrerId, customizeAffiliateReferrerCodeRequest, callback) {
+      let postBody = customizeAffiliateReferrerCodeRequest;
+      // verify the required parameter 'referrerId' is set
+      if (referrerId === undefined || referrerId === null) {
+        throw new Error("Missing the required parameter 'referrerId' when calling customizeAffiliateReferrerCode");
+      }
+      // verify the required parameter 'customizeAffiliateReferrerCodeRequest' is set
+      if (customizeAffiliateReferrerCodeRequest === undefined || customizeAffiliateReferrerCodeRequest === null) {
+        throw new Error("Missing the required parameter 'customizeAffiliateReferrerCodeRequest' when calling customizeAffiliateReferrerCode");
+      }
+
+      let pathParams = {
+        'referrer_id': referrerId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = AffiliateReferrerEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_referrers/{referrer_id}/code', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1576,6 +1710,48 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the getAutoRebalanceAccountStatusV2 operation.
+     * @callback module:api/DefaultApi~getAutoRebalanceAccountStatusV2Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GetAutoRebalanceAccountStatusResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get auto-rebalance configuration and live status for one isolated account
+     * @param {String} accountId 
+     * @param {module:api/DefaultApi~getAutoRebalanceAccountStatusV2Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GetAutoRebalanceAccountStatusResponseEnvelope}
+     */
+    getAutoRebalanceAccountStatusV2(accountId, callback) {
+      let postBody = null;
+      // verify the required parameter 'accountId' is set
+      if (accountId === undefined || accountId === null) {
+        throw new Error("Missing the required parameter 'accountId' when calling getAutoRebalanceAccountStatusV2");
+      }
+
+      let pathParams = {
+        'account_id': accountId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GetAutoRebalanceAccountStatusResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v2/accounts/auto_rebalance/config/{account_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getCandleData operation.
      * @callback module:api/DefaultApi~getCandleDataCallback
      * @param {String} error Error message, if any.
@@ -1808,7 +1984,7 @@ export default class DefaultApi {
 
     /**
      * Get per-chain instructions for depositing USDC into the Dora vault
-     * Returns everything the caller needs to deposit USDC into the Dora vault with a single signature and a single transaction: an EIP-712 (EIP-2612 permit) typed-data payload to sign with eth_signTypedData_v4, and the descriptor of the vault deposit() call. The client splits the permit signature into v/r/s and ABI-encodes the deposit function with the returned args plus (v, r, s); no separate approve transaction is needed. Only a single chain is currently supported: the provided nonce belongs to it, and the chains array holds at most one entry. Restricted to DORA tenant users whose native asset is USDC.
+     * Returns everything the caller needs to deposit USDC into the Dora vault with a single signature and a single transaction: an EIP-712 (EIP-2612 permit) typed-data payload to sign with eth_signTypedData_v4, and the descriptor of the vault deposit() call. The client splits the permit signature into v/r/s and ABI-encodes the deposit function with the returned args plus (v, r, s); no separate approve transaction is needed. Only a single chain is currently supported: the provided nonce belongs to it, and the chains array holds at most one entry. Restricted to users whose native asset is USDC, under a tenant with web3 enabled.
      * @param {String} quantity Human-decimal USDC quantity to deposit, e.g. '100.50'. Must be positive, with at most 6 decimal places.
      * @param {String} ownerAddress The user's wallet address as a 0x-prefixed 20-byte hex string. Used as the permit owner.
      * @param {String} nonce The owner's current USDC permit nonce (read client-side), as a non-negative decimal string. It belongs to the single supported chain.
@@ -1852,6 +2028,60 @@ export default class DefaultApi {
       let returnType = DepositInstructionsResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/web3/deposit-instructions', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getGlobalLeaderboard operation.
+     * @callback module:api/DefaultApi~getGlobalLeaderboardCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GlobalLeaderboardResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get global leaderboard
+     * @param {Date} start Inclusive start date in YYYY-MM-DD format.
+     * @param {Date} end Inclusive end date in YYYY-MM-DD format.
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit = 100)] Maximum number of rows to return. Defaults to 100.
+     * @param {Number} [offset = 0)] Number of rows to skip before collecting the result set.
+     * @param {module:api/DefaultApi~getGlobalLeaderboardCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GlobalLeaderboardResponseEnvelope}
+     */
+    getGlobalLeaderboard(start, end, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'start' is set
+      if (start === undefined || start === null) {
+        throw new Error("Missing the required parameter 'start' when calling getGlobalLeaderboard");
+      }
+      // verify the required parameter 'end' is set
+      if (end === undefined || end === null) {
+        throw new Error("Missing the required parameter 'end' when calling getGlobalLeaderboard");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'start': start,
+        'end': end,
+        'limit': opts['limit'],
+        'offset': opts['offset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GlobalLeaderboardResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading/global_leaderboard', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2786,6 +3016,49 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the getQRRewardPreview operation.
+     * @callback module:api/DefaultApi~getQRRewardPreviewCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/QRRewardPreviewEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Preview QR reward eligibility
+     * Read-only projection for the authenticated QR participant. Request recomputes eligibility after wind-down; KYC is not a request blocker.
+     * @param {String} tradingChallengeId 
+     * @param {module:api/DefaultApi~getQRRewardPreviewCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/QRRewardPreviewEnvelope}
+     */
+    getQRRewardPreview(tradingChallengeId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling getQRRewardPreview");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = QRRewardPreviewEnvelope;
+      return this.apiClient.callApi(
+        '/v1/trading_challenges/{trading_challenge_id}/reward', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getRealizedPnlSettlements operation.
      * @callback module:api/DefaultApi~getRealizedPnlSettlementsCallback
      * @param {String} error Error message, if any.
@@ -2984,67 +3257,6 @@ export default class DefaultApi {
       let returnType = ListTradeResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/trades', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getTradingChallengeAllResults operation.
-     * @callback module:api/DefaultApi~getTradingChallengeAllResultsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/TradingChallengeAllResultsResponseEnvelope} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get combined results across all trading challenge
-     * List trading challenge leaderboard/results filtered by board, trading_challenge_type, start date and end date across all challenges.
-     * @param {module:model/String} board Leaderboard board selector.
-     * @param {Date} start Inclusive start date in YYYY-MM-DD format.
-     * @param {Date} end Inclusive end date in YYYY-MM-DD format.
-     * @param {module:model/TradingChallengeType} tradingChallengeType Challenge type to include in aggregation.
-     * @param {module:api/DefaultApi~getTradingChallengeAllResultsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/TradingChallengeAllResultsResponseEnvelope}
-     */
-    getTradingChallengeAllResults(board, start, end, tradingChallengeType, callback) {
-      let postBody = null;
-      // verify the required parameter 'board' is set
-      if (board === undefined || board === null) {
-        throw new Error("Missing the required parameter 'board' when calling getTradingChallengeAllResults");
-      }
-      // verify the required parameter 'start' is set
-      if (start === undefined || start === null) {
-        throw new Error("Missing the required parameter 'start' when calling getTradingChallengeAllResults");
-      }
-      // verify the required parameter 'end' is set
-      if (end === undefined || end === null) {
-        throw new Error("Missing the required parameter 'end' when calling getTradingChallengeAllResults");
-      }
-      // verify the required parameter 'tradingChallengeType' is set
-      if (tradingChallengeType === undefined || tradingChallengeType === null) {
-        throw new Error("Missing the required parameter 'tradingChallengeType' when calling getTradingChallengeAllResults");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'board': board,
-        'start': start,
-        'end': end,
-        'trading_challenge_type': tradingChallengeType
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = TradingChallengeAllResultsResponseEnvelope;
-      return this.apiClient.callApi(
-        '/v1/trading_challenges/all/results', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3908,7 +4120,7 @@ export default class DefaultApi {
 
     /**
      * Estimate the network fee to withdraw USDC via web3
-     * Examines on-chain conditions and simulates the named withdrawal to estimate the network fee the user must reserve before it can be submitted on-chain. The withdrawal must already exist, belong to the caller, and have been approved by an admin (status APPROVED_WITHOUT_FEE); its destination and quantity are read from the row, not taken from the request. The returned quote token is bound to that one withdrawal and is redeemed at PUT /v1/web3/withdrawals/{withdrawal_id}, which reserves the fee and moves the withdrawal to APPROVED. Restricted to DORA tenant users whose native asset is USDC.
+     * Estimates the network fee for an existing, admin-approved (APPROVED_WITHOUT_FEE) withdrawal owned by the caller. Redeem the returned quote token at PUT /v1/web3/withdrawals/{withdrawal_id} to reserve the fee. Restricted to USDC native-asset users.
      * @param {String} withdrawalId The withdrawal to quote a fee for. It must belong to the caller and be in status APPROVED_WITHOUT_FEE; the destination and quantity are read from it rather than supplied here.
      * @param {module:api/DefaultApi~getWithdrawalFeeQuoteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FeeQuoteResponseEnvelope}
@@ -4885,6 +5097,78 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the listAutoRebalanceConfigsV2 operation.
+     * @callback module:api/DefaultApi~listAutoRebalanceConfigsV2Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ListAutoRebalanceConfigsResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List auto-rebalance configuration for the authenticated user's isolated accounts
+     * @param {module:api/DefaultApi~listAutoRebalanceConfigsV2Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ListAutoRebalanceConfigsResponseEnvelope}
+     */
+    listAutoRebalanceConfigsV2(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListAutoRebalanceConfigsResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v2/accounts/auto_rebalance/config', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listAutoRebalanceStatusesV2 operation.
+     * @callback module:api/DefaultApi~listAutoRebalanceStatusesV2Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ListAutoRebalanceConfigsResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List auto-rebalance status for the authenticated user's isolated accounts, including disabled configs
+     * @param {module:api/DefaultApi~listAutoRebalanceStatusesV2Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ListAutoRebalanceConfigsResponseEnvelope}
+     */
+    listAutoRebalanceStatusesV2(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ListAutoRebalanceConfigsResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v2/accounts/auto_rebalance/status', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listDeposits operation.
      * @callback module:api/DefaultApi~listDepositsCallback
      * @param {String} error Error message, if any.
@@ -5414,7 +5698,7 @@ export default class DefaultApi {
 
     /**
      * Lock the network fee for an approved USDC withdrawal
-     * Redeems a fee quote against a withdrawal an admin has approved. The quoted fee is reserved on top of the quantity reserved when the request was created, so the same risk checks the request cleared are run again for it: an active trading challenge, a deactivated account, account health, the minimum cash reserve, and overdue coupon payments. A fee that would take the caller below the minimum cash reserve is refused and nothing is reserved.
+     * Redeems a fee quote from GET /v1/web3/withdrawals/fee-quote against an admin-approved withdrawal, holding the quoted fee from the caller's available balance and making the withdrawal eligible for on-chain submission. Restricted to users whose native asset is USDC.
      * @param {String} withdrawalId The withdrawal to redeem the quote against. It must be owned by the caller and be in status APPROVED_WITHOUT_FEE.
      * @param {module:model/LockWithdrawalFeeRequest} lockWithdrawalFeeRequest 
      * @param {module:api/DefaultApi~lockWithdrawalFeeCallback} callback The callback function, accepting three arguments: error, data, response
@@ -6798,6 +7082,47 @@ export default class DefaultApi {
       let returnType = UpdateUserKYCResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/integrators/user/{user_id}/kyc', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the upsertAutoRebalanceConfigsV2 operation.
+     * @callback module:api/DefaultApi~upsertAutoRebalanceConfigsV2Callback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UpsertAutoRebalanceConfigsResponseEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create or update auto-rebalance configuration for one or more isolated accounts
+     * @param {module:model/UpsertAutoRebalanceConfigsRequest} upsertAutoRebalanceConfigsRequest 
+     * @param {module:api/DefaultApi~upsertAutoRebalanceConfigsV2Callback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UpsertAutoRebalanceConfigsResponseEnvelope}
+     */
+    upsertAutoRebalanceConfigsV2(upsertAutoRebalanceConfigsRequest, callback) {
+      let postBody = upsertAutoRebalanceConfigsRequest;
+      // verify the required parameter 'upsertAutoRebalanceConfigsRequest' is set
+      if (upsertAutoRebalanceConfigsRequest === undefined || upsertAutoRebalanceConfigsRequest === null) {
+        throw new Error("Missing the required parameter 'upsertAutoRebalanceConfigsRequest' when calling upsertAutoRebalanceConfigsV2");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = UpsertAutoRebalanceConfigsResponseEnvelope;
+      return this.apiClient.callApi(
+        '/v2/accounts/auto_rebalance/config', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -52,6 +52,9 @@ import AssetYTM from './model/AssetYTM';
 import AssetYield from './model/AssetYield';
 import AssetYieldResolution from './model/AssetYieldResolution';
 import AssignAffiliateReferralRequest from './model/AssignAffiliateReferralRequest';
+import AutoRebalanceConfigStatus from './model/AutoRebalanceConfigStatus';
+import AutoRebalanceConfigUpsert from './model/AutoRebalanceConfigUpsert';
+import AutoRebalanceConfigsData from './model/AutoRebalanceConfigsData';
 import BalanceTransfer from './model/BalanceTransfer';
 import BalancesResponse from './model/BalancesResponse';
 import Bond from './model/Bond';
@@ -70,6 +73,8 @@ import ClaimPromoLinkRequest from './model/ClaimPromoLinkRequest';
 import ClaimTradingChallengeResponse from './model/ClaimTradingChallengeResponse';
 import ClaimTradingChallengeResponseEnvelope from './model/ClaimTradingChallengeResponseEnvelope';
 import CloseAccountRequest from './model/CloseAccountRequest';
+import CloseAllPositionsItem from './model/CloseAllPositionsItem';
+import CloseAllPositionsResponseEnvelope from './model/CloseAllPositionsResponseEnvelope';
 import ClosePositionRequest from './model/ClosePositionRequest';
 import ClosePositionResp from './model/ClosePositionResp';
 import ClosePositionResponseEnvelope from './model/ClosePositionResponseEnvelope';
@@ -95,6 +100,7 @@ import CreateWithdrawalRequest from './model/CreateWithdrawalRequest';
 import CreditRating from './model/CreditRating';
 import CurrentLeverageAccruedInterest from './model/CurrentLeverageAccruedInterest';
 import CurrentLeverageAccruedInterestResponseEnvelope from './model/CurrentLeverageAccruedInterestResponseEnvelope';
+import CustomizeAffiliateReferrerCodeRequest from './model/CustomizeAffiliateReferrerCodeRequest';
 import DefundUserRequest from './model/DefundUserRequest';
 import DepositArgs from './model/DepositArgs';
 import DepositCall from './model/DepositCall';
@@ -109,10 +115,13 @@ import FundUserRequest from './model/FundUserRequest';
 import FundUserResponseEnvelope from './model/FundUserResponseEnvelope';
 import GetAssetByIDResponseEnvelope from './model/GetAssetByIDResponseEnvelope';
 import GetAssetYTMByIDResponseEnvelope from './model/GetAssetYTMByIDResponseEnvelope';
+import GetAutoRebalanceAccountStatusResponseEnvelope from './model/GetAutoRebalanceAccountStatusResponseEnvelope';
 import GetCopyTradersResponse from './model/GetCopyTradersResponse';
 import GetPnLRankingResponse from './model/GetPnLRankingResponse';
 import GetRealizedPnlSettlementsResponseEnvelope from './model/GetRealizedPnlSettlementsResponseEnvelope';
 import GetTopOfBookResponseEnvelope from './model/GetTopOfBookResponseEnvelope';
+import GlobalLeaderboardResponseEnvelope from './model/GlobalLeaderboardResponseEnvelope';
+import GlobalLeaderboardResult from './model/GlobalLeaderboardResult';
 import HistoricalLeverageInterestRate from './model/HistoricalLeverageInterestRate';
 import HistoricalLeverageInterestRates from './model/HistoricalLeverageInterestRates';
 import HistoricalLeverageInterestRatesResponseEnvelope from './model/HistoricalLeverageInterestRatesResponseEnvelope';
@@ -140,6 +149,7 @@ import LiquidityResponseEnvelope from './model/LiquidityResponseEnvelope';
 import ListAccountsResponseV2Envelope from './model/ListAccountsResponseV2Envelope';
 import ListAssetPriceResponseEnvelope from './model/ListAssetPriceResponseEnvelope';
 import ListAssetYieldResponseEnvelope from './model/ListAssetYieldResponseEnvelope';
+import ListAutoRebalanceConfigsResponseEnvelope from './model/ListAutoRebalanceConfigsResponseEnvelope';
 import ListCandlesResponseEnvelope from './model/ListCandlesResponseEnvelope';
 import ListCouponPaymentsResponseEnvelope from './model/ListCouponPaymentsResponseEnvelope';
 import ListDepositsResponseEnvelope from './model/ListDepositsResponseEnvelope';
@@ -217,6 +227,8 @@ import PromoLinkListResponse from './model/PromoLinkListResponse';
 import PromoLinkListResponseAllOfData from './model/PromoLinkListResponseAllOfData';
 import PromoLinkStatus from './model/PromoLinkStatus';
 import PromoSourceType from './model/PromoSourceType';
+import QRRewardPreview from './model/QRRewardPreview';
+import QRRewardPreviewEnvelope from './model/QRRewardPreviewEnvelope';
 import RealizedPnlSettlement from './model/RealizedPnlSettlement';
 import RealizedPnlSettlements from './model/RealizedPnlSettlements';
 import RegisterAffiliateReferrerRequest from './model/RegisterAffiliateReferrerRequest';
@@ -263,8 +275,6 @@ import Trade from './model/Trade';
 import TradeRequestError from './model/TradeRequestError';
 import TradeResponseEnvelope from './model/TradeResponseEnvelope';
 import TradingChallenge from './model/TradingChallenge';
-import TradingChallengeAllResult from './model/TradingChallengeAllResult';
-import TradingChallengeAllResultsResponseEnvelope from './model/TradingChallengeAllResultsResponseEnvelope';
 import TradingChallengeDailySnapshot from './model/TradingChallengeDailySnapshot';
 import TradingChallengeDailySnapshotsResponseEnvelope from './model/TradingChallengeDailySnapshotsResponseEnvelope';
 import TradingChallengeListResponseEnvelope from './model/TradingChallengeListResponseEnvelope';
@@ -311,6 +321,8 @@ import UpdateUserConfigRequest from './model/UpdateUserConfigRequest';
 import UpdateUserKYCRequest from './model/UpdateUserKYCRequest';
 import UpdateUserKYCResponse from './model/UpdateUserKYCResponse';
 import UpdateUserKYCResponseEnvelope from './model/UpdateUserKYCResponseEnvelope';
+import UpsertAutoRebalanceConfigsRequest from './model/UpsertAutoRebalanceConfigsRequest';
+import UpsertAutoRebalanceConfigsResponseEnvelope from './model/UpsertAutoRebalanceConfigsResponseEnvelope';
 import User from './model/User';
 import UserBalanceResponseEnvelope from './model/UserBalanceResponseEnvelope';
 import UserConfig from './model/UserConfig';
@@ -332,6 +344,7 @@ import UserRole from './model/UserRole';
 import UserUpdatedResponseEnvelope from './model/UserUpdatedResponseEnvelope';
 import UserValue from './model/UserValue';
 import UserValueResponseEnvelope from './model/UserValueResponseEnvelope';
+import UsersTag from './model/UsersTag';
 import ValidateSubmitOrderRequest from './model/ValidateSubmitOrderRequest';
 import ValidateSubmitOrderResponse from './model/ValidateSubmitOrderResponse';
 import Web3EventStatus from './model/Web3EventStatus';
@@ -621,6 +634,24 @@ export {
     AssignAffiliateReferralRequest,
 
     /**
+     * The AutoRebalanceConfigStatus model constructor.
+     * @property {module:model/AutoRebalanceConfigStatus}
+     */
+    AutoRebalanceConfigStatus,
+
+    /**
+     * The AutoRebalanceConfigUpsert model constructor.
+     * @property {module:model/AutoRebalanceConfigUpsert}
+     */
+    AutoRebalanceConfigUpsert,
+
+    /**
+     * The AutoRebalanceConfigsData model constructor.
+     * @property {module:model/AutoRebalanceConfigsData}
+     */
+    AutoRebalanceConfigsData,
+
+    /**
      * The BalanceTransfer model constructor.
      * @property {module:model/BalanceTransfer}
      */
@@ -727,6 +758,18 @@ export {
      * @property {module:model/CloseAccountRequest}
      */
     CloseAccountRequest,
+
+    /**
+     * The CloseAllPositionsItem model constructor.
+     * @property {module:model/CloseAllPositionsItem}
+     */
+    CloseAllPositionsItem,
+
+    /**
+     * The CloseAllPositionsResponseEnvelope model constructor.
+     * @property {module:model/CloseAllPositionsResponseEnvelope}
+     */
+    CloseAllPositionsResponseEnvelope,
 
     /**
      * The ClosePositionRequest model constructor.
@@ -879,6 +922,12 @@ export {
     CurrentLeverageAccruedInterestResponseEnvelope,
 
     /**
+     * The CustomizeAffiliateReferrerCodeRequest model constructor.
+     * @property {module:model/CustomizeAffiliateReferrerCodeRequest}
+     */
+    CustomizeAffiliateReferrerCodeRequest,
+
+    /**
      * The DefundUserRequest model constructor.
      * @property {module:model/DefundUserRequest}
      */
@@ -963,6 +1012,12 @@ export {
     GetAssetYTMByIDResponseEnvelope,
 
     /**
+     * The GetAutoRebalanceAccountStatusResponseEnvelope model constructor.
+     * @property {module:model/GetAutoRebalanceAccountStatusResponseEnvelope}
+     */
+    GetAutoRebalanceAccountStatusResponseEnvelope,
+
+    /**
      * The GetCopyTradersResponse model constructor.
      * @property {module:model/GetCopyTradersResponse}
      */
@@ -985,6 +1040,18 @@ export {
      * @property {module:model/GetTopOfBookResponseEnvelope}
      */
     GetTopOfBookResponseEnvelope,
+
+    /**
+     * The GlobalLeaderboardResponseEnvelope model constructor.
+     * @property {module:model/GlobalLeaderboardResponseEnvelope}
+     */
+    GlobalLeaderboardResponseEnvelope,
+
+    /**
+     * The GlobalLeaderboardResult model constructor.
+     * @property {module:model/GlobalLeaderboardResult}
+     */
+    GlobalLeaderboardResult,
 
     /**
      * The HistoricalLeverageInterestRate model constructor.
@@ -1147,6 +1214,12 @@ export {
      * @property {module:model/ListAssetYieldResponseEnvelope}
      */
     ListAssetYieldResponseEnvelope,
+
+    /**
+     * The ListAutoRebalanceConfigsResponseEnvelope model constructor.
+     * @property {module:model/ListAutoRebalanceConfigsResponseEnvelope}
+     */
+    ListAutoRebalanceConfigsResponseEnvelope,
 
     /**
      * The ListCandlesResponseEnvelope model constructor.
@@ -1611,6 +1684,18 @@ export {
     PromoSourceType,
 
     /**
+     * The QRRewardPreview model constructor.
+     * @property {module:model/QRRewardPreview}
+     */
+    QRRewardPreview,
+
+    /**
+     * The QRRewardPreviewEnvelope model constructor.
+     * @property {module:model/QRRewardPreviewEnvelope}
+     */
+    QRRewardPreviewEnvelope,
+
+    /**
      * The RealizedPnlSettlement model constructor.
      * @property {module:model/RealizedPnlSettlement}
      */
@@ -1885,18 +1970,6 @@ export {
      * @property {module:model/TradingChallenge}
      */
     TradingChallenge,
-
-    /**
-     * The TradingChallengeAllResult model constructor.
-     * @property {module:model/TradingChallengeAllResult}
-     */
-    TradingChallengeAllResult,
-
-    /**
-     * The TradingChallengeAllResultsResponseEnvelope model constructor.
-     * @property {module:model/TradingChallengeAllResultsResponseEnvelope}
-     */
-    TradingChallengeAllResultsResponseEnvelope,
 
     /**
      * The TradingChallengeDailySnapshot model constructor.
@@ -2175,6 +2248,18 @@ export {
     UpdateUserKYCResponseEnvelope,
 
     /**
+     * The UpsertAutoRebalanceConfigsRequest model constructor.
+     * @property {module:model/UpsertAutoRebalanceConfigsRequest}
+     */
+    UpsertAutoRebalanceConfigsRequest,
+
+    /**
+     * The UpsertAutoRebalanceConfigsResponseEnvelope model constructor.
+     * @property {module:model/UpsertAutoRebalanceConfigsResponseEnvelope}
+     */
+    UpsertAutoRebalanceConfigsResponseEnvelope,
+
+    /**
      * The User model constructor.
      * @property {module:model/User}
      */
@@ -2299,6 +2384,12 @@ export {
      * @property {module:model/UserValueResponseEnvelope}
      */
     UserValueResponseEnvelope,
+
+    /**
+     * The UsersTag model constructor.
+     * @property {module:model/UsersTag}
+     */
+    UsersTag,
 
     /**
      * The ValidateSubmitOrderRequest model constructor.

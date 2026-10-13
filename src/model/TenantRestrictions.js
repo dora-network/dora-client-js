@@ -23,7 +23,7 @@ class TenantRestrictions {
      * Constructs a new <code>TenantRestrictions</code>.
      * @alias module:model/TenantRestrictions
      * @param tenantId {String} Tenant ID
-     * @param dailyDepositLimit {String} Maximum allowed deposit for the tenant per day.
+     * @param dailyDepositLimit {String} Maximum allowed USD deposit per user per day for this tenant.
      * @param tradeLimit {String} Maximum allowed trade amount for the tenant.
      * @param updatedAt {Date} Last update timestamp for the restrictions.
      */
@@ -111,7 +111,7 @@ TenantRestrictions.RequiredProperties = ["tenant_id", "daily_deposit_limit", "tr
 TenantRestrictions.prototype['tenant_id'] = undefined;
 
 /**
- * Maximum allowed deposit for the tenant per day.
+ * Maximum allowed USD deposit per user per day for this tenant.
  * @member {String} daily_deposit_limit
  */
 TenantRestrictions.prototype['daily_deposit_limit'] = undefined;

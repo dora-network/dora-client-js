@@ -118,6 +118,16 @@
         done();
       });
     });
+    describe('cancelWithdrawal', function() {
+      it('should call cancelWithdrawal successfully', function(done) {
+        //uncomment below and update the code to test cancelWithdrawal
+        //instance.cancelWithdrawal(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('claimLeverageGetAccruedInterest', function() {
       it('should call claimLeverageGetAccruedInterest successfully', function(done) {
         //uncomment below and update the code to test claimLeverageGetAccruedInterest
@@ -142,6 +152,16 @@
       it('should call claimTradingChallengePrize successfully', function(done) {
         //uncomment below and update the code to test claimTradingChallengePrize
         //instance.claimTradingChallengePrize(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('closeAllIsolatedPositions', function() {
+      it('should call closeAllIsolatedPositions successfully', function(done) {
+        //uncomment below and update the code to test closeAllIsolatedPositions
+        //instance.closeAllIsolatedPositions(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -242,6 +262,16 @@
       it('should call createWithdrawal successfully', function(done) {
         //uncomment below and update the code to test createWithdrawal
         //instance.createWithdrawal(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('customizeAffiliateReferrerCode', function() {
+      it('should call customizeAffiliateReferrerCode successfully', function(done) {
+        //uncomment below and update the code to test customizeAffiliateReferrerCode
+        //instance.customizeAffiliateReferrerCode(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -368,6 +398,16 @@
         done();
       });
     });
+    describe('getAutoRebalanceAccountStatusV2', function() {
+      it('should call getAutoRebalanceAccountStatusV2 successfully', function(done) {
+        //uncomment below and update the code to test getAutoRebalanceAccountStatusV2
+        //instance.getAutoRebalanceAccountStatusV2(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getCandleData', function() {
       it('should call getCandleData successfully', function(done) {
         //uncomment below and update the code to test getCandleData
@@ -422,6 +462,16 @@
       it('should call getDepositInstructions successfully', function(done) {
         //uncomment below and update the code to test getDepositInstructions
         //instance.getDepositInstructions(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getGlobalLeaderboard', function() {
+      it('should call getGlobalLeaderboard successfully', function(done) {
+        //uncomment below and update the code to test getGlobalLeaderboard
+        //instance.getGlobalLeaderboard(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -658,6 +708,16 @@
         done();
       });
     });
+    describe('getQRRewardPreview', function() {
+      it('should call getQRRewardPreview successfully', function(done) {
+        //uncomment below and update the code to test getQRRewardPreview
+        //instance.getQRRewardPreview(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getRealizedPnlSettlements', function() {
       it('should call getRealizedPnlSettlements successfully', function(done) {
         //uncomment below and update the code to test getRealizedPnlSettlements
@@ -692,16 +752,6 @@
       it('should call getTrades successfully', function(done) {
         //uncomment below and update the code to test getTrades
         //instance.getTrades(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getTradingChallengeAllResults', function() {
-      it('should call getTradingChallengeAllResults successfully', function(done) {
-        //uncomment below and update the code to test getTradingChallengeAllResults
-        //instance.getTradingChallengeAllResults(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -1102,6 +1152,26 @@
       it('should call listAssets successfully', function(done) {
         //uncomment below and update the code to test listAssets
         //instance.listAssets(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listAutoRebalanceConfigsV2', function() {
+      it('should call listAutoRebalanceConfigsV2 successfully', function(done) {
+        //uncomment below and update the code to test listAutoRebalanceConfigsV2
+        //instance.listAutoRebalanceConfigsV2(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listAutoRebalanceStatusesV2', function() {
+      it('should call listAutoRebalanceStatusesV2 successfully', function(done) {
+        //uncomment below and update the code to test listAutoRebalanceStatusesV2
+        //instance.listAutoRebalanceStatusesV2(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -1522,6 +1592,16 @@
       it('should call updateUserKYC successfully', function(done) {
         //uncomment below and update the code to test updateUserKYC
         //instance.updateUserKYC(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('upsertAutoRebalanceConfigsV2', function() {
+      it('should call upsertAutoRebalanceConfigsV2 successfully', function(done) {
+        //uncomment below and update the code to test upsertAutoRebalanceConfigsV2
+        //instance.upsertAutoRebalanceConfigsV2(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

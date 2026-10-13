@@ -26,12 +26,13 @@ class AffiliateReferrer {
      * @param programId {String} 
      * @param tenantId {String} Owning tenant for administration. This does not define a referral destination.
      * @param userId {String} 
-     * @param referralCode {String} Reusable referral code, stored uppercase. Letters, digits, hyphens and underscores are accepted; the first character must be a letter or digit. Matching is case-insensitive. Separate from QR claim tokens.
+     * @param referralCode {String} Current code to share; previously issued codes remain valid. Stored uppercase and unique across all programs and tenants.
      * @param createdAt {Date} 
+     * @param customizedAt {Date} When the owner used their one code change; null until then.
      */
-    constructor(id, programId, tenantId, userId, referralCode, createdAt) { 
+    constructor(id, programId, tenantId, userId, referralCode, createdAt, customizedAt) { 
         
-        AffiliateReferrer.initialize(this, id, programId, tenantId, userId, referralCode, createdAt);
+        AffiliateReferrer.initialize(this, id, programId, tenantId, userId, referralCode, createdAt, customizedAt);
     }
 
     /**
@@ -39,13 +40,14 @@ class AffiliateReferrer {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, programId, tenantId, userId, referralCode, createdAt) { 
+    static initialize(obj, id, programId, tenantId, userId, referralCode, createdAt, customizedAt) { 
         obj['id'] = id;
         obj['program_id'] = programId;
         obj['tenant_id'] = tenantId;
         obj['user_id'] = userId;
         obj['referral_code'] = referralCode;
         obj['created_at'] = createdAt;
+        obj['customized_at'] = customizedAt;
     }
 
     /**
@@ -76,6 +78,9 @@ class AffiliateReferrer {
             }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
+            if (data.hasOwnProperty('customized_at')) {
+                obj['customized_at'] = ApiClient.convertToType(data['customized_at'], 'Date');
             }
         }
         return obj;
@@ -120,7 +125,7 @@ class AffiliateReferrer {
 
 }
 
-AffiliateReferrer.RequiredProperties = ["id", "program_id", "tenant_id", "user_id", "referral_code", "created_at"];
+AffiliateReferrer.RequiredProperties = ["id", "program_id", "tenant_id", "user_id", "referral_code", "created_at", "customized_at"];
 
 /**
  * @member {String} id
@@ -144,7 +149,7 @@ AffiliateReferrer.prototype['tenant_id'] = undefined;
 AffiliateReferrer.prototype['user_id'] = undefined;
 
 /**
- * Reusable referral code, stored uppercase. Letters, digits, hyphens and underscores are accepted; the first character must be a letter or digit. Matching is case-insensitive. Separate from QR claim tokens.
+ * Current code to share; previously issued codes remain valid. Stored uppercase and unique across all programs and tenants.
  * @member {String} referral_code
  */
 AffiliateReferrer.prototype['referral_code'] = undefined;
@@ -153,6 +158,12 @@ AffiliateReferrer.prototype['referral_code'] = undefined;
  * @member {Date} created_at
  */
 AffiliateReferrer.prototype['created_at'] = undefined;
+
+/**
+ * When the owner used their one code change; null until then.
+ * @member {Date} customized_at
+ */
+AffiliateReferrer.prototype['customized_at'] = undefined;
 
 
 

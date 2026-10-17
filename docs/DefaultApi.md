@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**createAffiliateProgram**](DefaultApi.md#createAffiliateProgram) | **POST** /v1/affiliate_programs | Create an affiliate program
 [**createConditionalOrder**](DefaultApi.md#createConditionalOrder) | **POST** /v1/orders/conditional | Create a new conditional orders
 [**createOrder**](DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
+[**createOrdersBulk**](DefaultApi.md#createOrdersBulk) | **POST** /v1/orders/bulk | Create many orders at once
 [**createTradingChallenge**](DefaultApi.md#createTradingChallenge) | **POST** /v1/trading_challenges | Create a trading challenge
 [**createUser**](DefaultApi.md#createUser) | **POST** /v1/integrators/user | Create a new user
 [**createWithdrawal**](DefaultApi.md#createWithdrawal) | **POST** /v1/web3/withdrawals | Create a USDC withdrawal request
@@ -31,6 +32,7 @@ Method | HTTP request | Description
 [**exportPromoLinksCSV**](DefaultApi.md#exportPromoLinksCSV) | **GET** /v1/link_batches/{batch_id}/links.csv | Export promotional links as CSV
 [**getAPIKeysForUserID**](DefaultApi.md#getAPIKeysForUserID) | **GET** /v1/user/{user_id}/apikey | Get user&#39;s api keys: admin or integrator only
 [**getAffiliateProgram**](DefaultApi.md#getAffiliateProgram) | **GET** /v1/affiliate_programs/{program_id} | Get an affiliate program
+[**getAffiliateReferrerCode**](DefaultApi.md#getAffiliateReferrerCode) | **GET** /v1/affiliate_referrers/{referrer_id}/code | Get a referrer&#39;s current code
 [**getAllAssetPrices**](DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
 [**getAllPositions**](DefaultApi.md#getAllPositions) | **GET** /v1/ledger/positions | Get all users&#39; positions
 [**getAllWithdrawalRequests**](DefaultApi.md#getAllWithdrawalRequests) | **GET** /v1/ledger/withdraw/requests | Get all withdrawal requests
@@ -134,6 +136,7 @@ Method | HTTP request | Description
 [**registerAffiliateReferrer**](DefaultApi.md#registerAffiliateReferrer) | **POST** /v1/affiliate_programs/{program_id}/referrers | Register an existing user as a referrer
 [**rejectLedgerWithdrawRequest**](DefaultApi.md#rejectLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/reject | Reject a pending withdrawal request
 [**rejectTradingChallengeRegistrationRequest**](DefaultApi.md#rejectTradingChallengeRegistrationRequest) | **POST** /v1/trading_challenges/registration_requests/{request_id}/reject | Reject a trading challenge registration request
+[**removeAffiliateReferrer**](DefaultApi.md#removeAffiliateReferrer) | **DELETE** /v1/affiliate_programs/{program_id}/referrers/{referrer_id} | Remove a referrer from a program
 [**removeTradingChallengeUsers**](DefaultApi.md#removeTradingChallengeUsers) | **PUT** /v1/trading_challenges/remove_users | Remove users from a trading challenge
 [**renderPromoLinkQR**](DefaultApi.md#renderPromoLinkQR) | **GET** /v1/promo_links/{link_id}/qr | Render a promotional link QR code
 [**repayUSD**](DefaultApi.md#repayUSD) | **POST** /v1/positions/repay_usd | Repay borrowed USD, then accrue and pay leverage interest
@@ -341,7 +344,7 @@ Name | Type | Description  | Notes
 
 Assign your affiliate referrer
 
-Authenticated existing users may assign a referral code once, within their own tenant. No user_id or tenant_id override is accepted. New assignments reject self-referral and require an active program. Repeating the same code returns the original assignment without changing its timestamp; changing the code returns 409. Only activity from assignment onward counts. This does not change signup_source.
+Authenticated existing users may assign a referral code once. The code must belong to their own tenant or to a global tenant, whose referrers serve every tenant. No user_id or tenant_id override is accepted. New assignments reject self-referral and require an active program. Repeating the same code returns the original assignment without changing its timestamp; changing the code returns 409. Only activity from assignment onward counts. This does not change signup_source.
 
 ### Example
 
@@ -1180,6 +1183,60 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## createOrdersBulk
+
+> CreateOrdersBulkResponse createOrdersBulk(createOrdersBulkRequest)
+
+Create many orders at once
+
+Submits up to &#x60;matching.bulk_order_max_orders&#x60; orders (default 20) on a single order book for the logged in user. Every order must have the same &#x60;order_book_id&#x60;. By default each order is validated, locked and inserted independently, so a rejected order does not affect the others; &#x60;results&#x60; reports the outcome of every order in request order. Atomic submission (&#x60;atomic: true&#x60;) is not currently supported and is rejected with 400. Global-position orders and isolated orders are each processed sequentially in request order. &#x60;client_order_id&#x60; must be unique within a request.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let createOrdersBulkRequest = new Dora.CreateOrdersBulkRequest(); // CreateOrdersBulkRequest | 
+apiInstance.createOrdersBulk(createOrdersBulkRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createOrdersBulkRequest** | [**CreateOrdersBulkRequest**](CreateOrdersBulkRequest.md)|  | 
+
+### Return type
+
+[**CreateOrdersBulkResponse**](CreateOrdersBulkResponse.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## createTradingChallenge
 
 > TradingChallengeResponseEnvelope createTradingChallenge(createTradingChallengeRequest)
@@ -1597,6 +1654,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AffiliateProgramEnvelope**](AffiliateProgramEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getAffiliateReferrerCode
+
+> AffiliateReferrerEnvelope getAffiliateReferrerCode(referrerId)
+
+Get a referrer&#39;s current code
+
+ADMIN, INTEGRATOR, or AFFILIATE_MANAGER required within tenant and assignment scope.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let referrerId = "referrerId_example"; // String | 
+apiInstance.getAffiliateReferrerCode(referrerId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **referrerId** | **String**|  | 
+
+### Return type
+
+[**AffiliateReferrerEnvelope**](AffiliateReferrerEnvelope.md)
 
 ### Authorization
 
@@ -3803,6 +3914,7 @@ let apiInstance = new Dora.DefaultApi();
 let opts = {
   'orderBookIds': ["null"], // [String] | 
   'userIds': ["null"], // [String] | 
+  'excludeUserIds': ["null"], // [String] | Leave out the trades of these users. Requires order_book_ids, and may not be combined with user_ids; a request that breaks either rule is rejected rather than served without the exclusion.
   'start': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'end': new Date("2013-10-20T19:20:30+01:00"), // Date | 
   'page': 1, // Number | 
@@ -3824,6 +3936,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderBookIds** | [**[String]**](String.md)|  | [optional] 
  **userIds** | [**[String]**](String.md)|  | [optional] 
+ **excludeUserIds** | [**[String]**](String.md)| Leave out the trades of these users. Requires order_book_ids, and may not be combined with user_ids; a request that breaks either rule is rejected rather than served without the exclusion. | [optional] 
  **start** | **Date**|  | [optional] 
  **end** | **Date**|  | [optional] 
  **page** | **Number**|  | [optional] [default to 1]
@@ -7146,6 +7259,62 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## removeAffiliateReferrer
+
+> AffiliateReferrerEnvelope removeAffiliateReferrer(programId, referrerId)
+
+Remove a referrer from a program
+
+ADMIN, INTEGRATOR, or AFFILIATE_MANAGER required within tenant and assignment scope. Disables the referrer&#39;s code for new attributions while preserving historical attribution and reporting.
+
+### Example
+
+```javascript
+import Dora from 'dora';
+let defaultClient = Dora.ApiClient.instance;
+// Configure API key authorization: apiKeyAuthHeader
+let apiKeyAuthHeader = defaultClient.authentications['apiKeyAuthHeader'];
+apiKeyAuthHeader.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKeyAuthHeader.apiKeyPrefix = 'Token';
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new Dora.DefaultApi();
+let programId = "programId_example"; // String | 
+let referrerId = "referrerId_example"; // String | 
+apiInstance.removeAffiliateReferrer(programId, referrerId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **programId** | **String**|  | 
+ **referrerId** | **String**|  | 
+
+### Return type
+
+[**AffiliateReferrerEnvelope**](AffiliateReferrerEnvelope.md)
+
+### Authorization
+
+[apiKeyAuthHeader](../README.md#apiKeyAuthHeader), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

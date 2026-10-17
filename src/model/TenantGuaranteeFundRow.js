@@ -26,12 +26,13 @@ class TenantGuaranteeFundRow {
      * @param tenantId {String} 
      * @param seq {Number} 
      * @param available {String} 
+     * @param transactionAmount {String} 
      * @param txKind {module:model/TenantGuaranteeFundRow.TxKindEnum} 
      * @param updatedAt {Date} 
      */
-    constructor(id, tenantId, seq, available, txKind, updatedAt) { 
+    constructor(id, tenantId, seq, available, transactionAmount, txKind, updatedAt) { 
         
-        TenantGuaranteeFundRow.initialize(this, id, tenantId, seq, available, txKind, updatedAt);
+        TenantGuaranteeFundRow.initialize(this, id, tenantId, seq, available, transactionAmount, txKind, updatedAt);
     }
 
     /**
@@ -39,11 +40,12 @@ class TenantGuaranteeFundRow {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, tenantId, seq, available, txKind, updatedAt) { 
+    static initialize(obj, id, tenantId, seq, available, transactionAmount, txKind, updatedAt) { 
         obj['id'] = id;
         obj['tenant_id'] = tenantId;
         obj['seq'] = seq;
         obj['available'] = available;
+        obj['transaction_amount'] = transactionAmount;
         obj['tx_kind'] = txKind;
         obj['updated_at'] = updatedAt;
     }
@@ -70,6 +72,9 @@ class TenantGuaranteeFundRow {
             }
             if (data.hasOwnProperty('available')) {
                 obj['available'] = ApiClient.convertToType(data['available'], 'String');
+            }
+            if (data.hasOwnProperty('transaction_amount')) {
+                obj['transaction_amount'] = ApiClient.convertToType(data['transaction_amount'], 'String');
             }
             if (data.hasOwnProperty('tx_kind')) {
                 obj['tx_kind'] = ApiClient.convertToType(data['tx_kind'], 'String');
@@ -106,6 +111,10 @@ class TenantGuaranteeFundRow {
             throw new Error("Expected the field `available` to be a primitive type in the JSON string but got " + data['available']);
         }
         // ensure the json data is a string
+        if (data['transaction_amount'] && !(typeof data['transaction_amount'] === 'string' || data['transaction_amount'] instanceof String)) {
+            throw new Error("Expected the field `transaction_amount` to be a primitive type in the JSON string but got " + data['transaction_amount']);
+        }
+        // ensure the json data is a string
         if (data['tx_kind'] && !(typeof data['tx_kind'] === 'string' || data['tx_kind'] instanceof String)) {
             throw new Error("Expected the field `tx_kind` to be a primitive type in the JSON string but got " + data['tx_kind']);
         }
@@ -116,7 +125,7 @@ class TenantGuaranteeFundRow {
 
 }
 
-TenantGuaranteeFundRow.RequiredProperties = ["id", "tenant_id", "seq", "available", "tx_kind", "updated_at"];
+TenantGuaranteeFundRow.RequiredProperties = ["id", "tenant_id", "seq", "available", "transaction_amount", "tx_kind", "updated_at"];
 
 /**
  * @member {String} id
@@ -137,6 +146,11 @@ TenantGuaranteeFundRow.prototype['seq'] = undefined;
  * @member {String} available
  */
 TenantGuaranteeFundRow.prototype['available'] = undefined;
+
+/**
+ * @member {String} transaction_amount
+ */
+TenantGuaranteeFundRow.prototype['transaction_amount'] = undefined;
 
 /**
  * @member {module:model/TenantGuaranteeFundRow.TxKindEnum} tx_kind

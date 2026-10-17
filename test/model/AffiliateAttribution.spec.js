@@ -84,6 +84,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property referredTenantId (base name: "referred_tenant_id")', function() {
+      // uncomment below and update the code to test the property referredTenantId
+      //var instance = new Dora.AffiliateAttribution();
+      //expect(instance).to.be();
+    });
+
     it('should have the property signupSource (base name: "signup_source")', function() {
       // uncomment below and update the code to test the property signupSource
       //var instance = new Dora.AffiliateAttribution();

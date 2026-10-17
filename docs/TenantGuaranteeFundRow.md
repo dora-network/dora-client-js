@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **tenantId** | **String** |  | 
 **seq** | **Number** |  | 
 **available** | **String** |  | 
+**transactionAmount** | **String** |  | 
 **txKind** | **String** |  | 
 **updatedAt** | **Date** |  | 
 

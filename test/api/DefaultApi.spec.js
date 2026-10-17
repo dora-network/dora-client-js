@@ -238,6 +238,16 @@
         done();
       });
     });
+    describe('createOrdersBulk', function() {
+      it('should call createOrdersBulk successfully', function(done) {
+        //uncomment below and update the code to test createOrdersBulk
+        //instance.createOrdersBulk(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createTradingChallenge', function() {
       it('should call createTradingChallenge successfully', function(done) {
         //uncomment below and update the code to test createTradingChallenge
@@ -312,6 +322,16 @@
       it('should call getAffiliateProgram successfully', function(done) {
         //uncomment below and update the code to test getAffiliateProgram
         //instance.getAffiliateProgram(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getAffiliateReferrerCode', function() {
+      it('should call getAffiliateReferrerCode successfully', function(done) {
+        //uncomment below and update the code to test getAffiliateReferrerCode
+        //instance.getAffiliateReferrerCode(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -1342,6 +1362,16 @@
       it('should call rejectTradingChallengeRegistrationRequest successfully', function(done) {
         //uncomment below and update the code to test rejectTradingChallengeRegistrationRequest
         //instance.rejectTradingChallengeRegistrationRequest(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('removeAffiliateReferrer', function() {
+      it('should call removeAffiliateReferrer successfully', function(done) {
+        //uncomment below and update the code to test removeAffiliateReferrer
+        //instance.removeAffiliateReferrer(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

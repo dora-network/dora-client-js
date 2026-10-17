@@ -78,6 +78,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property transactionAmount (base name: "transaction_amount")', function() {
+      // uncomment below and update the code to test the property transactionAmount
+      //var instance = new Dora.TenantGuaranteeFundRow();
+      //expect(instance).to.be();
+    });
+
     it('should have the property txKind (base name: "tx_kind")', function() {
       // uncomment below and update the code to test the property txKind
       //var instance = new Dora.TenantGuaranteeFundRow();

@@ -24,10 +24,12 @@ class PnLRankingSummary {
      * @alias module:model/PnLRankingSummary
      * @param allUsersDailyTradingVolume {String} Sum of daily_trading_volume across all users matching ranking filters before pagination.
      * @param allUsersTotalTradingVolume {String} Sum of total_trading_volume across all users matching ranking filters before pagination.
+     * @param allUsersAvgDailyTradingVolume {String} all_users_total_trading_volume divided by the number of distinct UTC days on which any matching user had an executed fill. 0 if there are none.
+     * @param allUsersAvgDailyTradingVolumeOnNDays {String} Executed trading volume within [start, end) across all users matching ranking filters, divided by the number of requested days elapsed so far (end clamped to now, partial days rounded up). 0 if start is in the future.
      */
-    constructor(allUsersDailyTradingVolume, allUsersTotalTradingVolume) { 
+    constructor(allUsersDailyTradingVolume, allUsersTotalTradingVolume, allUsersAvgDailyTradingVolume, allUsersAvgDailyTradingVolumeOnNDays) { 
         
-        PnLRankingSummary.initialize(this, allUsersDailyTradingVolume, allUsersTotalTradingVolume);
+        PnLRankingSummary.initialize(this, allUsersDailyTradingVolume, allUsersTotalTradingVolume, allUsersAvgDailyTradingVolume, allUsersAvgDailyTradingVolumeOnNDays);
     }
 
     /**
@@ -35,9 +37,11 @@ class PnLRankingSummary {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, allUsersDailyTradingVolume, allUsersTotalTradingVolume) { 
+    static initialize(obj, allUsersDailyTradingVolume, allUsersTotalTradingVolume, allUsersAvgDailyTradingVolume, allUsersAvgDailyTradingVolumeOnNDays) { 
         obj['all_users_daily_trading_volume'] = allUsersDailyTradingVolume;
         obj['all_users_total_trading_volume'] = allUsersTotalTradingVolume;
+        obj['all_users_avg_daily_trading_volume'] = allUsersAvgDailyTradingVolume;
+        obj['all_users_avg_daily_trading_volume_on_n_days'] = allUsersAvgDailyTradingVolumeOnNDays;
     }
 
     /**
@@ -56,6 +60,12 @@ class PnLRankingSummary {
             }
             if (data.hasOwnProperty('all_users_total_trading_volume')) {
                 obj['all_users_total_trading_volume'] = ApiClient.convertToType(data['all_users_total_trading_volume'], 'String');
+            }
+            if (data.hasOwnProperty('all_users_avg_daily_trading_volume')) {
+                obj['all_users_avg_daily_trading_volume'] = ApiClient.convertToType(data['all_users_avg_daily_trading_volume'], 'String');
+            }
+            if (data.hasOwnProperty('all_users_avg_daily_trading_volume_on_n_days')) {
+                obj['all_users_avg_daily_trading_volume_on_n_days'] = ApiClient.convertToType(data['all_users_avg_daily_trading_volume_on_n_days'], 'String');
             }
         }
         return obj;
@@ -81,6 +91,14 @@ class PnLRankingSummary {
         if (data['all_users_total_trading_volume'] && !(typeof data['all_users_total_trading_volume'] === 'string' || data['all_users_total_trading_volume'] instanceof String)) {
             throw new Error("Expected the field `all_users_total_trading_volume` to be a primitive type in the JSON string but got " + data['all_users_total_trading_volume']);
         }
+        // ensure the json data is a string
+        if (data['all_users_avg_daily_trading_volume'] && !(typeof data['all_users_avg_daily_trading_volume'] === 'string' || data['all_users_avg_daily_trading_volume'] instanceof String)) {
+            throw new Error("Expected the field `all_users_avg_daily_trading_volume` to be a primitive type in the JSON string but got " + data['all_users_avg_daily_trading_volume']);
+        }
+        // ensure the json data is a string
+        if (data['all_users_avg_daily_trading_volume_on_n_days'] && !(typeof data['all_users_avg_daily_trading_volume_on_n_days'] === 'string' || data['all_users_avg_daily_trading_volume_on_n_days'] instanceof String)) {
+            throw new Error("Expected the field `all_users_avg_daily_trading_volume_on_n_days` to be a primitive type in the JSON string but got " + data['all_users_avg_daily_trading_volume_on_n_days']);
+        }
 
         return true;
     }
@@ -88,7 +106,7 @@ class PnLRankingSummary {
 
 }
 
-PnLRankingSummary.RequiredProperties = ["all_users_daily_trading_volume", "all_users_total_trading_volume"];
+PnLRankingSummary.RequiredProperties = ["all_users_daily_trading_volume", "all_users_total_trading_volume", "all_users_avg_daily_trading_volume", "all_users_avg_daily_trading_volume_on_n_days"];
 
 /**
  * Sum of daily_trading_volume across all users matching ranking filters before pagination.
@@ -101,6 +119,18 @@ PnLRankingSummary.prototype['all_users_daily_trading_volume'] = undefined;
  * @member {String} all_users_total_trading_volume
  */
 PnLRankingSummary.prototype['all_users_total_trading_volume'] = undefined;
+
+/**
+ * all_users_total_trading_volume divided by the number of distinct UTC days on which any matching user had an executed fill. 0 if there are none.
+ * @member {String} all_users_avg_daily_trading_volume
+ */
+PnLRankingSummary.prototype['all_users_avg_daily_trading_volume'] = undefined;
+
+/**
+ * Executed trading volume within [start, end) across all users matching ranking filters, divided by the number of requested days elapsed so far (end clamped to now, partial days rounded up). 0 if start is in the future.
+ * @member {String} all_users_avg_daily_trading_volume_on_n_days
+ */
+PnLRankingSummary.prototype['all_users_avg_daily_trading_volume_on_n_days'] = undefined;
 
 
 

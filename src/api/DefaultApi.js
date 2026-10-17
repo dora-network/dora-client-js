@@ -52,6 +52,8 @@ import CreateConditionalOrderResponseEnvelope from '../model/CreateConditionalOr
 import CreateIntegratorUserRequest from '../model/CreateIntegratorUserRequest';
 import CreateOrderRequest from '../model/CreateOrderRequest';
 import CreateOrderResponseEnvelope from '../model/CreateOrderResponseEnvelope';
+import CreateOrdersBulkRequest from '../model/CreateOrdersBulkRequest';
+import CreateOrdersBulkResponse from '../model/CreateOrdersBulkResponse';
 import CreateTradingChallengeRequest from '../model/CreateTradingChallengeRequest';
 import CreateWithdrawalRequest from '../model/CreateWithdrawalRequest';
 import CurrentLeverageAccruedInterestResponseEnvelope from '../model/CurrentLeverageAccruedInterestResponseEnvelope';
@@ -355,7 +357,7 @@ export default class DefaultApi {
 
     /**
      * Assign your affiliate referrer
-     * Authenticated existing users may assign a referral code once, within their own tenant. No user_id or tenant_id override is accepted. New assignments reject self-referral and require an active program. Repeating the same code returns the original assignment without changing its timestamp; changing the code returns 409. Only activity from assignment onward counts. This does not change signup_source.
+     * Authenticated existing users may assign a referral code once. The code must belong to their own tenant or to a global tenant, whose referrers serve every tenant. No user_id or tenant_id override is accepted. New assignments reject self-referral and require an active program. Repeating the same code returns the original assignment without changing its timestamp; changing the code returns 409. Only activity from assignment onward counts. This does not change signup_source.
      * @param {module:model/AssignAffiliateReferralRequest} assignAffiliateReferralRequest 
      * @param {module:api/DefaultApi~assignAffiliateReferralCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AffiliateAttributionEnvelope}
@@ -1026,6 +1028,48 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the createOrdersBulk operation.
+     * @callback module:api/DefaultApi~createOrdersBulkCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/CreateOrdersBulkResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create many orders at once
+     * Submits up to `matching.bulk_order_max_orders` orders (default 20) on a single order book for the logged in user. Every order must have the same `order_book_id`. By default each order is validated, locked and inserted independently, so a rejected order does not affect the others; `results` reports the outcome of every order in request order. Atomic submission (`atomic: true`) is not currently supported and is rejected with 400. Global-position orders and isolated orders are each processed sequentially in request order. `client_order_id` must be unique within a request.
+     * @param {module:model/CreateOrdersBulkRequest} createOrdersBulkRequest 
+     * @param {module:api/DefaultApi~createOrdersBulkCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/CreateOrdersBulkResponse}
+     */
+    createOrdersBulk(createOrdersBulkRequest, callback) {
+      let postBody = createOrdersBulkRequest;
+      // verify the required parameter 'createOrdersBulkRequest' is set
+      if (createOrdersBulkRequest === undefined || createOrdersBulkRequest === null) {
+        throw new Error("Missing the required parameter 'createOrdersBulkRequest' when calling createOrdersBulk");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = CreateOrdersBulkResponse;
+      return this.apiClient.callApi(
+        '/v1/orders/bulk', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the createTradingChallenge operation.
      * @callback module:api/DefaultApi~createTradingChallengeCallback
      * @param {String} error Error message, if any.
@@ -1363,6 +1407,49 @@ export default class DefaultApi {
       let returnType = AffiliateProgramEnvelope;
       return this.apiClient.callApi(
         '/v1/affiliate_programs/{program_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getAffiliateReferrerCode operation.
+     * @callback module:api/DefaultApi~getAffiliateReferrerCodeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateReferrerEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get a referrer's current code
+     * ADMIN, INTEGRATOR, or AFFILIATE_MANAGER required within tenant and assignment scope.
+     * @param {String} referrerId 
+     * @param {module:api/DefaultApi~getAffiliateReferrerCodeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateReferrerEnvelope}
+     */
+    getAffiliateReferrerCode(referrerId, callback) {
+      let postBody = null;
+      // verify the required parameter 'referrerId' is set
+      if (referrerId === undefined || referrerId === null) {
+        throw new Error("Missing the required parameter 'referrerId' when calling getAffiliateReferrerCode");
+      }
+
+      let pathParams = {
+        'referrer_id': referrerId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AffiliateReferrerEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_referrers/{referrer_id}/code', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3225,6 +3312,7 @@ export default class DefaultApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} [orderBookIds] 
      * @param {Array.<String>} [userIds] 
+     * @param {Array.<String>} [excludeUserIds] Leave out the trades of these users. Requires order_book_ids, and may not be combined with user_ids; a request that breaks either rule is rejected rather than served without the exclusion.
      * @param {Date} [start] 
      * @param {Date} [end] 
      * @param {Number} [page = 1)] 
@@ -3241,6 +3329,7 @@ export default class DefaultApi {
       let queryParams = {
         'order_book_ids': this.apiClient.buildCollectionParam(opts['orderBookIds'], 'multi'),
         'user_ids': this.apiClient.buildCollectionParam(opts['userIds'], 'multi'),
+        'exclude_user_ids': this.apiClient.buildCollectionParam(opts['excludeUserIds'], 'multi'),
         'start': opts['start'],
         'end': opts['end'],
         'page': opts['page'],
@@ -5961,6 +6050,55 @@ export default class DefaultApi {
       let returnType = TradingChallengeRegistrationRequestResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/trading_challenges/registration_requests/{request_id}/reject', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the removeAffiliateReferrer operation.
+     * @callback module:api/DefaultApi~removeAffiliateReferrerCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateReferrerEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Remove a referrer from a program
+     * ADMIN, INTEGRATOR, or AFFILIATE_MANAGER required within tenant and assignment scope. Disables the referrer's code for new attributions while preserving historical attribution and reporting.
+     * @param {String} programId 
+     * @param {String} referrerId 
+     * @param {module:api/DefaultApi~removeAffiliateReferrerCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateReferrerEnvelope}
+     */
+    removeAffiliateReferrer(programId, referrerId, callback) {
+      let postBody = null;
+      // verify the required parameter 'programId' is set
+      if (programId === undefined || programId === null) {
+        throw new Error("Missing the required parameter 'programId' when calling removeAffiliateReferrer");
+      }
+      // verify the required parameter 'referrerId' is set
+      if (referrerId === undefined || referrerId === null) {
+        throw new Error("Missing the required parameter 'referrerId' when calling removeAffiliateReferrer");
+      }
+
+      let pathParams = {
+        'program_id': programId,
+        'referrer_id': referrerId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AffiliateReferrerEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_programs/{program_id}/referrers/{referrer_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

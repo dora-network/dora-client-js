@@ -66,6 +66,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property allUsersAvgDailyTradingVolume (base name: "all_users_avg_daily_trading_volume")', function() {
+      // uncomment below and update the code to test the property allUsersAvgDailyTradingVolume
+      //var instance = new Dora.PnLRankingSummary();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property allUsersAvgDailyTradingVolumeOnNDays (base name: "all_users_avg_daily_trading_volume_on_n_days")', function() {
+      // uncomment below and update the code to test the property allUsersAvgDailyTradingVolumeOnNDays
+      //var instance = new Dora.PnLRankingSummary();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

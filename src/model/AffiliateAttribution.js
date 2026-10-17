@@ -26,14 +26,15 @@ class AffiliateAttribution {
      * @param programId {String} 
      * @param referrerId {String} 
      * @param referrerUserId {String} 
-     * @param tenantId {String} 
+     * @param tenantId {String} Tenant that owns the referrer and the program. A referrer in a global tenant may refer users of any tenant.
+     * @param referredTenantId {String} Tenant that owns the referred user. Differs from tenant_id only when a global tenant's referrer referred the user.
      * @param signupSource {String} Signup hostname when assigned at signup; empty for an assignment made later.
      * @param createdAt {Date} Immutable assignment time; activity begins counting from this timestamp.
      * @param referralCode {String} Exact code the user entered, retained when the referrer changes their primary code.
      */
-    constructor(referredUserId, programId, referrerId, referrerUserId, tenantId, signupSource, createdAt, referralCode) { 
+    constructor(referredUserId, programId, referrerId, referrerUserId, tenantId, referredTenantId, signupSource, createdAt, referralCode) { 
         
-        AffiliateAttribution.initialize(this, referredUserId, programId, referrerId, referrerUserId, tenantId, signupSource, createdAt, referralCode);
+        AffiliateAttribution.initialize(this, referredUserId, programId, referrerId, referrerUserId, tenantId, referredTenantId, signupSource, createdAt, referralCode);
     }
 
     /**
@@ -41,12 +42,13 @@ class AffiliateAttribution {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, referredUserId, programId, referrerId, referrerUserId, tenantId, signupSource, createdAt, referralCode) { 
+    static initialize(obj, referredUserId, programId, referrerId, referrerUserId, tenantId, referredTenantId, signupSource, createdAt, referralCode) { 
         obj['referred_user_id'] = referredUserId;
         obj['program_id'] = programId;
         obj['referrer_id'] = referrerId;
         obj['referrer_user_id'] = referrerUserId;
         obj['tenant_id'] = tenantId;
+        obj['referred_tenant_id'] = referredTenantId;
         obj['signup_source'] = signupSource;
         obj['created_at'] = createdAt;
         obj['referral_code'] = referralCode;
@@ -77,6 +79,9 @@ class AffiliateAttribution {
             }
             if (data.hasOwnProperty('tenant_id')) {
                 obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
+            }
+            if (data.hasOwnProperty('referred_tenant_id')) {
+                obj['referred_tenant_id'] = ApiClient.convertToType(data['referred_tenant_id'], 'String');
             }
             if (data.hasOwnProperty('signup_source')) {
                 obj['signup_source'] = ApiClient.convertToType(data['signup_source'], 'String');
@@ -124,6 +129,10 @@ class AffiliateAttribution {
             throw new Error("Expected the field `tenant_id` to be a primitive type in the JSON string but got " + data['tenant_id']);
         }
         // ensure the json data is a string
+        if (data['referred_tenant_id'] && !(typeof data['referred_tenant_id'] === 'string' || data['referred_tenant_id'] instanceof String)) {
+            throw new Error("Expected the field `referred_tenant_id` to be a primitive type in the JSON string but got " + data['referred_tenant_id']);
+        }
+        // ensure the json data is a string
         if (data['signup_source'] && !(typeof data['signup_source'] === 'string' || data['signup_source'] instanceof String)) {
             throw new Error("Expected the field `signup_source` to be a primitive type in the JSON string but got " + data['signup_source']);
         }
@@ -138,7 +147,7 @@ class AffiliateAttribution {
 
 }
 
-AffiliateAttribution.RequiredProperties = ["referred_user_id", "program_id", "referrer_id", "referrer_user_id", "tenant_id", "signup_source", "created_at", "referral_code"];
+AffiliateAttribution.RequiredProperties = ["referred_user_id", "program_id", "referrer_id", "referrer_user_id", "tenant_id", "referred_tenant_id", "signup_source", "created_at", "referral_code"];
 
 /**
  * @member {String} referred_user_id
@@ -161,9 +170,16 @@ AffiliateAttribution.prototype['referrer_id'] = undefined;
 AffiliateAttribution.prototype['referrer_user_id'] = undefined;
 
 /**
+ * Tenant that owns the referrer and the program. A referrer in a global tenant may refer users of any tenant.
  * @member {String} tenant_id
  */
 AffiliateAttribution.prototype['tenant_id'] = undefined;
+
+/**
+ * Tenant that owns the referred user. Differs from tenant_id only when a global tenant's referrer referred the user.
+ * @member {String} referred_tenant_id
+ */
+AffiliateAttribution.prototype['referred_tenant_id'] = undefined;
 
 /**
  * Signup hostname when assigned at signup; empty for an assignment made later.

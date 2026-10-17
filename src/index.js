@@ -60,6 +60,7 @@ import BalancesResponse from './model/BalancesResponse';
 import Bond from './model/Bond';
 import BondKind from './model/BondKind';
 import BondRunStatus from './model/BondRunStatus';
+import BulkOrderResult from './model/BulkOrderResult';
 import CancelOrderResponseEnvelope from './model/CancelOrderResponseEnvelope';
 import Candle from './model/Candle';
 import CandleResolution from './model/CandleResolution';
@@ -94,6 +95,9 @@ import CreateIntegratorUserRequest from './model/CreateIntegratorUserRequest';
 import CreateOrUpdateUserResponse from './model/CreateOrUpdateUserResponse';
 import CreateOrderRequest from './model/CreateOrderRequest';
 import CreateOrderResponseEnvelope from './model/CreateOrderResponseEnvelope';
+import CreateOrdersBulkRequest from './model/CreateOrdersBulkRequest';
+import CreateOrdersBulkResponse from './model/CreateOrdersBulkResponse';
+import CreateOrdersBulkResponseAllOfData from './model/CreateOrdersBulkResponseAllOfData';
 import CreateTradingChallengeQRRequest from './model/CreateTradingChallengeQRRequest';
 import CreateTradingChallengeRequest from './model/CreateTradingChallengeRequest';
 import CreateWithdrawalRequest from './model/CreateWithdrawalRequest';
@@ -682,6 +686,12 @@ export {
     BondRunStatus,
 
     /**
+     * The BulkOrderResult model constructor.
+     * @property {module:model/BulkOrderResult}
+     */
+    BulkOrderResult,
+
+    /**
      * The CancelOrderResponseEnvelope model constructor.
      * @property {module:model/CancelOrderResponseEnvelope}
      */
@@ -884,6 +894,24 @@ export {
      * @property {module:model/CreateOrderResponseEnvelope}
      */
     CreateOrderResponseEnvelope,
+
+    /**
+     * The CreateOrdersBulkRequest model constructor.
+     * @property {module:model/CreateOrdersBulkRequest}
+     */
+    CreateOrdersBulkRequest,
+
+    /**
+     * The CreateOrdersBulkResponse model constructor.
+     * @property {module:model/CreateOrdersBulkResponse}
+     */
+    CreateOrdersBulkResponse,
+
+    /**
+     * The CreateOrdersBulkResponseAllOfData model constructor.
+     * @property {module:model/CreateOrdersBulkResponseAllOfData}
+     */
+    CreateOrdersBulkResponseAllOfData,
 
     /**
      * The CreateTradingChallengeQRRequest model constructor.

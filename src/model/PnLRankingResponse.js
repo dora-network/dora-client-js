@@ -32,13 +32,15 @@ class PnLRankingResponse {
      * @param winRate {String} 
      * @param dailyTradingVolume {String} Executed trading volume for the current UTC day.
      * @param totalTradingVolume {String} Cumulative executed trading volume across all UTC trading days.
+     * @param avgDailyVolume {String} total_trading_volume divided by active_trading_days. 0 if the user has no active trading days.
+     * @param avgDailyVolumeOnNDays {String} Executed trading volume within [start, end) divided by the number of requested days elapsed so far (end clamped to now, partial days rounded up). 0 if start is in the future.
      * @param activeTradingDays {Number} Number of distinct UTC days on which the user has at least one executed fill.
      * @param activated {Boolean} True once the user has traded on at least 5 distinct UTC days.
      * @param kycApproved {Boolean} Whether the user is currently considered KYC/verification approved.
      */
-    constructor(userId, firstName, totalPnl, realizedPnl, totalTrades, winningTrades, losingTrades, winRate, dailyTradingVolume, totalTradingVolume, activeTradingDays, activated, kycApproved) { 
+    constructor(userId, firstName, totalPnl, realizedPnl, totalTrades, winningTrades, losingTrades, winRate, dailyTradingVolume, totalTradingVolume, avgDailyVolume, avgDailyVolumeOnNDays, activeTradingDays, activated, kycApproved) { 
         
-        PnLRankingResponse.initialize(this, userId, firstName, totalPnl, realizedPnl, totalTrades, winningTrades, losingTrades, winRate, dailyTradingVolume, totalTradingVolume, activeTradingDays, activated, kycApproved);
+        PnLRankingResponse.initialize(this, userId, firstName, totalPnl, realizedPnl, totalTrades, winningTrades, losingTrades, winRate, dailyTradingVolume, totalTradingVolume, avgDailyVolume, avgDailyVolumeOnNDays, activeTradingDays, activated, kycApproved);
     }
 
     /**
@@ -46,7 +48,7 @@ class PnLRankingResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, userId, firstName, totalPnl, realizedPnl, totalTrades, winningTrades, losingTrades, winRate, dailyTradingVolume, totalTradingVolume, activeTradingDays, activated, kycApproved) { 
+    static initialize(obj, userId, firstName, totalPnl, realizedPnl, totalTrades, winningTrades, losingTrades, winRate, dailyTradingVolume, totalTradingVolume, avgDailyVolume, avgDailyVolumeOnNDays, activeTradingDays, activated, kycApproved) { 
         obj['user_id'] = userId;
         obj['first_name'] = firstName;
         obj['total_pnl'] = totalPnl;
@@ -57,6 +59,8 @@ class PnLRankingResponse {
         obj['win_rate'] = winRate;
         obj['daily_trading_volume'] = dailyTradingVolume;
         obj['total_trading_volume'] = totalTradingVolume;
+        obj['avg_daily_volume'] = avgDailyVolume;
+        obj['avg_daily_volume_on_n_days'] = avgDailyVolumeOnNDays;
         obj['active_trading_days'] = activeTradingDays;
         obj['activated'] = activated;
         obj['kyc_approved'] = kycApproved;
@@ -102,6 +106,12 @@ class PnLRankingResponse {
             }
             if (data.hasOwnProperty('total_trading_volume')) {
                 obj['total_trading_volume'] = ApiClient.convertToType(data['total_trading_volume'], 'String');
+            }
+            if (data.hasOwnProperty('avg_daily_volume')) {
+                obj['avg_daily_volume'] = ApiClient.convertToType(data['avg_daily_volume'], 'String');
+            }
+            if (data.hasOwnProperty('avg_daily_volume_on_n_days')) {
+                obj['avg_daily_volume_on_n_days'] = ApiClient.convertToType(data['avg_daily_volume_on_n_days'], 'String');
             }
             if (data.hasOwnProperty('active_trading_days')) {
                 obj['active_trading_days'] = ApiClient.convertToType(data['active_trading_days'], 'Number');
@@ -156,6 +166,14 @@ class PnLRankingResponse {
         if (data['total_trading_volume'] && !(typeof data['total_trading_volume'] === 'string' || data['total_trading_volume'] instanceof String)) {
             throw new Error("Expected the field `total_trading_volume` to be a primitive type in the JSON string but got " + data['total_trading_volume']);
         }
+        // ensure the json data is a string
+        if (data['avg_daily_volume'] && !(typeof data['avg_daily_volume'] === 'string' || data['avg_daily_volume'] instanceof String)) {
+            throw new Error("Expected the field `avg_daily_volume` to be a primitive type in the JSON string but got " + data['avg_daily_volume']);
+        }
+        // ensure the json data is a string
+        if (data['avg_daily_volume_on_n_days'] && !(typeof data['avg_daily_volume_on_n_days'] === 'string' || data['avg_daily_volume_on_n_days'] instanceof String)) {
+            throw new Error("Expected the field `avg_daily_volume_on_n_days` to be a primitive type in the JSON string but got " + data['avg_daily_volume_on_n_days']);
+        }
 
         return true;
     }
@@ -163,7 +181,7 @@ class PnLRankingResponse {
 
 }
 
-PnLRankingResponse.RequiredProperties = ["user_id", "first_name", "total_pnl", "realized_pnl", "total_trades", "winning_trades", "losing_trades", "win_rate", "daily_trading_volume", "total_trading_volume", "active_trading_days", "activated", "kyc_approved"];
+PnLRankingResponse.RequiredProperties = ["user_id", "first_name", "total_pnl", "realized_pnl", "total_trades", "winning_trades", "losing_trades", "win_rate", "daily_trading_volume", "total_trading_volume", "avg_daily_volume", "avg_daily_volume_on_n_days", "active_trading_days", "activated", "kyc_approved"];
 
 /**
  * @member {String} user_id
@@ -217,6 +235,18 @@ PnLRankingResponse.prototype['daily_trading_volume'] = undefined;
  * @member {String} total_trading_volume
  */
 PnLRankingResponse.prototype['total_trading_volume'] = undefined;
+
+/**
+ * total_trading_volume divided by active_trading_days. 0 if the user has no active trading days.
+ * @member {String} avg_daily_volume
+ */
+PnLRankingResponse.prototype['avg_daily_volume'] = undefined;
+
+/**
+ * Executed trading volume within [start, end) divided by the number of requested days elapsed so far (end clamped to now, partial days rounded up). 0 if start is in the future.
+ * @member {String} avg_daily_volume_on_n_days
+ */
+PnLRankingResponse.prototype['avg_daily_volume_on_n_days'] = undefined;
 
 /**
  * Number of distinct UTC days on which the user has at least one executed fill.

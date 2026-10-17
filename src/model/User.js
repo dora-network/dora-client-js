@@ -126,6 +126,9 @@ class User {
             if (data.hasOwnProperty('managed_competition_ids')) {
                 obj['managed_competition_ids'] = ApiClient.convertToType(data['managed_competition_ids'], ['String']);
             }
+            if (data.hasOwnProperty('managed_affiliate_program_ids')) {
+                obj['managed_affiliate_program_ids'] = ApiClient.convertToType(data['managed_affiliate_program_ids'], ['String']);
+            }
             if (data.hasOwnProperty('timezone')) {
                 obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
             }
@@ -228,6 +231,10 @@ class User {
         if (!Array.isArray(data['managed_competition_ids'])) {
             throw new Error("Expected the field `managed_competition_ids` to be an array in the JSON data but got " + data['managed_competition_ids']);
         }
+        // ensure the json data is an array
+        if (!Array.isArray(data['managed_affiliate_program_ids'])) {
+            throw new Error("Expected the field `managed_affiliate_program_ids` to be an array in the JSON data but got " + data['managed_affiliate_program_ids']);
+        }
         // ensure the json data is a string
         if (data['timezone'] && !(typeof data['timezone'] === 'string' || data['timezone'] instanceof String)) {
             throw new Error("Expected the field `timezone` to be a primitive type in the JSON string but got " + data['timezone']);
@@ -323,6 +330,12 @@ User.prototype['roles'] = undefined;
  * @member {Array.<String>} managed_competition_ids
  */
 User.prototype['managed_competition_ids'] = undefined;
+
+/**
+ * Affiliate program IDs this user is explicitly allowed to manage when they have AFFILIATE_MANAGER role. Empty means no affiliate-management access.
+ * @member {Array.<String>} managed_affiliate_program_ids
+ */
+User.prototype['managed_affiliate_program_ids'] = undefined;
 
 /**
  * User's timezone, e.g., 'America/New_York', or an offset.

@@ -82,6 +82,13 @@ export default class UserRole {
         "COMPETITION_MANAGER" = "COMPETITION_MANAGER";
 
     
+        /**
+         * value: "AFFILIATE_MANAGER"
+         * @const
+         */
+        "AFFILIATE_MANAGER" = "AFFILIATE_MANAGER";
+
+    
 
     /**
     * Returns a <code>UserRole</code> enum value from a Javascript object name.

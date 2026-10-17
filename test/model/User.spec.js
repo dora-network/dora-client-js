@@ -138,6 +138,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property managedAffiliateProgramIds (base name: "managed_affiliate_program_ids")', function() {
+      // uncomment below and update the code to test the property managedAffiliateProgramIds
+      //var instance = new Dora.User();
+      //expect(instance).to.be();
+    });
+
     it('should have the property timezone (base name: "timezone")', function() {
       // uncomment below and update the code to test the property timezone
       //var instance = new Dora.User();

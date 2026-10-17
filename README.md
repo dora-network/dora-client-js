@@ -149,6 +149,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**createAffiliateProgram**](docs/DefaultApi.md#createAffiliateProgram) | **POST** /v1/affiliate_programs | Create an affiliate program
 *Dora.DefaultApi* | [**createConditionalOrder**](docs/DefaultApi.md#createConditionalOrder) | **POST** /v1/orders/conditional | Create a new conditional orders
 *Dora.DefaultApi* | [**createOrder**](docs/DefaultApi.md#createOrder) | **POST** /v1/orders | Create a new order
+*Dora.DefaultApi* | [**createOrdersBulk**](docs/DefaultApi.md#createOrdersBulk) | **POST** /v1/orders/bulk | Create many orders at once
 *Dora.DefaultApi* | [**createTradingChallenge**](docs/DefaultApi.md#createTradingChallenge) | **POST** /v1/trading_challenges | Create a trading challenge
 *Dora.DefaultApi* | [**createUser**](docs/DefaultApi.md#createUser) | **POST** /v1/integrators/user | Create a new user
 *Dora.DefaultApi* | [**createWithdrawal**](docs/DefaultApi.md#createWithdrawal) | **POST** /v1/web3/withdrawals | Create a USDC withdrawal request
@@ -157,6 +158,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**exportPromoLinksCSV**](docs/DefaultApi.md#exportPromoLinksCSV) | **GET** /v1/link_batches/{batch_id}/links.csv | Export promotional links as CSV
 *Dora.DefaultApi* | [**getAPIKeysForUserID**](docs/DefaultApi.md#getAPIKeysForUserID) | **GET** /v1/user/{user_id}/apikey | Get user&#39;s api keys: admin or integrator only
 *Dora.DefaultApi* | [**getAffiliateProgram**](docs/DefaultApi.md#getAffiliateProgram) | **GET** /v1/affiliate_programs/{program_id} | Get an affiliate program
+*Dora.DefaultApi* | [**getAffiliateReferrerCode**](docs/DefaultApi.md#getAffiliateReferrerCode) | **GET** /v1/affiliate_referrers/{referrer_id}/code | Get a referrer&#39;s current code
 *Dora.DefaultApi* | [**getAllAssetPrices**](docs/DefaultApi.md#getAllAssetPrices) | **GET** /v1/price | Get the current price of all assets
 *Dora.DefaultApi* | [**getAllPositions**](docs/DefaultApi.md#getAllPositions) | **GET** /v1/ledger/positions | Get all users&#39; positions
 *Dora.DefaultApi* | [**getAllWithdrawalRequests**](docs/DefaultApi.md#getAllWithdrawalRequests) | **GET** /v1/ledger/withdraw/requests | Get all withdrawal requests
@@ -260,6 +262,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**registerAffiliateReferrer**](docs/DefaultApi.md#registerAffiliateReferrer) | **POST** /v1/affiliate_programs/{program_id}/referrers | Register an existing user as a referrer
 *Dora.DefaultApi* | [**rejectLedgerWithdrawRequest**](docs/DefaultApi.md#rejectLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/reject | Reject a pending withdrawal request
 *Dora.DefaultApi* | [**rejectTradingChallengeRegistrationRequest**](docs/DefaultApi.md#rejectTradingChallengeRegistrationRequest) | **POST** /v1/trading_challenges/registration_requests/{request_id}/reject | Reject a trading challenge registration request
+*Dora.DefaultApi* | [**removeAffiliateReferrer**](docs/DefaultApi.md#removeAffiliateReferrer) | **DELETE** /v1/affiliate_programs/{program_id}/referrers/{referrer_id} | Remove a referrer from a program
 *Dora.DefaultApi* | [**removeTradingChallengeUsers**](docs/DefaultApi.md#removeTradingChallengeUsers) | **PUT** /v1/trading_challenges/remove_users | Remove users from a trading challenge
 *Dora.DefaultApi* | [**renderPromoLinkQR**](docs/DefaultApi.md#renderPromoLinkQR) | **GET** /v1/promo_links/{link_id}/qr | Render a promotional link QR code
 *Dora.DefaultApi* | [**repayUSD**](docs/DefaultApi.md#repayUSD) | **POST** /v1/positions/repay_usd | Repay borrowed USD, then accrue and pay leverage interest
@@ -339,6 +342,7 @@ Class | Method | HTTP request | Description
  - [Dora.Bond](docs/Bond.md)
  - [Dora.BondKind](docs/BondKind.md)
  - [Dora.BondRunStatus](docs/BondRunStatus.md)
+ - [Dora.BulkOrderResult](docs/BulkOrderResult.md)
  - [Dora.CancelOrderResponseEnvelope](docs/CancelOrderResponseEnvelope.md)
  - [Dora.Candle](docs/Candle.md)
  - [Dora.CandleResolution](docs/CandleResolution.md)
@@ -373,6 +377,9 @@ Class | Method | HTTP request | Description
  - [Dora.CreateOrUpdateUserResponse](docs/CreateOrUpdateUserResponse.md)
  - [Dora.CreateOrderRequest](docs/CreateOrderRequest.md)
  - [Dora.CreateOrderResponseEnvelope](docs/CreateOrderResponseEnvelope.md)
+ - [Dora.CreateOrdersBulkRequest](docs/CreateOrdersBulkRequest.md)
+ - [Dora.CreateOrdersBulkResponse](docs/CreateOrdersBulkResponse.md)
+ - [Dora.CreateOrdersBulkResponseAllOfData](docs/CreateOrdersBulkResponseAllOfData.md)
  - [Dora.CreateTradingChallengeQRRequest](docs/CreateTradingChallengeQRRequest.md)
  - [Dora.CreateTradingChallengeRequest](docs/CreateTradingChallengeRequest.md)
  - [Dora.CreateWithdrawalRequest](docs/CreateWithdrawalRequest.md)

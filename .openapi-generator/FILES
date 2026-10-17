@@ -49,6 +49,7 @@ docs/BalancesResponse.md
 docs/Bond.md
 docs/BondKind.md
 docs/BondRunStatus.md
+docs/BulkOrderResult.md
 docs/CancelOrderResponseEnvelope.md
 docs/Candle.md
 docs/CandleResolution.md
@@ -83,6 +84,9 @@ docs/CreateIntegratorUserRequest.md
 docs/CreateOrUpdateUserResponse.md
 docs/CreateOrderRequest.md
 docs/CreateOrderResponseEnvelope.md
+docs/CreateOrdersBulkRequest.md
+docs/CreateOrdersBulkResponse.md
+docs/CreateOrdersBulkResponseAllOfData.md
 docs/CreateTradingChallengeQRRequest.md
 docs/CreateTradingChallengeRequest.md
 docs/CreateWithdrawalRequest.md
@@ -401,6 +405,7 @@ src/model/BalancesResponse.js
 src/model/Bond.js
 src/model/BondKind.js
 src/model/BondRunStatus.js
+src/model/BulkOrderResult.js
 src/model/CancelOrderResponseEnvelope.js
 src/model/Candle.js
 src/model/CandleResolution.js
@@ -435,6 +440,9 @@ src/model/CreateIntegratorUserRequest.js
 src/model/CreateOrUpdateUserResponse.js
 src/model/CreateOrderRequest.js
 src/model/CreateOrderResponseEnvelope.js
+src/model/CreateOrdersBulkRequest.js
+src/model/CreateOrdersBulkResponse.js
+src/model/CreateOrdersBulkResponseAllOfData.js
 src/model/CreateTradingChallengeQRRequest.js
 src/model/CreateTradingChallengeRequest.js
 src/model/CreateWithdrawalRequest.js
@@ -747,6 +755,7 @@ test/model/BalancesResponse.spec.js
 test/model/Bond.spec.js
 test/model/BondKind.spec.js
 test/model/BondRunStatus.spec.js
+test/model/BulkOrderResult.spec.js
 test/model/CancelOrderResponseEnvelope.spec.js
 test/model/Candle.spec.js
 test/model/CandleResolution.spec.js
@@ -781,6 +790,9 @@ test/model/CreateIntegratorUserRequest.spec.js
 test/model/CreateOrUpdateUserResponse.spec.js
 test/model/CreateOrderRequest.spec.js
 test/model/CreateOrderResponseEnvelope.spec.js
+test/model/CreateOrdersBulkRequest.spec.js
+test/model/CreateOrdersBulkResponse.spec.js
+test/model/CreateOrdersBulkResponseAllOfData.spec.js
 test/model/CreateTradingChallengeQRRequest.spec.js
 test/model/CreateTradingChallengeRequest.spec.js
 test/model/CreateWithdrawalRequest.spec.js

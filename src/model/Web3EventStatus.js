@@ -54,6 +54,13 @@ export default class Web3EventStatus {
         "DUST" = "DUST";
 
     
+        /**
+         * value: "UNMATCHED"
+         * @const
+         */
+        "UNMATCHED" = "UNMATCHED";
+
+    
 
     /**
     * Returns a <code>Web3EventStatus</code> enum value from a Javascript object name.

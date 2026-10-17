@@ -155,7 +155,7 @@ class CreateIntegratorUserRequest {
 
 
 /**
- * Optional affiliate code, normalized to uppercase. Accepted only when creating a new account in the program owning tenant. One immutable attribution per user account; a later signup/linking call cannot add or replace it. Invalid or inactive codes fail signup atomically. Independent of QR acquisition attribution. Existing unassigned users can instead use POST /v1/affiliate_referrals/self; earlier activity is excluded.
+ * Optional affiliate code, normalized to uppercase. Accepted only when creating a new account, in the program owning tenant or in any tenant when the program owner is a global tenant. One immutable attribution per user account; a later signup/linking call cannot add or replace it. Invalid or inactive codes fail signup atomically. Independent of QR acquisition attribution. Existing unassigned users can instead use POST /v1/affiliate_referrals/self; earlier activity is excluded.
  * @member {String} referral_code
  */
 CreateIntegratorUserRequest.prototype['referral_code'] = undefined;

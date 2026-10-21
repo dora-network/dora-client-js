@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Metadata from './Metadata';
-import PromoClaimResponseEnvelopeAllOfData from './PromoClaimResponseEnvelopeAllOfData';
+import PromoClaimResponseEnvelopeData from './PromoClaimResponseEnvelopeData';
 import ResponseEnvelope from './ResponseEnvelope';
 
 /**
@@ -55,7 +55,7 @@ class PromoClaimResponseEnvelope {
             ResponseEnvelope.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = PromoClaimResponseEnvelopeAllOfData.constructFromObject(data['data']);
+                obj['data'] = PromoClaimResponseEnvelopeData.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
@@ -81,7 +81,7 @@ class PromoClaimResponseEnvelope {
         }
         // validate the optional field `data`
         if (data['data']) { // data not null
-          PromoClaimResponseEnvelopeAllOfData.validateJSON(data['data']);
+          PromoClaimResponseEnvelopeData.validateJSON(data['data']);
         }
         // ensure the json data is a string
         if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
@@ -101,7 +101,7 @@ class PromoClaimResponseEnvelope {
 PromoClaimResponseEnvelope.RequiredProperties = ["metadata"];
 
 /**
- * @member {module:model/PromoClaimResponseEnvelopeAllOfData} data
+ * @member {module:model/PromoClaimResponseEnvelopeData} data
  */
 PromoClaimResponseEnvelope.prototype['data'] = undefined;
 

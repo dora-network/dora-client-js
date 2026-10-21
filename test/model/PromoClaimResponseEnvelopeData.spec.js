@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.PromoClaimResponseEnvelopeAllOfData();
+    instance = new Dora.PromoClaimResponseEnvelopeData();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,64 +47,106 @@
       object[property] = value;
   }
 
-  describe('PromoClaimResponseEnvelopeAllOfData', function() {
-    it('should create an instance of PromoClaimResponseEnvelopeAllOfData', function() {
-      // uncomment below and update the code to test PromoClaimResponseEnvelopeAllOfData
-      //var instance = new Dora.PromoClaimResponseEnvelopeAllOfData();
-      //expect(instance).to.be.a(Dora.PromoClaimResponseEnvelopeAllOfData);
+  describe('PromoClaimResponseEnvelopeData', function() {
+    it('should create an instance of PromoClaimResponseEnvelopeData', function() {
+      // uncomment below and update the code to test PromoClaimResponseEnvelopeData
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
+      //expect(instance).to.be.a(Dora.PromoClaimResponseEnvelopeData);
     });
 
     it('should have the property state (base name: "state")', function() {
       // uncomment below and update the code to test the property state
-      //var instance = new Dora.PromoClaimResponseEnvelopeAllOfData();
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
       //expect(instance).to.be();
     });
 
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
-      //var instance = new Dora.PromoClaimResponseEnvelopeAllOfData();
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
       //expect(instance).to.be();
     });
 
     it('should have the property campaignName (base name: "campaign_name")', function() {
       // uncomment below and update the code to test the property campaignName
-      //var instance = new Dora.PromoClaimResponseEnvelopeAllOfData();
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
       //expect(instance).to.be();
     });
 
     it('should have the property promoCredit (base name: "promo_credit")', function() {
       // uncomment below and update the code to test the property promoCredit
-      //var instance = new Dora.PromoClaimResponseEnvelopeAllOfData();
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
       //expect(instance).to.be();
     });
 
     it('should have the property minRewardAmount (base name: "min_reward_amount")', function() {
       // uncomment below and update the code to test the property minRewardAmount
-      //var instance = new Dora.PromoClaimResponseEnvelopeAllOfData();
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
       //expect(instance).to.be();
     });
 
     it('should have the property maxRewardAmount (base name: "max_reward_amount")', function() {
       // uncomment below and update the code to test the property maxRewardAmount
-      //var instance = new Dora.PromoClaimResponseEnvelopeAllOfData();
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
       //expect(instance).to.be();
     });
 
     it('should have the property targetEquity (base name: "target_equity")', function() {
       // uncomment below and update the code to test the property targetEquity
-      //var instance = new Dora.PromoClaimResponseEnvelopeAllOfData();
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
       //expect(instance).to.be();
     });
 
     it('should have the property expiresAt (base name: "expires_at")', function() {
       // uncomment below and update the code to test the property expiresAt
-      //var instance = new Dora.PromoClaimResponseEnvelopeAllOfData();
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
       //expect(instance).to.be();
     });
 
     it('should have the property sourceName (base name: "source_name")', function() {
       // uncomment below and update the code to test the property sourceName
-      //var instance = new Dora.PromoClaimResponseEnvelopeAllOfData();
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property linkType (base name: "link_type")', function() {
+      // uncomment below and update the code to test the property linkType
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property affiliateProgramId (base name: "affiliate_program_id")', function() {
+      // uncomment below and update the code to test the property affiliateProgramId
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property affiliateMemberId (base name: "affiliate_member_id")', function() {
+      // uncomment below and update the code to test the property affiliateMemberId
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property referralCode (base name: "referral_code")', function() {
+      // uncomment below and update the code to test the property referralCode
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property campaignId (base name: "campaign_id")', function() {
+      // uncomment below and update the code to test the property campaignId
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property linkId (base name: "link_id")', function() {
+      // uncomment below and update the code to test the property linkId
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sourceId (base name: "source_id")', function() {
+      // uncomment below and update the code to test the property sourceId
+      //var instance = new Dora.PromoClaimResponseEnvelopeData();
       //expect(instance).to.be();
     });
 

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.IssuePromoLinkBatchResponseAllOfData();
+    instance = new Dora.RevokePromoLinkResponseData();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,34 +47,28 @@
       object[property] = value;
   }
 
-  describe('IssuePromoLinkBatchResponseAllOfData', function() {
-    it('should create an instance of IssuePromoLinkBatchResponseAllOfData', function() {
-      // uncomment below and update the code to test IssuePromoLinkBatchResponseAllOfData
-      //var instance = new Dora.IssuePromoLinkBatchResponseAllOfData();
-      //expect(instance).to.be.a(Dora.IssuePromoLinkBatchResponseAllOfData);
+  describe('RevokePromoLinkResponseData', function() {
+    it('should create an instance of RevokePromoLinkResponseData', function() {
+      // uncomment below and update the code to test RevokePromoLinkResponseData
+      //var instance = new Dora.RevokePromoLinkResponseData();
+      //expect(instance).to.be.a(Dora.RevokePromoLinkResponseData);
     });
 
-    it('should have the property batchId (base name: "batch_id")', function() {
-      // uncomment below and update the code to test the property batchId
-      //var instance = new Dora.IssuePromoLinkBatchResponseAllOfData();
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instance = new Dora.RevokePromoLinkResponseData();
       //expect(instance).to.be();
     });
 
-    it('should have the property sourceId (base name: "source_id")', function() {
-      // uncomment below and update the code to test the property sourceId
-      //var instance = new Dora.IssuePromoLinkBatchResponseAllOfData();
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
+      //var instance = new Dora.RevokePromoLinkResponseData();
       //expect(instance).to.be();
     });
 
-    it('should have the property allocation (base name: "allocation")', function() {
-      // uncomment below and update the code to test the property allocation
-      //var instance = new Dora.IssuePromoLinkBatchResponseAllOfData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property links (base name: "links")', function() {
-      // uncomment below and update the code to test the property links
-      //var instance = new Dora.IssuePromoLinkBatchResponseAllOfData();
+    it('should have the property repeated (base name: "repeated")', function() {
+      // uncomment below and update the code to test the property repeated
+      //var instance = new Dora.RevokePromoLinkResponseData();
       //expect(instance).to.be();
     });
 

@@ -15,19 +15,19 @@ import ApiClient from '../ApiClient';
 import PromoAttributionSource from './PromoAttributionSource';
 
 /**
- * The PromoAttributionResponseAllOfData model module.
- * @module model/PromoAttributionResponseAllOfData
+ * The PromoAttributionResponseData model module.
+ * @module model/PromoAttributionResponseData
  * @version 1.0.0
  */
-class PromoAttributionResponseAllOfData {
+class PromoAttributionResponseData {
     /**
-     * Constructs a new <code>PromoAttributionResponseAllOfData</code>.
-     * @alias module:model/PromoAttributionResponseAllOfData
+     * Constructs a new <code>PromoAttributionResponseData</code>.
+     * @alias module:model/PromoAttributionResponseData
      * @param sources {Array.<module:model/PromoAttributionSource>} 
      */
     constructor(sources) { 
         
-        PromoAttributionResponseAllOfData.initialize(this, sources);
+        PromoAttributionResponseData.initialize(this, sources);
     }
 
     /**
@@ -40,15 +40,15 @@ class PromoAttributionResponseAllOfData {
     }
 
     /**
-     * Constructs a <code>PromoAttributionResponseAllOfData</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>PromoAttributionResponseData</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/PromoAttributionResponseAllOfData} obj Optional instance to populate.
-     * @return {module:model/PromoAttributionResponseAllOfData} The populated <code>PromoAttributionResponseAllOfData</code> instance.
+     * @param {module:model/PromoAttributionResponseData} obj Optional instance to populate.
+     * @return {module:model/PromoAttributionResponseData} The populated <code>PromoAttributionResponseData</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new PromoAttributionResponseAllOfData();
+            obj = obj || new PromoAttributionResponseData();
 
             if (data.hasOwnProperty('sources')) {
                 obj['sources'] = ApiClient.convertToType(data['sources'], [PromoAttributionSource]);
@@ -58,13 +58,13 @@ class PromoAttributionResponseAllOfData {
     }
 
     /**
-     * Validates the JSON data with respect to <code>PromoAttributionResponseAllOfData</code>.
+     * Validates the JSON data with respect to <code>PromoAttributionResponseData</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PromoAttributionResponseAllOfData</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PromoAttributionResponseData</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of PromoAttributionResponseAllOfData.RequiredProperties) {
+        for (const property of PromoAttributionResponseData.RequiredProperties) {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
@@ -86,17 +86,17 @@ class PromoAttributionResponseAllOfData {
 
 }
 
-PromoAttributionResponseAllOfData.RequiredProperties = ["sources"];
+PromoAttributionResponseData.RequiredProperties = ["sources"];
 
 /**
  * @member {Array.<module:model/PromoAttributionSource>} sources
  */
-PromoAttributionResponseAllOfData.prototype['sources'] = undefined;
+PromoAttributionResponseData.prototype['sources'] = undefined;
 
 
 
 
 
 
-export default PromoAttributionResponseAllOfData;
+export default PromoAttributionResponseData;
 

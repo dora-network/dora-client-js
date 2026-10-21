@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Metadata from './Metadata';
-import PromoLinkListResponseAllOfData from './PromoLinkListResponseAllOfData';
+import PromoLinkListResponseData from './PromoLinkListResponseData';
 import ResponseEnvelope from './ResponseEnvelope';
 
 /**
@@ -55,7 +55,7 @@ class PromoLinkListResponse {
             ResponseEnvelope.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = PromoLinkListResponseAllOfData.constructFromObject(data['data']);
+                obj['data'] = PromoLinkListResponseData.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
@@ -81,7 +81,7 @@ class PromoLinkListResponse {
         }
         // validate the optional field `data`
         if (data['data']) { // data not null
-          PromoLinkListResponseAllOfData.validateJSON(data['data']);
+          PromoLinkListResponseData.validateJSON(data['data']);
         }
         // ensure the json data is a string
         if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
@@ -101,7 +101,7 @@ class PromoLinkListResponse {
 PromoLinkListResponse.RequiredProperties = ["metadata"];
 
 /**
- * @member {module:model/PromoLinkListResponseAllOfData} data
+ * @member {module:model/PromoLinkListResponseData} data
  */
 PromoLinkListResponse.prototype['data'] = undefined;
 

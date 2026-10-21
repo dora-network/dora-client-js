@@ -1,4 +1,4 @@
-# Dora.PromoLinkListResponseAllOfData
+# Dora.PromoLinkListResponseData
 
 ## Properties
 

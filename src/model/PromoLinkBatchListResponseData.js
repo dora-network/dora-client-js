@@ -15,19 +15,19 @@ import ApiClient from '../ApiClient';
 import PromoLinkBatchSummary from './PromoLinkBatchSummary';
 
 /**
- * The PromoLinkBatchListResponseAllOfData model module.
- * @module model/PromoLinkBatchListResponseAllOfData
+ * The PromoLinkBatchListResponseData model module.
+ * @module model/PromoLinkBatchListResponseData
  * @version 1.0.0
  */
-class PromoLinkBatchListResponseAllOfData {
+class PromoLinkBatchListResponseData {
     /**
-     * Constructs a new <code>PromoLinkBatchListResponseAllOfData</code>.
-     * @alias module:model/PromoLinkBatchListResponseAllOfData
+     * Constructs a new <code>PromoLinkBatchListResponseData</code>.
+     * @alias module:model/PromoLinkBatchListResponseData
      * @param batches {Array.<module:model/PromoLinkBatchSummary>} 
      */
     constructor(batches) { 
         
-        PromoLinkBatchListResponseAllOfData.initialize(this, batches);
+        PromoLinkBatchListResponseData.initialize(this, batches);
     }
 
     /**
@@ -40,15 +40,15 @@ class PromoLinkBatchListResponseAllOfData {
     }
 
     /**
-     * Constructs a <code>PromoLinkBatchListResponseAllOfData</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>PromoLinkBatchListResponseData</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/PromoLinkBatchListResponseAllOfData} obj Optional instance to populate.
-     * @return {module:model/PromoLinkBatchListResponseAllOfData} The populated <code>PromoLinkBatchListResponseAllOfData</code> instance.
+     * @param {module:model/PromoLinkBatchListResponseData} obj Optional instance to populate.
+     * @return {module:model/PromoLinkBatchListResponseData} The populated <code>PromoLinkBatchListResponseData</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new PromoLinkBatchListResponseAllOfData();
+            obj = obj || new PromoLinkBatchListResponseData();
 
             if (data.hasOwnProperty('batches')) {
                 obj['batches'] = ApiClient.convertToType(data['batches'], [PromoLinkBatchSummary]);
@@ -58,13 +58,13 @@ class PromoLinkBatchListResponseAllOfData {
     }
 
     /**
-     * Validates the JSON data with respect to <code>PromoLinkBatchListResponseAllOfData</code>.
+     * Validates the JSON data with respect to <code>PromoLinkBatchListResponseData</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PromoLinkBatchListResponseAllOfData</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PromoLinkBatchListResponseData</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of PromoLinkBatchListResponseAllOfData.RequiredProperties) {
+        for (const property of PromoLinkBatchListResponseData.RequiredProperties) {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
@@ -86,17 +86,17 @@ class PromoLinkBatchListResponseAllOfData {
 
 }
 
-PromoLinkBatchListResponseAllOfData.RequiredProperties = ["batches"];
+PromoLinkBatchListResponseData.RequiredProperties = ["batches"];
 
 /**
  * @member {Array.<module:model/PromoLinkBatchSummary>} batches
  */
-PromoLinkBatchListResponseAllOfData.prototype['batches'] = undefined;
+PromoLinkBatchListResponseData.prototype['batches'] = undefined;
 
 
 
 
 
 
-export default PromoLinkBatchListResponseAllOfData;
+export default PromoLinkBatchListResponseData;
 

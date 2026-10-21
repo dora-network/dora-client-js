@@ -102,6 +102,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property linkType (base name: "link_type")', function() {
+      // uncomment below and update the code to test the property linkType
+      //var instance = new Dora.PromoLinkAdmin();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

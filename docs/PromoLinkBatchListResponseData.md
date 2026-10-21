@@ -1,4 +1,4 @@
-# Dora.PromoLinkBatchListResponseAllOfData
+# Dora.PromoLinkBatchListResponseData
 
 ## Properties
 

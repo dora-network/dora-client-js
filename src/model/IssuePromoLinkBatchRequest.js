@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import IssuePromoLinkBatchRequestSingleUse from './IssuePromoLinkBatchRequestSingleUse';
 import PromoSourceType from './PromoSourceType';
 
 /**
@@ -23,24 +24,56 @@ class IssuePromoLinkBatchRequest {
     /**
      * Constructs a new <code>IssuePromoLinkBatchRequest</code>.
      * @alias module:model/IssuePromoLinkBatchRequest
-     * @param sourceType {module:model/PromoSourceType} 
-     * @param sourceId {String} 
-     * @param allocation {Number} Cannot exceed the configured max_links_per_batch or remaining campaign capacity.
+     * @param {(module:model/IssuePromoLinkBatchRequestSingleUse)} instance The actual instance to initialize IssuePromoLinkBatchRequest.
      */
-    constructor(sourceType, sourceId, allocation) { 
-        
-        IssuePromoLinkBatchRequest.initialize(this, sourceType, sourceId, allocation);
-    }
+    constructor(instance = null) {
+        if (instance === null) {
+            this.actualInstance = null;
+            return;
+        }
+        var match = 0;
+        var errorMessages = [];
+        try {
+            if (instance instanceof IssuePromoLinkBatchRequestSingleUse) {
+                this.actualInstance = instance;
+            } else {
+                // plain JS object
+                // validate the object
+                IssuePromoLinkBatchRequestSingleUse.validateJSON(instance); // throw an exception if no match
+                // create IssuePromoLinkBatchRequestSingleUse from JS object
+                this.actualInstance = IssuePromoLinkBatchRequestSingleUse.constructFromObject(instance);
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into IssuePromoLinkBatchRequestSingleUse
+            errorMessages.push("Failed to construct IssuePromoLinkBatchRequestSingleUse: " + err)
+        }
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj, sourceType, sourceId, allocation) { 
-        obj['source_type'] = sourceType;
-        obj['source_id'] = sourceId;
-        obj['allocation'] = allocation;
+        try {
+            if (instance instanceof IssuePromoLinkBatchRequestSingleUse) {
+                this.actualInstance = instance;
+            } else {
+                // plain JS object
+                // validate the object
+                IssuePromoLinkBatchRequestSingleUse.validateJSON(instance); // throw an exception if no match
+                // create IssuePromoLinkBatchRequestSingleUse from JS object
+                this.actualInstance = IssuePromoLinkBatchRequestSingleUse.constructFromObject(instance);
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into IssuePromoLinkBatchRequestSingleUse
+            errorMessages.push("Failed to construct IssuePromoLinkBatchRequestSingleUse: " + err)
+        }
+
+        if (match > 1) {
+            throw new Error("Multiple matches found constructing `IssuePromoLinkBatchRequest` with oneOf schemas IssuePromoLinkBatchRequestSingleUse. Input: " + JSON.stringify(instance));
+        } else if (match === 0) {
+            this.actualInstance = null; // clear the actual instance in case there are multiple matches
+            throw new Error("No match found constructing `IssuePromoLinkBatchRequest` with oneOf schemas IssuePromoLinkBatchRequestSingleUse. Details: " +
+                            errorMessages.join(", "));
+        } else { // only 1 match
+            // the input is valid
+        }
     }
 
     /**
@@ -51,63 +84,42 @@ class IssuePromoLinkBatchRequest {
      * @return {module:model/IssuePromoLinkBatchRequest} The populated <code>IssuePromoLinkBatchRequest</code> instance.
      */
     static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new IssuePromoLinkBatchRequest();
-
-            if (data.hasOwnProperty('source_type')) {
-                obj['source_type'] = PromoSourceType.constructFromObject(data['source_type']);
-            }
-            if (data.hasOwnProperty('source_id')) {
-                obj['source_id'] = ApiClient.convertToType(data['source_id'], 'String');
-            }
-            if (data.hasOwnProperty('source_name')) {
-                obj['source_name'] = ApiClient.convertToType(data['source_name'], 'String');
-            }
-            if (data.hasOwnProperty('allocation')) {
-                obj['allocation'] = ApiClient.convertToType(data['allocation'], 'Number');
-            }
-            if (data.hasOwnProperty('note')) {
-                obj['note'] = ApiClient.convertToType(data['note'], 'String');
-            }
-            if (data.hasOwnProperty('expires_at')) {
-                obj['expires_at'] = ApiClient.convertToType(data['expires_at'], 'Date');
-            }
-        }
-        return obj;
+        return new IssuePromoLinkBatchRequest(data);
     }
 
     /**
-     * Validates the JSON data with respect to <code>IssuePromoLinkBatchRequest</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IssuePromoLinkBatchRequest</code>.
+     * Gets the actual instance, which can be <code>IssuePromoLinkBatchRequestSingleUse</code>.
+     * @return {(module:model/IssuePromoLinkBatchRequestSingleUse)} The actual instance.
      */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of IssuePromoLinkBatchRequest.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['source_id'] && !(typeof data['source_id'] === 'string' || data['source_id'] instanceof String)) {
-            throw new Error("Expected the field `source_id` to be a primitive type in the JSON string but got " + data['source_id']);
-        }
-        // ensure the json data is a string
-        if (data['source_name'] && !(typeof data['source_name'] === 'string' || data['source_name'] instanceof String)) {
-            throw new Error("Expected the field `source_name` to be a primitive type in the JSON string but got " + data['source_name']);
-        }
-        // ensure the json data is a string
-        if (data['note'] && !(typeof data['note'] === 'string' || data['note'] instanceof String)) {
-            throw new Error("Expected the field `note` to be a primitive type in the JSON string but got " + data['note']);
-        }
-
-        return true;
+    getActualInstance() {
+        return this.actualInstance;
     }
 
+    /**
+     * Sets the actual instance, which can be <code>IssuePromoLinkBatchRequestSingleUse</code>.
+     * @param {(module:model/IssuePromoLinkBatchRequestSingleUse)} obj The actual instance.
+     */
+    setActualInstance(obj) {
+       this.actualInstance = IssuePromoLinkBatchRequest.constructFromObject(obj).getActualInstance();
+    }
 
+    /**
+     * Returns the JSON representation of the actual instance.
+     * @return {string}
+     */
+    toJSON = function(){
+        return this.getActualInstance();
+    }
+
+    /**
+     * Create an instance of IssuePromoLinkBatchRequest from a JSON string.
+     * @param {string} json_string JSON string.
+     * @return {module:model/IssuePromoLinkBatchRequest} An instance of IssuePromoLinkBatchRequest.
+     */
+    static fromJSON = function(json_string){
+        return IssuePromoLinkBatchRequest.constructFromObject(JSON.parse(json_string));
+    }
 }
-
-IssuePromoLinkBatchRequest.RequiredProperties = ["source_type", "source_id", "allocation"];
 
 /**
  * @member {module:model/PromoSourceType} source_type
@@ -125,7 +137,7 @@ IssuePromoLinkBatchRequest.prototype['source_id'] = undefined;
 IssuePromoLinkBatchRequest.prototype['source_name'] = undefined;
 
 /**
- * Cannot exceed the configured max_links_per_batch or remaining campaign capacity.
+ * Required for SINGLE_USE; omit for REUSABLE. Bounded by max_links_per_batch. Minting reserves no campaign place.
  * @member {Number} allocation
  */
 IssuePromoLinkBatchRequest.prototype['allocation'] = undefined;
@@ -141,10 +153,31 @@ IssuePromoLinkBatchRequest.prototype['note'] = undefined;
  */
 IssuePromoLinkBatchRequest.prototype['expires_at'] = undefined;
 
+/**
+ * Defaults to SINGLE_USE for existing clients. REUSABLE creates one tracked link without a quantity.
+ * @member {module:model/IssuePromoLinkBatchRequest.LinkTypeEnum} link_type
+ */
+IssuePromoLinkBatchRequest.prototype['link_type'] = undefined;
+
+/**
+ * @member {String} affiliate_program_id
+ */
+IssuePromoLinkBatchRequest.prototype['affiliate_program_id'] = undefined;
+
+/**
+ * Existing affiliate referrer/member ID, not user ID.
+ * @member {String} affiliate_member_id
+ */
+IssuePromoLinkBatchRequest.prototype['affiliate_member_id'] = undefined;
+
+/**
+ * An existing code belonging to the selected member. Required with both IDs for reusable links; bound on the server and revalidated at claim time.
+ * @member {String} referral_code
+ */
+IssuePromoLinkBatchRequest.prototype['referral_code'] = undefined;
 
 
-
-
+IssuePromoLinkBatchRequest.OneOf = ["IssuePromoLinkBatchRequestSingleUse"];
 
 export default IssuePromoLinkBatchRequest;
 

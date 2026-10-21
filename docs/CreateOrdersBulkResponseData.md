@@ -1,4 +1,4 @@
-# Dora.CreateOrdersBulkResponseAllOfData
+# Dora.CreateOrdersBulkResponseData
 
 ## Properties
 

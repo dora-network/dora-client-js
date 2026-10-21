@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import PromoLinkStatus from './PromoLinkStatus';
 
 /**
  * The PromoLinkAdmin model module.
@@ -25,7 +24,7 @@ class PromoLinkAdmin {
      * @alias module:model/PromoLinkAdmin
      * @param id {String} 
      * @param tokenPrefix {String} 
-     * @param status {module:model/PromoLinkStatus} 
+     * @param status {module:model/PromoLinkAdmin.StatusEnum} Reusable links use ACTIVE or REVOKED and have no single claimant.
      * @param expiresAt {Date} 
      */
     constructor(id, tokenPrefix, status, expiresAt) { 
@@ -66,7 +65,7 @@ class PromoLinkAdmin {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = PromoLinkStatus.constructFromObject(data['status']);
+                obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
             if (data.hasOwnProperty('expires_at')) {
                 obj['expires_at'] = ApiClient.convertToType(data['expires_at'], 'Date');
@@ -79,6 +78,9 @@ class PromoLinkAdmin {
             }
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'String');
+            }
+            if (data.hasOwnProperty('link_type')) {
+                obj['link_type'] = ApiClient.convertToType(data['link_type'], 'String');
             }
         }
         return obj;
@@ -109,12 +111,20 @@ class PromoLinkAdmin {
             throw new Error("Expected the field `url` to be a primitive type in the JSON string but got " + data['url']);
         }
         // ensure the json data is a string
+        if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
+            throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
+        }
+        // ensure the json data is a string
         if (data['claimed_email'] && !(typeof data['claimed_email'] === 'string' || data['claimed_email'] instanceof String)) {
             throw new Error("Expected the field `claimed_email` to be a primitive type in the JSON string but got " + data['claimed_email']);
         }
         // ensure the json data is a string
         if (data['user_id'] && !(typeof data['user_id'] === 'string' || data['user_id'] instanceof String)) {
             throw new Error("Expected the field `user_id` to be a primitive type in the JSON string but got " + data['user_id']);
+        }
+        // ensure the json data is a string
+        if (data['link_type'] && !(typeof data['link_type'] === 'string' || data['link_type'] instanceof String)) {
+            throw new Error("Expected the field `link_type` to be a primitive type in the JSON string but got " + data['link_type']);
         }
 
         return true;
@@ -142,7 +152,8 @@ PromoLinkAdmin.prototype['token_prefix'] = undefined;
 PromoLinkAdmin.prototype['url'] = undefined;
 
 /**
- * @member {module:model/PromoLinkStatus} status
+ * Reusable links use ACTIVE or REVOKED and have no single claimant.
+ * @member {module:model/PromoLinkAdmin.StatusEnum} status
  */
 PromoLinkAdmin.prototype['status'] = undefined;
 
@@ -167,8 +178,68 @@ PromoLinkAdmin.prototype['claimed_email'] = undefined;
  */
 PromoLinkAdmin.prototype['user_id'] = undefined;
 
+/**
+ * Defaults to SINGLE_USE for existing clients. REUSABLE creates one tracked link without a quantity.
+ * @member {module:model/PromoLinkAdmin.LinkTypeEnum} link_type
+ */
+PromoLinkAdmin.prototype['link_type'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>status</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PromoLinkAdmin['StatusEnum'] = {
+
+    /**
+     * value: "ISSUED"
+     * @const
+     */
+    "ISSUED": "ISSUED",
+
+    /**
+     * value: "CLAIMED"
+     * @const
+     */
+    "CLAIMED": "CLAIMED",
+
+    /**
+     * value: "REVOKED"
+     * @const
+     */
+    "REVOKED": "REVOKED",
+
+    /**
+     * value: "ACTIVE"
+     * @const
+     */
+    "ACTIVE": "ACTIVE"
+};
+
+
+/**
+ * Allowed values for the <code>link_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PromoLinkAdmin['LinkTypeEnum'] = {
+
+    /**
+     * value: "SINGLE_USE"
+     * @const
+     */
+    "SINGLE_USE": "SINGLE_USE",
+
+    /**
+     * value: "REUSABLE"
+     * @const
+     */
+    "REUSABLE": "REUSABLE"
+};
 
 
 

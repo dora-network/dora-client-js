@@ -108,6 +108,42 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property linkType (base name: "link_type")', function() {
+      // uncomment below and update the code to test the property linkType
+      //var instance = new Dora.PromoLinkBatchSummary();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property affiliateProgramId (base name: "affiliate_program_id")', function() {
+      // uncomment below and update the code to test the property affiliateProgramId
+      //var instance = new Dora.PromoLinkBatchSummary();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property affiliateMemberId (base name: "affiliate_member_id")', function() {
+      // uncomment below and update the code to test the property affiliateMemberId
+      //var instance = new Dora.PromoLinkBatchSummary();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property referralCode (base name: "referral_code")', function() {
+      // uncomment below and update the code to test the property referralCode
+      //var instance = new Dora.PromoLinkBatchSummary();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property campaignId (base name: "campaign_id")', function() {
+      // uncomment below and update the code to test the property campaignId
+      //var instance = new Dora.PromoLinkBatchSummary();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property signups (base name: "signups")', function() {
+      // uncomment below and update the code to test the property signups
+      //var instance = new Dora.PromoLinkBatchSummary();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import CreateOrdersBulkResponseAllOfData from './CreateOrdersBulkResponseAllOfData';
+import CreateOrdersBulkResponseData from './CreateOrdersBulkResponseData';
 import Metadata from './Metadata';
 import ResponseEnvelope from './ResponseEnvelope';
 
@@ -55,7 +55,7 @@ class CreateOrdersBulkResponse {
             ResponseEnvelope.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = CreateOrdersBulkResponseAllOfData.constructFromObject(data['data']);
+                obj['data'] = CreateOrdersBulkResponseData.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
@@ -81,7 +81,7 @@ class CreateOrdersBulkResponse {
         }
         // validate the optional field `data`
         if (data['data']) { // data not null
-          CreateOrdersBulkResponseAllOfData.validateJSON(data['data']);
+          CreateOrdersBulkResponseData.validateJSON(data['data']);
         }
         // ensure the json data is a string
         if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
@@ -101,7 +101,7 @@ class CreateOrdersBulkResponse {
 CreateOrdersBulkResponse.RequiredProperties = ["metadata"];
 
 /**
- * @member {module:model/CreateOrdersBulkResponseAllOfData} data
+ * @member {module:model/CreateOrdersBulkResponseData} data
  */
 CreateOrdersBulkResponse.prototype['data'] = undefined;
 

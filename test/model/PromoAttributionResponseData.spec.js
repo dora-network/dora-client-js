@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.PromoLinkListResponseAllOfData();
+    instance = new Dora.PromoAttributionResponseData();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,16 @@
       object[property] = value;
   }
 
-  describe('PromoLinkListResponseAllOfData', function() {
-    it('should create an instance of PromoLinkListResponseAllOfData', function() {
-      // uncomment below and update the code to test PromoLinkListResponseAllOfData
-      //var instance = new Dora.PromoLinkListResponseAllOfData();
-      //expect(instance).to.be.a(Dora.PromoLinkListResponseAllOfData);
+  describe('PromoAttributionResponseData', function() {
+    it('should create an instance of PromoAttributionResponseData', function() {
+      // uncomment below and update the code to test PromoAttributionResponseData
+      //var instance = new Dora.PromoAttributionResponseData();
+      //expect(instance).to.be.a(Dora.PromoAttributionResponseData);
     });
 
-    it('should have the property links (base name: "links")', function() {
-      // uncomment below and update the code to test the property links
-      //var instance = new Dora.PromoLinkListResponseAllOfData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property nextCursor (base name: "next_cursor")', function() {
-      // uncomment below and update the code to test the property nextCursor
-      //var instance = new Dora.PromoLinkListResponseAllOfData();
+    it('should have the property sources (base name: "sources")', function() {
+      // uncomment below and update the code to test the property sources
+      //var instance = new Dora.PromoAttributionResponseData();
       //expect(instance).to.be();
     });
 

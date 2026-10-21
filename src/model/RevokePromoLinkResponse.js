@@ -14,7 +14,7 @@
 import ApiClient from '../ApiClient';
 import Metadata from './Metadata';
 import ResponseEnvelope from './ResponseEnvelope';
-import RevokePromoLinkResponseAllOfData from './RevokePromoLinkResponseAllOfData';
+import RevokePromoLinkResponseData from './RevokePromoLinkResponseData';
 
 /**
  * The RevokePromoLinkResponse model module.
@@ -55,7 +55,7 @@ class RevokePromoLinkResponse {
             ResponseEnvelope.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = RevokePromoLinkResponseAllOfData.constructFromObject(data['data']);
+                obj['data'] = RevokePromoLinkResponseData.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
@@ -81,7 +81,7 @@ class RevokePromoLinkResponse {
         }
         // validate the optional field `data`
         if (data['data']) { // data not null
-          RevokePromoLinkResponseAllOfData.validateJSON(data['data']);
+          RevokePromoLinkResponseData.validateJSON(data['data']);
         }
         // ensure the json data is a string
         if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
@@ -101,7 +101,7 @@ class RevokePromoLinkResponse {
 RevokePromoLinkResponse.RequiredProperties = ["metadata"];
 
 /**
- * @member {module:model/RevokePromoLinkResponseAllOfData} data
+ * @member {module:model/RevokePromoLinkResponseData} data
  */
 RevokePromoLinkResponse.prototype['data'] = undefined;
 

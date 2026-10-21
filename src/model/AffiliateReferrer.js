@@ -29,10 +29,12 @@ class AffiliateReferrer {
      * @param referralCode {String} Current code to share; previously issued codes remain valid. Stored uppercase and unique across all programs and tenants.
      * @param createdAt {Date} 
      * @param customizedAt {Date} When the owner used their one code change; null until then.
+     * @param disabledAt {Date} When this membership was disabled; null while enabled.
+     * @param disabledBy {String} Actor who disabled this membership; null while enabled.
      */
-    constructor(id, programId, tenantId, userId, referralCode, createdAt, customizedAt) { 
+    constructor(id, programId, tenantId, userId, referralCode, createdAt, customizedAt, disabledAt, disabledBy) { 
         
-        AffiliateReferrer.initialize(this, id, programId, tenantId, userId, referralCode, createdAt, customizedAt);
+        AffiliateReferrer.initialize(this, id, programId, tenantId, userId, referralCode, createdAt, customizedAt, disabledAt, disabledBy);
     }
 
     /**
@@ -40,7 +42,7 @@ class AffiliateReferrer {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, programId, tenantId, userId, referralCode, createdAt, customizedAt) { 
+    static initialize(obj, id, programId, tenantId, userId, referralCode, createdAt, customizedAt, disabledAt, disabledBy) { 
         obj['id'] = id;
         obj['program_id'] = programId;
         obj['tenant_id'] = tenantId;
@@ -48,6 +50,8 @@ class AffiliateReferrer {
         obj['referral_code'] = referralCode;
         obj['created_at'] = createdAt;
         obj['customized_at'] = customizedAt;
+        obj['disabled_at'] = disabledAt;
+        obj['disabled_by'] = disabledBy;
     }
 
     /**
@@ -81,6 +85,12 @@ class AffiliateReferrer {
             }
             if (data.hasOwnProperty('customized_at')) {
                 obj['customized_at'] = ApiClient.convertToType(data['customized_at'], 'Date');
+            }
+            if (data.hasOwnProperty('disabled_at')) {
+                obj['disabled_at'] = ApiClient.convertToType(data['disabled_at'], 'Date');
+            }
+            if (data.hasOwnProperty('disabled_by')) {
+                obj['disabled_by'] = ApiClient.convertToType(data['disabled_by'], 'String');
             }
         }
         return obj;
@@ -118,6 +128,10 @@ class AffiliateReferrer {
         if (data['referral_code'] && !(typeof data['referral_code'] === 'string' || data['referral_code'] instanceof String)) {
             throw new Error("Expected the field `referral_code` to be a primitive type in the JSON string but got " + data['referral_code']);
         }
+        // ensure the json data is a string
+        if (data['disabled_by'] && !(typeof data['disabled_by'] === 'string' || data['disabled_by'] instanceof String)) {
+            throw new Error("Expected the field `disabled_by` to be a primitive type in the JSON string but got " + data['disabled_by']);
+        }
 
         return true;
     }
@@ -125,7 +139,7 @@ class AffiliateReferrer {
 
 }
 
-AffiliateReferrer.RequiredProperties = ["id", "program_id", "tenant_id", "user_id", "referral_code", "created_at", "customized_at"];
+AffiliateReferrer.RequiredProperties = ["id", "program_id", "tenant_id", "user_id", "referral_code", "created_at", "customized_at", "disabled_at", "disabled_by"];
 
 /**
  * @member {String} id
@@ -164,6 +178,18 @@ AffiliateReferrer.prototype['created_at'] = undefined;
  * @member {Date} customized_at
  */
 AffiliateReferrer.prototype['customized_at'] = undefined;
+
+/**
+ * When this membership was disabled; null while enabled.
+ * @member {Date} disabled_at
+ */
+AffiliateReferrer.prototype['disabled_at'] = undefined;
+
+/**
+ * Actor who disabled this membership; null while enabled.
+ * @member {String} disabled_by
+ */
+AffiliateReferrer.prototype['disabled_by'] = undefined;
 
 
 

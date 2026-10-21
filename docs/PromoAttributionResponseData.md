@@ -1,4 +1,4 @@
-# Dora.PromoAttributionResponseAllOfData
+# Dora.PromoAttributionResponseData
 
 ## Properties
 

@@ -114,10 +114,10 @@ import PayLeverageAccruedInterestResponseEnvelope from '../model/PayLeverageAccr
 import PoolPriceResponseEnvelope from '../model/PoolPriceResponseEnvelope';
 import PoolRequestError from '../model/PoolRequestError';
 import PromoAttributionResponse from '../model/PromoAttributionResponse';
+import PromoCampaignSelectorResponse from '../model/PromoCampaignSelectorResponse';
 import PromoClaimResponseEnvelope from '../model/PromoClaimResponseEnvelope';
 import PromoLinkBatchListResponse from '../model/PromoLinkBatchListResponse';
 import PromoLinkListResponse from '../model/PromoLinkListResponse';
-import PromoLinkStatus from '../model/PromoLinkStatus';
 import QRRewardPreviewEnvelope from '../model/QRRewardPreviewEnvelope';
 import RegisterAffiliateReferrerRequest from '../model/RegisterAffiliateReferrerRequest';
 import RemoveTradingChallengeUsersRequest from '../model/RemoveTradingChallengeUsersRequest';
@@ -617,6 +617,7 @@ export default class DefaultApi {
 
     /**
      * Claim a public QR promotion link
+     * New users only. Send email only; campaign/link/source and affiliate selection are server-bound. Creates account, enrollment, referral attribution and encrypted delivery transactionally. One eligible account/email per campaign across all link types; existing accounts remain excluded. This does not guarantee a unique human across mailboxes. Successful reusable claims leave the link active. Permanent affiliate attribution is separate from originating link identity. Reusable failures have a per-link/email limit with a 15-minute inactivity reset, plus the route IP limit.
      * @param {String} token Opaque bearer claim token
      * @param {module:model/ClaimPromoLinkRequest} claimPromoLinkRequest 
      * @param {module:api/DefaultApi~claimPromoLinkCallback} callback The callback function, accepting three arguments: error, data, response
@@ -1285,6 +1286,55 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the enableAffiliateReferrer operation.
+     * @callback module:api/DefaultApi~enableAffiliateReferrerCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AffiliateReferrerEnvelope} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Re-enable an existing referrer
+     * Uses the same ADMIN, tenant INTEGRATOR, and assigned-program AFFILIATE_MANAGER permissions as disabling. Clears disabled_at and disabled_by on the existing membership, preserving its ID, user, program, codes, customization, and attribution history. Already enabled returns 200 unchanged. Unknown or wrong-program members return 404. Does not unpause the program or change independent signup, account, tenant, or campaign rules.
+     * @param {String} programId 
+     * @param {String} referrerId 
+     * @param {module:api/DefaultApi~enableAffiliateReferrerCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AffiliateReferrerEnvelope}
+     */
+    enableAffiliateReferrer(programId, referrerId, callback) {
+      let postBody = null;
+      // verify the required parameter 'programId' is set
+      if (programId === undefined || programId === null) {
+        throw new Error("Missing the required parameter 'programId' when calling enableAffiliateReferrer");
+      }
+      // verify the required parameter 'referrerId' is set
+      if (referrerId === undefined || referrerId === null) {
+        throw new Error("Missing the required parameter 'referrerId' when calling enableAffiliateReferrer");
+      }
+
+      let pathParams = {
+        'program_id': programId,
+        'referrer_id': referrerId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AffiliateReferrerEnvelope;
+      return this.apiClient.callApi(
+        '/v1/affiliate_programs/{program_id}/referrers/{referrer_id}/enable', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the exportPromoLinksCSV operation.
      * @callback module:api/DefaultApi~exportPromoLinksCSVCallback
      * @param {String} error Error message, if any.
@@ -1294,7 +1344,7 @@ export default class DefaultApi {
 
     /**
      * Export promotional links as CSV
-     * Stream private claim URLs with Cache-Control private, no-store. ADMIN and same-tenant INTEGRATOR only.
+     * Export saved links. Reusable CSV includes link_id, link_type, campaign_id, affiliate_program_id, affiliate_member_id, referral_code, url, status, expires_at and created_at, with no claimant columns. Check X-Promo-Export-Status trailer for complete. ADMIN, same-tenant INTEGRATOR, or AFFILIATE_MANAGER explicitly assigned to the owning QR campaign (including across tenants). Grants are checked on every request; tenant filters do not confer access.
      * @param {String} batchId 
      * @param {module:api/DefaultApi~exportPromoLinksCSVCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
@@ -4243,6 +4293,54 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the grantPromoCampaignManager operation.
+     * @callback module:api/DefaultApi~grantPromoCampaignManagerCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Grant QR campaign access for an Affiliate Manager
+     * ADMIN only. Idempotent PUT with no body. QR campaign grants are independent of home tenant and affiliate programs. Removal takes effect on the next protected request after commit; already authorized reads/downloads may finish. Batch issuance and removal serialize on the campaign lock.
+     * @param {String} tradingChallengeId 
+     * @param {String} managerId 
+     * @param {module:api/DefaultApi~grantPromoCampaignManagerCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    grantPromoCampaignManager(tradingChallengeId, managerId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling grantPromoCampaignManager");
+      }
+      // verify the required parameter 'managerId' is set
+      if (managerId === undefined || managerId === null) {
+        throw new Error("Missing the required parameter 'managerId' when calling grantPromoCampaignManager");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId,
+        'manager_id': managerId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/v1/promo_campaigns/{trading_challenge_id}/managers/{manager_id}', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the issuePromoLinkBatch operation.
      * @callback module:api/DefaultApi~issuePromoLinkBatchCallback
      * @param {String} error Error message, if any.
@@ -4252,7 +4350,7 @@ export default class DefaultApi {
 
     /**
      * Issue a promotional link batch
-     * Atomically reserve QR campaign capacity and create opaque, encrypted promotional links. ADMIN and same-tenant INTEGRATOR only. Exact idempotent replays return 200; first creation returns 201; key reuse with another payload returns 409.
+     * Mint single-use links or one reusable link bound to an existing affiliate program/member/code. Requires Idempotency-Key. Only committed new-user signups consume the shared campaign max_users limit; unused single-use links have no reserved place. Uses DORA-6544 campaign-grant authorization. Affiliate selection also requires independent access to the selected program. Migration 208 must precede reusable-link migration 209. Enable reusable creation in FE after all API replicas and reward-settlement daemon processes support this contract; older replicas fail closed instead of consuming reusable links. No program-only codes or landing-page selector. ADMIN, same-tenant INTEGRATOR, or AFFILIATE_MANAGER explicitly assigned to the owning QR campaign (including across tenants). Grants are checked on every request; tenant filters do not confer access. Exact idempotent replays return 200; first creation returns 201; key reuse with another payload returns 409.
      * @param {String} tradingChallengeId 
      * @param {String} idempotencyKey 
      * @param {module:model/IssuePromoLinkBatchRequest} issuePromoLinkBatchRequest 
@@ -5088,11 +5186,12 @@ export default class DefaultApi {
 
     /**
      * List program referrers
-     * ADMIN or INTEGRATOR required. Integrators are restricted to their own tenant; ADMIN overrides other roles. Includes registrations in inactive programs.
+     * ADMIN, INTEGRATOR, or AFFILIATE_MANAGER required within the same tenant and assigned-program scope as disabling. Active memberships only by default; include_disabled=true also returns disabled memberships. Includes memberships in paused programs.
      * @param {String} programId 
      * @param {Object} opts Optional parameters
      * @param {Number} [limit = 100)] 
      * @param {Number} [page = 1)] One-based page; the resulting offset must not exceed 2147483647. Results sort by created_at then id descending.
+     * @param {Boolean} [includeDisabled = false)] Include disabled memberships for management. Disabled codes remain ineligible for new referrals.
      * @param {module:api/DefaultApi~listAffiliateReferrersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AffiliateReferrerListEnvelope}
      */
@@ -5109,7 +5208,8 @@ export default class DefaultApi {
       };
       let queryParams = {
         'limit': opts['limit'],
-        'page': opts['page']
+        'page': opts['page'],
+        'include_disabled': opts['includeDisabled']
       };
       let headerParams = {
       };
@@ -5297,6 +5397,47 @@ export default class DefaultApi {
       let returnType = ListDepositsResponseEnvelope;
       return this.apiClient.callApi(
         '/v1/web3/deposits', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listManagedPromoCampaigns operation.
+     * @callback module:api/DefaultApi~listManagedPromoCampaignsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PromoCampaignSelectorResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List accessible Campaign Links campaigns
+     * Authenticated QR campaign selector. ADMIN, same-tenant INTEGRATOR, or AFFILIATE_MANAGER explicitly assigned to the owning QR campaign (including across tenants). Grants are checked on every request; tenant filters do not confer access. Managers with no grants receive an empty campaigns array. Returns all assigned tenants unless tenant_id narrows the set. Public challenge listing is unchanged.
+     * @param {Object} opts Optional parameters
+     * @param {String} [tenantId] Optional filter within the authorized campaign set; authenticate as the home-tenant account.
+     * @param {module:api/DefaultApi~listManagedPromoCampaignsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PromoCampaignSelectorResponse}
+     */
+    listManagedPromoCampaigns(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'tenant_id': opts['tenantId']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = PromoCampaignSelectorResponse;
+      return this.apiClient.callApi(
+        '/v1/promo_campaigns', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -5497,7 +5638,7 @@ export default class DefaultApi {
 
     /**
      * List promotional link batches
-     * Return source metadata and ISSUED, CLAIMED, and REVOKED counts for each batch. ADMIN and same-tenant INTEGRATOR only.
+     * Retrieve saved Campaign Links with campaign, link_type, affiliate selection, creation date and signups. Reusable entries omit allocation/issued/claimed/revoked counts. The same member can have many links/campaigns; separate link IDs preserve origin identity for future landing pages. Landing-page selection is out of scope. ADMIN, same-tenant INTEGRATOR, or AFFILIATE_MANAGER explicitly assigned to the owning QR campaign (including across tenants). Grants are checked on every request; tenant filters do not confer access.
      * @param {String} tradingChallengeId 
      * @param {module:api/DefaultApi~listPromoLinkBatchesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PromoLinkBatchListResponse}
@@ -5540,12 +5681,12 @@ export default class DefaultApi {
 
     /**
      * List promotional links
-     * Keyset-paginated batch links. URLs are omitted by default and decrypted only when reveal=true. ADMIN and same-tenant INTEGRATOR only.
+     * Use reveal=true to copy a saved private URL. Reusable entries show ACTIVE or REVOKED and have no single claimant. Treat URLs as private and do not cache/log them. ADMIN, same-tenant INTEGRATOR, or AFFILIATE_MANAGER explicitly assigned to the owning QR campaign (including across tenants). Grants are checked on every request; tenant filters do not confer access.
      * @param {String} batchId 
      * @param {Object} opts Optional parameters
      * @param {Number} [limit = 100)] 
      * @param {String} [cursor] 
-     * @param {module:model/PromoLinkStatus} [status] 
+     * @param {module:model/String} [status] ACTIVE selects active reusable links. Single-use links retain ISSUED/CLAIMED/REVOKED.
      * @param {Boolean} [reveal = false)] 
      * @param {module:api/DefaultApi~listPromoLinksCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PromoLinkListResponse}
@@ -6105,6 +6246,54 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the removePromoCampaignManager operation.
+     * @callback module:api/DefaultApi~removePromoCampaignManagerCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Remove QR campaign access for an Affiliate Manager
+     * ADMIN only. Idempotent DELETE with no body. QR campaign grants are independent of home tenant and affiliate programs. Removal takes effect on the next protected request after commit; already authorized reads/downloads may finish. Batch issuance and removal serialize on the campaign lock.
+     * @param {String} tradingChallengeId 
+     * @param {String} managerId 
+     * @param {module:api/DefaultApi~removePromoCampaignManagerCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    removePromoCampaignManager(tradingChallengeId, managerId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tradingChallengeId' is set
+      if (tradingChallengeId === undefined || tradingChallengeId === null) {
+        throw new Error("Missing the required parameter 'tradingChallengeId' when calling removePromoCampaignManager");
+      }
+      // verify the required parameter 'managerId' is set
+      if (managerId === undefined || managerId === null) {
+        throw new Error("Missing the required parameter 'managerId' when calling removePromoCampaignManager");
+      }
+
+      let pathParams = {
+        'trading_challenge_id': tradingChallengeId,
+        'manager_id': managerId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['apiKeyAuthHeader', 'bearerAuth'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/v1/promo_campaigns/{trading_challenge_id}/managers/{manager_id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the removeTradingChallengeUsers operation.
      * @callback module:api/DefaultApi~removeTradingChallengeUsersCallback
      * @param {String} error Error message, if any.
@@ -6156,7 +6345,7 @@ export default class DefaultApi {
 
     /**
      * Render a promotional link QR code
-     * Render the exact private claim URL as PNG with Cache-Control private, no-store. ADMIN and same-tenant INTEGRATOR only.
+     * Download private QR PNG with Content-Disposition filename promo-link-{link_id}.png; the same link_id is in saved links and CSV. ADMIN, same-tenant INTEGRATOR, or AFFILIATE_MANAGER explicitly assigned to the owning QR campaign (including across tenants). Grants are checked on every request; tenant filters do not confer access.
      * @param {String} linkId 
      * @param {Object} opts Optional parameters
      * @param {Number} [size = 512)] 
@@ -6380,7 +6569,7 @@ export default class DefaultApi {
 
     /**
      * Revoke a promotional link
-     * Revoke an unclaimed link and return one unit of QR campaign capacity. Repeating an already-revoked request is idempotent; claimed links return 409.
+     * Revoke an active promo link. Revoking a reusable link prevents new signups and preserves existing participants. Does not release a successful signup place.
      * @param {String} linkId 
      * @param {module:model/RevokePromoLinkRequest} revokePromoLinkRequest 
      * @param {module:api/DefaultApi~revokePromoLinkCallback} callback The callback function, accepting three arguments: error, data, response

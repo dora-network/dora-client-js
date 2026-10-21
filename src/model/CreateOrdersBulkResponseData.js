@@ -15,18 +15,18 @@ import ApiClient from '../ApiClient';
 import BulkOrderResult from './BulkOrderResult';
 
 /**
- * The CreateOrdersBulkResponseAllOfData model module.
- * @module model/CreateOrdersBulkResponseAllOfData
+ * The CreateOrdersBulkResponseData model module.
+ * @module model/CreateOrdersBulkResponseData
  * @version 1.0.0
  */
-class CreateOrdersBulkResponseAllOfData {
+class CreateOrdersBulkResponseData {
     /**
-     * Constructs a new <code>CreateOrdersBulkResponseAllOfData</code>.
-     * @alias module:model/CreateOrdersBulkResponseAllOfData
+     * Constructs a new <code>CreateOrdersBulkResponseData</code>.
+     * @alias module:model/CreateOrdersBulkResponseData
      */
     constructor() { 
         
-        CreateOrdersBulkResponseAllOfData.initialize(this);
+        CreateOrdersBulkResponseData.initialize(this);
     }
 
     /**
@@ -38,15 +38,15 @@ class CreateOrdersBulkResponseAllOfData {
     }
 
     /**
-     * Constructs a <code>CreateOrdersBulkResponseAllOfData</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>CreateOrdersBulkResponseData</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/CreateOrdersBulkResponseAllOfData} obj Optional instance to populate.
-     * @return {module:model/CreateOrdersBulkResponseAllOfData} The populated <code>CreateOrdersBulkResponseAllOfData</code> instance.
+     * @param {module:model/CreateOrdersBulkResponseData} obj Optional instance to populate.
+     * @return {module:model/CreateOrdersBulkResponseData} The populated <code>CreateOrdersBulkResponseData</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new CreateOrdersBulkResponseAllOfData();
+            obj = obj || new CreateOrdersBulkResponseData();
 
             if (data.hasOwnProperty('created')) {
                 obj['created'] = ApiClient.convertToType(data['created'], 'Number');
@@ -62,9 +62,9 @@ class CreateOrdersBulkResponseAllOfData {
     }
 
     /**
-     * Validates the JSON data with respect to <code>CreateOrdersBulkResponseAllOfData</code>.
+     * Validates the JSON data with respect to <code>CreateOrdersBulkResponseData</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateOrdersBulkResponseAllOfData</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CreateOrdersBulkResponseData</code>.
      */
     static validateJSON(data) {
         if (data['results']) { // data not null
@@ -89,22 +89,22 @@ class CreateOrdersBulkResponseAllOfData {
 /**
  * @member {Number} created
  */
-CreateOrdersBulkResponseAllOfData.prototype['created'] = undefined;
+CreateOrdersBulkResponseData.prototype['created'] = undefined;
 
 /**
  * @member {Number} rejected
  */
-CreateOrdersBulkResponseAllOfData.prototype['rejected'] = undefined;
+CreateOrdersBulkResponseData.prototype['rejected'] = undefined;
 
 /**
  * @member {Array.<module:model/BulkOrderResult>} results
  */
-CreateOrdersBulkResponseAllOfData.prototype['results'] = undefined;
+CreateOrdersBulkResponseData.prototype['results'] = undefined;
 
 
 
 
 
 
-export default CreateOrdersBulkResponseAllOfData;
+export default CreateOrdersBulkResponseData;
 

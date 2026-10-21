@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.CreateOrdersBulkResponseAllOfData();
+    instance = new Dora.IssuePromoLinkBatchRequestSingleUse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,16 @@
       object[property] = value;
   }
 
-  describe('CreateOrdersBulkResponseAllOfData', function() {
-    it('should create an instance of CreateOrdersBulkResponseAllOfData', function() {
-      // uncomment below and update the code to test CreateOrdersBulkResponseAllOfData
-      //var instance = new Dora.CreateOrdersBulkResponseAllOfData();
-      //expect(instance).to.be.a(Dora.CreateOrdersBulkResponseAllOfData);
+  describe('IssuePromoLinkBatchRequestSingleUse', function() {
+    it('should create an instance of IssuePromoLinkBatchRequestSingleUse', function() {
+      // uncomment below and update the code to test IssuePromoLinkBatchRequestSingleUse
+      //var instance = new Dora.IssuePromoLinkBatchRequestSingleUse();
+      //expect(instance).to.be.a(Dora.IssuePromoLinkBatchRequestSingleUse);
     });
 
-    it('should have the property created (base name: "created")', function() {
-      // uncomment below and update the code to test the property created
-      //var instance = new Dora.CreateOrdersBulkResponseAllOfData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property rejected (base name: "rejected")', function() {
-      // uncomment below and update the code to test the property rejected
-      //var instance = new Dora.CreateOrdersBulkResponseAllOfData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property results (base name: "results")', function() {
-      // uncomment below and update the code to test the property results
-      //var instance = new Dora.CreateOrdersBulkResponseAllOfData();
+    it('should have the property linkType (base name: "link_type")', function() {
+      // uncomment below and update the code to test the property linkType
+      //var instance = new Dora.IssuePromoLinkBatchRequestSingleUse();
       //expect(instance).to.be();
     });
 

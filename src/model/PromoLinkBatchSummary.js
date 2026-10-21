@@ -27,15 +27,11 @@ class PromoLinkBatchSummary {
      * @param sourceType {module:model/PromoSourceType} 
      * @param sourceId {String} 
      * @param sourceName {String} 
-     * @param allocation {Number} 
-     * @param issued {Number} 
-     * @param claimed {Number} 
-     * @param revoked {Number} 
      * @param createdAt {Date} 
      */
-    constructor(id, sourceType, sourceId, sourceName, allocation, issued, claimed, revoked, createdAt) { 
+    constructor(id, sourceType, sourceId, sourceName, createdAt) { 
         
-        PromoLinkBatchSummary.initialize(this, id, sourceType, sourceId, sourceName, allocation, issued, claimed, revoked, createdAt);
+        PromoLinkBatchSummary.initialize(this, id, sourceType, sourceId, sourceName, createdAt);
     }
 
     /**
@@ -43,15 +39,11 @@ class PromoLinkBatchSummary {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, sourceType, sourceId, sourceName, allocation, issued, claimed, revoked, createdAt) { 
+    static initialize(obj, id, sourceType, sourceId, sourceName, createdAt) { 
         obj['id'] = id;
         obj['source_type'] = sourceType;
         obj['source_id'] = sourceId;
         obj['source_name'] = sourceName;
-        obj['allocation'] = allocation;
-        obj['issued'] = issued;
-        obj['claimed'] = claimed;
-        obj['revoked'] = revoked;
         obj['created_at'] = createdAt;
     }
 
@@ -93,6 +85,24 @@ class PromoLinkBatchSummary {
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
+            if (data.hasOwnProperty('link_type')) {
+                obj['link_type'] = ApiClient.convertToType(data['link_type'], 'String');
+            }
+            if (data.hasOwnProperty('affiliate_program_id')) {
+                obj['affiliate_program_id'] = ApiClient.convertToType(data['affiliate_program_id'], 'String');
+            }
+            if (data.hasOwnProperty('affiliate_member_id')) {
+                obj['affiliate_member_id'] = ApiClient.convertToType(data['affiliate_member_id'], 'String');
+            }
+            if (data.hasOwnProperty('referral_code')) {
+                obj['referral_code'] = ApiClient.convertToType(data['referral_code'], 'String');
+            }
+            if (data.hasOwnProperty('campaign_id')) {
+                obj['campaign_id'] = ApiClient.convertToType(data['campaign_id'], 'String');
+            }
+            if (data.hasOwnProperty('signups')) {
+                obj['signups'] = ApiClient.convertToType(data['signups'], 'Number');
+            }
         }
         return obj;
     }
@@ -121,6 +131,26 @@ class PromoLinkBatchSummary {
         if (data['source_name'] && !(typeof data['source_name'] === 'string' || data['source_name'] instanceof String)) {
             throw new Error("Expected the field `source_name` to be a primitive type in the JSON string but got " + data['source_name']);
         }
+        // ensure the json data is a string
+        if (data['link_type'] && !(typeof data['link_type'] === 'string' || data['link_type'] instanceof String)) {
+            throw new Error("Expected the field `link_type` to be a primitive type in the JSON string but got " + data['link_type']);
+        }
+        // ensure the json data is a string
+        if (data['affiliate_program_id'] && !(typeof data['affiliate_program_id'] === 'string' || data['affiliate_program_id'] instanceof String)) {
+            throw new Error("Expected the field `affiliate_program_id` to be a primitive type in the JSON string but got " + data['affiliate_program_id']);
+        }
+        // ensure the json data is a string
+        if (data['affiliate_member_id'] && !(typeof data['affiliate_member_id'] === 'string' || data['affiliate_member_id'] instanceof String)) {
+            throw new Error("Expected the field `affiliate_member_id` to be a primitive type in the JSON string but got " + data['affiliate_member_id']);
+        }
+        // ensure the json data is a string
+        if (data['referral_code'] && !(typeof data['referral_code'] === 'string' || data['referral_code'] instanceof String)) {
+            throw new Error("Expected the field `referral_code` to be a primitive type in the JSON string but got " + data['referral_code']);
+        }
+        // ensure the json data is a string
+        if (data['campaign_id'] && !(typeof data['campaign_id'] === 'string' || data['campaign_id'] instanceof String)) {
+            throw new Error("Expected the field `campaign_id` to be a primitive type in the JSON string but got " + data['campaign_id']);
+        }
 
         return true;
     }
@@ -128,7 +158,7 @@ class PromoLinkBatchSummary {
 
 }
 
-PromoLinkBatchSummary.RequiredProperties = ["id", "source_type", "source_id", "source_name", "allocation", "issued", "claimed", "revoked", "created_at"];
+PromoLinkBatchSummary.RequiredProperties = ["id", "source_type", "source_id", "source_name", "created_at"];
 
 /**
  * @member {String} id
@@ -175,8 +205,63 @@ PromoLinkBatchSummary.prototype['revoked'] = undefined;
  */
 PromoLinkBatchSummary.prototype['created_at'] = undefined;
 
+/**
+ * Defaults to SINGLE_USE for existing clients. REUSABLE creates one tracked link without a quantity.
+ * @member {module:model/PromoLinkBatchSummary.LinkTypeEnum} link_type
+ */
+PromoLinkBatchSummary.prototype['link_type'] = undefined;
+
+/**
+ * @member {String} affiliate_program_id
+ */
+PromoLinkBatchSummary.prototype['affiliate_program_id'] = undefined;
+
+/**
+ * Existing affiliate referrer/member ID, not user ID.
+ * @member {String} affiliate_member_id
+ */
+PromoLinkBatchSummary.prototype['affiliate_member_id'] = undefined;
+
+/**
+ * An existing code belonging to the selected member. Required with both IDs for reusable links; bound on the server and revalidated at claim time.
+ * @member {String} referral_code
+ */
+PromoLinkBatchSummary.prototype['referral_code'] = undefined;
+
+/**
+ * @member {String} campaign_id
+ */
+PromoLinkBatchSummary.prototype['campaign_id'] = undefined;
+
+/**
+ * Successful signups; reusable links omit allocation/issued/claimed/revoked counts.
+ * @member {Number} signups
+ */
+PromoLinkBatchSummary.prototype['signups'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>link_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PromoLinkBatchSummary['LinkTypeEnum'] = {
+
+    /**
+     * value: "SINGLE_USE"
+     * @const
+     */
+    "SINGLE_USE": "SINGLE_USE",
+
+    /**
+     * value: "REUSABLE"
+     * @const
+     */
+    "REUSABLE": "REUSABLE"
+};
 
 
 

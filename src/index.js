@@ -97,7 +97,7 @@ import CreateOrderRequest from './model/CreateOrderRequest';
 import CreateOrderResponseEnvelope from './model/CreateOrderResponseEnvelope';
 import CreateOrdersBulkRequest from './model/CreateOrdersBulkRequest';
 import CreateOrdersBulkResponse from './model/CreateOrdersBulkResponse';
-import CreateOrdersBulkResponseAllOfData from './model/CreateOrdersBulkResponseAllOfData';
+import CreateOrdersBulkResponseData from './model/CreateOrdersBulkResponseData';
 import CreateTradingChallengeQRRequest from './model/CreateTradingChallengeQRRequest';
 import CreateTradingChallengeRequest from './model/CreateTradingChallengeRequest';
 import CreateWithdrawalRequest from './model/CreateWithdrawalRequest';
@@ -134,8 +134,9 @@ import IsolateCollateralResponse from './model/IsolateCollateralResponse';
 import IsolatedCollateral from './model/IsolatedCollateral';
 import IsolatedPosition from './model/IsolatedPosition';
 import IssuePromoLinkBatchRequest from './model/IssuePromoLinkBatchRequest';
+import IssuePromoLinkBatchRequestSingleUse from './model/IssuePromoLinkBatchRequestSingleUse';
 import IssuePromoLinkBatchResponse from './model/IssuePromoLinkBatchResponse';
-import IssuePromoLinkBatchResponseAllOfData from './model/IssuePromoLinkBatchResponseAllOfData';
+import IssuePromoLinkBatchResponseData from './model/IssuePromoLinkBatchResponseData';
 import IssuedPromoLink from './model/IssuedPromoLink';
 import LedgerAccountsResponseV2Envelope from './model/LedgerAccountsResponseV2Envelope';
 import LedgerModuleByAssetResponseEnvelope from './model/LedgerModuleByAssetResponseEnvelope';
@@ -218,17 +219,20 @@ import PositionSide from './model/PositionSide';
 import PositionType from './model/PositionType';
 import PriceLevel from './model/PriceLevel';
 import PromoAttributionResponse from './model/PromoAttributionResponse';
-import PromoAttributionResponseAllOfData from './model/PromoAttributionResponseAllOfData';
+import PromoAttributionResponseData from './model/PromoAttributionResponseData';
 import PromoAttributionSource from './model/PromoAttributionSource';
+import PromoCampaignSelectorResponse from './model/PromoCampaignSelectorResponse';
+import PromoCampaignSelectorResponseData from './model/PromoCampaignSelectorResponseData';
+import PromoCampaignSelectorResponseDataCampaigns from './model/PromoCampaignSelectorResponseDataCampaigns';
 import PromoClaimResponseEnvelope from './model/PromoClaimResponseEnvelope';
-import PromoClaimResponseEnvelopeAllOfData from './model/PromoClaimResponseEnvelopeAllOfData';
+import PromoClaimResponseEnvelopeData from './model/PromoClaimResponseEnvelopeData';
 import PromoClaimState from './model/PromoClaimState';
 import PromoLinkAdmin from './model/PromoLinkAdmin';
 import PromoLinkBatchListResponse from './model/PromoLinkBatchListResponse';
-import PromoLinkBatchListResponseAllOfData from './model/PromoLinkBatchListResponseAllOfData';
+import PromoLinkBatchListResponseData from './model/PromoLinkBatchListResponseData';
 import PromoLinkBatchSummary from './model/PromoLinkBatchSummary';
 import PromoLinkListResponse from './model/PromoLinkListResponse';
-import PromoLinkListResponseAllOfData from './model/PromoLinkListResponseAllOfData';
+import PromoLinkListResponseData from './model/PromoLinkListResponseData';
 import PromoLinkStatus from './model/PromoLinkStatus';
 import PromoSourceType from './model/PromoSourceType';
 import QRRewardPreview from './model/QRRewardPreview';
@@ -247,7 +251,7 @@ import RevokeAPIKeyData from './model/RevokeAPIKeyData';
 import RevokeAPIKeyResponseEnvelope from './model/RevokeAPIKeyResponseEnvelope';
 import RevokePromoLinkRequest from './model/RevokePromoLinkRequest';
 import RevokePromoLinkResponse from './model/RevokePromoLinkResponse';
-import RevokePromoLinkResponseAllOfData from './model/RevokePromoLinkResponseAllOfData';
+import RevokePromoLinkResponseData from './model/RevokePromoLinkResponseData';
 import SettleLeverageAccruedInterest from './model/SettleLeverageAccruedInterest';
 import SettleLeverageAccruedInterestRequest from './model/SettleLeverageAccruedInterestRequest';
 import SettleLeverageAccruedInterestResponseEnvelope from './model/SettleLeverageAccruedInterestResponseEnvelope';
@@ -908,10 +912,10 @@ export {
     CreateOrdersBulkResponse,
 
     /**
-     * The CreateOrdersBulkResponseAllOfData model constructor.
-     * @property {module:model/CreateOrdersBulkResponseAllOfData}
+     * The CreateOrdersBulkResponseData model constructor.
+     * @property {module:model/CreateOrdersBulkResponseData}
      */
-    CreateOrdersBulkResponseAllOfData,
+    CreateOrdersBulkResponseData,
 
     /**
      * The CreateTradingChallengeQRRequest model constructor.
@@ -1130,16 +1134,22 @@ export {
     IssuePromoLinkBatchRequest,
 
     /**
+     * The IssuePromoLinkBatchRequestSingleUse model constructor.
+     * @property {module:model/IssuePromoLinkBatchRequestSingleUse}
+     */
+    IssuePromoLinkBatchRequestSingleUse,
+
+    /**
      * The IssuePromoLinkBatchResponse model constructor.
      * @property {module:model/IssuePromoLinkBatchResponse}
      */
     IssuePromoLinkBatchResponse,
 
     /**
-     * The IssuePromoLinkBatchResponseAllOfData model constructor.
-     * @property {module:model/IssuePromoLinkBatchResponseAllOfData}
+     * The IssuePromoLinkBatchResponseData model constructor.
+     * @property {module:model/IssuePromoLinkBatchResponseData}
      */
-    IssuePromoLinkBatchResponseAllOfData,
+    IssuePromoLinkBatchResponseData,
 
     /**
      * The IssuedPromoLink model constructor.
@@ -1634,10 +1644,10 @@ export {
     PromoAttributionResponse,
 
     /**
-     * The PromoAttributionResponseAllOfData model constructor.
-     * @property {module:model/PromoAttributionResponseAllOfData}
+     * The PromoAttributionResponseData model constructor.
+     * @property {module:model/PromoAttributionResponseData}
      */
-    PromoAttributionResponseAllOfData,
+    PromoAttributionResponseData,
 
     /**
      * The PromoAttributionSource model constructor.
@@ -1646,16 +1656,34 @@ export {
     PromoAttributionSource,
 
     /**
+     * The PromoCampaignSelectorResponse model constructor.
+     * @property {module:model/PromoCampaignSelectorResponse}
+     */
+    PromoCampaignSelectorResponse,
+
+    /**
+     * The PromoCampaignSelectorResponseData model constructor.
+     * @property {module:model/PromoCampaignSelectorResponseData}
+     */
+    PromoCampaignSelectorResponseData,
+
+    /**
+     * The PromoCampaignSelectorResponseDataCampaigns model constructor.
+     * @property {module:model/PromoCampaignSelectorResponseDataCampaigns}
+     */
+    PromoCampaignSelectorResponseDataCampaigns,
+
+    /**
      * The PromoClaimResponseEnvelope model constructor.
      * @property {module:model/PromoClaimResponseEnvelope}
      */
     PromoClaimResponseEnvelope,
 
     /**
-     * The PromoClaimResponseEnvelopeAllOfData model constructor.
-     * @property {module:model/PromoClaimResponseEnvelopeAllOfData}
+     * The PromoClaimResponseEnvelopeData model constructor.
+     * @property {module:model/PromoClaimResponseEnvelopeData}
      */
-    PromoClaimResponseEnvelopeAllOfData,
+    PromoClaimResponseEnvelopeData,
 
     /**
      * The PromoClaimState model constructor.
@@ -1676,10 +1704,10 @@ export {
     PromoLinkBatchListResponse,
 
     /**
-     * The PromoLinkBatchListResponseAllOfData model constructor.
-     * @property {module:model/PromoLinkBatchListResponseAllOfData}
+     * The PromoLinkBatchListResponseData model constructor.
+     * @property {module:model/PromoLinkBatchListResponseData}
      */
-    PromoLinkBatchListResponseAllOfData,
+    PromoLinkBatchListResponseData,
 
     /**
      * The PromoLinkBatchSummary model constructor.
@@ -1694,10 +1722,10 @@ export {
     PromoLinkListResponse,
 
     /**
-     * The PromoLinkListResponseAllOfData model constructor.
-     * @property {module:model/PromoLinkListResponseAllOfData}
+     * The PromoLinkListResponseData model constructor.
+     * @property {module:model/PromoLinkListResponseData}
      */
-    PromoLinkListResponseAllOfData,
+    PromoLinkListResponseData,
 
     /**
      * The PromoLinkStatus model constructor.
@@ -1808,10 +1836,10 @@ export {
     RevokePromoLinkResponse,
 
     /**
-     * The RevokePromoLinkResponseAllOfData model constructor.
-     * @property {module:model/RevokePromoLinkResponseAllOfData}
+     * The RevokePromoLinkResponseData model constructor.
+     * @property {module:model/RevokePromoLinkResponseData}
      */
-    RevokePromoLinkResponseAllOfData,
+    RevokePromoLinkResponseData,
 
     /**
      * The SettleLeverageAccruedInterest model constructor.

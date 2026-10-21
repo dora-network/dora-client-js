@@ -298,6 +298,16 @@
         done();
       });
     });
+    describe('enableAffiliateReferrer', function() {
+      it('should call enableAffiliateReferrer successfully', function(done) {
+        //uncomment below and update the code to test enableAffiliateReferrer
+        //instance.enableAffiliateReferrer(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('exportPromoLinksCSV', function() {
       it('should call exportPromoLinksCSV successfully', function(done) {
         //uncomment below and update the code to test exportPromoLinksCSV
@@ -978,6 +988,16 @@
         done();
       });
     });
+    describe('grantPromoCampaignManager', function() {
+      it('should call grantPromoCampaignManager successfully', function(done) {
+        //uncomment below and update the code to test grantPromoCampaignManager
+        //instance.grantPromoCampaignManager(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('issuePromoLinkBatch', function() {
       it('should call issuePromoLinkBatch successfully', function(done) {
         //uncomment below and update the code to test issuePromoLinkBatch
@@ -1208,6 +1228,16 @@
         done();
       });
     });
+    describe('listManagedPromoCampaigns', function() {
+      it('should call listManagedPromoCampaigns successfully', function(done) {
+        //uncomment below and update the code to test listManagedPromoCampaigns
+        //instance.listManagedPromoCampaigns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listOrderBooks', function() {
       it('should call listOrderBooks successfully', function(done) {
         //uncomment below and update the code to test listOrderBooks
@@ -1372,6 +1402,16 @@
       it('should call removeAffiliateReferrer successfully', function(done) {
         //uncomment below and update the code to test removeAffiliateReferrer
         //instance.removeAffiliateReferrer(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('removePromoCampaignManager', function() {
+      it('should call removePromoCampaignManager successfully', function(done) {
+        //uncomment below and update the code to test removePromoCampaignManager
+        //instance.removePromoCampaignManager(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

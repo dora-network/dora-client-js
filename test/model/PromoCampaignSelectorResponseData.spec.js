@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.RevokePromoLinkResponseAllOfData();
+    instance = new Dora.PromoCampaignSelectorResponseData();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,16 @@
       object[property] = value;
   }
 
-  describe('RevokePromoLinkResponseAllOfData', function() {
-    it('should create an instance of RevokePromoLinkResponseAllOfData', function() {
-      // uncomment below and update the code to test RevokePromoLinkResponseAllOfData
-      //var instance = new Dora.RevokePromoLinkResponseAllOfData();
-      //expect(instance).to.be.a(Dora.RevokePromoLinkResponseAllOfData);
+  describe('PromoCampaignSelectorResponseData', function() {
+    it('should create an instance of PromoCampaignSelectorResponseData', function() {
+      // uncomment below and update the code to test PromoCampaignSelectorResponseData
+      //var instance = new Dora.PromoCampaignSelectorResponseData();
+      //expect(instance).to.be.a(Dora.PromoCampaignSelectorResponseData);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new Dora.RevokePromoLinkResponseAllOfData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property status (base name: "status")', function() {
-      // uncomment below and update the code to test the property status
-      //var instance = new Dora.RevokePromoLinkResponseAllOfData();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property repeated (base name: "repeated")', function() {
-      // uncomment below and update the code to test the property repeated
-      //var instance = new Dora.RevokePromoLinkResponseAllOfData();
+    it('should have the property campaigns (base name: "campaigns")', function() {
+      // uncomment below and update the code to test the property campaigns
+      //var instance = new Dora.PromoCampaignSelectorResponseData();
       //expect(instance).to.be();
     });
 

@@ -155,6 +155,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**createWithdrawal**](docs/DefaultApi.md#createWithdrawal) | **POST** /v1/web3/withdrawals | Create a USDC withdrawal request
 *Dora.DefaultApi* | [**customizeAffiliateReferrerCode**](docs/DefaultApi.md#customizeAffiliateReferrerCode) | **PUT** /v1/affiliate_referrers/{referrer_id}/code | Change an affiliate referral code
 *Dora.DefaultApi* | [**deleteUser**](docs/DefaultApi.md#deleteUser) | **DELETE** /v1/user/{user_id} | Delete user by ID
+*Dora.DefaultApi* | [**enableAffiliateReferrer**](docs/DefaultApi.md#enableAffiliateReferrer) | **POST** /v1/affiliate_programs/{program_id}/referrers/{referrer_id}/enable | Re-enable an existing referrer
 *Dora.DefaultApi* | [**exportPromoLinksCSV**](docs/DefaultApi.md#exportPromoLinksCSV) | **GET** /v1/link_batches/{batch_id}/links.csv | Export promotional links as CSV
 *Dora.DefaultApi* | [**getAPIKeysForUserID**](docs/DefaultApi.md#getAPIKeysForUserID) | **GET** /v1/user/{user_id}/apikey | Get user&#39;s api keys: admin or integrator only
 *Dora.DefaultApi* | [**getAffiliateProgram**](docs/DefaultApi.md#getAffiliateProgram) | **GET** /v1/affiliate_programs/{program_id} | Get an affiliate program
@@ -223,6 +224,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**getUsersAPIKeys**](docs/DefaultApi.md#getUsersAPIKeys) | **GET** /v1/user/apikey | Get user&#39;s api keys
 *Dora.DefaultApi* | [**getWithdrawal**](docs/DefaultApi.md#getWithdrawal) | **GET** /v1/web3/withdrawals/{withdrawal_id} | Get a USDC withdrawal by ID
 *Dora.DefaultApi* | [**getWithdrawalFeeQuote**](docs/DefaultApi.md#getWithdrawalFeeQuote) | **GET** /v1/web3/withdrawals/fee-quote | Estimate the network fee to withdraw USDC via web3
+*Dora.DefaultApi* | [**grantPromoCampaignManager**](docs/DefaultApi.md#grantPromoCampaignManager) | **PUT** /v1/promo_campaigns/{trading_challenge_id}/managers/{manager_id} | Grant QR campaign access for an Affiliate Manager
 *Dora.DefaultApi* | [**issuePromoLinkBatch**](docs/DefaultApi.md#issuePromoLinkBatch) | **POST** /v1/trading_challenges/{trading_challenge_id}/link_batches | Issue a promotional link batch
 *Dora.DefaultApi* | [**ledgerDeposit**](docs/DefaultApi.md#ledgerDeposit) | **POST** /v1/ledger/deposit/{user_id} | Deposit assets into this user&#39;s account from the outside world
 *Dora.DefaultApi* | [**ledgerWithdraw**](docs/DefaultApi.md#ledgerWithdraw) | **POST** /v1/ledger/withdraw/{user_id} | Withdraw assets from this user to the outside world
@@ -246,6 +248,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**listAutoRebalanceConfigsV2**](docs/DefaultApi.md#listAutoRebalanceConfigsV2) | **GET** /v2/accounts/auto_rebalance/config | List auto-rebalance configuration for the authenticated user&#39;s isolated accounts
 *Dora.DefaultApi* | [**listAutoRebalanceStatusesV2**](docs/DefaultApi.md#listAutoRebalanceStatusesV2) | **GET** /v2/accounts/auto_rebalance/status | List auto-rebalance status for the authenticated user&#39;s isolated accounts, including disabled configs
 *Dora.DefaultApi* | [**listDeposits**](docs/DefaultApi.md#listDeposits) | **GET** /v1/web3/deposits | List USDC deposits
+*Dora.DefaultApi* | [**listManagedPromoCampaigns**](docs/DefaultApi.md#listManagedPromoCampaigns) | **GET** /v1/promo_campaigns | List accessible Campaign Links campaigns
 *Dora.DefaultApi* | [**listOrderBooks**](docs/DefaultApi.md#listOrderBooks) | **GET** /v1/orderbooks | List order books
 *Dora.DefaultApi* | [**listOrders**](docs/DefaultApi.md#listOrders) | **GET** /v1/orders | List all orders
 *Dora.DefaultApi* | [**listOwnAffiliateMemberships**](docs/DefaultApi.md#listOwnAffiliateMemberships) | **GET** /v1/affiliate_referrers/self | List your affiliate memberships
@@ -263,6 +266,7 @@ Class | Method | HTTP request | Description
 *Dora.DefaultApi* | [**rejectLedgerWithdrawRequest**](docs/DefaultApi.md#rejectLedgerWithdrawRequest) | **POST** /v1/ledger/withdraw/requests/{withdrawal_id}/reject | Reject a pending withdrawal request
 *Dora.DefaultApi* | [**rejectTradingChallengeRegistrationRequest**](docs/DefaultApi.md#rejectTradingChallengeRegistrationRequest) | **POST** /v1/trading_challenges/registration_requests/{request_id}/reject | Reject a trading challenge registration request
 *Dora.DefaultApi* | [**removeAffiliateReferrer**](docs/DefaultApi.md#removeAffiliateReferrer) | **DELETE** /v1/affiliate_programs/{program_id}/referrers/{referrer_id} | Remove a referrer from a program
+*Dora.DefaultApi* | [**removePromoCampaignManager**](docs/DefaultApi.md#removePromoCampaignManager) | **DELETE** /v1/promo_campaigns/{trading_challenge_id}/managers/{manager_id} | Remove QR campaign access for an Affiliate Manager
 *Dora.DefaultApi* | [**removeTradingChallengeUsers**](docs/DefaultApi.md#removeTradingChallengeUsers) | **PUT** /v1/trading_challenges/remove_users | Remove users from a trading challenge
 *Dora.DefaultApi* | [**renderPromoLinkQR**](docs/DefaultApi.md#renderPromoLinkQR) | **GET** /v1/promo_links/{link_id}/qr | Render a promotional link QR code
 *Dora.DefaultApi* | [**repayUSD**](docs/DefaultApi.md#repayUSD) | **POST** /v1/positions/repay_usd | Repay borrowed USD, then accrue and pay leverage interest
@@ -379,7 +383,7 @@ Class | Method | HTTP request | Description
  - [Dora.CreateOrderResponseEnvelope](docs/CreateOrderResponseEnvelope.md)
  - [Dora.CreateOrdersBulkRequest](docs/CreateOrdersBulkRequest.md)
  - [Dora.CreateOrdersBulkResponse](docs/CreateOrdersBulkResponse.md)
- - [Dora.CreateOrdersBulkResponseAllOfData](docs/CreateOrdersBulkResponseAllOfData.md)
+ - [Dora.CreateOrdersBulkResponseData](docs/CreateOrdersBulkResponseData.md)
  - [Dora.CreateTradingChallengeQRRequest](docs/CreateTradingChallengeQRRequest.md)
  - [Dora.CreateTradingChallengeRequest](docs/CreateTradingChallengeRequest.md)
  - [Dora.CreateWithdrawalRequest](docs/CreateWithdrawalRequest.md)
@@ -416,8 +420,9 @@ Class | Method | HTTP request | Description
  - [Dora.IsolatedCollateral](docs/IsolatedCollateral.md)
  - [Dora.IsolatedPosition](docs/IsolatedPosition.md)
  - [Dora.IssuePromoLinkBatchRequest](docs/IssuePromoLinkBatchRequest.md)
+ - [Dora.IssuePromoLinkBatchRequestSingleUse](docs/IssuePromoLinkBatchRequestSingleUse.md)
  - [Dora.IssuePromoLinkBatchResponse](docs/IssuePromoLinkBatchResponse.md)
- - [Dora.IssuePromoLinkBatchResponseAllOfData](docs/IssuePromoLinkBatchResponseAllOfData.md)
+ - [Dora.IssuePromoLinkBatchResponseData](docs/IssuePromoLinkBatchResponseData.md)
  - [Dora.IssuedPromoLink](docs/IssuedPromoLink.md)
  - [Dora.LedgerAccountsResponseV2Envelope](docs/LedgerAccountsResponseV2Envelope.md)
  - [Dora.LedgerModuleByAssetResponseEnvelope](docs/LedgerModuleByAssetResponseEnvelope.md)
@@ -500,17 +505,20 @@ Class | Method | HTTP request | Description
  - [Dora.PositionType](docs/PositionType.md)
  - [Dora.PriceLevel](docs/PriceLevel.md)
  - [Dora.PromoAttributionResponse](docs/PromoAttributionResponse.md)
- - [Dora.PromoAttributionResponseAllOfData](docs/PromoAttributionResponseAllOfData.md)
+ - [Dora.PromoAttributionResponseData](docs/PromoAttributionResponseData.md)
  - [Dora.PromoAttributionSource](docs/PromoAttributionSource.md)
+ - [Dora.PromoCampaignSelectorResponse](docs/PromoCampaignSelectorResponse.md)
+ - [Dora.PromoCampaignSelectorResponseData](docs/PromoCampaignSelectorResponseData.md)
+ - [Dora.PromoCampaignSelectorResponseDataCampaigns](docs/PromoCampaignSelectorResponseDataCampaigns.md)
  - [Dora.PromoClaimResponseEnvelope](docs/PromoClaimResponseEnvelope.md)
- - [Dora.PromoClaimResponseEnvelopeAllOfData](docs/PromoClaimResponseEnvelopeAllOfData.md)
+ - [Dora.PromoClaimResponseEnvelopeData](docs/PromoClaimResponseEnvelopeData.md)
  - [Dora.PromoClaimState](docs/PromoClaimState.md)
  - [Dora.PromoLinkAdmin](docs/PromoLinkAdmin.md)
  - [Dora.PromoLinkBatchListResponse](docs/PromoLinkBatchListResponse.md)
- - [Dora.PromoLinkBatchListResponseAllOfData](docs/PromoLinkBatchListResponseAllOfData.md)
+ - [Dora.PromoLinkBatchListResponseData](docs/PromoLinkBatchListResponseData.md)
  - [Dora.PromoLinkBatchSummary](docs/PromoLinkBatchSummary.md)
  - [Dora.PromoLinkListResponse](docs/PromoLinkListResponse.md)
- - [Dora.PromoLinkListResponseAllOfData](docs/PromoLinkListResponseAllOfData.md)
+ - [Dora.PromoLinkListResponseData](docs/PromoLinkListResponseData.md)
  - [Dora.PromoLinkStatus](docs/PromoLinkStatus.md)
  - [Dora.PromoSourceType](docs/PromoSourceType.md)
  - [Dora.QRRewardPreview](docs/QRRewardPreview.md)
@@ -529,7 +537,7 @@ Class | Method | HTTP request | Description
  - [Dora.RevokeAPIKeyResponseEnvelope](docs/RevokeAPIKeyResponseEnvelope.md)
  - [Dora.RevokePromoLinkRequest](docs/RevokePromoLinkRequest.md)
  - [Dora.RevokePromoLinkResponse](docs/RevokePromoLinkResponse.md)
- - [Dora.RevokePromoLinkResponseAllOfData](docs/RevokePromoLinkResponseAllOfData.md)
+ - [Dora.RevokePromoLinkResponseData](docs/RevokePromoLinkResponseData.md)
  - [Dora.SettleLeverageAccruedInterest](docs/SettleLeverageAccruedInterest.md)
  - [Dora.SettleLeverageAccruedInterestRequest](docs/SettleLeverageAccruedInterestRequest.md)
  - [Dora.SettleLeverageAccruedInterestResponseEnvelope](docs/SettleLeverageAccruedInterestResponseEnvelope.md)

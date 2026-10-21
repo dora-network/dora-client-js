@@ -1,4 +1,4 @@
-# Dora.RevokePromoLinkResponseAllOfData
+# Dora.RevokePromoLinkResponseData
 
 ## Properties
 

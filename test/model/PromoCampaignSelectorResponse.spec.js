@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Dora.PromoLinkBatchListResponseAllOfData();
+    instance = new Dora.PromoCampaignSelectorResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,16 +47,16 @@
       object[property] = value;
   }
 
-  describe('PromoLinkBatchListResponseAllOfData', function() {
-    it('should create an instance of PromoLinkBatchListResponseAllOfData', function() {
-      // uncomment below and update the code to test PromoLinkBatchListResponseAllOfData
-      //var instance = new Dora.PromoLinkBatchListResponseAllOfData();
-      //expect(instance).to.be.a(Dora.PromoLinkBatchListResponseAllOfData);
+  describe('PromoCampaignSelectorResponse', function() {
+    it('should create an instance of PromoCampaignSelectorResponse', function() {
+      // uncomment below and update the code to test PromoCampaignSelectorResponse
+      //var instance = new Dora.PromoCampaignSelectorResponse();
+      //expect(instance).to.be.a(Dora.PromoCampaignSelectorResponse);
     });
 
-    it('should have the property batches (base name: "batches")', function() {
-      // uncomment below and update the code to test the property batches
-      //var instance = new Dora.PromoLinkBatchListResponseAllOfData();
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
+      //var instance = new Dora.PromoCampaignSelectorResponse();
       //expect(instance).to.be();
     });
 

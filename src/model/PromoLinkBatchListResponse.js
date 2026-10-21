@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Metadata from './Metadata';
-import PromoLinkBatchListResponseAllOfData from './PromoLinkBatchListResponseAllOfData';
+import PromoLinkBatchListResponseData from './PromoLinkBatchListResponseData';
 import ResponseEnvelope from './ResponseEnvelope';
 
 /**
@@ -55,7 +55,7 @@ class PromoLinkBatchListResponse {
             ResponseEnvelope.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = PromoLinkBatchListResponseAllOfData.constructFromObject(data['data']);
+                obj['data'] = PromoLinkBatchListResponseData.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('error')) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
@@ -81,7 +81,7 @@ class PromoLinkBatchListResponse {
         }
         // validate the optional field `data`
         if (data['data']) { // data not null
-          PromoLinkBatchListResponseAllOfData.validateJSON(data['data']);
+          PromoLinkBatchListResponseData.validateJSON(data['data']);
         }
         // ensure the json data is a string
         if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
@@ -101,7 +101,7 @@ class PromoLinkBatchListResponse {
 PromoLinkBatchListResponse.RequiredProperties = ["metadata"];
 
 /**
- * @member {module:model/PromoLinkBatchListResponseAllOfData} data
+ * @member {module:model/PromoLinkBatchListResponseData} data
  */
 PromoLinkBatchListResponse.prototype['data'] = undefined;
 

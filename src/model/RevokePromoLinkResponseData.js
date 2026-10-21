@@ -14,21 +14,21 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The RevokePromoLinkResponseAllOfData model module.
- * @module model/RevokePromoLinkResponseAllOfData
+ * The RevokePromoLinkResponseData model module.
+ * @module model/RevokePromoLinkResponseData
  * @version 1.0.0
  */
-class RevokePromoLinkResponseAllOfData {
+class RevokePromoLinkResponseData {
     /**
-     * Constructs a new <code>RevokePromoLinkResponseAllOfData</code>.
-     * @alias module:model/RevokePromoLinkResponseAllOfData
+     * Constructs a new <code>RevokePromoLinkResponseData</code>.
+     * @alias module:model/RevokePromoLinkResponseData
      * @param id {String} 
-     * @param status {module:model/RevokePromoLinkResponseAllOfData.StatusEnum} 
+     * @param status {module:model/RevokePromoLinkResponseData.StatusEnum} 
      * @param repeated {Boolean} 
      */
     constructor(id, status, repeated) { 
         
-        RevokePromoLinkResponseAllOfData.initialize(this, id, status, repeated);
+        RevokePromoLinkResponseData.initialize(this, id, status, repeated);
     }
 
     /**
@@ -43,15 +43,15 @@ class RevokePromoLinkResponseAllOfData {
     }
 
     /**
-     * Constructs a <code>RevokePromoLinkResponseAllOfData</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>RevokePromoLinkResponseData</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/RevokePromoLinkResponseAllOfData} obj Optional instance to populate.
-     * @return {module:model/RevokePromoLinkResponseAllOfData} The populated <code>RevokePromoLinkResponseAllOfData</code> instance.
+     * @param {module:model/RevokePromoLinkResponseData} obj Optional instance to populate.
+     * @return {module:model/RevokePromoLinkResponseData} The populated <code>RevokePromoLinkResponseData</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new RevokePromoLinkResponseAllOfData();
+            obj = obj || new RevokePromoLinkResponseData();
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -67,13 +67,13 @@ class RevokePromoLinkResponseAllOfData {
     }
 
     /**
-     * Validates the JSON data with respect to <code>RevokePromoLinkResponseAllOfData</code>.
+     * Validates the JSON data with respect to <code>RevokePromoLinkResponseData</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RevokePromoLinkResponseAllOfData</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RevokePromoLinkResponseData</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of RevokePromoLinkResponseAllOfData.RequiredProperties) {
+        for (const property of RevokePromoLinkResponseData.RequiredProperties) {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
@@ -93,22 +93,22 @@ class RevokePromoLinkResponseAllOfData {
 
 }
 
-RevokePromoLinkResponseAllOfData.RequiredProperties = ["id", "status", "repeated"];
+RevokePromoLinkResponseData.RequiredProperties = ["id", "status", "repeated"];
 
 /**
  * @member {String} id
  */
-RevokePromoLinkResponseAllOfData.prototype['id'] = undefined;
+RevokePromoLinkResponseData.prototype['id'] = undefined;
 
 /**
- * @member {module:model/RevokePromoLinkResponseAllOfData.StatusEnum} status
+ * @member {module:model/RevokePromoLinkResponseData.StatusEnum} status
  */
-RevokePromoLinkResponseAllOfData.prototype['status'] = undefined;
+RevokePromoLinkResponseData.prototype['status'] = undefined;
 
 /**
  * @member {Boolean} repeated
  */
-RevokePromoLinkResponseAllOfData.prototype['repeated'] = undefined;
+RevokePromoLinkResponseData.prototype['repeated'] = undefined;
 
 
 
@@ -119,7 +119,7 @@ RevokePromoLinkResponseAllOfData.prototype['repeated'] = undefined;
  * @enum {String}
  * @readonly
  */
-RevokePromoLinkResponseAllOfData['StatusEnum'] = {
+RevokePromoLinkResponseData['StatusEnum'] = {
 
     /**
      * value: "REVOKED"
@@ -130,5 +130,5 @@ RevokePromoLinkResponseAllOfData['StatusEnum'] = {
 
 
 
-export default RevokePromoLinkResponseAllOfData;
+export default RevokePromoLinkResponseData;
 

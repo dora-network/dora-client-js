@@ -15,19 +15,19 @@ import ApiClient from '../ApiClient';
 import PromoLinkAdmin from './PromoLinkAdmin';
 
 /**
- * The PromoLinkListResponseAllOfData model module.
- * @module model/PromoLinkListResponseAllOfData
+ * The PromoLinkListResponseData model module.
+ * @module model/PromoLinkListResponseData
  * @version 1.0.0
  */
-class PromoLinkListResponseAllOfData {
+class PromoLinkListResponseData {
     /**
-     * Constructs a new <code>PromoLinkListResponseAllOfData</code>.
-     * @alias module:model/PromoLinkListResponseAllOfData
+     * Constructs a new <code>PromoLinkListResponseData</code>.
+     * @alias module:model/PromoLinkListResponseData
      * @param links {Array.<module:model/PromoLinkAdmin>} 
      */
     constructor(links) { 
         
-        PromoLinkListResponseAllOfData.initialize(this, links);
+        PromoLinkListResponseData.initialize(this, links);
     }
 
     /**
@@ -40,15 +40,15 @@ class PromoLinkListResponseAllOfData {
     }
 
     /**
-     * Constructs a <code>PromoLinkListResponseAllOfData</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>PromoLinkListResponseData</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/PromoLinkListResponseAllOfData} obj Optional instance to populate.
-     * @return {module:model/PromoLinkListResponseAllOfData} The populated <code>PromoLinkListResponseAllOfData</code> instance.
+     * @param {module:model/PromoLinkListResponseData} obj Optional instance to populate.
+     * @return {module:model/PromoLinkListResponseData} The populated <code>PromoLinkListResponseData</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new PromoLinkListResponseAllOfData();
+            obj = obj || new PromoLinkListResponseData();
 
             if (data.hasOwnProperty('links')) {
                 obj['links'] = ApiClient.convertToType(data['links'], [PromoLinkAdmin]);
@@ -61,13 +61,13 @@ class PromoLinkListResponseAllOfData {
     }
 
     /**
-     * Validates the JSON data with respect to <code>PromoLinkListResponseAllOfData</code>.
+     * Validates the JSON data with respect to <code>PromoLinkListResponseData</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PromoLinkListResponseAllOfData</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>PromoLinkListResponseData</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of PromoLinkListResponseAllOfData.RequiredProperties) {
+        for (const property of PromoLinkListResponseData.RequiredProperties) {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
@@ -93,23 +93,23 @@ class PromoLinkListResponseAllOfData {
 
 }
 
-PromoLinkListResponseAllOfData.RequiredProperties = ["links"];
+PromoLinkListResponseData.RequiredProperties = ["links"];
 
 /**
  * @member {Array.<module:model/PromoLinkAdmin>} links
  */
-PromoLinkListResponseAllOfData.prototype['links'] = undefined;
+PromoLinkListResponseData.prototype['links'] = undefined;
 
 /**
  * Opaque unpadded base64url keyset cursor.
  * @member {String} next_cursor
  */
-PromoLinkListResponseAllOfData.prototype['next_cursor'] = undefined;
+PromoLinkListResponseData.prototype['next_cursor'] = undefined;
 
 
 
 
 
 
-export default PromoLinkListResponseAllOfData;
+export default PromoLinkListResponseData;
 

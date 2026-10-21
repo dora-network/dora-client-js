@@ -96,6 +96,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property disabledAt (base name: "disabled_at")', function() {
+      // uncomment below and update the code to test the property disabledAt
+      //var instance = new Dora.AffiliateReferrer();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property disabledBy (base name: "disabled_by")', function() {
+      // uncomment below and update the code to test the property disabledBy
+      //var instance = new Dora.AffiliateReferrer();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
